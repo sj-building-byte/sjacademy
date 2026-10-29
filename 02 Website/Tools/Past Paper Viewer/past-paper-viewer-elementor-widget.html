@@ -1,0 +1,343 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.sjpv{--ink:#151515;--canvas:#F7F5EF;--yellow:#FCE004;--cta:#CC4A00;--cta-hover:#A63D00;--pen:#B54200;--line:#D9D4C7;--muted:#4A4A4A;width:100%;background:var(--canvas);color:var(--ink);font-family:'Poppins',sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;text-align:left}
+.sjpv *,.sjpv *::before,.sjpv *::after{box-sizing:border-box}
+.sjpv [hidden]{display:none!important}
+.sjpv-inner{padding:clamp(16px,3vw,32px)}
+.sjpv .sjpv-title{margin:0;font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.65rem,4.6vw,2.5rem);line-height:1.3;color:var(--ink);letter-spacing:0;text-transform:none}
+.sjpv .sjpv-hl{background:linear-gradient(transparent 46%,var(--yellow) 46%,var(--yellow) 90%,transparent 90%);padding:0 .14em;margin:0 -.14em;border-radius:.3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sjpv .sjpv-note{margin:10px 0 0;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(1.4rem,3.4vw,1.85rem);line-height:1.2;color:var(--pen)}
+.sjpv-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px}
+.sjpv-field label{display:block;margin:0 0 6px;font-size:13px;font-weight:600;color:var(--ink)}
+.sjpv .sjpv-select{display:block;width:100%;min-height:46px;margin:0;padding:10px 38px 10px 14px;border:1px solid var(--line);border-radius:8px;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23151515' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;color:var(--ink);font-family:'Poppins',sans-serif;font-size:14px;font-weight:500;line-height:1.3;box-shadow:none;-webkit-appearance:none;appearance:none;cursor:pointer;transition:border-color .15s,background-color .15s}
+.sjpv .sjpv-select:hover:not(:disabled){border-color:var(--ink)}
+.sjpv .sjpv-select:disabled{background-color:#EFEDE6;color:#6B6B6B;cursor:not-allowed}
+.sjpv .sjpv-select:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-color:var(--ink)}
+.sjpv-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin-top:20px}
+.sjpv .sjpv-status{margin:0;font-size:14px;font-weight:500;color:var(--muted);flex:1 1 260px}
+.sjpv .sjpv-switch{display:inline-flex;align-items:center;gap:12px;min-height:46px;margin:0;padding:6px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-family:'Poppins',sans-serif;font-size:14px;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:border-color .15s,background-color .15s}
+.sjpv .sjpv-switch:hover:not(:disabled){border-color:var(--ink);background:#FFFBD6}
+.sjpv .sjpv-switch:disabled{opacity:.55;cursor:not-allowed}
+.sjpv .sjpv-switch:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv-switch-label{font-weight:500;padding:2px 6px;border-radius:6px}
+.sjpv-switch-label.is-on{font-weight:700;background:var(--yellow)}
+.sjpv-track{position:relative;width:46px;height:26px;border-radius:999px;background:var(--ink);flex:none;transition:background-color .15s}
+.sjpv-thumb{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--yellow);transition:transform .15s,background-color .15s}
+.sjpv-switch.is-learn .sjpv-track{background:var(--cta)}
+.sjpv-switch.is-learn .sjpv-thumb{transform:translateX(20px);background:#fff}
+.sjpv-stage{margin-top:28px}
+.sjpv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sjpv-pane{position:relative;min-width:0;border:1px solid var(--line);border-radius:12px;background:#fff}
+.sjpv-panehead{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:8px 16px;border-bottom:1px solid var(--line);border-radius:12px 12px 0 0;background:#fff}
+.sjpv .sjpv-panetitle{margin:0;font-size:15px;font-weight:600;color:var(--ink)}
+.sjpv .sjpv-link{font-size:13px;font-weight:600;color:var(--cta);text-decoration:underline;text-underline-offset:3px;transition:color .15s}
+.sjpv .sjpv-link:hover{color:var(--cta-hover)}
+.sjpv .sjpv-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv-body{position:relative;height:clamp(520px,78vh,900px);overflow:hidden;border-radius:0 0 12px 12px;background:#fff}
+.sjpv-frame{display:block;width:100%;height:100%;border:0;background:#fff}
+.sjpv-right .sjpv-frame{transition:filter .15s}
+.sjpv-right.is-locked .sjpv-frame{filter:blur(8px)}
+.sjpv-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font-size:15px;color:var(--muted)}
+.sjpv.has-entry .sjpv-empty{display:none}
+.sjpv:not(.has-entry) .sjpv-frame{display:none}
+.sjpv-lock{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center;background:var(--ink);color:var(--canvas);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s,visibility 0s linear .15s}
+.sjpv.has-entry .sjpv-right.is-locked .sjpv-lock{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .15s,visibility 0s}
+.sjpv .sjpv-lock-note{margin:0;font-family:'Caveat',cursive;font-weight:600;font-size:2rem;line-height:1.1;color:var(--yellow)}
+.sjpv .sjpv-lock-text{margin:0 0 8px;max-width:340px;font-size:15px;color:var(--canvas)}
+.sjpv .sjpv-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin:0;padding:12px 22px;border:0;border-radius:8px;background:var(--cta);color:#fff;font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;line-height:1.3;text-align:center;text-decoration:none;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,transform .15s}
+.sjpv .sjpv-cta:hover{background:var(--cta-hover);color:#fff}
+.sjpv .sjpv-cta:active{transform:translateY(1px)}
+.sjpv .sjpv-cta:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv .sjpv-lock .sjpv-cta:focus-visible{outline-color:var(--yellow)}
+.sjpv-float{position:absolute;top:-46px;right:0;z-index:3;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.sjpv .sjpv-pill{min-height:38px;margin:0;padding:6px 16px;border:1.5px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:3px 3px 0 rgba(21,21,21,.15);cursor:pointer;transition:background-color .15s,color .15s,transform .15s}
+.sjpv .sjpv-pill:hover{background:var(--yellow);color:var(--ink)}
+.sjpv .sjpv-pill:active{transform:translateY(1px)}
+.sjpv .sjpv-pill:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv-mobile{display:none}
+.sjpv .sjpv-help{margin:14px 0 0;font-size:13px;color:var(--muted)}
+.sjpv-bar{display:none}
+@media (min-width:768px){.sjpv.has-entry .sjpv-stage{margin-top:58px}}
+@media (max-width:1023px) and (min-width:768px){.sjpv-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:767px){
+.sjpv-controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.sjpv-inner{padding-bottom:20px}
+.sjpv-grid{grid-template-columns:1fr}
+.sjpv-pane{display:none}
+.sjpv[data-pane="left"] .sjpv-left,.sjpv[data-pane="ms"] .sjpv-right{display:block}
+.sjpv-frame{display:none!important}
+.sjpv-float{display:none!important}
+.sjpv-body{height:auto;min-height:280px}
+.sjpv-empty{position:static;min-height:280px}
+.sjpv.has-entry .sjpv-mobile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:280px;padding:28px 20px;text-align:center}
+.sjpv .sjpv-mobile-meta{margin:0;font-size:14px;color:var(--muted)}
+.sjpv-mobile .sjpv-cta{width:100%;max-width:340px}
+.sjpv.has-entry .sjpv-bar{position:sticky;bottom:0;z-index:20;display:flex;gap:6px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--ink)}
+.sjpv .sjpv-bar-btn{flex:1 1 0;min-width:0;min-height:48px;margin:0;padding:8px 6px;border:0;border-radius:8px;background:transparent;color:var(--canvas);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,color .15s}
+.sjpv .sjpv-bar-btn:hover{background:#2B2B2B;color:#fff}
+.sjpv .sjpv-bar-btn[aria-pressed="true"]{background:var(--yellow);color:var(--ink)}
+.sjpv .sjpv-bar-btn:focus-visible{outline:3px solid var(--yellow);outline-offset:-3px}
+}
+@media (max-width:380px){.sjpv-controls{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.sjpv *,.sjpv *::before,.sjpv *::after{transition-duration:0s!important}}
+</style>
+<div class="sjpv" id="sjpv" data-pane="left">
+<div class="sjpv-inner">
+<header>
+<h1 class="sjpv-title"><span class="sjpv-hl">Past Paper &amp; Mark Scheme Viewer</span></h1>
+<p class="sjpv-note">Read the command word before you look at the answer.</p>
+</header>
+<section class="sjpv-controls" aria-label="Choose a paper">
+<div class="sjpv-field"><label for="sjpv-level">Level</label><select class="sjpv-select" id="sjpv-level"></select></div>
+<div class="sjpv-field"><label for="sjpv-subject">Subject</label><select class="sjpv-select" id="sjpv-subject"></select></div>
+<div class="sjpv-field"><label for="sjpv-year">Year</label><select class="sjpv-select" id="sjpv-year"></select></div>
+<div class="sjpv-field"><label for="sjpv-paper">Paper</label><select class="sjpv-select" id="sjpv-paper"></select></div>
+</section>
+<div class="sjpv-toolbar">
+<p class="sjpv-status" id="sjpv-status" aria-live="polite">Pick a level, subject, year and paper.</p>
+<button type="button" class="sjpv-switch" id="sjpv-toggle" disabled aria-label="Mark scheme mode, currently Don't cheat. Switch to Learn."><span class="sjpv-switch-label is-on" id="sjpv-lbl-cheat">Don't cheat</span><span class="sjpv-track" aria-hidden="true"><span class="sjpv-thumb"></span></span><span class="sjpv-switch-label" id="sjpv-lbl-learn">Learn</span></button>
+</div>
+<div class="sjpv-stage">
+<div class="sjpv-grid">
+<section class="sjpv-pane sjpv-left" aria-label="Question paper">
+<div class="sjpv-float" id="sjpv-float" hidden></div>
+<div class="sjpv-panehead"><p class="sjpv-panetitle" id="sjpv-left-title">Question paper</p><a class="sjpv-link" id="sjpv-left-link" href="#" target="_blank" rel="noopener" hidden aria-label="Open in new tab: question paper">Open in new tab</a></div>
+<div class="sjpv-body">
+<iframe class="sjpv-frame" id="sjpv-frame-left" title="Question paper" src="about:blank"></iframe>
+<div class="sjpv-empty">Choose a level, subject, year and paper to load it here.</div>
+<div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-left-meta"></p><a class="sjpv-cta" id="sjpv-left-open" href="#" target="_blank" rel="noopener" aria-label="Open question paper in new tab">Open question paper in new tab</a></div>
+</div>
+</section>
+<section class="sjpv-pane sjpv-right is-locked" aria-label="Mark scheme" id="sjpv-right">
+<div class="sjpv-panehead"><p class="sjpv-panetitle">Mark scheme</p><a class="sjpv-link" id="sjpv-right-link" href="#" target="_blank" rel="noopener" hidden aria-label="Open in new tab: mark scheme">Open in new tab</a></div>
+<div class="sjpv-body">
+<iframe class="sjpv-frame" id="sjpv-frame-right" title="Mark scheme" src="about:blank"></iframe>
+<div class="sjpv-empty">The mark scheme appears here.</div>
+<div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-right-meta"></p><a class="sjpv-cta" id="sjpv-right-open" href="#" target="_blank" rel="noopener" aria-label="Open mark scheme in new tab">Open mark scheme in new tab</a></div>
+<div class="sjpv-lock" id="sjpv-lock"><p class="sjpv-lock-note">No peeking.</p><p class="sjpv-lock-text">The mark scheme stays hidden until you have tried the question.</p><button type="button" class="sjpv-cta" id="sjpv-unlock" aria-label="I have written my answer. Show me the marks.">I have written my answer. Show me the marks.</button></div>
+</div>
+</section>
+</div>
+</div>
+<p class="sjpv-help">Pane blank? Use Open in new tab.</p>
+</div>
+<nav class="sjpv-bar" id="sjpv-bar" aria-label="Switch document" hidden></nav>
+</div>
+<script>
+(function () {
+  'use strict';
+  var root = document.getElementById('sjpv');
+  if (!root) return;
+  /* ---- DATA: edit here ----
+     BASE is the folder that holds your past paper PDFs. Each paper below is built
+     from the live file pattern: BASE/A+Level/Subject+%28code%29/May+June+2024/9609_s24_qp_12.pdf
+     buildData() returns { Level: { Subject: { "2024 May/June": { "Paper 1, Variant 2": { paper, ms, insert?, ci? } } } } }
+     To use a database instead, replace buildData() with your own object of the same shape. */
+  var BASE = 'https://sjacademy.pk/file/Past-papers-storage';
+  var SESSIONS = [{ code: 'w', label: 'Oct/Nov', folder: 'October+November' }, { code: 's', label: 'May/June', folder: 'May+June' }];
+  var YEARS = [2025, 2024, 2023, 2022, 2021, 2020];
+  var STD = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' };
+  var SCI = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms in ci', 4: 'qp ms', 5: 'qp ms' };
+  var SUBJECTS = [
+    { name: 'Accounts', folder: 'Accounts (9706)', code: '9706', papers: STD },
+    { name: 'Biology', folder: 'Biology (9700)', code: '9700', papers: SCI },
+    { name: 'Business', folder: 'Business (9609)', code: '9609', papers: STD },
+    { name: 'Chemistry', folder: 'Chemistry (9701)', code: '9701', papers: SCI },
+    { name: 'Computer Science', folder: 'Computer Science (9618)', code: '9618', papers: STD },
+    { name: 'Economics', folder: 'Economics (9708)', code: '9708', papers: STD },
+    { name: 'English', folder: 'English (9695)', code: '9695', papers: STD },
+    { name: 'Law', folder: 'Law (9084)', code: '9084', papers: STD },
+    { name: 'Mathematics', folder: 'Mathematics (9709)', code: '9709', papers: { 1: 'qp ms', 3: 'qp ms', 4: 'qp ms', 5: 'qp ms', 6: 'qp ms' } },
+    { name: 'Physics', folder: 'Physics (9702)', code: '9702', papers: SCI },
+    { name: 'Psychology', folder: 'Psychology (9990)', code: '9990', papers: STD },
+    { name: 'Sociology', folder: 'Sociology (9699)', code: '9699', papers: STD },
+    { name: 'Urdu', folder: 'Urdu (9686)', code: '9686', variants: [2, 3], papers: { 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' } }
+  ];
+  function buildData() {
+    var out = { 'A Level': {} };
+    SUBJECTS.forEach(function (s) {
+      var variants = s.variants || [1, 2, 3];
+      var folder = s.folder.replace(/ /g, '+').replace(/\(/g, '%28').replace(/\)/g, '%29');
+      var subj = (out['A Level'][s.name] = {});
+      YEARS.forEach(function (y) {
+        SESSIONS.forEach(function (se) {
+          var list = {};
+          Object.keys(s.papers).forEach(function (p) {
+            var types = s.papers[p].split(' ');
+            variants.forEach(function (v) {
+              var file = function (t) {
+                return BASE + '/A+Level/' + folder + '/' + se.folder + '+' + y + '/' + s.code + '_' + se.code + String(y).slice(-2) + '_' + t + '_' + p + v + '.pdf';
+              };
+              var e = { paper: file('qp'), ms: file('ms') };
+              if (types.indexOf('in') > -1) e.insert = file('in');
+              if (types.indexOf('ci') > -1) e.ci = file('ci');
+              list['Paper ' + p + ', Variant ' + v] = e;
+            });
+          });
+          subj[y + ' ' + se.label] = list;
+        });
+      });
+    });
+    return out;
+  }
+  var DATA = buildData();
+  /* ---- UI ---- */
+  var el = function (id) { return document.getElementById('sjpv-' + id); };
+  var selLevel = el('level'), selSubject = el('subject'), selYear = el('year'), selPaper = el('paper');
+  var frameL = el('frame-left'), frameR = el('frame-right'), rightPane = el('right');
+  var toggle = el('toggle'), lblCheat = el('lbl-cheat'), lblLearn = el('lbl-learn');
+  var floatBox = el('float'), bar = el('bar'), status = el('status');
+  var TITLES = { paper: 'Question paper', insert: 'Insert', ci: 'Confidential instructions' };
+  var EXTRAS = { insert: 'View insert', ci: 'View confidential instructions' };
+  var state = { entry: null, label: '', left: 'paper', pane: 'left', learn: false };
+  var mq = window.matchMedia('(max-width: 767px)');
+  function fill(select, keys, placeholder) {
+    select.innerHTML = '';
+    select.appendChild(new Option(placeholder, ''));
+    keys.forEach(function (k) { select.appendChild(new Option(k, k)); });
+    select.disabled = keys.length === 0;
+  }
+  function keysOf(o) { return o ? Object.keys(o) : []; }
+  function node(level, subject, year) {
+    var n = DATA[level];
+    if (subject !== undefined) n = n && n[subject];
+    if (year !== undefined) n = n && n[year];
+    return n || null;
+  }
+  function setSrc(frame, url) {
+    var want = url || '';
+    if (frame.getAttribute('data-url') === want) return;
+    frame.setAttribute('data-url', want);
+    frame.src = want ? want + '#view=FitH' : 'about:blank';
+  }
+  function mkBtn(cls, text, onClick) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = cls;
+    b.textContent = text;
+    b.setAttribute('aria-label', text);
+    b.addEventListener('click', onClick);
+    return b;
+  }
+  function buildBar() {
+    var e = state.entry;
+    bar.innerHTML = '';
+    if (!e) return;
+    var items = [['paper', 'Paper', 'Show question paper']];
+    if (e.insert) items.push(['insert', 'Insert', 'Show insert']);
+    if (e.ci) items.push(['ci', 'Confidential', 'Show confidential instructions']);
+    items.push(['ms', 'Mark scheme', 'Show mark scheme']);
+    items.forEach(function (it) {
+      var b = mkBtn('sjpv-bar-btn', it[1], function () {
+        if (it[0] === 'ms') { state.pane = 'ms'; }
+        else { state.left = it[0]; state.pane = 'left'; }
+        render();
+      });
+      b.setAttribute('aria-label', it[2]);
+      b.setAttribute('data-k', it[0]);
+      bar.appendChild(b);
+    });
+  }
+  function buildFloat() {
+    var e = state.entry;
+    floatBox.innerHTML = '';
+    if (!e) { floatBox.hidden = true; return; }
+    var first;
+    if (state.left === 'paper') {
+      ['insert', 'ci'].forEach(function (k) {
+        if (!e[k]) return;
+        floatBox.appendChild(mkBtn('sjpv-pill', EXTRAS[k], function () { state.left = k; render(); focusFloat(); }));
+      });
+    } else {
+      floatBox.appendChild(mkBtn('sjpv-pill', 'Back to Paper', function () { state.left = 'paper'; render(); focusFloat(); }));
+    }
+    first = floatBox.firstChild;
+    floatBox.hidden = !first;
+  }
+  function focusFloat() { if (floatBox.firstChild) floatBox.firstChild.focus(); }
+  function render() {
+    var e = state.entry, mobile = mq.matches, learn = state.learn;
+    var leftUrl = e ? e[state.left] : '';
+    var title = TITLES[state.left];
+    root.classList.toggle('has-entry', !!e);
+    root.setAttribute('data-pane', state.pane);
+    setSrc(frameL, mobile ? '' : leftUrl);
+    setSrc(frameR, mobile || !e ? '' : e.ms);
+    frameL.title = title;
+    el('left-title').textContent = title;
+    var ll = el('left-link');
+    ll.hidden = !e;
+    if (e) { ll.href = leftUrl; ll.setAttribute('aria-label', 'Open in new tab: ' + title.toLowerCase()); }
+    var rl = el('right-link');
+    rl.hidden = !e || !learn;
+    if (e) rl.href = e.ms;
+    var lo = el('left-open');
+    if (e) {
+      lo.href = leftUrl;
+      lo.textContent = 'Open ' + title.toLowerCase() + ' in new tab';
+      lo.setAttribute('aria-label', lo.textContent);
+      el('right-open').href = e.ms;
+    }
+    el('left-meta').textContent = e ? state.label : '';
+    el('right-meta').textContent = e ? state.label : '';
+    rightPane.classList.toggle('is-locked', !learn);
+    frameR.inert = !learn;
+    frameR.tabIndex = learn ? 0 : -1;
+    if (learn) frameR.removeAttribute('aria-hidden'); else frameR.setAttribute('aria-hidden', 'true');
+    toggle.disabled = !e;
+    toggle.classList.toggle('is-learn', learn);
+    toggle.setAttribute('aria-label', 'Mark scheme mode, currently ' + (learn ? 'Learn' : "Don't cheat") + '. Switch to ' + (learn ? "Don't cheat" : 'Learn') + '.');
+    lblCheat.classList.toggle('is-on', !learn);
+    lblLearn.classList.toggle('is-on', learn);
+    status.textContent = e ? state.label : 'Pick a level, subject, year and paper.';
+    bar.hidden = !e;
+    Array.prototype.forEach.call(bar.children, function (b) {
+      var k = b.getAttribute('data-k');
+      b.setAttribute('aria-pressed', String(state.pane === 'ms' ? k === 'ms' : k === state.left));
+    });
+    buildFloat();
+  }
+  function clearEntry() {
+    state.entry = null; state.left = 'paper'; state.pane = 'left'; state.learn = false;
+    buildBar();
+    render();
+  }
+  selLevel.addEventListener('change', function () {
+    fill(selSubject, keysOf(node(selLevel.value)), 'Choose subject');
+    fill(selYear, [], 'Choose year');
+    fill(selPaper, [], 'Choose paper');
+    clearEntry();
+  });
+  selSubject.addEventListener('change', function () {
+    fill(selYear, keysOf(node(selLevel.value, selSubject.value)), 'Choose year');
+    fill(selPaper, [], 'Choose paper');
+    clearEntry();
+  });
+  selYear.addEventListener('change', function () {
+    fill(selPaper, keysOf(node(selLevel.value, selSubject.value, selYear.value)), 'Choose paper');
+    clearEntry();
+  });
+  selPaper.addEventListener('change', function () {
+    var list = node(selLevel.value, selSubject.value, selYear.value);
+    state.entry = (list && list[selPaper.value]) || null;
+    state.label = state.entry ? selLevel.value + ' ' + selSubject.value + ' · ' + selYear.value + ' · ' + selPaper.value : '';
+    state.left = 'paper'; state.pane = 'left'; state.learn = false;
+    buildBar();
+    render();
+  });
+  toggle.addEventListener('click', function () { state.learn = !state.learn; render(); });
+  el('unlock').addEventListener('click', function () { state.learn = true; render(); toggle.focus(); });
+  if (mq.addEventListener) mq.addEventListener('change', render); else if (mq.addListener) mq.addListener(render);
+  fill(selLevel, keysOf(DATA), 'Choose level');
+  fill(selSubject, [], 'Choose subject');
+  fill(selYear, [], 'Choose year');
+  fill(selPaper, [], 'Choose paper');
+  if (selLevel.options.length === 2) {
+    selLevel.selectedIndex = 1;
+    selLevel.dispatchEvent(new Event('change'));
+  }
+  render();
+})();
+</script>
