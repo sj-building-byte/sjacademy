@@ -68,6 +68,10 @@
 .sjpv .sjpv-ghost:active{transform:translateY(1px)}
 .sjpv .sjpv-ghost:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .sjpv-right.is-locked .sjpv-mobile{visibility:hidden}
+.sjpv-gone{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;background:#fff;text-align:center}
+.sjpv-gone .sjpv-lock-text{max-width:320px}
+.sjpv-pane.is-missing .sjpv-mobile{display:none!important}
+.sjpv-right.is-missing .sjpv-lock{display:none}
 .sjpv-bar{display:none}
 @media (max-width:1023px) and (min-width:768px){.sjpv-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:767px){
@@ -114,6 +118,7 @@
 <iframe class="sjpv-frame" id="sjpv-frame-left" title="Question paper" src="about:blank"></iframe>
 <div class="sjpv-empty">Choose a level, subject, year and paper to load it here.</div>
 <div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-left-meta"></p><a class="sjpv-cta" id="sjpv-left-open" href="#" target="_blank" rel="noopener" aria-label="Open question paper in new tab">Open question paper in new tab</a></div>
+<div class="sjpv-gone" id="sjpv-left-gone" hidden><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 12.5l5 5"/><path d="M14.5 12.5l-5 5"/></svg></span><p class="sjpv-lock-title" id="sjpv-left-gone-title">This file isn't available.</p><p class="sjpv-lock-text">Try a different variant or year.</p><button type="button" class="sjpv-btn sjpv-pick" aria-label="Choose another paper"><span>Choose another paper</span></button></div>
 </div>
 </section>
 <section class="sjpv-pane sjpv-right is-locked" aria-label="Mark scheme" id="sjpv-right">
@@ -124,6 +129,7 @@
 <iframe class="sjpv-frame" id="sjpv-frame-right" title="Mark scheme" src="about:blank"></iframe>
 <div class="sjpv-empty">The mark scheme appears here.</div>
 <div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-right-meta"></p><a class="sjpv-cta" id="sjpv-right-open" href="#" target="_blank" rel="noopener" aria-label="Open mark scheme in new tab">Open mark scheme in new tab</a></div>
+<div class="sjpv-gone" id="sjpv-right-gone" hidden><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 12.5l5 5"/><path d="M14.5 12.5l-5 5"/></svg></span><p class="sjpv-lock-title" id="sjpv-right-gone-title">This file isn't available.</p><p class="sjpv-lock-text">Try a different variant or year.</p><button type="button" class="sjpv-btn sjpv-pick" aria-label="Choose another paper"><span>Choose another paper</span></button></div>
 <div class="sjpv-lock" id="sjpv-lock"><div class="sjpv-lock-card"><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p class="sjpv-lock-title">Your answer first.</p><p class="sjpv-lock-text">Write it out, then check it. A mark scheme feels easy to follow until you have to produce one yourself.</p><button type="button" class="sjpv-cta" id="sjpv-unlock" aria-label="I've written my answer. Show the marks.">I've written my answer. Show the marks.</button></div></div>
 </div>
 </section>
@@ -132,9 +138,9 @@
 </div>
 <section class="sjpv-band" aria-label="Classes at SJ Academy">
 <div class="sjpv-band-in">
-<h2 class="sjpv-band-title">Want feedback on the marks you lose?</h2>
-<p class="sjpv-band-text">SJ Academy teaches O and A Level in class at DHA Phase 7, Karachi, and live online. Book a free demo class and see how we mark.</p>
-<div class="sjpv-band-row"><a class="sjpv-cta" id="sjpv-wa" href="https://wa.me/923362144454" target="_blank" rel="noopener" data-loc="viewer_band" aria-label="Message us on WhatsApp">Message us on WhatsApp</a><a class="sjpv-ghost" href="https://www.instagram.com/sjacademypk/" target="_blank" rel="noopener" data-event="instagram_click" data-loc="viewer_band" aria-label="Follow us on Instagram">Follow us on Instagram</a></div>
+<h2 class="sjpv-band-title">Know the content but still losing marks?</h2>
+<p class="sjpv-band-text">SJ Academy teaches O and A Level in class at DHA Phase 7, Karachi, and live online. Past-paper practice is marked to the mark scheme, with feedback on lost marks. Book a free demo class.</p>
+<div class="sjpv-band-row"><a class="sjpv-cta" id="sjpv-wa" href="https://wa.me/923362144454" target="_blank" rel="noopener" data-loc="viewer_band" aria-label="Message us on WhatsApp">Message us on WhatsApp</a><a class="sjpv-ghost" href="https://www.sjacademy.pk/" data-event="homepage_click" data-loc="viewer_band" aria-label="Explore SJ Academy">Explore SJ Academy</a></div>
 </div>
 </section>
 <nav class="sjpv-bar" id="sjpv-bar" aria-label="Switch document" hidden></nav>
@@ -231,6 +237,26 @@
     file: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>',
     back: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>'
   };
+  var avail = {}, pending = {};
+  function check(url) {
+    if (avail[url]) return Promise.resolve();
+    if (pending[url]) return pending[url];
+    pending[url] = new Promise(function (resolve) {
+      var done = function (v) { if (!avail[url]) avail[url] = v; resolve(); };
+      if (!window.fetch) { done('unknown'); return; }
+      var ctl = window.AbortController ? new AbortController() : null;
+      var t = setTimeout(function () { if (ctl) ctl.abort(); done('unknown'); }, 6000);
+      fetch(url, { method: 'HEAD', mode: 'cors', signal: ctl ? ctl.signal : undefined })
+        .then(function (r) { clearTimeout(t); done(r.status === 404 || r.status === 410 ? 'missing' : 'ok'); })
+        .catch(function () { clearTimeout(t); done('unknown'); });
+    });
+    return pending[url];
+  }
+  function pickPaper() {
+    selPaper.scrollIntoView({ block: 'center' });
+    selPaper.focus();
+    try { if (selPaper.showPicker) selPaper.showPicker(); } catch (x) {}
+  }
   var state = { entry: null, label: '', left: 'paper', pane: 'left', learn: false };
   var mq = window.matchMedia('(max-width: 767px)');
   function fill(select, keys, placeholder) {
@@ -269,8 +295,8 @@
     bar.innerHTML = '';
     if (!e) return;
     var items = [['paper', 'Paper', 'Show question paper']];
-    if (e.insert) items.push(['insert', 'Insert', 'Show insert']);
-    if (e.ci) items.push(['ci', 'Confidential', 'Show confidential instructions']);
+    if (e.insert && avail[e.insert] !== 'missing') items.push(['insert', 'Insert', 'Show insert']);
+    if (e.ci && avail[e.ci] !== 'missing') items.push(['ci', 'Confidential', 'Show confidential instructions']);
     items.push(['ms', 'Mark scheme', 'Show mark scheme']);
     items.forEach(function (it) {
       var b = mkBtn('sjpv-bar-btn', it[1], it[2], function () {
@@ -287,8 +313,8 @@
     actions.innerHTML = '';
     if (e) {
       if (state.left === 'paper') {
-        if (e.insert) actions.appendChild(mkBtn('sjpv-btn', 'Insert', 'View insert', function () { state.left = 'insert'; render(); focusAction(); }, ICONS.file));
-        if (e.ci) actions.appendChild(mkBtn('sjpv-btn', 'Confidential', 'View confidential instructions', function () { state.left = 'ci'; render(); focusAction(); }, ICONS.file));
+        if (e.insert && avail[e.insert] !== 'missing') actions.appendChild(mkBtn('sjpv-btn', 'Insert', 'View insert', function () { state.left = 'insert'; render(); focusAction(); }, ICONS.file));
+        if (e.ci && avail[e.ci] !== 'missing') actions.appendChild(mkBtn('sjpv-btn', 'Confidential', 'View confidential instructions', function () { state.left = 'ci'; render(); focusAction(); }, ICONS.file));
       } else {
         actions.appendChild(mkBtn('sjpv-btn', 'Back to Paper', 'Back to Paper', function () { state.left = 'paper'; render(); focusAction(); }, ICONS.back));
       }
@@ -308,8 +334,16 @@
     var title = TITLES[state.left];
     root.classList.toggle('has-entry', !!e);
     root.setAttribute('data-pane', state.pane);
-    setSrc(frameL, mobile ? '' : leftUrl);
-    setSrc(frameR, mobile || !e ? '' : e.ms);
+    var sL = e ? (avail[leftUrl] || 'pending') : '', sR = e ? (avail[e.ms] || 'pending') : '';
+    var goneL = sL === 'missing', goneR = sR === 'missing';
+    setSrc(frameL, mobile || !e || sL === 'pending' || goneL ? '' : leftUrl);
+    setSrc(frameR, mobile || !e || sR === 'pending' || goneR ? '' : e.ms);
+    el('left-gone').hidden = !goneL;
+    el('right-gone').hidden = !goneR;
+    el('left-gone-title').textContent = 'This ' + title.toLowerCase() + " isn't available.";
+    el('right-gone-title').textContent = "This mark scheme isn't available.";
+    el('left-gone').parentNode.parentNode.classList.toggle('is-missing', goneL);
+    rightPane.classList.toggle('is-missing', goneR);
     frameL.title = title;
     el('left-title').textContent = title;
     var lo = el('left-open');
@@ -326,7 +360,7 @@
     frameR.tabIndex = learn ? 0 : -1;
     if (learn) frameR.removeAttribute('aria-hidden'); else frameR.setAttribute('aria-hidden', 'true');
     seg.classList.toggle('is-learn', learn);
-    btnCheat.disabled = btnLearn.disabled = !e;
+    btnCheat.disabled = btnLearn.disabled = !e || goneR;
     btnCheat.setAttribute('aria-pressed', String(!learn));
     btnLearn.setAttribute('aria-pressed', String(learn));
     bar.hidden = !e;
@@ -364,12 +398,21 @@
     state.left = 'paper'; state.pane = 'left'; state.learn = false;
     buildBar();
     render();
+    var chosen = state.entry;
+    if (chosen) {
+      Promise.all([chosen.paper, chosen.ms, chosen.insert, chosen.ci].filter(Boolean).map(check)).then(function () {
+        if (state.entry !== chosen) return;
+        buildBar();
+        render();
+      });
+    }
   });
+  Array.prototype.forEach.call(root.querySelectorAll('.sjpv-pick'), function (b) { b.addEventListener('click', pickPaper); });
   btnCheat.addEventListener('click', function () { state.learn = false; render(); });
   btnLearn.addEventListener('click', function () { state.learn = true; render(); });
   el('unlock').addEventListener('click', function () { state.learn = true; render(); btnLearn.focus(); });
   if (mq.addEventListener) mq.addEventListener('change', render); else if (mq.addListener) mq.addListener(render);
-  /* Measurement: same events as the other pages (whatsapp_click, plus instagram_click), location from data-loc */
+  /* Measurement: same events as the other pages (whatsapp_click, plus homepage_click), location from data-loc */
   root.addEventListener('click', function (ev) {
     var a = ev.target.closest ? ev.target.closest('a') : null;
     if (!a) return;
