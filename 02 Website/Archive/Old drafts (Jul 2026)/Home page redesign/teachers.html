@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Faculty — SJ Academy</title>
+    <!-- Brand Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/teachers.css">
+</head>
+<body>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"><i class="fa-solid fa-pencil"></i></div>
+
+    <main>
+        <!-- Modern Typography Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-container">
+                <div class="mode-pill-wrapper reveal-up">
+                    <div class="mode-pill">👨‍🏫 EXPERT FACULTY</div>
+                </div>
+                <h1 class="page-title reveal-up" style="animation-delay: 0.1s;">
+                    Meet the <span class="highlight-text">minds</span><br>
+                    behind SJ Academy
+                </h1>
+                <p class="subtitle reveal-up" style="animation-delay: 0.2s;">
+                    Our world-class educators bring decades of experience, having produced hundreds of regional and world distinctions. Join a community that transforms potential into excellence.
+                </p>
+            </div>
+        </section>
+
+
+
+        <!-- Filters Section -->
+        <section class="controls-section" id="faculty">
+            <div class="container">
+                <div class="filter-group">
+                    <button class="filter-btn active hover-target" data-filter="all">All Teachers</button>
+                    <button class="filter-btn hover-target" data-filter="o-level">O-Level</button>
+                    <button class="filter-btn hover-target" data-filter="a-level">A-Level</button>
+                    <button class="filter-btn hover-target" data-filter="business">Business</button>
+                    <button class="filter-btn hover-target" data-filter="sciences">Sciences</button>
+                    <button class="filter-btn hover-target" data-filter="humanities">Humanities</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid Section -->
+        <section class="grid-section">
+            <div class="container">
+                <div class="bento-grid" id="teachersGrid">
+                    <!-- Cards will be dynamically injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container cta-container">
+                <h2 class="reveal-up">May/June 2027 Batches</h2>
+                <p class="reveal-up" style="animation-delay: 0.1s;">Registrations are now open. Secure your spot today and start your journey with SJ Academy.</p>
+                <div class="cta-buttons reveal-up" style="animation-delay: 0.2s;">
+                    <a href="https://www.sjacademy.pk/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn-primary hover-target">Register Now</a>
+                    <a href="https://wa.me/923362144454" class="btn-whatsapp hover-target" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- Teacher Detail Modal -->
+    <div class="modal-overlay" id="teacherModal">
+        <div class="modal-container">
+            <button class="close-modal hover-target" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-content" id="modalContent">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/teachers.js"></script>
+</body>
+</html>

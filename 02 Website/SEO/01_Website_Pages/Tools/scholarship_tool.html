@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Level Scholarship Eligibility Checker</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success-bg: #f0fdf4;
+            --success-border: #22c55e;
+            --info-bg: #eff6ff;
+            --info-border: #3b82f6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: #fff;
+            transition: border-color 0.2s;
+        }
+
+        select:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .grades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 16px;
+            background: var(--bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .grades-grid .form-group {
+            margin-bottom: 0;
+        }
+
+        .grades-grid label {
+            text-align: center;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: var(--bg);
+            border-radius: 6px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .checkbox-group input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+        }
+
+        button:disabled {
+            background: var(--text-light);
+            cursor: not-allowed;
+        }
+
+        .loader {
+            text-align: center;
+            color: var(--text-light);
+            font-style: italic;
+            display: none;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+
+        #result {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .result-card {
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .result-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .result-card p {
+            margin: 0;
+        }
+
+        .success {
+            background: var(--success-bg);
+            border-left: 5px solid var(--success-border);
+        }
+
+        .success h3 { color: #166534; }
+
+        .info {
+            background: var(--info-bg);
+            border-left: 5px solid var(--info-border);
+        }
+
+        .info h3 { color: #1e40af; }
+        
+        .fail {
+            background: #fef2f2;
+            border-left: 5px solid #ef4444;
+        }
+        
+        .fail h3 { color: #991b1b; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>A-Level Scholarship Checker</h1>
+        <p class="subtitle">Enter your expected or final O-Level grades to see your eligibility based on official college criteria.</p>
+
+        <div class="form-group">
+            <label for="city">Select City</label>
+            <select id="city" onchange="loadColleges()">
+                <option value="">-- Choose a City --</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Islamabad/Rawalpindi">Islamabad / Rawalpindi</option>
+                <option value="Other Cities">Other Cities (Faisalabad, Multan, Peshawar)</option>
+            </select>
+        </div>
+
+        <div id="loader" class="loader">Fetching latest data from Google Sheets...</div>
+
+        <div class="form-group">
+            <label for="college">Select College</label>
+            <select id="college" disabled>
+                <option value="">-- Select City First --</option>
+            </select>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="internal_student">
+            <label for="internal_student">I am already studying in this school network (Internal Student)</label>
+        </div>
+
+        <label>Your O-Level Grades</label>
+        <div class="grades-grid">
+            <div class="form-group">
+                <label>A*</label>
+                <input type="number" id="grade_astar" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label>A</label>
+                <input type="number" id="grade_a" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label>B</label>
+                <input type="number" id="grade_b" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label>C</label>
+                <input type="number" id="grade_c" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label>D</label>
+                <input type="number" id="grade_d" min="0" value="0">
+            </div>
+            <div class="form-group">
+                <label>E/U</label>
+                <input type="number" id="grade_u" min="0" value="0">
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <button id="checkBtn" onclick="checkEligibility()" disabled>Check Eligibility</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // TSV URLs provided by the user
+        const sheets = {
+            "Karachi": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRLdJGj74e5mPHPxuaZuWux5pBxX67X-DWKBnk5y1-CPX_T7N6RryAUVQGRORHSdPwvpDBGz8dpvmXu/pub?gid=2141230095&single=true&output=tsv",
+            "Lahore": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRLdJGj74e5mPHPxuaZuWux5pBxX67X-DWKBnk5y1-CPX_T7N6RryAUVQGRORHSdPwvpDBGz8dpvmXu/pub?gid=1760876306&single=true&output=tsv",
+            "Islamabad/Rawalpindi": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRLdJGj74e5mPHPxuaZuWux5pBxX67X-DWKBnk5y1-CPX_T7N6RryAUVQGRORHSdPwvpDBGz8dpvmXu/pub?gid=907956958&single=true&output=tsv",
+            "Other Cities": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRLdJGj74e5mPHPxuaZuWux5pBxX67X-DWKBnk5y1-CPX_T7N6RryAUVQGRORHSdPwvpDBGz8dpvmXu/pub?gid=1074505138&single=true&output=tsv"
+        };
+
+        let currentCityData = [];
+
+        async function loadColleges() {
+            const city = document.getElementById('city').value;
+            const collegeSelect = document.getElementById('college');
+            const checkBtn = document.getElementById('checkBtn');
+            const loader = document.getElementById('loader');
+            const resultDiv = document.getElementById('result');
+
+            collegeSelect.innerHTML = '<option value="">-- Choose a College --</option>';
+            collegeSelect.disabled = true;
+            checkBtn.disabled = true;
+            resultDiv.style.display = 'none';
+
+            if (!city) return;
+
+            loader.style.display = 'block';
+
+            try {
+                // Fetch the TSV data for the selected city
+                const response = await fetch(sheets[city]);
+                let text = await response.text();
+                
+                // Clean up carriage returns
+                text = text.replace(/\r/g, '');
+                
+                const rows = text.split('\n').map(row => row.split('\t'));
+                const headers = rows[0];
+                currentCityData = [];
+                
+                // Parse rows into JSON objects
+                for(let i = 1; i < rows.length; i++) {
+                    if(rows[i].length < headers.length || !rows[i][0]) continue;
+                    let obj = {};
+                    for(let j = 0; j < headers.length; j++) {
+                        obj[headers[j]] = rows[i][j];
+                    }
+                    currentCityData.push(obj);
+                }
+
+                // Extract unique colleges
+                const colleges = [...new Set(currentCityData.map(item => item.College))];
+                
+                colleges.forEach(col => {
+                    let option = document.createElement('option');
+                    option.value = col;
+                    option.textContent = col;
+                    collegeSelect.appendChild(option);
+                });
+
+                collegeSelect.disabled = false;
+                checkBtn.disabled = false;
+                loader.style.display = 'none';
+
+            } catch (error) {
+                console.error("Error loading data:", error);
+                loader.textContent = "Error loading data. Please check console.";
+            }
+        }
+
+        function checkEligibility() {
+            const college = document.getElementById('college').value;
+            if (!college) {
+                alert("Please select a college first.");
+                return;
+            }
+
+            const isInternal = document.getElementById('internal_student').checked;
+            
+            // Get grades
+            const aStar = parseInt(document.getElementById('grade_astar').value) || 0;
+            const a = parseInt(document.getElementById('grade_a').value) || 0;
+            
+            const totalAs = aStar + a;
+            // SICAS point standard calculation
+            const points = (aStar * 10) + (a * 5);
+
+            // Filter rules for the selected college
+            const collegeRules = currentCityData.filter(r => r.College === college);
+
+            let matchedQuantitative = null;
+            let holisticRules = [];
+            let hasQuantitativeModel = false;
+
+            // Evaluate the rules
+            collegeRules.forEach(rule => {
+                // Filter by internal/external rules (relevant for LACAS)
+                if (rule.Student_Type && rule.Student_Type !== "Any") {
+                    if (isInternal && rule.Student_Type === "External") return;
+                    if (!isInternal && rule.Student_Type === "Internal") return;
+                }
+
+                if (rule.Model === 'Quantitative') {
+                    hasQuantitativeModel = true;
+                    const reqTotalAs = parseInt(rule.Min_Total_As) || 0;
+                    const reqAStars = parseInt(rule.Min_A_Stars) || 0;
+                    const reqPoints = parseInt(rule.Min_Points) || 0;
+                    
+                    // Check if student meets the minimums for this tier
+                    if (totalAs >= reqTotalAs && aStar >= reqAStars && points >= reqPoints) {
+                        
+                        // We want to keep the HIGHEST tier they qualify for.
+                        // Assuming higher requirement = higher tier.
+                        if (!matchedQuantitative) {
+                            matchedQuantitative = rule;
+                        } else {
+                            const currReqAs = parseInt(matchedQuantitative.Min_Total_As) || 0;
+                            const currReqPoints = parseInt(matchedQuantitative.Min_Points) || 0;
+                            
+                            // Replace if this rule has a higher minimum requirement than our current match
+                            if (reqTotalAs > currReqAs || reqPoints > currReqPoints) {
+                                matchedQuantitative = rule;
+                            }
+                        }
+                    }
+                } else if (rule.Model === 'Holistic') {
+                    holisticRules.push(rule);
+                }
+            });
+
+            // Display Results
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+            resultDiv.style.display = 'block';
+
+            let htmlOutput = '';
+
+            // 1. Output Quantitative Result
+            if (hasQuantitativeModel) {
+                if (matchedQuantitative) {
+                    htmlOutput += `
+                        <div class="result-card success">
+                            <h3>🎉 Eligible: ${matchedQuantitative.Tier}</h3>
+                            <p><strong>Conditions:</strong> ${matchedQuantitative.Conditions}</p>
+                        </div>
+                    `;
+                } else {
+                    htmlOutput += `
+                        <div class="result-card fail">
+                            <h3>❌ Not Eligible for Automatic Waiver</h3>
+                            <p>Based on your inputted grades, you do not meet the minimum requirements for a guaranteed merit scholarship at this institution.</p>
+                        </div>
+                    `;
+                }
+            }
+
+            // 2. Output Holistic / Need-Based Results
+            if (holisticRules.length > 0) {
+                holisticRules.forEach(rule => {
+                    htmlOutput += `
+                        <div class="result-card info">
+                            <h3>ℹ️ ${rule.Tier} (Holistic / Need-Based)</h3>
+                            <p><strong>Process:</strong> ${rule.Conditions}</p>
+                        </div>
+                    `;
+                });
+            }
+
+            // Edge case: if a school has literally no rules (shouldn't happen with our data)
+            if (!hasQuantitativeModel && holisticRules.length === 0) {
+                htmlOutput += `<div class="result-card info"><p>No scholarship data found for this selection.</p></div>`;
+            }
+
+            resultDiv.innerHTML = htmlOutput;
+        }
+    </script>
+</body>
+</html>

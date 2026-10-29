@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>SJ Academy, the 2027 edition</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-ExtraBold.ttf") format("truetype"); font-weight: 800; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #151515; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #151515; font-family: "Poppins", sans-serif; }
+      #root > div[data-composition-src] { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <!-- 96.65 BPM grid: bar 2.483187s. Scenes start on bars 1, 3, 7, 9, 14 and 17. -->
+    <div data-hf-id="hf-uaub" id="root" data-composition-id="main" data-start="0" data-duration="43" data-width="1080" data-height="1920" data-fps="30">
+      <div data-hf-id="hf-q83o" id="el-intro" data-composition-id="s1-intro" data-composition-src="compositions/s1-intro.html" data-start="0" data-duration="4.9664" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-k4am" id="el-sizes" data-composition-id="s2-sizes" data-composition-src="compositions/s2-sizes.html" data-start="4.9664" data-duration="9.9327" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-trtt" id="el-subjects" data-composition-id="s3-subjects" data-composition-src="compositions/s3-subjects.html" data-start="14.8991" data-duration="4.9664" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-0zc0" id="el-teachers" data-composition-id="s4-teachers" data-composition-src="compositions/s4-teachers.html" data-start="19.8655" data-duration="12.4159" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-pqzo" id="el-extras" data-composition-id="s5-extras" data-composition-src="compositions/s5-extras.html" data-start="32.2814" data-duration="7.4496" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+      <div data-hf-id="hf-6677" id="el-end" data-composition-id="s6-end" data-composition-src="compositions/s6-end.html" data-start="39.731" data-duration="3.269" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+
+      <audio data-hf-id="hf-7dwx" id="music" src="assets/audio/music.wav" data-start="0" data-duration="43" data-track-index="10" data-volume="1"></audio>
+      <audio data-hf-id="hf-epc4" id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="43" data-track-index="11" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

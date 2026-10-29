@@ -1,0 +1,55 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#F7F6FF;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;text-shadow:0 6px 30px rgba(10,15,44,0.55);}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;line-height:1.2;z-index:2;padding:8px 24px 8px 0;margin-top:-8px;}
+.box{position:absolute;background:#FCE004;border-radius:16px;z-index:1;transform-origin:50% 50%;box-shadow:0 14px 40px rgba(3,6,24,0.45);}
+.ring{position:absolute;border:4px solid #FE6100;border-radius:22px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#F7F6FF;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+.gold{color:#FCE004;}
+.hl{background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;padding:0 10px;border-radius:10px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;}
+
+#rc-logo{position:absolute;left:100px;top:280px;width:230px;}
+#rc-title{position:absolute;left:100px;top:400px;font-size:84px;font-weight:800;letter-spacing:-0.02em;white-space:nowrap;}
+#rc-card{position:absolute;left:80px;top:540px;width:920px;height:800px;border-radius:40px;
+  background:linear-gradient(160deg,rgba(40,48,110,0.78),rgba(14,19,58,0.86));border:2px solid rgba(255,255,255,0.14);
+  box-shadow:0 30px 80px rgba(3,6,24,0.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);}
+#rc-list{position:absolute;left:120px;top:580px;width:840px;}
+.rr{font-size:34px;font-weight:500;line-height:1;height:72px;display:flex;align-items:center;white-space:nowrap;border-bottom:2px solid rgba(255,255,255,0.08);}
+.rn{display:inline-flex;align-items:center;justify-content:center;width:62px;height:46px;margin-right:26px;border-radius:14px;font-size:28px;font-weight:800;color:#0A0F2C;}
+  </style>
+  <div id="root" data-composition-id="recap" data-width="1080" data-height="1920">
+    <img id="rc-logo" src="assets/brand/sj-academy-logo-horizontal-on-brown.svg" alt="SJ Academy">
+    <div id="rc-title">Your <span id="rc-hl" class="hl">cheat sheet</span></div>
+    <div id="rc-card"></div>
+    <div id="rc-list">
+      <div class="rr" id="rc-r0"><span class="rn" style="background:#22D3EE">01</span><span class="rt">× 11 (two digits): digit sum in the middle</span></div>
+      <div class="rr" id="rc-r1"><span class="rn" style="background:#FF4D6D">02</span><span class="rt">× 5: × 10, then halve</span></div>
+      <div class="rr" id="rc-r2"><span class="rn" style="background:#A78BFA">03</span><span class="rt">× 99: × 100, then take the number away</span></div>
+      <div class="rr" id="rc-r3"><span class="rn" style="background:#34D399">04</span><span class="rt">x% of y = y% of x</span></div>
+      <div class="rr" id="rc-r4"><span class="rn" style="background:#FB923C">05</span><span class="rt">÷ 3 or ÷ 9: check the digit sum</span></div>
+      <div class="rr" id="rc-r5"><span class="rn" style="background:#F472B6">06</span><span class="rt">(m − g)(m + g) = m² − g²</span></div>
+      <div class="rr" id="rc-r6"><span class="rn" style="background:#60A5FA">07</span><span class="rt">(50 + d)² = 100(25 + d) + d²</span></div>
+      <div class="rr" id="rc-r7"><span class="rn" style="background:#2DD4BF">08</span><span class="rt">1/a + 1/b = (a + b)/ab</span></div>
+      <div class="rr" id="rc-r8"><span class="rn" style="background:#FF6B6B">09</span><span class="rt">+10% then −10% = 1% less</span></div>
+      <div class="rr" id="rc-r9"><span class="rn" style="background:#C084FC">10</span><span class="rt">3, 4, 5 · 5, 12, 13 · 8, 15, 17</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#rc-title',{opacity:0,y:40},{opacity:1,y:0,duration:0.45,ease:'expo.out'},0.05);
+    tl.fromTo('#rc-card',{opacity:0,scale:0.92,y:60},{opacity:1,scale:1,y:0,duration:0.55,ease:'back.out(1.4)'},0.1);
+    tl.fromTo('.rr',{opacity:0,x:-60},{opacity:1,x:0,duration:0.45,ease:'expo.out',stagger:0.07},0.3);
+    tl.fromTo('.rn',{scale:0,rotation:-20},{scale:1,rotation:0,duration:0.4,ease:'back.out(2.5)',stagger:0.07},0.32);
+    tl.fromTo('#rc-hl',{backgroundSize:'0% 100%',color:'#F7F6FF'},{backgroundSize:'100% 100%',color:'#0A0F2C',duration:0.35,ease:'power2.out'},0.95);
+    window.__timelines["recap"] = tl;
+  </script>
+</template>

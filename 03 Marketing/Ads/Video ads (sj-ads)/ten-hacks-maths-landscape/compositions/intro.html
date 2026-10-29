@@ -1,0 +1,60 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#F7F6FF;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;text-shadow:0 6px 30px rgba(10,15,44,0.55);}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;line-height:1.2;z-index:2;padding:8px 24px 8px 0;margin-top:-8px;}
+.box{position:absolute;background:#FCE004;border-radius:16px;z-index:1;transform-origin:50% 50%;box-shadow:0 14px 40px rgba(3,6,24,0.45);}
+.ring{position:absolute;border:4px solid #FE6100;border-radius:22px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#F7F6FF;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+.gold{color:#FCE004;}
+.hl{background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;padding:0 10px;border-radius:10px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;}
+
+#in-logo{position:absolute;left:96px;top:60px;width:230px;}
+#in-big{position:absolute;left:70px;top:170px;font-size:520px;font-weight:800;line-height:1;letter-spacing:-0.06em;padding-right:30px;
+  transform-origin:30% 60%;}
+#in-chip{position:absolute;left:720px;top:250px;font-size:34px;font-weight:700;letter-spacing:0.18em;color:#0A0F2C;background:#FCE004;
+  padding:10px 24px;border-radius:40px;transform-origin:0% 50%;}
+#in-chip2{position:absolute;left:1060px;top:236px;font-family:'SJ Caveat';font-size:60px;font-weight:600;color:#FF4D6D;}
+#in-title{position:absolute;left:720px;top:350px;font-size:128px;font-weight:800;line-height:1;letter-spacing:-0.03em;white-space:nowrap;}
+#in-title .m{display:inline-block;overflow:hidden;vertical-align:top;padding:0 0 14px;}
+#in-title .w{display:inline-block;}
+#in-sub{position:absolute;left:724px;top:525px;font-size:44px;font-weight:500;color:rgba(247,246,255,0.86);}
+#in-sub .w{display:inline-block;}
+#in-band{position:absolute;left:-90px;top:740px;width:2100px;height:96px;background:#FE6100;
+  transform:rotate(-3deg);overflow:hidden;box-shadow:0 20px 60px rgba(3,6,24,0.5);}
+#in-tick{position:absolute;left:0;top:18px;font-size:44px;font-weight:700;white-space:nowrap;color:#0A0F2C;}
+  </style>
+  <div id="root" data-composition-id="intro" data-width="1920" data-height="1080">
+    <div id="in-stage">
+      <img id="in-logo" src="assets/brand/sj-academy-logo-horizontal-on-brown.svg" alt="SJ Academy">
+      <div id="in-big" class="gold">10</div>
+      <div id="in-chip">O &amp; A LEVEL</div>
+      <div id="in-chip2">save this one</div>
+      <div id="in-title"><span class="m"><span class="w">maths</span></span> <span class="m"><span class="w"><span id="in-hl" class="hl">hacks</span></span></span></div>
+      <div id="in-sub"><span class="w">No</span> <span class="w">calculator.</span> <span class="w">No</span> <span class="w">long</span> <span class="w">working.</span></div>
+      <div id="in-band" data-layout-allow-overflow data-layout-ignore><div id="in-tick">34 × 11 = 374   •   68 × 5 = 340   •   37 × 99 = 3663   •   8% of 50 = 4   •   49 × 51 = 2499   •   52² = 2704   •   34 × 11 = 374   •   68 × 5 = 340   •   37 × 99 = 3663   •   8% of 50 = 4   •   49 × 51 = 2499   •   52² = 2704   •   34 × 11 = 374   •   68 × 5 = 340   •   37 × 99 = 3663   •   8% of 50 = 4   •   49 × 51 = 2499   •   52² = 2704   •   </div></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#in-logo',{opacity:0,y:-20},{opacity:1,y:0,duration:0.5,ease:'power3.out'},0.05);
+    tl.fromTo('#in-big',{scale:2.4,opacity:0,rotation:-8},{scale:1,opacity:1,rotation:0,duration:0.5,ease:'expo.out'},0);
+    tl.fromTo('#in-big',{x:-10},{x:0,duration:0.24,ease:'steps(5)'},0.32);
+    tl.fromTo('#in-chip',{scale:0,rotation:-12},{scale:1,rotation:-4,duration:0.45,ease:'back.out(2.2)'},0.4);
+    tl.fromTo('#in-chip2',{clipPath:'inset(0% 100% 0% 0%)',rotation:-6},{clipPath:'inset(0% 0% 0% 0%)',rotation:-6,duration:0.5,ease:'sine.inOut'},0.75);
+    tl.fromTo('#in-title .w',{yPercent:110},{yPercent:0,duration:0.5,ease:'expo.out',stagger:0.1},0.2);
+    tl.fromTo('#in-hl',{backgroundSize:'0% 100%',color:'#F7F6FF'},{backgroundSize:'100% 100%',color:'#0A0F2C',duration:0.35,ease:'power2.out'},0.6);
+    tl.fromTo('#in-sub .w',{opacity:0,y:20,filter:'blur(6px)'},{opacity:1,y:0,filter:'blur(0px)',duration:0.3,ease:'power3.out',stagger:0.07},0.8);
+    tl.fromTo('#in-band',{xPercent:-110},{xPercent:0,duration:0.6,ease:'expo.out'},0.5);
+    tl.fromTo('#in-tick',{x:0},{x:-2109,duration:3.875,ease:'none'},0);
+    window.__timelines["intro"] = tl;
+  </script>
+</template>

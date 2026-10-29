@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SJ Academy Investor Pitch Draft</title>
+  <style>
+    :root {
+      --navy: #08172f;
+      --blue: #102848;
+      --soft-blue: #eef6ff;
+      --white: #ffffff;
+      --ink: #172033;
+      --muted: #61718a;
+      --line: rgba(8, 23, 47, 0.13);
+      --gold: #d9ad4f;
+      --green: #2e9d67;
+      --shadow: 0 24px 80px rgba(8, 23, 47, 0.2);
+      --radius: 8px;
+      --slide-w: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: linear-gradient(135deg, #07152b, #12345d);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    button { font: inherit; }
+
+    .deck-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 18px;
+      padding: 24px;
+    }
+
+    .slide-frame {
+      width: min(var(--slide-w), calc(100vw - 48px));
+      aspect-ratio: 16 / 9;
+      max-height: calc(100vh - 112px);
+      margin: auto;
+      position: relative;
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      padding: 56px 68px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(238,246,255,0.94));
+    }
+
+    .slide.active { display: flex; }
+
+    .slide.dark {
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(8,23,47,0.98), rgba(16,40,72,0.98)),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 36px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 36px);
+    }
+
+    .slide:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 7px;
+      background: linear-gradient(90deg, var(--gold), var(--green), #5c8bdc);
+    }
+
+    .slide-number {
+      position: absolute;
+      right: 32px;
+      bottom: 24px;
+      color: rgba(96,112,137,0.72);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .dark .slide-number { color: rgba(255,255,255,0.5); }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; letter-spacing: 0; }
+
+    h1 {
+      max-width: 870px;
+      margin-bottom: 24px;
+      color: var(--white);
+      font-size: clamp(48px, 5.4vw, 78px);
+      line-height: 0.98;
+    }
+
+    h2 {
+      max-width: 940px;
+      margin-bottom: 24px;
+      color: var(--navy);
+      font-size: clamp(36px, 4.2vw, 58px);
+      line-height: 1.02;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    p {
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.48;
+    }
+
+    .dark h2, .dark h3, .dark p { color: var(--white); }
+    .dark p { color: rgba(255,255,255,0.76); }
+    .big-copy { font-size: 25px; line-height: 1.42; }
+    .footer-note { margin: 18px 0 0; font-size: 15px; font-weight: 800; color: var(--muted); }
+    .dark .footer-note { color: rgba(255,255,255,0.65); }
+    .center { justify-content: center; }
+    .between { justify-content: space-between; }
+
+    .cover-grid {
+      min-height: 100%;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .cover-panel {
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .mark {
+      width: 108px;
+      height: 108px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 34px;
+      font-weight: 950;
+    }
+
+    .panel-lines { display: grid; gap: 12px; }
+    .panel-line { height: 10px; border-radius: 999px; background: rgba(255,255,255,0.16); }
+    .panel-line:nth-child(1) { width: 92%; }
+    .panel-line:nth-child(2) { width: 72%; }
+    .panel-line:nth-child(3) { width: 84%; }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; align-items: stretch; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch; }
+
+    .card, .stat-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.82);
+    }
+
+    .card p, .stat-card p { margin: 0; font-size: 16px; line-height: 1.45; }
+    .dark .stat-card { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.16); }
+    .dark .stat-card p { color: rgba(255,255,255,0.76); }
+
+    .stat-value {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: 37px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .dark .stat-value { color: var(--white); }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 850;
+    }
+    .dark .pill { color: var(--white); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.16); }
+
+    .revenue-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .revenue-card {
+      min-height: 145px;
+      padding: 18px;
+      border: 1px solid rgba(16,40,72,0.1);
+      border-radius: var(--radius);
+      background: var(--soft-blue);
+    }
+    .revenue-card h3 { font-size: 18px; margin-bottom: 8px; }
+    .revenue-card p { margin: 0; font-size: 14px; line-height: 1.38; }
+
+    .chart-wrap {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 250px;
+      gap: 30px;
+      align-items: end;
+    }
+
+    .bar-chart {
+      height: 420px;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 12px;
+      align-items: end;
+      padding: 24px 18px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(to top, rgba(8,23,47,0.08) 1px, transparent 1px) 0 0 / 100% 25%,
+        rgba(255,255,255,0.72);
+    }
+
+    .bar-item { min-width: 0; display: grid; gap: 9px; align-items: end; height: 100%; }
+    .bar {
+      position: relative;
+      align-self: end;
+      min-height: 12px;
+      border-radius: 6px 6px 0 0;
+      background: linear-gradient(180deg, #5c8bdc, var(--blue));
+    }
+    .bar.peak { background: linear-gradient(180deg, var(--gold), #9d7130); }
+    .bar span {
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 7px);
+      transform: translateX(-50%);
+      white-space: nowrap;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 950;
+    }
+    .bar-label { color: var(--muted); text-align: center; font-size: 12px; font-weight: 850; }
+
+    .insight-list { display: grid; gap: 14px; }
+    .insight {
+      padding: 16px;
+      border-left: 5px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--soft-blue);
+    }
+    .insight strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: 22px; line-height: 1.2; }
+    .insight span { display: block; color: var(--muted); font-size: 14px; line-height: 1.35; }
+
+    .phase-list { counter-reset: phase; display: grid; gap: 14px; }
+    .phase {
+      counter-increment: phase;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 15px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.78);
+    }
+    .phase:before {
+      content: counter(phase);
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 950;
+      font-size: 18px;
+    }
+    .phase h3 { margin: 0 0 4px; font-size: 19px; }
+    .phase p { margin: 0; font-size: 15px; line-height: 1.38; }
+
+    .funds-layout { display: grid; grid-template-columns: 340px 1fr; gap: 34px; align-items: center; }
+    .donut {
+      width: 310px;
+      height: 310px;
+      position: relative;
+      border-radius: 50%;
+      background: conic-gradient(#102848 0deg 181deg, #5c8bdc 181deg 215deg, #2e9d67 215deg 259deg, #d9ad4f 259deg 301deg, #8b6f3d 301deg 350deg, #c7d7ef 350deg 360deg);
+      box-shadow: 0 18px 45px rgba(8,23,47,0.16);
+    }
+    .donut:after {
+      content: "PKR 12.803M";
+      position: absolute;
+      inset: 72px;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--navy);
+      text-align: center;
+      font-size: 26px;
+      line-height: 1.12;
+      font-weight: 950;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.35; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--soft-blue); color: var(--navy); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+    td:last-child { color: var(--navy); font-weight: 950; text-align: right; white-space: nowrap; }
+    .dot { width: 10px; height: 10px; display: inline-block; margin-right: 8px; border-radius: 50%; }
+
+    .unlock-grid, .ask-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .unlock {
+      min-height: 126px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+    .unlock strong { color: var(--navy); font-size: 20px; line-height: 1.18; }
+    .unlock span { width: 34px; height: 4px; border-radius: 999px; background: var(--gold); }
+    .ask-card { padding: 24px; border: 1px solid rgba(255,255,255,0.16); border-radius: var(--radius); background: rgba(255,255,255,0.1); }
+    .ask-card strong { display: block; margin-bottom: 10px; color: var(--gold); font-size: 30px; line-height: 1; }
+    .ask-card span { color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.42; }
+
+    .controls {
+      width: min(var(--slide-w), calc(100vw - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+    .nav-button {
+      height: 42px;
+      min-width: 104px;
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 850;
+    }
+    .nav-button:disabled { cursor: not-allowed; opacity: 0.42; }
+    .progress { height: 8px; border-radius: 999px; background: rgba(255,255,255,0.16); overflow: hidden; }
+    .progress-bar { width: 7.14%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--gold), var(--green)); transition: width 180ms ease; }
+
+    @media (max-width: 900px) {
+      .deck-shell { padding: 12px; }
+      .slide-frame { width: calc(100vw - 24px); max-height: none; min-height: calc(100vh - 94px); aspect-ratio: auto; }
+      .slide { padding: 34px 26px 48px; overflow-y: auto; }
+      .cover-grid, .grid-2, .grid-3, .grid-4, .revenue-grid, .chart-wrap, .funds-layout, .unlock-grid, .ask-grid { grid-template-columns: 1fr; }
+      .cover-panel { min-height: 190px; }
+      h1 { font-size: 46px; }
+      h2 { font-size: 36px; }
+      p, .big-copy { font-size: 19px; }
+      .bar-chart { height: 320px; gap: 6px; padding-left: 8px; padding-right: 8px; }
+      .bar span, .bar-label { font-size: 10px; }
+      .donut { width: 250px; height: 250px; margin: 0 auto; }
+      .donut:after { inset: 58px; font-size: 21px; }
+      .controls { width: calc(100vw - 24px); grid-template-columns: auto auto; }
+      .progress { grid-column: 1 / -1; order: -1; }
+    }
+
+    @media print {
+      @page { size: 16in 9in; margin: 0; }
+      body { background: var(--white); }
+      .deck-shell { display: block; padding: 0; }
+      .slide-frame { width: 16in; height: auto; max-height: none; box-shadow: none; border-radius: 0; overflow: visible; }
+      .slide { position: relative; display: flex !important; width: 16in; height: 9in; break-after: page; page-break-after: always; }
+      .controls { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck-shell" aria-label="SJ Academy investor pitch deck">
+    <section class="slide-frame">
+      <!-- Slide 1: Cover -->
+      <article class="slide dark active">
+        <div class="cover-grid">
+          <div>
+            <p class="eyebrow">Investor Pitch</p>
+            <h1>SJ Academy</h1>
+            <p class="big-copy">Building Karachi's next scalable O and A Level learning academy.</p>
+            <div class="pill-row">
+              <span class="pill">DHA Phase 7, Karachi</span>
+              <span class="pill">Physical and live online classes</span>
+              <span class="pill">Funding ask: PKR 13M</span>
+            </div>
+          </div>
+          <div class="cover-panel" aria-hidden="true">
+            <div class="mark">SJ</div>
+            <div class="panel-lines">
+              <div class="panel-line"></div>
+              <div class="panel-line"></div>
+              <div class="panel-line"></div>
+            </div>
+            <p class="footer-note">O Level | AS | A2 | Lab Practicals | Online</p>
+          </div>
+        </div>
+        <span class="slide-number">01 / 14</span>
+      </article>
+
+      <!-- Slide 2: The Problem -->
+      <article class="slide center">
+        <p class="eyebrow">The Problem</p>
+        <h2>Cambridge tuition in Karachi is fragmented.</h2>
+        <p class="big-copy">Parents struggle to find trusted teachers, consistent academic systems, practical lab support, and transparent student progress. Students often rely on scattered tuitions without a structured path from concept clarity to exam performance.</p>
+        <div class="grid-3">
+          <div class="card"><h3>Scattered teaching</h3><p>Students move between subject tutors without one clear academic system.</p></div>
+          <div class="card"><h3>Weak visibility</h3><p>Parents do not always know where the student stands until exam pressure arrives.</p></div>
+          <div class="card"><h3>Practical gaps</h3><p>A Level practicals need equipment, supervision, and exam-focused preparation.</p></div>
+        </div>
+        <span class="slide-number">02 / 14</span>
+      </article>
+
+      <!-- Slide 3: The Opportunity -->
+      <article class="slide center">
+        <p class="eyebrow">The Opportunity</p>
+        <h2>A recurring premium education market with room for a stronger operator.</h2>
+        <p class="big-copy">Karachi has a large annual O and A Level preparation cycle. The opportunity is to combine premium academic support, A Level practicals, online classes, workshops, and digital learning products under one trusted education brand.</p>
+        <div class="pill-row">
+          <span class="pill">O and A Level preparation</span>
+          <span class="pill">A Level lab practicals</span>
+          <span class="pill">Online classes</span>
+          <span class="pill">Exam workshops</span>
+          <span class="pill">Digital products</span>
+        </div>
+        <span class="slide-number">03 / 14</span>
+      </article>
+
+      <!-- Slide 4: Our Solution -->
+      <article class="slide center">
+        <p class="eyebrow">Our Solution</p>
+        <h2>SJ Academy is building an integrated learning academy.</h2>
+        <div class="grid-2">
+          <p class="big-copy">We support students through subject-specialist teaching, structured exam preparation, mock tests, practical lab support, online classes, and future digital products.</p>
+          <div class="card">
+            <h3>Core academic offer</h3>
+            <p>O Level tuition, AS and A2 classes, A Level Lab Practicals, online classes, workshops, mock tests, assessment systems, recorded content, and digital resources.</p>
+          </div>
+        </div>
+        <span class="slide-number">04 / 14</span>
+      </article>
+
+      <!-- Slide 5: Revenue Lines -->
+      <article class="slide">
+        <p class="eyebrow">Revenue Lines</p>
+        <h2>Multiple revenue engines around the same student journey.</h2>
+        <div class="revenue-grid">
+          <div class="revenue-card"><h3>O and A Level Prep</h3><p>Math, Chemistry, Physics, Accounts, Economics, and other core subjects.</p></div>
+          <div class="revenue-card"><h3>A Level Lab Practicals</h3><p>Chemistry, Physics, and Biology practical preparation with supervised lab access.</p></div>
+          <div class="revenue-card"><h3>Entrance Exam Prep</h3><p>IELTS, SAT, MCAT, IBA, IoBM, and other admissions test preparation.</p></div>
+          <div class="revenue-card"><h3>Digital Sales and Services</h3><p>Courses, solution eBooks, workbooks, and live classes to wider student segments.</p></div>
+          <div class="revenue-card"><h3>Weekly Workshops</h3><p>IELTS mock tests, copywriting workshops, O and A Level workshops.</p></div>
+          <div class="revenue-card"><h3>Other Services</h3><p>Stationery, merchandise, summer camps, career counselling, and student support.</p></div>
+        </div>
+        <span class="slide-number">05 / 14</span>
+      </article>
+
+      <!-- Slide 6: Traction -->
+      <article class="slide dark center">
+        <p class="eyebrow">Traction</p>
+        <h2>PKR 16.13M generated in the Aug 2025 to May 2026 season.</h2>
+        <div class="grid-4">
+          <div class="stat-card"><span class="stat-value">PKR 16.13M</span><p>Total revenue from August 2025 to May 2026.</p></div>
+          <div class="stat-card"><span class="stat-value">PKR 1.61M</span><p>Average monthly revenue across the main academic season.</p></div>
+          <div class="stat-card"><span class="stat-value">PKR 2.73M</span><p>Peak monthly revenue in April 2026.</p></div>
+          <div class="stat-card"><span class="stat-value">4.7x</span><p>Revenue grew from August to April during the exam-prep cycle.</p></div>
+        </div>
+        <p class="footer-note">Draft note: revenue source should be reconciled before investor circulation.</p>
+        <span class="slide-number">06 / 14</span>
+      </article>
+
+      <!-- Slide 7: Monthly Revenue Trend -->
+      <article class="slide">
+        <p class="eyebrow">Monthly Revenue Trend</p>
+        <h2>Demand builds through the academic season and peaks near exams.</h2>
+        <div class="chart-wrap">
+          <div class="bar-chart" aria-label="Monthly revenue bar chart">
+            <div class="bar-item"><div class="bar" style="height:21.1%"><span>0.58M</span></div><div class="bar-label">Aug</div></div>
+            <div class="bar-item"><div class="bar" style="height:41.0%"><span>1.12M</span></div><div class="bar-label">Sep</div></div>
+            <div class="bar-item"><div class="bar" style="height:56.5%"><span>1.54M</span></div><div class="bar-label">Oct</div></div>
+            <div class="bar-item"><div class="bar" style="height:46.4%"><span>1.27M</span></div><div class="bar-label">Nov</div></div>
+            <div class="bar-item"><div class="bar" style="height:46.1%"><span>1.26M</span></div><div class="bar-label">Dec</div></div>
+            <div class="bar-item"><div class="bar" style="height:66.2%"><span>1.81M</span></div><div class="bar-label">Jan</div></div>
+            <div class="bar-item"><div class="bar" style="height:78.2%"><span>2.14M</span></div><div class="bar-label">Feb</div></div>
+            <div class="bar-item"><div class="bar" style="height:80.9%"><span>2.21M</span></div><div class="bar-label">Mar</div></div>
+            <div class="bar-item"><div class="bar peak" style="height:100%"><span>2.73M</span></div><div class="bar-label">Apr</div></div>
+            <div class="bar-item"><div class="bar" style="height:53.6%"><span>1.46M</span></div><div class="bar-label">May</div></div>
+          </div>
+          <div class="insight-list">
+            <div class="insight"><strong>April peak</strong><span>PKR 2.734M as exam preparation demand reached its strongest point.</span></div>
+            <div class="insight"><strong>Seasonality matters</strong><span>Reporting should use the August to May academic cycle, not the calendar year.</span></div>
+            <div class="insight"><strong>Capacity unlock</strong><span>A second branch allows SJ Academy to absorb more demand during peak months.</span></div>
+          </div>
+        </div>
+        <span class="slide-number">07 / 14</span>
+      </article>
+
+      <!-- Slide 8: Why We Win -->
+      <article class="slide">
+        <p class="eyebrow">Why We Win</p>
+        <h2>Academic credibility with a stronger brand-building engine.</h2>
+        <div class="grid-3">
+          <div class="card"><h3>Subject-specialist teachers</h3><p>Students get focused support from teachers who understand Cambridge expectations.</p></div>
+          <div class="card"><h3>A Level practicals</h3><p>Lab support creates a differentiated offer that many tuition centres cannot match.</p></div>
+          <div class="card"><h3>Physical plus online</h3><p>The model can serve local branch demand and wider online student segments.</p></div>
+          <div class="card"><h3>Parent and student trust</h3><p>The brand is already operating with visible demand in DHA Phase 7.</p></div>
+          <div class="card"><h3>Exam-focused teaching</h3><p>Preparation is built around answer writing, application, analysis, and evaluation.</p></div>
+          <div class="card"><h3>Digital upside</h3><p>Courses, workbooks, tests, and recorded content can scale beyond seats in a classroom.</p></div>
+        </div>
+        <span class="slide-number">08 / 14</span>
+      </article>
+
+      <!-- Slide 9: Growth Plan -->
+      <article class="slide">
+        <p class="eyebrow">Growth Plan</p>
+        <h2>The next phase turns a working model into a repeatable system.</h2>
+        <div class="phase-list">
+          <div class="phase"><div><h3>Launch next branch</h3><p>Increase classroom capacity and enter the next Karachi catchment.</p></div></div>
+          <div class="phase"><div><h3>Strengthen practicals and academic systems</h3><p>Build better lab, assessment, and curriculum infrastructure.</p></div></div>
+          <div class="phase"><div><h3>Build LMS and online tests</h3><p>Create the student dashboard, test engine, recorded content, and digital products.</p></div></div>
+          <div class="phase"><div><h3>Scale admissions</h3><p>Use ads, outreach, seminars, SEO, and content to create predictable demand.</p></div></div>
+          <div class="phase"><div><h3>Create the branch playbook</h3><p>Document the operating model for future locations.</p></div></div>
+        </div>
+        <span class="slide-number">09 / 14</span>
+      </article>
+
+      <!-- Slide 10: Use of Funds -->
+      <article class="slide">
+        <p class="eyebrow">Use of Funds</p>
+        <h2>PKR 12.803M planned requirement, rounded to a PKR 13M raise.</h2>
+        <div class="funds-layout">
+          <div class="donut" aria-label="Use of funds donut chart"></div>
+          <table>
+            <thead><tr><th>Category</th><th>Amount</th></tr></thead>
+            <tbody>
+              <tr><td><span class="dot" style="background:#102848"></span>Branch setup</td><td>PKR 6.426M</td></tr>
+              <tr><td><span class="dot" style="background:#5c8bdc"></span>Academic infrastructure</td><td>PKR 1.203M</td></tr>
+              <tr><td><span class="dot" style="background:#2e9d67"></span>Online products</td><td>PKR 1.560M</td></tr>
+              <tr><td><span class="dot" style="background:#d9ad4f"></span>Marketing and admissions</td><td>PKR 1.500M</td></tr>
+              <tr><td><span class="dot" style="background:#8b6f3d"></span>People and operations</td><td>PKR 1.740M</td></tr>
+              <tr><td><span class="dot" style="background:#c7d7ef"></span>Compliance, tools, and buffer</td><td>PKR 0.374M</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <span class="slide-number">10 / 14</span>
+      </article>
+
+      <!-- Slide 11: Detailed Budget -->
+      <article class="slide">
+        <p class="eyebrow">Detailed Budget</p>
+        <h2>Capital goes into capacity, academics, online systems, and growth operations.</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Key line items</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Branch setup</td><td>Deposit and rent runway, renovation, interiors, signage, furniture, ACs, projectors, cameras, utilities buffer</td><td>PKR 6.426M</td></tr>
+            <tr><td>Academic infrastructure</td><td>A Level practical equipment, printed resources, question banks, workbooks, mock exam system, teacher onboarding</td><td>PKR 1.203M</td></tr>
+            <tr><td>Online products</td><td>LMS, student dashboard, online test engine, CRM, WhatsApp automation, video and content equipment</td><td>PKR 1.560M</td></tr>
+            <tr><td>Marketing and admissions</td><td>Student acquisition campaigns, school outreach, open houses, parent seminars, SEO, content, local PR</td><td>PKR 1.500M</td></tr>
+            <tr><td>People and operations</td><td>Branch manager, admissions, academic coordination, admin, lab support, marketing, content, design</td><td>PKR 1.740M</td></tr>
+            <tr><td>Compliance and tools</td><td>Legal, accounting, investor documentation, software licenses, admin tools, operating buffer</td><td>PKR 0.374M</td></tr>
+          </tbody>
+        </table>
+        <p class="footer-note">Full financial model available as appendix.</p>
+        <span class="slide-number">11 / 14</span>
+      </article>
+
+      <!-- Slide 12: What This Unlocks -->
+      <article class="slide">
+        <p class="eyebrow">What This Unlocks</p>
+        <h2>The raise turns demand into a stronger operating platform.</h2>
+        <div class="unlock-grid">
+          <div class="unlock"><strong>New branch launch</strong><span></span></div>
+          <div class="unlock"><strong>More classroom capacity</strong><span></span></div>
+          <div class="unlock"><strong>Stronger practical lab capacity</strong><span></span></div>
+          <div class="unlock"><strong>Better parent and student experience</strong><span></span></div>
+          <div class="unlock"><strong>Online learning foundation</strong><span></span></div>
+          <div class="unlock"><strong>More predictable admissions funnel</strong><span></span></div>
+        </div>
+        <span class="slide-number">12 / 14</span>
+      </article>
+
+      <!-- Slide 13: The Ask -->
+      <article class="slide dark center">
+        <p class="eyebrow">The Ask</p>
+        <h2>Raising PKR 13M</h2>
+        <p class="big-copy">SJ Academy is raising PKR 13 million to launch its next branch, strengthen academic infrastructure, build online learning products, and fund six months of growth operations.</p>
+        <div class="ask-grid">
+          <div class="ask-card"><strong>Physical expansion</strong><span>Branch setup, learning spaces, student experience, and operational readiness.</span></div>
+          <div class="ask-card"><strong>Digital foundation</strong><span>LMS, student dashboard, online tests, recorded content, and digital learning products.</span></div>
+          <div class="ask-card"><strong>Admissions engine</strong><span>Marketing, outreach, parent seminars, content, and repeatable acquisition systems.</span></div>
+        </div>
+        <span class="slide-number">13 / 14</span>
+      </article>
+
+      <!-- Slide 14: Closing -->
+      <article class="slide dark center">
+        <p class="eyebrow">Closing</p>
+        <h2>From one strong branch to a scalable learning academy.</h2>
+        <p class="big-copy">SJ Academy has proven demand, revenue traction, and a clear expansion path. The next step is to scale the model with better infrastructure, stronger systems, and growth capital.</p>
+        <div class="pill-row">
+          <span class="pill">Thank you</span>
+          <span class="pill">Investor Pitch | PKR 13M</span>
+        </div>
+        <span class="slide-number">14 / 14</span>
+      </article>
+    </section>
+
+    <nav class="controls" aria-label="Slide controls">
+      <button class="nav-button" id="prevSlide" type="button">Previous</button>
+      <div class="progress" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+      <button class="nav-button" id="nextSlide" type="button">Next</button>
+    </nav>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const prevButton = document.getElementById("prevSlide");
+    const nextButton = document.getElementById("nextSlide");
+    const progressBar = document.getElementById("progressBar");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      currentSlide = Math.min(Math.max(index, 0), slides.length - 1);
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === currentSlide);
+      });
+      prevButton.disabled = currentSlide === 0;
+      nextButton.disabled = currentSlide === slides.length - 1;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+    }
+
+    prevButton.addEventListener("click", () => showSlide(currentSlide - 1));
+    nextButton.addEventListener("click", () => showSlide(currentSlide + 1));
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === "PageDown") showSlide(currentSlide + 1);
+      if (event.key === "ArrowLeft" || event.key === "PageUp") showSlide(currentSlide - 1);
+    });
+
+    showSlide(0);
+  </script>
+</body>
+</html>

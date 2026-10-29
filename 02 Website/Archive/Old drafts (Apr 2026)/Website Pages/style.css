@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap');
+
+:root {
+  /* Core Colors */
+  --bg-slate: #F8FAFC;
+  --text-zinc: #18181B;
+  --text-body: #444444;
+  --border-light: #E2E8F0;
+  
+  /* Brand Accents */
+  --yellow-spotlight: #FCE004;
+  --orange-action: #FE6100;
+  --brown-authority: #453516;
+  
+  /* Spacing (8px grid base) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-15: 120px; /* Massive Whitespace */
+
+  /* Physics */
+  --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Base Reset & Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  color: var(--text-body);
+  background-color: var(--bg-slate);
+  line-height: 1.7;
+  font-size: 17px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Engine */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-zinc);
+  line-height: 1.2;
+}
+
+h1.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: var(--space-3);
+}
+
+@media (min-width: 992px) {
+  h1.hero-title {
+    font-size: 4.5rem;
+  }
+}
+
+h2.section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+@media (min-width: 992px) {
+  h2.section-title {
+    font-size: 3rem;
+  }
+}
+
+h3.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-2);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-body);
+  opacity: 0.9;
+}
+
+/* Layout */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+section {
+  padding: var(--space-8) 0;
+}
+
+@media (min-width: 992px) {
+  section {
+    padding: var(--space-15) 0;
+  }
+  section.hero {
+    padding-top: calc(var(--space-15) + 40px);
+    padding-bottom: var(--space-15);
+  }
+}
+
+/* Grid System */
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Specific Identity Components */
+
+/* Highlight */
+.highlight {
+  background: linear-gradient(120deg, var(--yellow-spotlight) 0%, var(--yellow-spotlight) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 35%;
+  background-position: 0 85%;
+  display: inline;
+  padding: 0 2px;
+}
+
+/* Badges / Checkmarks */
+.success-icon {
+  color: var(--text-zinc);
+  background: var(--yellow-spotlight);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: 800;
+  margin-right: 12px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 17px;
+  padding: 16px 32px;
+  border-radius: 8px; /* Strict 8px radius */
+  transition: transform var(--transition-fast), background var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Secondary/Standard Button */
+.btn-zinc {
+  background: var(--text-zinc);
+  color: #FFFFFF;
+}
+
+.btn-zinc:hover {
+  transform: translateY(-2px);
+  background: #000000;
+}
+
+/* The Solitary Primary Conversion Button */
+.btn-orange {
+  background: var(--orange-action);
+  color: #FFFFFF;
+  box-shadow: 0 10px 20px rgba(254, 97, 0, 0.15);
+}
+
+.btn-orange:hover {
+  transform: translateY(-2px);
+  background: #E55800;
+  box-shadow: 0 15px 25px rgba(254, 97, 0, 0.25);
+}
+
+/* The Three Pillars Cards */
+.pillar-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-top: 2px solid var(--brown-authority);
+  border-radius: 12px; /* Strict 12px radius */
+  padding: var(--space-6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04); /* Ultra soft 40px blur shadow */
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+
+/* Header Minimal */
+header {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-light);
+  background: rgba(248, 250, 252, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-minimal {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-zinc);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.logo-minimal span {
+  color: var(--orange-action);
+}
+
+/* Social Proof Banner */
+.social-proof-banner {
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: var(--space-4) 0;
+  background: #FFFFFF;
+}
+
+.proof-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .proof-items {
+    flex-direction: row;
+    gap: var(--space-8);
+  }
+}
+
+.proof-item {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-zinc);
+  display: flex;
+  align-items: center;
+}
+
+/* Footer Minimal */
+.footer-minimal {
+  padding: var(--space-8) 0 var(--space-4);
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #888888;
+}

@@ -1,0 +1,1369 @@
+<style>
+    :root {
+      --sja-yellow: #fce004;
+      --sja-orange: #fe6100;
+      --sja-brown: #453516;
+      --sja-black: #050505;
+      --sja-text: #202020;
+      --sja-muted: #666666;
+      --sja-soft: #fafafa;
+      --sja-line: #e7e2d6;
+      --sja-white: #ffffff;
+      --sja-whatsapp: #25d366;
+      --sja-shadow: 8px 8px 0 rgba(254, 97, 0, 0.16);
+      --sja-yellow-shadow: 8px 8px 0 rgba(252, 224, 4, 0.75);
+    }
+
+    /* elementor global overrides removed */
+
+    .sja-chem-page,
+    .sja-chem-page * {
+      box-sizing: border-box;
+    }
+
+    .sja-chem-page {
+      width: 100%;
+      overflow-x: hidden;
+      background: var(--sja-white);
+      color: var(--sja-text);
+      font-family: "Poppins", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .sja-chem-page a {
+      color: inherit;
+    }
+
+    .sja-wrap {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .sja-section {
+      padding: 68px 0;
+    }
+
+    .sja-section--soft {
+      background: var(--sja-soft);
+      border-top: 1px solid #eeeeee;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .sja-section-head {
+      max-width: 860px;
+      margin: 0 auto 32px;
+      text-align: center;
+    }
+
+    .sja-kicker {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      border: 2px solid var(--sja-black);
+      border-radius: 999px;
+      background: var(--sja-yellow);
+      color: var(--sja-black);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .sja-title {
+      margin: 0;
+      color: var(--sja-black);
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .sja-section-title {
+      margin: 0;
+      color: var(--sja-black);
+      font-size: clamp(28px, 3.4vw, 44px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .sja-lead {
+      max-width: 780px;
+      margin: 14px auto 0;
+      color: var(--sja-muted);
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height: 1.75;
+    }
+
+    .sja-highlight {
+      background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 38%;
+      background-position: 0 86%;
+      padding: 0 4px;
+    }
+
+    .sja-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .sja-btn {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border: 2px solid var(--sja-black);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .sja-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .sja-btn--yellow {
+      background: var(--sja-yellow);
+      color: var(--sja-black);
+      box-shadow: 5px 5px 0 var(--sja-black);
+    }
+
+    .sja-btn--orange {
+      background: var(--sja-orange);
+      color: var(--sja-white);
+      box-shadow: 5px 5px 0 var(--sja-black);
+    }
+
+    .sja-btn--white {
+      background: var(--sja-white);
+      color: var(--sja-black);
+    }
+
+    .sja-btn--whatsapp {
+      background: #fff;
+      color: #16a34a;
+      padding: 16px 35px;
+      border: 2px solid #16a34a;
+      border-radius: 5px;
+      box-shadow: none;
+      text-transform: uppercase;
+    }
+
+    .sja-btn--whatsapp:hover {
+      background-color: #16a34a;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    
+    .sja-cta .sja-btn--whatsapp {
+      background: transparent;
+      color: #25D366;
+      border-color: #25D366;
+    }
+    .sja-cta .sja-btn--whatsapp:hover {
+      background-color: #25D366;
+      color: #fff;
+    }
+
+    .sja-card {
+      border: 2px solid var(--sja-black);
+      border-radius: 14px;
+      background: var(--sja-white);
+      box-shadow: var(--sja-shadow);
+      overflow: hidden;
+    }
+
+    .sja-card-body {
+      padding: 22px;
+    }
+
+    .sja-card h3,
+    .sja-card h4 {
+      margin: 0 0 10px;
+      color: var(--sja-black);
+      line-height: 1.2;
+    }
+
+    .sja-card p {
+      margin: 0;
+      color: var(--sja-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .sja-list {
+      display: grid;
+      gap: 8px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--sja-text);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .sja-list li {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .sja-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.62em;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sja-orange);
+      box-shadow: 0 0 0 4px rgba(252, 224, 4, 0.45);
+    }
+
+    .sja-hero {
+      padding: 80px 0;
+      background: #fff;
+      position: relative;
+    }
+
+    .sja-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr);
+      gap: 50px;
+      align-items: center;
+    }
+
+    .sja-mode-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 25px;
+      padding: 5px;
+      border: 2px solid var(--sja-black);
+      border-radius: 50px;
+      background: var(--sja-white);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .sja-mode-pill {
+      padding: 8px 20px;
+      border-radius: 40px;
+      color: var(--sja-black);
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .sja-mode-pill--yellow {
+      background: var(--sja-yellow);
+    }
+
+    .sja-teacher-name {
+      margin: 12px 0 0;
+      color: var(--sja-orange);
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .sja-cred {
+      display: inline-flex;
+      margin: 14px 0 0;
+      padding: 9px 12px;
+      border-left: 5px solid var(--sja-orange);
+      border-radius: 8px;
+      background: var(--sja-white);
+      color: var(--sja-black);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .sja-hero-text {
+      max-width: none;
+    }
+
+    .sja-hero-text .sja-lead {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .sja-admission-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+      margin: 25px 0 20px;
+      max-width: 680px;
+    }
+
+    .sja-admission-card {
+      border: 1px solid #eeeeee;
+      border-radius: 10px;
+      background: var(--sja-white);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      padding: 18px;
+    }
+
+    .sja-admission-card h3 {
+      margin: 0 0 7px;
+      color: var(--sja-black);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .sja-admission-card p {
+      margin: 0 0 12px;
+      color: var(--sja-muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .sja-admission-card strong {
+      color: var(--sja-black);
+    }
+
+    .sja-admission-card .sja-btn {
+      width: 100%;
+      min-height: 40px;
+      padding: 11px 14px;
+      font-size: 13px;
+    }
+
+    .sja-chem-page .sja-home-register {
+      display: inline-flex;
+      width: auto;
+      max-width: 100%;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--sja-orange);
+      fill: var(--sja-white);
+      color: var(--sja-white);
+      border: 2px solid var(--sja-orange);
+      border-radius: 5px;
+      padding: 16px 35px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(254, 97, 0, 0.3);
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .sja-chem-page .sja-home-register:hover,
+    .sja-chem-page .sja-home-register:focus {
+      background-color: #e55800;
+      color: var(--sja-white);
+      border-color: #e55800;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(254, 97, 0, 0.4);
+    }
+
+    .sja-chem-page .sja-home-register .elementor-button-content-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .sja-chem-page .sja-home-register .elementor-button-text {
+      display: inline-block;
+      color: inherit;
+      font: inherit;
+      line-height: 1;
+    }
+
+    .sja-teacher-card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      justify-self: center;
+      border: 0;
+      border-radius: 12px;
+      background: var(--sja-white);
+      box-shadow: 20px 20px 0 var(--sja-yellow);
+      filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+      overflow: hidden;
+    }
+
+    .sja-teacher-image {
+      aspect-ratio: 4 / 5;
+      min-height: 0;
+      background:
+        linear-gradient(45deg, rgba(252, 224, 4, 0.1) 0%, transparent 100%),
+        url("https://www.sjacademy.pk/wp-content/uploads/2025/12/Zaman-chemistry.jpeg") center top / cover no-repeat;
+    }
+
+    .sja-video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .sja-video-card {
+      border: 2px solid var(--sja-black);
+      border-radius: 14px;
+      background: var(--sja-white);
+      box-shadow: var(--sja-yellow-shadow);
+      padding: 16px;
+    }
+
+    .sja-video-card h3 {
+      margin: 0 0 12px;
+      color: var(--sja-black);
+      font-size: 20px;
+    }
+
+    .sja-video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border: 2px solid var(--sja-black);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--sja-black);
+    }
+
+    .sja-video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .sja-roadmap-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.7fr);
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .sja-structure-card {
+      border: 2px solid var(--sja-black);
+      border-radius: 14px;
+      background: #fffdf1;
+      box-shadow: 6px 6px 0 rgba(252, 224, 4, 0.85);
+      padding: 20px;
+    }
+
+    .sja-structure-card h3 {
+      margin: 0 0 12px;
+      color: var(--sja-black);
+      font-size: 20px;
+    }
+
+    .sja-structure-meta {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .sja-structure-meta strong,
+    .sja-structure-meta span {
+      display: inline-flex;
+      width: fit-content;
+      padding: 6px 10px;
+      border: 1px solid var(--sja-black);
+      border-radius: 999px;
+      background: var(--sja-white);
+      color: var(--sja-black);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .sja-roadmap-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 250px));
+      justify-content: center;
+      gap: 14px;
+      margin: 0 auto 28px;
+    }
+
+    .sja-roadmap-tab {
+      position: relative;
+      padding: 16px 18px;
+      border: 2px solid var(--sja-black);
+      border-radius: 12px;
+      background: var(--sja-white);
+      color: var(--sja-black);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 5px 5px 0 rgba(254, 97, 0, 0.18);
+    }
+
+    .sja-roadmap-tab::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--sja-orange);
+      border-radius: 9px 9px 0 0;
+    }
+
+    .sja-roadmap-tab.is-active {
+      background: var(--sja-yellow);
+      box-shadow: 6px 6px 0 var(--sja-black);
+    }
+
+    .sja-roadmap-tab.is-active::before {
+      background: var(--sja-black);
+    }
+
+    .sja-roadmap-panel {
+      display: none;
+    }
+
+    .sja-roadmap-panel.is-active {
+      display: block;
+    }
+
+    .sja-month-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .sja-month-card {
+      border: 2px solid var(--sja-black);
+      border-radius: 14px;
+      background: var(--sja-white);
+      box-shadow: 6px 6px 0 rgba(254, 97, 0, 0.14);
+      overflow: hidden;
+    }
+
+    .sja-month-head {
+      padding: 16px 18px;
+      border-bottom: 2px solid var(--sja-black);
+      background: var(--sja-yellow);
+    }
+
+    .sja-month-head h3 {
+      margin: 0;
+      color: var(--sja-black);
+      font-size: 19px;
+      line-height: 1.25;
+    }
+
+    .sja-month-body {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+    }
+
+    .sja-week {
+      padding: 13px 14px;
+      border: 1px solid var(--sja-line);
+      border-left: 5px solid var(--sja-orange);
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .sja-week strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--sja-black);
+      font-size: 14px;
+    }
+
+    .sja-week ul {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding-left: 18px;
+      color: var(--sja-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .sja-topic-block {
+      padding: 14px;
+      border: 1px solid var(--sja-line);
+      border-left: 5px solid var(--sja-orange);
+      border-radius: 10px;
+      background: var(--sja-white);
+    }
+
+    .sja-topic-block strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--sja-black);
+      font-size: 14px;
+    }
+
+    .sja-topic-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sja-topic-chips li {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #fff7c7;
+      color: var(--sja-black);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .sja-highlight-note {
+      margin-top: 6px;
+      padding: 11px 13px;
+      border: 2px solid var(--sja-black);
+      border-radius: 10px;
+      background: #fff8b8;
+      color: var(--sja-black);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .sja-milestone {
+      border-color: var(--sja-black);
+      background: var(--sja-brown);
+      color: var(--sja-white);
+    }
+
+    .sja-milestone .sja-month-head {
+      background: var(--sja-yellow);
+    }
+
+    .sja-milestone .sja-month-body {
+      color: var(--sja-white);
+    }
+
+    .sja-milestone p,
+    .sja-milestone li {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .sja-final-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .sja-final-card {
+      border: 2px solid var(--sja-black);
+      border-radius: 14px;
+      background: var(--sja-white);
+      box-shadow: 6px 6px 0 rgba(252, 224, 4, 0.85);
+      padding: 22px;
+    }
+
+    .sja-final-card h3 {
+      margin: 0 0 12px;
+      color: var(--sja-black);
+      font-size: 22px;
+    }
+
+    .sja-mini-section {
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid var(--sja-line);
+      border-left: 5px solid var(--sja-orange);
+      border-radius: 10px;
+      background: #fffdf1;
+    }
+
+    .sja-mini-section h4 {
+      margin: 0 0 8px;
+      color: var(--sja-black);
+      font-size: 16px;
+    }
+
+    .sja-goal {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 2px solid var(--sja-black);
+      border-radius: 12px;
+      background: var(--sja-yellow);
+      color: var(--sja-black);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .sja-reviews {
+      padding: 76px 0 86px;
+      background: var(--sja-brown);
+      border-bottom: 8px solid var(--sja-yellow);
+      box-shadow: inset 0 -4px 0 var(--sja-orange);
+    }
+
+    .sja-reviews .sja-kicker {
+      border-color: rgba(252, 224, 4, 0.4);
+      background: rgba(252, 224, 4, 0.15);
+      color: var(--sja-yellow);
+    }
+
+    .sja-reviews .sja-section-title {
+      color: var(--sja-yellow);
+    }
+
+    .sja-reviews .sja-lead {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .sja-review-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 36px) / 3);
+      gap: 18px;
+      overflow-x: auto;
+      padding: 4px 4px 16px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+
+    .sja-review-card {
+      min-height: 285px;
+      scroll-snap-align: start;
+      border-left: 7px solid var(--sja-yellow);
+      border-radius: 8px;
+      background: #5b4724;
+      padding: 22px;
+      color: var(--sja-white);
+    }
+
+    .sja-stars {
+      margin-bottom: 16px;
+      color: var(--sja-yellow);
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .sja-review-text {
+      display: -webkit-box;
+      min-height: 125px;
+      margin: 0 0 18px;
+      overflow: hidden;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.6;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+    }
+
+    .sja-reviewer {
+      color: var(--sja-white);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .sja-reviewer span {
+      display: block;
+      margin-top: 3px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .sja-cta {
+      padding: 72px 0;
+      background:
+        radial-gradient(circle at 85% 16%, rgba(252, 224, 4, 0.35), transparent 25%),
+        #fffdf1;
+      text-align: center;
+    }
+
+    .sja-cta .sja-btn-row {
+      justify-content: center;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 960px) {
+      .sja-hero-grid,
+      .sja-roadmap-intro,
+      .sja-video-grid,
+      .sja-month-grid,
+      .sja-final-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sja-teacher-card {
+        max-width: 340px;
+        margin: 0 auto;
+      }
+
+      .sja-review-track {
+        grid-auto-columns: minmax(280px, 82vw);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .sja-hero-text {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .sja-hero-text .sja-lead {
+        text-align: center;
+      }
+      .sja-btn-row,
+      .sja-hero .sja-btn-row {
+        justify-content: center;
+      }
+
+      .sja-wrap {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .sja-section {
+        padding: 52px 0;
+      }
+
+      .sja-hero {
+        padding: 44px 0 46px;
+      }
+
+      .sja-admission-grid,
+      .sja-roadmap-tabs {
+        grid-template-columns: 1fr;
+      }
+
+      .sja-btn-row,
+      .sja-hero .sja-btn-row {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .sja-btn {
+        width: 100%;
+      }
+
+      .sja-chem-page .sja-home-register {
+        width: 100%;
+      }
+
+      .sja-mode-row {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .sja-mode-pill {
+        text-align: center;
+      }
+
+      .sja-teacher-card {
+        max-width: 300px;
+      }
+    }
+  
+    /* FAQ Section */
+    .sja-faq {
+      padding: 80px 0;
+      background: #fff;
+    }
+
+    .sja-faq h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--sja-black);
+      font-size: clamp(28px, 3.4vw, 44px);
+      font-weight: 800;
+    }
+
+    .sja-faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sja-faq-item {
+      background: var(--sja-soft);
+      border: 1px solid var(--sja-line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .sja-faq-item summary {
+      padding: 20px 24px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--sja-black);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sja-faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .sja-faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--sja-orange);
+      transition: transform 0.3s ease;
+    }
+
+    .sja-faq-item[open] summary::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .sja-faq-item p {
+      padding: 0 24px 20px;
+      margin: 0;
+      color: var(--sja-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .sja-simplified-roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .sja-phase-card {
+      border: 2px solid var(--sja-black);
+      border-radius: 14px;
+      background: var(--sja-white);
+      padding: 30px 24px;
+      box-shadow: 6px 6px 0 rgba(254, 97, 0, 0.15);
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+    .sja-phase-card:hover {
+      transform: translateY(-4px);
+    }
+    .sja-phase-badge {
+      display: inline-block;
+      background: var(--sja-yellow);
+      color: var(--sja-black);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 2px solid var(--sja-black);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .sja-phase-card h3 {
+      font-size: 1.25rem;
+      color: var(--sja-black);
+      margin: 0 0 12px;
+      line-height: 1.3;
+      font-weight: 800;
+    }
+    .sja-phase-card p {
+      color: var(--sja-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    @media (max-width: 960px) {
+      .sja-simplified-roadmap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Interactive Tool Banner */
+    .sja-tool-banner {
+      padding: 0 0 68px 0;
+      background: var(--sja-white);
+    }
+    .sja-tool-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 40px;
+      background: #fffdf1;
+      border: 2px solid var(--sja-black);
+      border-radius: 16px;
+      box-shadow: 8px 8px 0 var(--sja-yellow);
+    }
+    .sja-tool-text {
+      flex: 1;
+      max-width: 550px;
+    }
+    .sja-tool-text h2 {
+      margin: 0 0 12px;
+      color: var(--sja-black);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+    }
+    .sja-tool-text p {
+      margin: 0 0 24px;
+      color: var(--sja-muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .sja-tool-graphic {
+      display: flex;
+      gap: 16px;
+    }
+    .sja-element {
+      width: 120px;
+      height: 120px;
+      background: var(--sja-white);
+      border: 2px solid var(--sja-black);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .sja-element:hover {
+      transform: translateY(-5px);
+    }
+    .sja-element .atomic-number {
+      font-size: 14px;
+      font-weight: 700;
+      align-self: flex-start;
+      margin-left: 12px;
+      color: var(--sja-muted);
+      line-height: 1;
+    }
+    .sja-element .symbol {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--sja-black);
+    }
+    .sja-element .name {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--sja-orange);
+      margin-top: 2px;
+    }
+    .sja-element .mass {
+      font-size: 11px;
+      color: var(--sja-muted);
+    }
+    
+    @media (max-width: 860px) {
+      .sja-tool-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+      }
+      .sja-tool-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .sja-tool-graphic {
+        transform: scale(0.9);
+      }
+    }
+</style>
+</head>
+<body>
+  <main class="sja-chem-page">
+    <section class="sja-hero" id="top">
+      <div class="sja-wrap">
+        <div class="sja-hero-grid">
+          <div class="sja-hero-text">
+            <div class="sja-mode-row" aria-label="Class modes">
+              <span class="sja-mode-pill sja-mode-pill--yellow">Karachi Campus</span>
+              <span class="sja-mode-pill">Live Online</span>
+            </div>
+
+            <h1 class="sja-title">Achieve an A* in <span class="sja-highlight">A Level Chemistry</span></h1>
+            <div class="sja-teacher-name">with Sir Abdullah Zaman</div>
+            <div class="sja-cred">O Level &amp; A Level Chemistry Teacher | 5+ Years Teaching Experience</div>
+
+            <p class="sja-lead">Looking for an expert chemistry tutor? Master chemistry A level with Sir Abdullah Zaman at SJ Academy. At our top-rated a level academy, we break down complex molecular structures, simplify advanced equations, and make examiner expectations clear. With the guidance of an experienced a level tutor, you'll develop the perfect exam technique and analytical skills needed to confidently achieve an A* in A Level Chemistry.</p>
+
+            <div style="margin: 25px 0 20px;">
+              <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: #fff4e5; color: #d9534f; font-size: 0.85rem; font-weight: 700; border-radius: 6px; border: 1px solid #ffd5cc; margin-bottom: 16px;">
+                📅 MAY/JUNE 2027 REGISTRATIONS OPEN
+              </span>
+              <div class="sja-btn-row">
+                <a class="elementor-button elementor-button-link elementor-size-sm sja-home-register" href="https://www.sjacademy.pk/registration-form/">
+                  <span class="elementor-button-content-wrapper"><span class="elementor-button-text">Register Now &rarr;</span></span>
+                </a>
+                <a class="sja-btn sja-btn--whatsapp" href="https://wa.me/923362144454" target="_blank" rel="noopener">Chat on WhatsApp</a>
+              </div>
+            </div>
+          </div>
+
+          <aside class="sja-teacher-card" aria-label="Sir Abdullah Zaman">
+            <div class="sja-teacher-image" role="img" aria-label="Sir Abdullah Zaman, A Level Chemistry teacher at SJ Academy"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="sja-section" id="demo-classes">
+      <div class="sja-wrap">
+        <div class="sja-section-head">
+          <span class="sja-kicker">Demo Classes</span>
+          <h2 class="sja-section-title">Watch A Level Chemistry Demo Classes</h2>
+          <p class="sja-lead">See the teaching style, explanation quality and exam-focused approach before joining the full programme.</p>
+        </div>
+
+        <div class="sja-video-grid">
+          <div class="sja-video-card">
+            <h3>AS Chemistry Demo Class</h3>
+            <div class="sja-video-frame">
+              <iframe src="https://www.youtube.com/embed/2CBSpwxgY5I" title="AS Chemistry Demo Class" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="sja-video-card">
+            <h3>A2 Chemistry Demo Class</h3>
+            <div class="sja-video-frame">
+              <iframe src="https://www.youtube.com/embed/pM6B01MnRe0" title="A2 Chemistry Demo Class" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="sja-tool-banner">
+      <div class="sja-wrap">
+        <div class="sja-tool-card">
+          <div class="sja-tool-text">
+            <span class="sja-kicker">Free Student Tool</span>
+            <h2>Interactive Periodic Table</h2>
+            <p>We've built a custom interactive periodic table tailored specifically for Cambridge A Level Chemistry students. Quickly check trends, valencies, mass numbers, and electron configurations.</p>
+            <a class="sja-btn sja-btn--orange" href="https://www.sjacademy.pk/periodic-table-of-elements/" target="_blank" rel="noopener">Explore Periodic Table &rarr;</a>
+          </div>
+          <div class="sja-tool-graphic" aria-hidden="true">
+            <div class="sja-element">
+              <span class="atomic-number">6</span>
+              <span class="symbol">C</span>
+              <span class="name">Carbon</span>
+              <span class="mass">12.011</span>
+            </div>
+            <div class="sja-element" style="margin-top: 20px;">
+              <span class="atomic-number">8</span>
+              <span class="symbol">O</span>
+              <span class="name">Oxygen</span>
+              <span class="mass">15.999</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sja-section sja-section--soft" id="roadmap">
+      <div class="sja-wrap">
+        <div class="sja-roadmap-intro">
+          <div>
+            <span class="sja-kicker">Chemistry Roadmap</span>
+            <h2 class="sja-section-title">A Level Chemistry Complete Preparation Plan</h2>
+            <p class="sja-lead">Our AS and A2 Chemistry programme is designed to complete the full Cambridge syllabus by February. Students attend 3 classes per week with concept teaching, examples, exam application, topical past paper practice, quizzes after major topics, a November Monthly Test, a December Pre-Mock Exam, and final exam preparation from March onwards.</p>
+          </div>
+
+          <div class="sja-structure-card">
+            <h3>Course Structure</h3>
+            <div class="sja-structure-meta">
+              <strong>AS &amp; A2 Chemistry Weekly Teaching Plan</strong>
+              <span>3 Classes Per Week</span>
+              <span>August - February Syllabus Completion</span>
+            </div>
+            <ul class="sja-list">
+              <li>3 classes every week</li>
+              <li>Concepts + examples + exam application</li>
+              <li>Topical past paper practice throughout the year</li>
+              <li>Quizzes after major topics</li>
+              <li>November Monthly Test</li>
+              <li>December Pre-Mock Exam</li>
+              <li>Winter Break: 25th December - 3rd January</li>
+              <li>March-April: Final Mock, A* Crash Course and Yearly Past Papers</li>
+              <li>May: Final 5-Day Workshops</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sja-simplified-roadmap">
+          <div class="sja-phase-card">
+            <div class="sja-phase-badge">Phase 1</div>
+            <h3>Foundation & Core Concepts</h3>
+            <p>From August to December, we focus on breaking down complex Physical and Inorganic chemistry topics. You'll build strong calculation skills and grasp fundamental structures through interactive lessons and topical past papers.</p>
+          </div>
+          <div class="sja-phase-card">
+            <div class="sja-phase-badge">Phase 2</div>
+            <h3>Advanced Chemistry & Mechanisms</h3>
+            <p>In January and February, we tackle Organic Chemistry pathways and Analytical techniques. Regular quizzes and a Pre-Mock exam ensure you are retaining information as we complete the full Cambridge syllabus.</p>
+          </div>
+          <div class="sja-phase-card">
+            <div class="sja-phase-badge">Phase 3</div>
+            <h3>Exam Mastery & Past Papers</h3>
+            <p>From March onwards, we shift entirely to exam strategy. We solve full yearly past papers, conduct strict Mock Exams, and refine your approach to guarantee you hit the A* threshold.</p>
+          </div>
+        </div>
+      </div>
+</section>
+
+    <section class="sja-section" id="final-prep">
+      <div class="sja-wrap">
+        <div class="sja-section-head">
+          <span class="sja-kicker">Final Preparation</span>
+          <h2 class="sja-section-title">Shared Final Preparation</h2>
+          <p class="sja-lead">After completing the syllabus, students move into focused exam preparation with mocks, yearly papers, examiner techniques and final workshops.</p>
+        </div>
+
+        <div class="sja-final-grid">
+          <div class="sja-final-card">
+            <h3>March - April A* Crash Course + Final Exam Preparation</h3>
+            <ul class="sja-list">
+              <li>Final Mock Exam</li>
+              <li>Complete syllabus revision</li>
+              <li>Yearly past paper solving</li>
+              <li>Examiner techniques</li>
+              <li>Common mistakes correction</li>
+            </ul>
+          </div>
+
+          <div class="sja-final-card">
+            <h3>May Final Workshops</h3>
+            <div class="sja-mini-section">
+              <h4>5-Day Final Chemistry Workshop</h4>
+              <ul class="sja-list">
+                <li>Important topic revision</li>
+                <li>High-frequency questions</li>
+                <li>Final exam strategies</li>
+              </ul>
+            </div>
+            <div class="sja-mini-section">
+              <h4>Paper 5 Workshop</h4>
+              <ul class="sja-list">
+                <li>Planning experiments</li>
+                <li>Variables and controls</li>
+                <li>Graph analysis</li>
+                <li>Uncertainties</li>
+                <li>Data evaluation techniques</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="sja-goal">Goal: Complete preparation before Cambridge exams.</div>
+      </div>
+    </section>
+
+    <section class="sja-reviews" id="reviews">
+      <div class="sja-wrap">
+        <div class="sja-section-head">
+          <span class="sja-kicker">Student Reviews</span>
+          <h2 class="sja-section-title">Student Reviews</h2>
+          <p class="sja-lead">Trusted by O/A Level students who want clear teaching, structure and genuine support in A Level Chemistry.</p>
+          <p class="sja-lead">Swipe or scroll to view more reviews.</p>
+        </div>
+
+        <div class="sja-review-track" aria-label="A Level Chemistry student reviews">
+          <article class="sja-review-card">
+            <div class="sja-stars">★★★★★</div>
+            <p class="sja-review-text">"Organic chemistry was my nightmare until I joined SJ Academy. The mechanism maps made everything click. I actually enjoyed Paper 4 and scored an A* in A Level Chemistry."</p>
+            <div class="sja-reviewer">Aisha R.<span>Karachi Campus, Scored A*</span></div>
+          </article>
+
+          <article class="sja-review-card">
+            <div class="sja-stars">★★★★★</div>
+            <p class="sja-review-text">"The calculation drills saved me. I used to lose marks in Paper 2, but now I approach every Chemistry calculation with a clear system. Improved from D to A."</p>
+            <div class="sja-reviewer">Omar K.<span>Online Student, Improved from D to A</span></div>
+          </article>
+
+          <article class="sja-review-card">
+            <div class="sja-stars">★★★★★</div>
+            <p class="sja-review-text">"Paper 3 used to be terrifying. The practical simulations and mark scheme breakdowns gave me so much confidence for my Chemistry practical exam."</p>
+            <div class="sja-reviewer">Fatima S.<span>A2 Chemistry Student</span></div>
+          </article>
+
+          <article class="sja-review-card">
+            <div class="sja-stars">★★★★★</div>
+            <p class="sja-review-text">"Sir Abdullah explains difficult concepts in a simple way. The regular quizzes and past paper practice helped me stay consistent throughout the year."</p>
+            <div class="sja-reviewer">Hammad A.<span>A Level Chemistry Student</span></div>
+          </article>
+
+          <article class="sja-review-card">
+            <div class="sja-stars">★★★★★</div>
+            <p class="sja-review-text">"The roadmap made Chemistry feel manageable. Every month had a clear target, and the tests showed exactly where I needed to improve."</p>
+            <div class="sja-reviewer">Maira S.<span>A Level Chemistry Student</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+        <section class="sja-faq" id="faq">
+      <div class="sja-wrap">
+        <h2>Frequently Asked Questions</h2>
+        <div class="sja-faq-container">
+          <details class="sja-faq-item">
+            <summary>Does this cover the complete as and a level chemistry syllabus?</summary>
+            <p>Yes, our programme provides comprehensive coverage of both the AS and A level chemistry syllabus, ensuring you are fully prepared for every paper.</p>
+          </details>
+          <details class="sja-faq-item">
+            <summary>Do you provide chemistry a level past papers?</summary>
+            <p>Absolutely! We integrate extensive practice with chemistry a level past papers directly into our classes and homework assignments to build exam technique.</p>
+          </details>
+          <details class="sja-faq-item">
+            <summary>Are a level chemistry notes provided?</summary>
+            <p>Yes, all students receive high-quality, structured a level chemistry notes that simplify complex topics and make revision much easier.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="sja-cta" id="register">
+      <div class="sja-wrap">
+        <h2 class="sja-section-title">Ready to Start A Level Chemistry Preparation?</h2>
+        <p class="sja-lead">Join SJ Academy for structured syllabus coverage, topical past paper practice, quizzes, mock exams, yearly past papers and A* focused exam preparation.</p>
+        <div class="sja-btn-row">
+          <a class="elementor-button elementor-button-link elementor-size-sm sja-home-register" href="https://www.sjacademy.pk/registration-form/"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">Register Now &rarr;</span></span></a>
+          <a class="sja-btn sja-btn--whatsapp" href="https://wa.me/923362144454" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll(".sja-roadmap-tab");
+      var panels = document.querySelectorAll(".sja-roadmap-panel");
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var target = tab.getAttribute("data-plan");
+
+          tabs.forEach(function (item) {
+            var active = item === tab;
+            item.classList.toggle("is-active", active);
+            item.setAttribute("aria-selected", String(active));
+          });
+
+          panels.forEach(function (panel) {
+            panel.classList.toggle("is-active", panel.getAttribute("data-panel") === target);
+          });
+        });
+      });
+    })();
+  </script>

@@ -1,0 +1,701 @@
+<section id="sja-sg-internship">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+    #sja-sg-internship,
+    #sja-sg-internship * {
+      box-sizing: border-box;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    #sja-sg-internship {
+      --yellow: #FCE004;
+      --brown: #453516;
+      --orange: #FE6100;
+      --orange-dark: #e55800;
+      --whatsapp: #25D366;
+      --black: #000;
+      --grey: #555;
+      --light: #fafafa;
+      background: #fff;
+      color: #000;
+      line-height: 1.6;
+    }
+
+    #sja-sg-internship a { text-decoration: none; }
+    #sja-sg-internship h1,
+    #sja-sg-internship h2,
+    #sja-sg-internship h3,
+    #sja-sg-internship p { margin-top: 0; }
+
+    #sja-sg-internship .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    #sja-sg-internship .hero {
+      padding: 55px 0 38px;
+      text-align: center;
+      background: #fff;
+    }
+
+    #sja-sg-internship .kicker {
+      display: inline-flex;
+      border: 2px solid #000;
+      border-radius: 999px;
+      box-shadow: 4px 4px 0 rgba(0,0,0,.14);
+      padding: 8px 18px;
+      margin-bottom: 22px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    #sja-sg-internship h1 {
+      font-size: clamp(2rem, 4vw, 3.55rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    #sja-sg-internship .highlight {
+      background: linear-gradient(120deg,var(--yellow),var(--yellow));
+      background-repeat: no-repeat;
+      background-size: 100% 35%;
+      background-position: 0 85%;
+      padding: 0 3px;
+    }
+
+    #sja-sg-internship .subtitle {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #222;
+      font-size: 16px;
+    }
+
+    #sja-sg-internship .seo-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 22px auto 0;
+      max-width: 920px;
+    }
+
+    #sja-sg-internship .seo-pill {
+      border: 1px solid #eee;
+      border-radius: 999px;
+      background: #fff;
+      color: #444;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 10px;
+    }
+
+    #sja-sg-internship .controls {
+      background: var(--light);
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 36px 0;
+    }
+
+    #sja-sg-internship .filters {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    #sja-sg-internship label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #000;
+    }
+
+    #sja-sg-internship input,
+    #sja-sg-internship select {
+      width: 100%;
+      min-height: 50px;
+      border: 2px solid #e5e5e5;
+      border-radius: 5px;
+      padding: 13px 16px;
+      background: #fff;
+      color: #000;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    #sja-sg-internship input:focus,
+    #sja-sg-internship select:focus {
+      outline: none;
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(254,97,0,.1);
+    }
+
+    #sja-sg-internship .meta {
+      max-width: 1100px;
+      margin: 18px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    #sja-sg-internship .count {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 10px 16px;
+      color: var(--grey);
+      font-size: 13px;
+    }
+
+    #sja-sg-internship .clear {
+      border: 0;
+      background: transparent;
+      color: var(--grey);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 0;
+    }
+
+    #sja-sg-internship .clear:hover { color: var(--orange); }
+
+    #sja-sg-internship .list {
+      padding: 48px 0;
+      background: #fff;
+    }
+
+    #sja-sg-internship .section-head {
+      margin-bottom: 24px;
+    }
+
+    #sja-sg-internship .section-head h2 {
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    #sja-sg-internship .section-head p {
+      max-width: 860px;
+      color: var(--grey);
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    #sja-sg-internship .grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 16px;
+    }
+
+    #sja-sg-internship .card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-top: 6px solid var(--brown);
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.055);
+      padding: 14px;
+      min-height: 270px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    #sja-sg-internship .card:hover {
+      border-top-color: var(--orange);
+      box-shadow: 0 14px 28px rgba(0,0,0,.08);
+      transform: translateY(-3px);
+    }
+
+    #sja-sg-internship .tag {
+      display: inline-flex;
+      width: max-content;
+      margin-bottom: 8px;
+      border-radius: 999px;
+      padding: 5px 7px;
+      font-size: 9px;
+      font-weight: 800;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    #sja-sg-internship .open { background: #e8f8ee; color: #137a3b; }
+    #sja-sg-internship .watchlist { background: #fff2cf; color: #8a6100; }
+    #sja-sg-internship .closed { background: #eee; color: #666; }
+
+    #sja-sg-internship .card h3 {
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 5px;
+    }
+
+    #sja-sg-internship .org {
+      color: var(--brown);
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    #sja-sg-internship .facts {
+      display: grid;
+      gap: 6px;
+      margin: 0 0 12px;
+      flex: 1;
+    }
+
+    #sja-sg-internship .fact {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 7px;
+    }
+
+    #sja-sg-internship .fact b {
+      color: var(--grey);
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .2px;
+    }
+
+    #sja-sg-internship .fact span {
+      color: #444;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    #sja-sg-internship .apply {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 38px;
+      border: 2px solid var(--orange);
+      border-radius: 5px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.2;
+      padding: 9px 12px;
+    }
+
+    #sja-sg-internship .apply:hover {
+      background: var(--orange-dark);
+      border-color: var(--orange-dark);
+      color: #fff;
+    }
+
+    #sja-sg-internship .empty {
+      display: none;
+      margin-top: 24px;
+      padding: 22px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      background: var(--light);
+      color: var(--grey);
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    #sja-sg-internship .notes {
+      background: var(--light);
+      border-top: 1px solid #eee;
+      padding: 42px 0;
+    }
+
+    #sja-sg-internship .note-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+    }
+
+    #sja-sg-internship .note {
+      background: #fff;
+      border-top: 6px solid var(--brown);
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.05);
+      padding: 24px;
+    }
+
+    #sja-sg-internship .note h2,
+    #sja-sg-internship .note h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    #sja-sg-internship .note p,
+    #sja-sg-internship .note li {
+      color: #444;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    #sja-sg-internship .note p { margin-bottom: 0; }
+    #sja-sg-internship .note ul { margin: 0; padding-left: 18px; }
+
+    #sja-sg-internship .faq {
+      background: #fff;
+      padding: 42px 0;
+      border-top: 1px solid #eee;
+    }
+
+    #sja-sg-internship .faq h2 {
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    #sja-sg-internship .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 14px;
+    }
+
+    #sja-sg-internship .faq-item {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    #sja-sg-internship .faq-item h3 {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    #sja-sg-internship .faq-item p {
+      color: #444;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    #sja-sg-internship .cta {
+      padding: 45px 0;
+      text-align: center;
+      background: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    #sja-sg-internship .cta h2 {
+      font-size: clamp(1.6rem,3vw,2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    #sja-sg-internship .cta p {
+      max-width: 760px;
+      margin: 0 auto 22px;
+      color: #222;
+      font-size: 15px;
+    }
+
+    #sja-sg-internship .whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      border: 2px solid var(--whatsapp);
+      border-radius: 5px;
+      background: var(--whatsapp);
+      color: #000;
+      padding: 15px 26px;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(37,211,102,.25);
+    }
+
+    #sja-sg-internship .whatsapp:hover {
+      background: #1ebe5d;
+      border-color: #1ebe5d;
+      color: #000;
+    }
+
+    #sja-sg-internship .hidden { display: none !important; }
+
+    @media (max-width: 1080px) {
+      #sja-sg-internship .filters { grid-template-columns: 1fr 1fr; }
+      #sja-sg-internship .grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      #sja-sg-internship .hero { padding: 40px 0 28px; }
+      #sja-sg-internship .filters,
+      #sja-sg-internship .grid,
+      #sja-sg-internship .note-grid,
+      #sja-sg-internship .faq-grid { grid-template-columns: 1fr; }
+      #sja-sg-internship .meta { align-items: stretch; flex-direction: column; }
+      #sja-sg-internship .count { text-align: center; }
+      #sja-sg-internship .card { min-height: auto; padding: 16px; }
+      #sja-sg-internship .whatsapp { width: 100%; }
+    }
+  </style>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="kicker">Verified Singapore Student Opportunities</div>
+      <h1><span class="highlight">Internship Singapore</span>: Best Student Internships, Attachments and Research Opportunities</h1>
+      <p class="subtitle">A curated list of verified internship Singapore opportunities for secondary, IGCSE, IB, junior college and A Level students. This page includes real internships, summer internship Singapore options, research attachments, job shadowing, legal internship Singapore pathways, psychology internship Singapore exposure, and digital marketing internship Singapore options where suitable.</p>
+      <div class="seo-row" aria-label="Related searches">
+        <span class="seo-pill">internship singapore</span>
+        <span class="seo-pill">summer internship singapore</span>
+        <span class="seo-pill">legal internship singapore</span>
+        <span class="seo-pill">psychology internship singapore</span>
+        <span class="seo-pill">digital marketing internship singapore</span>
+        <span class="seo-pill">sp internship</span>
+        <span class="seo-pill">travel internships</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="wrap">
+      <div class="filters">
+        <div>
+          <label for="sjaSgSearch">Search</label>
+          <input id="sjaSgSearch" type="search" placeholder="Search law, healthcare, AI, DSTA, A*STAR..." autocomplete="off">
+        </div>
+        <div>
+          <label for="sjaSgField">Field</label>
+          <select id="sjaSgField">
+            <option value="">All fields</option>
+            <option value="stem-tech">STEM and tech</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="business">Business and policy</option>
+            <option value="law">Law</option>
+            <option value="arts">Arts and media</option>
+            <option value="social-impact">Social impact</option>
+            <option value="environment">Environment</option>
+          </select>
+        </div>
+        <div>
+          <label for="sjaSgType">Type</label>
+          <select id="sjaSgType">
+            <option value="">All types</option>
+            <option value="internship">Internship</option>
+            <option value="research">Research</option>
+            <option value="shadowing">Job shadowing</option>
+            <option value="competition">Competition</option>
+            <option value="leadership">Leadership</option>
+            <option value="event">Event</option>
+          </select>
+        </div>
+        <div>
+          <label for="sjaSgStatus">Status</label>
+          <select id="sjaSgStatus">
+            <option value="">All statuses</option>
+            <option value="open">Open or rolling</option>
+            <option value="watchlist">Annual watchlist</option>
+            <option value="closed">Closed for 2026</option>
+          </select>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="count" id="sjaSgCount">Showing all opportunities</div>
+        <button class="clear" type="button" id="sjaSgClear">Clear filters</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="list">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Verified Internship Singapore Opportunities for Students</h2>
+        <p>Use this as a shortlist. Some entries are formal internships, while others are research attachments, job-shadowing programmes or portfolio-building opportunities. Always check eligibility, citizenship rules, school nomination requirements, fees and current dates on the official page before applying.</p>
+      </div>
+      <div class="grid" id="sjaSgCards"></div>
+      <div class="empty" id="sjaSgEmpty">No matching opportunities found. Try clearing the filters or searching a broader field.</div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div class="wrap">
+      <div class="note-grid">
+        <div class="note">
+          <h2>How students should choose</h2>
+          <p>For STEM, prioritise A*STAR, DSTA, NUS research and AI Singapore. For medicine or psychology, choose NUHS job shadowing, healthcare volunteering or research exposure. For law, look for the SAL Junior College Law Programme through school channels. For business, choose EnterpriseSG, MFA, sustainability, social sector or marketing internships.</p>
+        </div>
+        <div class="note">
+          <h3>Before applying, verify:</h3>
+          <ul>
+            <li>Application deadline and intake date</li>
+            <li>Age, school level and citizenship rules</li>
+            <li>Whether school nomination is required</li>
+            <li>Duration, allowance, fee and certificate policy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="wrap">
+      <h2>Internship Singapore FAQ for Students</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Can secondary or JC students get an internship in Singapore?</h3>
+          <p>Yes, but many good options are called attachments, research programmes or job shadowing instead of internship. DSTA, MFA, EnterpriseSG, A*STAR and NUHS are the strongest official places to start.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is the best summer internship Singapore option for JC students?</h3>
+          <p>DSTA JC Internship, A*STAR research attachments, Youth Corps roles and selected school-nominated research programmes are usually better than generic summer internship listings.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is there a legal internship Singapore option for pre-university students?</h3>
+          <p>The Singapore Academy of Law Junior College Law Programme is the strongest verified legal exposure pathway. Students usually access it through school channels when applications open.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What about psychology internship Singapore searches?</h3>
+          <p>True psychology internships are usually for older students. For pre-university students, use healthcare job shadowing, social service internships, Youth Corps, and mental health adjacent community roles first.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What does sp internship mean?</h3>
+          <p>Many people use sp internship to mean Singapore Polytechnic internships. This page is broader and focuses on secondary, IB, JC, A Level and pre-university opportunities across Singapore.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Are travel internships available for Singapore students?</h3>
+          <p>Most verified opportunities here are Singapore-based. For travel internships, students should check school-approved overseas attachments, official university programmes and government-linked exchanges.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="wrap">
+      <h2>Need help choosing the right opportunity?</h2>
+      <p>SJ Academy can help students choose opportunities that match their subjects, career plans and university profile without wasting time on weak certificates or unclear forms.</p>
+      <a class="whatsapp" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20need%20help%20choosing%20a%20Singapore%20student%20internship%20or%20summer%20opportunity." target="_blank" rel="noopener">WhatsApp SJ Academy</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.getElementById('sja-sg-internship');
+      if (!root || root.dataset.ready === 'true') return;
+      root.dataset.ready = 'true';
+
+      var opportunities = [
+        ['DSTA JC Internship','Defence Science and Technology Agency','Internship','open','stem-tech','internship','JC1 and JC2 students for June. JC1 students for December.','June internship is 1 month and applications open around Feb or Apr. December internship applications open in August.','Singapore.','Engineering, cybersecurity, defence tech and real project exposure.','https://www.dsta.gov.sg/join-us/'],
+        ['DSTA Post-JC Internship','Defence Science and Technology Agency','Internship','open','stem-tech','internship','Post-JC and post-polytechnic students before undergraduate studies.','Runs between January and June for 2 to 6 months. Applications open in October.','Singapore.','A stronger option for students after A Levels who want a longer STEM internship.','https://www.dsta.gov.sg/join-us/'],
+        ['MFA Pre-University Internship Programme','Ministry of Foreign Affairs Singapore','Closed 2026','closed','business','internship','Final-year JC, polytechnic or equivalent students, or students awaiting university admission. Singapore Citizens or PRs intending citizenship.','2025/2026 application window is closed. Recent runs were Dec 2025, Jan 2026, Feb 2026 and Mar 2026.','Singapore.','Diplomacy, international relations, politics and scholarship exploration.','https://www.mfa.gov.sg/careers/internships/pre-university-internship-programme'],
+        ['Experience EnterpriseSG','Enterprise Singapore','Rolling','open','business','internship','JC2 and Year 2 polytechnic students. Singapore Citizens or PRs with strong academics and leadership.','Applications are open year-round and reviewed on a rolling basis. JC period is January to March.','Singapore.','Business, enterprise development, economics and public-sector exposure.','https://www.enterprisesg.gov.sg/about-us/careers/for-students-and-graduates/internships'],
+        ['Singapore Sustainability Scholarship Internship','NEA, PUB and SFA','Annual','watchlist','environment','internship','Junior College, IB, NUS High and polytechnic students.','A Level, IB and NUS High application period is Oct to Dec. Internship period is Dec to Mar.','Singapore.','Environment, water, food security and sustainability careers.','https://www.nea.gov.sg/corporate-functions/who-we-are/careers/scholarships'],
+        ['A*STAR Research Attachments','Agency for Science, Technology and Research','Open year-round','open','stem-tech','research','Singaporean and international students may apply.','Open year-round. Minimum attachment is 2 months.','A*STAR Research Institutes, Singapore.','Biomedical science, engineering, physical science and serious research exposure.','https://www.a-star.edu.sg/Scholarships/Junior-College-and-Polytechnic-and-Secondary-School-Students/Information-on-Research-Attachments-at-A-STAR-RIs'],
+        ['A*STAR-MOE Attachment','A*STAR Graduate Academy','Annual','watchlist','stem-tech','research','JC participants, usually through school nomination.','Held annually during year-end school holidays for about 5 weeks.','A*STAR Research Institutes, Singapore.','Structured JC science research with A*STAR researchers.','https://www.a-star.edu.sg/scholarships/home/student-awards'],
+        ['A*STAR H3 Research Attachment','A*STAR Graduate Academy','School coordinated','watchlist','stem-tech','research','Junior College students taking the H3 research pathway.','Applications are coordinated through schools.','Singapore.','High-level science or engineering investigation for strong research students.','https://www.a-star.edu.sg/scholarships/home/student-awards/h3-research-attachment-programme'],
+        ['A*STAR Science Award, Junior College','A*STAR Graduate Academy','School nomination','watchlist','stem-tech','research','Singaporean JC1 or IP Year 5 students with strong science and mathematics aptitude.','Annual school nomination through talent development teams or teachers.','Singapore.','Science award pathway linked to research and long-term R&D interest.','https://www.a-star.edu.sg/scholarships/home/student-awards'],
+        ['NUS-MOE Science Research Programme','NUS Faculty of Science and MOE','Annual','watchlist','stem-tech','research','JC1 and IP Year 5 students who want higher-level science research.','1.5-year programme. Mentorship starts around May or June.','NUS and partner research institutions.','Strong portfolio builder for science, medicine, engineering and research pathways.','https://www.science.nus.edu.sg/undergraduates/schools-and-public-outreach/research-programmes/'],
+        ['Science Mentorship Programme','MOE and NUS Faculty of Science','Annual','watchlist','stem-tech','research','Secondary 3 to 4 or IP Year 3 to 4 students with science aptitude.','Weekly mentorship from Jan to Jul, plus 2 weeks full-time during June holidays.','Singapore.','Early research exposure before JC or A Level stage.','https://www.science.nus.edu.sg/undergraduates/schools-and-public-outreach/research-programmes/science-mentorship-programme-smp/'],
+        ['NUS-MOE Humanities and Social Sciences Research','MOE and NUS FASS','Closed 2026','closed','business','research','JC1, IP Year 5 or Pre-U 2 students taking relevant H2 subjects.','2026 cycle deadline was 24 Oct 2025. Research runs Jan to Jul 2026.','NUS, Singapore.','Economics, history, literature, geography and humanities research.','https://www.moe.gov.sg/education-in-sg/our-programmes/nus-moe-hssr/overview'],
+        ['NUHS Job Shadowing Programme','National University Health System','Ongoing','open','healthcare','shadowing','Pre-tertiary students interested in healthcare. Priority may go to final-year or graduated JC students.','Ongoing contact-based applications. Duration ranges from 2 days to 2 weeks.','NUHS institutions including NUH, AH, NTFGH and NUP.','Medicine, nursing, allied health and psychology-adjacent healthcare exposure.','https://www.nuhs.edu.sg/education/job-shadowing'],
+        ['Singapore Academy of Law JC Law Programme','Singapore Academy of Law','Annual watch','watchlist','law','shadowing','JC and pre-university students, usually through school channels.','Annual watchlist. 2025 programme was confirmed publicly by MinLaw.','Singapore.','Best verified legal internship Singapore style exposure for pre-university students.','https://www.mlaw.gov.sg/speech-by-sps-at-sal-jc-law-programme-2025/'],
+        ['National AI Student Challenge','AI Singapore','Closed 2026','closed','stem-tech','competition','Track-dependent. Local tracks include Singapore students from secondary, IP, JC, ITE, polytechnic and university.','2026 registration was 5 Jan to 16 Feb. Finals were 22 to 23 May 2026.','Singapore.','AI projects, portfolio building and possible internship pathways through track owners.','https://naisc.aisingapore.org/'],
+        ['Singapore AI CTF','GovTech Singapore','Annual watch','watchlist','stem-tech','competition','Pre-university category for Singapore Citizens or PRs in JC, IP, polytechnic or ITE.','2025 registration opened 17 Sep. Prelims were 11 to 13 Oct, finals 21 Oct.','Singapore and online prelims.','AI security and cybersecurity portfolio builder.','https://www.tech.gov.sg/events/singapore-ai-ctf-2025/'],
+        ['AI Student Developer Conference','AI Singapore','Annual watch','watchlist','stem-tech','event','Active students from Singapore educational institutions, or Singapore Citizens or PR students.','2026 event was 22 to 23 May 2026. Watch for next run.','Marina Bay Sands, Singapore.','AI networking, workshops, industry exposure and career discovery.','https://aisdc.aisingapore.org/'],
+        ['Singapore Science and Engineering Fair','Science Centre Singapore, MOE and A*STAR','Annual watch','watchlist','stem-tech','competition','Secondary and pre-university students in MOE schools.','Annual competition. 2026 winners are already listed, so use as a next-cycle watchlist.','Singapore.','Research competition with strong university and STEM portfolio value.','https://www.science.edu.sg/for-schools/competitions/singapore-science-and-engineering-fair'],
+        ['National STEM Talent Search','Science Centre Singapore','Annual watch','watchlist','stem-tech','competition','Singapore students aged 15 to 21 with research projects.','Annual. Usually linked to strong SSEF research projects.','Singapore.','Advanced STEM showcase for students with serious research work.','https://www.science.edu.sg/for-schools/competitions/National-STEM-Talent-Search'],
+        ['SAYES','Science Centre Singapore','Ongoing','open','stem-tech','leadership','Ages 15 to 30 and alumni of listed Science Centre initiatives or volunteers with minimum 50 hours.','Ongoing registration with interview-based selection.','Singapore.','STEM leadership, networking and youth science community involvement.','https://www.science.edu.sg/visit-us/join-us/singapore-academy-of-young-engineers-scientists'],
+        ['Youth Corps Leaders Programme','Youth Corps Singapore','Annual','watchlist','social-impact','leadership','Youths aged 17 to 25 with leadership qualities and community service involvement.','Project track runs 9 to 12 months. Immersion track is 10 weeks full-time.','Singapore.','Social impact, leadership and community project experience.','https://www.youthcorps.gov.sg/lead'],
+        ['Youth Corps Community Internship','Youth Corps Singapore','Role-based','open','social-impact','internship','Mostly polytechnic students and above. Some roles may include A Level graduates or no minimum education.','Vacancies update by role and cohort. Check live listings.','Singapore.','Social sector internships in education, healthcare, seniors, youth and community work.','https://www.youthcorps.gov.sg/lead'],
+        ['National Gallery Singapore Internship','National Gallery Singapore','Annual intakes','watchlist','arts','internship','Full-time matriculated students or recent graduates, age 18 and above.','Intake 1 starts May or June, applications Jan or Feb. Intake 2 starts Aug or Sep, applications May or Jun.','National Gallery Singapore.','Arts, curatorial, audience engagement, digital marketing internship Singapore and museum work.','https://www.nationalgallery.sg/sg/en/about/careers-and-internships/internships.html']
+      ];
+
+      var cardsEl = root.querySelector('#sjaSgCards');
+      var search = root.querySelector('#sjaSgSearch');
+      var field = root.querySelector('#sjaSgField');
+      var type = root.querySelector('#sjaSgType');
+      var status = root.querySelector('#sjaSgStatus');
+      var count = root.querySelector('#sjaSgCount');
+      var clear = root.querySelector('#sjaSgClear');
+      var empty = root.querySelector('#sjaSgEmpty');
+
+      function esc(text) {
+        return String(text).replace(/[&<>"']/g, function (m) {
+          return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+        });
+      }
+
+      function makeCard(item) {
+        var tagClass = item[3] === 'closed' ? 'closed' : item[3] === 'watchlist' ? 'watchlist' : 'open';
+        var text = item.join(' ').toLowerCase();
+        return '<article class="card" data-field="' + esc(item[4]) + '" data-type="' + esc(item[5]) + '" data-status="' + esc(item[3]) + '" data-text="' + esc(text) + '">' +
+          '<span class="tag ' + tagClass + '">' + esc(item[2]) + '</span>' +
+          '<h3>' + esc(item[0]) + '</h3>' +
+          '<p class="org">' + esc(item[1]) + '</p>' +
+          '<div class="facts">' +
+          '<div class="fact"><b>Type</b><span>' + esc(item[5].replace('-', ' ')) + '</span></div>' +
+          '<div class="fact"><b>Eligibility</b><span>' + esc(item[6]) + '</span></div>' +
+          '<div class="fact"><b>Dates</b><span>' + esc(item[7]) + '</span></div>' +
+          '<div class="fact"><b>Location</b><span>' + esc(item[8]) + '</span></div>' +
+          '<div class="fact"><b>Notes</b><span>' + esc(item[9]) + '</span></div>' +
+          '</div>' +
+          '<a class="apply" href="' + esc(item[10]) + '" target="_blank" rel="noopener">Apply / Details</a>' +
+          '</article>';
+      }
+
+      cardsEl.innerHTML = opportunities.map(makeCard).join('');
+      var cards = Array.prototype.slice.call(root.querySelectorAll('.card'));
+
+      function normal(value) {
+        return String(value || '').toLowerCase().trim();
+      }
+
+      function render() {
+        var q = normal(search.value);
+        var f = normal(field.value);
+        var t = normal(type.value);
+        var s = normal(status.value);
+        var visible = 0;
+
+        cards.forEach(function (card) {
+          var match = (!q || normal(card.dataset.text + ' ' + card.textContent).indexOf(q) !== -1) &&
+            (!f || normal(card.dataset.field).indexOf(f) !== -1) &&
+            (!t || normal(card.dataset.type) === t) &&
+            (!s || normal(card.dataset.status) === s);
+
+          card.classList.toggle('hidden', !match);
+          if (match) visible += 1;
+        });
+
+        count.textContent = visible === cards.length
+          ? 'Showing all ' + visible + ' opportunities'
+          : 'Showing ' + visible + ' of ' + cards.length + ' opportunities';
+
+        empty.style.display = visible ? 'none' : 'block';
+      }
+
+      [search, field, type, status].forEach(function (input) {
+        input.addEventListener('input', render);
+        input.addEventListener('change', render);
+      });
+
+      clear.addEventListener('click', function () {
+        search.value = '';
+        field.value = '';
+        type.value = '';
+        status.value = '';
+        render();
+      });
+
+      render();
+    })();
+  </script>
+</section>

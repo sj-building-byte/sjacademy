@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Solve it in your head</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Caveat"; src: url("assets/brand/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+      :root { --yellow: #FCE004; --ink: #151515; --canvas: #F7F5EF; --note: #B54200; --grey: #6a6a6a; --pen: #D63A2F; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--canvas); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+      .abs { position: absolute; }
+      .ruled { background-color: var(--canvas); background-image: repeating-linear-gradient(to bottom, transparent 0 63px, rgba(21,21,21,0.06) 63px 65px); }
+      .ruled-y { background-color: var(--yellow); background-image: repeating-linear-gradient(to bottom, transparent 0 63px, rgba(21,21,21,0.07) 63px 65px); }
+      .mask { overflow: hidden; display: block; padding-bottom: 0.08em; }
+      .mask > span { display: block; }
+      .hlw { position: relative; z-index: 0; isolation: isolate; display: inline-block; }
+      .fr { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; font-size: 0.62em; line-height: 1.05; margin: 0 0.06em; }
+      .fr > span { display: block; line-height: 1.25; }
+      .fr > span:first-child { border-bottom: 0.08em solid currentColor; padding: 0 0.12em; }
+      .stp:has(.fr) { line-height: 1.65; }
+      #steps:has(.fr) { top: 1278px; }
+      #tip .row .fr { font-size: 0.72em; }
+      .stp .fr { font-size: 0.66em; }
+      .mk { position: absolute; left: -0.12em; right: -0.12em; top: 12%; bottom: 4%; background: var(--yellow); z-index: -1; transform-origin: left center; border-radius: 0.08em; }
+
+      #logo { top: 244px; left: 100px; width: 290px; opacity: 0; }
+      #tag { top: 250px; right: 100px; font-size: 26px; font-weight: 600; background: var(--ink); color: #fff; padding: 8px 20px; border-radius: 999px; opacity: 0; }
+      #tag b { color: var(--yellow); font-weight: 600; }
+
+      .head { top: 340px; left: 80px; right: 80px; text-align: center; }
+      .head .a { font-size: 86px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; }
+      .head .b { font-size: 50px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; color: var(--grey); }
+      #hr .a { font-size: 80px; }
+      #hr .b2 { font-size: 80px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; }
+
+      #dia { top: 560px; left: 0; width: 1080px; height: 720px; overflow: visible; }
+      .lbl { position: absolute; font-weight: 700; letter-spacing: -0.02em; line-height: 1; opacity: 0; white-space: nowrap; }
+      .lbl.pt { color: var(--grey); font-weight: 600; }
+      .lbl.red { font-family: "Caveat", cursive; font-weight: 600; color: var(--pen); }
+      .lbl.ans span { background: var(--yellow); border-radius: 14px; padding: 0 16px 4px; display: inline-block; }
+      #hint { top: 640px; right: 100px; font-family: "Caveat", cursive; font-weight: 600; font-size: 60px; color: var(--note); opacity: 0; text-align: right; line-height: 1.0; }
+
+      #findx { top: 1310px; left: 60px; right: 60px; text-align: center; font-size: 66px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+      #steps { top: 1300px; left: 80px; right: 80px; text-align: center; }
+      .stp { font-size: 46px; font-weight: 600; line-height: 1.45; color: var(--grey); }
+      .stp b { color: var(--ink); background: var(--yellow); border-radius: 10px; padding: 0 12px; }
+
+      #timer { top: 1396px; left: 0; right: 0; display: flex; justify-content: center; }
+      #tbox { position: relative; width: 290px; height: 290px; border-radius: 50%; background: var(--ink); opacity: 0; }
+      #tbox svg { position: absolute; inset: 0; width: 290px; height: 290px; transform: rotate(-90deg); }
+      #tnum { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 132px; font-weight: 700; letter-spacing: -0.04em; }
+      #tup { top: 1500px; left: 0; right: 0; display: flex; justify-content: center; }
+      #tup span { background: var(--pen); color: #fff; font-size: 54px; font-weight: 700; padding: 14px 40px; border-radius: 18px; opacity: 0; display: block; }
+
+      #ans { top: 1528px; left: 0; right: 0; display: flex; justify-content: center; }
+      #ans-card { background: var(--ink); color: var(--yellow); border-radius: 30px; padding: 10px 54px 16px; font-size: 104px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; opacity: 0; box-shadow: 0 30px 70px rgba(21,21,21,0.25); white-space: nowrap; }
+      #tip { top: 1310px; left: 90px; right: 90px; background: #fff; border-radius: 30px; padding: 28px 32px 30px; box-shadow: 0 30px 70px rgba(21,21,21,0.14), 0 2px 6px rgba(21,21,21,0.06); opacity: 0; }
+      #tip .k { font-size: 30px; font-weight: 600; color: var(--grey); }
+      #tip .row { display: flex; gap: 14px; margin-top: 14px; flex-wrap: wrap; }
+      #tip .row > span { background: var(--yellow); font-size: 40px; font-weight: 700; padding: 8px 20px; border-radius: 14px; white-space: nowrap; }
+
+      #e-logo { top: 270px; left: 0; right: 0; display: flex; justify-content: center; }
+      #e-logo img { width: 520px; opacity: 0; }
+      #e-words { top: 520px; left: 60px; right: 60px; text-align: center; }
+      #e-words .a { font-size: 92px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.12; color: rgba(21,21,21,0.55); }
+      #e-words .b { font-size: 118px; font-weight: 700; letter-spacing: -0.045em; line-height: 1.06; }
+      #e-pill { top: 860px; left: 0; right: 0; display: flex; justify-content: center; }
+      #e-pill span { background: var(--ink); color: var(--yellow); font-size: 54px; font-weight: 600; padding: 20px 50px; border-radius: 999px; opacity: 0; display: block; }
+      #e-ans { top: 1080px; left: 0; right: 0; display: flex; justify-content: center; }
+      #e-ans-c { background: #fff; border-radius: 30px; padding: 26px 56px 30px; text-align: center; box-shadow: 0 30px 70px rgba(21,21,21,0.18); opacity: 0; }
+      #e-ans .k { font-size: 30px; font-weight: 600; color: var(--grey); }
+      #e-ans .v { font-size: 110px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; white-space: nowrap; }
+      #e-save { top: 1420px; left: 0; right: 0; text-align: center; font-family: "Caveat", cursive; font-weight: 600; font-size: 70px; opacity: 0; }
+      #e-handle { top: 1530px; left: 0; right: 0; text-align: center; font-size: 40px; font-weight: 600; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+      <!-- sound: no music in this series; desk sounds and the sonic logo only -->
+      <audio id="sx-draw" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="0.3" data-duration="0.55" data-track-index="10" data-volume="0.45"></audio>
+      <audio id="sx-t0" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="2.2" data-duration="0.08" data-track-index="11" data-volume="0.6"></audio>
+      <audio id="sx-t1" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="3.2" data-duration="0.08" data-track-index="11" data-volume="0.6"></audio>
+      <audio id="sx-t2" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="4.2" data-duration="0.08" data-track-index="11" data-volume="0.6"></audio>
+      <audio id="sx-t3" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="5.2" data-duration="0.08" data-track-index="11" data-volume="0.6"></audio>
+      <audio id="sx-t4" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="6.2" data-duration="0.08" data-track-index="11" data-volume="0.6"></audio>
+      <audio id="sx-t5" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="7.2" data-duration="0.08" data-track-index="11" data-volume="0.6"></audio>
+      <audio id="sx-t6" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="8.2" data-duration="0.08" data-track-index="11" data-volume="0.6"></audio>
+      <audio id="sx-t7" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="9.2" data-duration="0.08" data-track-index="11" data-volume="0.8"></audio>
+      <audio id="sx-t8" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="10.2" data-duration="0.08" data-track-index="11" data-volume="0.8"></audio>
+      <audio id="sx-t9" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="11.2" data-duration="0.08" data-track-index="11" data-volume="0.8"></audio>
+      <audio id="sx-up" src="assets/sfx/sj-sfx-stamp.wav" data-start="12.2" data-duration="0.48" data-track-index="10" data-volume="0.6"></audio>
+      <audio id="sx-hl" src="assets/sfx/sj-sfx-highlighter-swipe.wav" data-start="13.2" data-duration="0.38" data-track-index="10" data-volume="0.5"></audio>
+      <audio id="sx-pen" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="13.6" data-duration="0.55" data-track-index="10" data-volume="0.4"></audio>
+      <audio id="sx-ans" src="assets/sfx/sj-sfx-stamp.wav" data-start="16.0" data-duration="0.48" data-track-index="10" data-volume="0.7"></audio>
+      <audio id="sx-tip" src="assets/sfx/sj-sfx-paper-slide.wav" data-start="17.7" data-duration="0.5" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="sx-logo" src="assets/sfx/sj-sonic-logo-short.wav" data-start="20.25" data-duration="2" data-track-index="12" data-volume="0.9"></audio>
+
+      <div id="s1" class="clip ruled" data-start="0" data-duration="20" data-track-index="1">
+        <img id="logo" class="abs" src="assets/brand/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy">
+        <div id="tag" class="abs">Solve it in your head · <b>#8</b></div>
+
+        <div class="head abs" id="hq">
+          <div class="mask a"><span id="hq1">10 seconds.</span></div>
+          <div class="mask b"><span id="hq2">No pen. No calculator.</span></div>
+        </div>
+        <div class="head abs" id="hr">
+          <div class="mask a"><span id="hr1">Don't solve for x.</span></div>
+          <div class="mask b2"><span id="hr2"><span class="hlw">Square it.<i class="mk" id="mk-r"></i></span></span></div>
+        </div>
+
+        <svg id="dia" class="abs" viewBox="0 0 1080 720" data-layout-allow-overflow>
+<path id="q1" d="M 290 220 L 790 220 Q 830 220 830 260 L 830 360 Q 830 400 790 400 L 290 400 Q 250 400 250 360 L 250 260 Q 250 220 290 220 Z" fill="none" stroke="#151515" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" />
+<path id="q2" d="M 540 410 L 540 500" fill="none" stroke="#151515" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" />
+<path id="q3" d="M 515 475 L 540 500 L 565 475" fill="none" stroke="#151515" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" />
+<path id="q4" d="M 440 520 L 640 520 L 640 660 L 440 660 Z" fill="none" stroke="#151515" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" />
+<path id="r1" d="M 540 410 L 540 500" fill="none" stroke="#D63A2F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" />
+        </svg>
+        <div class="lbl pt" id="lgiven" style="left:250px;top:722px;font-size:40px">Given</div>
+        <div class="lbl " id="leq" style="left:340px;top:808px;font-size:96px">x + <span class="fr"><span>1</span><span>x</span></span> = 5</div>
+        <div class="lbl x" id="lx" style="left:513px;top:1100px;font-size:96px">?</div>
+        <div class="lbl red" id="lsq2" style="left:580px;top:985px;font-size:52px">square both sides</div>
+        <div class="lbl red" id="lmid" style="left:662px;top:1120px;font-size:54px">middle term = 2</div>
+        <div id="hint" class="abs">Hint: don't<br>solve for x.</div>
+
+        <div id="findx" class="abs"><div class="mask"><span id="fx">Find x² + <span class="fr"><span>1</span><span>x²</span></span>.</span></div></div>
+        <div id="steps" class="abs">
+          <div class="mask stp"><span id="st0">Square it: (x + <span class="fr"><span>1</span><span>x</span></span>)² = 25</span></div>
+          <div class="mask stp"><span id="st1">x² + 2 + <span class="fr"><span>1</span><span>x²</span></span> = 25</span></div>
+          <div class="mask stp"><span id="st2">Now finish it in your head.</span></div>
+        </div>
+
+        <div id="timer" class="abs"><div id="tbox">
+          <svg viewBox="0 0 250 250"><circle cx="125" cy="125" r="100" fill="none" stroke="#3a3a3a" stroke-width="14"/>
+            <circle id="ring" cx="125" cy="125" r="100" fill="none" stroke="#FCE004" stroke-width="14" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0"/></svg>
+          <div id="tnum">10</div>
+        </div></div>
+        <div id="tup" class="abs"><span id="tup-s">Time's up.</span></div>
+
+        <div id="ans" class="abs"><div id="ans-card">Your turn.</div></div>
+        <div id="tip" class="abs"><div class="k">Worth knowing</div><div class="row"><span>(x + <span class="fr"><span>1</span><span>x</span></span>)² = x² + 2 + <span class="fr"><span>1</span><span>x²</span></span></span><span>(x − <span class="fr"><span>1</span><span>x</span></span>)² = x² − 2 + <span class="fr"><span>1</span><span>x²</span></span></span><span>For x ≠ 0: x × <span class="fr"><span>1</span><span>x</span></span> = 1</span></div></div>
+      </div>
+
+      <div id="s2" class="clip ruled-y" data-start="20" data-duration="4" data-track-index="1">
+        <div id="e-logo" class="abs"><img id="e-logo-img" src="assets/brand/sj-academy-logo-horizontal-on-yellow.svg" alt="SJ Academy"></div>
+        <div id="e-words" class="abs">
+          <div class="mask a"><span id="ew1">What did</span></div>
+          <div class="mask b"><span id="ew2">you get?</span></div>
+        </div>
+        <div id="e-pill" class="abs"><span id="e-pill-s">Comment your answer.</span></div>
+        <div id="e-ans" class="abs"><div id="e-ans-c"><div class="k">The answer</div><div class="v">?</div></div></div>
+        <div id="e-save" class="abs">Save it for your next test.</div>
+        <div id="e-handle" class="abs">@sjacademypk</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const ENTER = "expo.out", EXIT = "expo.in";
+      const maskUp = (sel, t, d = 0.45) => tl.fromTo(sel, { yPercent: 115 }, { yPercent: 0, duration: d, ease: ENTER }, t);
+      const maskOut = (sel, t) => tl.to(sel, { yPercent: -115, duration: 0.3, ease: EXIT }, t);
+      const swipe = (sel, t, d = 0.3) => tl.fromTo(sel, { scaleX: 0 }, { scaleX: 1, duration: d, ease: "power2.out" }, t);
+      const pen = (sel, t, d) => tl.fromTo(sel, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "sine.inOut" }, t);
+      const pop = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, t);
+      const stamp = (sel, t, rot) => {
+        tl.fromTo(sel, { scale: 1.35, opacity: 0, rotation: rot }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(1.7)" }, t);
+        tl.fromTo(sel, { x: -3 }, { x: 3, duration: 0.033, repeat: 3, yoyo: true, ease: "none" }, t + 0.14);
+        tl.to(sel, { x: 0, duration: 0.01 }, t + 0.28);
+      };
+
+      // the question
+      tl.fromTo("#logo", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.4, ease: ENTER }, 0);
+      tl.fromTo("#tag", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.4, ease: ENTER }, 0.05);
+      maskUp("#hq1", 0.0);
+      maskUp("#hq2", 0.15);
+      tl.set(["#hr1", "#hr2", "#st0", "#st1", "#st2"], { yPercent: 115 }, 0);
+      tl.set(["#hr", "#steps"], { opacity: 0 }, 0);
+      maskUp("#fx", 1.45);
+
+      // episode-specific drawing and reveal
+      pop("#lgiven", 1.25);
+      pop("#leq", 1.25);
+      pop("#lx", 1.25);
+      pen("#r1", 13.3, 0.3);
+      pop("#lsq2", 13.6);
+      pop("#lmid", 14.4);
+      tl.fromTo("#lx", { rotation: -6 }, { rotation: 6, duration: 0.5, repeat: 9, yoyo: true, ease: "sine.inOut" }, 2.2);
+      tl.to("#lx", { rotation: 0, duration: 0.2 }, 12.2);
+      pen("#q1", 0.30, 0.35);
+      pen("#q2", 0.52, 0.35);
+      pen("#q3", 0.74, 0.35);
+      pen("#q4", 0.96, 0.35);
+
+      // ten seconds
+      tl.fromTo("#tbox", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 1.85);
+      tl.fromTo("#ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: 10, ease: "none" }, 2.2);
+      const clock = { v: 10 };
+      tl.fromTo(clock, { v: 10 }, { v: 0, duration: 10, ease: "none", onUpdate: () => { document.getElementById("tnum").textContent = Math.ceil(clock.v - 1e-6); } }, 2.2);
+      for (let i = 0; i < 10; i++) tl.fromTo("#tnum", { scale: 1.18 }, { scale: 1, duration: 0.3, ease: "power2.out" }, 2.2 + i);
+      tl.to("#ring", { stroke: "#D63A2F", duration: 0.2 }, 9.2);
+      tl.fromTo("#hint", { opacity: 0, rotation: -12, scale: 0.9 }, { opacity: 1, rotation: -5, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 7.2);
+      tl.to("#tbox", { opacity: 0, scale: 0.8, duration: 0.2, ease: EXIT }, 12.2);
+      stamp("#tup-s", 12.2, -4);
+      tl.to("#tup-s", { opacity: 0, duration: 0.2 }, 12.95);
+      tl.to("#hint", { opacity: 0, duration: 0.2 }, 12.4);
+
+      // the reveal: trick, three steps, answer, tip
+      maskOut("#hq1", 12.6);
+      maskOut("#hq2", 12.65);
+      tl.set(["#hq1", "#hq2"], { opacity: 0 }, 12.96);
+      tl.set("#hr", { opacity: 1 }, 12.84);
+      maskUp("#hr1", 12.85);
+      maskUp("#hr2", 13.0);
+      swipe("#mk-r", 13.2, 0.35);
+      maskOut("#fx", 13.0);
+      tl.set("#fx", { opacity: 0 }, 13.31);
+      tl.set("#steps", { opacity: 1 }, 13.39);
+      maskUp("#st0", 13.4);
+      maskUp("#st1", 14.3);
+      maskUp("#st2", 15.2);
+      stamp("#ans-card", 16.0, 5);
+      tl.to("#ans-card", { opacity: 0, y: -30, duration: 0.25, ease: EXIT }, 17.45);
+      tl.to("#steps", { opacity: 0, duration: 0.25, ease: EXIT }, 17.45);
+      tl.fromTo("#tip", { opacity: 0, y: 120, rotation: 3 }, { opacity: 1, y: 0, rotation: 0, duration: 0.6, ease: ENTER }, 17.7);
+
+      // end card, sonic logo lands with the logo
+      tl.fromTo("#e-logo-img", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: ENTER }, 20.1);
+      maskUp("#ew1", 20.4);
+      maskUp("#ew2", 20.55);
+      stamp("#e-pill-s", 21.1, -3);
+      tl.fromTo("#e-ans-c", { opacity: 0, y: 60, rotation: 3 }, { opacity: 1, y: 0, rotation: -2, duration: 0.6, ease: ENTER }, 21.3);
+      tl.fromTo("#e-save", { opacity: 0, rotation: -8 }, { opacity: 1, rotation: -3, duration: 0.35, ease: "back.out(1.7)" }, 21.9);
+      tl.fromTo("#e-handle", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: ENTER }, 22.2);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

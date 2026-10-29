@@ -1,0 +1,624 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 15,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 616 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 13 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s1\"> is a timeline element that contains nested <svg>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s3\"> is a timeline element that contains nested <div id=\"s3-stars\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s3",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s4\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s4",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s4\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s5\"> is a timeline element that contains nested <div id=\"s5-stars\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s5",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s5\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s6\"> is a timeline element that contains nested <div id=\"s6-stars\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s6",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s6\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s7\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s7",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s7\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s8\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s8",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s8\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s9\"> is a timeline element that contains nested <svg>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s9",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s9\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s10\"> is a timeline element that contains nested <div id=\"s10-stars\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s10",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s10\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s11\"> is a timeline element that contains nested <div id=\"s11-stars\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s11",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s11\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s12\"> is a timeline element that contains nested <div id=\"s12-h\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s12",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s12\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s13\"> is a timeline element that contains nested <svg>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s13",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s13\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"se\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#se",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-gravity/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"se\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 7,
+    "findings": [
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 4.411,
+        "selector": "#ev1",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 90,
+          "top": 677.27,
+          "right": 366.97,
+          "bottom": 778.07,
+          "width": 276.97,
+          "height": 100.8
+        },
+        "containerSelector": "#s1-every > div:nth-of-type(1)",
+        "text": "Every.",
+        "fixHint": "Text is 277px x 101px inside 305px x 110px and overflows by up to 28px; increase the container height to at least ~138px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 90,
+          "top": 640,
+          "right": 394.91,
+          "bottom": 750.39,
+          "width": 304.91,
+          "height": 110.39
+        },
+        "overflow": {
+          "bottom": 27.68
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 90,
+          "y": 677.27,
+          "width": 276.97,
+          "height": 100.8
+        },
+        "firstSeen": 4.411,
+        "lastSeen": 4.411,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.411
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 4.411,
+        "selector": "#ev1",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 90,
+          "top": 678.17,
+          "right": 394.91,
+          "bottom": 778.96,
+          "width": 304.91,
+          "height": 100.8
+        },
+        "containerSelector": "#s1-every > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 90,
+          "top": 640,
+          "right": 394.91,
+          "bottom": 750.39,
+          "width": 304.91,
+          "height": 110.39
+        },
+        "overflow": {
+          "bottom": 28.57
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 90,
+          "y": 678.17,
+          "width": 304.91,
+          "height": 100.8
+        },
+        "firstSeen": 4.411,
+        "lastSeen": 4.411,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.411
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 4.411,
+        "selector": "#ev2",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 90,
+          "top": 901.59,
+          "right": 394.91,
+          "bottom": 1002.38,
+          "width": 304.91,
+          "height": 100.8
+        },
+        "containerSelector": "#s1-every > div:nth-of-type(2)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 90,
+          "top": 750.39,
+          "right": 394.91,
+          "bottom": 860.78,
+          "width": 304.91,
+          "height": 110.39
+        },
+        "overflow": {
+          "bottom": 141.6
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 90,
+          "y": 901.59,
+          "width": 304.91,
+          "height": 100.8
+        },
+        "firstSeen": 4.411,
+        "lastSeen": 4.411,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.411
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 4.411,
+        "selector": "#ev3",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 90,
+          "top": 1011.98,
+          "right": 394.91,
+          "bottom": 1112.77,
+          "width": 304.91,
+          "height": 100.8
+        },
+        "containerSelector": "#s1-every > div:nth-of-type(3)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 90,
+          "top": 860.78,
+          "right": 394.91,
+          "bottom": 971.17,
+          "width": 304.91,
+          "height": 110.39
+        },
+        "overflow": {
+          "bottom": 141.6
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 90,
+          "y": 1011.98,
+          "width": 304.91,
+          "height": 100.8
+        },
+        "firstSeen": 4.411,
+        "lastSeen": 4.411,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.411
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 4.411,
+        "selector": "#why1",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 70,
+          "top": 582,
+          "right": 1010,
+          "bottom": 690,
+          "width": 940,
+          "height": 108
+        },
+        "containerSelector": "#s1-why > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 70,
+          "top": 420,
+          "right": 1010,
+          "bottom": 538,
+          "width": 940,
+          "height": 118
+        },
+        "overflow": {
+          "bottom": 152
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 70,
+          "y": 582,
+          "width": 940,
+          "height": 108
+        },
+        "firstSeen": 4.411,
+        "lastSeen": 4.411,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.411
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 4.411,
+        "selector": "#why2",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 70,
+          "top": 700,
+          "right": 1010,
+          "bottom": 808,
+          "width": 940,
+          "height": 108
+        },
+        "containerSelector": "#s1-why > div:nth-of-type(2)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 70,
+          "top": 538,
+          "right": 1010,
+          "bottom": 656,
+          "width": 940,
+          "height": 118
+        },
+        "overflow": {
+          "bottom": 152
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 70,
+          "y": 700,
+          "width": 940,
+          "height": 108
+        },
+        "firstSeen": 4.411,
+        "lastSeen": 4.411,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.411
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 13.233,
+        "selector": "#m2",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 70,
+          "top": 501.56,
+          "right": 1010,
+          "bottom": 579.31,
+          "width": 940,
+          "height": 77.75
+        },
+        "containerSelector": "#s3-h2 > div:nth-of-type(2)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 70,
+          "top": 384.94,
+          "right": 1010,
+          "bottom": 469.88,
+          "width": 940,
+          "height": 84.94
+        },
+        "overflow": {
+          "bottom": 109.43
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 70,
+          "y": 501.56,
+          "width": 940,
+          "height": 77.75
+        },
+        "firstSeen": 13.233,
+        "lastSeen": 13.233,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          13.233
+        ]
+      }
+    ],
+    "duration": 79.4,
+    "samples": [
+      4.411,
+      13.233,
+      22.056,
+      30.878,
+      39.7,
+      48.522,
+      57.344,
+      66.167,
+      74.989
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 7,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      4.411,
+      22.056,
+      39.7,
+      57.344,
+      74.989
+    ],
+    "checked": 10,
+    "passed": 10
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

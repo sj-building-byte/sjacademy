@@ -1,0 +1,467 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+    /* Gradient Background and Core Variables */
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 50%, #FFFDF5 100%);
+        background-attachment: fixed;
+    }
+
+    #sja-widget-root {
+      --sja-yellow: #FCE004;
+      --sja-light-yellow: #FFF9CC;
+      --sja-brown: #453516;
+      --sja-orange: #FE6100;
+      --sja-orange-hover: #E55800;
+      --sja-black: #111827;
+      --sja-dark-grey: #374151;
+      --sja-grey: #6B7280;
+      --sja-light-bg: #FFFFFF;
+      --sja-border-light: #E5E7EB;
+      --sja-transition: all 0.25s ease;
+      
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400; /* Font weight 400 as requested */
+      color: var(--sja-dark-grey);
+      line-height: 1.6;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #sja-widget-root *, #sja-widget-root *::before, #sja-widget-root *::after {
+      box-sizing: border-box;
+    }
+
+    .container { max-width: 1350px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    .sja-header { text-align: center; padding: 70px 0 50px; }
+    .sja-header h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; margin: 0 0 15px 0; line-height: 1.2; color: var(--sja-black); }
+    .sja-header p { font-size: 1.1rem; color: var(--sja-grey); max-width: 700px; margin: 0 auto; font-weight: 400; }
+    
+    /* Layout: Sidebar + Main Content */
+    .sja-layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 40px;
+        align-items: start;
+        padding-bottom: 80px;
+    }
+
+    /* Mobile Filter Toggle */
+    .sja-mobile-filter-btn {
+        display: none;
+        width: 100%; padding: 14px; background: var(--sja-white); border: 1px solid var(--sja-border-light);
+        border-radius: 12px; font-weight: 600; text-align: center; cursor: pointer; margin-bottom: 20px;
+        color: var(--sja-black); box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    /* Sidebar Filters */
+    .sja-sidebar {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 24px;
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.8);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        position: sticky;
+        top: 20px;
+    }
+    .sja-sidebar h3 { font-size: 1.2rem; font-weight: 600; margin: 0 0 20px 0; color: var(--sja-black); }
+    
+    .filter-group { margin-bottom: 25px; }
+    .filter-group h4 { font-size: 0.9rem; font-weight: 600; color: var(--sja-grey); text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 12px 0; }
+    
+    .filter-checkbox {
+        display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 0.95rem; font-weight: 400;
+    }
+    .filter-checkbox input {
+        width: 18px; height: 18px; border-radius: 4px; border: 1px solid var(--sja-border-light);
+        accent-color: var(--sja-orange); cursor: pointer;
+    }
+
+    /* Search Bar */
+    .sja-main-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; gap: 20px; }
+    .sja-search-wrapper { flex-grow: 1; position: relative; }
+    .sja-search-input { 
+        width: 100%; padding: 16px 20px 16px 45px; font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 400;
+        border: 1px solid var(--sja-border-light); border-radius: 12px; background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.02); transition: var(--sja-transition); outline: none;
+    }
+    .sja-search-input:focus { border-color: var(--sja-orange); box-shadow: 0 4px 15px rgba(254,97,0,0.1); }
+    .sja-search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #9CA3AF; width: 18px; height: 18px; }
+    
+    .sja-result-count { font-size: 14px; color: var(--sja-grey); font-weight: 500; white-space: nowrap; }
+
+    /* StartupStash Style Grid */
+    .sja-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+
+    /* The Card UI */
+    .sja-card {
+      background: var(--sja-white);
+      padding: 24px; 
+      border: 1px solid rgba(0,0,0,0.04);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      transition: var(--sja-transition);
+      display: flex; 
+      flex-direction: column; 
+      gap: 16px;
+      height: 100%;
+      position: relative;
+    }
+    .sja-card:hover { 
+      transform: translateY(-4px); 
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06); 
+      border-color: rgba(0,0,0,0.08);
+    }
+    
+    /* Top Header: Logo + Title + Upvote */
+    .sja-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .sja-card-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: #FFFFFF;
+      border: 1px solid var(--sja-border-light);
+      padding: 6px; 
+      flex-shrink: 0;
+    }
+
+    .sja-card-title-group {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding-top: 4px;
+    }
+
+    .sja-card h3 { 
+      font-size: 1.1rem; 
+      font-weight: 600; /* refined weight */
+      margin: 0 0 2px 0; 
+      line-height: 1.25; 
+      color: var(--sja-black); 
+    }
+    
+    .sja-card-subtitle {
+        font-size: 12px;
+        color: var(--sja-grey);
+        font-weight: 400;
+    }
+    .sja-card-subtitle strong { color: var(--sja-orange); font-weight: 500; }
+
+    /* Voting Widget */
+    .sja-upvote {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--sja-border-light);
+        border-radius: 8px;
+        padding: 6px 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: #fff;
+    }
+    .sja-upvote:hover { border-color: var(--sja-orange); background: #FFF7ED; }
+    .sja-upvote.voted { border-color: var(--sja-orange); background: var(--sja-orange); color: #fff; }
+    .sja-upvote svg { width: 16px; height: 16px; fill: currentColor; margin-bottom: 2px; }
+    .sja-upvote.voted svg { fill: #fff; }
+    .sja-upvote span { font-size: 12px; font-weight: 600; }
+    
+    /* Badges / Pills */
+    .sja-card-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+    .sja-meta-tag { 
+      font-size: 11px; 
+      font-weight: 500; 
+      background: #F3F4F6; 
+      padding: 4px 10px; 
+      border-radius: 20px; 
+      color: #4B5563;
+    }
+    .sja-meta-tag.green { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+    
+    /* Description */
+    .sja-card p { 
+      font-size: 13.5px; 
+      color: var(--sja-dark-grey); 
+      margin: 0; 
+      line-height: 1.6; 
+      font-weight: 400;
+      flex-grow: 1; 
+    }
+
+    /* Footer Tags */
+    .sja-card-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--sja-border-light);
+    }
+    .sja-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .sja-hashtag { font-size: 11px; color: var(--sja-grey); background: #F9FAFB; padding: 3px 8px; border-radius: 4px; }
+    
+    .sja-visit-link {
+        font-size: 13px; font-weight: 500; color: var(--sja-orange); text-decoration: none;
+        display: flex; align-items: center; gap: 4px; transition: 0.2s;
+    }
+    .sja-visit-link:hover { color: var(--sja-orange-hover); text-decoration: underline; }
+
+    /* Ad Card */
+    .sja-ad-card {
+        background: linear-gradient(135deg, var(--sja-orange) 0%, #D95300 100%);
+        color: #fff;
+        justify-content: center;
+        text-align: center;
+        border: none;
+    }
+    .sja-ad-card h3 { color: #fff; font-size: 1.4rem; font-weight: 600; }
+    .sja-ad-card p { color: rgba(255,255,255,0.9); }
+    .sja-ad-btn {
+        background: #fff; color: var(--sja-orange); font-weight: 600; padding: 12px 24px;
+        border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 991px) {
+        .sja-layout { grid-template-columns: 1fr; gap: 20px; }
+        .sja-sidebar { display: none; margin-bottom: 20px; }
+        .sja-sidebar.open { display: block; }
+        .sja-mobile-filter-btn { display: block; }
+        .sja-main-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+
+<div id="sja-widget-root">
+  <div class="container">
+    <div class="sja-header">
+      <h1>O & A Level Resources</h1>
+      <p>Check out the best curated tools, YouTube channels, and Past Papers for CAIE students. We gathered the top free and premium resources from around the web!</p>
+    </div>
+
+    <div class="sja-layout">
+        <!-- Sidebar Filters -->
+        <aside>
+            <button class="sja-mobile-filter-btn" id="sja-toggle-filters">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 8px;"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                Filter Resources
+            </button>
+            <div class="sja-sidebar" id="sja-sidebar">
+                <h3>Filter By:</h3>
+                
+                <div class="filter-group" id="filter-level">
+                    <h4>Category (Level)</h4>
+                    <label class="filter-checkbox"><input type="checkbox" value="O Level" class="sja-chk-level"> O Level / IGCSE</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="A Level" class="sja-chk-level"> A Level</label>
+                </div>
+
+                <div class="filter-group" id="filter-type">
+                    <h4>Resource Type</h4>
+                    <label class="filter-checkbox"><input type="checkbox" value="YouTube Channel" class="sja-chk-type"> YouTube Channels</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="Website / Notes" class="sja-chk-type"> Notes & Websites</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="Past Papers" class="sja-chk-type"> Past Papers</label>
+                    <label class="filter-checkbox"><input type="checkbox" value="App / Tool" class="sja-chk-type"> Apps & Tools</label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <div class="sja-main-header">
+                <div class="sja-search-wrapper">
+                    <svg class="sja-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <input type="text" id="sja-search" class="sja-search-input" placeholder="Search by name, subject, or description...">
+                </div>
+                <div class="sja-result-count" id="sja-count">0 Tools Found</div>
+            </div>
+
+            <div class="sja-grid" id="sja-results-grid">
+                <!-- Cards rendered via JS -->
+            </div>
+        </main>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+  import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+
+  // 1. Firebase Configuration from your screenshot
+  const firebaseConfig = {
+    apiKey: "AIzaSyBZIof0-5_8TI314K36KEFTKxjT5G7AYf8",
+    authDomain: "sj-academy-resource-vault.firebaseapp.com",
+    databaseURL: "https://sj-academy-resource-vault-default-rtdb.firebaseio.com", // Added standard RTDB url
+    projectId: "sj-academy-resource-vault",
+    storageBucket: "sj-academy-resource-vault.firebasestorage.app",
+    messagingSenderId: "1004229576995",
+    appId: "1:1004229576995:web:c7399ba9ad07f62a99e496"
+  };
+
+  // 2. Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  // 3. Application State & Data
+  const rawData = [{"Resource Name": "SJ Academy O-Level Past Papers", "Type": "Past Papers", "Level": "O Level", "Subject": "All Subjects", "Description": "Ad-free, instantly downloadable topical and yearly past papers for Cambridge O Levels.", "Link": "https://sjacademy.pk/o-level-past-papers/", "Is_SJ_Academy_Resource": "Yes", "id": "res_0", "votes": 422, "Image_URL": "https://sjacademy.pk/wp-content/uploads/2023/10/SJ-Academy-Logo-1.png"}, {"Resource Name": "SJ Academy A-Level Past Papers", "Type": "Past Papers", "Level": "A Level", "Subject": "All Subjects", "Description": "Comprehensive directory of A Level past papers covering 20+ subjects.", "Link": "https://sjacademy.pk/a-level-past-papers/", "Is_SJ_Academy_Resource": "Yes", "id": "res_1", "votes": 413, "Image_URL": "https://sjacademy.pk/wp-content/uploads/2023/10/SJ-Academy-Logo-1.png"}, {"Resource Name": "SJ Academy IBCC Equivalence Calculator", "Type": "Tool / App", "Level": "O & A Level", "Subject": "General", "Description": "Instantly calculate your Pakistani IBCC equivalence marks from CAIE O and A Level grades.", "Link": "https://sjacademy.pk/ibcc-equivalence-calculator/", "Is_SJ_Academy_Resource": "Yes", "id": "res_2", "votes": 413, "Image_URL": "https://sjacademy.pk/wp-content/uploads/2023/10/SJ-Academy-Logo-1.png"}, {"Resource Name": "SJ Academy Scholarship Test", "Type": "Tool / App", "Level": "O & A Level", "Subject": "General", "Description": "Take the interactive scholarship test to see your eligibility for up to 100% off tuition fees.", "Link": "https://sjacademy.pk/scholarship-test/", "Is_SJ_Academy_Resource": "Yes", "id": "res_3", "votes": 425, "Image_URL": "https://sjacademy.pk/wp-content/uploads/2023/10/SJ-Academy-Logo-1.png"}, {"Resource Name": "CAIE Private Candidate Registration", "Type": "Service", "Level": "O & A Level", "Subject": "General", "Description": "Seamless, hassle-free registration service for private O and A level candidates in Pakistan.", "Link": "https://sjacademy.pk/caie-private-candidate-registration/", "Is_SJ_Academy_Resource": "Yes", "id": "res_4", "votes": 415, "Image_URL": "https://sjacademy.pk/wp-content/uploads/2023/10/SJ-Academy-Logo-1.png"}, {"Resource Name": "SJ Academy Official YouTube", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "General", "Description": "Expert tutorials, exam hacks, and walkthroughs by KGS faculty and top CAIE instructors.", "Link": "https://youtube.com/@sjacademy", "Is_SJ_Academy_Resource": "Yes", "id": "res_5", "votes": 400, "Image_URL": "https://unavatar.io/youtube/sjacademy"}, {"Resource Name": "SJ Academy Official Instagram", "Type": "Community", "Level": "O & A Level", "Subject": "General", "Description": "Daily CAIE updates, quick tips, and student community announcements.", "Link": "https://instagram.com/sjacademy", "Is_SJ_Academy_Resource": "Yes", "id": "res_6", "votes": 438, "Image_URL": "https://unavatar.io/instagram/sjacademy"}, {"Resource Name": "Zainematics", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Mathematics", "Description": "Legendary channel for CAIE O & A Level Maths. Brilliant Urdu/Hindi explanations for South Asian students.", "Link": "https://www.youtube.com/@Zainematics", "Is_SJ_Academy_Resource": "No", "id": "res_7", "votes": 83, "Image_URL": "https://unavatar.io/youtube/Zainematics"}, {"Resource Name": "TLMaths", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Mathematics", "Description": "Over 3000 videos covering the entire A Level Maths and Further Maths syllabus in bite-sized pieces.", "Link": "https://www.youtube.com/@TLMaths", "Is_SJ_Academy_Resource": "No", "id": "res_8", "votes": 123, "Image_URL": "https://unavatar.io/youtube/TLMaths"}, {"Resource Name": "Intuitive", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Mathematics", "Description": "Focuses heavily on past paper exam hacks and worksheet walkthroughs. Incredible for exam prep.", "Link": "https://www.youtube.com/@Intuitive_education", "Is_SJ_Academy_Resource": "No", "id": "res_9", "votes": 73, "Image_URL": "https://unavatar.io/youtube/Intuitive_education"}, {"Resource Name": "Bicen Maths", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Mathematics", "Description": "High-quality, full-length A Level Maths whiteboard lessons. Great for learning from scratch.", "Link": "https://www.youtube.com/@BicenMaths", "Is_SJ_Academy_Resource": "No", "id": "res_10", "votes": 206, "Image_URL": "https://unavatar.io/youtube/BicenMaths"}, {"Resource Name": "The Ginger Mathematician", "Type": "YouTube Channel", "Level": "O Level", "Subject": "Mathematics", "Description": "Specializes in IGCSE and O Level Mathematics walkthroughs, predictions, and tips.", "Link": "https://www.youtube.com/@TheGingerMathematician", "Is_SJ_Academy_Resource": "No", "id": "res_11", "votes": 266, "Image_URL": "https://unavatar.io/youtube/TheGingerMathematician"}, {"Resource Name": "Physics Online", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Physics", "Description": "Run by Lewis Matheson. Excellent visual experiments and theory breakdowns for A Level Physics.", "Link": "https://www.youtube.com/@PhysicsOnline", "Is_SJ_Academy_Resource": "No", "id": "res_12", "votes": 286, "Image_URL": "https://unavatar.io/youtube/PhysicsOnline"}, {"Resource Name": "ETphysics", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Physics", "Description": "In-depth CAIE specific paper 1, 2, and 4 walkthroughs. Perfect for understanding the Cambridge mark scheme.", "Link": "https://www.youtube.com/@ETphysics", "Is_SJ_Academy_Resource": "No", "id": "res_13", "votes": 201, "Image_URL": "https://unavatar.io/youtube/ETphysics"}, {"Resource Name": "Science Shorts", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Physics", "Description": "Rapid-fire syllabus recaps and summary videos. Ideal for night-before revision.", "Link": "https://www.youtube.com/@ScienceShorts", "Is_SJ_Academy_Resource": "No", "id": "res_14", "votes": 97, "Image_URL": "https://unavatar.io/youtube/ScienceShorts"}, {"Resource Name": "Prosperity Academy", "Type": "YouTube Channel", "Level": "O Level", "Subject": "Physics", "Description": "Excellent O Level and IGCSE Physics topical revision videos.", "Link": "https://www.youtube.com/@ProsperityAcademy", "Is_SJ_Academy_Resource": "No", "id": "res_15", "votes": 189, "Image_URL": "https://unavatar.io/youtube/ProsperityAcademy"}, {"Resource Name": "Chemguide", "Type": "Website / Notes", "Level": "A Level", "Subject": "Chemistry", "Description": "The absolute gold standard for A Level Physical, Inorganic, and Organic Chemistry explanations.", "Link": "https://www.chemguide.co.uk/", "Is_SJ_Academy_Resource": "No", "id": "res_16", "votes": 412, "Image_URL": "https://logo.clearbit.com/chemguide.co.uk"}, {"Resource Name": "Allery Chemistry", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Chemistry", "Description": "Clear, well-structured module breakdowns and revision tutorials for A Level Chemistry.", "Link": "https://www.youtube.com/@AlleryChemistry", "Is_SJ_Academy_Resource": "No", "id": "res_17", "votes": 338, "Image_URL": "https://unavatar.io/youtube/AlleryChemistry"}, {"Resource Name": "Bilawal Khan", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Chemistry", "Description": "Cambridge specific Chemistry lessons, extremely popular among students in the Middle East and Pakistan.", "Link": "https://www.youtube.com/@BilawalKhan", "Is_SJ_Academy_Resource": "No", "id": "res_18", "votes": 150, "Image_URL": "https://unavatar.io/youtube/BilawalKhan"}, {"Resource Name": "FreeScienceLessons", "Type": "YouTube Channel", "Level": "O Level", "Subject": "Chemistry", "Description": "Straight to the point, no-nonsense foundational science concepts for O Levels/IGCSE.", "Link": "https://www.youtube.com/@Freesciencelessons", "Is_SJ_Academy_Resource": "No", "id": "res_19", "votes": 355, "Image_URL": "https://unavatar.io/youtube/Freesciencelessons"}, {"Resource Name": "Behlogy", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Biology", "Description": "In-depth CAIE A Level Biology syllabus walkthroughs. Very highly rated by A* students.", "Link": "https://www.youtube.com/@Behlogy", "Is_SJ_Academy_Resource": "No", "id": "res_20", "votes": 253, "Image_URL": "https://unavatar.io/youtube/Behlogy"}, {"Resource Name": "Amoeba Sisters", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Biology", "Description": "Fun, animated videos that make complex cellular and molecular biology concepts easy to grasp.", "Link": "https://www.youtube.com/@AmoebaSisters", "Is_SJ_Academy_Resource": "No", "id": "res_21", "votes": 273, "Image_URL": "https://unavatar.io/youtube/AmoebaSisters"}, {"Resource Name": "Cognito", "Type": "YouTube Channel", "Level": "O Level", "Subject": "Biology", "Description": "Visual animations and concise explanations for O Level / IGCSE Sciences.", "Link": "https://www.youtube.com/@Cognitoedu", "Is_SJ_Academy_Resource": "No", "id": "res_22", "votes": 69, "Image_URL": "https://unavatar.io/youtube/Cognitoedu"}, {"Resource Name": "DSR Biology", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Biology", "Description": "O and A Level topical mastery, specific to the CAIE syllabus.", "Link": "https://www.youtube.com/@dsrbiology", "Is_SJ_Academy_Resource": "No", "id": "res_23", "votes": 231, "Image_URL": "https://unavatar.io/youtube/dsrbiology"}, {"Resource Name": "Papersdock", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Computer Science", "Description": "The best channel for CAIE CS (2210/9618). Covers pseudocode, Python, and theory.", "Link": "https://www.youtube.com/@papersdock", "Is_SJ_Academy_Resource": "No", "id": "res_24", "votes": 51, "Image_URL": "https://unavatar.io/youtube/papersdock"}, {"Resource Name": "Craig'n'Dave", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Computer Science", "Description": "Structured CS curriculum videos covering everything from theory of computation to hardware.", "Link": "https://www.youtube.com/@craigndave", "Is_SJ_Academy_Resource": "No", "id": "res_25", "votes": 328, "Image_URL": "https://unavatar.io/youtube/craigndave"}, {"Resource Name": "EconplusDal", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Economics", "Description": "The ultimate resource for A Level Economics. Master evaluation techniques and complex diagrams.", "Link": "https://www.youtube.com/@EconplusDal", "Is_SJ_Academy_Resource": "No", "id": "res_26", "votes": 124, "Image_URL": "https://unavatar.io/youtube/EconplusDal"}, {"Resource Name": "Jacob Clifford", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Economics", "Description": "Fast-paced, engaging Micro and Macro economics basics.", "Link": "https://www.youtube.com/@JacobClifford", "Is_SJ_Academy_Resource": "No", "id": "res_27", "votes": 42, "Image_URL": "https://unavatar.io/youtube/JacobClifford"}, {"Resource Name": "tutor2u", "Type": "Website / Notes", "Level": "A Level", "Subject": "Business Studies", "Description": "Comprehensive revision notes, quizzes, and videos for A Level Business and Economics.", "Link": "https://www.tutor2u.net/", "Is_SJ_Academy_Resource": "No", "id": "res_28", "votes": 383, "Image_URL": "https://logo.clearbit.com/tutor2u.net"}, {"Resource Name": "Accounting Lecture", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Accounting", "Description": "Covers CAIE O and A Level double-entry bookkeeping, ratios, and final accounts.", "Link": "https://www.youtube.com/@AccountingLecture", "Is_SJ_Academy_Resource": "No", "id": "res_29", "votes": 437, "Image_URL": "https://unavatar.io/youtube/AccountingLecture"}, {"Resource Name": "Sir Iftikhar Ul Haq", "Type": "YouTube Channel", "Level": "O Level", "Subject": "Islamiyat", "Description": "Extremely popular for O Level Islamiyat (2058). Teaches past paper answering structures.", "Link": "https://www.youtube.com/@siriftikharulhaq", "Is_SJ_Academy_Resource": "No", "id": "res_30", "votes": 258, "Image_URL": "https://unavatar.io/youtube/siriftikharulhaq"}, {"Resource Name": "Agha Zoo", "Type": "YouTube Channel", "Level": "O Level", "Subject": "Pakistan Studies", "Description": "Engaging and comprehensive coverage of CAIE Pakistan Studies (2059) History and Geography.", "Link": "https://www.youtube.com/@aghazoo", "Is_SJ_Academy_Resource": "No", "id": "res_31", "votes": 377, "Image_URL": "https://unavatar.io/youtube/aghazoo"}, {"Resource Name": "ZNotes", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "Multiple", "Description": "Community-driven, high-yield condensed revision sheets for almost every CAIE subject.", "Link": "https://znotes.org/", "Is_SJ_Academy_Resource": "No", "id": "res_32", "votes": 54, "Image_URL": "https://logo.clearbit.com/znotes.org"}, {"Resource Name": "Save My Exams", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "Multiple", "Description": "Premium revision notes, topic questions, and model answers (Freemium).", "Link": "https://www.savemyexams.com/", "Is_SJ_Academy_Resource": "No", "id": "res_33", "votes": 42, "Image_URL": "https://logo.clearbit.com/savemyexams.com"}, {"Resource Name": "Physics & Maths Tutor (PMT)", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "Multiple", "Description": "Unrivaled collection of topical past paper questions and mark schemes for STEM subjects.", "Link": "https://www.physicsandmathstutor.com/", "Is_SJ_Academy_Resource": "No", "id": "res_34", "votes": 203, "Image_URL": "https://logo.clearbit.com/physicsandmathstutor.com"}, {"Resource Name": "GCE Guide", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "Multiple", "Description": "The classic repository for CAIE syllabus PDFs, learner guides, and examiner reports.", "Link": "https://gceguide.com/", "Is_SJ_Academy_Resource": "No", "id": "res_35", "votes": 253, "Image_URL": "https://logo.clearbit.com/gceguide.com"}, {"Resource Name": "MegaLecture", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "Multiple", "Description": "Free live classes recordings and comprehensive topical notes by experienced teachers.", "Link": "https://megalecture.com/", "Is_SJ_Academy_Resource": "No", "id": "res_36", "votes": 44, "Image_URL": "https://logo.clearbit.com/megalecture.com"}, {"Resource Name": "PapaCambridge", "Type": "Past Papers", "Level": "O & A Level", "Subject": "Multiple", "Description": "One of the oldest and largest repositories of CAIE past papers and marking schemes.", "Link": "https://papacambridge.com/", "Is_SJ_Academy_Resource": "No", "id": "res_37", "votes": 360, "Image_URL": "https://logo.clearbit.com/papacambridge.com"}, {"Resource Name": "BestExamHelp", "Type": "Past Papers", "Level": "O & A Level", "Subject": "Multiple", "Description": "Clean interface for finding yearly past papers without overwhelming ads.", "Link": "https://bestexamhelp.com/", "Is_SJ_Academy_Resource": "No", "id": "res_38", "votes": 160, "Image_URL": "https://logo.clearbit.com/bestexamhelp.com"}, {"Resource Name": "Exam-Mate", "Type": "Past Papers", "Level": "O & A Level", "Subject": "Multiple", "Description": "Excellent topical question generator for O Level, IGCSE, and A Levels.", "Link": "https://www.exam-mate.com/", "Is_SJ_Academy_Resource": "No", "id": "res_39", "votes": 259, "Image_URL": "https://logo.clearbit.com/exam-mate.com"}, {"Resource Name": "Rove Papers", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Multiple", "Description": "Mobile app and website for accessing past papers, topical MCQs, and custom paper generation.", "Link": "https://rovepapers.com/", "Is_SJ_Academy_Resource": "No", "id": "res_40", "votes": 417, "Image_URL": "https://logo.clearbit.com/rovepapers.com"}, {"Resource Name": "Anki", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Multiple", "Description": "Spaced repetition flashcards software. Essential for memorizing Biology and Chemistry definitions.", "Link": "https://apps.ankiweb.net/", "Is_SJ_Academy_Resource": "No", "id": "res_41", "votes": 433, "Image_URL": "https://logo.clearbit.com/apps.ankiweb.net"}, {"Resource Name": "Desmos", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Mathematics", "Description": "Beautiful, interactive online graphing calculator for algebra and calculus.", "Link": "https://www.desmos.com/calculator", "Is_SJ_Academy_Resource": "No", "id": "res_42", "votes": 240, "Image_URL": "https://logo.clearbit.com/desmos.com"}, {"Resource Name": "PhET Interactive Simulations", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Sciences", "Description": "Virtual Physics, Chemistry, and Math lab simulations by the University of Colorado.", "Link": "https://phet.colorado.edu/", "Is_SJ_Academy_Resource": "No", "id": "res_43", "votes": 355, "Image_URL": "https://logo.clearbit.com/phet.colorado.edu"}, {"Resource Name": "r/alevel (Reddit)", "Type": "Community", "Level": "A Level", "Subject": "Multiple", "Description": "The largest A Level student community on the internet. Great for paper discussions and advice.", "Link": "https://www.reddit.com/r/alevel/", "Is_SJ_Academy_Resource": "No", "id": "res_44", "votes": 152, "Image_URL": "https://unavatar.io/reddit/alevel"}, {"Resource Name": "r/igcse (Reddit)", "Type": "Community", "Level": "O Level", "Subject": "Multiple", "Description": "Massive community for O Level and IGCSE students worldwide.", "Link": "https://www.reddit.com/r/igcse/", "Is_SJ_Academy_Resource": "No", "id": "res_45", "votes": 325, "Image_URL": "https://unavatar.io/reddit/igcse"}, {"Resource Name": "SJ Academy A-Level Maths", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Mathematics", "Description": "SJ Academy's dedicated content for mastering A Level Mathematics, taught by expert KGS faculty.", "Link": "https://youtube.com/@sjacademy", "Is_SJ_Academy_Resource": "Yes", "id": "res_46", "votes": 424, "Image_URL": "https://unavatar.io/youtube/sjacademy"}, {"Resource Name": "Forest", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "The best focus and Pomodoro app. Plant virtual trees while you study to stop yourself from checking your phone.", "Link": "https://www.forestapp.cc/", "Is_SJ_Academy_Resource": "No", "id": "res_47", "votes": 62, "Image_URL": "https://logo.clearbit.com/forestapp.cc"}, {"Resource Name": "Yeolpumta (YPT)", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "Massively popular study timer app. Join CAIE study groups and compete with peers on study hours.", "Link": "https://pallo.io/en", "Is_SJ_Academy_Resource": "No", "id": "res_48", "votes": 140, "Image_URL": "https://logo.clearbit.com/pallo.io"}, {"Resource Name": "Quizlet", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Multiple", "Description": "Excellent alternative to Anki. Find thousands of pre-made O Level and A Level flashcards created by other students.", "Link": "https://quizlet.com/", "Is_SJ_Academy_Resource": "No", "id": "res_49", "votes": 210, "Image_URL": "https://logo.clearbit.com/quizlet.com"}, {"Resource Name": "Photomath", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Mathematics", "Description": "Scan any O Level or A Level Math equation with your phone camera to get step-by-step solutions.", "Link": "https://photomath.com/", "Is_SJ_Academy_Resource": "No", "id": "res_50", "votes": 266, "Image_URL": "https://logo.clearbit.com/photomath.com"}, {"Resource Name": "GeoGebra", "Type": "App / Tool", "Level": "A Level", "Subject": "Mathematics", "Description": "Advanced interactive geometry, algebra, and calculus app. Crucial for A Level Further Maths visualisations.", "Link": "https://www.geogebra.org/", "Is_SJ_Academy_Resource": "No", "id": "res_51", "votes": 312, "Image_URL": "https://logo.clearbit.com/geogebra.org"}, {"Resource Name": "Notion", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "The ultimate all-in-one workspace. Great for tracking CAIE syllabus checklists, revision timetables, and notes.", "Link": "https://www.notion.so/", "Is_SJ_Academy_Resource": "No", "id": "res_52", "votes": 103, "Image_URL": "https://logo.clearbit.com/notion.so"}, {"Resource Name": "Adobe Scan", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "Essential app for scanning handwritten past papers and converting them to high-quality PDFs for marking.", "Link": "https://acrobat.adobe.com/us/en/mobile/scanner-app.html", "Is_SJ_Academy_Resource": "No", "id": "res_53", "votes": 318, "Image_URL": "https://logo.clearbit.com/acrobat.adobe.com"}, {"Resource Name": "Knowt", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Multiple", "Description": "Free alternative to Quizlet Learn. Import Quizlet flashcards directly and study without paywalls.", "Link": "https://knowt.com/", "Is_SJ_Academy_Resource": "No", "id": "res_54", "votes": 308, "Image_URL": "https://logo.clearbit.com/knowt.com"}, {"Resource Name": "Alt Academy", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "Multiple", "Description": "High-quality CAIE video lessons, topical worksheets, and revision crash courses.", "Link": "https://altacademy.org/", "Is_SJ_Academy_Resource": "No", "id": "res_55", "votes": 212, "Image_URL": "https://logo.clearbit.com/altacademy.org"}, {"Resource Name": "Seneca Learning", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Multiple", "Description": "Incredibly popular, interactive, and gamified free revision courses for IGCSE and A Level subjects.", "Link": "https://senecalearning.com/", "Is_SJ_Academy_Resource": "No", "id": "res_56", "votes": 352, "Image_URL": "https://logo.clearbit.com/senecalearning.com"}, {"Resource Name": "Englicious", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "English", "Description": "Excellent grammar, vocabulary, and linguistic resources perfect for CAIE English Language (1123 & 9093).", "Link": "https://englicious.org/", "Is_SJ_Academy_Resource": "No", "id": "res_57", "votes": 61, "Image_URL": "https://logo.clearbit.com/englicious.org"}, {"Resource Name": "The Sociology Guy", "Type": "Website / Notes", "Level": "A Level", "Subject": "Sociology", "Description": "Detailed notes, exam techniques, and essay structures specifically for A Level Sociology (9699).", "Link": "https://thesociologyguy.com/", "Is_SJ_Academy_Resource": "No", "id": "res_58", "votes": 179, "Image_URL": "https://logo.clearbit.com/thesociologyguy.com"}, {"Resource Name": "Dr. Frost Maths", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "Mathematics", "Description": "A massive, free database of maths resources, PPTs, and interactive questions for all levels.", "Link": "https://www.drfrostmaths.com/", "Is_SJ_Academy_Resource": "No", "id": "res_59", "votes": 42, "Image_URL": "https://logo.clearbit.com/drfrostmaths.com"}, {"Resource Name": "Study Mind", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "Sciences", "Description": "Topical past paper questions, video tutorials, and revision notes for Bio, Chem, and Physics.", "Link": "https://studymind.co.uk/", "Is_SJ_Academy_Resource": "No", "id": "res_60", "votes": 75, "Image_URL": "https://logo.clearbit.com/studymind.co.uk"}, {"Resource Name": "Revisely", "Type": "Website / Notes", "Level": "O & A Level", "Subject": "Multiple", "Description": "Free past papers, video tutorials, and revision notes covering a wide range of CAIE subjects.", "Link": "https://www.revisely.com/", "Is_SJ_Academy_Resource": "No", "id": "res_61", "votes": 50, "Image_URL": "https://logo.clearbit.com/revisely.com"}, {"Resource Name": "BBC Bitesize", "Type": "Website / Notes", "Level": "O Level", "Subject": "Multiple", "Description": "Although tailored to GCSE, the content flawlessly overlaps with Cambridge O Level and IGCSE syllabuses.", "Link": "https://www.bbc.co.uk/bitesize", "Is_SJ_Academy_Resource": "No", "id": "res_62", "votes": 438, "Image_URL": "https://logo.clearbit.com/bbc.co.uk"}, {"Resource Name": "IGCSE English Pro", "Type": "YouTube Channel", "Level": "O Level", "Subject": "English", "Description": "Dedicated channel for scoring A* in O Level / IGCSE English. Covers directed writing, narratives, and comprehension.", "Link": "https://www.youtube.com/@igcseenglishpro", "Is_SJ_Academy_Resource": "No", "id": "res_63", "votes": 52, "Image_URL": "https://unavatar.io/youtube/igcseenglishpro"}, {"Resource Name": "tutor2u Psychology", "Type": "YouTube Channel", "Level": "A Level", "Subject": "Psychology", "Description": "The ultimate destination for A Level Psychology (9990) revision, core studies, and evaluation tips.", "Link": "https://www.youtube.com/@tutor2uPsychology", "Is_SJ_Academy_Resource": "No", "id": "res_64", "votes": 300, "Image_URL": "https://unavatar.io/youtube/tutor2uPsychology"}, {"Resource Name": "Asif Farooq", "Type": "YouTube Channel", "Level": "O Level", "Subject": "Urdu", "Description": "Excellent Urdu First & Second Language (3248) lectures, syllabus breakdowns, and paper attempting techniques.", "Link": "https://www.youtube.com/@asiffarooqurdu", "Is_SJ_Academy_Resource": "No", "id": "res_65", "votes": 387, "Image_URL": "https://unavatar.io/youtube/asiffarooqurdu"}, {"Resource Name": "ExamQA", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Sciences", "Description": "High-yield summary videos and past paper walkthroughs for A Level and IGCSE sciences and maths.", "Link": "https://www.youtube.com/@examqa", "Is_SJ_Academy_Resource": "No", "id": "res_66", "votes": 245, "Image_URL": "https://unavatar.io/youtube/examqa"}, {"Resource Name": "The Cambridge Geek", "Type": "Website / Notes", "Level": "A Level", "Subject": "Computer Science", "Description": "Niche but incredible site with specific A Level Computer Science (9618) notes and programming solutions.", "Link": "https://www.thecambridgegeek.com/", "Is_SJ_Academy_Resource": "No", "id": "res_67", "votes": 407, "Image_URL": "https://logo.clearbit.com/thecambridgegeek.com"}, {"Resource Name": "Markscheme.com", "Type": "Past Papers", "Level": "O & A Level", "Subject": "Multiple", "Description": "Clean and simple interface to find past papers and mark schemes quickly when PapaCambridge is down.", "Link": "https://markscheme.com/", "Is_SJ_Academy_Resource": "No", "id": "res_68", "votes": 260, "Image_URL": "https://logo.clearbit.com/markscheme.com"}, {"Resource Name": "Revision World", "Type": "Past Papers", "Level": "O & A Level", "Subject": "Multiple", "Description": "Another reliable backup source for fetching recent CAIE past papers and marking guidelines.", "Link": "https://revisionworld.com/", "Is_SJ_Academy_Resource": "No", "id": "res_69", "votes": 81, "Image_URL": "https://logo.clearbit.com/revisionworld.com"}, {"Resource Name": "My Study Life", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "The ultimate digital student planner. Track classes, homework, and CAIE exam schedules across all your devices.", "Link": "https://mystudylife.com/", "Is_SJ_Academy_Resource": "No", "id": "res_70", "votes": 134, "Image_URL": "https://logo.clearbit.com/mystudylife.com"}, {"Resource Name": "Pomofocus", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "A simple, customizable Pomodoro timer in your browser that works flawlessly for timing past paper practice.", "Link": "https://pomofocus.io/", "Is_SJ_Academy_Resource": "No", "id": "res_71", "votes": 121, "Image_URL": "https://logo.clearbit.com/pomofocus.io"}, {"Resource Name": "A Level Law Notes (TSR)", "Type": "Community", "Level": "A Level", "Subject": "Law", "Description": "The Student Room's dedicated section for A Level Law (9084). Features peer-reviewed essays and case summaries.", "Link": "https://www.thestudentroom.co.uk/revision/law/", "Is_SJ_Academy_Resource": "No", "id": "res_72", "votes": 202, "Image_URL": "https://logo.clearbit.com/thestudentroom.co.uk"}, {"Resource Name": "SnapRevise", "Type": "App / Tool", "Level": "A Level", "Subject": "Sciences", "Description": "Bite-sized, high-quality video courses and smart quizzes tailored for A Level exams.", "Link": "https://snaprevise.co.uk/", "Is_SJ_Academy_Resource": "No", "id": "res_73", "votes": 112, "Image_URL": "https://logo.clearbit.com/snaprevise.co.uk"}, {"Resource Name": "Anki", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "The absolute gold standard for memorization. A free spaced-repetition flashcard app heavily recommended on r/6thForm for biology and chemistry.", "Link": "https://apps.ankiweb.net/", "Is_SJ_Academy_Resource": "No", "id": "res_74", "votes": 433, "Image_URL": "https://logo.clearbit.com/apps.ankiweb.net"}, {"Resource Name": "Notion", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "The ultimate digital workspace. Thousands of students use it to build revision wikis, track past paper scores, and organize notes.", "Link": "https://www.notion.so/", "Is_SJ_Academy_Resource": "No", "id": "res_75", "votes": 103, "Image_URL": "https://logo.clearbit.com/notion.so"}, {"Resource Name": "Chemguide", "Type": "Website / Notes", "Level": "A Level", "Subject": "Sciences", "Description": "The absolute bible for A Level Chemistry. It explains complex concepts better than most textbooks. A must-use resource.", "Link": "https://www.chemguide.co.uk/", "Is_SJ_Academy_Resource": "No", "id": "res_76", "votes": 412, "Image_URL": "https://logo.clearbit.com/chemguide.co.uk"}, {"Resource Name": "Isaac Physics", "Type": "Website / Notes", "Level": "A Level", "Subject": "Sciences", "Description": "Mastery-level physics and maths problem-solving. Recommended for students aiming for A*s or applying to top UK universities.", "Link": "https://isaacphysics.org/", "Is_SJ_Academy_Resource": "No", "id": "res_77", "votes": 286, "Image_URL": "https://logo.clearbit.com/isaacphysics.org"}, {"Resource Name": "Flora", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "The best free alternative to Forest. Block distracting apps and websites on your phone while growing virtual trees with friends.", "Link": "https://flora.appfinca.com/", "Is_SJ_Academy_Resource": "No", "id": "res_78", "votes": 340, "Image_URL": "https://logo.clearbit.com/flora.appfinca.com"}, {"Resource Name": "Knowunity", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Multiple", "Description": "A massive, rapidly growing student community app where thousands of students share their personal A* study notes for free.", "Link": "https://knowunity.com/", "Is_SJ_Academy_Resource": "No", "id": "res_79", "votes": 401, "Image_URL": "https://logo.clearbit.com/knowunity.com"}, {"Resource Name": "ExamSolutions", "Type": "Website / Notes", "Level": "A Level", "Subject": "Mathematics", "Description": "Legendary maths tutorials. Provides step-by-step video solutions for almost every A Level Maths topic and past paper question.", "Link": "https://www.examsolutions.net/", "Is_SJ_Academy_Resource": "No", "id": "res_80", "votes": 40, "Image_URL": "https://logo.clearbit.com/examsolutions.net"}, {"Resource Name": "Madasmaths", "Type": "Website / Notes", "Level": "A Level", "Subject": "Mathematics", "Description": "Famous on Reddit for having incredibly challenging A Level Maths papers. If you can solve these, the actual exam will feel easy.", "Link": "https://www.madasmaths.com/", "Is_SJ_Academy_Resource": "No", "id": "res_81", "votes": 125, "Image_URL": "https://logo.clearbit.com/madasmaths.com"}, {"Resource Name": "GCE Guide", "Type": "Past Papers", "Level": "O & A Level", "Subject": "Multiple", "Description": "Widely considered the fastest and most reliable repository for downloading CAIE past papers, mark schemes, and examiner reports.", "Link": "https://gceguide.com/", "Is_SJ_Academy_Resource": "No", "id": "res_82", "votes": 253, "Image_URL": "https://logo.clearbit.com/gceguide.com"}, {"Resource Name": "Obsidian", "Type": "App / Tool", "Level": "A Level", "Subject": "Productivity", "Description": "A highly advanced, free note-taking app that links your notes together like a brain. Perfect for essay-heavy subjects like History or Law.", "Link": "https://obsidian.md/", "Is_SJ_Academy_Resource": "No", "id": "res_83", "votes": 159, "Image_URL": "https://logo.clearbit.com/obsidian.md"}, {"Resource Name": "Cold Turkey", "Type": "App / Tool", "Level": "O & A Level", "Subject": "Productivity", "Description": "The strictest website blocker on the internet. Once you lock your computer for a study session, it is impossible to bypass.", "Link": "https://getcoldturkey.com/", "Is_SJ_Academy_Resource": "No", "id": "res_84", "votes": 176, "Image_URL": "https://logo.clearbit.com/getcoldturkey.com"}, {"Resource Name": "Ali Abdaal", "Type": "YouTube Channel", "Level": "O & A Level", "Subject": "Productivity", "Description": "Former Cambridge medical student. His videos on Active Recall and Spaced Repetition completely transformed how modern students study.", "Link": "https://www.youtube.com/@aliabdaal", "Is_SJ_Academy_Resource": "No", "id": "res_85", "votes": 324, "Image_URL": "https://unavatar.io/youtube/aliabdaal"}];
+  const grid = document.getElementById('sja-results-grid');
+  const searchInput = document.getElementById('sja-search');
+  const countDisplay = document.getElementById('sja-count');
+  
+  let currentFilters = { level: 'All', type: 'All', query: '' };
+  let firebaseVotes = {}; // Holds live vote offsets
+
+  // Mobile Filter Toggle
+  document.getElementById('sja-toggle-filters').addEventListener('click', function() {
+      document.getElementById('sja-sidebar').classList.toggle('open');
+  });
+
+  // 4. Real-Time Listener
+  const votesRef = ref(db, 'votes');
+  onValue(votesRef, (snapshot) => {
+      firebaseVotes = snapshot.val() || {};
+      // Instantly update DOM numbers without re-rendering the whole grid
+      rawData.forEach(item => {
+          const total = item.votes + (firebaseVotes[item.id] || 0);
+          const countEl = document.getElementById('count-' + item.id);
+          if (countEl) countEl.innerText = total;
+      });
+  });
+
+  // 5. Upvote Logic (Triggers Firebase Transaction)
+  window.toggleVote = function(id, btn) {
+      const storageKey = 'voted_' + id;
+      const isVoted = localStorage.getItem(storageKey);
+      const voteRef = ref(db, 'votes/' + id);
+
+      if (!isVoted) {
+          localStorage.setItem(storageKey, 'true');
+          btn.classList.add('voted');
+          runTransaction(voteRef, (currentVotes) => {
+              return (currentVotes || 0) + 1;
+          });
+      } else {
+          localStorage.removeItem(storageKey);
+          btn.classList.remove('voted');
+          runTransaction(voteRef, (currentVotes) => {
+              return (currentVotes || 0) - 1;
+          });
+      }
+  };
+
+  const adHTML = `
+    <h3 style="margin-bottom: 10px;">Stuck on past papers?</h3>
+    <p style="margin-bottom: 20px; line-height: 1.6; color: #fff;">
+      Master the exact CAIE marking scheme with Karachi's elite faculty from IBA, LUMS, and KGS. Join hundreds of SJ Academy students who secured straight A*s.
+    </p>
+    <a href="https://www.sjacademy.pk/o-a-level-classes/" class="sja-ad-btn">Join Free Demo Class</a>
+  `;
+
+  function renderGrid() {
+      grid.innerHTML = '';
+      
+      const query = searchInput.value.toLowerCase();
+      const levelCheckboxes = Array.from(document.querySelectorAll('.sja-chk-level:checked')).map(cb => cb.value);
+      const typeCheckboxes = Array.from(document.querySelectorAll('.sja-chk-type:checked')).map(cb => cb.value);
+
+      const filtered = rawData.filter(item => {
+          const matchQuery = item["Resource Name"].toLowerCase().includes(query) || 
+                             item["Subject"].toLowerCase().includes(query) ||
+                             item["Description"].toLowerCase().includes(query);
+                             
+          let matchLevel = levelCheckboxes.length === 0;
+          if (!matchLevel) {
+              levelCheckboxes.forEach(val => {
+                  if (item["Level"].includes(val)) matchLevel = true;
+              });
+          }
+          
+          let matchType = typeCheckboxes.length === 0 || typeCheckboxes.includes(item["Type"]);
+          return matchQuery && matchLevel && matchType;
+      });
+
+      countDisplay.innerText = `${filtered.length} Tools Found`;
+
+      if(filtered.length === 0) {
+          grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #6B7280;">No resources found. Try clearing your filters.</div>`;
+          return;
+      }
+
+      let renderedCount = 0;
+      filtered.forEach((item) => {
+          if(renderedCount === 2) {
+              const adCard = document.createElement('div');
+              adCard.className = 'sja-card sja-ad-card';
+              adCard.innerHTML = adHTML;
+              grid.appendChild(adCard);
+              renderedCount++;
+          }
+
+          const isSJ = item["Is_SJ_Academy_Resource"] === "Yes";
+          const imgUrl = item["Image_URL"];
+          const domain = item["Link"].replace('https://','').replace('http://','').split('/')[0];
+          const fallbackImg = `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${domain}&size=256`;
+          
+          let subjectDisp = item["Subject"] === "Multiple" ? "General Studies" : item["Subject"];
+
+          const voted = localStorage.getItem('voted_' + item.id) ? 'voted' : '';
+          
+          // Calculate live total using baseline + firebase offset
+          const liveTotal = item.votes + (firebaseVotes[item.id] || 0);
+
+          const card = document.createElement('div');
+          card.className = 'sja-card';
+          
+          card.innerHTML = `
+              <div class="sja-card-header">
+                  <img src="${imgUrl}" onerror="this.onerror=null; this.src='${fallbackImg}';" class="sja-card-logo" alt="${item["Resource Name"]} Logo" loading="lazy">
+                  <div class="sja-card-title-group">
+                      <h3>${item["Resource Name"]}</h3>
+                      <div class="sja-card-subtitle">for <strong>${subjectDisp}</strong></div>
+                  </div>
+                  <div class="sja-upvote ${voted}" onclick="toggleVote('${item.id}', this)">
+                      <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h16z"/></svg>
+                      <span class="vote-count" id="count-${item.id}">${liveTotal}</span>
+                  </div>
+              </div>
+              
+              <div class="sja-card-meta">
+                  ${isSJ ? '<span class="sja-meta-tag green">✓ Verified Official</span>' : ''}
+                  <span class="sja-meta-tag">${item["Type"]}</span>
+              </div>
+              
+              <p>${item["Description"]}</p>
+              
+              <div class="sja-card-footer">
+                  <div class="sja-tags">
+                      <span class="sja-hashtag">#${item["Level"].replace(' & ', ' #').replace(' ', '')}</span>
+                      <span class="sja-hashtag">#${item["Subject"].replace(' ', '')}</span>
+                  </div>
+                  <a href="${item["Link"]}" target="_blank" class="sja-visit-link">
+                      Visit 
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+              </div>
+          `;
+          grid.appendChild(card);
+          renderedCount++;
+      });
+  }
+
+  document.querySelectorAll('.filter-checkbox input').forEach(cb => {
+      cb.addEventListener('change', renderGrid);
+  });
+  searchInput.addEventListener('input', renderGrid);
+
+  renderGrid();
+</script>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJ Academy - Pitch Deck</title>
+    
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sjy: '#FCE004', // Yellow
+                        sjb: '#453516', // Brown
+                        sjo: '#fe6100', // Orange
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    
+    <style>
+        .reveal {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            background-color: #453516; /* Primary Brown */
+        }
+        /* Custom base styles for Reveal */
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #FCE004; /* Yellow Headers */
+            text-transform: none;
+            margin-bottom: 1.5rem;
+        }
+        .reveal p { margin-bottom: 1rem; }
+        
+        .reveal .slide-white {
+            background-color: #ffffff;
+            color: #453516;
+        }
+        .reveal .slide-white h1, .reveal .slide-white h2, .reveal .slide-white h3 {
+            color: #453516;
+        }
+        .reveal .slide-white .accent-text {
+            color: #fe6100;
+        }
+        .accent-bg { background-color: #fe6100; }
+        .yellow-bg { background-color: #FCE004; }
+        .text-yellow { color: #FCE004; }
+        .text-orange { color: #fe6100; }
+        
+        .box-highlight {
+            background: rgba(252, 224, 4, 0.1);
+            border-left: 4px solid #FCE004;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        /* Ensure logos embedded directly in Reveal don't get the weird border */
+        .reveal img {
+            border: none;
+            box-shadow: none;
+            background: transparent;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Title -->
+            <section class="text-center" data-background-color="#453516">
+                <div class="flex flex-col items-center justify-center h-full w-full max-w-5xl mx-auto">
+                    <div class="mb-12">
+                        <img src="Logo.png" alt="SJ Academy" class="h-32 object-contain" style="margin: 0;">
+                    </div>
+                    
+                    <h1 class="text-6xl font-bold text-white leading-tight mb-12">
+                        Unlocking the Next Growth Phase of Our <span class="text-yellow">Education Ecosystem</span>
+                    </h1>
+                    
+                    <p class="text-2xl text-white font-medium border-t border-b border-yellow py-4 px-8 inline-block">
+                        Raising <span class="text-yellow font-bold">PKR 13M</span> for 10% Equity
+                    </p>
+                </div>
+            </section>
+
+            <!-- Slide 2: Who We Are -->
+            <section class="slide-white text-left" data-background-color="#ffffff">
+                <h2 class="text-5xl mb-6 text-[#453516]">Built on Trust. Scaled on Excellence.</h2>
+                
+                <div class="flex gap-10 items-center">
+                    <div class="flex-1 text-xl text-gray-700 space-y-6">
+                        <p class="leading-relaxed">
+                            Since 2018, SJ Academy has evolved from a traditional tuition center into a highly structured, repeatable educational institution.
+                        </p>
+                        
+                        <ul class="list-disc ml-6 space-y-4">
+                            <li><strong class="text-[#453516]">Unwavering Trust:</strong> We've served 1,000+ students over the years, with 200+ in the last session alone, backed by a flawless 5.0 Google Rating.</li>
+                            <li><strong class="text-orange">Our USP - Practical Labs:</strong> Dedicated A Level labs guarantee physical enrollments—a rare, high-barrier competitive advantage.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex-1 flex justify-center">
+                        <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-yellow w-full max-w-md">
+                            <img src="IMG_0424.jpg" alt="SJ Academy Students" class="w-full h-[350px] object-cover" style="margin: 0; display: block;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: Track Record -->
+            <section data-background-color="#453516" class="text-left">
+                <h2 class="text-5xl mb-2">8 Years of Proven Demand</h2>
+                <p class="text-xl mb-4">We are a profitable business constrained only by physical capacity.</p>
+                
+                <div class="chart-container" style="height: 300px;">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                
+                <div class="mt-6 text-xl bg-white/10 p-4 rounded text-center">
+                    <span class="text-yellow font-bold text-2xl">Latest Season Peak:</span> PKR 2.73M/month with 200+ active students.
+                </div>
+            </section>
+
+            <!-- Slide 4: Unfair Advantage -->
+            <section class="slide-white text-left" data-background-color="#ffffff">
+                <h2 class="text-5xl mb-4">23 Million Organic Views.<br><span class="text-orange">Drastically Lowered CAC.</span></h2>
+                <p class="text-xl mb-6 text-gray-700 leading-relaxed">We leverage our massive organic footprint to drive down customer acquisition costs and build a highly profitable funnel for admissions and digital products.</p>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="box-highlight shadow-sm">
+                        <h4 class="text-3xl font-bold text-[#453516] mb-1">16,000+</h4>
+                        <p class="text-lg">Verified Instagram Followers</p>
+                    </div>
+                    <div class="box-highlight shadow-sm">
+                        <h4 class="text-3xl font-bold text-[#453516] mb-1">23.35M+</h4>
+                        <p class="text-lg">Views & 6.20M Users Reached</p>
+                    </div>
+                    <div class="box-highlight shadow-sm">
+                        <h4 class="text-3xl font-bold text-[#453516] mb-1">93,000+</h4>
+                        <p class="text-lg">Web Sessions (+3,172% YOY)</p>
+                    </div>
+                    <div class="box-highlight shadow-sm">
+                        <h4 class="text-3xl font-bold text-[#453516] mb-1">5.0 <span class="text-yellow text-3xl">★</span></h4>
+                        <p class="text-lg">Google Rating (224 verified reviews)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Market Opportunity -->
+            <section data-background-color="#453516" class="text-left">
+                <h2 class="text-4xl mb-8">A Massive, Recurring Global Market</h2>
+                
+                <div class="flex gap-8 mb-8">
+                    <div class="flex-1 border-l-4 border-[#fe6100] pl-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">The Global Scale</h3>
+                        <p class="text-3xl font-bold text-yellow mb-2">~2 Million</p>
+                        <p class="text-lg">Cambridge students annually across 160+ countries.</p>
+                    </div>
+                    <div class="flex-1 border-l-4 border-[#fe6100] pl-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">The Local Scale</h3>
+                        <p class="text-3xl font-bold text-yellow mb-2">100,000+</p>
+                        <p class="text-lg">students appearing for June exams in Pakistan alone.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h4 class="text-2xl font-bold text-yellow mb-3">Our Immediate Expansion Routes:</h4>
+                    <ul class="text-lg space-y-2 list-disc ml-6">
+                        <li><strong>Karachi Physical Expansion:</strong> Unlocking a larger central DHA hub immediately, followed by PECHS in 2027.</li>
+                        <li><strong>Digital & Global Reach:</strong> Capturing Pakistan-wide and expatriate demand via our new O/A Level Subscription Platform.</li>
+                        <li><strong>Adjacent Markets:</strong> University Test Prep and Professional Corporate Workshops.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 6: Business Model -->
+            <section class="slide-white text-left" data-background-color="#ffffff">
+                <h2 class="text-5xl mb-6">Highly Scalable Revenue Streams</h2>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 border-b-4 border-[#453516] pb-2 inline-block">Current Revenue Lines</h3>
+                        <ul class="text-lg space-y-3">
+                            <li><strong class="text-orange text-xl block mb-1">Core O/A Level Tuition</strong> High-retention, recurring monthly revenue.</li>
+                            <li><strong class="text-orange text-xl block mb-1">A Level Lab Practicals</strong> High-margin, niche requirement driving physical enrollments.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 border-b-4 border-[#FCE004] pb-2 inline-block">Next Phase Revenue Lines</h3>
+                        <ul class="text-lg space-y-3">
+                            <li><strong class="text-[#453516] text-xl block mb-1">Digital Products & Subscriptions</strong> Solved past papers, eBooks, and global LMS.</li>
+                            <li><strong class="text-[#453516] text-xl block mb-1">Workshops & Corporate Training</strong> Monetizing off-peak weekend capacity & digital reach.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-[#453516] text-white rounded-lg text-xl text-center shadow-lg w-11/12 mx-auto">
+                    By unlocking a 100-seat branch and launching our digital lines, we target a revenue run-rate of <span class="text-yellow font-bold text-2xl">PKR 40.3M</span> (2.5x our current season).
+                </div>
+            </section>
+
+            <!-- Slide 7: Use of Funds -->
+            <section data-background-color="#453516" class="text-left">
+                <h2 class="text-5xl mb-2">Unlocking the Next Phase</h2>
+                <p class="text-3xl text-yellow font-bold mb-8">Raising PKR 13,000,000</p>
+                
+                <div class="mt-8 px-10">
+                    <table class="w-full text-left text-2xl border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-yellow text-yellow">
+                                <th class="py-4 px-6 font-bold">Allocation Area</th>
+                                <th class="py-4 px-6 font-bold text-right">Percentage</th>
+                                <th class="py-4 px-6 font-bold text-right">Amount (PKR)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-white">
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="py-4 px-6">Branch Setup</td>
+                                <td class="py-4 px-6 text-right font-bold text-orange">43.3%</td>
+                                <td class="py-4 px-6 text-right">5.63M</td>
+                            </tr>
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="py-4 px-6">Marketing & Admissions</td>
+                                <td class="py-4 px-6 text-right font-bold text-orange">15.4%</td>
+                                <td class="py-4 px-6 text-right">2.00M</td>
+                            </tr>
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="py-4 px-6">People & Operations</td>
+                                <td class="py-4 px-6 text-right font-bold text-orange">13.4%</td>
+                                <td class="py-4 px-6 text-right">1.74M</td>
+                            </tr>
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="py-4 px-6">Online Infrastructure</td>
+                                <td class="py-4 px-6 text-right font-bold text-orange">12.0%</td>
+                                <td class="py-4 px-6 text-right">1.56M</td>
+                            </tr>
+                            <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                <td class="py-4 px-6">Academic Infrastructure</td>
+                                <td class="py-4 px-6 text-right font-bold text-orange">11.5%</td>
+                                <td class="py-4 px-6 text-right">1.50M</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="py-4 px-6">Compliance / Buffer</td>
+                                <td class="py-4 px-6 text-right font-bold text-orange">4.4%</td>
+                                <td class="py-4 px-6 text-right">571k</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Slide 8: The Offer -->
+            <section class="slide-white text-center" data-background-color="#ffffff">
+                <h2 class="text-5xl mb-6">Partnering for Scale</h2>
+                <div class="inline-block bg-[#FCE004] text-[#453516] font-bold text-3xl px-10 py-6 rounded-lg mb-10 shadow-md">
+                    The Ask: PKR 13,000,000 for 10% Equity
+                </div>
+                
+                <h3 class="text-2xl font-bold mb-6 text-left text-orange">What Investors Get:</h3>
+                <div class="grid grid-cols-2 gap-6 text-lg text-left">
+                    <div class="flex items-start gap-4">
+                        <div class="text-2xl text-orange">➜</div>
+                        <p>10% share of distributable annual profits.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="text-2xl text-orange">➜</div>
+                        <p>Dividend distributions planned every two months (post year-one stabilization).</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="text-2xl text-orange">➜</div>
+                        <p>Massive valuation growth through multi-branch scaling and digital product expansion.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="text-2xl text-orange">➜</div>
+                        <p>Clear future exit and buyback structures.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 9: Team -->
+            <section data-background-color="#453516" class="text-left">
+                <h2 class="text-5xl mb-8">Experienced Educators & Growth Experts</h2>
+                
+                <div class="flex gap-8">
+                    <div class="flex-1 bg-white/10 p-6 rounded-lg border-t-4 border-yellow">
+                        <h3 class="text-2xl font-bold text-white mb-2">Salman Junaid</h3>
+                        <p class="text-orange font-bold text-lg mb-3">Co-founder & Head of Academics</p>
+                        <ul class="text-base space-y-2 list-disc ml-5">
+                            <li>NED graduate, 12+ years of O/A Level Math teaching experience (incl. KGS).</li>
+                            <li>Leads academic quality, curriculum design, and teacher direction.</li>
+                        </ul>
+                    </div>
+                    <div class="flex-1 bg-white/10 p-6 rounded-lg border-t-4 border-yellow">
+                        <h3 class="text-2xl font-bold text-white mb-2">Sunyyan Junaid</h3>
+                        <p class="text-orange font-bold text-lg mb-3">Co-founder & Head of Growth</p>
+                        <ul class="text-base space-y-2 list-disc ml-5">
+                            <li>10+ years of digital marketing & growth experience (Cloudways/DigitalOcean ecosystem).</li>
+                            <li>Leads expansion, operations, and massive digital strategy.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6 text-center text-lg italic text-gray-300">
+                    Backed by a strong roster of 12 subject-specialist teachers and a dedicated operations team.
+                </div>
+            </section>
+
+            <!-- Slide 10: 5 Year Vision -->
+            <section class="slide-white text-left" data-background-color="#ffffff">
+                <h2 class="text-5xl mb-4 text-[#453516]">The 5-Year Vision</h2>
+                <p class="text-xl font-bold text-gray-500 mb-8">Scaling from a Physical Hub to a National EdTech Platform</p>
+                
+                <div class="flex gap-12">
+                    <div class="w-1/2">
+                        <h4 class="text-2xl font-bold text-orange mb-4">The 2031 Horizon:</h4>
+                        <ul class="text-lg space-y-4 mb-6 list-disc ml-5">
+                            <li><strong>Physical Footprint:</strong> 4 flagship branches (Karachi, Lahore, Islamabad) acting as anchor hubs.</li>
+                            <li><strong>Digital Scale:</strong> A mature, globally scalable O/A Level subscription platform and University Test Prep.</li>
+                        </ul>
+                        <p class="text-lg bg-gray-100 p-4 border-l-4 border-[#453516] italic">We use physical branches to cash-flow the business and build extreme trust, which we funnel into a highly scalable, high-margin digital ecosystem.</p>
+                    </div>
+                    <div class="w-1/2">
+                        <h4 class="text-2xl font-bold text-[#453516] mb-4 text-center">Projected Revenue Mix</h4>
+                        <div style="height: 300px; width: 100%;">
+                            <canvas id="visionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 11: Contact -->
+            <section data-background-color="#FCE004" class="text-center" style="color: #453516;">
+                <h2 class="text-5xl font-bold text-[#453516] mb-8">Join Us in Scaling Quality Education</h2>
+                <p class="text-2xl mb-12">Let's discuss how your investment can unlock our <strong class="text-[#fe6100]">2.5x growth target</strong>.</p>
+                
+                <div class="inline-flex flex-col items-center gap-4 text-xl font-bold bg-white p-8 rounded-xl shadow-xl">
+                    <div>📧 sunyyanjunaid@gmail.com</div>
+                    <div>📱 +92 332 345 3462</div>
+                    <div>🌐 www.sjacademy.pk</div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- ChartDataLabels Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+    
+    <script>
+        // Initialize Reveal
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            width: 1200,
+            height: 700,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+            pdfSeparateFragments: false
+        });
+
+        // Register ChartDataLabels plugin globally
+        Chart.register(ChartDataLabels);
+
+        // Track rendered charts
+        let revChartRendered = false;
+        let visionChartRendered = false;
+
+        // Render charts function
+        function renderCharts() {
+            // Chart 1: Revenue
+            if (!revChartRendered) {
+                const ctx = document.getElementById('revenueChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['2022-2023', '2023-2024', '2024-2025', '2025-2026'],
+                        datasets: [{
+                            label: 'Revenue (PKR Millions)',
+                            data: [5.34, 8.99, 14.32, 16.52],
+                            backgroundColor: '#FCE004',
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: false, // Disable animation for PDF printing
+                        layout: {
+                            padding: { top: 30 } // Room for data labels
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            datalabels: {
+                                color: 'white',
+                                anchor: 'end',
+                                align: 'top',
+                                font: { weight: 'bold', size: 16 },
+                                formatter: function(value) {
+                                    return value + 'M';
+                                }
+                            }
+                        },
+                        scales: {
+                            y: { 
+                                beginAtZero: true,
+                                grid: { color: 'rgba(255,255,255,0.1)' },
+                                ticks: { color: 'white', font: {size: 14} },
+                                title: {
+                                    display: true,
+                                    text: 'Revenue (PKR Millions)',
+                                    color: 'white',
+                                    font: {size: 16, weight: 'bold'},
+                                    padding: {bottom: 10}
+                                }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: 'white', font: {size: 16, weight: 'bold'} }
+                            }
+                        }
+                    }
+                });
+                revChartRendered = true;
+            }
+
+            // Chart 3: Vision
+            if (!visionChartRendered) {
+                const ctx = document.getElementById('visionChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Projected Revenue Mix (Year 5)'],
+                        datasets: [
+                            {
+                                label: 'Physical (~160M)',
+                                data: [160],
+                                backgroundColor: '#453516',
+                                borderRadius: 4
+                            },
+                            {
+                                label: 'Digital (~240M)',
+                                data: [240],
+                                backgroundColor: '#fe6100',
+                                borderRadius: 4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: false, // Disable animation for PDF printing
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { font: {size: 14} }
+                            },
+                            datalabels: {
+                                color: 'white',
+                                anchor: 'center',
+                                align: 'center',
+                                font: { weight: 'bold', size: 16 },
+                                formatter: function(value) {
+                                    return value + 'M';
+                                }
+                            }
+                        },
+                        scales: {
+                            y: { beginAtZero: true, stacked: true },
+                            x: { stacked: true, display: false }
+                        }
+                    }
+                });
+                visionChartRendered = true;
+            }
+        }
+
+        // Run on initial load
+        Reveal.on('ready', () => {
+            renderCharts();
+        });
+        // Run on slide change
+        Reveal.on('slidechanged', renderCharts);
+    </script>
+</body>
+</html>

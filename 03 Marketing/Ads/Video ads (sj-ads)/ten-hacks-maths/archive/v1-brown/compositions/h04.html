@@ -1,0 +1,81 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#FFF6DC;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;color:#FE6100;line-height:1.2;z-index:2;}
+.box{position:absolute;background:#FCE004;border-radius:10px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#FFF6DC;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+
+#h04-stage{position:absolute;inset:0;}
+#h04-title{position:absolute;left:390px;top:426px;width:600px;font-size:76px;font-weight:700;line-height:1.1;letter-spacing:-0.01em;}
+#h04-title .w{display:inline-block;}
+#h04-rule{position:absolute;left:90px;top:590px;width:880px;font-size:42px;font-weight:500;line-height:1.38;color:rgba(255,246,220,0.86);}
+#h04-rule .hl{background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;
+  padding:0 6px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone;font-weight:600;}
+  </style>
+  <div id="root" data-composition-id="h04" data-width="1080" data-height="1920">
+    <div id="h04-stage" data-layout-allow-overlap>
+      <div class="title" id="h04-title"><span class="w" id="h04-tw0">%</span> <span class="w" id="h04-tw1">swap</span></div>
+      <div class="rule" id="h04-rule"><span class="" id="h04-r0">x% of y </span><span class="hl" id="h04-r1">= y% of x</span></div>
+      <div class="tk" id="h04-a8" style="left:90.0px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">8%</div>
+      <div class="tk" id="h04-aof" style="left:260.0px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC"> of </div>
+      <div class="tk" id="h04-a50" style="left:419.2px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">50</div>
+      <div class="tk" id="h04-s50" style="left:90.0px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">50%</div>
+      <div class="tk" id="h04-sof" style="left:333.3px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC"> of </div>
+      <div class="tk" id="h04-s8" style="left:492.4px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">8</div>
+      <div class="tk" id="h04-be" style="left:90.0px;top:868.0px;font-size:120px;font-weight:700;color:#FFF6DC">= </div>
+      <div class="tk" id="h04-b4" style="left:199.0px;top:868.0px;font-size:120px;font-weight:700;color:#FFF6DC">4</div>
+      <div class="note" id="h04-nh" style="left:330.2px;top:906.5px;font-size:54px">50% is just half</div>
+      <div class="box" id="h04-box0" style="left:181.0px;top:863.6px;width:117.2px;height:144.4px"></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#h04-title .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out',stagger:0.07},0.12);
+    tl.fromTo('#h04-rule',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.22,ease:'power4.out'},0.28);
+    tl.set('#h04-a8',{opacity:0},0);
+    tl.set('#h04-aof',{opacity:0},0);
+    tl.set('#h04-a50',{opacity:0},0);
+    tl.set('#h04-s50',{opacity:0},0);
+    tl.set('#h04-sof',{opacity:0},0);
+    tl.set('#h04-s8',{opacity:0},0);
+    tl.set('#h04-be',{opacity:0},0);
+    tl.set('#h04-b4',{opacity:0},0);
+    tl.set('#h04-nh',{opacity:0},0);
+    tl.fromTo('#h04-a8',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.35);
+    tl.fromTo('#h04-aof',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.42);
+    tl.fromTo('#h04-a50',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.49);
+    tl.fromTo('#h04-rule .hl',{backgroundSize:'0% 100%',color:'#FFF6DC'},{backgroundSize:'100% 100%',color:'#453516',duration:0.3,ease:'power2.out'},1.551);
+    tl.fromTo('#h04-a50',{opacity:1},{opacity:0,duration:0.06},4.066);
+    tl.fromTo('#h04-aof',{opacity:1},{opacity:0,duration:0.06},4.066);
+    tl.fromTo('#h04-a8',{opacity:1},{opacity:0,duration:0.06},4.066);
+    tl.set('#h04-s50',{opacity:1,transformOrigin:'0% 50%'},4.066);
+    tl.fromTo('#h04-s50',{x:329.2,scale:1.000},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},4.066);
+    tl.fromTo('#h04-s50',{y:0.0},{y:70,duration:0.31,ease:'power2.out'},4.066);
+    tl.to('#h04-s50',{y:0,duration:0.31,ease:'power2.in'},4.376);
+    tl.set('#h04-sof',{opacity:1,transformOrigin:'0% 50%'},4.066);
+    tl.fromTo('#h04-sof',{x:-73.2,scale:1.000},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},4.066);
+    tl.fromTo('#h04-sof',{y:0.0},{y:-70,duration:0.31,ease:'power2.out'},4.066);
+    tl.to('#h04-sof',{y:0,duration:0.31,ease:'power2.in'},4.376);
+    tl.set('#h04-s8',{opacity:1,transformOrigin:'0% 50%'},4.066);
+    tl.fromTo('#h04-s8',{x:-402.4,scale:1.000},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},4.066);
+    tl.fromTo('#h04-s8',{y:0.0},{y:-70,duration:0.31,ease:'power2.out'},4.066);
+    tl.to('#h04-s8',{y:0,duration:0.31,ease:'power2.in'},4.376);
+    tl.fromTo('#h04-be',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},5.224);
+    tl.fromTo('#h04-nh',{opacity:1,clipPath:'inset(0% 100% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:0.4,ease:'sine.inOut'},5.537);
+    tl.set('#h04-box0',{opacity:0},0);
+    tl.fromTo('#h04-box0',{opacity:0,scale:1.3,rotation:-7},{opacity:1,scale:1,rotation:-1.5,duration:0.14,ease:'back.out(1.7)'},6.476);
+    tl.fromTo('#h04-box0',{x:2},{x:0,duration:0.13,ease:'steps(4)'},6.616);
+    tl.fromTo('#h04-b4',{opacity:0.0},{opacity:1,duration:0.08},6.476);
+    tl.fromTo('#h04-b4',{color:'#FFF6DC'},{color:'#453516',duration:0.05},6.516);
+    tl.fromTo('#h04-stage',{opacity:1,filter:'blur(0px)',y:0},{opacity:0,filter:'blur(10px)',y:-60,duration:0.22,ease:'expo.in'},7.505);
+    window.__timelines["h04"] = tl;
+  </script>
+</template>

@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Level Business (9609) Chapter 9: Corporate Planning & Implementation | SJ Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       SJ ACADEMY BRAND SYSTEM (Version 4.2 / PDF Print Playbook 1.2)
+       ========================================================================== */
+    :root {
+      --sj-yellow: #FCE004;         /* The highlighter. The brand's signature asset */
+      --sj-ink: #151515;            /* Primary type, outlines, pure black in print */
+      --sj-canvas: #F7F5EF;         /* Paper surface / background */
+      --sj-surface: #FFFFFF;        /* Card surface */
+      --sj-brown: #453516;          /* Depth, method, proof */
+      --sj-cta: #CC4A00;            /* CTA orange: buttons, badges */
+      --sj-pen-red: #D63A2F;        /* Marking: ticks, circles, alerts */
+      --sj-pen-red-text: #B92F25;   /* High-contrast alert text */
+      --sj-pen-brown: #B54200;      /* Teacher notes & arrows */
+      --sj-line: #E2DDD2;           /* Subtle paper border */
+      --sj-muted: #4A463D;          /* Secondary body text */
+      
+      --sj-font: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      --sj-radius: 10px;
+      --sj-radius-sm: 6px;
+      --sj-shadow: 3.5px 3.5px 0px var(--sj-ink);
+      --sj-shadow-sm: 2px 2px 0px var(--sj-ink);
+      --sj-border: 1.5px solid var(--sj-ink);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--sj-font);
+      background-color: #DDD9CD;
+      color: var(--sj-ink);
+      line-height: 1.5;
+      padding: 24px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Print Helper Bar (Screen Only) */
+    .print-bar {
+      position: fixed;
+      top: 14px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #FFFFFF;
+      padding: 8px 16px;
+      border: var(--sj-border);
+      border-radius: 999px;
+      box-shadow: var(--sj-shadow);
+    }
+
+    .print-btn {
+      background: var(--sj-yellow);
+      border: var(--sj-border);
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-family: var(--sj-font);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--sj-ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 2px 2px 0px var(--sj-ink);
+      transition: all 0.15s ease;
+    }
+
+    .print-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--sj-ink);
+    }
+
+    /* ==========================================================================
+       SLIDE CANVAS (16:9 Landscape - 1280px x 720px)
+       ========================================================================== */
+    .slide-page {
+      width: 1280px;
+      height: 720px;
+      background: var(--sj-canvas);
+      border: var(--sj-border);
+      box-shadow: var(--sj-shadow);
+      border-radius: var(--sj-radius);
+      padding: 24px 34px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    /* Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1.5px solid var(--sj-line);
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+
+    .brand-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo-svg {
+      height: 34px;
+      width: 144px;
+      display: block;
+    }
+
+    .brand-divider {
+      color: #BFB8A8;
+      font-size: 18px;
+    }
+
+    .brand-course {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--sj-brown);
+    }
+
+    .slide-count-badge {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--sj-ink);
+      background: #FFFFFF;
+      border: var(--sj-border);
+      padding: 4px 14px;
+      border-radius: 999px;
+      box-shadow: 1.5px 1.5px 0px var(--sj-ink);
+    }
+
+    /* Slide Body (Fills all remaining height) */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Title Area */
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      flex-shrink: 0;
+    }
+
+    .slide-h1 {
+      font-size: 29px;
+      font-weight: 700;
+      color: var(--sj-ink);
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+    }
+
+    .slide-sub {
+      font-size: 13.5px;
+      color: var(--sj-muted);
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    /* The Authentic SJ Highlighter:
+       "A flat yellow band covering the lower half of the letters, with soft ends. Never an underline, never a box." */
+    .hl {
+      background: linear-gradient(180deg, transparent 48%, var(--sj-yellow) 48%, var(--sj-yellow) 92%, transparent 92%);
+      padding: 0 4px;
+      font-weight: 700;
+      display: inline;
+    }
+
+    /* Cards & Blocks with Larger Fonts */
+    .card {
+      background: var(--sj-surface);
+      border: var(--sj-border);
+      border-radius: var(--sj-radius-sm);
+      box-shadow: var(--sj-shadow-sm);
+      padding: 14px 16px;
+      position: relative;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--sj-ink);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-text {
+      font-size: 12.8px;
+      color: #2D2D2D;
+      line-height: 1.5;
+    }
+
+    .case-box {
+      background: #FFFDF5;
+      border: 1px solid #D5CEBD;
+      border-left: 4px solid var(--sj-brown);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-top: 10px;
+    }
+
+    .case-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--sj-brown);
+      margin-bottom: 3px;
+    }
+
+    .case-text {
+      font-size: 12.2px;
+      color: #2D2D2D;
+      line-height: 1.45;
+    }
+
+    /* Chips */
+    .chip {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--sj-ink);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .chip-yellow { background: var(--sj-yellow); color: var(--sj-ink); }
+    .chip-coral { background: #FDE8E8; color: var(--sj-pen-red-text); border-color: var(--sj-pen-red); }
+    .chip-brown { background: var(--sj-brown); color: #FFF; }
+    .chip-canvas { background: var(--sj-canvas); color: var(--sj-ink); }
+
+    /* Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1.5px solid var(--sj-line);
+      margin-top: 12px;
+      font-size: 11.5px;
+      color: var(--sj-muted);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .footer-highlight {
+      color: var(--sj-brown);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       PRINT SETUP FOR CLEAN PDF
+       ========================================================================== */
+    @media print {
+      body {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 0 !important;
+      }
+
+      .print-bar {
+        display: none !important;
+      }
+
+      .slide-page {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        max-height: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 38px 48px 24px !important;
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+    }
+
+    @page {
+      size: landscape;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full Reusable SVG Symbol for SJ Academy Horizontal Logo -->
+  <svg style="display:none;" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="sj-logo-full" viewBox="0 0 434.71 103.1">
+      <g transform="translate(-81.234 -758.441)">
+        <path fill="#FCE004" d="M 515.94 810.54 L 198.27 810.54 L 198.27 841.74 L 515.94 841.74 Z M 515.94 810.54"/>
+        <path fill="#463613" d="M 205.38 826.10 C 205.38 825.10 205.51 824.14 205.78 823.21 C 206.05 822.28 206.46 821.46 207.02 820.75 C 207.58 820.03 208.27 819.46 209.11 819.03 C 209.95 818.60 210.95 818.39 212.11 818.39 C 213.32 818.39 214.36 818.61 215.23 819.04 C 216.08 819.48 216.83 820.07 217.47 820.82 L 216.32 821.84 C 215.73 821.10 215.09 820.61 214.41 820.37 C 213.73 820.12 212.98 820 212.15 820 C 211.25 820 210.48 820.17 209.84 820.51 C 209.19 820.85 208.66 821.30 208.23 821.87 C 207.81 822.43 207.49 823.08 207.29 823.82 C 207.08 824.56 206.98 825.32 206.98 826.12 C 206.98 826.90 207.08 827.66 207.29 828.41 C 207.49 829.16 207.81 829.82 208.23 830.39 C 208.66 830.96 209.19 831.42 209.84 831.76 C 210.48 832.11 211.25 832.28 212.15 832.28 C 212.98 832.28 213.73 832.15 214.41 831.88 C 215.09 831.62 215.73 831.11 216.32 830.37 L 217.47 831.39 C 216.83 832.15 216.08 832.75 215.23 833.20 C 214.36 833.64 213.32 833.87 212.11 833.87 C 210.95 833.87 209.95 833.65 209.11 833.21 C 208.27 832.76 207.58 832.18 207.02 831.46 C 206.46 830.74 206.05 829.91 205.78 828.98 C 205.51 828.04 205.38 827.08 205.38 826.10"/>
+        <path fill="#463613" d="M 223.01 833.78 L 223.01 818.59 L 232.06 818.59 L 232.06 820.19 L 224.61 820.19 L 224.61 825.08 L 231.39 825.08 L 231.39 826.68 L 224.61 826.68 L 224.61 832.17 L 232.12 832.17 L 232.12 833.78 Z M 223.01 833.78"/>
+        <path fill="#463613" d="M 248.51 833.78 L 239.22 821.47 L 239.22 833.78 L 237.66 833.78 L 237.66 818.59 L 238.96 818.59 L 248.30 830.89 L 248.30 818.59 L 249.85 818.59 L 249.85 833.78 Z M 248.51 833.78"/>
+        <path fill="#463613" d="M 260.82 820.19 L 260.82 833.78 L 259.21 833.78 L 259.21 820.19 L 255.39 820.19 L 255.39 818.59 L 264.55 818.59 L 264.55 820.19 Z M 260.82 820.19"/>
+        <path fill="#463613" d="M 270.09 833.78 L 270.09 818.59 L 279.14 818.59 L 279.14 820.19 L 271.69 820.19 L 271.69 825.08 L 278.47 825.08 L 278.47 826.68 L 271.69 826.68 L 271.69 832.17 L 279.21 832.17 L 279.21 833.78 Z M 270.09 833.78"/>
+        <path fill="#463613" d="M 286.34 825.69 L 290.41 825.69 C 290.78 825.69 291.14 825.61 291.47 825.47 C 291.80 825.32 292.09 825.13 292.33 824.88 C 292.58 824.64 292.78 824.35 292.92 824.01 C 293.07 823.68 293.14 823.33 293.14 822.95 C 293.14 822.57 293.07 822.22 292.92 821.89 C 292.78 821.55 292.58 821.26 292.33 821.02 C 292.09 820.77 291.80 820.57 291.47 820.42 C 291.14 820.27 290.78 820.19 290.41 820.19 L 286.34 820.19 Z M 289.92 827.29 L 286.34 827.29 L 286.34 833.78 L 284.74 833.78 L 284.74 818.58 L 290.41 818.58 C 291.00 818.58 291.56 818.70 292.09 818.93 C 292.62 819.17 293.07 819.48 293.46 819.87 C 293.85 820.26 294.17 820.72 294.40 821.25 C 294.63 821.77 294.75 822.34 294.75 822.95 C 294.75 823.43 294.67 823.89 294.52 824.33 C 294.37 824.77 294.16 825.17 293.90 825.53 C 293.64 825.89 293.33 826.21 292.96 826.48 C 292.58 826.75 292.19 826.95 291.75 827.10 L 295.29 833.78 L 293.49 833.78 Z M 289.92 827.29"/>
+        <path fill="#463613" d="M 323.49 826.12 C 323.49 825.30 323.37 824.51 323.14 823.78 C 322.91 823.04 322.56 822.39 322.11 821.83 C 321.65 821.27 321.08 820.83 320.41 820.50 C 319.73 820.16 318.93 820.00 318.01 820.00 C 317.12 820.00 316.33 820.16 315.66 820.49 C 314.99 820.81 314.42 821.26 313.97 821.81 C 313.51 822.37 313.17 823.02 312.94 823.76 C 312.71 824.51 312.59 825.30 312.59 826.12 C 312.59 826.94 312.71 827.73 312.94 828.48 C 313.17 829.22 313.51 829.87 313.97 830.44 C 314.42 831.00 314.99 831.45 315.66 831.78 C 316.33 832.12 317.12 832.28 318.01 832.28 C 318.93 832.28 319.73 832.12 320.41 831.80 C 321.08 831.47 321.65 831.02 322.11 830.46 C 322.56 829.89 322.91 829.24 323.14 828.5 C 323.37 827.75 323.49 826.96 323.49 826.12 M 325.11 826.10 C 325.11 827.11 324.96 828.09 324.67 829.03 C 324.37 829.97 323.92 830.80 323.33 831.51 C 322.74 832.23 322.00 832.80 321.11 833.24 C 320.22 833.67 319.19 833.89 318.01 833.89 C 316.84 833.89 315.82 833.67 314.94 833.24 C 314.07 832.80 313.33 832.23 312.74 831.51 C 312.15 830.80 311.70 829.97 311.41 829.03 C 311.11 828.09 310.96 827.11 310.96 826.10 C 310.96 825.08 311.11 824.12 311.41 823.19 C 311.70 822.26 312.15 821.44 312.74 820.73 C 313.33 820.03 314.07 819.46 314.94 819.03 C 315.82 818.60 316.84 818.39 318.01 818.39 C 319.19 818.39 320.22 818.60 321.11 819.03 C 322.00 819.46 322.74 820.03 323.33 820.73 C 323.92 821.44 324.37 822.26 324.67 823.19 C 324.96 824.12 325.11 825.08 325.11 826.10"/>
+        <path fill="#463613" d="M 330.65 833.78 L 330.65 818.59 L 339.70 818.59 L 339.70 820.19 L 332.26 820.19 L 332.26 825.08 L 339.03 825.08 L 339.03 826.68 L 332.26 826.68 L 332.26 833.78 Z M 330.65 833.78"/>
+        <path fill="#463613" d="M 355.37 833.78 L 355.37 818.59 L 364.42 818.59 L 364.42 820.19 L 356.98 820.19 L 356.98 825.08 L 363.75 825.08 L 363.75 826.68 L 356.98 826.68 L 356.98 832.17 L 364.49 832.17 L 364.49 833.78 Z M 355.37 833.78"/>
+        <path fill="#463613" d="M 372.11 833.78 L 370.03 833.78 L 375.34 826.12 L 370.11 818.59 L 372.19 818.59 L 376.34 824.64 L 380.51 818.59 L 382.59 818.59 L 377.34 826.12 L 382.68 833.78 L 380.57 833.78 L 376.34 827.60 Z M 372.11 833.78"/>
+        <path fill="#463613" d="M 388.21 826.10 C 388.21 825.10 388.35 824.14 388.62 823.21 C 388.88 822.28 389.30 821.46 389.85 820.75 C 390.41 820.03 391.11 819.46 391.95 819.03 C 392.78 818.60 393.78 818.39 394.94 818.39 C 396.16 818.39 397.20 818.61 398.06 819.04 C 398.92 819.48 399.67 820.07 400.30 820.82 L 399.16 821.84 C 398.56 821.10 397.92 820.61 397.25 820.37 C 396.57 820.12 395.81 820 394.99 820 C 394.09 820 393.32 820.17 392.67 820.51 C 392.03 820.85 391.5 821.30 391.07 821.87 C 390.64 822.43 390.33 823.08 390.12 823.82 C 389.92 824.56 389.82 825.32 389.82 826.12 C 389.82 826.90 389.92 827.66 390.12 828.41 C 390.33 829.16 390.64 829.82 391.07 830.39 C 391.5 830.96 392.03 831.42 392.67 831.76 C 393.32 832.11 394.09 832.28 394.99 832.28 C 395.81 832.28 396.57 832.15 397.25 831.88 C 397.92 831.62 398.56 831.11 399.16 830.37 L 400.30 831.39 C 399.67 832.15 398.92 832.75 398.06 833.20 C 397.20 833.64 396.16 833.87 394.94 833.87 C 393.78 833.87 392.78 833.65 391.95 833.21 C 391.11 832.76 390.41 832.18 389.85 831.46 C 389.30 830.74 388.88 829.91 388.62 828.98 C 388.35 828.04 388.21 827.08 388.21 826.10"/>
+        <path fill="#463613" d="M 405.84 833.78 L 405.84 818.59 L 414.89 818.59 L 414.89 820.19 L 407.45 820.19 L 407.45 825.08 L 414.22 825.08 L 414.22 826.68 L 407.45 826.68 L 407.45 832.17 L 414.96 832.17 L 414.96 833.78 Z M 405.84 833.78"/>
+        <path fill="#463613" d="M 420.5 833.78 L 420.5 818.59 L 422.10 818.59 L 422.10 832.17 L 429.59 832.17 L 429.59 833.78 Z M 420.5 833.78"/>
+        <path fill="#463613" d="M 435.12 833.78 L 435.12 818.59 L 436.73 818.59 L 436.73 832.17 L 444.22 832.17 L 444.22 833.78 Z M 435.12 833.78"/>
+        <path fill="#463613" d="M 449.75 833.78 L 449.75 818.59 L 458.80 818.59 L 458.80 820.19 L 451.36 820.19 L 451.36 825.08 L 458.13 825.08 L 458.13 826.68 L 451.36 826.68 L 451.36 832.17 L 458.87 832.17 L 458.87 833.78 Z M 449.75 833.78"/>
+        <path fill="#463613" d="M 475.26 833.78 L 465.97 821.47 L 465.97 833.78 L 464.41 833.78 L 464.41 818.59 L 465.71 818.59 L 475.04 830.89 L 475.04 818.59 L 476.60 818.59 L 476.60 833.78 Z M 475.26 833.78"/>
+        <path fill="#463613" d="M 482.14 826.10 C 482.14 825.10 482.27 824.14 482.54 823.21 C 482.81 822.28 483.22 821.46 483.78 820.75 C 484.33 820.03 485.03 819.46 485.87 819.03 C 486.71 818.60 487.71 818.39 488.87 818.39 C 490.08 818.39 491.12 818.61 491.98 819.04 C 492.85 819.48 493.59 820.07 494.23 820.82 L 493.08 821.84 C 492.49 821.10 491.85 820.61 491.17 820.37 C 490.49 820.12 489.74 820 488.91 820 C 488.01 820 487.24 820.17 486.60 820.51 C 485.96 820.85 485.42 821.30 485 821.87 C 484.57 822.43 484.25 823.08 484.05 823.82 C 483.85 824.56 483.75 825.32 483.75 826.12 C 483.75 826.90 483.85 827.66 484.05 828.41 C 484.25 829.16 484.57 829.82 485 830.39 C 485.42 830.96 485.96 831.42 486.60 831.76 C 487.24 832.11 488.01 832.28 488.91 832.28 C 489.74 832.28 490.49 832.15 491.17 831.88 C 491.85 831.62 492.49 831.11 493.08 830.37 L 494.23 831.39 C 493.59 832.15 492.85 832.75 491.98 833.20 C 491.12 833.64 490.08 833.87 488.87 833.87 C 487.71 833.87 486.71 833.65 485.87 833.21 C 485.03 832.76 484.33 832.18 483.78 831.46 C 483.22 830.74 482.81 829.91 482.54 828.98 C 482.27 828.04 482.14 827.08 482.14 826.10"/>
+        <path fill="#499.76 833.78 L 499.76 818.59 L 508.82 818.59 L 508.82 820.19 L 501.37 820.19 L 501.37 825.08 L 508.14 825.08 L 508.14 826.68 L 501.37 826.68 L 501.37 832.17 L 508.88 832.17 L 508.88 833.78 Z M 499.76 833.78"/>
+        <path fill="#463613" d="M 198.56 799.16 L 204.29 790.99 C 205.75 792.39 207.48 793.52 209.51 794.38 C 211.53 795.24 213.71 795.67 216.03 795.67 C 217.19 795.67 218.14 795.51 218.91 795.19 C 219.67 794.87 220.05 794.39 220.05 793.73 C 220.05 793.36 219.82 793.05 219.36 792.80 C 218.90 792.56 218.28 792.34 217.50 792.16 C 216.72 791.98 215.83 791.78 214.83 791.54 C 213.82 791.31 212.76 791.07 211.65 790.81 C 210.53 790.55 209.41 790.29 208.26 790.02 C 207.12 789.76 206.04 789.33 205.02 788.72 C 204.00 788.12 203.10 787.42 202.32 786.62 C 201.53 785.83 200.92 784.81 200.45 783.58 C 199.99 782.35 199.76 780.98 199.76 779.45 C 199.76 777.89 200.08 776.39 200.73 774.96 C 201.38 773.52 202.32 772.24 203.54 771.11 C 204.77 769.98 206.36 769.08 208.31 768.41 C 210.26 767.73 212.44 767.39 214.86 767.39 C 221.04 767.39 226.21 769.08 230.35 772.46 L 224.44 780.27 C 222.91 779.12 221.19 778.23 219.28 777.62 C 217.37 777 215.51 776.68 213.71 776.68 C 211.87 776.68 210.94 777.21 210.94 778.27 C 210.94 778.62 211.18 778.93 211.64 779.19 C 212.11 779.45 212.73 779.67 213.52 779.86 C 214.30 780.05 215.19 780.26 216.19 780.50 C 217.18 780.75 218.23 781.00 219.35 781.26 C 220.46 781.53 221.58 781.80 222.73 782.08 C 223.87 782.35 224.94 782.78 225.96 783.37 C 226.98 783.96 227.88 784.65 228.67 785.42 C 229.45 786.20 230.08 787.18 230.54 788.36 C 231.01 789.53 231.24 790.85 231.24 792.30 C 231.24 796.29 229.84 799.40 227.05 801.62 C 224.25 803.85 220.39 804.97 215.48 804.97 C 208.48 804.97 202.84 803.03 198.56 799.16"/>
+        <path fill="#463613" d="M 231.83 802.01 L 236.30 793.62 C 237.88 794.71 239.44 795.25 240.99 795.25 C 242.19 795.25 243.17 794.88 243.92 794.14 C 244.66 793.41 245.03 792.41 245.03 791.14 L 245.03 767.92 L 256.03 767.92 L 256.03 791.33 C 256.03 795.86 254.78 799.26 252.28 801.54 C 249.77 803.82 246.34 804.96 241.97 804.96 C 237.75 804.96 234.36 803.98 231.83 802.01"/>
+        <path fill="#463613" d="M 269.21 792.18 L 284.66 792.18 L 276.91 772.56 Z M 259.44 804.30 L 274.12 767.92 L 279.73 767.92 L 294.35 804.30 L 289.19 804.30 L 285.97 796.23 L 267.86 796.23 L 264.64 804.30 Z M 259.44 804.30"/>
+        <path fill="#463613" d="M 297.03 793.78 C 296.07 791.42 295.58 788.87 295.58 786.14 C 295.58 783.41 296.07 780.85 297.03 778.5 C 298.01 776.14 299.33 774.14 300.99 772.52 C 302.66 770.89 304.64 769.62 306.94 768.69 C 309.24 767.77 311.68 767.31 314.28 767.31 C 320.12 767.31 324.71 769.71 328.07 774.53 L 324.32 776.66 C 323.25 775.06 321.82 773.78 320.03 772.81 C 318.23 771.84 316.32 771.36 314.28 771.36 C 310.26 771.36 306.92 772.74 304.26 775.50 C 301.60 778.26 300.26 781.81 300.26 786.14 C 300.26 788.96 300.88 791.50 302.10 793.77 C 303.33 796.03 305.01 797.79 307.14 799.04 C 309.27 800.29 311.65 800.92 314.28 800.92 C 316.30 800.92 318.21 800.43 320.01 799.45 C 321.82 798.48 323.25 797.20 324.32 795.62 L 328.12 797.69 C 324.59 802.54 319.98 804.96 314.28 804.96 C 311.68 804.96 309.24 804.51 306.94 803.58 C 304.64 802.66 302.66 801.39 300.99 799.76 C 299.33 798.14 298.01 796.14 297.03 793.78"/>
+        <path fill="#463613" d="M 339.92 792.18 L 355.37 792.18 L 347.62 772.56 Z M 330.15 804.30 L 344.82 767.92 L 350.44 767.92 L 365.06 804.30 L 359.89 804.30 L 356.67 796.23 L 338.56 796.23 L 335.34 804.30 Z M 330.15 804.30"/>
+        <path fill="#463613" d="M 374.33 800.25 L 382.24 800.25 C 385.10 800.25 387.60 799.61 389.75 798.33 C 391.90 797.06 393.51 795.36 394.58 793.25 C 395.66 791.14 396.19 788.76 396.19 786.14 C 396.19 783.48 395.66 781.09 394.61 778.98 C 393.55 776.86 391.95 775.17 389.82 773.89 C 387.67 772.61 385.15 771.97 382.24 771.97 L 374.33 771.97 Z M 369.80 804.30 L 369.80 767.92 L 382.24 767.92 C 385.93 767.92 389.21 768.73 392.07 770.33 C 394.92 771.94 397.10 774.12 398.62 776.87 C 400.12 779.62 400.88 782.71 400.88 786.14 C 400.88 788.71 400.44 791.11 399.55 793.34 C 398.66 795.57 397.42 797.49 395.82 799.11 C 394.22 800.72 392.25 801.99 389.92 802.92 C 387.58 803.84 385.02 804.30 382.24 804.30 Z M 369.80 804.30"/>
+        <path fill="#463613" d="M 407.96 804.30 L 407.96 767.92 L 431.80 767.92 L 431.80 771.97 L 412.49 771.97 L 412.49 783.66 L 431.40 783.66 L 431.40 787.71 L 412.49 787.71 L 412.49 800.25 L 431.80 800.25 L 431.80 804.30 Z M 407.96 804.30"/>
+        <path fill="#463613" d="M 438.99 804.30 L 438.99 767.92 L 445.46 767.92 L 456.80 795.96 L 468.10 767.92 L 474.59 767.92 L 474.59 804.30 L 470.07 804.30 L 470.07 773.70 L 457.74 804.30 L 455.90 804.30 L 443.51 773.70 L 443.51 804.30 Z M 438.99 804.30"/>
+        <path fill="#463613" d="M 479.31 767.92 L 484.61 767.92 L 495.90 784.83 L 507.19 767.92 L 512.49 767.92 L 498.19 788.91 L 498.19 804.30 L 493.66 804.30 L 493.66 788.91 Z M 479.31 767.92"/>
+        <path fill="#FCE004" d="M 120.34 767.34 L 120.32 767.29 L 120.28 767.29 L 125.28 770.94 Z M 120.34 767.34"/>
+        <path fill="#FCE004" d="M 180.41 846.54 L 145.26 846.54 L 135.26 853.62 L 135.26 848.74 L 132.68 850.60 L 130.31 848.86 L 130.31 853.62 L 130.28 853.60 L 130.28 853.62 L 120.34 846.56 L 120.32 846.54 L 85.11 846.54 L 85.11 827.58 L 85.11 815.57 L 90.08 811.88 L 90.08 806.91 L 85.11 806.91 L 85.11 762.32 L 120.32 762.32 L 130.28 769.41 L 130.28 774.58 L 132.68 776.33 L 145.26 767.30 L 135.26 774.48 L 135.26 769.41 L 145.26 762.32 L 180.51 762.32 Z M 142.42 758.44 L 132.72 765.40 L 123.17 758.44 L 81.23 758.44 L 81.23 850.42 L 117.42 850.42 L 132.63 861.54 L 148.11 850.42 L 184.29 850.42 L 184.29 758.44 Z M 142.42 758.44"/>
+        <path fill="#FFFFFF" d="M 95.05 772.27 L 120.32 772.27 L 120.32 777.24 L 95.05 777.24 Z M 95.05 772.27"/>
+        <path fill="#FFFFFF" d="M 170.43 836.75 L 145.26 836.75 L 145.26 831.78 L 170.43 831.78 Z M 170.43 836.75"/>
+        <path fill="#FFFFFF" d="M 170.43 777.24 L 145.26 777.24 L 145.26 772.27 L 170.43 772.27 Z M 170.43 777.24"/>
+        <path fill="#FFFFFF" d="M 145.26 767.29 L 132.68 776.33 L 130.28 774.58 L 130.28 783.94 L 125.27 783.94 L 125.28 776.05 L 125.28 770.94 L 120.28 767.29 L 90.08 767.29 L 90.08 801.94 L 107.71 801.94 L 107.71 806.91 L 90.08 806.91 L 90.08 811.89 L 90.10 811.88 L 90.10 827.58 L 90.08 827.58 L 90.08 841.56 L 120.32 841.56 L 125.28 845.08 L 125.28 831.09 L 130.28 831.09 L 130.28 848.63 L 130.31 848.66 L 130.31 848.86 L 132.68 850.60 L 135.26 848.74 L 135.26 848.66 L 135.27 831.09 L 140.26 831.09 L 140.26 845.11 L 145.26 841.56 L 175.44 841.56 L 175.44 767.29 Z M 145.26 767.29"/>
+        <path fill="#FFFFFF" d="M 120.30 836.75 L 95.05 836.75 L 95.05 831.78 L 120.30 831.78 Z M 120.30 836.75"/>
+        <path fill="#463613" d="M 120.30 821.83 L 95.05 821.83 L 95.05 826.80 L 120.30 826.80 Z M 120.30 821.83"/>
+        <path fill="#463613" d="M 120.30 811.88 L 95.05 811.88 L 95.05 816.86 L 120.30 816.86 Z M 120.30 811.88"/>
+        <path fill="#463613" d="M 120.30 831.78 L 95.05 831.78 L 95.05 836.75 L 120.30 836.75 Z M 120.30 831.78"/>
+        <path fill="#463613" d="M 95.05 797.14 L 120.32 797.14 L 120.32 792.16 L 95.05 792.16 Z M 95.05 797.14"/>
+        <path fill="#463613" d="M 95.05 777.24 L 120.32 777.24 L 120.32 772.27 L 95.05 772.27 Z M 95.05 777.24"/>
+        <path fill="#463613" d="M 95.05 787.19 L 120.32 787.19 L 120.32 782.21 L 95.05 782.21 Z M 95.05 787.19"/>
+        <path fill="#463613" d="M 170.43 811.88 L 145.26 811.88 L 145.26 816.86 L 170.43 816.86 Z M 170.43 811.88"/>
+        <path fill="#463613" d="M 170.43 821.83 L 145.26 821.83 L 145.26 826.80 L 170.43 826.80 Z M 170.43 821.83"/>
+        <path fill="#463613" d="M 170.43 831.78 L 145.26 831.78 L 145.26 836.75 L 170.43 836.75 Z M 170.43 831.78"/>
+        <path fill="#463613" d="M 170.43 782.21 L 145.26 782.21 L 145.26 787.19 L 170.43 787.19 Z M 170.43 782.21"/>
+        <path fill="#463613" d="M 170.43 801.94 L 145.26 801.94 L 145.26 806.91 L 170.43 806.91 Z M 170.43 801.94"/>
+        <path fill="#463613" d="M 170.43 772.27 L 145.26 772.27 L 145.26 777.24 L 170.43 777.24 Z M 170.43 772.27"/>
+        <path fill="#463613" d="M 170.43 792.16 L 145.26 792.16 L 145.26 797.14 L 170.43 797.14 Z M 170.43 792.16"/>
+        <path fill="#463613" d="M 145.26 762.32 L 135.26 769.41 L 135.26 774.48 L 145.26 767.29 L 175.44 767.29 L 175.44 841.56 L 145.26 841.56 L 140.26 845.11 L 140.26 801.92 L 135.28 805.62 L 135.27 817.63 L 135.26 848.66 L 135.26 853.62 L 145.26 846.54 L 180.41 846.54 L 180.51 762.32 Z M 145.26 762.32"/>
+        <path fill="#463613" d="M 130.28 848.63 L 130.28 805.62 L 125.28 801.94 L 90.08 801.94 L 90.08 767.29 L 120.32 767.29 L 120.34 767.34 L 125.28 770.94 L 125.28 776.05 L 125.25 793.27 L 130.28 796.95 L 130.28 769.41 L 120.32 762.32 L 85.11 762.32 L 85.11 806.91 L 125.28 806.91 L 125.28 845.08 L 120.32 841.56 L 90.08 841.56 L 90.08 811.89 L 85.11 815.57 L 85.11 827.58 L 85.11 846.54 L 120.32 846.54 L 120.34 846.56 L 130.28 853.62 L 130.28 853.60 L 130.31 853.62 L 130.31 848.66 Z M 130.28 848.63"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- ==========================================================================
+       SLIDE 1: CHAPTER 9 OVERVIEW — CORPORATE PLANNING & IMPLEMENTATION
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Cambridge A Level Business (9609)</span>
+      </div>
+      <div class="slide-count-badge">Slide 1 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h1 class="slide-h1">Corporate Planning & <span class="hl">Implementation</span></h1>
+          <p class="slide-sub">Bridging Strategic Choice with Operational Realities, Cultural Alignment, and Crisis Resilience.</p>
+        </div>
+        <div class="chip chip-yellow">Strategic Execution</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 18px; flex: 1;">
+        <!-- Left: Syllabus Framework -->
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--sj-brown); margin-bottom: 8px;">
+              Syllabus Learning Objectives (Cambridge 9609):
+            </div>
+            <ul style="padding-left: 20px; font-size: 13px; display: grid; gap: 8px; line-height: 1.45;">
+              <li><strong>Analyse the importance of corporate planning:</strong> Setting directional focus, resource allocation, and variance feedback control.</li>
+              <li><strong>Evaluate corporate culture types (Charles Handy):</strong> Assessing how values impact organizational agility and executive decision-making.</li>
+              <li><strong>Evaluate transformational leadership:</strong> How inspirational leaders motivate change versus transactional compliance.</li>
+              <li><strong>Analyse the management of strategic change:</strong> Applying John Kotter’s 8-step transformation sequence to minimize organizational friction.</li>
+              <li><strong>Evaluate contingency planning & crisis management:</strong> Mitigating operational risks, calculating trade-offs, and preserving brand equity.</li>
+            </ul>
+          </div>
+          <div style="background: #FFF9D2; border: 1.5px solid var(--sj-ink); padding: 10px 14px; border-radius: 6px; font-size: 12.5px; margin-top: 10px;">
+            <strong>Examination Focus:</strong> Foundation for Paper 3 (Strategic Case Study) and Paper 4 (20-mark Strategic Essay evaluations).
+          </div>
+        </div>
+
+        <!-- Right: Execution Matrix & Real Case -->
+        <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
+          <div class="card" style="border-left: 5px solid var(--sj-brown);">
+            <div class="chip chip-brown" style="margin-bottom: 8px;">The Chapter 8 Strategic Bridge</div>
+            <p class="card-text">
+              In Chapter 8, executives select the <em>"What"</em> using the Ansoff Matrix, Porter's Generic Strategies, and Decision Trees. <strong>Chapter 9 governs the <em>"How"</em></strong>: turning theoretical strategy into coordinated operational execution.
+            </p>
+          </div>
+
+          <div class="card" style="border-left: 5px solid var(--sj-pen-red);">
+            <div style="font-size: 12.5px; font-weight: 700; color: var(--sj-pen-red-text); text-transform: uppercase; margin-bottom: 4px;">
+              Strategic Benchmark Case: Apple vs. BlackBerry (2007–2011)
+            </div>
+            <p class="card-text">
+              BlackBerry maintained market dominance through physical keyboard security. When Apple launched the iPhone, BlackBerry’s rigid corporate culture dismissed it as a fragile consumer toy. BlackBerry’s inability to alter its corporate plan and culture caused global market share to collapse from <strong>50% in 2007 to below 1% by 2013</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 1</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 2: WHAT CORPORATE PLANNING ACTUALLY DOES
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Strategic Architecture</span>
+      </div>
+      <div class="slide-count-badge">Slide 2 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">What Corporate Planning <span class="hl">Actually Does</span></h2>
+          <p class="slide-sub">A formal roadmap aligning senior management's long-term objectives with daily departmental execution.</p>
+        </div>
+        <div class="chip chip-yellow">Operational Alignment</div>
+      </div>
+
+      <!-- 4 Core Functional Pillars -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 14px;">
+        <div class="card" style="border-top: 4px solid var(--sj-ink);">
+          <div class="card-title">1. Overall Goals</div>
+          <p class="card-text">Establishes overarching corporate milestones: ROCE targets, operating profit margins, sales volume growth, ESG metrics, and market share expansion.</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-yellow);">
+          <div class="card-title">2. Strategic Direction</div>
+          <p class="card-text">Operationalizes growth pathways selected in Chapter 8 using the <strong>Ansoff Matrix</strong> (Market Penetration, Market Dev, Product Dev, Diversification) and Porter's focus.</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-cta);">
+          <div class="card-title">3. Department Targets</div>
+          <p class="card-text">Cascades corporate targets into synchronized functional KPIs: Marketing (CAC & leads), Finance (capital budgets), HR (recruitment), and Operations (capacity limits).</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-brown);">
+          <div class="card-title">4. Performance Review</div>
+          <p class="card-text">Maintains rigorous control feedback loops: comparing actual results vs budget, diagnosing adverse variances, and adjusting tactical plans accordingly.</p>
+        </div>
+      </div>
+
+      <!-- Bottom Split: Organizational Benefits & Real Company Case -->
+      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px; flex: 1;">
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="font-size: 12.5px; font-weight: 700; text-transform: uppercase; color: var(--sj-brown); margin-bottom: 6px;">
+            Key Organizational Benefits of Structured Planning:
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 12.5px;">
+            <div><strong>Direction & Focus:</strong> Prevents functional silos from pursuing conflicting departmental objectives.</div>
+            <div><strong>Structured Control:</strong> Provides concrete benchmark KPIs for managerial performance appraisal.</div>
+            <div><strong>Clear Communication:</strong> Articulates strategic mission to institutional investors, managers, and workforce.</div>
+            <div><strong>Environmental Analysis:</strong> Forces continuous auditing of internal resources against PESTLE market shifts.</div>
+          </div>
+        </div>
+
+        <!-- Real Corporate Case Study -->
+        <div class="card" style="border-left: 5px solid var(--sj-brown); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="case-title">Corporate Planning in Action: Inditex (Zara)</div>
+            <p class="case-text">
+              Zara’s corporate plan focuses on <strong>speed-to-market over cost minimization</strong>. Central planning links store checkout data directly to Spanish design clusters and automated distribution hubs. Because departmental targets (procurement, dye houses, logistics) are completely integrated, Zara designs, manufactures, and ships new fashion collections into 96 global markets in just <strong>15 days</strong>.
+            </p>
+          </div>
+          <div style="font-size: 11px; color: var(--sj-muted); margin-top: 4px;">
+            <em>Key Takeaway:</em> Structured planning synchronizes supply chain capacity with corporate revenue targets.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 2</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 3: WHAT CAN GO WRONG AND WHAT INFLUENCES THE PLAN
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Internal & External Influences</span>
+      </div>
+      <div class="slide-count-badge">Slide 3 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">What Can Go Wrong & <span class="hl">What Influences the Plan</span></h2>
+          <p class="slide-sub">Internal operational capacity vs. external environmental shocks determine strategic feasibility.</p>
+        </div>
+        <div class="chip chip-coral">Strategic Feasibility</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1.1fr; gap: 16px; flex: 1;">
+        <!-- Internal -->
+        <div class="card" style="border-top: 4px solid var(--sj-ink); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="card-title">Internal Organizational Factors</div>
+            <ul style="padding-left: 18px; font-size: 12.2px; display: grid; gap: 8px; line-height: 1.45;">
+              <li><strong>Financial Liquidity & Gearing:</strong> Capital reserves and borrowing limits determine whether capital investments can actually be funded.</li>
+              <li><strong>Operating Capacity:</strong> Bottlenecks and factory lead times constrain sudden sales expansion.</li>
+              <li><strong>Managerial Competence:</strong> Deficits in digital transformation or international market expertise.</li>
+              <li><strong>Workforce Capability:</strong> Skill shortages, retraining deficits, and trade union resistance.</li>
+              <li><strong>Organizational Culture:</strong> Ingrained habits resisting new operational procedures.</li>
+            </ul>
+          </div>
+          <div style="font-size: 11.5px; background: #F7F5EF; padding: 6px 10px; border-radius: 4px; border: 1px solid var(--sj-line);">
+            <strong>Constraint:</strong> Small firms are primarily constrained by available finance and human capital.
+          </div>
+        </div>
+
+        <!-- External -->
+        <div class="card" style="border-top: 4px solid var(--sj-yellow); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="card-title">External Environmental Shocks</div>
+            <ul style="padding-left: 18px; font-size: 12.2px; display: grid; gap: 8px; line-height: 1.45;">
+              <li><strong>Macroeconomic Trends:</strong> Surging inflation, interest rate hikes, and currency depreciations eroding consumer purchasing power.</li>
+              <li><strong>Government & Central Bank Policies:</strong> Regulatory compliance, corporate tax increases, and import tariffs.</li>
+              <li><strong>Technological Innovation:</strong> Rapid automation, AI, or platform shifts causing sudden product obsolescence.</li>
+              <li><strong>Competitor Aggression:</strong> Predatory pricing, aggressive promotional blitzes, or surprise product launches.</li>
+            </ul>
+          </div>
+          <div style="font-size: 11.5px; background: #F7F5EF; padding: 6px 10px; border-radius: 4px; border: 1px solid var(--sj-line);">
+            <strong>Volatility:</strong> Luxury brands depend heavily on macroeconomic forecasts and consumer confidence.
+          </div>
+        </div>
+
+        <!-- Rigidity Trap & Nokia Case -->
+        <div class="card" style="border-top: 4px solid var(--sj-pen-red); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 12.5px; font-weight: 700; color: var(--sj-pen-red-text); text-transform: uppercase;">
+              AO4 Evaluation: The Rigidity Trap
+            </div>
+            <p style="font-size: 12.2px; color: #2D2D2D; margin-top: 4px; line-height: 1.45;">
+              Plans fail when leadership treats them as fixed blueprints rather than flexible compasses. The most resilient businesses build <strong>scenario buffers and rolling quarterly reviews</strong> into their corporate plans.
+            </p>
+
+            <div class="case-box" style="margin-top: 10px;">
+              <div class="case-title">Failure Case: Blockbuster vs. Netflix (2000–2010)</div>
+              <p class="case-text">
+                Blockbuster’s corporate plan was rigidly tied to physical store leases and late-fee revenue ($800M/year). When high-speed broadband emerged, leadership refused to pivot away from retail brick-and-mortar stores, leading to bankruptcy in 2010 while Netflix capitalized on digital streaming.
+              </p>
+            </div>
+          </div>
+          <div style="font-size: 11px; color: var(--sj-muted); margin-top: 4px;">
+            <em>Examiner Tip:</em> Contrast short-term operational budgeting with long-term strategic flexibility.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 3</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 4: WHAT CORPORATE CULTURE IS & 5 TYPES (CHARLES HANDY)
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Charles Handy Framework</span>
+      </div>
+      <div class="slide-count-badge">Slide 4 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">What Corporate Culture Is & <span class="hl">The 5 Core Types</span></h2>
+          <p class="slide-sub">The shared values, attitudes, and unwritten beliefs modeled by senior leadership that define acceptable behavior.</p>
+        </div>
+        <div class="chip chip-brown">Handy's Cultural Models</div>
+      </div>
+
+      <!-- 5 Culture Columns with High Content Density & Real Companies -->
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; flex: 1;">
+        <!-- 1. Power -->
+        <div class="card" style="border-top: 4px solid var(--sj-pen-red); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="chip chip-coral" style="margin-bottom: 6px;">1. Zeus (Web)</span>
+            <div class="card-title">Power Culture</div>
+            <p class="card-text" style="margin-bottom: 8px;">
+              Centralized control concentrated in a powerful founder or executive hub. Directives flow downward with minimal red tape.
+            </p>
+            <div style="font-size: 11.5px; line-height: 1.4; color: #333;">
+              <strong>Pros:</strong> Lightning decisions.<br>
+              <strong>Cons:</strong> High staff turnover, fear of delivering bad news.
+            </div>
+          </div>
+          <div class="case-box">
+            <div class="case-title">Corporate Example:</div>
+            <div class="case-text"><strong>Tesla / X (Elon Musk):</strong> Autocratic founder control driving radical engineering pivots, but high executive turnover.</div>
+          </div>
+        </div>
+
+        <!-- 2. Role -->
+        <div class="card" style="border-top: 4px solid var(--sj-ink); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="chip chip-canvas" style="margin-bottom: 6px;">2. Apollo (Temple)</span>
+            <div class="card-title">Role Culture</div>
+            <p class="card-text" style="margin-bottom: 8px;">
+              Strict functional pillars, detailed job descriptions, and rigid bureaucratic procedures dominate decision-making.
+            </p>
+            <div style="font-size: 11.5px; line-height: 1.4; color: #333;">
+              <strong>Pros:</strong> High predictability, order.<br>
+              <strong>Cons:</strong> Extreme aversion to risk, sluggish market adaptation.
+            </div>
+          </div>
+          <div class="case-box">
+            <div class="case-title">Corporate Example:</div>
+            <div class="case-text"><strong>HSBC / Civil Service:</strong> Multi-tiered compliance hierarchies where formal authorization is required for every action.</div>
+          </div>
+        </div>
+
+        <!-- 3. Task -->
+        <div class="card" style="border-top: 4px solid var(--sj-yellow); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="chip chip-yellow" style="margin-bottom: 6px;">3. Athena (Net)</span>
+            <div class="card-title">Task Culture</div>
+            <p class="card-text" style="margin-bottom: 8px;">
+              Multi-disciplinary teams assemble dynamically to solve specific strategic projects. Authority is based on expertise rather than rank.
+            </p>
+            <div style="font-size: 11.5px; line-height: 1.4; color: #333;">
+              <strong>Pros:</strong> Exceptional agility & creativity.<br>
+              <strong>Cons:</strong> Potential conflict over budget and talent allocation.
+            </div>
+          </div>
+          <div class="case-box">
+            <div class="case-title">Corporate Example:</div>
+            <div class="case-text"><strong>Riot Games / NASA:</strong> Matrix squads assembled from engineering, art, and marketing to execute product releases.</div>
+          </div>
+        </div>
+
+        <!-- 4. Person -->
+        <div class="card" style="border-top: 4px solid var(--sj-brown); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="chip chip-brown" style="margin-bottom: 6px;">4. Dionysus</span>
+            <div class="card-title">Person Culture</div>
+            <p class="card-text" style="margin-bottom: 8px;">
+              The organization exists purely to facilitate elite individuals whose personal talent drives billings. Corporate hierarchy is minimal.
+            </p>
+            <div style="font-size: 11.5px; line-height: 1.4; color: #333;">
+              <strong>Pros:</strong> Retains elite global talent.<br>
+              <strong>Cons:</strong> Virtually impossible to impose top-down collective goals.
+            </div>
+          </div>
+          <div class="case-box">
+            <div class="case-title">Corporate Example:</div>
+            <div class="case-text"><strong>Barristers / Mayo Clinic:</strong> Elite legal and medical partnerships where autonomous individual expertise generates revenue.</div>
+          </div>
+        </div>
+
+        <!-- 5. Entrepreneurial -->
+        <div class="card" style="border-top: 4px solid var(--sj-cta); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="chip chip-yellow" style="margin-bottom: 6px;">5. Maverick</span>
+            <div class="card-title">Entrepreneurial</div>
+            <p class="card-text" style="margin-bottom: 8px;">
+              Decentralized initiative and bold risk-taking. Fast failure is treated as necessary learning; employees are empowered to disrupt.
+            </p>
+            <div style="font-size: 11.5px; line-height: 1.4; color: #333;">
+              <strong>Pros:</strong> Breakthrough innovation.<br>
+              <strong>Cons:</strong> High risk exposure, potential financial waste.
+            </div>
+          </div>
+          <div class="case-box">
+            <div class="case-title">Corporate Example:</div>
+            <div class="case-text"><strong>Gymshark / Early Spotify:</strong> Rapid prototyping, influencer-led marketing, and continuous bottom-up experimentation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 4</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 5: WHEN AND HOW CULTURE MUST CHANGE
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Cultural Transformation</span>
+      </div>
+      <div class="slide-count-badge">Slide 5 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">When and How <span class="hl">Culture Must Change</span></h2>
+          <p class="slide-sub">Aligning organizational behavior with new strategic realities during restructuring and external disruption.</p>
+        </div>
+        <div class="chip chip-coral">Strategic Transformation</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 18px; flex: 1;">
+        <!-- Left: When Culture Becomes an Obstacle -->
+        <div class="card" style="border-left: 5px solid var(--sj-pen-red); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--sj-pen-red-text); margin-bottom: 8px;">
+              5 Triggers When Culture Must Transform:
+            </div>
+            <div style="display: grid; gap: 9px; font-size: 12.2px;">
+              <div style="background: #F7F5EF; padding: 7px 10px; border-radius: 4px;">
+                <strong>1. Growth & IPO Transitions:</strong> Family-owned firms going public require transparent governance and formal managerial hierarchies over nepotism.
+              </div>
+              <div style="background: #F7F5EF; padding: 7px 10px; border-radius: 4px;">
+                <strong>2. Market Paradigm Shifts:</strong> Product-led engineering cultures forced to transform into customer-centric digital delivery models.
+              </div>
+              <div style="background: #F7F5EF; padding: 7px 10px; border-radius: 4px;">
+                <strong>3. Privatisation of State Assets:</strong> Former public monopolies shifting from bureaucratic security to commercial efficiency and profit targets.
+              </div>
+              <div style="background: #F7F5EF; padding: 7px 10px; border-radius: 4px;">
+                <strong>4. Mergers & Acquisitions (M&A):</strong> Resolving cultural clash between acquired firms to realize projected operational synergies.
+              </div>
+              <div style="background: #F7F5EF; padding: 7px 10px; border-radius: 4px;">
+                <strong>5. Severe Performance Deterioration:</strong> Complacency, declining quality control, and falling market share requiring emergency turnaround.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Success Factors & DaimlerChrysler Case -->
+        <div class="card" style="border-left: 5px solid var(--sj-yellow); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--sj-brown); margin-bottom: 8px;">
+              Key Drivers of Successful Cultural Transformation:
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 12px;">
+              <div>&bull; <strong>Build on strengths:</strong> Honor foundational history while updating workflows.</div>
+              <div>&bull; <strong>Visible executive modeling:</strong> Senior leadership visibly practicing new behaviors.</div>
+              <div>&bull; <strong>Updated mission statements:</strong> Realignment of corporate values with market demands.</div>
+              <div>&bull; <strong>Transparent communication:</strong> Two-way town halls involving staff early.</div>
+              <div>&bull; <strong>Extensive retraining:</strong> Equipping staff with skills to reduce fear of failure.</div>
+              <div>&bull; <strong>Aligned reward systems:</strong> Promoting and bonus-rewarding those who live new values.</div>
+            </div>
+
+            <!-- Case Study -->
+            <div class="case-box" style="margin-top: 12px;">
+              <div class="case-title">M&A Cultural Failure: Daimler-Benz & Chrysler ($36B De-Merger)</div>
+              <p class="case-text">
+                The 1998 merger collapsed due to severe cultural clash: German Daimler executives operated a formal, hierarchical Role Culture focused on precise engineering; American Chrysler managers operated an informal, sales-driven Power Culture. Communication broke down completely, destroying billions in shareholder value.
+              </p>
+            </div>
+          </div>
+          <div style="font-size: 11px; color: var(--sj-muted); margin-top: 4px;">
+            <em>Examiner Tip:</em> Culture cannot change through corporate emails; incentives, KPIs, and leadership must change.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 5</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 6: CULTURE AND DECISION-MAKING
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Execution Dynamics</span>
+      </div>
+      <div class="slide-count-badge">Slide 6 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">Culture & <span class="hl">Decision-Making</span></h2>
+          <p class="slide-sub">How corporate culture dictates the speed, employee buy-in, and operational quality of executive choices.</p>
+        </div>
+        <div class="chip chip-yellow">Decision Dynamics</div>
+      </div>
+
+      <!-- Top Decision Dynamics -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 12px;">
+        <div class="card" style="border-left: 5px solid var(--sj-pen-red);">
+          <div class="card-title">Power Cultures in Decision-Making</div>
+          <p class="card-text">
+            Decisions are imposed unilaterally from the executive top with zero employee participation. Enables lightning execution during crisis, but triggers high passive resistance, employee cynicism, and deprives executives of critical frontline customer feedback.
+          </p>
+        </div>
+
+        <div class="card" style="border-left: 5px solid var(--sj-brown);">
+          <div class="card-title">Task & Person Cultures in Decision-Making</div>
+          <p class="card-text">
+            Employees participate actively in problem diagnosis and strategy formulation. Fosters high employee commitment, smooth implementation, and psychological safety, but risks analysis paralysis if consensus cannot be reached quickly.
+          </p>
+        </div>
+      </div>
+
+      <!-- Strong vs Weak Culture Case Comparison -->
+      <div class="card" style="margin-bottom: 12px; padding: 14px 18px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+          <div>
+            <div style="font-size: 12.5px; font-weight: 700; color: var(--sj-brown); text-transform: uppercase;">
+              Strong Culture Case: Toyota Motor Corporation
+            </div>
+            <p style="font-size: 12px; color: #2D2D2D; margin-top: 3px; line-height: 1.45;">
+              Toyota’s <em>Kaizen</em> culture empowers assembly line workers with the <strong>Andon Cord</strong>: any factory employee has the authority to halt the entire assembly line to resolve a quality defect without fear of reprimand. This deep trust creates immense global competitive advantage and world-leading vehicle reliability.
+            </p>
+          </div>
+          <div style="border-left: 1.5px solid var(--sj-line); padding-left: 18px;">
+            <div style="font-size: 12.5px; font-weight: 700; color: var(--sj-pen-red-text); text-transform: uppercase;">
+              Weak / Fragmented Culture: Boeing (737 MAX Crisis)
+            </div>
+            <p style="font-size: 12px; color: #2D2D2D; margin-top: 3px; line-height: 1.45;">
+              Following the McDonnell Douglas merger, Boeing’s historic culture of engineering excellence was compromised by Wall Street quarterly cost-cutting. Whistleblower engineers were discouraged from raising software concerns to avoid production delays, resulting in fatal crashes and severe loss of corporate credibility.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- The 4 Arenas Shaped by Culture -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+        <div class="card" style="padding: 10px 12px;"><strong style="font-size: 12px;">1. Ethical Standards:</strong><p style="font-size: 11.5px; color: var(--sj-muted);">Defines whether whistleblowers are celebrated or suppressed.</p></div>
+        <div class="card" style="padding: 10px 12px;"><strong style="font-size: 12px;">2. Relationships:</strong><p style="font-size: 11.5px; color: var(--sj-muted);">Determines trust between executive leadership and frontline labor.</p></div>
+        <div class="card" style="padding: 10px 12px;"><strong style="font-size: 12px;">3. Brand Image:</strong><p style="font-size: 11.5px; color: var(--sj-muted);">External customer service directly mirrors internal working conditions.</p></div>
+        <div class="card" style="padding: 10px 12px;"><strong style="font-size: 12px;">4. Strategy Selection:</strong><p style="font-size: 11.5px; color: var(--sj-muted);">Decides whether disruptive ideas are funded or buried by committees.</p></div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 6</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 7: TRANSFORMATIONAL LEADERSHIP: CORE MEANING AND IMPORTANCE
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Visionary Leadership</span>
+      </div>
+      <div class="slide-count-badge">Slide 7 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">Transformational Leadership: <span class="hl">Core Meaning & Importance</span></h2>
+          <p class="slide-sub">Leading strategic transformation through inspirational vision and personal modeling rather than transactional command.</p>
+        </div>
+        <div class="chip chip-brown">Bass's Leadership Dimensions</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 18px; flex: 1;">
+        <!-- Left: 4 Characteristics (Bass Model) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="card" style="border-top: 3.5px solid var(--sj-yellow);">
+            <div class="card-title">1. Inspirational Vision</div>
+            <p class="card-text">Articulates a clear, compelling target state that gives employees purpose and motivates them to embrace uncomfortable changes voluntarily.</p>
+          </div>
+
+          <div class="card" style="border-top: 3.5px solid var(--sj-ink);">
+            <div class="card-title">2. Leading by Example</div>
+            <p class="card-text">Demonstrates personal commitment by modeling the desired behaviors, work ethic, and values rather than merely issuing executive decrees.</p>
+          </div>
+
+          <div class="card" style="border-top: 3.5px solid var(--sj-cta);">
+            <div class="card-title">3. Individualized Coaching</div>
+            <p class="card-text">Treats staff as unique individuals, offering mentoring, emotional support, and training to develop their capabilities for future roles.</p>
+          </div>
+
+          <div class="card" style="border-top: 3.5px solid var(--sj-pen-red);">
+            <div class="card-title">4. Intellectual Challenge</div>
+            <p class="card-text">Encourages employees to question long-standing corporate assumptions, think innovatively, and solve operational problems creatively.</p>
+          </div>
+
+          <!-- Real World Benchmark -->
+          <div class="card" style="grid-column: span 2; background: #FFFDF0; padding: 12px 16px;">
+            <div class="case-title">Transformational Turnaround: Satya Nadella (Microsoft 2014–Present)</div>
+            <p class="case-text">
+              Nadella dismantled Microsoft’s aggressive internal evaluation system where product divisions actively sabotaged one another. By articulating a cloud-first vision and promoting a <strong>"learn-it-all" empathetic growth mindset</strong>, he united engineering around Azure, driving market capitalization from $300 Billion to over <strong>$3 Trillion</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Why It Matters for Cambridge 9609 -->
+        <div class="card" style="border-left: 5px solid var(--sj-brown); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 12.5px; font-weight: 700; text-transform: uppercase; color: var(--sj-brown); margin-bottom: 8px;">
+              Why Transformational Leadership Outperforms in Change:
+            </div>
+            <ul style="padding-left: 18px; font-size: 12.2px; display: grid; gap: 10px; line-height: 1.45;">
+              <li><strong>Change Success Rate:</strong> Builds intrinsic commitment rather than coerced compliance, significantly lowering resistance to change.</li>
+              <li><strong>Organizational Flexibility:</strong> Employees feel psychologically safe to adapt when sudden market disruptions strike.</li>
+              <li><strong>Talent Retention:</strong> Prevents brain drain of top engineers and managers during difficult restructuring periods.</li>
+            </ul>
+          </div>
+          <div style="background: #F7F5EF; padding: 10px 12px; border-radius: 4px; border: 1px solid var(--sj-line); font-size: 11.5px;">
+            <strong>Evaluation Nuance (AO4):</strong> Transformational leadership requires strong technical managers beneath them to execute budgets, schedules, and operational controls.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 7</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 8: UNDERSTANDING STRATEGIC CHANGE (TWO TYPES)
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Pace & Magnitude of Change</span>
+      </div>
+      <div class="slide-count-badge">Slide 8 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">Understanding Strategic Change: <span class="hl">Two Types</span></h2>
+          <p class="slide-sub">Managing the strategic tension between continuous evolution (Kaizen) and radical revolutionary transformation.</p>
+        </div>
+        <div class="chip chip-coral">Change Velocity</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; flex: 1;">
+        <!-- Incremental -->
+        <div class="card" style="border-top: 4px solid var(--sj-brown); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="chip chip-brown">1. Incremental (Evolutionary)</span>
+              <span style="font-size: 12px; font-weight: 700; color: var(--sj-brown);">Low Friction / Planned</span>
+            </div>
+            <p class="card-text" style="font-size: 12.8px; margin-bottom: 10px;">
+              Slow, long-term, systematic adjustments implemented in managed stages over extended horizons. Focuses on continuous process improvement (Kaizen) and systematic fine-tuning.
+            </p>
+            <ul style="padding-left: 18px; font-size: 12px; color: #2D2D2D; display: grid; gap: 6px;">
+              <li>Easier to forecast, budget, and control across departments.</li>
+              <li>Minimal workforce anxiety; preserves stability and existing culture.</li>
+              <li><strong>Risk:</strong> May be far too slow if the industry experiences rapid technological disruption (Strategic Drift).</li>
+            </ul>
+          </div>
+
+          <div class="case-box">
+            <div class="case-title">Corporate Case: Toyota's Multi-Pathway Hybrid Evolution</div>
+            <p class="case-text">
+              Toyota took 25 years to evolve from the initial Prius hybrid in 1997 to hybrid powertrains across its entire lineup, gradually preparing supply chains, supplier networks, and factory robotics without financial overextension.
+            </p>
+          </div>
+        </div>
+
+        <!-- Dramatic -->
+        <div class="card" style="border-top: 4px solid var(--sj-pen-red); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="chip chip-coral">2. Dramatic (Revolutionary)</span>
+              <span style="font-size: 12px; font-weight: 700; color: var(--sj-pen-red-text);">High Disruption / Rapid</span>
+            </div>
+            <p class="card-text" style="font-size: 12.8px; margin-bottom: 10px;">
+              Sudden, radical transformation across multiple functional areas simultaneously. Forced by acute external crises, technological disruption, or unexpected geopolitical shifts.
+            </p>
+            <ul style="padding-left: 18px; font-size: 12px; color: #2D2D2D; display: grid; gap: 6px;">
+              <li>Overhauls organizational structure, business models, and employee roles.</li>
+              <li>Generates severe workforce anxiety, job insecurity, and resistance.</li>
+              <li>Requires decisive top-down direction and transformational vision.</li>
+            </ul>
+          </div>
+
+          <div class="case-box">
+            <div class="case-title">Corporate Case: Netflix’s Streaming Revolution (2011)</div>
+            <p class="case-text">
+              CEO Reed Hastings split Netflix’s profitable DVD-by-mail service from streaming, cannibalizing the firm's core cash cow. Despite a 75% stock drop and subscriber outrage initially, the radical pivot allowed Netflix to dominate global entertainment before Hollywood studios reacted.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 8</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 9: CAUSES OF CHANGE AND THE STAGES OF MANAGING IT
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Transformation Roadmap</span>
+      </div>
+      <div class="slide-count-badge">Slide 9 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">Causes of Change & <span class="hl">The 11 Stages of Managing It</span></h2>
+          <p class="slide-sub">Moving systematically from environmental stimulus through operational execution to cultural anchoring.</p>
+        </div>
+        <div class="chip chip-yellow">11-Step Process</div>
+      </div>
+
+      <!-- 4 Causes Bar -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px;">
+        <div style="background: #FFF; border: var(--sj-border); padding: 8px 12px; border-radius: 6px; font-size: 12px;"><strong>1. Technological:</strong> AI, automation, cloud platforms.</div>
+        <div style="background: #FFF; border: var(--sj-border); padding: 8px 12px; border-radius: 6px; font-size: 12px;"><strong>2. Macroeconomic:</strong> Inflation, interest rate cycles, recessions.</div>
+        <div style="background: #FFF; border: var(--sj-border); padding: 8px 12px; border-radius: 6px; font-size: 12px;"><strong>3. Legal / Regulatory:</strong> Carbon taxes, labor laws, compliance.</div>
+        <div style="background: #FFF; border: var(--sj-border); padding: 8px 12px; border-radius: 6px; font-size: 12px;"><strong>4. Competitors:</strong> Price wars, market entry by substitutes.</div>
+      </div>
+
+      <!-- 11 Stages Organized into 3 Robust Phases -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; flex: 1;">
+        <!-- Phase 1 -->
+        <div class="card" style="border-top: 4px solid var(--sj-brown); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--sj-brown); text-transform: uppercase; margin-bottom: 6px;">Phase 1: Diagnosis & Preparation</div>
+            <div style="display: grid; gap: 7px; font-size: 12px;">
+              <div><strong>01. Assess Current Position:</strong> Audit internal capability gaps and external market threats.</div>
+              <div><strong>02. Set New Vision:</strong> Formulate quantifiable, inspiring strategic objectives.</div>
+              <div><strong>03. Secure Resources:</strong> Allocate capital, technological assets, and staff budgets.</div>
+              <div><strong>04. Communicate Early:</strong> Provide maximum advance notice to quell rumors.</div>
+            </div>
+          </div>
+          <div style="font-size: 11px; color: var(--sj-muted);"><em>Goal:</em> Establish organizational readiness.</div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="card" style="border-top: 4px solid var(--sj-yellow); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--sj-ink); text-transform: uppercase; margin-bottom: 6px;">Phase 2: Operational Rollout</div>
+            <div style="display: grid; gap: 7px; font-size: 12px;">
+              <div><strong>05. Involve Employees:</strong> Engage frontline staff in redesigning operational workflows.</div>
+              <div><strong>06. Ongoing Comms:</strong> Maintain transparent two-way feedback loops.</div>
+              <div><strong>07. Quick Wins:</strong> Deliver visible, early successes to build credibility.</div>
+              <div><strong>08. Reskilling & Training:</strong> Invest in coaching so workers master new software.</div>
+            </div>
+          </div>
+          <div style="font-size: 11px; color: var(--sj-muted);"><em>Goal:</em> Build momentum and neutralize cynics.</div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="card" style="border-top: 4px solid var(--sj-pen-red); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--sj-pen-red-text); text-transform: uppercase; margin-bottom: 6px;">Phase 3: Cultural Consolidation</div>
+            <div style="display: grid; gap: 7px; font-size: 12px;">
+              <div><strong>09. Explain Benefits:</strong> Show stakeholders how change protects their jobs.</div>
+              <div><strong>10. Support Individuals:</strong> Offer counseling and practical retraining assistance.</div>
+              <div><strong>11. Monitor Progress:</strong> Continuously review variances and anchor habits into DNA.</div>
+            </div>
+          </div>
+          <div class="case-box" style="margin-top: 6px; padding: 8px 10px;">
+            <div class="case-title">Case: Amazon Robotics</div>
+            <p class="case-text">Amazon paired fulfillment automation with the $1.2B <em>Upskilling 2025</em> program to transition warehouse staff into robotics technicians.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 9</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 10: LEADING CHANGE VS MANAGING CHANGE
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Leadership vs Administration</span>
+      </div>
+      <div class="slide-count-badge">Slide 10 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">Leading Change vs <span class="hl">Managing Change</span></h2>
+          <p class="slide-sub">Managing coordinates systems and resources; leading challenges complacency and inspires human commitment.</p>
+        </div>
+        <div class="chip chip-brown">People vs Process</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 18px; flex: 1;">
+        <!-- Left: Core Requirements of Leading Change -->
+        <div class="card" style="border-left: 5px solid var(--sj-yellow); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--sj-brown); margin-bottom: 8px;">
+              4 Requirements for Leading Organizational Transformation:
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 12px;">
+              <div><strong>Dynamic Leadership:</strong> Challenges organizational complacency and presents bold alternative futures.</div>
+              <div><strong>Empathetic Motivation:</strong> Helps workers perceive change as professional upskilling rather than a threat.</div>
+              <div><strong>Cultural Embedding:</strong> Bakes change acceptance into corporate values as a permanent asset.</div>
+              <div><strong>Visible Senior Support:</strong> Board members personally visit work sites to field unfiltered staff concerns.</div>
+            </div>
+          </div>
+
+          <div class="case-box" style="margin-top: 12px;">
+            <div class="case-title">Leadership in Action: Ford Motor Company (Alan Mulally 2006)</div>
+            <p class="case-text">
+              Mulally challenged Ford's executive culture of hiding operational problems. In his weekly meetings, he applauded executives who admitted factory bottlenecks (marking reports red), transforming a culture of corporate fear into one of transparent problem-solving, avoiding government bailout.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Champions vs Groups -->
+        <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
+          <div class="card" style="border-top: 4px solid var(--sj-pen-red);">
+            <div class="card-title">Project Champions</div>
+            <p class="card-text">
+              Respected senior or middle managers appointed specifically to bulldoze obstacles, secure budget lines, and maintain relentless energy across functional silos.
+            </p>
+            <div style="font-size: 11.5px; color: var(--sj-muted); margin-top: 6px;">
+              <strong>Example:</strong> 3M appointing executive sponsors to protect radical R&D projects (like Post-it Notes) from premature budget cuts.
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--sj-brown);">
+            <div class="card-title">Project Groups (Cross-Functional Teams)</div>
+            <p class="card-text">
+              Task teams combining diverse perspectives (Operations + Marketing + Finance + HR) to design workable operational solutions. Final accountability remains with the change director.
+            </p>
+            <div style="font-size: 11.5px; color: var(--sj-muted); margin-top: 6px;">
+              <strong>Benefit:</strong> Prevents solutions designed in isolation by head-office executives that fail on the factory floor.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 10</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 11: PROMOTING CHANGE: KOTTER'S 8-STEP MODEL
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Kotter's Transformation Framework</span>
+      </div>
+      <div class="slide-count-badge">Slide 11 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">Promoting Change: <span class="hl">Kotter's 8-Step Model</span></h2>
+          <p class="slide-sub">John Kotter’s sequential framework for overcoming organizational inertia and anchoring lasting change.</p>
+        </div>
+        <div class="chip chip-coral">Paper 4 Essay Essential</div>
+      </div>
+
+      <!-- 8-Step Grid filling the canvas -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px;">
+        <div class="card" style="border-top: 4px solid var(--sj-pen-red);">
+          <span class="chip chip-coral" style="margin-bottom: 4px;">01. Urgency</span>
+          <div class="card-title">Create Urgency</div>
+          <p class="card-text" style="font-size: 11.5px;">Highlight competitive threats, revenue bleed, and the high cost of inaction to build a "burning platform".</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-pen-red);">
+          <span class="chip chip-coral" style="margin-bottom: 4px;">02. Coalition</span>
+          <div class="card-title">Guiding Coalition</div>
+          <p class="card-text" style="font-size: 11.5px;">Assemble a high-credibility team spanning hierarchy with authority, expertise, and respect to lead.</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-yellow);">
+          <span class="chip chip-yellow" style="margin-bottom: 4px;">03. Vision</span>
+          <div class="card-title">Develop Vision</div>
+          <p class="card-text" style="font-size: 11.5px;">Create a crystal-clear, compelling picture of the target future state and strategies to achieve it.</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-yellow);">
+          <span class="chip chip-yellow" style="margin-bottom: 4px;">04. Communicate</span>
+          <div class="card-title">Communicate Vision</div>
+          <p class="card-text" style="font-size: 11.5px;">Broadcast the vision through every possible channel; repeat constantly until it guides daily decisions.</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-ink);">
+          <span class="chip chip-canvas" style="margin-bottom: 4px;">05. Empower</span>
+          <div class="card-title">Empower Action</div>
+          <p class="card-text" style="font-size: 11.5px;">Eliminate bureaucratic red tape, align performance reviews, and encourage calculated risk-taking.</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-ink);">
+          <span class="chip chip-canvas" style="margin-bottom: 4px;">06. Quick Wins</span>
+          <div class="card-title">Short-Term Wins</div>
+          <p class="card-text" style="font-size: 11.5px;">Engineer visible milestones within 6 months to reward early adopters and silence vocal cynics.</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-brown);">
+          <span class="chip chip-brown" style="margin-bottom: 4px;">07. Consolidate</span>
+          <div class="card-title">Build on Gains</div>
+          <p class="card-text" style="font-size: 11.5px;">Do not declare victory early! Reinvest credibility from initial wins to tackle deeper systemic reforms.</p>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--sj-brown);">
+          <span class="chip chip-brown" style="margin-bottom: 4px;">08. Anchor</span>
+          <div class="card-title">Anchor in Culture</div>
+          <p class="card-text" style="font-size: 11.5px;">Lock new behaviors into onboarding, promotion criteria, and shared values until it becomes standard.</p>
+        </div>
+      </div>
+
+      <!-- Turnaround Case Study: IBM -->
+      <div class="case-box" style="margin-top: 0; padding: 12px 16px;">
+        <div class="case-title">Benchmark Case: IBM’s Turnaround under Louis Gerstner (1993)</div>
+        <p class="case-text">
+          Facing an $8 Billion loss, Gerstner executed Kotter’s model: (1) Created urgency by freezing mainframe projects, (2) assembled a guiding coalition uniting warring divisional heads, (5) eliminated decentralized internal rivalries, and (8) anchored customer solutions into compensation plans, saving IBM from liquidation.
+        </p>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 11</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 12: REASONS FOR RESISTANCE TO CHANGE
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Lewin's Restraining Forces</span>
+      </div>
+      <div class="slide-count-badge">Slide 12 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">Reasons for <span class="hl">Resistance to Change</span></h2>
+          <p class="slide-sub">Understanding the psychological and structural barriers that prevent smooth strategic execution.</p>
+        </div>
+        <div class="chip chip-coral">6 Friction Triggers</div>
+      </div>
+
+      <!-- 6 Resistance Blocks -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 14px;">
+        <div class="card" style="border-left: 5px solid var(--sj-pen-red);">
+          <div class="card-title">1. Fear of the Unknown</div>
+          <p class="card-text">Deep psychological anxiety about uncertain outcomes, new operating tools, or unfamiliar team structures. Workers instinctively fear ambiguity.</p>
+        </div>
+
+        <div class="card" style="border-left: 5px solid var(--sj-pen-red);">
+          <div class="card-title">2. Fear of Failure</div>
+          <p class="card-text">Worry that personal competencies are obsolete and that they will fail to adapt to automated software, leading to embarrassment or redundancy.</p>
+        </div>
+
+        <div class="card" style="border-left: 5px solid var(--sj-yellow);">
+          <div class="card-title">3. Loss of Value / Status</div>
+          <p class="card-text">Perceived threat to informal power, seniority perks, job security, autonomy, or cherished aspects of the current job description.</p>
+        </div>
+
+        <div class="card" style="border-left: 5px solid var(--sj-yellow);">
+          <div class="card-title">4. False Belief & Denial</div>
+          <p class="card-text">Stubborn conviction that current methods are best, ignoring overwhelming market evidence that the firm is falling behind rivals.</p>
+        </div>
+
+        <div class="card" style="border-left: 5px solid var(--sj-brown);">
+          <div class="card-title">5. Lack of Trust in Leadership</div>
+          <p class="card-text">Distrust of executive motives based on past broken promises, suspecting that "restructuring" is merely a corporate euphemism for layoffs.</p>
+        </div>
+
+        <div class="card" style="border-left: 5px solid var(--sj-brown);">
+          <div class="card-title">6. Inertia</div>
+          <p class="card-text">Natural organizational friction favoring comfort and stability in the status quo. Unlearning deeply ingrained habits requires immense cognitive effort.</p>
+        </div>
+      </div>
+
+      <!-- Corporate Case Study: Kodak -->
+      <div class="card" style="background: #FFFDF0; padding: 14px 18px;">
+        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 18px; align-items: center;">
+          <div>
+            <div class="case-title">Case Study: Eastman Kodak’s Internal Resistance (1975–2000)</div>
+            <p class="case-text">
+              Kodak engineer Steve Sasson invented the digital camera in 1975. However, middle managers actively suppressed the technology due to <strong>Loss of Value & False Belief</strong>: their executive bonuses and department power were tied directly to high-margin chemical film sales. Kodak protected its legacy cash cow until rivals like Sony and Canon rendered film obsolete.
+            </p>
+          </div>
+          <div style="border-left: 1.5px solid var(--sj-line); padding-left: 18px;">
+            <div style="font-size: 12px; font-weight: 700; color: var(--sj-brown); text-transform: uppercase;">Cambridge Exam Rule (AO4):</div>
+            <p style="font-size: 11.5px; color: #2D2D2D; line-height: 1.45; margin-top: 4px;">
+              Resistance is <strong>lowest</strong> when communication is transparent, leadership is credible, and comprehensive retraining is funded. Resistance is <strong>highest</strong> when trust is depleted and change is imposed by top-down decree.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 12</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 13: CONTINGENCY PLANNING AND CRISIS MANAGEMENT
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Disaster Recovery</span>
+      </div>
+      <div class="slide-count-badge">Slide 13 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">What Contingency Planning & <span class="hl">Crisis Management Mean</span></h2>
+          <p class="slide-sub">Preparing proactive recovery protocols before disaster strikes versus executing emergency actions during the crisis.</p>
+        </div>
+        <div class="chip chip-coral">Risk Mitigation</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 18px; flex: 1;">
+        <!-- Left: Core Concept & Threat Categories -->
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="card" style="border-left: 5px solid var(--sj-ink);">
+            <div class="card-title">The Fundamental Distinction:</div>
+            <p class="card-text">
+              <strong>Contingency Planning (Before the Event):</strong> Proactive disaster recovery planning that identifies threats, models likelihood, and prepares resources to ensure business continuity.<br>
+              <strong>Crisis Management (During the Event):</strong> The real-time operational response when an emergency occurs to protect human life, stabilize operations, and preserve brand equity.
+            </p>
+          </div>
+
+          <div class="card" style="border-left: 5px solid var(--sj-pen-red); margin-top: 10px;">
+            <div style="font-size: 12px; font-weight: 700; color: var(--sj-pen-red-text); margin-bottom: 4px;">Potential Disaster Vectors:</div>
+            <div style="font-size: 11.5px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; color: #2D2D2D;">
+              <div>&bull; Cloud Server Outages / Ransomware</div>
+              <div>&bull; Industrial Explosions / Toxic Leaks</div>
+              <div>&bull; Sudden Loss of Chief Executive</div>
+              <div>&bull; Severe Product Contamination</div>
+              <div>&bull; Catastrophic Logistics Breakdown</div>
+              <div>&bull; Viral Hostile Social Media Backlash</div>
+            </div>
+          </div>
+
+          <!-- Real Crisis Management Case -->
+          <div class="case-box" style="margin-top: 10px;">
+            <div class="case-title">Gold Standard Case: Johnson & Johnson (1982 Tylenol Incident)</div>
+            <p class="case-text">
+              When seven people died from cyanide-laced Tylenol, CEO James Burke prioritized consumer safety over immediate profit: immediately recalling <strong>31 million bottles ($100M cost)</strong> and inventing tamper-evident packaging. Tylenol's market share recovered within a year due to transparent crisis management.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: 4 Key Steps in Contingency Planning -->
+        <div class="card" style="border-top: 4px solid var(--sj-yellow); display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--sj-brown); margin-bottom: 8px;">
+            Four Key Steps in Contingency Planning:
+          </div>
+
+          <div style="display: grid; gap: 10px;">
+            <div style="background: #F7F5EF; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--sj-line);">
+              <strong style="font-size: 12.8px;">1. Identify Potential Disasters:</strong> Map both general operational risks and industry-specific threats (e.g., refinery explosion for BP, supply chain cutoff for electronics).
+            </div>
+
+            <div style="background: #F7F5EF; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--sj-line);">
+              <strong style="font-size: 12.8px;">2. Assess Likelihood & Impact (Risk Matrix):</strong> Quantify Probability &times; Severity. Prioritize high-impact catastrophic scenarios and allocate contingency reserves.
+            </div>
+
+            <div style="background: #F7F5EF; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--sj-line);">
+              <strong style="font-size: 12.8px;">3. Formulate Impact Minimisation Protocols:</strong> Establish clear crisis communication chains, truthful PR strategies, designated media spokespersons, and regular drills.
+            </div>
+
+            <div style="background: #F7F5EF; padding: 10px 12px; border-radius: 6px; border: 1px solid var(--sj-line);">
+              <strong style="font-size: 12.8px;">4. Business Continuity & Disaster Recovery:</strong> Secure secondary mirrored cloud servers, alternate production facilities, and emergency supplier agreements.
+            </div>
+          </div>
+
+          <div style="font-size: 11.5px; color: var(--sj-muted); margin-top: 6px;">
+            <em>Examiner Focus:</em> Speed of truth and transparency determines whether reputation survives.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 13</span>
+    </footer>
+  </section>
+
+
+  <!-- ==========================================================================
+       SLIDE 14: BENEFITS AND LIMITATIONS OF CONTINGENCY PLANNING
+       ========================================================================== -->
+  <section class="slide-page">
+    <header class="slide-header">
+      <div class="brand-meta">
+        <svg class="brand-logo-svg"><use href="#sj-logo-full"/></svg>
+        <span class="brand-divider">/</span>
+        <span class="brand-course">Strategic Evaluation (AO4)</span>
+      </div>
+      <div class="slide-count-badge">Slide 14 of 14</div>
+    </header>
+
+    <div class="slide-body">
+      <div class="title-row">
+        <div>
+          <h2 class="slide-h1">Benefits & Limitations of <span class="hl">Contingency Planning</span></h2>
+          <p class="slide-sub">Evaluating the strategic cost-benefit trade-off: high maintenance overhead vs. catastrophic operational collapse.</p>
+        </div>
+        <div class="chip chip-yellow">AO4 Evaluation Gold</div>
+      </div>
+
+      <!-- Balanced Pros and Cons Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 14px; flex: 1;">
+        <!-- Benefits -->
+        <div class="card" style="border-top: 4px solid var(--sj-brown); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--sj-brown); margin-bottom: 8px;">Key Strategic Benefits (Pros):</div>
+            <div style="display: grid; gap: 10px; font-size: 12.2px;">
+              <div><strong>&bull; Reassurance of Stakeholders:</strong> Provides institutional investors, lenders, insurers, and customers confidence that business continuity is guaranteed.</div>
+              <div><strong>&bull; Reduced Financial Disruption:</strong> Backup IT infrastructure and emergency logistics prevent prolonged revenue loss.</div>
+              <div><strong>&bull; Rapid Public Relations Response:</strong> Designated spokespersons communicate facts within the critical first 2 hours, preventing viral misinformation.</div>
+              <div><strong>&bull; Operational Readiness:</strong> Regular crisis simulation drills train employees to execute protocols through muscle memory rather than panic.</div>
+            </div>
+          </div>
+          <div style="font-size: 11.5px; background: #F7F5EF; padding: 8px 10px; border-radius: 4px; border: 1px solid var(--sj-line); margin-top: 10px;">
+            <strong>Case:</strong> Toyota recovered from the 2011 Tohoku earthquake faster than competitors because its contingency plan tracked multi-tier suppliers.
+          </div>
+        </div>
+
+        <!-- Limitations -->
+        <div class="card" style="border-top: 4px solid var(--sj-pen-red); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--sj-pen-red-text); margin-bottom: 8px;">Important Strategic Limitations (Cons):</div>
+            <div style="display: grid; gap: 10px; font-size: 12.2px;">
+              <div><strong>&bull; Substantial Opportunity Cost:</strong> Capital tied up in standby backup facilities, idle generators, and redundant inventory cannot be invested in R&D or expansion.</div>
+              <div><strong>&bull; Constant Revision Required:</strong> Contingency documents decay rapidly as technology, geopolitical alliances, and cyber threats evolve.</div>
+              <div><strong>&bull; High Staff Turnover Friction:</strong> Frequent onboarding is required to ensure new staff understand emergency protocols, inflating HR costs.</div>
+              <div><strong>&bull; Inherent Uncertainty (Black Swans):</strong> Unprecedented shocks (e.g., global COVID-19 lockdowns) cannot be anticipated by standard probability modeling.</div>
+            </div>
+          </div>
+          <div style="font-size: 11.5px; background: #F7F5EF; padding: 8px 10px; border-radius: 4px; border: 1px solid var(--sj-line); margin-top: 10px;">
+            <strong>Trade-off:</strong> Spending too much on unlikely disasters hurts price competitiveness.
+          </div>
+        </div>
+      </div>
+
+      <!-- Evaluative Takeaway (AO4) -->
+      <div class="card" style="background: #FFFDF0; border: 1.5px solid var(--sj-ink); padding: 12px 18px;">
+        <strong style="color: var(--sj-brown); font-size: 12.5px;">Cambridge Final Evaluative Judgement (AO4):</strong>
+        <p style="font-size: 12px; color: #2D2D2D; margin-top: 3px; line-height: 1.45;">
+          While contingency planning cannot guarantee that emergencies will be prevented entirely, it buys decisive response time during the "golden window". It functions like high-grade corporate insurance: expensive and resource-intensive to maintain, but fatal to abandon when sudden catastrophe strikes.
+        </p>
+      </div>
+    </div>
+
+    <footer class="slide-footer">
+      <span>sjacademy.pk &bull; Centre of Excellence</span>
+      <span class="footer-highlight">Cambridge International A Level Business 9609</span>
+      <span>Chapter 9 &bull; Slide 14</span>
+    </footer>
+  </section>
+
+</body>
+</html>

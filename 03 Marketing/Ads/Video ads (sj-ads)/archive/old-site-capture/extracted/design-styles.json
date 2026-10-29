@@ -1,0 +1,335 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Poppins",
+      "fontSize": "54px",
+      "fontWeight": "600",
+      "lineHeight": "58.32px",
+      "letterSpacing": "-1.62px",
+      "color": "#151515",
+      "sampleText": "O & A Level coaching center in KarachiLearn to thinklike a C"
+    },
+    {
+      "role": "heading",
+      "fontFamily": "Poppins",
+      "fontSize": "38px",
+      "fontWeight": "500",
+      "lineHeight": "46.36px",
+      "letterSpacing": "-0.95px",
+      "color": "#151515",
+      "sampleText": "Knowing the content is not enough"
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "Poppins",
+      "fontSize": "24px",
+      "fontWeight": "500",
+      "lineHeight": "29.28px",
+      "letterSpacing": "-0.4px",
+      "color": "#151515",
+      "sampleText": "Find your class"
+    },
+    {
+      "role": "label",
+      "fontFamily": "Poppins",
+      "fontSize": "22px",
+      "fontWeight": "400",
+      "lineHeight": "22px",
+      "letterSpacing": "normal",
+      "color": "#000000",
+      "sampleText": "Instagram"
+    },
+    {
+      "role": "body",
+      "fontFamily": "Poppins",
+      "fontSize": "19px",
+      "fontWeight": "400",
+      "lineHeight": "30.4px",
+      "letterSpacing": "normal",
+      "color": "#151515",
+      "sampleText": "All three are habits, not talent, and habits can be fixed."
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Poppins",
+      "fontSize": "17px",
+      "fontWeight": "500",
+      "lineHeight": "22.1px",
+      "letterSpacing": "-0.1px",
+      "color": "#151515",
+      "sampleText": "Right answer, marks missing"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      10,
+      14
+    ],
+    "baseUnit": 8
+  },
+  "radius": [
+    "4px",
+    "8px"
+  ],
+  "shadows": [
+    {
+      "value": "rgb(21, 21, 21) 4px 4px 0px 0px",
+      "count": 2
+    },
+    {
+      "value": "rgb(252, 224, 4) 7px 7px 0px 0px, rgb(21, 21, 21) 7px 7px 0px 1.5px",
+      "count": 1
+    },
+    {
+      "value": "rgba(0, 0, 0, 0.14) 0px 10px 28px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgba(0, 0, 0, 0.35) 0px 18px 40px 0px",
+      "count": 1
+    },
+    {
+      "value": "rgb(252, 224, 4) 5px 5px 0px 0px, rgb(21, 21, 21) 5px 5px 0px 1.5px",
+      "count": 1
+    }
+  ],
+  "buttons": [
+    {
+      "label": "Sign Up Now",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "6px 18px",
+      "borderRadius": "4px",
+      "border": "2px solid rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "12px",
+      "fontWeight": "700",
+      "height": "37.5938px"
+    },
+    {
+      "label": "Register For Class Now →",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "height": "58px"
+    },
+    {
+      "label": "Register For Class Now →",
+      "background": "#FEE000",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "20px 30px",
+      "borderRadius": "8px",
+      "border": "1px solid rgb(254, 224, 0)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "500",
+      "height": "58px"
+    },
+    {
+      "label": "Book a free demo",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#2B2B2B",
+      "padding": "0px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(43, 43, 43)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "52px"
+    },
+    {
+      "label": "Book a free demo",
+      "background": "#CC4A00",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#FFFFFF",
+      "padding": "12px 22px",
+      "borderRadius": "12px",
+      "border": "1px solid rgb(21, 21, 21)",
+      "boxShadow": "rgb(21, 21, 21) 4px 4px 0px 0px",
+      "fontSize": "15.5px",
+      "fontWeight": "500",
+      "height": "52px"
+    },
+    {
+      "label": "O Level",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#66625A",
+      "padding": "0px 4px",
+      "borderRadius": "9px",
+      "border": "0px none rgb(102, 98, 90)",
+      "boxShadow": "none",
+      "fontSize": "13.5px",
+      "fontWeight": "400",
+      "height": "44px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px 10px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "height": "81px"
+    },
+    {
+      "label": "card",
+      "background": "#FFF9CC",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#2B2B2B",
+      "padding": "20px",
+      "borderRadius": "16px",
+      "border": "1px solid rgb(21, 21, 21)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "200.297px"
+    },
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#2B2B2B",
+      "padding": "20px",
+      "borderRadius": "16px",
+      "border": "1px solid rgb(226, 221, 208)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "200.297px"
+    },
+    {
+      "label": "card",
+      "background": "transparent",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#000000",
+      "padding": "0px 10px",
+      "borderRadius": "0px",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "none",
+      "fontSize": "15px",
+      "fontWeight": "400",
+      "height": "576.109px"
+    }
+  ],
+  "nav": {
+    "label": "navigation",
+    "background": "#FFFFFF",
+    "backgroundImage": "",
+    "backdropFilter": "",
+    "color": "#000000",
+    "padding": "0px",
+    "borderRadius": "0px",
+    "border": "0px none rgb(0, 0, 0)",
+    "boxShadow": "none",
+    "fontSize": "15px",
+    "fontWeight": "400",
+    "height": "8986.98px"
+  },
+  "chips": [
+    {
+      "label": "LIMITED SEATS",
+      "background": "#FE6100",
+      "color": "#FFFFFF",
+      "padding": "4px 10px",
+      "borderRadius": "4px",
+      "border": "0px none rgb(255, 255, 255)",
+      "boxShadow": "rgba(254, 97, 0, 0.035) 0px 0px 1.22853px 0.409509px",
+      "fontSize": "10px",
+      "fontWeight": "800",
+      "height": "26px"
+    },
+    {
+      "label": "O & A Level coaching cen",
+      "background": "#FFFFFF",
+      "color": "#151515",
+      "padding": "4px",
+      "borderRadius": "50px",
+      "border": "1px solid rgb(21, 21, 21)",
+      "boxShadow": "rgba(0, 0, 0, 0.14) 3px 3px 0px 0px",
+      "fontSize": "54px",
+      "fontWeight": "600",
+      "height": "37.3906px"
+    },
+    {
+      "label": "Maths 9709",
+      "background": "#FFFFFF",
+      "color": "#151515",
+      "padding": "8px 14px",
+      "borderRadius": "50px",
+      "border": "1px solid rgb(226, 221, 208)",
+      "boxShadow": "none",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "height": "44px"
+    },
+    {
+      "label": "+ 6 more subjects",
+      "background": "#FFFFFF",
+      "color": "#66625A",
+      "padding": "8px 14px",
+      "borderRadius": "50px",
+      "border": "1px dashed rgb(226, 221, 208)",
+      "boxShadow": "none",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "height": "44px"
+    }
+  ],
+  "statCells": [],
+  "tabs": [
+    {
+      "label": "O LevelASA2Practicals",
+      "background": "#F7F5EF",
+      "color": "#2B2B2B",
+      "padding": "4px",
+      "borderRadius": "12px",
+      "border": "0px none rgb(43, 43, 43)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "52px"
+    }
+  ],
+  "backgrounds": [
+    {
+      "value": "radial-gradient(rgb(218, 212, 195) 1.1px, rgba(0, 0, 0, 0) 1.2px), none",
+      "area": 2392350
+    },
+    {
+      "value": "radial-gradient(rgba(0, 0, 0, 0.12) 1.1px, rgba(0, 0, 0, 0) 1.2px), none",
+      "area": 1008000
+    },
+    {
+      "value": "repeating-linear-gradient(rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 29px, rgb(216, 226, 238) 29px, rgb(216, 226, 238) 30px)",
+      "area": 263463
+    }
+  ],
+  "glass": []
+}

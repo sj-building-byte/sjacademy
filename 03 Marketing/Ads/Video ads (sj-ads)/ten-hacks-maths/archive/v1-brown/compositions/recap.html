@@ -1,0 +1,44 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#FFF6DC;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;color:#FE6100;line-height:1.2;z-index:2;}
+.box{position:absolute;background:#FCE004;border-radius:10px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#FFF6DC;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+
+#rc-title{position:absolute;left:90px;top:330px;font-size:72px;font-weight:800;letter-spacing:-0.02em;}
+#rc-hl{background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;padding:0 10px;border-radius:10px;}
+#rc-list{position:absolute;left:90px;top:470px;width:900px;}
+.rr{font-size:36px;font-weight:500;line-height:1;height:66px;display:flex;align-items:center;border-bottom:2px solid rgba(255,246,220,0.12);white-space:nowrap;}
+.rn{display:inline-block;width:78px;font-weight:800;color:#FCE004;}
+  </style>
+  <div id="root" data-composition-id="recap" data-width="1080" data-height="1920">
+    <div id="rc-title">Your <span id="rc-hl">cheat sheet</span></div>
+    <div id="rc-list">
+      <div class="rr" id="rc-r0"><span class="rn">01</span>× 11 (two digits): digit sum in the middle</div>
+      <div class="rr" id="rc-r1"><span class="rn">02</span>× 5: × 10, then halve</div>
+      <div class="rr" id="rc-r2"><span class="rn">03</span>× 99: × 100, then take the number away</div>
+      <div class="rr" id="rc-r3"><span class="rn">04</span>x% of y = y% of x</div>
+      <div class="rr" id="rc-r4"><span class="rn">05</span>÷ 3 or ÷ 9: check the digit sum</div>
+      <div class="rr" id="rc-r5"><span class="rn">06</span>(m − g)(m + g) = m² − g²</div>
+      <div class="rr" id="rc-r6"><span class="rn">07</span>(50 + d)² = 100(25 + d) + d²</div>
+      <div class="rr" id="rc-r7"><span class="rn">08</span>1/a + 1/b = (a + b)/ab</div>
+      <div class="rr" id="rc-r8"><span class="rn">09</span>+10% then −10% = 1% less</div>
+      <div class="rr" id="rc-r9"><span class="rn">10</span>3, 4, 5 · 5, 12, 13 · 8, 15, 17</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#rc-title',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.05);
+    tl.fromTo('.rr',{opacity:0,x:-40},{opacity:1,x:0,duration:0.4,ease:'expo.out',stagger:0.06},0.2);
+    tl.fromTo('#rc-hl',{backgroundSize:'0% 100%',color:'#FFF6DC'},{backgroundSize:'100% 100%',color:'#453516',duration:0.3,ease:'power2.out'},0.95);
+    window.__timelines["recap"] = tl;
+  </script>
+</template>

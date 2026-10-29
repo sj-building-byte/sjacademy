@@ -1,0 +1,30 @@
+# "Solve it in your head" #2. Loaded by ../mental-maths-build.py, which provides path, FR, FR2, INK, YEL, PEN and math.
+EPISODE = {
+    "slug": "mental-maths-ep02", "reviewed": "2026-10-17", "num": 2,
+    "question": "AB is a diameter. Find x.",
+    "hint": "Hint: look at<br>the angle at C.",
+    "trick": ["Angle in a", "semicircle = 90°."], "trick_hl": 1,
+    "svg": "\n".join([
+        path("q1", "M 540 80 A 300 300 0 1 1 539.9 80", w=7),
+        path("q2", "M 240 380 L 840 380"),
+        path("q3", "M 240 380 L 652.4 101.8 L 840 380"),
+        path("q4", "M 310 380 A 70 70 0 0 0 298 340.9", w=6),
+        path("q5", "M 780 380 A 60 60 0 0 1 806.4 330.3", w=6),
+        '<circle id="q6" cx="540" cy="380" r="9" fill="#151515"/>',
+        path("r1", "M 619.2 124.2 L 641.6 157.4 L 674.8 135.0", w=7, color=PEN),
+    ]),
+    "labels": [
+        ("lA", "A", 186, 900, 52, "pt"), ("lB", "B", 866, 900, 52, "pt"), ("lC", "C", 650, 588, 52, "pt"),
+        ("lO", "O", 522, 958, 44, "pt"),
+        ("l34", "34°", 345, 886, 48, ""), ("lx", "x", 740, 872, 64, "x"),
+    ],
+    "reveal_labels": [("l90", "90°", 600, 735, 54, "red")],
+    "answer_at": ("lx", "56°", 712, 874, 50),
+    "steps": ["AB is a diameter, so angle C = 90°.", "Angles in a triangle: 180°.", "x = 180 − 90 − 34 = <b>56°</b>"],
+    "reveal": [("pen", "r1", 13.3, 0.3), ("pop", "l90", 13.45)],
+    "answer": "x = 56°",
+    "tip_title": "Circle theorems to know cold",
+    "tips": ["Angle in a semicircle = 90°", "Angle at centre = 2 × angle at edge", "Same segment: equal angles", "Cyclic quad: opposite angles add to 180°"], "tipsize": 32,
+    "verify": lambda: 180 - 90 - 34, "expect": 56, "must_show": ["diameter", "34°", "x"],
+    "caption": "AB is a diameter. Angle A is 34°. Find x in 10 seconds.\n\nThe trick is one circle theorem. Comment your answer before the reveal.\n\n#ALevelMaths #OLevelMaths #CircleTheorems #CAIE #Karachi",
+}

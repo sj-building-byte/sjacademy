@@ -1,0 +1,40 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#FFF6DC;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;color:#FE6100;line-height:1.2;z-index:2;}
+.box{position:absolute;background:#FCE004;border-radius:10px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#FFF6DC;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+
+#ec-ground{position:absolute;inset:0;background:#FCE004;}
+#ec-q{position:absolute;left:90px;top:400px;font-size:96px;font-weight:800;line-height:1.08;letter-spacing:-0.02em;color:#453516;}
+#ec-q .w{display:inline-block;}
+#ec-cta{position:absolute;left:90px;top:650px;font-size:52px;font-weight:600;color:#453516;}
+#ec-cta span{background:#453516;color:#FCE004;padding:4px 22px;border-radius:12px;}
+#ec-logo{position:absolute;left:90px;top:860px;width:300px;}
+#ec-handle{position:absolute;left:90px;top:1180px;font-size:44px;font-weight:600;color:#453516;}
+  </style>
+  <div id="root" data-composition-id="endcard" data-width="1080" data-height="1920">
+    <div id="ec-ground"></div>
+    <div id="ec-q"><span class="w">Which</span> <span class="w">one</span> <span class="w">was</span><br><span class="w">new</span> <span class="w">to</span> <span class="w">you?</span></div>
+    <div id="ec-cta"><span>Comment below</span></div>
+    <img id="ec-logo" src="assets/brand/sj-academy-logo-stacked-on-yellow.svg" alt="SJ Academy">
+    <div id="ec-handle">@sjacademypk</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#ec-ground',{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:0.42,ease:'power2.inOut'},0);
+    tl.fromTo('#ec-q .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.18,ease:'power4.out',stagger:0.08},0.5);
+    tl.fromTo('#ec-cta',{opacity:0,x:-60,rotation:-4},{opacity:1,x:0,rotation:-1,duration:0.6,ease:'expo.out'},1.600);
+    tl.fromTo('#ec-logo',{opacity:0,scale:1.3,rotation:-6,transformOrigin:'0% 50%'},{opacity:1,scale:1,rotation:0,duration:0.14,ease:'back.out(1.7)'},3.206);
+    tl.fromTo('#ec-handle',{opacity:0,filter:'blur(6px)'},{opacity:1,filter:'blur(0px)',duration:0.25,ease:'power4.out'},3.556);
+    window.__timelines["endcard"] = tl;
+  </script>
+</template>

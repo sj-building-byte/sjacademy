@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF;
+    color: #453516;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 700px;
+    width: 100%;
+}
+
+h1 {
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.subheading {
+    text-align: center;
+    color: #453516;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #453516;
+    font-weight: 500;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #453516;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    color: #453516;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #453516;
+    box-shadow: 0 0 0 2px rgba(69, 53, 22, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FCE004;
+    color: #453516;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #e6cc04;
+    transform: translateY(-1px);
+}
+
+button:active {
+    background-color: #d4bb04;
+    transform: translateY(0);
+}
+
+.requirements-display {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: white;
+    border: 1px solid #453516;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(69, 53, 22, 0.1);
+}
+
+.requirements-display h2 {
+    margin-bottom: 20px;
+    color: #453516;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.requirement-item {
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #453516;
+    border-radius: 4px;
+}
+
+.requirement-item strong {
+    color: #453516;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.requirement-item p {
+    color: #453516;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Highlight key fields with orange accent */
+.requirement-item.highlight strong,
+.requirement-item.highlight p {
+    color: #fe6100;
+}
+
+/* Yellow marker-style highlight for heading - partial, offset effect */
+.highlight-yellow {
+    background-image: linear-gradient(#FCE004, #FCE004);
+    background-size: 100% 60%;
+    background-position: 0 90%;
+    background-repeat: no-repeat;
+    padding: 0 5px;
+    color: #000000;
+}
+

@@ -1,0 +1,405 @@
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<section class="sja-orbit-hero" aria-labelledby="sja-orbit-hero-title">
+  <style>
+    .sja-orbit-hero {
+      --sja-yellow: #FCE004;
+      --sja-brown: #453516;
+      --sja-orange: #fe6100;
+      --sja-whatsapp: #25D366;
+      --sja-ink: #f8f5e8;
+      --sja-muted: rgba(248, 245, 232, 0.68);
+      --sja-line: rgba(252, 224, 4, 0.18);
+      position: relative;
+      min-height: min(820px, 92svh);
+      overflow: hidden;
+      color: var(--sja-ink);
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, rgba(3, 4, 12, 0.92) 38%, rgba(20, 20, 9, 0.94) 100%),
+        #03040a;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      isolation: isolate;
+    }
+
+    .sja-orbit-hero,
+    .sja-orbit-hero * {
+      box-sizing: border-box;
+    }
+
+    .sja-orbit-hero a {
+      color: inherit;
+    }
+
+    .sja-orbit-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -4;
+      background-image:
+        radial-gradient(circle at 22% 32%, rgba(252, 224, 4, 0.42) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 72% 26%, rgba(255, 255, 255, 0.28) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 58% 54%, rgba(254, 97, 0, 0.22) 0 1px, transparent 1.5px),
+        linear-gradient(90deg, transparent 0 19%, rgba(252, 224, 4, 0.05) 19.1%, transparent 19.2% 42%, rgba(252, 224, 4, 0.04) 42.1%, transparent 42.2% 72%, rgba(252, 224, 4, 0.04) 72.1%, transparent 72.2%);
+      background-size: 260px 260px, 340px 340px, 420px 420px, 100% 100%;
+      opacity: 0.56;
+      pointer-events: none;
+    }
+
+    .sja-orbit-hero::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -30%;
+      z-index: -2;
+      width: min(1180px, 118vw);
+      height: min(590px, 60vw);
+      border: 2px solid rgba(252, 224, 4, 0.42);
+      border-bottom: 0;
+      border-radius: 999px 999px 0 0;
+      background:
+        linear-gradient(180deg, rgba(252, 224, 4, 0.18), rgba(254, 97, 0, 0.06) 42%, rgba(0, 0, 0, 0.62) 100%);
+      box-shadow:
+        0 -26px 80px rgba(252, 224, 4, 0.28),
+        inset 0 28px 70px rgba(252, 224, 4, 0.13);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .sja-orbit-hero__glow {
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      z-index: -1;
+      width: min(760px, 74vw);
+      height: 150px;
+      border-radius: 50% 50% 0 0;
+      background: rgba(0, 0, 0, 0.86);
+      box-shadow: 0 -34px 110px rgba(252, 224, 4, 0.38);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .sja-orbit-hero__inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(72px, 9vw, 118px) 0 clamp(30px, 5vw, 54px);
+      text-align: center;
+    }
+
+    .sja-orbit-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      max-width: 100%;
+      margin: 0 auto 22px;
+      padding: 9px 15px;
+      border: 1px solid rgba(252, 224, 4, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(248, 245, 232, 0.86);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 12px 38px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(14px);
+    }
+
+    .sja-orbit-hero__badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sja-yellow);
+      box-shadow: 0 0 16px rgba(252, 224, 4, 0.9);
+    }
+
+    .sja-orbit-hero__title {
+      max-width: 980px;
+      margin: 0 auto;
+      color: #ffffff;
+      font-size: clamp(42px, 6.1vw, 82px);
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 1.05;
+      text-wrap: balance;
+    }
+
+    .sja-orbit-hero__title span {
+      color: var(--sja-yellow);
+      font-weight: 700;
+      text-shadow: 0 0 34px rgba(252, 224, 4, 0.3);
+    }
+
+    .sja-orbit-hero__copy {
+      max-width: 730px;
+      margin: 22px auto 0;
+      color: var(--sja-muted);
+      font-size: clamp(16px, 1.55vw, 20px);
+      font-weight: 400;
+      line-height: 1.65;
+      text-wrap: balance;
+    }
+
+    .sja-orbit-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .sja-orbit-hero__button {
+      display: inline-flex;
+      min-height: 56px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 20px 15px 24px;
+      border: 1px solid transparent;
+      border-radius: 18px;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .sja-orbit-hero__button:hover,
+    .sja-orbit-hero__button:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .sja-orbit-hero__button--primary {
+      border-color: rgba(252, 224, 4, 0.55);
+      background:
+        linear-gradient(180deg, rgba(252, 224, 4, 0.26), rgba(252, 224, 4, 0.1)),
+        rgba(252, 224, 4, 0.12);
+      box-shadow:
+        0 0 0 5px rgba(252, 224, 4, 0.08),
+        0 18px 52px rgba(252, 224, 4, 0.2);
+    }
+
+    .sja-orbit-hero__button--primary strong {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: var(--sja-yellow);
+      color: #111111;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .sja-orbit-hero__button--whatsapp {
+      border-color: rgba(37, 211, 102, 0.32);
+      background: rgba(37, 211, 102, 0.1);
+      color: rgba(248, 245, 232, 0.88);
+      box-shadow: 0 18px 44px rgba(37, 211, 102, 0.08);
+    }
+
+    .sja-orbit-hero__metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(16px, 4vw, 56px);
+      max-width: 700px;
+      margin: clamp(118px, 17vw, 190px) auto 0;
+      color: rgba(248, 245, 232, 0.92);
+    }
+
+    .sja-orbit-hero__metric {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      text-align: left;
+    }
+
+    .sja-orbit-hero__metric-icon {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(252, 224, 4, 0.18);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--sja-yellow);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .sja-orbit-hero__metric-value {
+      display: block;
+      color: #ffffff;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .sja-orbit-hero__metric-label {
+      display: block;
+      margin-top: 6px;
+      color: rgba(248, 245, 232, 0.58);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .sja-orbit-hero__bottom-glow {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 10px;
+      background: linear-gradient(90deg, rgba(252, 224, 4, 0), rgba(252, 224, 4, 0.85), rgba(252, 224, 4, 0));
+      box-shadow: 0 -14px 44px rgba(252, 224, 4, 0.4);
+      pointer-events: none;
+    }
+
+    @media (max-width: 767px) {
+      .sja-orbit-hero {
+        min-height: auto;
+      }
+
+      .sja-orbit-hero__inner {
+        width: min(100% - 24px, 560px);
+        padding-top: 58px;
+      }
+
+      .sja-orbit-hero__badge {
+        border-radius: 14px;
+        letter-spacing: 0.03em;
+      }
+
+      .sja-orbit-hero__title {
+        font-size: clamp(38px, 12vw, 56px);
+      }
+
+      .sja-orbit-hero__actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .sja-orbit-hero__button {
+        width: 100%;
+      }
+
+      .sja-orbit-hero__metrics {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin-top: 96px;
+      }
+
+      .sja-orbit-hero__metric {
+        justify-content: center;
+      }
+
+      .sja-orbit-hero::after {
+        bottom: -18%;
+        width: 780px;
+        height: 420px;
+      }
+
+      .sja-orbit-hero__glow {
+        width: 520px;
+      }
+    }
+  </style>
+
+  <div class="sja-orbit-hero__inner">
+    <div class="sja-orbit-hero__badge">O &amp; A Level Oct/Nov 2026 Registrations Open</div>
+
+    <h1 class="sja-orbit-hero__title" id="sja-orbit-hero-title">
+      Cambridge exam preparation with <span>clear direction</span>
+    </h1>
+
+    <p class="sja-orbit-hero__copy">
+      SJ Academy helps O and A Level students build stronger concepts, practise past papers properly, and write answers that match Cambridge expectations.
+    </p>
+
+    <div class="sja-orbit-hero__actions">
+      <a
+        class="sja-orbit-hero__button sja-orbit-hero__button--primary"
+        href="https://www.sjacademy.pk/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D"
+        data-sja-hero-event="registration_click"
+      >
+        Register for 2026 Batches <strong>-&gt;</strong>
+      </a>
+
+      <a
+        class="sja-orbit-hero__button sja-orbit-hero__button--whatsapp"
+        href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20ask%20about%20O%20and%20A%20Level%20Oct%2FNov%202026%20batches."
+        data-sja-hero-event="whatsapp_click"
+      >
+        Ask on WhatsApp
+      </a>
+    </div>
+
+    <div class="sja-orbit-hero__metrics" aria-label="SJ Academy proof">
+      <div class="sja-orbit-hero__metric">
+        <span class="sja-orbit-hero__metric-icon">01</span>
+        <span>
+          <span class="sja-orbit-hero__metric-value">3500+</span>
+          <span class="sja-orbit-hero__metric-label">Students taught</span>
+        </span>
+      </div>
+
+      <div class="sja-orbit-hero__metric">
+        <span class="sja-orbit-hero__metric-icon">02</span>
+        <span>
+          <span class="sja-orbit-hero__metric-value">950+</span>
+          <span class="sja-orbit-hero__metric-label">A and A* results</span>
+        </span>
+      </div>
+
+      <div class="sja-orbit-hero__metric">
+        <span class="sja-orbit-hero__metric-icon">03</span>
+        <span>
+          <span class="sja-orbit-hero__metric-value">220+</span>
+          <span class="sja-orbit-hero__metric-label">5-star Google reviews</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sja-orbit-hero__glow" aria-hidden="true"></div>
+  <div class="sja-orbit-hero__bottom-glow" aria-hidden="true"></div>
+
+  <script>
+    (function () {
+      var hero = document.querySelector(".sja-orbit-hero");
+      if (!hero) return;
+
+      hero.querySelectorAll("[data-sja-hero-event]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          var eventName = link.getAttribute("data-sja-hero-event");
+          var payload = {
+            event_category: "SJ Academy Homepage Hero",
+            event_label: link.textContent.trim()
+          };
+
+          if (typeof window.gtag === "function") {
+            window.gtag("event", eventName, payload);
+          }
+
+          if (typeof window.fbq === "function") {
+            window.fbq("trackCustom", eventName, payload);
+          }
+        });
+      });
+    })();
+  </script>
+</section>

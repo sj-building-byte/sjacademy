@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBCC Equivalence Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        #sj-ibcc-widget {
+            /* Brand Colors (Static across themes) */
+            --primary-yellow: #FCE004;
+            --orange: #FE6100;
+            --orange-dark: #e55800;
+            
+            /* Light Theme Variables */
+            --bg-body: transparent;
+            --bg-card: #FFFFFF;
+            --bg-results: #FFF9CC;
+            --text-main: #000000;
+            --text-sec: #222222;
+            --text-muted: #555555;
+            --border-color: #e5e5e5;
+            --border-heavy: #453516; /* Brown */
+            --shadow: 0 10px 25px rgba(0,0,0,0.05);
+            --select-bg: #FFFFFF;
+            --badge-text: #000000;
+            
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-body) !important;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        #sj-ibcc-widget[data-theme="dark"] {
+            /* Dark Theme Variables */
+            --bg-body: #0A0F16;
+            --bg-card: #111822;
+            --bg-results: rgba(252, 224, 4, 0.05);
+            --text-main: #FFFFFF;
+            --text-sec: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-color: rgba(255,255,255,0.15);
+            --border-heavy: #FCE004;
+            --shadow: 0 10px 30px rgba(0,0,0,0.5);
+            --select-bg: rgba(0,0,0,0.4);
+            --badge-text: #000000;
+        }
+
+        /* Header Grid */
+        #sj-ibcc-widget .header-controls {
+            display: grid !important;
+            grid-template-columns: 1fr auto 1fr !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin-bottom: 25px !important;
+        }
+
+        #sj-ibcc-widget .header-spacer { display: block !important; }
+
+        /* Sleek iOS-style Toggle Switch */
+        #sj-ibcc-widget .theme-switch-wrapper {
+            justify-self: end !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+
+        #sj-ibcc-widget .theme-switch-label {
+            font-size: 10px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            color: var(--text-muted) !important;
+            letter-spacing: 0.5px !important;
+            font-style: normal !important;
+        }
+
+        #sj-ibcc-widget .theme-switch {
+            position: relative !important;
+            display: inline-block !important;
+            width: 36px !important;
+            height: 20px !important;
+            margin: 0 !important;
+        }
+
+        #sj-ibcc-widget .theme-switch input { 
+            opacity: 0 !important;
+            width: 0 !important;
+            height: 0 !important;
+            position: absolute !important;
+        }
+
+        #sj-ibcc-widget .slider {
+            position: absolute !important;
+            cursor: pointer !important;
+            top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+            background-color: #e5e5e5 !important;
+            transition: .3s !important;
+            border-radius: 34px !important;
+        }
+
+        #sj-ibcc-widget[data-theme="dark"] .slider { background-color: var(--border-color) !important; }
+
+        #sj-ibcc-widget .slider:before {
+            position: absolute !important;
+            content: "" !important;
+            height: 14px !important; width: 14px !important;
+            left: 3px !important; bottom: 3px !important;
+            background-color: white !important;
+            transition: .3s !important;
+            border-radius: 50% !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+        }
+
+        #sj-ibcc-widget .theme-switch input:checked + .slider { background-color: var(--primary-yellow) !important; }
+        #sj-ibcc-widget .theme-switch input:checked + .slider:before { transform: translateX(16px) !important; background-color: #000000 !important; }
+
+        /* Top Header Area */
+        #sj-ibcc-widget header { text-align: center; margin-bottom: 30px; padding-top: 20px; }
+
+        #sj-ibcc-widget .mode-badge-wrap {
+            display: inline-block;
+            border: 2px solid var(--text-main) !important;
+            border-radius: 50px !important;
+            padding: 4px 6px !important;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.15) !important;
+            margin-bottom: 16px !important;
+        }
+
+        #sj-ibcc-widget[data-theme="dark"] .mode-badge-wrap { border-color: var(--primary-yellow) !important; }
+
+        #sj-ibcc-widget .mode-badge {
+            background: var(--primary-yellow) !important;
+            color: var(--badge-text) !important;
+            font-size: 0.75rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            padding: 6px 14px !important;
+            border-radius: 40px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            margin: 0 !important;
+        }
+
+        #sj-ibcc-widget h1 {
+            font-size: 2.2rem !important;
+            font-weight: 800 !important;
+            line-height: 1.2 !important;
+            color: var(--text-main) !important;
+            margin-bottom: 12px !important;
+            margin-top: 0 !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+
+        #sj-ibcc-widget h1 .highlight {
+            background: linear-gradient(120deg, var(--primary-yellow) 0%, var(--primary-yellow) 100%) !important;
+            background-repeat: no-repeat !important;
+            background-size: 100% 35% !important;
+            background-position: 0 85% !important;
+            display: inline !important;
+            padding: 0 3px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        #sj-ibcc-widget[data-theme="dark"] h1 .highlight {
+            color: #000000 !important;
+            background-size: 100% 100% !important;
+            background-position: 0 0 !important;
+            padding: 0 10px !important;
+            border-radius: 6px !important;
+        }
+
+        #sj-ibcc-widget .subtitle {
+            font-size: 0.95rem !important;
+            font-weight: 500 !important;
+            color: var(--text-sec) !important;
+            margin: 0 auto !important;
+            line-height: 1.5 !important;
+            max-width: 600px !important;
+        }
+
+        /* Calculator Wrapper */
+        #sj-ibcc-widget .calc-wrapper {
+            background: var(--bg-card) !important;
+            border-top: 6px solid var(--border-heavy) !important;
+            border-radius: 12px !important;
+            box-shadow: var(--shadow) !important;
+            padding: 20px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        #sj-ibcc-widget .type-toggle {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            margin-bottom: 15px !important;
+        }
+
+        #sj-ibcc-widget .type-toggle.bottom-border {
+            padding-bottom: 25px !important;
+            border-bottom: 2px solid var(--border-color) !important;
+            margin-bottom: 25px !important;
+        }
+
+        #sj-ibcc-widget .type-toggle div { display: block !important; }
+
+        #sj-ibcc-widget .type-toggle label {
+            cursor: pointer !important;
+            font-weight: 700 !important;
+            font-size: 13px !important;
+            padding: 12px 16px !important;
+            border-radius: 8px !important;
+            border: 2px solid var(--border-color) !important;
+            color: var(--text-muted) !important;
+            transition: all 0.2s ease !important;
+            text-align: center !important;
+            display: block !important;
+            margin: 0 !important;
+            background: transparent !important;
+        }
+
+        #sj-ibcc-widget .type-toggle input { display: none !important; }
+
+        #sj-ibcc-widget .type-toggle input:checked + label {
+            background: var(--primary-yellow) !important;
+            border-color: var(--border-heavy) !important;
+            color: var(--badge-text) !important;
+        }
+
+        /* Grid */
+        #sj-ibcc-widget .calc-grid {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+        }
+
+        #sj-ibcc-widget .grade-section h3 {
+            font-size: 1.1rem !important;
+            font-weight: 800 !important;
+            color: var(--text-main) !important;
+            margin-bottom: 5px !important;
+            margin-top: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            border: none !important;
+        }
+
+        #sj-ibcc-widget .grade-section p.helper {
+            font-size: 11px !important;
+            color: var(--text-muted) !important;
+            margin-bottom: 15px !important;
+            font-weight: 500 !important;
+            margin-top: 0 !important;
+        }
+
+        #sj-ibcc-widget .subject-row {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            margin-bottom: 10px !important;
+            padding-bottom: 10px !important;
+            border-bottom: 1px dashed var(--border-color) !important;
+        }
+        
+        #sj-ibcc-widget .subject-row.compulsory label { color: var(--orange-dark) !important; }
+
+        #sj-ibcc-widget .subject-row label {
+            font-size: 11px !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            color: var(--text-sec) !important;
+            margin: 0 !important;
+        }
+
+        #sj-ibcc-widget select {
+            width: 120px !important;
+            padding: 10px 12px !important;
+            border: 2px solid var(--border-color) !important;
+            border-radius: 8px !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            color: var(--text-main) !important;
+            background-color: var(--select-bg) !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%) !important;
+            background-position: calc(100% - 15px) calc(1em + 2px), calc(100% - 10px) calc(1em + 2px) !important;
+            background-size: 5px 5px, 5px 5px !important;
+            background-repeat: no-repeat !important;
+            margin: 0 !important;
+            height: auto !important;
+            box-shadow: none !important;
+        }
+
+        #sj-ibcc-widget select:focus {
+            outline: none !important;
+            border-color: var(--primary-yellow) !important;
+        }
+
+        /* Results Panel */
+        #sj-ibcc-widget .results-panel {
+            grid-column: 1 / -1 !important;
+            margin-top: 10px !important;
+            background: var(--bg-results) !important;
+            border: 2px solid var(--primary-yellow) !important;
+            border-radius: 12px !important;
+            padding: 25px 15px !important;
+            text-align: center !important;
+            transition: all 0.3s ease !important;
+        }
+
+        #sj-ibcc-widget .results-panel p.label {
+            font-size: 11px !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            color: var(--text-muted) !important;
+            margin-bottom: 5px !important;
+            margin-top: 0 !important;
+        }
+
+        #sj-ibcc-widget .total-score {
+            font-size: 3rem !important;
+            font-weight: 800 !important;
+            color: var(--text-main) !important;
+            line-height: 1.1 !important;
+            margin: 5px 0 !important;
+        }
+        
+        #sj-ibcc-widget .total-score span { color: var(--orange) !important; }
+
+        #sj-ibcc-widget .total-percentage {
+            font-size: 1.2rem !important;
+            font-weight: 700 !important;
+            color: var(--text-sec) !important;
+            margin-top: 5px !important;
+            margin-bottom: 15px !important;
+        }
+
+        #sj-ibcc-widget .algorithm-note {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            background: var(--primary-yellow) !important;
+            padding: 6px 10px !important;
+            border-radius: 6px !important;
+            font-size: 10px !important;
+            font-weight: 700 !important;
+            color: var(--badge-text) !important;
+            margin-bottom: 15px !important;
+            margin-top: 0 !important;
+        }
+
+        #sj-ibcc-widget .disclaimer {
+            font-size: 10px !important;
+            color: var(--text-muted) !important;
+            font-style: italic !important;
+            line-height: 1.5 !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+        }
+
+        /* SEO CTA */
+        #sj-ibcc-widget .seo-cta {
+            grid-column: 1 / -1 !important;
+            margin-top: 20px !important;
+            background: #111822 !important; 
+            border-top: 6px solid var(--orange) !important;
+            border-radius: 12px !important;
+            padding: 30px 20px !important;
+            text-align: center !important;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+        }
+
+        #sj-ibcc-widget .seo-cta h4 {
+            color: var(--primary-yellow) !important; 
+            font-weight: 800 !important;
+            font-size: 1.3rem !important;
+            margin-bottom: 10px !important;
+            margin-top: 0 !important;
+            border: none !important;
+        }
+        
+        #sj-ibcc-widget .seo-cta p {
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            color: #F8FAFC !important; 
+            margin-bottom: 20px !important;
+            max-width: 700px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            line-height: 1.6 !important;
+        }
+
+        #sj-ibcc-widget .btn-cta {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: var(--orange) !important;
+            color: #FFFFFF !important;
+            border: none !important;
+            border-radius: 8px !important;
+            padding: 14px 20px !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            width: 100% !important;
+        }
+
+        #sj-ibcc-widget .btn-cta:hover { background: var(--orange-dark) !important; transform: translateY(-2px) !important; }
+        
+        #sj-ibcc-widget .btn-subtext {
+            display: block !important;
+            font-size: 10px !important;
+            font-weight: 800 !important;
+            color: var(--primary-yellow) !important;
+            margin-top: 12px !important;
+            text-transform: uppercase !important;
+        }
+
+        @media (min-width: 768px) {
+            #sj-ibcc-widget { padding: 40px 20px; }
+            #sj-ibcc-widget h1 { font-size: 2.8rem !important; }
+            #sj-ibcc-widget .calc-wrapper { padding: 40px !important; }
+            #sj-ibcc-widget .type-toggle { flex-direction: row !important; justify-content: center !important; gap: 15px !important; }
+            #sj-ibcc-widget .type-toggle label { padding: 12px 24px !important; border-radius: 40px !important; font-size: 14px !important; }
+            #sj-ibcc-widget .calc-grid { grid-template-columns: 1fr 1fr !important; gap: 40px !important; }
+            #sj-ibcc-widget select { width: 140px !important; font-size: 14px !important; }
+            #sj-ibcc-widget .results-panel { padding: 30px !important; }
+            #sj-ibcc-widget .total-score { font-size: 3.5rem !important; }
+            #sj-ibcc-widget .seo-cta { padding: 40px !important; }
+            #sj-ibcc-widget .seo-cta h4 { font-size: 1.5rem !important; }
+            #sj-ibcc-widget .btn-cta { width: auto !important; padding: 14px 30px !important; font-size: 14px !important; }
+        }
+    
+/* Limited accessibility and mobile patch. Calculation engine still awaits replacement. */
+#sj-ibcc-widget, #sj-ibcc-widget * { box-sizing: border-box; }
+#sj-ibcc-widget { --orange-dark: #a83c00; --border-color: #767676; }
+#sj-ibcc-widget[data-theme="dark"] { --orange-dark: #ffab75; --select-bg: #111822; --border-color: #8493a7; }
+#sj-ibcc-widget .header-controls { grid-template-columns: minmax(0,1fr) auto !important; gap: 12px; }
+#sj-ibcc-widget .header-spacer { display: none !important; }
+#sj-ibcc-widget .mode-badge-wrap { margin-bottom: 0 !important; }
+#sj-ibcc-widget .theme-switch-wrapper { flex-wrap: wrap; justify-content: flex-end; }
+#sj-ibcc-widget .theme-switch { width: 44px !important; height: 44px !important; }
+#sj-ibcc-widget .slider { top: 12px !important; bottom: 12px !important; }
+#sj-ibcc-widget .theme-switch input:checked + .slider:before { transform: translateX(24px) !important; }
+#sj-ibcc-widget .type-toggle input { display: block !important; position: absolute; width: 1px; height: 1px; opacity: 0; }
+#sj-ibcc-widget :is(select,a,input):focus-visible { outline: 3px solid var(--text-main) !important; outline-offset: 3px !important; }
+#sj-ibcc-widget .type-toggle input:focus-visible + label,
+#sj-ibcc-widget .theme-switch input:focus-visible + .slider { outline: 3px solid var(--text-main); outline-offset: 3px; }
+#sj-ibcc-widget .subject-row { gap: 12px; }
+#sj-ibcc-widget .subject-row label { font-size: 14px !important; text-transform: none !important; letter-spacing: 0 !important; flex: 1; }
+#sj-ibcc-widget select { font-size: 16px !important; min-height: 44px; flex-shrink: 0; }
+#sj-ibcc-widget .grade-section p.helper, #sj-ibcc-widget .disclaimer { font-size: 14px !important; line-height: 1.6 !important; }
+#sj-ibcc-widget .btn-cta { color: #000 !important; }
+#sj-ibcc-widget .review-warning { border: 2px solid var(--border-heavy); border-radius: 8px; padding: 16px; margin-bottom: 20px; font-size: 14px; }
+#sj-ibcc-widget .review-warning a { color: inherit; text-decoration: underline; }
+#sj-ibcc-widget .results-panel { display: none !important; }
+@media(max-width: 480px) {
+ #sj-ibcc-widget { padding: 20px 12px; }
+ #sj-ibcc-widget .header-controls { grid-template-columns: 1fr !important; }
+ #sj-ibcc-widget .theme-switch-wrapper { justify-self: center !important; }
+ #sj-ibcc-widget .subject-row { flex-direction: column !important; align-items: stretch !important; }
+ #sj-ibcc-widget select { width: 100% !important; }
+ #sj-ibcc-widget .calc-wrapper { padding: 16px !important; }
+}
+@media(prefers-reduced-motion: reduce) { #sj-ibcc-widget * { transition: none !important; } }
+
+</style>
+</head>
+<body>
+
+<div id="sj-ibcc-widget" data-theme="light">
+
+    <header>
+        <div class="header-controls">
+            <div class="header-spacer"></div>
+            <div class="mode-badge-wrap" style="justify-self: center;">
+                <div class="mode-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z" fill="currentColor"/></svg>
+                    Calculator Tool
+                </div>
+            </div>
+            <div class="theme-switch-wrapper">
+                <em class="theme-switch-label">Dark Mode</em>
+                <label class="theme-switch" for="theme-checkbox">
+                    <input type="checkbox" id="theme-checkbox" aria-label="Dark mode" onchange="toggleTheme()">
+                    <div class="slider"></div>
+                </label>
+            </div>
+        </div>
+        
+        <h1>IBCC <span class="highlight">Equivalence</span></h1>
+        <p class="subtitle">Estimate your O Level or A Level equivalence. Final equivalence is issued by IBCC.</p>
+    </header>
+
+    <div class="review-warning"><strong>UI review preview. Not for publication.</strong><br>Results are disabled while the calculation rules are rebuilt and verified. <a href="https://ibcc.edu.pk/conversion-for-equivalence/">View official IBCC conversion data</a>.</div>
+    <div class="calc-wrapper">
+        
+        <!-- Student Route Toggle (New SEO Audit Requirement) -->
+        <div class="type-toggle">
+            <div>
+                <input type="radio" id="route-local" name="calc-route" value="local" checked onchange="buildInterface()">
+                <label for="route-local">Local Pakistani (8 O-Levels)</label>
+            </div>
+            <div>
+                <input type="radio" id="route-overseas" name="calc-route" value="overseas" onchange="buildInterface()">
+                <label for="route-overseas">Overseas / Expat (5 O-Levels)</label>
+            </div>
+        </div>
+
+        <!-- Exam Level Toggle -->
+        <div class="type-toggle bottom-border">
+            <div>
+                <input type="radio" id="type-hssc" name="calc-type" value="hssc" checked onchange="buildInterface()">
+                <label for="type-hssc">O & A-Level Equivalence (HSSC)</label>
+            </div>
+            <div>
+                <input type="radio" id="type-ssc" name="calc-type" value="ssc" onchange="buildInterface()">
+                <label for="type-ssc">O-Level Only (SSC)</label>
+            </div>
+        </div>
+
+        <div class="calc-grid">
+            
+            <!-- O Level Section -->
+            <div class="grade-section" id="olevel-section">
+                <h3 id="olevel-header">📘 O Level</h3>
+                <p class="helper" id="olevel-helper">Compulsory subjects are locked based on your route.</p>
+                <div id="olevel-inputs"></div>
+            </div>
+
+            <!-- A Level Section -->
+            <div class="grade-section" id="alevel-section">
+                <h3>📙 A Level</h3>
+                <p class="helper">IBCC requires 3 A-Level subjects.</p>
+                <div id="alevel-inputs"></div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-panel" id="results-panel">
+                <div class="algorithm-note" id="algo-note">
+                    <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/></svg>
+                    <span id="algo-text">Calculation Rules Applied</span>
+                </div>
+                <p class="label">Estimated Equivalence Marks</p>
+                <div class="total-score"><span id="total-marks">0</span> / <span id="max-marks" style="color: inherit;">1100</span></div>
+                <div class="total-percentage" id="total-percentage">0.00%</div>
+                <p class="disclaimer">*Note: This is an estimate based on post-2021 IBCC guidelines. Final equivalence is subject to official IBCC verification and your specific equivalence group.</p>
+            </div>
+
+            <!-- SEO CTA Section -->
+            <div class="seo-cta">
+                <h4>Planning your next exam attempt?</h4>
+                <p>Get exam-focused O and A Level support at SJ Academy, with physical classes in DHA Phase 7, Karachi, and live online classes.</p>
+                <a href="https://www.sjacademy.pk/demo-class-registration/" class="btn-cta">Book a Free Demo</a>
+                <span class="btn-subtext">In-class (DHA) & Online</span>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const widget = document.getElementById('sj-ibcc-widget');
+            const checkbox = document.getElementById('theme-checkbox');
+            widget.setAttribute('data-theme', checkbox.checked ? 'dark' : 'light');
+        }
+
+        // LEGACY ENGINE: incorrect and retained only for comparison; results disabled in this UI preview.
+        const gradeValues = {
+            "A*": 100, "A": 90, "B": 80, "C": 70,
+            "D": 60, "E": 50, "U": 0, "None": 0
+        };
+
+        function createDropdown(id) {
+            let options = '<option value="None">-- Select --</option>';
+            for (const [grade, value] of Object.entries(gradeValues)) {
+                if(grade !== "None") options += `<option value="${grade}">${grade}</option>`;
+            }
+            return `<select id="${id}" class="grade-select" onchange="calculateEquivalence()">${options}</select>`;
+        }
+
+        function createRow(container, label, isCompulsory = false) {
+            const div = document.createElement('div');
+            div.className = `subject-row ${isCompulsory ? 'compulsory' : ''}`;
+            const id = `${container.id}-${container.children.length}`;
+            div.innerHTML = `<label for="${id}">${label}</label>${createDropdown(id)}`;
+            container.appendChild(div);
+        }
+
+        const savedGrades = new Map();
+        function buildInterface() {
+            document.querySelectorAll("#sj-ibcc-widget .subject-row").forEach(row => savedGrades.set(row.querySelector("label").textContent, row.querySelector("select").value));
+            const isHSSC = document.getElementById('type-hssc').checked;
+            const isLocal = document.getElementById('route-local').checked;
+            
+            const oContainer = document.getElementById('olevel-inputs');
+            const aContainer = document.getElementById('alevel-inputs');
+            const aSection = document.getElementById('alevel-section');
+            const algoText = document.getElementById('algo-text');
+            const oHelper = document.getElementById('olevel-helper');
+
+            oContainer.innerHTML = '';
+            aContainer.innerHTML = '';
+
+            // Build O-Levels based on route
+            if(isLocal) {
+                oHelper.innerText = "8 Subjects Required: 5 Compulsory + 3 Electives";
+                createRow(oContainer, "* Compulsory: English", true);
+                createRow(oContainer, "* Compulsory: Mathematics", true);
+                createRow(oContainer, "* Compulsory: Urdu", true);
+                createRow(oContainer, "* Compulsory: Islamiyat", true);
+                createRow(oContainer, "* Compulsory: Pak Studies", true);
+                createRow(oContainer, "Elective 1");
+                createRow(oContainer, "Elective 2");
+                createRow(oContainer, "Elective 3");
+            } else {
+                oHelper.innerText = "5 Subjects Required: 2 Compulsory + 3 Electives";
+                createRow(oContainer, "* Compulsory: English", true);
+                createRow(oContainer, "* Compulsory: Mathematics", true);
+                createRow(oContainer, "Elective 1");
+                createRow(oContainer, "Elective 2");
+                createRow(oContainer, "Elective 3");
+            }
+
+            // Build A-Levels if HSSC
+            if(isHSSC) {
+                aSection.style.display = 'block';
+                createRow(aContainer, "A-Level Subject 1");
+                createRow(aContainer, "A-Level Subject 2");
+                createRow(aContainer, "A-Level Subject 3");
+                algoText.innerText = isLocal ? "Local HSSC (1100 Marks)" : "Overseas HSSC (800 Marks)";
+            } else {
+                aSection.style.display = 'none';
+                algoText.innerText = isLocal ? "Local SSC (800 Marks)" : "Overseas SSC (500 Marks)";
+            }
+
+            document.querySelectorAll("#sj-ibcc-widget .subject-row").forEach(row => {
+                row.querySelector("select").value = savedGrades.get(row.querySelector("label").textContent) || "None";
+            });
+            calculateEquivalence();
+        }
+
+        function calculateEquivalence() {
+            const isHSSC = document.getElementById('type-hssc').checked;
+            const isLocal = document.getElementById('route-local').checked;
+            let totalMarks = 0;
+            
+            // Determine max possible marks
+            let maxMarks = 0;
+            if(isLocal && !isHSSC) maxMarks = 800;
+            if(isLocal && isHSSC) maxMarks = 1100;
+            if(!isLocal && !isHSSC) maxMarks = 500;
+            if(!isLocal && isHSSC) maxMarks = 800;
+
+            // Add O-Level marks directly (no more illegal "Best 8" sorting)
+            document.querySelectorAll('#olevel-inputs select').forEach(sel => {
+                totalMarks += gradeValues[sel.value] || 0;
+            });
+
+            // Add A-Level marks
+            if (isHSSC) {
+                document.querySelectorAll('#alevel-inputs select').forEach(sel => {
+                    totalMarks += gradeValues[sel.value] || 0;
+                });
+            }
+
+            document.getElementById('total-marks').innerText = totalMarks;
+            document.getElementById('max-marks').innerText = maxMarks;
+            
+            const percentage = ((totalMarks / maxMarks) * 100).toFixed(2);
+            document.getElementById('total-percentage').innerText = `${percentage}%`;
+        }
+
+        // Init on load
+        buildInterface();
+    </script>
+</div>
+</body>
+</html>

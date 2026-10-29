@@ -1,0 +1,101 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#F7F6FF;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;text-shadow:0 6px 30px rgba(10,15,44,0.55);}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;line-height:1.2;z-index:2;padding:8px 24px 8px 0;margin-top:-8px;}
+.box{position:absolute;background:#FCE004;border-radius:16px;z-index:1;transform-origin:50% 50%;box-shadow:0 14px 40px rgba(3,6,24,0.45);}
+.ring{position:absolute;border:4px solid #FE6100;border-radius:22px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#F7F6FF;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+.gold{color:#FCE004;}
+.hl{background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;padding:0 10px;border-radius:10px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;}
+
+#h01-stage{position:absolute;inset:0;transform-origin:50% 55%;}
+#h01-title{position:absolute;left:440px;top:277px;width:420px;font-size:68px;font-weight:800;line-height:1.05;letter-spacing:-0.02em;white-space:nowrap;}
+#h01-title .m{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:6px;}
+#h01-title .w{display:inline-block;}
+#h01-div{position:absolute;left:96px;top:485px;width:744px;height:4px;border-radius:2px;
+  background:#FE6100;transform-origin:0% 50%;}
+#h01-rule{position:absolute;left:96px;top:521px;width:744px;font-size:40px;font-weight:500;line-height:1.4;color:rgba(247,246,255,0.88);}
+#h01-rule .hl{font-weight:700;}
+#h01-card{position:absolute;left:900px;top:215px;width:924px;height:600px;border-radius:40px;
+  background:linear-gradient(160deg,rgba(40,48,110,0.78),rgba(14,19,58,0.86));border:2px solid rgba(255,255,255,0.14);
+  box-shadow:0 30px 80px rgba(3,6,24,0.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);overflow:hidden;}
+#h01-cardglow{position:absolute;right:-180px;bottom:-220px;width:620px;height:620px;border-radius:50%;
+  background:radial-gradient(circle,rgba(34,211,238,0.32),rgba(34,211,238,0) 70%);}
+#h01-board{position:absolute;left:850px;top:-445px;width:1920px;height:1080px;}
+  </style>
+  <div id="root" data-composition-id="h01" data-width="1920" data-height="1080">
+    <div id="h01-stage" data-layout-allow-overlap>
+      <div id="h01-card"><div id="h01-cardglow"></div></div>
+      <div class="title" id="h01-title"><span class="m"><span class="w" id="h01-tw0">×</span></span> <span class="m"><span class="w" id="h01-tw1">11</span></span></div>
+      <div id="h01-div"></div>
+      <div class="rule" id="h01-rule"><span class="rw" id="h01-r0">Two-digit numbers: the digit sum goes </span><span class="hl" id="h01-r1">in the middle</span></div>
+      <div id="h01-board" data-layout-allow-overlap>
+      <div class="tk" id="h01-a3" style="left:90.0px;top:722.8px;font-size:112px;font-weight:700;color:#F7F6FF">3</div>
+        <div class="tk" id="h01-a4" style="left:157.8px;top:722.8px;font-size:112px;font-weight:700;color:#F7F6FF">4</div>
+        <div class="tk" id="h01-ax" style="left:233.6px;top:722.8px;font-size:112px;font-weight:700;color:#F7F6FF"> × 11</div>
+        <div class="tk" id="h01-b3" style="left:90.0px;top:848.2px;font-size:128px;font-weight:700;color:#F7F6FF">3</div>
+        <div class="tk" id="h01-b7" style="left:167.4px;top:848.2px;font-size:128px;font-weight:700;color:#F7F6FF">7</div>
+        <div class="tk" id="h01-b4" style="left:235.9px;top:848.2px;font-size:128px;font-weight:700;color:#F7F6FF">4</div>
+        <div class="note" id="h01-n7" style="left:358.6px;top:891.5px;font-size:54px;color:#22D3EE">← 3 + 4</div>
+        <div class="tk" id="h01-c1" style="left:90.0px;top:1039.2px;font-size:38px;font-weight:500;color:rgba(247,246,255,0.55)">Sum 10 or more? Carry the 1:  78 × 11 = 858</div>
+        <div class="box" id="h01-box0" style="left:76.0px;top:839.6px;width:260.6px;height:161.8px"></div>
+        <div class="ring" id="h01-ring0" style="left:70.0px;top:833.6px;width:272.6px;height:173.8px"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#h01-title .w',{yPercent:110,rotation:6},{yPercent:0,rotation:0,duration:0.45,ease:'expo.out',stagger:0.07},0.05);
+    tl.fromTo('#h01-div',{scaleX:0},{scaleX:1,duration:0.6,ease:'expo.inOut'},0.1);
+    tl.fromTo('#h01-rule',{opacity:0,y:24,filter:'blur(8px)'},{opacity:1,y:0,filter:'blur(0px)',duration:0.35,ease:'power3.out'},0.22);
+    tl.fromTo('#h01-card',{opacity:0,scale:0.9,y:60},{opacity:1,scale:1,y:0,duration:0.55,ease:'back.out(1.4)'},0.18);
+    tl.fromTo('#h01-cardglow',{opacity:0},{opacity:1,duration:0.8,ease:'sine.out'},0.3);
+    tl.set('#h01-a3',{opacity:0},0);
+    tl.set('#h01-a4',{opacity:0},0);
+    tl.set('#h01-ax',{opacity:0},0);
+    tl.set('#h01-b3',{opacity:0},0);
+    tl.set('#h01-b7',{opacity:0},0);
+    tl.set('#h01-b4',{opacity:0},0);
+    tl.set('#h01-n7',{opacity:0},0);
+    tl.set('#h01-c1',{opacity:0},0);
+    tl.fromTo('#h01-a3',{opacity:0.0,y:46,scale:0.86,filter:'blur(10px)'},{opacity:1,y:0,scale:1,filter:'blur(0px)',duration:0.4,ease:'back.out(1.8)'},0.35);
+    tl.fromTo('#h01-a4',{opacity:0.0,y:46,scale:0.86,filter:'blur(10px)'},{opacity:1,y:0,scale:1,filter:'blur(0px)',duration:0.4,ease:'back.out(1.8)'},0.42);
+    tl.fromTo('#h01-ax',{opacity:0.0,y:46,scale:0.86,filter:'blur(10px)'},{opacity:1,y:0,scale:1,filter:'blur(0px)',duration:0.4,ease:'back.out(1.8)'},0.49);
+    tl.fromTo('#h01-rule .hl',{backgroundSize:'0% 100%',color:'#F7F6FF'},{backgroundSize:'100% 100%',color:'#0A0F2C',duration:0.35,ease:'power2.out'},1.11);
+    tl.set('#h01-b3',{opacity:1,transformOrigin:'0% 50%'},1.769);
+    tl.fromTo('#h01-b3',{x:0.0,scale:0.875},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},1.769);
+    tl.fromTo('#h01-b3',{y:-135.0},{y:-40,duration:0.31,ease:'power2.out'},1.769);
+    tl.to('#h01-b3',{y:0,duration:0.31,ease:'power2.in'},2.079);
+    tl.fromTo('#h01-b3',{color:'#22D3EE'},{color:'#F7F6FF',duration:0.5,ease:'sine.in'},2.069);
+    tl.set('#h01-b4',{opacity:1,transformOrigin:'0% 50%'},1.769);
+    tl.fromTo('#h01-b4',{x:-78.2,scale:0.875},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},1.769);
+    tl.fromTo('#h01-b4',{y:-135.0},{y:-40,duration:0.31,ease:'power2.out'},1.769);
+    tl.to('#h01-b4',{y:0,duration:0.31,ease:'power2.in'},2.079);
+    tl.fromTo('#h01-b4',{color:'#22D3EE'},{color:'#F7F6FF',duration:0.5,ease:'sine.in'},2.069);
+    tl.fromTo('#h01-a3',{opacity:1},{opacity:0.3,duration:0.3,ease:'power2.out'},1.769);
+    tl.fromTo('#h01-a4',{opacity:1},{opacity:0.3,duration:0.3,ease:'power2.out'},1.769);
+    tl.fromTo('#h01-ax',{opacity:1},{opacity:0.3,duration:0.3,ease:'power2.out'},1.769);
+    tl.fromTo('#h01-b7',{opacity:0,y:-140,scale:1.5,color:'#22D3EE'},{opacity:1,y:0,scale:1,duration:0.42,ease:'bounce.out'},2.508);
+    tl.to('#h01-b7',{color:'#F7F6FF',duration:0.4},3.008);
+    tl.fromTo('#h01-n7',{opacity:1,rotation:-3,clipPath:'inset(0% 100% 0% 0%)'},{rotation:-3,clipPath:'inset(0% 0% 0% 0%)',duration:0.45,ease:'sine.inOut'},2.614);
+    tl.set('#h01-box0,#h01-ring0',{opacity:0},0);
+    tl.fromTo('#h01-box0',{opacity:0,scale:1.45,rotation:-9},{opacity:1,scale:1,rotation:-1.5,duration:0.18,ease:'back.out(2)'},4.91);
+    tl.fromTo('#h01-box0',{x:3},{x:0,duration:0.14,ease:'steps(4)'},5.090);
+    tl.fromTo('#h01-ring0',{opacity:0.95,scale:1},{opacity:0,scale:1.45,duration:0.6,ease:'expo.out'},5.030);
+    tl.fromTo('#h01-b3',{color:'#F7F6FF',textShadow:'0 6px 30px rgba(10,15,44,0.55)'},{color:'#0A0F2C',textShadow:'0 0px 0px rgba(10,15,44,0)',duration:0.05},4.950);
+    tl.fromTo('#h01-b7',{color:'#F7F6FF',textShadow:'0 6px 30px rgba(10,15,44,0.55)'},{color:'#0A0F2C',textShadow:'0 0px 0px rgba(10,15,44,0)',duration:0.05},4.950);
+    tl.fromTo('#h01-b4',{color:'#F7F6FF',textShadow:'0 6px 30px rgba(10,15,44,0.55)'},{color:'#0A0F2C',textShadow:'0 0px 0px rgba(10,15,44,0)',duration:0.05},4.950);
+    tl.fromTo('#h01-c1',{opacity:0.0,y:46,scale:0.86,filter:'blur(10px)'},{opacity:1,y:0,scale:1,filter:'blur(0px)',duration:0.4,ease:'back.out(1.8)'},5.891);
+    tl.fromTo('#h01-stage',{scale:1,opacity:1,filter:'blur(0px)'},{scale:1.08,opacity:0,filter:'blur(12px)',duration:0.3,ease:'expo.in'},6.391);
+    window.__timelines["h01"] = tl;
+  </script>
+</template>

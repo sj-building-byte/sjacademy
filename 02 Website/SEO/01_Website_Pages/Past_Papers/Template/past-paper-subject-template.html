@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Level Physics (9702) Past Papers & Mark Schemes | SJ Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* SCSS-like scoping to prevent WordPress theme conflicts */
+        #sj-pastpaper-hub {
+            --primary-yellow: #FCE004;
+            --brown: #453516;
+            --orange: #FE6100;
+            --orange-dark: #e55800;
+            --black: #000000;
+            --white: #FFFFFF;
+            --grey: #555555;
+            --dark-grey: #222222;
+            --light-bg: #FAFAFA;
+            --light-yellow: #FFF9CC;
+            --border-light: #e5e5e5;
+            --shadow-hard: 6px 6px 0 var(--brown);
+            --shadow-hard-hover: 8px 8px 0 var(--brown);
+            --shadow-button: 4px 4px 0 rgba(254,97,0,0.3);
+            --transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            
+            font-family: 'Poppins', sans-serif;
+            color: var(--black);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 15px;
+            background: var(--white);
+        }
+
+        #sj-pastpaper-hub * {
+            box-sizing: border-box;
+        }
+
+        /* --- 1. HERO SECTION (Branded) --- */
+        #sj-pastpaper-hub .hub-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+
+        #sj-pastpaper-hub .breadcrumb {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--grey);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: var(--light-bg);
+            padding: 6px 16px;
+            border-radius: 40px;
+            border: 1.5px solid var(--border-light);
+        }
+
+        #sj-pastpaper-hub .hub-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            line-height: 1.2;
+            color: var(--black);
+        }
+        
+        #sj-pastpaper-hub .hub-title .highlight {
+            background: linear-gradient(120deg, var(--primary-yellow) 0%, var(--primary-yellow) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 35%;
+            background-position: 0 85%;
+            display: inline;
+            padding: 0 3px;
+        }
+
+        #sj-pastpaper-hub .hub-subtitle {
+            font-size: 15px;
+            color: var(--grey);
+            max-width: 700px;
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+
+        /* --- 2. PAST PAPERS GRID UI (Chunky neo-brutalist) --- */
+        #sj-pastpaper-hub .papers-container {
+            margin-bottom: 50px;
+        }
+
+        #sj-pastpaper-hub .year-block {
+            background: var(--white);
+            border: 2.5px solid var(--brown);
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-hard);
+            overflow: hidden;
+            transition: all 0.3s var(--transition);
+        }
+
+        #sj-pastpaper-hub .year-header {
+            background: var(--light-yellow);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2.5px solid var(--brown);
+        }
+
+        #sj-pastpaper-hub .year-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0;
+            color: var(--black);
+        }
+        
+        #sj-pastpaper-hub .badge-live {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 6px 14px;
+            border-radius: 40px;
+            background: var(--primary-yellow);
+            color: var(--black);
+            border: 2px solid var(--brown);
+        }
+
+        #sj-pastpaper-hub .season-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        @media (min-width: 768px) {
+            #sj-pastpaper-hub .season-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            #sj-pastpaper-hub .season-card:first-child {
+                border-right: 2.5px solid var(--brown);
+            }
+        }
+
+        #sj-pastpaper-hub .season-card {
+            padding: 30px;
+            background: var(--white);
+        }
+        
+        #sj-pastpaper-hub .season-card:not(:last-child) {
+            border-bottom: 2.5px solid var(--brown);
+        }
+        
+        @media (min-width: 768px) {
+            #sj-pastpaper-hub .season-card:not(:last-child) {
+                border-bottom: none;
+            }
+        }
+
+        #sj-pastpaper-hub .season-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--orange);
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #sj-pastpaper-hub .paper-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 2px dashed var(--border-light);
+        }
+
+        #sj-pastpaper-hub .paper-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        #sj-pastpaper-hub .paper-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark-grey);
+        }
+
+        #sj-pastpaper-hub .download-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        #sj-pastpaper-hub .dl-btn {
+            background: var(--light-bg);
+            color: var(--black);
+            border: 2px solid var(--border-light);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        #sj-pastpaper-hub .dl-btn:hover {
+            background: var(--primary-yellow);
+            border-color: var(--brown);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        #sj-pastpaper-hub .dl-btn.ms {
+            background: var(--brown);
+            border-color: var(--brown);
+            color: var(--white);
+        }
+        
+        #sj-pastpaper-hub .dl-btn.ms:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+        }
+
+        /* --- 3. THE DWELL TIME BOOSTER (VIDEO + SEO) --- */
+        #sj-pastpaper-hub .dwell-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            margin: 50px 0;
+            background: var(--white);
+            border: 2.5px solid var(--brown);
+            border-radius: 16px;
+            box-shadow: var(--shadow-hard);
+            overflow: hidden;
+        }
+
+        @media (min-width: 800px) {
+            #sj-pastpaper-hub .dwell-section {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        #sj-pastpaper-hub .seo-intro {
+            padding: 40px;
+            background: var(--white);
+        }
+
+        #sj-pastpaper-hub .seo-intro h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        #sj-pastpaper-hub .seo-intro p {
+            font-size: 14px;
+            color: var(--grey);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        #sj-pastpaper-hub .seo-intro strong {
+            color: var(--black);
+        }
+
+        #sj-pastpaper-hub .video-container {
+            position: relative;
+            background: #000;
+            border-left: 0;
+            border-top: 2.5px solid var(--brown);
+            min-height: 250px;
+        }
+        
+        @media (min-width: 800px) {
+            #sj-pastpaper-hub .video-container {
+                border-top: 0;
+                border-left: 2.5px solid var(--brown);
+            }
+        }
+
+        #sj-pastpaper-hub .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        #sj-pastpaper-hub .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--orange);
+            color: var(--white);
+            border: 2.5px solid var(--orange);
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: var(--shadow-button);
+            transition: all 0.3s var(--transition);
+        }
+
+        #sj-pastpaper-hub .cta-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+        }
+
+        /* --- 4. BOTTOM SEO FAQ --- */
+        #sj-pastpaper-hub .seo-faq {
+            margin-top: 50px;
+            padding: 40px;
+            background: var(--light-bg);
+            border-radius: 16px;
+            border: 1.5px solid var(--border-light);
+            text-align: center;
+        }
+        
+        #sj-pastpaper-hub .seo-faq h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+        
+        #sj-pastpaper-hub .seo-faq p {
+            font-size: 14px;
+            color: var(--grey);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="sj-pastpaper-hub">
+    
+    <!-- 1. Hero Header (Branded) -->
+    <div class="hub-header">
+        <span class="breadcrumb">A Level Past Papers</span>
+        <h1 class="hub-title"><span class="highlight">Physics (9702)</span> Past Papers</h1>
+        <p class="hub-subtitle">Download the latest Cambridge AS & A Level Physics (9702) past papers, mark schemes, and examiner reports. Updated for 2024.</p>
+    </div>
+
+    <!-- 3. Papers Grid (Instant Gratification) -->
+    <div class="papers-container">
+        
+        <!-- 2024 Block -->
+        <div class="year-block">
+            <div class="year-header">
+                <h3 class="year-title">2024</h3>
+                <span class="badge-live">Latest Release</span>
+            </div>
+            
+            <div class="season-grid">
+                <!-- May/June -->
+                <div class="season-card">
+                    <h4 class="season-title">☀️ May / June</h4>
+                    
+                    <div class="paper-row">
+                        <span class="paper-name">Paper 12 (MCQ)</span>
+                        <div class="download-links">
+                            <a href="#" class="dl-btn">QP</a>
+                            <a href="#" class="dl-btn ms">MS</a>
+                        </div>
+                    </div>
+                    
+                    <div class="paper-row">
+                        <span class="paper-name">Paper 22 (Structured)</span>
+                        <div class="download-links">
+                            <a href="#" class="dl-btn">QP</a>
+                            <a href="#" class="dl-btn ms">MS</a>
+                        </div>
+                    </div>
+
+                    <div class="paper-row">
+                        <span class="paper-name">Paper 33 (Practical)</span>
+                        <div class="download-links">
+                            <a href="#" class="dl-btn">QP</a>
+                            <a href="#" class="dl-btn ms">MS</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oct/Nov -->
+                <div class="season-card">
+                    <h4 class="season-title">❄️ Oct / Nov</h4>
+                    <p style="font-size: 13px; color: var(--grey); font-style: italic; margin-top: 15px;">Papers will be uploaded upon official Cambridge release.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. The "Dwell Time" Booster Section -->
+        <div class="dwell-section">
+            <div class="seo-intro">
+                <h2>Stuck on these papers?</h2>
+                <p>Physics 9702 requires a deep understanding of concepts and mathematical application. Cambridge examiners frequently repeat tricky formats, especially in Paper 1 and 2.</p>
+                <p><strong>SJ Academy Tip:</strong> Don't just stare at the Mark Schemes. Watch our masterclass on the right to understand exactly how examiners allocate marks. Our students who watch these breakdowns consistently score A*s.</p>
+                <a href="https://www.sjacademy.pk/demo-class-registration/" class="cta-primary" style="margin-top: 15px;">Book a Free Demo</a>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="How to Ace A Level Physics" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- 2023 Block -->
+        <div class="year-block">
+            <div class="year-header">
+                <h3 class="year-title">2023</h3>
+            </div>
+            
+            <div class="season-grid">
+                <!-- May/June -->
+                <div class="season-card">
+                    <h4 class="season-title">☀️ May / June</h4>
+                    
+                    <div class="paper-row">
+                        <span class="paper-name">Paper 12 (MCQ)</span>
+                        <div class="download-links">
+                            <a href="#" class="dl-btn">QP</a>
+                            <a href="#" class="dl-btn ms">MS</a>
+                        </div>
+                    </div>
+                    
+                    <div class="paper-row">
+                        <span class="paper-name">Paper 22 (Structured)</span>
+                        <div class="download-links">
+                            <a href="#" class="dl-btn">QP</a>
+                            <a href="#" class="dl-btn ms">MS</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oct/Nov -->
+                <div class="season-card">
+                    <h4 class="season-title">❄️ Oct / Nov</h4>
+                    
+                    <div class="paper-row">
+                        <span class="paper-name">Paper 12 (MCQ)</span>
+                        <div class="download-links">
+                            <a href="#" class="dl-btn">QP</a>
+                            <a href="#" class="dl-btn ms">MS</a>
+                        </div>
+                    </div>
+                    
+                    <div class="paper-row">
+                        <span class="paper-name">Paper 22 (Structured)</span>
+                        <div class="download-links">
+                            <a href="#" class="dl-btn">QP</a>
+                            <a href="#" class="dl-btn ms">MS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- 4. Bottom SEO FAQ (For Google Featured Snippets) -->
+    <div class="seo-faq">
+        <h3>What is the A Level Physics 9702 Syllabus?</h3>
+        <p>The Cambridge International AS and A Level Physics syllabus (9702) builds on the syllabus acquired at Cambridge IGCSE. The syllabus includes the main theoretical concepts which are fundamental to the subject, current applications of physics, and a strong emphasis on advanced practical skills.</p>
+        
+        <h3>Is A Level Physics difficult?</h3>
+        <p>Physics is widely considered one of the most challenging A Level subjects due to its heavy reliance on advanced mathematics and abstract conceptual thinking. However, consistently practicing past papers and understanding examiner reports drastically improves your chances of securing an A*.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Caveat"; src: url("assets/brand/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+        #root { position: absolute; inset: 0; overflow: hidden; background: #151515; font-family: "Poppins", sans-serif; }
+        .s5-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+        .s5-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+        #s5-scrimT { position: absolute; left: 0; top: 0; width: 1080px; height: 820px; background: linear-gradient(rgba(21, 21, 21, 0.85) 0%, rgba(21, 21, 21, 0.6) 50%, rgba(21, 21, 21, 0) 100%); }
+        #s5-scrimB { position: absolute; left: 0; bottom: 0; width: 1080px; height: 400px; background: linear-gradient(rgba(21, 21, 21, 0), rgba(21, 21, 21, 0.45)); }
+        .s5-item { position: absolute; left: 100px; top: 300px; width: 880px; color: #F7F5EF; font-weight: 600; font-size: 104px; line-height: 1.04; letter-spacing: -0.045em; opacity: 0; }
+        .s5-m { display: block; overflow: hidden; padding: 0 0.1em 0.06em; }
+        .s5-m > span { display: inline-block; }
+        .s5-hlw { position: relative; display: inline-block; }
+        #s5-hl { position: absolute; left: -0.06em; right: -0.06em; top: 0.14em; bottom: 0.02em; background: #FCE004; border-radius: 10px; transform-origin: 0 50%; }
+        #s5-fifa { position: relative; color: #F7F5EF; }
+        #s5-dare { position: absolute; left: 100px; top: 560px; width: 880px; color: #FCE004; font-family: "Caveat", cursive; font-weight: 600; font-size: 100px; line-height: 1.0; text-shadow: 0 2px 18px rgba(21, 21, 21, 0.55); opacity: 0; }
+        #s5-pen { position: absolute; left: 330px; top: 660px; width: 360px; height: 420px; overflow: visible; }
+        #s5-pen path { fill: none; stroke: #D63A2F; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+      </style>
+      <div data-hf-id="hf-dqwv" id="root" data-composition-id="s5-extras" data-width="1080" data-height="1920" data-duration="7.4496">
+        <div data-hf-id="hf-2bc9" id="s5-cam0" class="s5-cam" data-layout-allow-overflow=""><video data-hf-id="hf-sqfd" data-hf-media-start-basis="local" id="s5-v0" class="clip s5-full" src="assets/clips/flame.mp4" data-start="0" data-duration="2.4832" data-track-index="1" muted playsinline></video></div>
+        <div data-hf-id="hf-1jog" id="s5-cam1" class="s5-cam" data-layout-allow-overflow=""><video data-hf-id="hf-bvrp" data-hf-media-start-basis="local" id="s5-v1" class="clip s5-full" src="assets/clips/marking.mp4" data-start="2.4832" data-duration="2.4832" data-track-index="1" muted playsinline></video></div>
+        <div data-hf-id="hf-cf63" id="s5-cam2" class="s5-cam" data-layout-allow-overflow=""><video data-hf-id="hf-680v" data-hf-media-start-basis="local" id="s5-v2" class="clip s5-full" src="assets/clips/fifa.mp4" data-start="4.9664" data-duration="2.4832" data-track-index="1" muted playsinline></video></div>
+        <div data-hf-id="hf-o4p0" id="s5-scrimT"></div>
+        <div data-hf-id="hf-osve" id="s5-scrimB"></div>
+        <!-- the pen rings the real flame -->
+        <svg data-hf-id="hf-yg2a" id="s5-pen" viewBox="0 0 360 420"><path data-hf-id="hf-16bi" id="s5-ring" pathLength="1" d="M 196 34 C 300 40, 340 130, 330 214 C 318 316, 240 386, 160 380 C 76 374, 26 300, 30 210 C 36 112, 100 40, 222 44" /></svg>
+        <div data-hf-id="hf-s7qg" id="s5-i0" class="s5-item"><span data-hf-id="hf-a5fz" class="s5-m"><span data-hf-id="hf-t9zk" id="s5-a">Fully equipped</span></span><span class="s5-m"><span id="s5-a2">practical lab.</span></span></div>
+        <div data-hf-id="hf-sze9" id="s5-i1" class="s5-item"><span data-hf-id="hf-9r4y" class="s5-m"><span data-hf-id="hf-8ud8" id="s5-b1">Marked</span></span><span data-hf-id="hf-9ctx" class="s5-m"><span data-hf-id="hf-md38" id="s5-b2">past papers.</span></span></div>
+        <div data-hf-id="hf-wxia" id="s5-i2" class="s5-item"><span data-hf-id="hf-c4z4" class="s5-m"><span data-hf-id="hf-rd25" id="s5-c1">Post-study</span></span><span data-hf-id="hf-bqo3" class="s5-m"><span data-hf-id="hf-6le8" id="s5-c2"><span data-hf-id="hf-mcqp" class="s5-hlw"><span data-hf-id="hf-gb57" id="s5-hl"></span><span data-hf-id="hf-yiur" id="s5-fifa">FIFA</span></span> sessions.</span></span></div>
+        <div id="s5-dare"><span style="display: block">Beat the teachers.</span><span style="display: block">If you can.</span></div>
+      </div>
+      <script>
+        (function () {
+          const BAR = 2.483187, BEAT = BAR / 4;
+          const tl = gsap.timeline({ paused: true });
+          const up = (sel, at) => tl.fromTo(sel, { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "expo.out" }, at);
+          const out = (sel, at) => tl.to(sel, { yPercent: -110, duration: 0.24, ease: "expo.in" }, at);
+
+          for (let i = 0; i < 3; i++) {
+            tl.set("#s5-i" + i, { opacity: 1 }, i * BAR + 0.001);
+            if (i < 2) tl.set("#s5-i" + i, { opacity: 0 }, (i + 1) * BAR - 0.001);
+          }
+          tl.fromTo("#s5-cam0", { scale: 1 }, { scale: 1.05, duration: BAR, ease: "none" }, 0);
+          // pushed down a little so the line clears the person walking behind
+          tl.fromTo("#s5-cam1", { scale: 1.14, y: 110 }, { scale: 1.17, y: 110, duration: BAR, ease: "none" }, BAR);
+          tl.fromTo("#s5-cam2", { scale: 1 }, { scale: 1.05, duration: BAR, ease: "none" }, 2 * BAR);
+          // One line per bar, swapping in place at the top of the frame.
+          up("#s5-a", 0.22); up("#s5-a2", 0.3);
+          tl.fromTo("#s5-ring", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.55, ease: "sine.inOut" }, 0.6);
+          tl.to("#s5-ring", { opacity: 0, duration: 0.2, ease: "power1.in" }, BAR - 0.2);
+          out(["#s5-a", "#s5-a2"], BAR - 0.26);
+
+          up("#s5-b1", BAR + 0.1); up("#s5-b2", BAR + 0.18);
+          out(["#s5-b1", "#s5-b2"], 2 * BAR - 0.26);
+
+          up("#s5-c1", 2 * BAR + 0.1); up("#s5-c2", 2 * BAR + 0.18);
+          tl.fromTo("#s5-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.27, ease: "power2.out" }, 2 * BAR + 0.6);
+          tl.fromTo("#s5-fifa", { color: "#F7F5EF" }, { color: "#151515", duration: 0.27, ease: "power2.out" }, 2 * BAR + 0.6);
+          // The dare lands two beats in, handwritten.
+          tl.fromTo("#s5-dare", { opacity: 0, y: 30, rotation: -4 }, { opacity: 1, y: 0, rotation: -3, duration: 0.35, ease: "expo.out" }, 2 * BAR + 2 * BEAT);
+
+          window.__timelines["s5-extras"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

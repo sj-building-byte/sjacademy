@@ -1,0 +1,1192 @@
+{
+  "version": 1,
+  "historyId": "9df2e2af-6981-44ec-9581-22ec999d73eb",
+  "currentRevision": "683c8486-5c0a-417b-a8c9-bf7d28608104",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "CLAUDE.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "assets/brand/Caveat-600.woff2": {
+      "hash": "1c591acdadd5ea398bad6aa21b36498dde59035ad366d1dbb05bbc0e537e7bc9",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/1c/1c591acdadd5ea398bad6aa21b36498dde59035ad366d1dbb05bbc0e537e7bc9"
+    },
+    "assets/brand/Poppins-Bold.ttf": {
+      "hash": "983676516167748b74de6f4771fb384c664fd913acb8b471122ecacf5da5ea6c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/98/983676516167748b74de6f4771fb384c664fd913acb8b471122ecacf5da5ea6c"
+    },
+    "assets/brand/Poppins-ExtraBold.ttf": {
+      "hash": "f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/f2/f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1"
+    },
+    "assets/brand/Poppins-Medium.ttf": {
+      "hash": "90373e7d838d32468438fc3e152dca0bdb12edcab99ea639f158790b1ba1fd05",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/90/90373e7d838d32468438fc3e152dca0bdb12edcab99ea639f158790b1ba1fd05"
+    },
+    "assets/brand/Poppins-SemiBold.ttf": {
+      "hash": "d3bf1bdaf0550e83da9ac0b1d1d9fe6db086835a83aa28578e609a394b9a0286",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/d3/d3bf1bdaf0550e83da9ac0b1d1d9fe6db086835a83aa28578e609a394b9a0286"
+    },
+    "assets/brand/sj-academy-icon-on-light.svg": {
+      "hash": "ec382fb1050b8244e874ba3089cec93e1c6eff5d1ce956ebd49fb51866c52948",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/ec/ec382fb1050b8244e874ba3089cec93e1c6eff5d1ce956ebd49fb51866c52948"
+    },
+    "assets/brand/sj-academy-icon-on-yellow.svg": {
+      "hash": "951100fff5d641b8d8fd88bce4da8f1943d6e0edfb0f68d1e56e8e90f98ca9dd",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/95/951100fff5d641b8d8fd88bce4da8f1943d6e0edfb0f68d1e56e8e90f98ca9dd"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-brown.svg": {
+      "hash": "52fb4a8cb35af4e8cb1d7f30936bbcf332977915b2ca2c2a5b893ef41388cf27",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/52/52fb4a8cb35af4e8cb1d7f30936bbcf332977915b2ca2c2a5b893ef41388cf27"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-light.svg": {
+      "hash": "aced0eac9c4c36ddf0e3919783c884125ce4c091ff7fe4f7a24890431ee2bc45",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/ac/aced0eac9c4c36ddf0e3919783c884125ce4c091ff7fe4f7a24890431ee2bc45"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-yellow.svg": {
+      "hash": "75de124bcf0fe73d2d7f7d9d2ee6914932902372f6a995cec95bb6b1a9f79695",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/75/75de124bcf0fe73d2d7f7d9d2ee6914932902372f6a995cec95bb6b1a9f79695"
+    },
+    "assets/brand/sj-academy-logo-stacked-on-yellow.svg": {
+      "hash": "550e9853a6114686e9e7c595c1280e63e58d5d143633b8ab4a3a24503f3fd196",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/55/550e9853a6114686e9e7c595c1280e63e58d5d143633b8ab4a3a24503f3fd196"
+    },
+    "assets/sfx/fx-boing.wav": {
+      "hash": "d1d74d23f0e34ff92603eac13a52a7480b6ac26406982bfc2bdc916ebd41eca4",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/d1/d1d74d23f0e34ff92603eac13a52a7480b6ac26406982bfc2bdc916ebd41eca4"
+    },
+    "assets/sfx/fx-chime.wav": {
+      "hash": "048b5971eed4764d71712700556334d397a2317475de9928f239d417f5797bff",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/04/048b5971eed4764d71712700556334d397a2317475de9928f239d417f5797bff"
+    },
+    "assets/sfx/fx-pop.wav": {
+      "hash": "5e7e6883ff4285d85874b14fbd6ce312530d70a4dba3b2bcb64b56a0cdf4edf1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/5e/5e7e6883ff4285d85874b14fbd6ce312530d70a4dba3b2bcb64b56a0cdf4edf1"
+    },
+    "assets/sfx/fx-thud.wav": {
+      "hash": "def4a9fa1cd389224034f367bfb3bdb51add82233bf5b3e5c8d84e95d2f7e0b9",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/de/def4a9fa1cd389224034f367bfb3bdb51add82233bf5b3e5c8d84e95d2f7e0b9"
+    },
+    "assets/sfx/fx-twinkle.wav": {
+      "hash": "7fb8b6d4a05bd60743ba1f8e4f169f2ff0b04da3d90d88dbb5902664c040a793",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/7f/7fb8b6d4a05bd60743ba1f8e4f169f2ff0b04da3d90d88dbb5902664c040a793"
+    },
+    "assets/sfx/sj-sfx-highlighter-swipe.wav": {
+      "hash": "7fc0b9afcb3dce4c9de55ee5c1455eac619b6bcf84225b7e37d612b37f37712d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/7f/7fc0b9afcb3dce4c9de55ee5c1455eac619b6bcf84225b7e37d612b37f37712d"
+    },
+    "assets/sfx/sj-sfx-paper-slide.wav": {
+      "hash": "21e34aae928c6c844341da9e02f4af416067d604c7a0bfa8dced08661fea13b5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/21/21e34aae928c6c844341da9e02f4af416067d604c7a0bfa8dced08661fea13b5"
+    },
+    "assets/sfx/sj-sfx-pen-circle.wav": {
+      "hash": "6fe613e1dd69d092ad7f9b05bcb215e7177feb54e11ddd62e6759db23a40d086",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/6f/6fe613e1dd69d092ad7f9b05bcb215e7177feb54e11ddd62e6759db23a40d086"
+    },
+    "assets/sfx/sj-sfx-pen-tick.wav": {
+      "hash": "f41530e52a42c460b101d700eebb1e786df2f7ff52b49a9125ea61ca6d601fc7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/f4/f41530e52a42c460b101d700eebb1e786df2f7ff52b49a9125ea61ca6d601fc7"
+    },
+    "assets/sfx/sj-sfx-stamp.wav": {
+      "hash": "346a71e4d598d6ed2d845280b5b0006b4bc9156d45c79d0d89cd83735a7d2f42",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/34/346a71e4d598d6ed2d845280b5b0006b4bc9156d45c79d0d89cd83735a7d2f42"
+    },
+    "assets/sfx/sj-sonic-logo-short.wav": {
+      "hash": "ed330bf9db23e08abbebf5acd9822bec6b5a0699c488af7e4f88224f623d8af2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/ed/ed330bf9db23e08abbebf5acd9822bec6b5a0699c488af7e4f88224f623d8af2"
+    },
+    "hyperframes.json": {
+      "hash": "ad5dadeef78a520800a9e5cdd27a92ff5ac37f11b6a07f611b6b52b9f8c79a17",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/ad/ad5dadeef78a520800a9e5cdd27a92ff5ac37f11b6a07f611b6b52b9f8c79a17"
+    },
+    "index.html": {
+      "hash": "49197511aacdc114207e8dac988aeec811abaa0e5cbd856f16b2571273e047b1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/49/49197511aacdc114207e8dac988aeec811abaa0e5cbd856f16b2571273e047b1"
+    },
+    "meta.json": {
+      "hash": "e917640158eda11fa59fd750b66d73c369aff4badbbb57c2a163fd39af594b5d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/e9/e917640158eda11fa59fd750b66d73c369aff4badbbb57c2a163fd39af594b5d"
+    },
+    "package.json": {
+      "hash": "fa34a6e12fe427abd7db22a814ed82ab135c7f0e46f6dbc3cae5e41f1318a069",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/fa/fa34a6e12fe427abd7db22a814ed82ab135c7f0e46f6dbc3cae5e41f1318a069"
+    },
+    "assets/audio/funny.mp3": {
+      "hash": "a04092dc9caa8b63576a7d6857f6b8ee490d78e73952ec997226aef3771fe25b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/a0/a04092dc9caa8b63576a7d6857f6b8ee490d78e73952ec997226aef3771fe25b"
+    },
+    "archive/index-v1.html": {
+      "hash": "8b4575a4864e01a7ac7a66c8224928e378997dffa1f4573fd9924152dc60fee8",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/8b/8b4575a4864e01a7ac7a66c8224928e378997dffa1f4573fd9924152dc60fee8"
+    },
+    "archive/sj_explainer_mangoes_9x16_v1_2026-10-17.mp4": {
+      "hash": "498cee4e00e04515ff6e8e495585c016c4b437dfb1b1fe2c9779700defbc18a4",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/49/498cee4e00e04515ff6e8e495585c016c4b437dfb1b1fe2c9779700defbc18a4"
+    },
+    "assets/audio/funny66.mp3": {
+      "hash": "b798e8c7516c6f862a520806c57fe68401706559bba452b1f67d6a8a9ac23aa9",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/b7/b798e8c7516c6f862a520806c57fe68401706559bba452b1f67d6a8a9ac23aa9"
+    },
+    "BRIEF.md": {
+      "hash": "a0caf938a498e3a7572cef123c22639d3bc99f7ce649d299d1e0984525ffc567",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/a0/a0caf938a498e3a7572cef123c22639d3bc99f7ce649d299d1e0984525ffc567"
+    }
+  },
+  "revisions": {
+    "dc1e702b-1f68-416b-a784-8e9db0974891": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792255647566,
+      "endedAt": 1792255647567,
+      "files": {
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/3b/3bcd563221ce5bb65644468b720cca54f2ca1b987c89a5ea67b7116378092042",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/96/96a595ffa993ddff30be0cbbcdafa2017590f043929efb01dc181adf2da8af51"
+        }
+      }
+    },
+    "f141862b-acde-4911-8c7e-e3904aa0a122": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792255669691,
+      "endedAt": 1792255669691,
+      "files": {
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/96/96a595ffa993ddff30be0cbbcdafa2017590f043929efb01dc181adf2da8af51",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/8b/8b4575a4864e01a7ac7a66c8224928e378997dffa1f4573fd9924152dc60fee8"
+        }
+      }
+    },
+    "a61cb1c0-ed9e-401b-8af7-0b3fff482f65": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792256129053,
+      "endedAt": 1792256129074,
+      "files": {
+        "archive/index-v1.html": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/8b/8b4575a4864e01a7ac7a66c8224928e378997dffa1f4573fd9924152dc60fee8"
+        },
+        "archive/sj_explainer_mangoes_9x16_v1_2026-10-17.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/49/498cee4e00e04515ff6e8e495585c016c4b437dfb1b1fe2c9779700defbc18a4"
+        },
+        "assets/audio/funny66.mp3": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/b7/b798e8c7516c6f862a520806c57fe68401706559bba452b1f67d6a8a9ac23aa9"
+        },
+        "BRIEF.md": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/a0/a0caf938a498e3a7572cef123c22639d3bc99f7ce649d299d1e0984525ffc567"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/8b/8b4575a4864e01a7ac7a66c8224928e378997dffa1f4573fd9924152dc60fee8",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/79/7915c0728c6ee5b67116792731b8154187c62b6df3bd780e7efb61c9dbdc1e48"
+        }
+      }
+    },
+    "dae1b991-c104-40a6-b4c1-676b99e227a3": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792256185758,
+      "endedAt": 1792256185758,
+      "files": {
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/79/7915c0728c6ee5b67116792731b8154187c62b6df3bd780e7efb61c9dbdc1e48",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/85/859fdf83a0adce1c52d86da5881c6dc97ad94ec550e3156ce467fa6e2a74c2c8"
+        }
+      }
+    },
+    "683c8486-5c0a-417b-a8c9-bf7d28608104": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792256220388,
+      "endedAt": 1792256220388,
+      "files": {
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/85/859fdf83a0adce1c52d86da5881c6dc97ad94ec550e3156ce467fa6e2a74c2c8",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/9df2e2af-6981-44ec-9581-22ec999d73eb/blobs/49/49197511aacdc114207e8dac988aeec811abaa0e5cbd856f16b2571273e047b1"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "683c8486-5c0a-417b-a8c9-bf7d28608104",
+      "id": "13861c73-dcf1-43e4-b21d-6a3a8f6c5963"
+    },
+    "revisions": {
+      "dc1e702b-1f68-416b-a784-8e9db0974891": [
+        {
+          "id": "e878d086-8e17-4ff2-b275-f864184e0af3",
+          "scope": "project",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792255654837,
+          "contentHash": "507e00fc7bd28be51f8124bd37980af2565bb1f63fe1a66f3c60a15693c9204a",
+          "revision": "dc1e702b-1f68-416b-a784-8e9db0974891",
+          "inputFingerprint": "bb8c36c5decb2ea1cbeff238005ab1e4ed055b95636575eb47a20f91859cc205",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "c5be2589-b4e8-4b5c-bc50-c02fd89dbe99"
+        }
+      ],
+      "a61cb1c0-ed9e-401b-8af7-0b3fff482f65": [
+        {
+          "id": "3c9d1e7d-92e1-49cb-a2ae-44e02f2f311d",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792256136363,
+          "contentHash": "01ea4b558c91e1095ee87fe05beeea3280a0dfb7899b4aa24871016f4d181968",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "id": "9489cfaf-2c9c-466e-85bf-2bfc394e8231",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792256152617,
+          "contentHash": "01ea4b558c91e1095ee87fe05beeea3280a0dfb7899b4aa24871016f4d181968",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        }
+      ],
+      "dae1b991-c104-40a6-b4c1-676b99e227a3": [
+        {
+          "id": "b82adbe7-ec6b-4de3-9dc7-cb1ee0df75fb",
+          "scope": "project",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792256192690,
+          "contentHash": "a78fd37f5c614c321318626699b9cbaced5fde3729cbe5bf1b2b7eb3924ee396",
+          "revision": "dae1b991-c104-40a6-b4c1-676b99e227a3",
+          "inputFingerprint": "3fa7d3eb8ce4d4ed7705ada738d1674d0dfb0c954c83a17061bc5fe39c037fbe",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        }
+      ],
+      "683c8486-5c0a-417b-a8c9-bf7d28608104": [
+        {
+          "id": "13861c73-dcf1-43e4-b21d-6a3a8f6c5963",
+          "scope": "project",
+          "report": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/checks/13861c73-dcf1-43e4-b21d-6a3a8f6c5963.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792256227182,
+          "contentHash": "697edad4bf804d138b458e93a258a4353d590013dbf70122f83bc91c2822c466",
+          "revision": "683c8486-5c0a-417b-a8c9-bf7d28608104",
+          "inputFingerprint": "f2c269c659cf83e47a4bfa46714717a5eec98771a5fc593d63a12be53b873570",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "32632246-554c-4b93-b4ac-254b66f59f38",
+        "scope": "project",
+        "report": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/checks/32632246-554c-4b93-b4ac-254b66f59f38.json",
+        "metadata": {
+          "ok": false,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792255615378,
+        "contentHash": "0a2e44506bda2a9f903ec0cb59668d577bd3aa7dc4962a825599b52ce24d4a9a",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "683c8486-5c0a-417b-a8c9-bf7d28608104",
+      "id": "1cb2510a-2e02-42f1-830a-c216e526c6f8-2"
+    },
+    "revisions": {
+      "dc1e702b-1f68-416b-a784-8e9db0974891": [
+        {
+          "scope": "full",
+          "id": "b781ca93-9a0f-4d09-ad9f-ae4262e16b17-0",
+          "time": 1.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792255658925,
+          "contentHash": "4ff70189ccb0e0764596300adf8716668eab4ccafcfe4245b6f0546096d5f601",
+          "revision": "dc1e702b-1f68-416b-a784-8e9db0974891",
+          "inputFingerprint": "bb8c36c5decb2ea1cbeff238005ab1e4ed055b95636575eb47a20f91859cc205",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "c5be2589-b4e8-4b5c-bc50-c02fd89dbe99"
+        },
+        {
+          "scope": "full",
+          "id": "b781ca93-9a0f-4d09-ad9f-ae4262e16b17-1",
+          "time": 4.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792255658925,
+          "contentHash": "069da351ddc2a59a261c08f6723912acd8b6ddca7844e31c7f3565196c286a2e",
+          "revision": "dc1e702b-1f68-416b-a784-8e9db0974891",
+          "inputFingerprint": "bb8c36c5decb2ea1cbeff238005ab1e4ed055b95636575eb47a20f91859cc205",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "c5be2589-b4e8-4b5c-bc50-c02fd89dbe99"
+        },
+        {
+          "scope": "full",
+          "id": "b781ca93-9a0f-4d09-ad9f-ae4262e16b17-2",
+          "time": 38.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792255658925,
+          "contentHash": "ed6592d1f3b3a48e79cccbf62317b4b83d397d53676222ebce8c23273524ae6e",
+          "revision": "dc1e702b-1f68-416b-a784-8e9db0974891",
+          "inputFingerprint": "bb8c36c5decb2ea1cbeff238005ab1e4ed055b95636575eb47a20f91859cc205",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "c5be2589-b4e8-4b5c-bc50-c02fd89dbe99"
+        }
+      ],
+      "a61cb1c0-ed9e-401b-8af7-0b3fff482f65": [
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-0",
+          "time": 4.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141425,
+          "contentHash": "82642e51707f12b5ef274d297f5b0d5fe7f35bfdf0ee279b783bc72863d021c4",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-1",
+          "time": 9,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "907513fa7580ef9a4df68edaa40b8b9940628f75a0120e26e817f270c0e7c277",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-2",
+          "time": 12.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "57b894e56a21aac70d531e72c8955e253df08b70d849e4bec227a3b6af4e9f70",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-3",
+          "time": 18.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "47530e967da4424a45daf62ceb65be9184d673dd9a153b876f1ec9de506dd350",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-4",
+          "time": 22.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "b207ba0090dbd3e85bbf5910aa6f0a2aa7bb35ee0765fe85ec004766a281bf91",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-5",
+          "time": 28.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "f3c980eea578608fa98d01c60b5f198669ed1bdd09f2ca4d26d11612d8d549d1",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-6",
+          "time": 33.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "59e8fdae1d887d5d1c8b935b7221f76d16fab623ae9d2bdb60f3b95491757d9f",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-7",
+          "time": 38,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "42e9fae2005d6cbce98a2c697e36afb190d22b453474a7731c86361be7a9a85a",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-8",
+          "time": 44.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "80fcc841a816d63b69abfb2bc24c0e0aebcddeba4384d51740693f6a97ba8d22",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-9",
+          "time": 47.3,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "cc942ff7f358616e8ef65877343a07f3098d72ad400b5ebeddf12e653ee2a906",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-10",
+          "time": 50.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "ba9b806b10f160f70049b7b712228cdc7888a09ef8ca4ef62e18179132d75ba7",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-11",
+          "time": 58,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "61db12519ad07b49ba54dba1ffc83ac1e6ea5945806f75727c302d9c83fb6fd2",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-12",
+          "time": 61,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "0f481bcfb6def2260f65cb050e0d4805ca4b3ca5c9ef5d675d0070c8ae3ec627",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "3fd583e2-3b12-4012-8021-c62d820eb64f-13",
+          "time": 66,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256141426,
+          "contentHash": "3abdbea6e496660952c61633e96c1018467a5d6df2015ba838139e35f1c0139a",
+          "revision": "a61cb1c0-ed9e-401b-8af7-0b3fff482f65",
+          "inputFingerprint": "6674314536274b6e4f7a3b34561ce86f05a511b20de5cc65b3512b6f3b6d442e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        }
+      ],
+      "dae1b991-c104-40a6-b4c1-676b99e227a3": [
+        {
+          "scope": "full",
+          "id": "892bd71a-c362-4761-9daf-5e4c0668d874-0",
+          "time": 9,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256197058,
+          "contentHash": "56e87a092b971fa28a857773f86d77caa32fdfbde88be6491b01a77d941b6f79",
+          "revision": "dae1b991-c104-40a6-b4c1-676b99e227a3",
+          "inputFingerprint": "3fa7d3eb8ce4d4ed7705ada738d1674d0dfb0c954c83a17061bc5fe39c037fbe",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "892bd71a-c362-4761-9daf-5e4c0668d874-1",
+          "time": 18.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256197058,
+          "contentHash": "355a5ea3a985d34346a547efe805573217e07e4e4d480b662a163a9348d07de2",
+          "revision": "dae1b991-c104-40a6-b4c1-676b99e227a3",
+          "inputFingerprint": "3fa7d3eb8ce4d4ed7705ada738d1674d0dfb0c954c83a17061bc5fe39c037fbe",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "892bd71a-c362-4761-9daf-5e4c0668d874-2",
+          "time": 33,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256197058,
+          "contentHash": "ed352c8964544140cdb2b06fd0478987ab1ff83e72be352a91335c79f309c5e5",
+          "revision": "dae1b991-c104-40a6-b4c1-676b99e227a3",
+          "inputFingerprint": "3fa7d3eb8ce4d4ed7705ada738d1674d0dfb0c954c83a17061bc5fe39c037fbe",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "892bd71a-c362-4761-9daf-5e4c0668d874-3",
+          "time": 38,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256197058,
+          "contentHash": "0f5de65d547285415b5455f29206cc7f4ae45145a100ddfe75dff0ee9d5a15b5",
+          "revision": "dae1b991-c104-40a6-b4c1-676b99e227a3",
+          "inputFingerprint": "3fa7d3eb8ce4d4ed7705ada738d1674d0dfb0c954c83a17061bc5fe39c037fbe",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "892bd71a-c362-4761-9daf-5e4c0668d874-4",
+          "time": 44.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256197058,
+          "contentHash": "3e54aa944745265d19bad85c4192d45b742e6ef1973b665ff588d088065c28d2",
+          "revision": "dae1b991-c104-40a6-b4c1-676b99e227a3",
+          "inputFingerprint": "3fa7d3eb8ce4d4ed7705ada738d1674d0dfb0c954c83a17061bc5fe39c037fbe",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        },
+        {
+          "scope": "full",
+          "id": "892bd71a-c362-4761-9daf-5e4c0668d874-5",
+          "time": 50.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256197058,
+          "contentHash": "ad14c1ee4a24cf922d87b3d20fddbc9858d5b8907fbbb5f4b4d7e6bbd6c26e54",
+          "revision": "dae1b991-c104-40a6-b4c1-676b99e227a3",
+          "inputFingerprint": "3fa7d3eb8ce4d4ed7705ada738d1674d0dfb0c954c83a17061bc5fe39c037fbe",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b"
+        }
+      ],
+      "683c8486-5c0a-417b-a8c9-bf7d28608104": [
+        {
+          "scope": "full",
+          "id": "1cb2510a-2e02-42f1-830a-c216e526c6f8-0",
+          "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/abbe62c3-4230-4340-b821-bca2b873d34e/frame-00-at-38s.png",
+          "time": 38,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256231318,
+          "contentHash": "b9a27ca38db0a0431f25e51ef014e4c20194148e53230000380221486a2ceaa4",
+          "revision": "683c8486-5c0a-417b-a8c9-bf7d28608104",
+          "inputFingerprint": "f2c269c659cf83e47a4bfa46714717a5eec98771a5fc593d63a12be53b873570",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "1cb2510a-2e02-42f1-830a-c216e526c6f8-1",
+          "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/abbe62c3-4230-4340-b821-bca2b873d34e/frame-01-at-44.2s.png",
+          "time": 44.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256231318,
+          "contentHash": "44bd507a95dd38c3b3fa3cd6100da50673ec9bd86d7a767b5ebbe19bd09e6c5f",
+          "revision": "683c8486-5c0a-417b-a8c9-bf7d28608104",
+          "inputFingerprint": "f2c269c659cf83e47a4bfa46714717a5eec98771a5fc593d63a12be53b873570",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "1cb2510a-2e02-42f1-830a-c216e526c6f8-2",
+          "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/abbe62c3-4230-4340-b821-bca2b873d34e/frame-02-at-50.2s.png",
+          "time": 50.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792256231318,
+          "contentHash": "aac214a8961aa9d57bf0b65e6c489321f277cd9ca698f4155ef5d8fa77e9ea0b",
+          "revision": "683c8486-5c0a-417b-a8c9-bf7d28608104",
+          "inputFingerprint": "f2c269c659cf83e47a4bfa46714717a5eec98771a5fc593d63a12be53b873570",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-00-at-2s.png",
+        "time": 2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "cfbf3e276c735fcd26016c70543a057e97c3415b6d1dfd4182e4cd0b0486baab",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-01-at-4.6s.png",
+        "time": 4.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "c864508374d6b40f52a8aa0e0bd381dfe1f14578903e13128429d2003842fbc7",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-02-at-8.4s.png",
+        "time": 8.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "71a8a0969262eb55a99f6e3f9d7119c595e900885d2205f737a4760582639683",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-03-at-14s.png",
+        "time": 14,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "494ec2eacc18d5637bfb43d0470fc5449b294115a5f8834799948ccb62666462",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-04-at-22s.png",
+        "time": 22,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "d9327eb95402ddbe3deb4029e6bd77997bf84afea3f8258222b5017b9622c52a",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-05-at-28.5s.png",
+        "time": 28.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "8a877a1671160770b7c78bc6110cb88e4fdfcf653b3ff0dce4c3933e455a2d8f",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-6",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-06-at-32s.png",
+        "time": 32,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "0b5bbc7a4d0082cb04f34d6a2e002a1e88e5cc5376309154c7fea2516117450b",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-7",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-07-at-38.5s.png",
+        "time": 38.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "d372d38ce932decea50a0090bd2e4835fd2f693dcf2e3718a6f10901b51aa644",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-8",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-08-at-47.5s.png",
+        "time": 47.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "0e54625e0974d4212b75327c1b540f98e524c1aa4254fb22add4d9841691bb8f",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "75dd050d-8b1a-4f21-b01f-be9e22056420-9",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/.hyperframes/artifacts/snapshots/983af56d-1bdd-4a70-aee3-20c8aef5eafc/frame-09-at-52.8s.png",
+        "time": 52.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792255620516,
+        "contentHash": "779b6874ee436a43f73941a4b161c42c788927c10bbaa8d23000e3bb8c0bbe8e",
+        "revision": null,
+        "inputFingerprint": "22be2a2d0455da7609ad34a6337e0ede78ef09b338b55c51652238926a318dd6",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "3e41bc3e-6661-41ad-bcce-23f3f1ecac1b",
+      "completedAt": 1792256274040,
+      "output": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/explainer-mangoes/renders/tmp.mp4",
+      "status": "completed",
+      "revision": "683c8486-5c0a-417b-a8c9-bf7d28608104"
+    },
+    "retainedRevisions": [
+      "683c8486-5c0a-417b-a8c9-bf7d28608104",
+      "f141862b-acde-4911-8c7e-e3904aa0a122"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

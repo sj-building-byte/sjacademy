@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AS Level Business Quiz – Mobile‑first</title>
+    <style>
+      /*
+        Modernised styling for the quiz application.
+        The original colours from SJ Academy have been retained but the
+        components have been restructured to be mobile friendly. Cards
+        use generous padding and rounded corners, typography scales
+        appropriately and the layout collapses gracefully on small
+        screens. A simple progress bar provides visual feedback on
+        completion. The chapter chooser supports multiple selections
+        and is grouped under a clear heading.
+      */
+      :root {
+        --primary: #fe6100; /* vibrant accent colour */
+        --secondary: #453516; /* deep brown */
+        --highlight: #fce004; /* warm yellow used for progress */
+        --card-bg: #ffffff;
+        --bg: #fffef4;
+        --text: #1c1c1c;
+        --muted: #666666;
+        --border: #e8e2b5;
+        --radius: 12px;
+        --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      #quiz-app {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(24px, 5vw, 32px);
+        color: var(--secondary);
+        text-align: center;
+      }
+
+      /* Chapter selection */
+      .chapter-select {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px;
+        box-shadow: var(--shadow);
+      }
+      .chapter-select h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 18px;
+        color: var(--secondary);
+      }
+      .chapter-select ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chapter-select li {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .chapter-select input[type="checkbox"] {
+        accent-color: var(--primary);
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+      .chapter-select label {
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      /* Progress bar */
+      .progress-wrapper {
+        height: 10px;
+        background: #eee;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .progress-inner {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, var(--highlight), var(--primary));
+        transition: width 0.3s ease;
+      }
+
+      /* Question card */
+      .question-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .question-meta {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .question-text {
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .option-row {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #fff;
+        cursor: pointer;
+      }
+      .option-row input[type="radio"] {
+        accent-color: var(--primary);
+        cursor: pointer;
+      }
+      .fill-input {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 10px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+
+      /* Report section */
+      .report {
+        background: var(--card-bg);
+        border: 2px solid var(--secondary);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+      .report h2 {
+        margin-top: 0;
+        font-size: 20px;
+        color: var(--secondary);
+      }
+      .report p {
+        margin: 0 0 12px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .report-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+        font-size: 14px;
+      }
+      .report-table th,
+      .report-table td {
+        border: 1px solid var(--border);
+        padding: 6px 8px;
+        text-align: left;
+      }
+      .report-table th {
+        background: var(--highlight);
+      }
+      .answer-card {
+        margin-top: 12px;
+        border-radius: var(--radius);
+        padding: 14px;
+        border: 1px solid var(--border);
+        background: #fff;
+      }
+      .correct {
+        border-color: #a6dba0;
+        background: #f5fff5;
+      }
+      .wrong {
+        border-color: #f4a7a7;
+        background: #fff6f6;
+      }
+      .answer-card .question {
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .answer-card .meta {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .result-actions {
+        margin-top: 16px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .button {
+        padding: 10px 14px;
+        border-radius: var(--radius);
+        border: 1px solid var(--secondary);
+        background: var(--highlight);
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+      .button:hover {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      /* Responsive layout: stack elements on smaller screens */
+      @media (min-width: 720px) {
+        #quiz-app {
+          flex-direction: row;
+          align-items: flex-start;
+        }
+        #left-panel {
+          flex: 1;
+          margin-right: 16px;
+        }
+        #right-panel {
+          width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="quiz-app">
+      <div id="left-panel" style="flex: 1; display: flex; flex-direction: column; gap: 16px;"></div>
+      <div id="right-panel" style="flex-shrink: 0; display: flex; flex-direction: column; gap: 16px;"></div>
+    </div>
+    <script>
+      /*
+        Quiz application logic
+        This script loads question data from a remote JSON file, presents
+        questions sequentially and automatically advances once an answer is
+        provided. Users may choose multiple chapters at once, enabling
+        customised practice sessions. After the final question, a detailed
+        report is displayed with a simple share option that uses the
+        Web Share API if available.
+      */
+      const USE_REMOTE = true;
+      const DATA_URL =
+        "https://www.sjacademy.pk/wp-content/uploads/2025/08/as-business-quiz.json_.txt";
+      const INLINE_DATA = [
+        {
+          chapterId: "demo",
+          chapterTitle: "Demo Chapter",
+          questions: [
+            {
+              id: "demo-1",
+              type: "mcq",
+              marks: 1,
+              question:
+                "Demo question. The quiz data failed to load. Check DATA_URL.",
+              options: ["OK"],
+              answer: "OK",
+            },
+          ],
+        },
+      ];
+
+      const state = {
+        data: [],
+        flat: [],
+        idx: 0,
+        answers: {},
+        marksAwarded: {},
+        filterChapters: [],
+      };
+
+      function h(tag, attrs = {}, children = []) {
+        const el = document.createElement(tag);
+        for (const k in attrs) {
+          if (k === "class") el.className = attrs[k];
+          else if (k === "html") el.innerHTML = attrs[k];
+          else if (k === "onclick") el.onclick = attrs[k];
+          else if (k.startsWith("on")) el.addEventListener(k.slice(2), attrs[k]);
+          else el.setAttribute(k, attrs[k]);
+        }
+        (Array.isArray(children) ? children : [children])
+          .filter(Boolean)
+          .forEach((c) => {
+            if (typeof c === "string") el.appendChild(document.createTextNode(c));
+            else el.appendChild(c);
+          });
+        return el;
+      }
+
+      /**
+       * Compute the flat list of questions based on the currently selected
+       * chapters. If no chapter is selected, include all questions.
+       */
+      function updateFlat() {
+        state.flat = [];
+        state.data.forEach((ch) => {
+          if (
+            state.filterChapters.length === 0 ||
+            state.filterChapters.includes(ch.chapterId)
+          ) {
+            ch.questions.forEach((q) => {
+              state.flat.push({ ...q, chapterId: ch.chapterId, chapterTitle: ch.chapterTitle });
+            });
+          }
+        });
+      }
+
+      /**
+       * Build the chapter selection UI. A heading and a list of
+       * checkboxes allow users to select multiple chapters. When selections
+       * change, the question list is recomputed and the quiz resets.
+       */
+      function buildChapterSelect() {
+        const container = h("div", { class: "chapter-select" });
+        container.appendChild(h("h3", {}, ["Select Chapter"]));
+        const list = h("ul");
+        state.data.forEach((ch) => {
+          const li = h("li");
+          const cbId = `ch-${ch.chapterId}`;
+          const checkbox = h("input", {
+            type: "checkbox",
+            id: cbId,
+            value: ch.chapterId,
+            checked: state.filterChapters.includes(ch.chapterId),
+            onchange: () => {
+              const isChecked = checkbox.checked;
+              if (isChecked) {
+                if (!state.filterChapters.includes(ch.chapterId))
+                  state.filterChapters.push(ch.chapterId);
+              } else {
+                state.filterChapters = state.filterChapters.filter((c) => c !== ch.chapterId);
+              }
+              updateFlat();
+              state.idx = 0;
+              state.answers = {};
+              state.marksAwarded = {};
+              renderQuestion();
+              updateProgress();
+            },
+          });
+          const label = h("label", { for: cbId }, [ch.chapterTitle]);
+          li.appendChild(checkbox);
+          li.appendChild(label);
+          list.appendChild(li);
+        });
+        container.appendChild(list);
+        return container;
+      }
+
+      /**
+       * Render the current question or, if complete, show the report.
+       */
+      function renderQuestion() {
+        const left = document.getElementById("left-panel");
+        left.innerHTML = "";
+        // Show header
+        left.appendChild(h("h1", {}, ["AS Level Business Quiz"]));
+        // Add progress bar
+        const progressWrap = h("div", { class: "progress-wrapper" });
+        const progressInner = h("div", { class: "progress-inner", id: "progress-bar" });
+        progressWrap.appendChild(progressInner);
+        left.appendChild(progressWrap);
+        // Add question or report
+        if (state.flat.length === 0) {
+          left.appendChild(
+            h("div", { class: "question-card" }, ["No questions available for the selected chapters."])
+          );
+          return;
+        }
+        if (state.idx >= state.flat.length) {
+          // Render report when all questions answered
+          renderReport();
+          return;
+        }
+        const q = state.flat[state.idx];
+        const card = h("div", { class: "question-card" });
+        card.appendChild(h("div", { class: "question-meta" }, [q.chapterTitle]));
+        card.appendChild(h("div", { class: "question-text" }, [q.question]));
+        const saved = state.answers[q.id] ?? null;
+        if (q.type === "mcq" || q.type === "tf") {
+          const opts = h("div", { class: "options" });
+          q.options.forEach((opt) => {
+            const id = `${q.id}-${btoa(unescape(encodeURIComponent(opt))).slice(0, 6)}`;
+            const row = h(
+              "label",
+              { class: "option-row", for: id, onclick: () => {} },
+              [
+                h("input", {
+                  type: "radio",
+                  name: q.id,
+                  id,
+                  value: opt,
+                  checked: saved === opt,
+                  onclick: (e) => {
+                    e.stopPropagation();
+                    state.answers[q.id] = opt;
+                    // Move to next after brief pause
+                    setTimeout(() => {
+                      autoNext();
+                    }, 200);
+                  },
+                }),
+                h("span", {}, [opt]),
+              ]
+            );
+            opts.appendChild(row);
+          });
+          card.appendChild(opts);
+        } else if (q.type === "fill") {
+          const input = h("input", {
+            class: "fill-input",
+            type: "text",
+            placeholder: "Type your answer…",
+            value: saved ?? "",
+            onkeyup: (e) => {
+              state.answers[q.id] = e.target.value;
+              if (e.key === "Enter" && e.target.value.trim().length > 0) {
+                autoNext();
+              }
+            },
+            onblur: (e) => {
+              if (e.target.value.trim().length > 0) {
+                state.answers[q.id] = e.target.value;
+                autoNext();
+              }
+            },
+          });
+          card.appendChild(input);
+        }
+        left.appendChild(card);
+        updateProgress();
+      }
+
+      /**
+       * Advance to the next question. If at the end of the list, render
+       * the report.
+       */
+      function autoNext() {
+        state.idx++;
+        if (state.idx >= state.flat.length) {
+          renderReport();
+        } else {
+          renderQuestion();
+        }
+      }
+
+      /**
+       * Update the progress bar based on answered questions. The width is
+       * computed from the index relative to the total number of questions.
+       */
+      function updateProgress() {
+        const bar = document.getElementById("progress-bar");
+        if (!bar) return;
+        const pct = state.flat.length ? ((state.idx) / state.flat.length) * 100 : 0;
+        bar.style.width = pct + "%";
+      }
+
+      /**
+       * Grade the quiz, computing per‑chapter and overall scores.
+       */
+      function grade() {
+        let total = 0,
+          scored = 0;
+        const byChapter = {};
+        state.flat.forEach((q) => {
+          total += q.marks ?? 1;
+          if (!byChapter[q.chapterId])
+            byChapter[q.chapterId] = { title: q.chapterTitle, total: 0, scored: 0, items: [] };
+          byChapter[q.chapterId].total += q.marks ?? 1;
+          const user = (state.answers[q.id] ?? "").toString().trim();
+          let correct = q.answer;
+          const isCorrect = q.type === "fill" ? user.toLowerCase() === String(correct).trim().toLowerCase() : user === correct;
+          const award = isCorrect ? (q.marks ?? 1) : 0;
+          state.marksAwarded[q.id] = award;
+          scored += award;
+          byChapter[q.chapterId].scored += award;
+          byChapter[q.chapterId].items.push({ q, user, isCorrect });
+        });
+        return { total, scored, byChapter };
+      }
+
+      /**
+       * Render the report with per‑chapter breakdown and each question's
+       * outcome. A share button allows the user to share their score using
+       * the Web Share API if supported.
+       */
+      function renderReport() {
+        const left = document.getElementById("left-panel");
+        left.innerHTML = "";
+        const result = grade();
+        const container = h("div", { class: "report" });
+        container.appendChild(
+          h("h2", {}, [`Your score: ${result.scored} / ${result.total}`])
+        );
+        container.appendChild(
+          h("p", {}, [
+            `Completed ${Object.keys(state.answers).length} of ${state.flat.length} questions`,
+          ])
+        );
+        // Table summary by chapter
+        const table = h("table", { class: "report-table" });
+        const thead = h("thead");
+        thead.appendChild(
+          h("tr", {}, [
+            h("th", {}, ["Chapter"]),
+            h("th", {}, ["Score"]),
+            h("th", {}, ["Percent"]),
+          ])
+        );
+        const tbody = h("tbody");
+        Object.values(result.byChapter).forEach((row) => {
+          const pct = row.total ? Math.round((row.scored / row.total) * 100) : 0;
+          tbody.appendChild(
+            h("tr", {}, [
+              h("td", {}, [row.title]),
+              h("td", {}, [`${row.scored} / ${row.total}`]),
+              h("td", {}, [pct + "%"]),
+            ])
+          );
+        });
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        container.appendChild(table);
+        // Show each question with result
+        Object.values(result.byChapter).forEach((row) => {
+          container.appendChild(
+            h(
+              "h3",
+              { style: "margin-top: 16px; font-size: 16px; color: var(--secondary);" },
+              [row.title]
+            )
+          );
+          row.items.forEach((it) => {
+            const card = h(
+              "div",
+              { class: `answer-card ${it.isCorrect ? "correct" : "wrong"}` },
+              [
+                h("div", { class: "question" }, [it.q.question]),
+                h("div", {}, ["Your answer: ", h("strong", {}, [it.user || "—"]) ]),
+                h("div", {}, ["Correct answer: ", h("strong", {}, [String(it.q.answer)])]),
+                h("div", { class: "meta" }, [
+                  `Marks: ${state.marksAwarded[it.q.id]} / ${it.q.marks ?? 1}`,
+                ]),
+              ]
+            );
+            container.appendChild(card);
+          });
+        });
+        // Actions
+        const actions = h("div", { class: "result-actions" });
+        const shareBtn = h(
+          "button",
+          {
+            class: "button",
+            onclick: () => {
+              const { scored, total } = result;
+              const message = `I scored ${scored} out of ${total} on the AS Level Business Quiz!`;
+              if (navigator.share) {
+                navigator
+                  .share({
+                    title: "My Quiz Result",
+                    text: message,
+                    url: window.location.href,
+                  })
+                  .catch((err) => {
+                    console.warn("Share cancelled", err);
+                  });
+              } else {
+                // fallback: copy to clipboard
+                navigator.clipboard
+                  .writeText(message)
+                  .then(() => alert("Score copied to clipboard. Share it on Instagram!"))
+                  .catch(() => alert(message));
+              }
+            },
+          },
+          ["Share your result"]
+        );
+        actions.appendChild(shareBtn);
+        container.appendChild(actions);
+        left.appendChild(container);
+      }
+
+      /**
+       * Hydrate the state with question data and build initial layout
+       */
+      function hydrate(data) {
+        state.data = data;
+        updateFlat();
+        // Build right panel (chapter selection and legend)
+        const right = document.getElementById("right-panel");
+        right.innerHTML = "";
+        right.appendChild(buildChapterSelect());
+        const legend = h("div", { class: "chapter-select" });
+        legend.appendChild(h("div", { class: "question-text" }, ["Legend"]));
+        legend.appendChild(h("p", {}, ["MCQ, True/False and Fill in the blank questions are automatically graded. There is no back button – each answer moves you forward. "]));
+        right.appendChild(legend);
+        renderQuestion();
+      }
+
+      async function init() {
+        try {
+          let json;
+          if (USE_REMOTE) {
+            const res = await fetch(DATA_URL, { cache: "no-store" });
+            if (!res.ok) throw new Error("Fetch failed: " + res.status);
+            const text = await res.text();
+            json = JSON.parse(text);
+          } else {
+            json = INLINE_DATA;
+          }
+          hydrate(json);
+        } catch (e) {
+          console.error(e);
+          hydrate(INLINE_DATA);
+          const right = document.getElementById("right-panel");
+          right.prepend(
+            h(
+              "div",
+              { class: "chapter-select" },
+              [
+                h("p", {}, [
+                  "Could not load remote data. Showing a demo question. Check DATA_URL or allow CORS if needed.",
+                ]),
+              ]
+            )
+          );
+        }
+      }
+      init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 2
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 3.8,
+    "samples": [
+      0.211,
+      0.633,
+      1.056,
+      1.478,
+      1.9,
+      2.322,
+      2.744,
+      3.167,
+      3.589
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.211,
+      1.056,
+      1.9,
+      2.744,
+      3.589
+    ],
+    "checked": 11,
+    "passed": 11
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 5,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"Delivering Happiness\" (2 words) is on screen 1.87 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "Delivering Happiness",
+        "selector": "#eyebrow",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 186.47,
+          "y": 1134.1,
+          "width": 343.5799999999999,
+          "height": 99
+        },
+        "time": 1.938,
+        "words": 2,
+        "seconds": 1.866,
+        "floorSeconds": 2
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"BURGER TOKRI\" (2 words) is on screen 1.77 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "BURGER TOKRI",
+        "selector": "#wordwrap > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 105.46,
+          "y": 1235.57,
+          "width": 869.08,
+          "height": 142.62999999999988
+        },
+        "time": 2.038,
+        "words": 2,
+        "seconds": 1.766,
+        "floorSeconds": 2
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"BURGER TOKRI\" (2 words) is on screen 1.77 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "BURGER TOKRI",
+        "selector": "#shine",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 105.46,
+          "y": 1235.57,
+          "width": 869.08,
+          "height": 142.62999999999988
+        },
+        "time": 2.038,
+        "words": 2,
+        "seconds": 1.766,
+        "floorSeconds": 2
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"GIFT BASKETS · KARACHI\" (3 words) is on screen 1.50 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "GIFT BASKETS · KARACHI",
+        "selector": "#sub",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 236.03,
+          "y": 1432.67,
+          "width": 607.92,
+          "height": 37
+        },
+        "time": 2.306,
+        "words": 3,
+        "seconds": 1.498,
+        "floorSeconds": 2
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"BURGERTOKRI.COM\" (2 words) is on screen 1.30 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "BURGERTOKRI.COM",
+        "selector": "#url",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 311.81,
+          "y": 1718.09,
+          "width": 456.38000000000005,
+          "height": 39
+        },
+        "time": 2.505,
+        "words": 2,
+        "seconds": 1.298,
+        "floorSeconds": 2
+      }
+    ],
+    "enabled": true,
+    "step": 0.123,
+    "samples": 31
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

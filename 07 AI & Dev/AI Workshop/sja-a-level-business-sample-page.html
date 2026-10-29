@@ -1,0 +1,1610 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SJ Academy | A Level Business 9609 Sample Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="sja-business-page" id="top">
+    <style>
+      .sja-business-page {
+        --sja-yellow: #FCE004;
+        --sja-brown: #453516;
+        --sja-orange: #FE6100;
+        --sja-whatsapp: #25D366;
+        --sja-black: #000000;
+        --sja-dark: #222222;
+        --sja-grey: #555555;
+        --sja-line: rgba(69, 53, 22, 0.16);
+        --sja-soft: #FAFAFA;
+        --sja-warm: #FFF9CC;
+        --sja-white: #FFFFFF;
+        --sja-shadow: 0 24px 70px rgba(69, 53, 22, 0.12);
+        --sja-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        min-height: 100vh;
+        background:
+          linear-gradient(135deg, rgba(252, 224, 4, 0.18) 0 18%, transparent 18% 100%),
+          linear-gradient(90deg, rgba(69, 53, 22, 0.035), transparent 46%),
+          #fffdf8;
+        color: var(--sja-black);
+        font-family: "Poppins", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .sja-business-page,
+      .sja-business-page * {
+        box-sizing: border-box;
+      }
+
+      .sja-business-page * {
+        margin: 0;
+      }
+
+      .sja-business-page a {
+        color: inherit;
+      }
+
+      .sja-business-page button,
+      .sja-business-page a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .sja-business-page button:focus-visible,
+      .sja-business-page a:focus-visible {
+        outline: 3px solid var(--sja-orange);
+        outline-offset: 3px;
+      }
+
+      .sja-business-page .sja-shell {
+        width: min(1200px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .sja-business-page .sja-section {
+        padding: 84px 0;
+      }
+
+      .sja-business-page .sja-section--tight {
+        padding: 56px 0;
+      }
+
+      .sja-business-page .sja-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+        color: var(--sja-brown);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .sja-business-page .sja-kicker::before {
+        content: "";
+        width: 24px;
+        height: 4px;
+        border-radius: 20px;
+        background: var(--sja-orange);
+      }
+
+      .sja-business-page .sja-title {
+        color: var(--sja-black);
+        font-size: clamp(2rem, 4.25vw, 3.55rem);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1.1;
+      }
+
+      .sja-business-page .sja-section-title {
+        max-width: 760px;
+        color: var(--sja-black);
+        font-size: clamp(1.75rem, 3.2vw, 3rem);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1.16;
+      }
+
+      .sja-business-page .sja-lede {
+        max-width: 700px;
+        margin-top: 18px;
+        color: var(--sja-dark);
+        font-size: clamp(1rem, 1.6vw, 1.16rem);
+        font-weight: 400;
+      }
+
+      .sja-business-page .sja-highlight {
+        display: inline;
+        padding: 0 3px;
+        background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%);
+        background-position: 0 85%;
+        background-repeat: no-repeat;
+        background-size: 100% 35%;
+      }
+
+      .sja-business-page .sja-button {
+        display: inline-flex;
+        min-height: 54px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 24px;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        line-height: 1;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: transform 220ms var(--sja-ease), box-shadow 220ms var(--sja-ease), background-color 220ms var(--sja-ease), border-color 220ms var(--sja-ease), color 220ms var(--sja-ease);
+      }
+
+      .sja-business-page .sja-button:hover {
+        transform: translateY(-3px);
+      }
+
+      .sja-business-page .sja-button--primary {
+        border-color: var(--sja-orange);
+        background: var(--sja-orange);
+        color: var(--sja-white);
+        box-shadow: 0 8px 18px rgba(254, 97, 0, 0.28);
+      }
+
+      .sja-business-page .sja-button--primary:hover {
+        background: #e55800;
+        box-shadow: 0 15px 28px rgba(254, 97, 0, 0.34);
+      }
+
+      .sja-business-page .sja-button--secondary {
+        border-color: var(--sja-brown);
+        background: var(--sja-white);
+        color: var(--sja-brown);
+      }
+
+      .sja-business-page .sja-button--secondary:hover {
+        background: var(--sja-brown);
+        color: var(--sja-white);
+        box-shadow: 0 12px 24px rgba(69, 53, 22, 0.22);
+      }
+
+      .sja-business-page .sja-button--whatsapp {
+        border-color: var(--sja-whatsapp);
+        background: var(--sja-whatsapp);
+        color: #083d1d;
+        box-shadow: 0 8px 18px rgba(37, 211, 102, 0.24);
+      }
+
+      .sja-business-page .sja-button--whatsapp:hover {
+        box-shadow: 0 15px 28px rgba(37, 211, 102, 0.32);
+      }
+
+      .sja-business-page .sja-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 13px;
+        border: 1.5px solid var(--sja-brown);
+        border-radius: 40px;
+        background: var(--sja-yellow);
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+        color: var(--sja-black);
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .sja-business-page .sja-hero {
+        position: relative;
+        overflow: hidden;
+        padding: 28px 0 72px;
+      }
+
+      .sja-business-page .sja-hero::after {
+        content: "";
+        position: absolute;
+        right: -12vw;
+        bottom: 16%;
+        z-index: 0;
+        width: 42vw;
+        height: 42vw;
+        max-width: 620px;
+        max-height: 620px;
+        border: 1px solid rgba(69, 53, 22, 0.1);
+        border-radius: 48% 52% 40% 60%;
+        background: rgba(252, 224, 4, 0.12);
+        transform: rotate(-10deg);
+      }
+
+      .sja-business-page .sja-nav {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        border-bottom: 1px solid var(--sja-line);
+        background: rgba(255, 255, 255, 0.86);
+        backdrop-filter: blur(18px);
+      }
+
+      .sja-business-page .sja-nav__inner {
+        display: flex;
+        min-height: 74px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .sja-business-page .sja-brand {
+        display: grid;
+        gap: 2px;
+        text-decoration: none;
+      }
+
+      .sja-business-page .sja-brand strong {
+        color: var(--sja-black);
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .sja-business-page .sja-brand span {
+        color: var(--sja-grey);
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .sja-business-page .sja-nav__links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .sja-business-page .sja-nav__links a {
+        padding: 10px 12px;
+        border-radius: 5px;
+        color: var(--sja-dark);
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background-color 180ms var(--sja-ease), color 180ms var(--sja-ease);
+      }
+
+      .sja-business-page .sja-nav__links a:hover {
+        background: rgba(252, 224, 4, 0.36);
+        color: var(--sja-brown);
+      }
+
+      .sja-business-page .sja-hero__grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.74fr);
+        gap: clamp(34px, 5vw, 70px);
+        align-items: center;
+        padding-top: 52px;
+      }
+
+      .sja-business-page .sja-hero__copy {
+        max-width: 760px;
+      }
+
+      .sja-business-page .sja-hero__badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+
+      .sja-business-page .sja-hero__text {
+        max-width: 690px;
+        margin-top: 18px;
+        color: var(--sja-dark);
+        font-size: clamp(1rem, 1.35vw, 1.12rem);
+      }
+
+      .sja-business-page .sja-hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .sja-business-page .sja-hero__proof {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        max-width: 720px;
+        margin-top: 26px;
+      }
+
+      .sja-business-page .sja-proof-tile {
+        min-height: 92px;
+        padding: 16px;
+        border: 1px solid var(--sja-line);
+        border-top: 5px solid var(--sja-brown);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.74);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.045);
+      }
+
+      .sja-business-page .sja-proof-tile strong {
+        display: block;
+        color: var(--sja-black);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .sja-business-page .sja-proof-tile span {
+        display: block;
+        margin-top: 7px;
+        color: var(--sja-grey);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .sja-business-page .sja-hero-card {
+        position: relative;
+      }
+
+      .sja-business-page .sja-hero-card__sheet {
+        position: relative;
+        overflow: hidden;
+        padding: 26px;
+        border: 2px solid var(--sja-brown);
+        border-radius: 18px;
+        background: var(--sja-white);
+        box-shadow: var(--sja-shadow);
+        transform: rotate(1.5deg);
+        transition: transform 280ms var(--sja-ease), box-shadow 280ms var(--sja-ease);
+      }
+
+      .sja-business-page .sja-hero-card:hover .sja-hero-card__sheet {
+        transform: rotate(0deg) translateY(-5px);
+        box-shadow: 0 30px 78px rgba(69, 53, 22, 0.16);
+      }
+
+      .sja-business-page .sja-hero-card__sheet::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(69, 53, 22, 0.04) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(69, 53, 22, 0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+        pointer-events: none;
+      }
+
+      .sja-business-page .sja-answer-head {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--sja-line);
+      }
+
+      .sja-business-page .sja-answer-head strong {
+        color: var(--sja-brown);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .sja-business-page .sja-answer-head span {
+        color: var(--sja-grey);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .sja-business-page .sja-marked-answer {
+        position: relative;
+        display: grid;
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .sja-business-page .sja-answer-line {
+        position: relative;
+        padding: 14px 14px 14px 18px;
+        border-left: 4px solid var(--sja-brown);
+        border-radius: 6px;
+        background: rgba(250, 250, 250, 0.84);
+        color: var(--sja-dark);
+        font-size: 14px;
+      }
+
+      .sja-business-page .sja-answer-line[data-score="weak"] {
+        border-left-color: #b8b1a3;
+      }
+
+      .sja-business-page .sja-answer-line[data-score="strong"] {
+        border-left-color: var(--sja-orange);
+        background: rgba(254, 97, 0, 0.08);
+      }
+
+      .sja-business-page .sja-teacher-note {
+        position: relative;
+        margin-top: 20px;
+        padding: 18px;
+        border: 2px solid var(--sja-brown);
+        border-radius: 8px;
+        background: var(--sja-yellow);
+        color: var(--sja-black);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .sja-business-page .sja-hero-card__float {
+        position: absolute;
+        right: -22px;
+        bottom: -28px;
+        width: min(260px, 62%);
+        padding: 18px;
+        border-radius: 10px;
+        background: var(--sja-brown);
+        color: var(--sja-white);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+      }
+
+      .sja-business-page .sja-hero-card__float span {
+        display: block;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sja-business-page .sja-hero-card__float strong {
+        display: block;
+        margin-top: 6px;
+        color: var(--sja-white);
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .sja-business-page .sja-band {
+        border-top: 1px solid var(--sja-line);
+        border-bottom: 1px solid var(--sja-line);
+        background: var(--sja-white);
+      }
+
+      .sja-business-page .sja-problem-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1fr);
+        gap: clamp(28px, 4vw, 56px);
+        align-items: start;
+      }
+
+      .sja-business-page .sja-reality-card {
+        position: sticky;
+        top: 102px;
+        padding: 28px;
+        border: 2px solid var(--sja-brown);
+        border-top: 8px solid var(--sja-yellow);
+        border-radius: 8px;
+        background: linear-gradient(135deg, #FFF9CC 0%, #fff6b8 100%);
+        box-shadow: 0 16px 38px rgba(69, 53, 22, 0.1);
+      }
+
+      .sja-business-page .sja-reality-card strong {
+        display: block;
+        color: var(--sja-black);
+        font-size: 1.35rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .sja-business-page .sja-reality-card p {
+        margin-top: 14px;
+        color: var(--sja-dark);
+      }
+
+      .sja-business-page .sja-diagnosis-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .sja-business-page .sja-diagnosis-item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 14px;
+        padding: 18px;
+        border: 1px solid var(--sja-line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.72);
+        transition: transform 220ms var(--sja-ease), border-color 220ms var(--sja-ease), box-shadow 220ms var(--sja-ease);
+      }
+
+      .sja-business-page .sja-diagnosis-item:hover {
+        transform: translateY(-4px);
+        border-color: rgba(254, 97, 0, 0.5);
+        box-shadow: 0 18px 34px rgba(69, 53, 22, 0.08);
+      }
+
+      .sja-business-page .sja-diagnosis-item b {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--sja-brown);
+        color: var(--sja-white);
+        font-size: 13px;
+      }
+
+      .sja-business-page .sja-diagnosis-item strong {
+        display: block;
+        color: var(--sja-black);
+        font-size: 1rem;
+        font-weight: 800;
+      }
+
+      .sja-business-page .sja-diagnosis-item span {
+        display: block;
+        margin-top: 4px;
+        color: var(--sja-grey);
+        font-size: 14px;
+      }
+
+      .sja-business-page .sja-tabs-wrap {
+        display: grid;
+        grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr);
+        gap: clamp(28px, 4vw, 58px);
+        align-items: start;
+      }
+
+      .sja-business-page .sja-tab-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .sja-business-page .sja-tab-button {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px;
+        border: 2px solid var(--sja-line);
+        border-radius: 8px;
+        background: var(--sja-white);
+        color: var(--sja-black);
+        cursor: pointer;
+        font-family: inherit;
+        text-align: left;
+        transition: transform 220ms var(--sja-ease), border-color 220ms var(--sja-ease), box-shadow 220ms var(--sja-ease), background-color 220ms var(--sja-ease);
+      }
+
+      .sja-business-page .sja-tab-button:hover {
+        transform: translateX(4px);
+        border-color: rgba(254, 97, 0, 0.5);
+      }
+
+      .sja-business-page .sja-tab-button[aria-selected="true"] {
+        border-color: var(--sja-orange);
+        background: rgba(254, 97, 0, 0.08);
+        box-shadow: 0 14px 28px rgba(254, 97, 0, 0.1);
+      }
+
+      .sja-business-page .sja-tab-button strong {
+        font-size: 1rem;
+        font-weight: 800;
+      }
+
+      .sja-business-page .sja-tab-button span {
+        color: var(--sja-grey);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .sja-business-page .sja-tab-arrow {
+        color: var(--sja-orange);
+        font-size: 18px;
+        font-weight: 800;
+      }
+
+      .sja-business-page .sja-tab-panel {
+        min-height: 500px;
+        padding: 32px;
+        border: 1px solid var(--sja-line);
+        border-top: 8px solid var(--sja-brown);
+        border-radius: 8px;
+        background: var(--sja-white);
+        box-shadow: var(--sja-shadow);
+      }
+
+      .sja-business-page .sja-tab-panel[hidden] {
+        display: none;
+      }
+
+      .sja-business-page .sja-tab-panel h3 {
+        color: var(--sja-black);
+        font-size: clamp(1.45rem, 2.3vw, 2.1rem);
+        font-weight: 800;
+        line-height: 1.18;
+      }
+
+      .sja-business-page .sja-tab-panel p {
+        margin-top: 14px;
+        color: var(--sja-dark);
+      }
+
+      .sja-business-page .sja-panel-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .sja-business-page .sja-mini-card {
+        min-height: 150px;
+        padding: 18px;
+        border: 1px solid var(--sja-line);
+        border-radius: 8px;
+        background: var(--sja-soft);
+      }
+
+      .sja-business-page .sja-mini-card span {
+        color: var(--sja-orange);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sja-business-page .sja-mini-card strong {
+        display: block;
+        margin-top: 8px;
+        color: var(--sja-black);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.3;
+      }
+
+      .sja-business-page .sja-mini-card p {
+        margin-top: 8px;
+        color: var(--sja-grey);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .sja-business-page .sja-method-grid {
+        display: grid;
+        grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1fr);
+        gap: clamp(28px, 5vw, 70px);
+        align-items: start;
+      }
+
+      .sja-business-page .sja-teacher-card {
+        position: sticky;
+        top: 104px;
+        overflow: hidden;
+        border: 1px solid var(--sja-line);
+        border-top: 8px solid var(--sja-brown);
+        border-radius: 8px;
+        background: var(--sja-white);
+        box-shadow: var(--sja-shadow);
+      }
+
+      .sja-business-page .sja-teacher-visual {
+        min-height: 340px;
+        padding: 28px;
+        background:
+          linear-gradient(150deg, rgba(252, 224, 4, 0.86), rgba(255, 255, 255, 0.44) 60%),
+          #f8f0c8;
+      }
+
+      .sja-business-page .sja-teacher-initials {
+        display: grid;
+        width: 148px;
+        height: 148px;
+        place-items: center;
+        margin: 38px auto 28px;
+        border: 3px solid var(--sja-brown);
+        border-radius: 50%;
+        background: var(--sja-white);
+        color: var(--sja-brown);
+        font-size: 3rem;
+        font-weight: 800;
+        box-shadow: 10px 10px 0 rgba(69, 53, 22, 0.12);
+      }
+
+      .sja-business-page .sja-teacher-caption {
+        padding: 24px;
+      }
+
+      .sja-business-page .sja-teacher-caption span {
+        color: var(--sja-grey);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sja-business-page .sja-teacher-caption strong {
+        display: block;
+        margin-top: 6px;
+        color: var(--sja-black);
+        font-size: 1.3rem;
+        font-weight: 800;
+        line-height: 1.24;
+      }
+
+      .sja-business-page .sja-method-steps {
+        display: grid;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .sja-business-page .sja-step {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 18px;
+        padding: 20px;
+        border-bottom: 1px solid var(--sja-line);
+      }
+
+      .sja-business-page .sja-step:last-child {
+        border-bottom: 0;
+      }
+
+      .sja-business-page .sja-step b {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 2px solid var(--sja-brown);
+        border-radius: 50%;
+        background: var(--sja-yellow);
+        color: var(--sja-black);
+        font-size: 14px;
+      }
+
+      .sja-business-page .sja-step strong {
+        display: block;
+        color: var(--sja-black);
+        font-size: 1.05rem;
+        font-weight: 800;
+      }
+
+      .sja-business-page .sja-step span {
+        display: block;
+        margin-top: 5px;
+        color: var(--sja-grey);
+      }
+
+      .sja-business-page .sja-comparison {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(310px, 0.7fr);
+        gap: clamp(28px, 4vw, 54px);
+        align-items: start;
+      }
+
+      .sja-business-page .sja-toggle-card {
+        padding: 28px;
+        border: 1px solid var(--sja-line);
+        border-top: 8px solid var(--sja-brown);
+        border-radius: 8px;
+        background: var(--sja-white);
+        box-shadow: var(--sja-shadow);
+      }
+
+      .sja-business-page .sja-toggle-controls {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 18px;
+        padding: 6px;
+        border: 1px solid var(--sja-line);
+        border-radius: 8px;
+        background: var(--sja-soft);
+      }
+
+      .sja-business-page .sja-toggle-btn {
+        flex: 1;
+        min-height: 44px;
+        border: 0;
+        border-radius: 5px;
+        background: transparent;
+        color: var(--sja-brown);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        transition: background-color 180ms var(--sja-ease), color 180ms var(--sja-ease), transform 180ms var(--sja-ease);
+      }
+
+      .sja-business-page .sja-toggle-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .sja-business-page .sja-toggle-btn[aria-pressed="true"] {
+        background: var(--sja-orange);
+        color: var(--sja-white);
+      }
+
+      .sja-business-page .sja-answer-sample {
+        min-height: 350px;
+        padding: 22px;
+        border-radius: 8px;
+        background: var(--sja-soft);
+      }
+
+      .sja-business-page .sja-answer-sample h3 {
+        color: var(--sja-black);
+        font-size: 1.3rem;
+        font-weight: 800;
+      }
+
+      .sja-business-page .sja-answer-sample p {
+        margin-top: 14px;
+        color: var(--sja-dark);
+      }
+
+      .sja-business-page .sja-answer-sample mark {
+        padding: 0 3px;
+        background: var(--sja-yellow);
+        color: inherit;
+      }
+
+      .sja-business-page .sja-answer-sample[data-mode="strong"] {
+        background: rgba(254, 97, 0, 0.08);
+      }
+
+      .sja-business-page .sja-class-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(310px, 0.42fr);
+        gap: clamp(28px, 4vw, 52px);
+        align-items: start;
+      }
+
+      .sja-business-page .sja-detail-matrix {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .sja-business-page .sja-detail {
+        padding: 20px;
+        border: 1px solid var(--sja-line);
+        border-top: 6px solid var(--sja-brown);
+        border-radius: 8px;
+        background: var(--sja-white);
+        transition: transform 220ms var(--sja-ease), border-top-color 220ms var(--sja-ease), box-shadow 220ms var(--sja-ease);
+      }
+
+      .sja-business-page .sja-detail:hover {
+        transform: translateY(-6px);
+        border-top-color: var(--sja-orange);
+        box-shadow: 0 20px 36px rgba(69, 53, 22, 0.09);
+      }
+
+      .sja-business-page .sja-detail span {
+        color: var(--sja-grey);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sja-business-page .sja-detail strong {
+        display: block;
+        margin-top: 7px;
+        color: var(--sja-black);
+        font-size: 1.05rem;
+        font-weight: 800;
+      }
+
+      .sja-business-page .sja-enroll-card {
+        position: sticky;
+        top: 104px;
+        padding: 26px;
+        border: 2px solid var(--sja-brown);
+        border-radius: 8px;
+        background: var(--sja-white);
+        box-shadow: var(--sja-shadow);
+      }
+
+      .sja-business-page .sja-enroll-card h3 {
+        color: var(--sja-black);
+        font-size: 1.35rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .sja-business-page .sja-enroll-list {
+        display: grid;
+        gap: 12px;
+        margin: 22px 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sja-business-page .sja-enroll-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--sja-line);
+        color: var(--sja-grey);
+        font-size: 14px;
+      }
+
+      .sja-business-page .sja-enroll-list li:last-child {
+        border-bottom: 0;
+      }
+
+      .sja-business-page .sja-enroll-list strong {
+        color: var(--sja-black);
+        font-weight: 800;
+        text-align: right;
+      }
+
+      .sja-business-page .sja-enroll-card .sja-button {
+        width: 100%;
+      }
+
+      .sja-business-page .sja-faq-grid {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.42fr) minmax(0, 1fr);
+        gap: clamp(28px, 5vw, 68px);
+        align-items: start;
+      }
+
+      .sja-business-page .sja-accordion {
+        display: grid;
+        gap: 12px;
+      }
+
+      .sja-business-page .sja-faq-item {
+        border: 1px solid var(--sja-line);
+        border-radius: 8px;
+        background: var(--sja-white);
+        overflow: hidden;
+      }
+
+      .sja-business-page .sja-faq-button {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 20px;
+        border: 0;
+        background: var(--sja-white);
+        color: var(--sja-black);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 800;
+        text-align: left;
+      }
+
+      .sja-business-page .sja-faq-button span {
+        color: var(--sja-orange);
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 1;
+        transition: transform 180ms var(--sja-ease);
+      }
+
+      .sja-business-page .sja-faq-button[aria-expanded="true"] span {
+        transform: rotate(45deg);
+      }
+
+      .sja-business-page .sja-faq-panel {
+        padding: 0 20px 20px;
+        color: var(--sja-grey);
+      }
+
+      .sja-business-page .sja-faq-panel[hidden] {
+        display: none;
+      }
+
+      .sja-business-page .sja-final {
+        padding: 72px 0 96px;
+        background: var(--sja-brown);
+        color: var(--sja-white);
+      }
+
+      .sja-business-page .sja-final__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .sja-business-page .sja-final h2 {
+        max-width: 780px;
+        color: var(--sja-white);
+        font-size: clamp(1.8rem, 3.4vw, 3rem);
+        font-weight: 800;
+        line-height: 1.14;
+      }
+
+      .sja-business-page .sja-final p {
+        max-width: 620px;
+        margin-top: 14px;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .sja-business-page .sja-mobile-cta {
+        display: none;
+      }
+
+      @media (max-width: 1040px) {
+        .sja-business-page .sja-nav__links {
+          display: none;
+        }
+
+        .sja-business-page .sja-hero__grid,
+        .sja-business-page .sja-problem-grid,
+        .sja-business-page .sja-tabs-wrap,
+        .sja-business-page .sja-method-grid,
+        .sja-business-page .sja-comparison,
+        .sja-business-page .sja-class-grid,
+        .sja-business-page .sja-faq-grid,
+        .sja-business-page .sja-final__grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sja-business-page .sja-reality-card,
+        .sja-business-page .sja-teacher-card,
+        .sja-business-page .sja-enroll-card {
+          position: relative;
+          top: auto;
+        }
+
+        .sja-business-page .sja-tab-panel {
+          min-height: 0;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .sja-business-page {
+          background: #fffdf8;
+        }
+
+        .sja-business-page .sja-shell {
+          width: min(100% - 28px, 1200px);
+        }
+
+        .sja-business-page .sja-section {
+          padding: 56px 0;
+        }
+
+        .sja-business-page .sja-hero {
+          padding-bottom: 50px;
+        }
+
+        .sja-business-page .sja-hero__grid {
+          padding-top: 42px;
+        }
+
+        .sja-business-page .sja-hero__actions,
+        .sja-business-page .sja-final__grid {
+          align-items: stretch;
+        }
+
+        .sja-business-page .sja-hero__actions {
+          margin-bottom: 72px;
+        }
+
+        .sja-business-page .sja-hero__actions .sja-button--secondary {
+          display: none;
+        }
+
+        .sja-business-page .sja-button {
+          width: 100%;
+        }
+
+        .sja-business-page .sja-hero__proof,
+        .sja-business-page .sja-panel-grid,
+        .sja-business-page .sja-detail-matrix {
+          grid-template-columns: 1fr;
+        }
+
+        .sja-business-page .sja-hero-card__sheet {
+          padding: 20px;
+          transform: none;
+        }
+
+        .sja-business-page .sja-hero-card__float {
+          position: relative;
+          right: auto;
+          bottom: auto;
+          width: 100%;
+          margin-top: 16px;
+        }
+
+        .sja-business-page .sja-tabs-wrap {
+          gap: 22px;
+        }
+
+        .sja-business-page .sja-tab-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .sja-business-page .sja-tab-button {
+          display: grid;
+          padding: 14px;
+        }
+
+        .sja-business-page .sja-tab-arrow {
+          display: none;
+        }
+
+        .sja-business-page .sja-tab-panel,
+        .sja-business-page .sja-toggle-card,
+        .sja-business-page .sja-reality-card,
+        .sja-business-page .sja-enroll-card {
+          padding: 22px;
+        }
+
+        .sja-business-page .sja-teacher-visual {
+          min-height: 260px;
+        }
+
+        .sja-business-page .sja-mobile-cta {
+          position: sticky;
+          bottom: 0;
+          z-index: 50;
+          display: block;
+          padding: 10px 14px;
+          border-top: 1px solid rgba(69, 53, 22, 0.2);
+          background: rgba(255, 255, 255, 0.94);
+          backdrop-filter: blur(14px);
+        }
+
+        .sja-business-page .sja-mobile-cta .sja-button {
+          min-height: 50px;
+        }
+      }
+
+      @media (max-width: 440px) {
+        .sja-business-page .sja-title {
+          font-size: 2.18rem;
+        }
+
+        .sja-business-page .sja-hero__badges {
+          gap: 8px;
+        }
+
+        .sja-business-page .sja-pill {
+          font-size: 11px;
+          padding: 8px 10px;
+        }
+
+        .sja-business-page .sja-tab-list {
+          grid-template-columns: 1fr;
+        }
+
+        .sja-business-page .sja-step {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <nav class="sja-nav" aria-label="Page sections">
+      <div class="sja-shell sja-nav__inner">
+        <a class="sja-brand" href="#top" aria-label="SJ Academy A Level Business page">
+          <strong>SJ Academy</strong>
+          <span>DHA Phase 7 + online</span>
+        </a>
+        <div class="sja-nav__links">
+          <a href="#problem">Problem</a>
+          <a href="#papers">Papers</a>
+          <a href="#method">Method</a>
+          <a href="#details">Details</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <a class="sja-button sja-button--primary" data-track="nav_whatsapp_click" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20ask%20about%20A%20Level%20Business%209609%20classes.%20Please%20share%20batch%20timings%2C%20fee%2C%20and%20whether%20physical%20or%20online%20classes%20are%20available.">Ask on WhatsApp</a>
+      </div>
+    </nav>
+
+    <header class="sja-hero">
+      <div class="sja-shell sja-hero__grid">
+        <div class="sja-hero__copy">
+          <div class="sja-hero__badges" aria-label="Class badges">
+            <span class="sja-pill">CAIE 9609</span>
+            <span class="sja-pill">AS and A2</span>
+            <span class="sja-pill">Physical and online</span>
+          </div>
+          <p class="sja-kicker">A Level Business classes</p>
+          <h1 class="sja-title">Stop writing descriptive answers. Train for <span class="sja-highlight">case application, analysis, and evaluation.</span></h1>
+          <p class="sja-hero__text">A Level Business 9609 support for students who understand the content but lose marks because their answers do not match Cambridge marking expectations.</p>
+          <div class="sja-hero__actions">
+            <a class="sja-button sja-button--primary" data-track="hero_whatsapp_click" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20ask%20about%20A%20Level%20Business%209609%20classes.%20Please%20share%20batch%20timings%2C%20fee%2C%20and%20whether%20physical%20or%20online%20classes%20are%20available.">Ask About Classes</a>
+            <a class="sja-button sja-button--secondary" href="#papers">See Paper Breakdown</a>
+          </div>
+          <div class="sja-hero__proof" aria-label="Class focus">
+            <div class="sja-proof-tile">
+              <strong>Teacher-led method</strong>
+              <span>Taught by Sir Sunyyan Junaid with exam-focused answer writing.</span>
+            </div>
+            <div class="sja-proof-tile">
+              <strong>Paper-specific training</strong>
+              <span>Separate support for Paper 1, Paper 2, Paper 3, and Paper 4.</span>
+            </div>
+            <div class="sja-proof-tile">
+              <strong>Clear next step</strong>
+              <span>Message first. Ask about fee, timing, and class mode before registering.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sja-hero-card" aria-label="Answer writing preview">
+          <div class="sja-hero-card__sheet">
+            <div class="sja-answer-head">
+              <strong>9609 Answer Review</strong>
+              <span>Teacher notes</span>
+            </div>
+            <div class="sja-marked-answer">
+              <div class="sja-answer-line" data-score="weak">The business should lower prices because customers want cheaper products.</div>
+              <div class="sja-answer-line" data-score="strong">If prices are reduced, demand may rise among price-sensitive customers in the case, but profit margins could fall if costs remain high.</div>
+              <div class="sja-answer-line" data-score="strong">A better recommendation depends on whether the firm can increase volume enough to protect contribution.</div>
+            </div>
+            <div class="sja-teacher-note">The class trains students to move from simple statements to supported judgement.</div>
+          </div>
+          <div class="sja-hero-card__float">
+            <span>Class focus</span>
+            <strong>Real-world business thinking plus exam answer discipline.</strong>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="sja-section sja-band" id="problem">
+      <div class="sja-shell sja-problem-grid">
+        <div>
+          <p class="sja-kicker">Why marks get lost</p>
+          <h2 class="sja-section-title">Most students do not fail Business because they know nothing.</h2>
+          <p class="sja-lede">They lose marks because their writing stays general, ignores the case data, or stops before a clear evaluation. The class is built around fixing that exact problem.</p>
+          <div class="sja-diagnosis-list">
+            <div class="sja-diagnosis-item">
+              <b>1</b>
+              <div>
+                <strong>Descriptive answers</strong>
+                <span>The answer explains a concept but does not connect it to the business in the question.</span>
+              </div>
+            </div>
+            <div class="sja-diagnosis-item">
+              <b>2</b>
+              <div>
+                <strong>Weak analysis chains</strong>
+                <span>The student makes one point, but does not show the effect on costs, revenue, profit, cash flow, or stakeholders.</span>
+              </div>
+            </div>
+            <div class="sja-diagnosis-item">
+              <b>3</b>
+              <div>
+                <strong>Evaluation without judgement</strong>
+                <span>The conclusion repeats both sides instead of giving a supported recommendation.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="sja-reality-card">
+          <strong>Reality check</strong>
+          <p>In Business 9609, knowing the topic is only the starting point. Marks come from applying the topic to the case, building cause and effect, and making a reasoned decision.</p>
+          <p>This page keeps the funnel simple: understand the class, check the paper support, then message on WhatsApp.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="sja-section" id="papers">
+      <div class="sja-shell sja-tabs-wrap">
+        <div>
+          <p class="sja-kicker">Paper-by-paper support</p>
+          <h2 class="sja-section-title">Choose the paper and see what the class trains.</h2>
+          <p class="sja-lede">This section is intentionally interactive. It shows how one subject page can feel more useful than a static list of features.</p>
+          <div class="sja-tab-list" role="tablist" aria-label="A Level Business paper tabs">
+            <button class="sja-tab-button" id="tab-p1" role="tab" type="button" aria-selected="true" aria-controls="panel-p1" data-tab="p1">
+              <span><strong>Paper 1</strong><br>Short answer precision</span>
+              <span class="sja-tab-arrow">-&gt;</span>
+            </button>
+            <button class="sja-tab-button" id="tab-p2" role="tab" type="button" aria-selected="false" aria-controls="panel-p2" data-tab="p2">
+              <span><strong>Paper 2</strong><br>Data response writing</span>
+              <span class="sja-tab-arrow">-&gt;</span>
+            </button>
+            <button class="sja-tab-button" id="tab-p3" role="tab" type="button" aria-selected="false" aria-controls="panel-p3" data-tab="p3">
+              <span><strong>Paper 3</strong><br>Case study analysis</span>
+              <span class="sja-tab-arrow">-&gt;</span>
+            </button>
+            <button class="sja-tab-button" id="tab-p4" role="tab" type="button" aria-selected="false" aria-controls="panel-p4" data-tab="p4">
+              <span><strong>Paper 4</strong><br>Strategic judgement</span>
+              <span class="sja-tab-arrow">-&gt;</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <article class="sja-tab-panel" id="panel-p1" role="tabpanel" aria-labelledby="tab-p1">
+            <h3>Paper 1: precise definitions, application, and short analysis.</h3>
+            <p>Students practice how to answer quickly without wasting time on vague paragraphs. The focus is accuracy, business language, and relevant explanation.</p>
+            <div class="sja-panel-grid">
+              <div class="sja-mini-card"><span>Challenge</span><strong>Answers stay too general.</strong><p>Students know terms but do not shape answers to the question.</p></div>
+              <div class="sja-mini-card"><span>Training</span><strong>Mark-focused response patterns.</strong><p>Class drills short answer structures and case-specific wording.</p></div>
+              <div class="sja-mini-card"><span>Outcome</span><strong>Cleaner, faster responses.</strong><p>Students learn to answer with less filler and more exam value.</p></div>
+            </div>
+          </article>
+
+          <article class="sja-tab-panel" id="panel-p2" role="tabpanel" aria-labelledby="tab-p2" hidden>
+            <h3>Paper 2: data response with stronger application.</h3>
+            <p>Students learn to use the given business data instead of writing memorised textbook points. This is where many AS students can gain marks quickly.</p>
+            <div class="sja-panel-grid">
+              <div class="sja-mini-card"><span>Challenge</span><strong>Case data is ignored.</strong><p>The answer could apply to any business, so it does not earn enough application credit.</p></div>
+              <div class="sja-mini-card"><span>Training</span><strong>Evidence-linked analysis.</strong><p>Students practice connecting figures, business context, and stakeholder impact.</p></div>
+              <div class="sja-mini-card"><span>Outcome</span><strong>More relevant answers.</strong><p>Responses become specific to the business in front of them.</p></div>
+            </div>
+          </article>
+
+          <article class="sja-tab-panel" id="panel-p3" role="tabpanel" aria-labelledby="tab-p3" hidden>
+            <h3>Paper 3: long case analysis and stronger chains.</h3>
+            <p>A2 students need more than topic knowledge. They need to build multi-step business arguments and connect decisions to the case context.</p>
+            <div class="sja-panel-grid">
+              <div class="sja-mini-card"><span>Challenge</span><strong>Analysis breaks too early.</strong><p>Students make a point but do not carry it through to business consequences.</p></div>
+              <div class="sja-mini-card"><span>Training</span><strong>Cause and effect chains.</strong><p>Class builds structured chains across cost, revenue, profit, risk, and people.</p></div>
+              <div class="sja-mini-card"><span>Outcome</span><strong>More developed answers.</strong><p>Students learn how to stretch each point without padding.</p></div>
+            </div>
+          </article>
+
+          <article class="sja-tab-panel" id="panel-p4" role="tabpanel" aria-labelledby="tab-p4" hidden>
+            <h3>Paper 4: recommendation writing and judgement.</h3>
+            <p>Students practice how to compare options, weigh trade-offs, and make a final recommendation that actually answers the question.</p>
+            <div class="sja-panel-grid">
+              <div class="sja-mini-card"><span>Challenge</span><strong>Evaluation is too balanced.</strong><p>The final paragraph repeats both sides but does not decide.</p></div>
+              <div class="sja-mini-card"><span>Training</span><strong>Decision-led evaluation.</strong><p>Students learn to justify a recommendation using the case and business priorities.</p></div>
+              <div class="sja-mini-card"><span>Outcome</span><strong>Sharper judgement.</strong><p>Answers finish with a clear, defensible business decision.</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sja-section sja-band" id="method">
+      <div class="sja-shell sja-method-grid">
+        <aside class="sja-teacher-card">
+          <div class="sja-teacher-visual" aria-label="Teacher visual placeholder">
+            <div class="sja-teacher-initials">SJ</div>
+          </div>
+          <div class="sja-teacher-caption">
+            <span>Teacher-led class</span>
+            <strong>Sir Sunyyan Junaid focuses on how students think, structure, and write.</strong>
+          </div>
+        </aside>
+        <div>
+          <p class="sja-kicker">Teaching method</p>
+          <h2 class="sja-section-title">The class turns business knowledge into exam-ready writing.</h2>
+          <p class="sja-lede">The sample uses a teacher-led section instead of another card grid. This gives the page a different rhythm while keeping the conversion message clear.</p>
+          <div class="sja-method-steps">
+            <div class="sja-step">
+              <b>01</b>
+              <div><strong>Understand the concept</strong><span>Students first make sure the business idea is clear and exam-ready.</span></div>
+            </div>
+            <div class="sja-step">
+              <b>02</b>
+              <div><strong>Read the case data</strong><span>The answer starts from the business in the question, not from memorised notes.</span></div>
+            </div>
+            <div class="sja-step">
+              <b>03</b>
+              <div><strong>Build the analysis chain</strong><span>Each point is pushed through business consequences, not left as a single statement.</span></div>
+            </div>
+            <div class="sja-step">
+              <b>04</b>
+              <div><strong>Evaluate and recommend</strong><span>The final answer makes a supported decision based on the case context.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sja-section">
+      <div class="sja-shell sja-comparison">
+        <div>
+          <p class="sja-kicker">Interactive answer sample</p>
+          <h2 class="sja-section-title">Compare a weak answer habit with a stronger exam response.</h2>
+          <p class="sja-lede">This gives the visitor a real taste of what changes in class. It is more persuasive than saying “exam technique” without showing it.</p>
+        </div>
+        <div class="sja-toggle-card">
+          <div class="sja-toggle-controls" role="group" aria-label="Answer sample switcher">
+            <button class="sja-toggle-btn" type="button" aria-pressed="true" data-mode="weak">Weak</button>
+            <button class="sja-toggle-btn" type="button" aria-pressed="false" data-mode="strong">Stronger</button>
+          </div>
+          <div class="sja-answer-sample" data-mode="weak" aria-live="polite">
+            <h3>Weak answer habit</h3>
+            <p>The business should use advertising because advertising helps increase sales and more people will know about the product.</p>
+            <p>This answer is easy to write, but it is too general. It does not use the case, does not explain the business effect, and does not evaluate whether advertising is the best option.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sja-section sja-band" id="details">
+      <div class="sja-shell sja-class-grid">
+        <div>
+          <p class="sja-kicker">Class details</p>
+          <h2 class="sja-section-title">Simple details before the student messages.</h2>
+          <p class="sja-lede">This section keeps the practical answers visible. It avoids pushing cold traffic into a long registration or payment form before they have asked their questions.</p>
+          <div class="sja-detail-matrix">
+            <div class="sja-detail"><span>Subject</span><strong>A Level Business 9609</strong></div>
+            <div class="sja-detail"><span>Level</span><strong>AS and A2 support</strong></div>
+            <div class="sja-detail"><span>Teacher</span><strong>Sir Sunyyan Junaid</strong></div>
+            <div class="sja-detail"><span>Mode</span><strong>DHA Phase 7 and live online</strong></div>
+            <div class="sja-detail"><span>Batch</span><strong>Next batch date to confirm</strong></div>
+            <div class="sja-detail"><span>Fee</span><strong>Ask on WhatsApp</strong></div>
+          </div>
+        </div>
+        <aside class="sja-enroll-card" aria-label="Enrollment summary">
+          <h3>Ask for the current batch details.</h3>
+          <ul class="sja-enroll-list">
+            <li><span>Exam board</span><strong>CAIE</strong></li>
+            <li><span>Support</span><strong>Paper 1 to 4</strong></li>
+            <li><span>Location</span><strong>DHA Phase 7</strong></li>
+            <li><span>Online option</span><strong>Available where scheduled</strong></li>
+          </ul>
+          <a class="sja-button sja-button--whatsapp" data-track="details_whatsapp_click" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20ask%20about%20A%20Level%20Business%209609%20classes.%20Please%20share%20batch%20timings%2C%20fee%2C%20and%20whether%20physical%20or%20online%20classes%20are%20available.">Message on WhatsApp</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="sja-section" id="faq">
+      <div class="sja-shell sja-faq-grid">
+        <div>
+          <p class="sja-kicker">Questions parents ask</p>
+          <h2 class="sja-section-title">Quick answers before contacting SJ Academy.</h2>
+          <p class="sja-lede">The FAQ is short because the page wants a WhatsApp inquiry, not a long registration journey.</p>
+        </div>
+        <div class="sja-accordion">
+          <div class="sja-faq-item">
+            <button class="sja-faq-button" type="button" aria-expanded="true" aria-controls="faq-1">Is this for AS or A2 students?<span>+</span></button>
+            <div class="sja-faq-panel" id="faq-1">The page is designed for both AS and A2 Business students. The paper support changes based on the student's level.</div>
+          </div>
+          <div class="sja-faq-item">
+            <button class="sja-faq-button" type="button" aria-expanded="false" aria-controls="faq-2">Do you cover past papers?<span>+</span></button>
+            <div class="sja-faq-panel" id="faq-2" hidden>Yes. The focus is not only solving questions, but learning how to structure application, analysis, and evaluation.</div>
+          </div>
+          <div class="sja-faq-item">
+            <button class="sja-faq-button" type="button" aria-expanded="false" aria-controls="faq-3">Can students join online?<span>+</span></button>
+            <div class="sja-faq-panel" id="faq-3" hidden>Live online support can be offered where available. Students should message to confirm the current schedule.</div>
+          </div>
+          <div class="sja-faq-item">
+            <button class="sja-faq-button" type="button" aria-expanded="false" aria-controls="faq-4">Why is WhatsApp the main CTA?<span>+</span></button>
+            <div class="sja-faq-panel" id="faq-4" hidden>For a cold landing page, WhatsApp is lower friction. Parents and students can first ask about fee, timing, level, and mode before filling a registration form.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sja-final">
+      <div class="sja-shell sja-final__grid">
+        <div>
+          <h2>Want to know if this A Level Business class fits your current level?</h2>
+          <p>Message SJ Academy and ask about the current batch, fee, timing, and whether physical or online classes are available.</p>
+        </div>
+        <a class="sja-button sja-button--whatsapp" data-track="final_whatsapp_click" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20ask%20about%20A%20Level%20Business%209609%20classes.%20Please%20share%20batch%20timings%2C%20fee%2C%20and%20whether%20physical%20or%20online%20classes%20are%20available.">Ask About Classes</a>
+      </div>
+    </section>
+
+    <div class="sja-mobile-cta">
+      <a class="sja-button sja-button--whatsapp" data-track="mobile_sticky_whatsapp_click" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20ask%20about%20A%20Level%20Business%209609%20classes.%20Please%20share%20batch%20timings%2C%20fee%2C%20and%20whether%20physical%20or%20online%20classes%20are%20available.">WhatsApp SJ Academy</a>
+    </div>
+
+    <script>
+      (function () {
+        const root = document.querySelector(".sja-business-page");
+        if (!root) return;
+
+        const tabButtons = root.querySelectorAll(".sja-tab-button");
+        const tabPanels = root.querySelectorAll(".sja-tab-panel");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const target = button.dataset.tab;
+
+            tabButtons.forEach((item) => {
+              item.setAttribute("aria-selected", item === button ? "true" : "false");
+            });
+
+            tabPanels.forEach((panel) => {
+              panel.hidden = panel.id !== "panel-" + target;
+            });
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "paper_tab_click",
+              subject: "A Level Business 9609",
+              paper: target
+            });
+          });
+        });
+
+        const toggleButtons = root.querySelectorAll(".sja-toggle-btn");
+        const answerSample = root.querySelector(".sja-answer-sample");
+        const answers = {
+          weak: {
+            title: "Weak answer habit",
+            body: [
+              "The business should use advertising because advertising helps increase sales and more people will know about the product.",
+              "This answer is easy to write, but it is too general. It does not use the case, does not explain the business effect, and does not evaluate whether advertising is the best option."
+            ]
+          },
+          strong: {
+            title: "Stronger exam response",
+            body: [
+              "If the business uses advertising targeted at the younger customer segment in the case, awareness may rise and sales volume could improve.",
+              "However, the final recommendation depends on whether the extra revenue is likely to cover the advertising cost and whether the business has enough capacity to meet higher demand."
+            ]
+          }
+        };
+
+        toggleButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const mode = button.dataset.mode;
+            const selected = answers[mode];
+
+            toggleButtons.forEach((item) => {
+              item.setAttribute("aria-pressed", item === button ? "true" : "false");
+            });
+
+            answerSample.dataset.mode = mode;
+            answerSample.innerHTML = "<h3>" + selected.title + "</h3>" + selected.body.map((text) => "<p>" + text + "</p>").join("");
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "answer_toggle_click",
+              subject: "A Level Business 9609",
+              mode: mode
+            });
+          });
+        });
+
+        const faqButtons = root.querySelectorAll(".sja-faq-button");
+
+        faqButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const panel = root.querySelector("#" + button.getAttribute("aria-controls"));
+            const isOpen = button.getAttribute("aria-expanded") === "true";
+
+            button.setAttribute("aria-expanded", isOpen ? "false" : "true");
+            panel.hidden = isOpen;
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "faq_open",
+              subject: "A Level Business 9609",
+              question: button.textContent.replace("+", "").trim(),
+              open: !isOpen
+            });
+          });
+        });
+
+        root.querySelectorAll("a[data-track]").forEach((link) => {
+          link.addEventListener("click", () => {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "whatsapp_click",
+              subject: "A Level Business 9609",
+              cta_location: link.dataset.track,
+              cta_label: link.textContent.trim()
+            });
+          });
+        });
+      })();
+    </script>
+  </main>
+</body>
+</html>

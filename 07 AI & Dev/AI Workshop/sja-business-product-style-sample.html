@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SJ Academy | Product Style A Level Business Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="sja-product-lp">
+    <style>
+      .sja-product-lp {
+        --yellow: #FCE004;
+        --brown: #453516;
+        --orange: #FE6100;
+        --whatsapp: #25D366;
+        --ink: #000000;
+        --text: #222222;
+        --muted: #555555;
+        --line: rgba(69, 53, 22, 0.16);
+        --paper: #FFFFFF;
+        --soft: #FAFAFA;
+        --warm: #FFF9CC;
+        --shadow: 0 28px 80px rgba(69, 53, 22, 0.12);
+        --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        min-height: 100vh;
+        background:
+          linear-gradient(90deg, rgba(69, 53, 22, 0.055) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(69, 53, 22, 0.045) 1px, transparent 1px),
+          #fffdf8;
+        background-size: 44px 44px;
+        color: var(--ink);
+        font-family: "Poppins", Arial, sans-serif;
+        line-height: 1.55;
+      }
+
+      .sja-product-lp,
+      .sja-product-lp * {
+        box-sizing: border-box;
+      }
+
+      .sja-product-lp * {
+        margin: 0;
+      }
+
+      .sja-product-lp a {
+        color: inherit;
+      }
+
+      .sja-product-lp button,
+      .sja-product-lp a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .sja-product-lp button:focus-visible,
+      .sja-product-lp a:focus-visible {
+        outline: 3px solid var(--orange);
+        outline-offset: 3px;
+      }
+
+      .sja-product-lp .shell {
+        width: min(1240px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .sja-product-lp .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 253, 248, 0.88);
+        backdrop-filter: blur(18px);
+      }
+
+      .sja-product-lp .topbar-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+        min-height: 76px;
+      }
+
+      .sja-product-lp .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .sja-product-lp .brand-mark {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 2px solid var(--brown);
+        border-radius: 8px;
+        background: var(--yellow);
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
+        color: var(--brown);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .sja-product-lp .brand-text {
+        display: grid;
+        gap: 1px;
+      }
+
+      .sja-product-lp .brand-text strong {
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+
+      .sja-product-lp .brand-text span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .sja-product-lp .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .sja-product-lp .topbar-link {
+        padding: 10px 12px;
+        border-radius: 5px;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 800;
+        text-decoration: none;
+        transition: background-color 180ms var(--ease), color 180ms var(--ease);
+      }
+
+      .sja-product-lp .topbar-link:hover {
+        background: rgba(252, 224, 4, 0.38);
+        color: var(--brown);
+      }
+
+      .sja-product-lp .button {
+        display: inline-flex;
+        min-height: 52px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 22px;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        line-height: 1;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), background-color 220ms var(--ease), border-color 220ms var(--ease), color 220ms var(--ease);
+      }
+
+      .sja-product-lp .button:hover {
+        transform: translateY(-3px);
+      }
+
+      .sja-product-lp .button-primary {
+        border-color: var(--orange);
+        background: var(--orange);
+        color: #fff;
+        box-shadow: 0 12px 22px rgba(254, 97, 0, 0.28);
+      }
+
+      .sja-product-lp .button-primary:hover {
+        background: #e55800;
+        box-shadow: 0 18px 34px rgba(254, 97, 0, 0.34);
+      }
+
+      .sja-product-lp .button-outline {
+        border-color: var(--brown);
+        background: #fff;
+        color: var(--brown);
+      }
+
+      .sja-product-lp .button-outline:hover {
+        background: var(--brown);
+        color: #fff;
+        box-shadow: 0 18px 34px rgba(69, 53, 22, 0.22);
+      }
+
+      .sja-product-lp .button-whatsapp {
+        border-color: var(--whatsapp);
+        background: var(--whatsapp);
+        color: #073b1c;
+        box-shadow: 0 12px 22px rgba(37, 211, 102, 0.22);
+      }
+
+      .sja-product-lp .button-whatsapp:hover {
+        box-shadow: 0 18px 34px rgba(37, 211, 102, 0.3);
+      }
+
+      .sja-product-lp .hero {
+        overflow: hidden;
+        padding: 54px 0 78px;
+      }
+
+      .sja-product-lp .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.86fr) minmax(480px, 1.14fr);
+        gap: clamp(34px, 5vw, 70px);
+        align-items: start;
+      }
+
+      .sja-product-lp .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        color: var(--brown);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sja-product-lp .eyebrow::before {
+        content: "";
+        width: 28px;
+        height: 4px;
+        border-radius: 20px;
+        background: var(--orange);
+      }
+
+      .sja-product-lp h1 {
+        max-width: 620px;
+        color: var(--ink);
+        font-size: clamp(2.45rem, 4.7vw, 4.9rem);
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 0.98;
+      }
+
+      .sja-product-lp .mark {
+        display: inline;
+        padding: 0 4px;
+        background: linear-gradient(120deg, var(--yellow), var(--yellow));
+        background-position: 0 86%;
+        background-repeat: no-repeat;
+        background-size: 100% 36%;
+      }
+
+      .sja-product-lp .hero-copy {
+        max-width: 580px;
+        margin-top: 24px;
+        color: var(--text);
+        font-size: clamp(1rem, 1.4vw, 1.14rem);
+      }
+
+      .sja-product-lp .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .sja-product-lp .quick-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 34px;
+      }
+
+      .sja-product-lp .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 13px;
+        border: 1.5px solid var(--brown);
+        border-radius: 40px;
+        background: var(--yellow);
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .sja-product-lp .product-stage {
+        position: relative;
+        min-height: 0;
+        padding: 18px;
+        border: 2px solid var(--brown);
+        border-radius: 18px;
+        background:
+          linear-gradient(120deg, rgba(252, 224, 4, 0.3), transparent 36%),
+          #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .sja-product-lp .product-stage::before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border: 1px solid rgba(69, 53, 22, 0.12);
+        border-radius: 13px;
+        pointer-events: none;
+      }
+
+      .sja-product-lp .app-frame {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 168px minmax(0, 1fr);
+        min-height: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      .sja-product-lp .app-rail {
+        display: grid;
+        align-content: start;
+        gap: 8px;
+        padding: 16px;
+        border-right: 1px solid var(--line);
+        background: #faf8ef;
+      }
+
+      .sja-product-lp .rail-label {
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sja-product-lp .mode-btn,
+      .sja-product-lp .paper-btn {
+        width: 100%;
+        min-height: 42px;
+        padding: 10px;
+        border: 1.5px solid var(--line);
+        border-radius: 5px;
+        background: #fff;
+        color: var(--brown);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 800;
+        text-align: left;
+        text-transform: uppercase;
+        transition: transform 180ms var(--ease), border-color 180ms var(--ease), background-color 180ms var(--ease), color 180ms var(--ease);
+      }
+
+      .sja-product-lp .mode-btn:hover,
+      .sja-product-lp .paper-btn:hover {
+        transform: translateX(3px);
+        border-color: rgba(254, 97, 0, 0.55);
+      }
+
+      .sja-product-lp .mode-btn[aria-pressed="true"],
+      .sja-product-lp .paper-btn[aria-selected="true"] {
+        border-color: var(--orange);
+        background: var(--orange);
+        color: #fff;
+      }
+
+      .sja-product-lp .app-main {
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        min-width: 0;
+      }
+
+      .sja-product-lp .app-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .sja-product-lp .app-top strong {
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 800;
+      }
+
+      .sja-product-lp .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border: 1px solid #d9f4e2;
+        border-radius: 5px;
+        background: rgba(37, 211, 102, 0.1);
+        color: #12642f;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .sja-product-lp .status::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--whatsapp);
+      }
+
+      .sja-product-lp .selector-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .sja-product-lp .paper-btn {
+        text-align: center;
+      }
+
+      .sja-product-lp .dashboard {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 18px 20px 20px;
+      }
+
+      .sja-product-lp .live-panel {
+        min-width: 0;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-top: 6px solid var(--brown);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      .sja-product-lp .live-panel h2 {
+        color: var(--ink);
+        font-size: clamp(1.45rem, 2vw, 1.95rem);
+        font-weight: 800;
+        line-height: 1.12;
+      }
+
+      .sja-product-lp .live-panel p {
+        margin-top: 14px;
+        color: var(--text);
+        font-size: 15px;
+      }
+
+      .sja-product-lp .skill-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sja-product-lp .skill-list li {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 11px;
+        align-items: start;
+        padding: 12px;
+        border-radius: 6px;
+        background: var(--soft);
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .sja-product-lp .skill-list b {
+        display: grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--yellow);
+        color: var(--brown);
+        font-size: 11px;
+      }
+
+      .sja-product-lp .side-panel {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .sja-product-lp .metric {
+        min-height: 104px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-top: 6px solid var(--brown);
+        border-radius: 8px;
+        background: #fff;
+        transition: transform 180ms var(--ease), border-top-color 180ms var(--ease), box-shadow 180ms var(--ease);
+      }
+
+      .sja-product-lp .metric:hover {
+        transform: translateY(-5px);
+        border-top-color: var(--orange);
+        box-shadow: 0 18px 34px rgba(69, 53, 22, 0.08);
+      }
+
+      .sja-product-lp .metric span {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sja-product-lp .metric strong {
+        display: block;
+        margin-top: 5px;
+        color: var(--ink);
+        font-size: 0.94rem;
+        font-weight: 800;
+        line-height: 1.18;
+      }
+
+      .sja-product-lp .intent-panel {
+        margin-top: 18px;
+        padding: 18px;
+        border: 2px solid var(--brown);
+        border-radius: 8px;
+        background: var(--warm);
+      }
+
+      .sja-product-lp .intent-panel strong {
+        display: block;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .sja-product-lp .intent-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .sja-product-lp .intent-link {
+        display: grid;
+        min-height: 74px;
+        align-content: center;
+        padding: 12px;
+        border: 2px solid var(--brown);
+        border-radius: 5px;
+        background: #fff;
+        color: var(--brown);
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1.25;
+        text-align: center;
+        text-decoration: none;
+        transition: transform 180ms var(--ease), background-color 180ms var(--ease), color 180ms var(--ease), border-color 180ms var(--ease);
+      }
+
+      .sja-product-lp .intent-link:hover {
+        transform: translateY(-3px);
+        border-color: var(--orange);
+        background: var(--orange);
+        color: #fff;
+      }
+
+      .sja-product-lp .section {
+        padding: 76px 0;
+      }
+
+      .sja-product-lp .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(300px, 0.42fr);
+        gap: 40px;
+        align-items: end;
+        margin-bottom: 30px;
+      }
+
+      .sja-product-lp .section-title {
+        max-width: 760px;
+        color: var(--ink);
+        font-size: clamp(1.9rem, 3.5vw, 3.35rem);
+        font-weight: 800;
+        line-height: 1.08;
+      }
+
+      .sja-product-lp .section-copy {
+        color: var(--text);
+        font-size: 1rem;
+      }
+
+      .sja-product-lp .flow {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 16px;
+      }
+
+      .sja-product-lp .flow-large,
+      .sja-product-lp .flow-small {
+        min-height: 360px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 16px 44px rgba(69, 53, 22, 0.08);
+      }
+
+      .sja-product-lp .flow-large {
+        border-top: 8px solid var(--brown);
+      }
+
+      .sja-product-lp .flow-small {
+        display: grid;
+        gap: 14px;
+        border-top: 8px solid var(--yellow);
+        background: linear-gradient(135deg, #FFF9CC 0%, #fff6b8 100%);
+      }
+
+      .sja-product-lp .flow h3 {
+        color: var(--ink);
+        font-size: 1.45rem;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .sja-product-lp .flow p {
+        margin-top: 12px;
+        color: var(--muted);
+      }
+
+      .sja-product-lp .answer-stack {
+        display: grid;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .sja-product-lp .answer-line {
+        padding: 14px;
+        border-left: 5px solid var(--brown);
+        border-radius: 5px;
+        background: var(--soft);
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      .sja-product-lp .answer-line.good {
+        border-left-color: var(--orange);
+        background: rgba(254, 97, 0, 0.08);
+      }
+
+      .sja-product-lp .mini-step {
+        padding: 16px;
+        border: 1px solid rgba(69, 53, 22, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.68);
+      }
+
+      .sja-product-lp .mini-step span {
+        color: var(--orange);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sja-product-lp .mini-step strong {
+        display: block;
+        margin-top: 6px;
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .sja-product-lp .final {
+        padding: 72px 0 90px;
+        background: var(--brown);
+        color: #fff;
+      }
+
+      .sja-product-lp .final-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: 36px;
+        align-items: center;
+      }
+
+      .sja-product-lp .final h2 {
+        max-width: 760px;
+        color: #fff;
+        font-size: clamp(2rem, 3.6vw, 3.45rem);
+        font-weight: 800;
+        line-height: 1.06;
+      }
+
+      .sja-product-lp .final p {
+        max-width: 620px;
+        margin-top: 16px;
+        color: rgba(255, 255, 255, 0.74);
+      }
+
+      .sja-product-lp .final-card {
+        padding: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .sja-product-lp .final-card ul {
+        display: grid;
+        gap: 12px;
+        margin: 0 0 20px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sja-product-lp .final-card li {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 14px;
+      }
+
+      .sja-product-lp .final-card li:last-child {
+        border-bottom: 0;
+      }
+
+      .sja-product-lp .final-card strong {
+        color: #fff;
+        text-align: right;
+      }
+
+      .sja-product-lp .mobile-cta {
+        display: none;
+      }
+
+      @media (max-width: 1080px) {
+        .sja-product-lp .topbar-actions .topbar-link {
+          display: none;
+        }
+
+        .sja-product-lp .hero-grid,
+        .sja-product-lp .section-head,
+        .sja-product-lp .flow,
+        .sja-product-lp .final-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sja-product-lp .product-stage {
+          min-height: auto;
+        }
+
+        .sja-product-lp .app-frame {
+          min-height: 0;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .sja-product-lp .shell {
+          width: min(100% - 28px, 1240px);
+        }
+
+        .sja-product-lp .topbar-inner {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          padding: 12px 0;
+        }
+
+        .sja-product-lp .topbar-actions {
+          display: none;
+        }
+
+        .sja-product-lp .hero {
+          padding: 38px 0 54px;
+        }
+
+        .sja-product-lp h1 {
+          font-size: 2.55rem;
+          line-height: 1.03;
+        }
+
+        .sja-product-lp .hero-actions .button-outline {
+          display: none;
+        }
+
+        .sja-product-lp .button {
+          width: 100%;
+        }
+
+        .sja-product-lp .product-stage {
+          padding: 10px;
+          border-radius: 12px;
+        }
+
+        .sja-product-lp .app-frame {
+          grid-template-columns: 1fr;
+        }
+
+        .sja-product-lp .app-rail {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .sja-product-lp .rail-label {
+          grid-column: 1 / -1;
+        }
+
+        .sja-product-lp .app-top {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .sja-product-lp .selector-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .sja-product-lp .dashboard {
+          grid-template-columns: 1fr;
+          padding: 14px;
+        }
+
+        .sja-product-lp .live-panel {
+          padding: 20px;
+        }
+
+        .sja-product-lp .intent-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sja-product-lp .section {
+          padding: 56px 0;
+        }
+
+        .sja-product-lp .flow-large,
+        .sja-product-lp .flow-small {
+          min-height: auto;
+          padding: 22px;
+        }
+
+        .sja-product-lp .final {
+          padding-bottom: 106px;
+        }
+
+        .sja-product-lp .mobile-cta {
+          position: sticky;
+          bottom: 0;
+          z-index: 50;
+          display: block;
+          padding: 10px 14px;
+          border-top: 1px solid rgba(69, 53, 22, 0.2);
+          background: rgba(255, 255, 255, 0.94);
+          backdrop-filter: blur(14px);
+        }
+      }
+
+      @media (max-width: 430px) {
+        .sja-product-lp h1 {
+          font-size: 2.25rem;
+        }
+
+        .sja-product-lp .app-rail,
+        .sja-product-lp .selector-row {
+          grid-template-columns: 1fr;
+        }
+
+        .sja-product-lp .quick-strip {
+          gap: 8px;
+        }
+
+        .sja-product-lp .chip {
+          font-size: 11px;
+        }
+      }
+    </style>
+
+    <nav class="topbar" aria-label="SJ Academy page navigation">
+      <div class="shell topbar-inner">
+        <a class="brand" href="#top">
+          <span class="brand-mark">SJ</span>
+          <span class="brand-text">
+            <strong>SJ Academy</strong>
+            <span>A Level Business 9609</span>
+          </span>
+        </a>
+        <div class="topbar-actions">
+          <a class="topbar-link" href="#planner">Planner</a>
+          <a class="topbar-link" href="#method">Method</a>
+          <a class="topbar-link" href="#contact">Contact</a>
+          <a class="button button-primary" data-track="nav_whatsapp_click" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20check%20A%20Level%20Business%209609%20classes.%20Please%20share%20fee%2C%20timing%2C%20teacher%2C%20and%20online%20or%20physical%20options.">Ask on WhatsApp</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Interactive class planner</p>
+          <h1>Build your <span class="mark">Business 9609</span> exam plan in seconds.</h1>
+          <p class="hero-copy">Choose your level, paper, and class mode. The page updates like a product interface, then sends the right WhatsApp inquiry instead of forcing a long form.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#planner">Open Planner</a>
+            <a class="button button-outline" href="#method">See Teaching Method</a>
+          </div>
+          <div class="quick-strip" aria-label="Course highlights">
+            <span class="chip">CAIE 9609</span>
+            <span class="chip">Sir Sunyyan Junaid</span>
+            <span class="chip">DHA Phase 7</span>
+            <span class="chip">Live online option</span>
+          </div>
+        </div>
+
+        <section class="product-stage" id="planner" aria-label="Interactive class planner">
+          <div class="app-frame">
+            <aside class="app-rail">
+              <span class="rail-label">Class mode</span>
+              <button class="mode-btn" type="button" aria-pressed="true" data-mode="Physical">Physical</button>
+              <button class="mode-btn" type="button" aria-pressed="false" data-mode="Live online">Live online</button>
+              <span class="rail-label">Student level</span>
+              <button class="mode-btn" type="button" aria-pressed="true" data-level="AS">AS Level</button>
+              <button class="mode-btn" type="button" aria-pressed="false" data-level="A2">A2 Level</button>
+            </aside>
+
+            <div class="app-main">
+              <div class="app-top">
+                <strong id="planner-title">Your A Level Business plan</strong>
+                <span class="status">WhatsApp first</span>
+              </div>
+
+              <div class="selector-row" role="tablist" aria-label="Business papers">
+                <button class="paper-btn" type="button" role="tab" aria-selected="true" data-paper="Paper 1">Paper 1</button>
+                <button class="paper-btn" type="button" role="tab" aria-selected="false" data-paper="Paper 2">Paper 2</button>
+                <button class="paper-btn" type="button" role="tab" aria-selected="false" data-paper="Paper 3">Paper 3</button>
+                <button class="paper-btn" type="button" role="tab" aria-selected="false" data-paper="Paper 4">Paper 4</button>
+              </div>
+
+              <div class="dashboard">
+                <article class="live-panel" aria-live="polite">
+                  <h2 id="paper-heading">Paper 1: short answer precision.</h2>
+                  <p id="paper-copy">Train definitions, concise explanation, and focused application without wasting time on generic paragraphs.</p>
+                  <ul class="skill-list" id="skill-list">
+                    <li><b>1</b><span>Write definitions that fit the question.</span></li>
+                    <li><b>2</b><span>Use business terms without padding.</span></li>
+                    <li><b>3</b><span>Keep short answers specific and mark-focused.</span></li>
+                  </ul>
+                  <div class="intent-panel">
+                    <strong>What do you want to ask first?</strong>
+                    <div class="intent-grid">
+                      <a class="intent-link" data-intent="fee" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20please%20share%20the%20fee%20for%20A%20Level%20Business%209609%20classes.">Fee and timing</a>
+                      <a class="intent-link" data-intent="level" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20know%20if%20the%20A%20Level%20Business%20class%20fits%20my%20current%20level.">Is this right for me?</a>
+                      <a class="intent-link" data-intent="online" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20is%20there%20a%20live%20online%20option%20for%20A%20Level%20Business%209609%3F">Online option</a>
+                    </div>
+                  </div>
+                </article>
+
+                <aside class="side-panel" aria-label="Selected plan details">
+                  <div class="metric">
+                    <span>Selected mode</span>
+                    <strong id="selected-mode">Physical</strong>
+                  </div>
+                  <div class="metric">
+                    <span>Selected level</span>
+                    <strong id="selected-level">AS</strong>
+                  </div>
+                  <div class="metric">
+                    <span>Selected paper</span>
+                    <strong id="selected-paper">Paper 1</strong>
+                  </div>
+                  <div class="metric">
+                    <span>Next step</span>
+                    <strong>Ask before registering</strong>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <section class="section" id="method">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Why this works</p>
+            <h2 class="section-title">The page sells the method by letting students interact with it.</h2>
+          </div>
+          <p class="section-copy">Instead of listing “exam technique” as a feature, the interface shows how SJ Academy thinks about papers, levels, modes, and the next conversation.</p>
+        </div>
+
+        <div class="flow">
+          <article class="flow-large">
+            <h3>Answer writing is treated like a skill system.</h3>
+            <p>Students are not just told to “analyze more.” They see the difference between a basic answer and an answer that uses case data, builds consequences, and makes a judgement.</p>
+            <div class="answer-stack">
+              <div class="answer-line">Weak: Advertising increases sales because more customers will know about the product.</div>
+              <div class="answer-line good">Stronger: Advertising may increase demand in the selected market segment, but the recommendation depends on whether extra revenue covers the campaign cost.</div>
+              <div class="answer-line good">Exam focus: connect the point to revenue, cost, capacity, stakeholders, and the final decision.</div>
+            </div>
+          </article>
+
+          <aside class="flow-small">
+            <div class="mini-step">
+              <span>Step 01</span>
+              <strong>Pick the paper.</strong>
+            </div>
+            <div class="mini-step">
+              <span>Step 02</span>
+              <strong>See the exact writing skill.</strong>
+            </div>
+            <div class="mini-step">
+              <span>Step 03</span>
+              <strong>Message with a clear question.</strong>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" id="contact">
+      <div class="shell final-grid">
+        <div>
+          <p class="eyebrow">Next step</p>
+          <h2>Ask for the current A Level Business batch details.</h2>
+          <p>Keep the conversion path simple. Students and parents should first confirm fee, timing, mode, and fit before being sent to a registration form.</p>
+        </div>
+        <aside class="final-card">
+          <ul>
+            <li><span>Subject</span><strong>Business 9609</strong></li>
+            <li><span>Teacher</span><strong>Sir Sunyyan</strong></li>
+            <li><span>Location</span><strong>DHA Phase 7</strong></li>
+            <li><span>Path</span><strong>WhatsApp first</strong></li>
+          </ul>
+          <a class="button button-whatsapp" data-track="final_whatsapp_click" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20check%20A%20Level%20Business%209609%20classes.%20Please%20share%20fee%2C%20timing%2C%20teacher%2C%20and%20online%20or%20physical%20options.">Message SJ Academy</a>
+        </aside>
+      </div>
+    </section>
+
+    <div class="mobile-cta">
+      <a class="button button-whatsapp" data-track="mobile_whatsapp_click" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20to%20check%20A%20Level%20Business%209609%20classes.%20Please%20share%20fee%2C%20timing%2C%20teacher%2C%20and%20online%20or%20physical%20options.">WhatsApp SJ Academy</a>
+    </div>
+
+    <script>
+      (function () {
+        const root = document.querySelector(".sja-product-lp");
+        if (!root) return;
+
+        const state = {
+          mode: "Physical",
+          level: "AS",
+          paper: "Paper 1"
+        };
+
+        const paperData = {
+          "Paper 1": {
+            title: "Paper 1: short answer precision.",
+            copy: "Train definitions, concise explanation, and focused application without wasting time on generic paragraphs.",
+            skills: [
+              "Write definitions that fit the question.",
+              "Use business terms without padding.",
+              "Keep short answers specific and mark-focused."
+            ]
+          },
+          "Paper 2": {
+            title: "Paper 2: data response application.",
+            copy: "Learn how to use the case data, figures, and business context instead of writing answers that could apply to any company.",
+            skills: [
+              "Pull relevant evidence from the data.",
+              "Connect numbers to business consequences.",
+              "Make each paragraph specific to the case."
+            ]
+          },
+          "Paper 3": {
+            title: "Paper 3: longer case analysis.",
+            copy: "Build analysis chains that move from decision to effect, then to impact on costs, revenue, profit, cash flow, or stakeholders.",
+            skills: [
+              "Develop multi-step cause and effect.",
+              "Keep long answers structured.",
+              "Use the case as the anchor for every point."
+            ]
+          },
+          "Paper 4": {
+            title: "Paper 4: evaluation and recommendation.",
+            copy: "Practice weighing options and finishing with a clear recommendation instead of repeating both sides.",
+            skills: [
+              "Compare options using business priorities.",
+              "Write justified final judgement.",
+              "Avoid vague balanced conclusions."
+            ]
+          }
+        };
+
+        const updatePlanner = () => {
+          const data = paperData[state.paper];
+          root.querySelector("#paper-heading").textContent = data.title;
+          root.querySelector("#paper-copy").textContent = data.copy;
+          root.querySelector("#selected-mode").textContent = state.mode;
+          root.querySelector("#selected-level").textContent = state.level;
+          root.querySelector("#selected-paper").textContent = state.paper;
+          root.querySelector("#planner-title").textContent = state.level + " Business plan";
+          root.querySelector("#skill-list").innerHTML = data.skills.map((skill, index) => {
+            return "<li><b>" + (index + 1) + "</b><span>" + skill + "</span></li>";
+          }).join("");
+        };
+
+        root.querySelectorAll("[data-mode]").forEach((button) => {
+          button.addEventListener("click", () => {
+            state.mode = button.dataset.mode;
+            root.querySelectorAll("[data-mode]").forEach((item) => {
+              item.setAttribute("aria-pressed", item === button ? "true" : "false");
+            });
+            updatePlanner();
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: "batch_mode_toggle", mode: state.mode });
+          });
+        });
+
+        root.querySelectorAll("[data-level]").forEach((button) => {
+          button.addEventListener("click", () => {
+            state.level = button.dataset.level;
+            root.querySelectorAll("[data-level]").forEach((item) => {
+              item.setAttribute("aria-pressed", item === button ? "true" : "false");
+            });
+            updatePlanner();
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: "student_level_select", level: state.level });
+          });
+        });
+
+        root.querySelectorAll("[data-paper]").forEach((button) => {
+          button.addEventListener("click", () => {
+            state.paper = button.dataset.paper;
+            root.querySelectorAll("[data-paper]").forEach((item) => {
+              item.setAttribute("aria-selected", item === button ? "true" : "false");
+            });
+            updatePlanner();
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: "paper_select", paper: state.paper });
+          });
+        });
+
+        root.querySelectorAll("a[data-track], .intent-link").forEach((link) => {
+          link.addEventListener("click", () => {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "whatsapp_click",
+              cta_label: link.textContent.trim(),
+              cta_location: link.dataset.track || "planner_intent",
+              intent: link.dataset.intent || "",
+              selected_mode: state.mode,
+              selected_level: state.level,
+              selected_paper: state.paper
+            });
+          });
+        });
+      })();
+    </script>
+  </main>
+</body>
+</html>

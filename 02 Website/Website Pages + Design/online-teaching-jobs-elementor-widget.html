@@ -1,0 +1,448 @@
+<!-- SJ Academy Online Teaching Jobs page (teacher sign-up), Elementor HTML widget. Version 1.0, 28 October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Hire (recruitment). Lead reader: teacher applicant.
+     Address stays /online-teaching-jobs/ (do not rename it).
+
+     HOW THE FORM GETS INTO THE FIRST FOLD
+     The teacher application form is still WPForms form 8616, so entries, email notifications, CV uploads and reCAPTCHA keep working as they do now.
+     1. Paste this whole file into one HTML widget, replacing the old page content. Section: full width, zero padding, no entrance animation.
+     2. Directly below it, add a WPForms widget (or a Shortcode widget with [wpforms id="8616"]) in its own full-width section with zero padding.
+        On page load, this widget moves that form into the hero card and hides the empty section it came from.
+     3. Templates > Popups > the "Teacher Registration Form" popup (ID 8793) > Display Conditions: exclude this page,
+        so the form is not loaded twice on it.
+     Page layout: Elementor Full Width. Hide Title: Yes.
+     Set the SEO title, meta description and social title in Yoast; the widget cannot change them.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet"></noscript>
+
+<div id="sj" class="sj-p-teach" data-family="hire">
+
+  <!-- 1. HERO WITH THE APPLICATION FORM -->
+  <section class="sj-section sj-bg-dots sjtj-herosec" data-sj-hero>
+    <div class="sj-wrap">
+      <nav class="sj-crumbs" aria-label="Breadcrumb"><ol><li><a href="https://www.sjacademy.pk/">Home</a></li><li aria-current="page">Teach with us</li></ol></nav>
+    </div>
+    <div class="sj-wrap sjtj-hero">
+      <div class="sjtj-copy sj-stack">
+        <h1 class="sj-h1"><span class="sj-pill"><span>Online teaching jobs in Karachi &amp; Pakistan</span></span>Bring the subject. We bring <span class="sj-hl">the students.</span></h1>
+        <p class="sj-lead sj-measure">SJ Academy is hiring O Level and A Level teachers, in class at DHA Phase 7, Karachi, and live online from anywhere in Pakistan. You teach. We handle the enquiries, the timetable and the fee reminders.</p>
+      </div>
+
+      <div class="sj-offset sj-tagged sjtj-apply" id="apply">
+        <span class="sj-tag">3 minutes, tops</span>
+        <h2 class="sj-h3">Apply to teach</h2>
+        <p class="sj-small sj-muted sjtj-sub">Fields marked <b class="sjtj-req">*</b> are required. We read every application ourselves.</p>
+        <div class="sjtj-form" id="sjtj-slot">
+          <div class="sjtj-wait" id="sjtj-wait" aria-hidden="true"><span class="sj-skel"></span><span class="sj-skel"></span><span class="sj-skel"></span><span class="sj-skel"></span></div>
+        </div>
+        <div class="sj-alert" id="sjtj-fallback" hidden>
+          <b>The form did not load</b>
+          <p>Send us your subjects and levels on WhatsApp instead, and we will reply there.</p>
+          <a class="sj-btn sj-btn-wa sj-btn-sm" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%27d%20like%20to%20teach%20with%20you.%0ASubject%28s%29%3A%20%0ALevel%3A%20%0A%28Ref%3A%20TJ%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="form_fallback">Apply on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="sjtj-more sj-stack">
+        <ul class="sj-ticks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Students matched to your subjects and timings</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Weekdays, weekends or both: you choose</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Teach in class in Karachi or online from home</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Fresh graduates welcome</span></li>
+        </ul>
+        <span class="sj-hand sj-tilt-l sjtj-note">no posting &ldquo;tuition available&rdquo; in WhatsApp groups</span>
+        <div class="sj-proof">
+          <span><b>4,500+</b>students taught</span>
+          <a href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener" data-loc="hero_proof"><b>5.0 on Google</b>from 226 reviews</a>
+          <span><b>O &amp; A Level</b>plus IELTS and entry tests</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. WHY TEACHERS JOIN -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">Why teachers join</div>
+        <h2 class="sj-h2">The boring half of tutoring, <span class="sj-hl">handled</span></h2>
+        <p class="sjtj-top">Teaching is the good part. Finding students, chasing fees and rescheduling around everyone's mocks is the other part. We take the other part.</p>
+      </div>
+      <div class="sj-grid sj-grid-3">
+        <div class="sj-tile"><b>Students come to you</b><p>We match students to your subject, level and timings. Your phone stays free for marking.</p></div>
+        <div class="sj-tile"><b>You pick the hours</b><p>Weekdays, weekends or both. Classes run on weekends too, so teaching can sit alongside a day job or a degree.</p></div>
+        <div class="sj-tile"><b>Steady work, all session</b><p>Batches run through the whole exam session, so your teaching does not restart from zero every month.</p></div>
+        <div class="sj-tile"><b>No chasing fees</b><p>Our front desk handles enquiries, fee collection and attendance. You handle the teaching.</p></div>
+        <div class="sj-tile"><b>A name parents trust</b><p>SJ Academy is rated 5.0 on Google from 226 reviews. Parents arrive having read them.</p></div>
+        <div class="sj-tile"><b>Online or in class</b><p>Teach live online from anywhere in Pakistan, or in class at our DHA Phase 7 campus in Karachi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. THE JOB (brown band) -->
+  <section class="sj-section sj-bg-brown">
+    <div class="sj-wrap sjtj-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">The job</div>
+        <h2 class="sj-h2">Marked answers, <span class="sj-hl">not just lectures</span></h2>
+        <p class="sj-measure">SJ Academy classes are built on Cambridge past papers. Students write answers in class, teachers mark them against the mark scheme, and every student sees where each mark went. If you already teach this way, you will fit right in.</p>
+        <ul class="sj-ticks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Teach to the Cambridge syllabus and mark scheme for your subject</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Set past-paper questions in class and mark the answers</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Tell parents when a student starts falling behind</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Start on time, every class. Karachi traffic is an explanation, not an excuse.</span></li>
+        </ul>
+      </div>
+      <div class="sjtj-papers">
+        <div class="sj-paper">
+          <div class="sj-paper-q"><small>Application, question 1</small>Why do you want to teach at SJ Academy? [3]</div>
+          <div class="sj-paper-a">Because I am very passionate about teaching. <span class="sj-mark">&#10003;</span></div>
+          <div class="sj-paper-note">1/3. true, but everyone writes this. show us on the screening call.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHO WE HIRE -->
+  <section class="sj-section sj-bg-canvas">
+    <div class="sj-wrap sjtj-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">Who we hire</div>
+        <h2 class="sj-h2">Subjects we <span class="sj-hl">hire for</span></h2>
+        <p class="sj-measure">O Level and A Level teachers first, plus IELTS and entry test prep. Subject not listed? Apply anyway and add it under &ldquo;Others&rdquo; in the form.</p>
+        <div class="sjtj-chips">
+          <span class="sj-small sj-muted">Levels</span>
+          <ul class="sj-row" aria-label="Levels we hire for"><li class="sj-chip sj-chip-yellow">O Level</li><li class="sj-chip sj-chip-yellow">A Level</li><li class="sj-chip">IELTS</li><li class="sj-chip">Entry tests (IBA, LUMS, DOW)</li></ul>
+        </div>
+        <div class="sjtj-chips">
+          <span class="sj-small sj-muted">Subjects</span>
+          <ul class="sj-row" aria-label="Subjects we hire for"><li class="sj-chip">Mathematics</li><li class="sj-chip">Physics</li><li class="sj-chip">Chemistry</li><li class="sj-chip">Biology</li><li class="sj-chip">Business</li><li class="sj-chip">Economics</li><li class="sj-chip">Accounting</li><li class="sj-chip">Computer Science</li><li class="sj-chip">English Language</li><li class="sj-chip">English Literature</li><li class="sj-chip">Urdu</li><li class="sj-chip">Pakistan Studies</li><li class="sj-chip">Islamiat</li><li class="sj-chip">Law</li><li class="sj-chip">Psychology</li><li class="sj-chip">Sociology</li></ul>
+        </div>
+      </div>
+      <div class="sjtj-side">
+        <div class="sj-sticky sjtj-sticky">
+          <span class="sj-hand">fresh graduates</span>
+          <p>You do not need 10 years of experience. If you know your subject cold and can explain it to a nervous 16-year-old, apply. Looking for online jobs in Pakistan for students or recent graduates? Start here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. THE TEAM -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">Who you would teach with</div>
+        <h2 class="sj-h2">You would be in <span class="sj-hl">good company</span></h2>
+        <p class="sjtj-top">Our faculty includes teachers from LUMS, IBA and ex-KGS. A few of the people you would share a staff room (or a Zoom link) with:</p>
+      </div>
+      <div class="sj-grid sj-grid-4 sjtj-team">
+        <article class="sj-pinned sj-tagged">
+          <span class="sj-pin" aria-hidden="true"></span>
+          <span class="sj-tag">co-founder</span>
+          <div class="sjtj-in">
+            <div class="sjtj-head"><span class="sjtj-av"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" alt="Sir Salman Junaid, Maths and Physics teacher at SJ Academy" width="182" height="182" loading="lazy" decoding="async" style="width:100.0%;left:0.0%;top:0.0%"></span><div><h3 class="sj-h3">Sir Salman Junaid</h3><p>Maths and Physics</p></div></div>
+            <ul class="sjtj-facts"><li>Ex-KGS faculty, 12+ years of teaching</li><li>NED University engineer</li></ul>
+          </div>
+        </article>
+        <article class="sj-pinned">
+          <span class="sj-pin" aria-hidden="true"></span>
+          <div class="sjtj-in">
+            <div class="sjtj-head"><span class="sjtj-av"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/07/Kashan-Ali-768x431.jpeg" alt="Sir Kashaan Ali, Islamiyat and Pakistan Studies teacher at SJ Academy" width="768" height="431" loading="lazy" decoding="async" style="width:318.2%;left:-109.1%;top:-7.1%"></span><div><h3 class="sj-h3">Sir Kashaan Ali</h3><p>Islamiyat and Pakistan Studies</p></div></div>
+            <ul class="sjtj-facts"><li>Teaching since 2003</li></ul>
+          </div>
+        </article>
+        <article class="sj-pinned">
+          <span class="sj-pin" aria-hidden="true"></span>
+          <div class="sjtj-in">
+            <div class="sjtj-head"><span class="sjtj-av"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/11/Sir-Riza-768x454.webp" alt="Sir Riza Walji, Computer Science teacher at SJ Academy" width="768" height="454" loading="lazy" decoding="async" style="width:272.8%;left:-76.9%;top:-8.1%"></span><div><h3 class="sj-h3">Sir Riza Walji</h3><p>Computer Science</p></div></div>
+            <ul class="sjtj-facts"><li>9+ years of teaching</li></ul>
+          </div>
+        </article>
+        <article class="sj-pinned">
+          <span class="sj-pin" aria-hidden="true"></span>
+          <div class="sjtj-in">
+            <div class="sjtj-head"><span class="sjtj-av"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/11/Umair-Pic-1-300x217.jpg" alt="Sir Umair, Biology teacher at SJ Academy" width="300" height="217" loading="lazy" decoding="async" style="width:145.5%;left:-12.6%;top:-2.6%"></span><div><h3 class="sj-h3">Sir Umair</h3><p>Biology</p></div></div>
+            <ul class="sjtj-facts"><li>LUMS graduate</li><li>8+ years teaching IB and Cambridge Biology</li></ul>
+          </div>
+        </article>
+      </div>
+      <p><a class="sj-link sj-link-go" href="https://www.sjacademy.pk/meet-the-teachers/" data-loc="team">Meet all our teachers</a></p>
+    </div>
+  </section>
+
+  <!-- 6. HOW IT WORKS -->
+  <section class="sj-section sj-bg-dots">
+    <div class="sj-wrap sjtj-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">How it works</div>
+        <h2 class="sj-h2">From form to <span class="sj-hl">first class</span></h2>
+        <ol class="sj-steps">
+          <li><b>Fill in the form</b><span>Your subjects, levels, availability and qualification. About 3 minutes.</span></li>
+          <li><b>Quick screening call</b><span>We read your application and call you to talk about your subject and how you teach.</span></li>
+          <li><b>Start teaching</b><span>Once approved, we match you with students for your subjects and timings.</span></li>
+        </ol>
+      </div>
+      <div class="sj-card sj-stack">
+        <h3 class="sj-h3">Have these ready</h3>
+        <ul class="sj-ticks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>The subjects and levels you teach</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>The days you are free</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Your highest qualification</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Your CV as a PDF or Word file (optional, but it helps)</span></li>
+        </ul>
+        <div><a class="sj-btn sj-btn-primary" href="#apply" data-sjtj-apply data-loc="steps">Apply to teach</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div>
+        <div class="sj-eyebrow">FAQ</div>
+        <h2 class="sj-h2">Questions teachers <span class="sj-hl">ask us</span></h2>
+      </div>
+      <div class="sj-faq">
+        <details open><summary>Do I need teaching experience to apply?</summary><div class="sj-faq-a"><p>No. Fresh graduates are welcome. If you know your subject well and can explain it clearly, apply. We talk about how you teach on the screening call.</p></div></details>
+        <details><summary>Can I teach online from outside Karachi?</summary><div class="sj-faq-a"><p>Yes. SJ Academy runs live online classes, so you can apply from anywhere in Pakistan. In-class teaching happens at our campus in DHA Phase 7, Karachi.</p></div></details>
+        <details><summary>Which subjects are you hiring for?</summary><div class="sj-faq-a"><p>O Level and A Level Mathematics, Physics, Chemistry, Biology, Business, Economics, Accounting, Computer Science, English Language, English Literature, Urdu, Pakistan Studies, Islamiat, Law, Psychology and Sociology. If your subject is not listed, add it under &ldquo;Others&rdquo; in the form.</p></div></details>
+        <details><summary>Do you hire for IELTS and entry test prep?</summary><div class="sj-faq-a"><p>Yes. Tick IELTS or Entry Test in the form, and name the tests you prepare students for, such as IBA, LUMS or DOW.</p></div></details>
+        <details><summary>Can I teach part-time?</summary><div class="sj-faq-a"><p>Yes. Tell us in the form whether you are free on weekdays, weekends or both, and we match classes to those times. Classes run on weekends too.</p></div></details>
+        <details><summary>How long does the application take?</summary><div class="sj-faq-a"><p>About 3 minutes. The form asks for your name, email, WhatsApp number, subjects, levels, availability and highest qualification. A CV is optional but recommended.</p></div></details>
+        <details><summary>What happens after I apply?</summary><div class="sj-faq-a"><p>We read every application ourselves. If your subjects and timings fit, we call you for a short screening call. Once approved, we match you with students and you start teaching.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FINAL -->
+  <section class="sj-section sj-bg-yellow">
+    <div class="sj-wrap sj-stack sjtj-final">
+      <h2 class="sj-h2">Know your subject?<br>Prove it in 3 minutes.</h2>
+      <p class="sj-measure">Fill in the form and we will take it from there. Worst case, we have one more good teacher's number.</p>
+      <div class="sj-row"><a class="sj-btn sj-btn-primary" href="#apply" data-sjtj-apply data-loc="final_band">Apply to teach</a></div>
+      <p>Questions first? <a class="sj-link" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20teaching%20with%20you.%0A%28Ref%3A%20TJ-Q%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="final_band">WhatsApp us</a></p>
+    </div>
+  </section>
+
+  <!-- phone bottom bar -->
+  <div class="sj-bar">
+    <a class="sj-btn sj-btn-primary" href="#apply" data-sjtj-apply data-loc="bottom_bar">Apply to teach</a>
+    <a class="sj-btn sj-btn-wa" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20teaching%20with%20you.%0A%28Ref%3A%20TJ-Q%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="bottom_bar">WhatsApp us</a>
+  </div>
+</div>
+
+<style>
+/* Page-only layout for the Online Teaching Jobs page. Every rule is scoped to this page. */
+#sj.sj-p-teach .sjtj-top{margin-top:var(--sj-s3)}
+#sj.sj-p-teach .sjtj-hero{display:grid;gap:var(--sj-s5);grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "form" "more";margin-top:var(--sj-s2)}
+#sj.sj-p-teach .sjtj-copy{grid-area:copy}
+#sj.sj-p-teach .sjtj-apply{grid-area:form;scroll-margin-top:96px;margin-top:6px}
+#sj.sj-p-teach .sjtj-more{grid-area:more;margin-top:var(--sj-s2)}
+#sj.sj-p-teach .sjtj-sub{margin-top:4px}
+#sj.sj-p-teach .sjtj-req{color:var(--sj-err);font-weight:500}
+#sj.sj-p-teach .sjtj-wait{padding:var(--sj-s4) 0}
+#sj.sj-p-teach .sjtj-form:has(.wpforms-container) .sjtj-wait{display:none}
+#sj.sj-p-teach #sjtj-fallback{margin-top:var(--sj-s3)}
+#sj.sj-p-teach #sjtj-fallback .sj-btn{justify-self:start;margin-top:var(--sj-s2)}
+#sj.sj-p-teach .sjtj-note{display:block;max-width:30ch}
+#sj.sj-p-teach .sjtj-two{display:grid;gap:var(--sj-s6);grid-template-columns:minmax(0,1fr)}
+#sj.sj-p-teach .sjtj-papers .sj-paper{margin:8px auto}
+#sj.sj-p-teach .sjtj-chips{display:grid;gap:8px}
+#sj.sj-p-teach .sjtj-chips .sj-row{gap:8px}
+#sj.sj-p-teach .sjtj-sticky{max-width:340px}
+#sj.sj-p-teach .sjtj-team{align-items:start;row-gap:var(--sj-s5)}
+#sj.sj-p-teach .sjtj-in{display:grid;gap:var(--sj-s3);text-align:left}
+#sj.sj-p-teach .sjtj-head{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;align-items:center}
+#sj.sj-p-teach .sjtj-head p{font-size:15px}
+#sj.sj-p-teach .sjtj-av{position:relative;display:block;width:72px;height:72px;border-radius:50%;overflow:hidden;background:var(--sj-brown);border:2px solid #fff;box-shadow:0 0 0 1.5px var(--sj-ink)}
+#sj.sj-p-teach .sjtj-av img{position:absolute;max-width:none;height:auto}
+#sj.sj-p-teach .sjtj-facts{display:grid;gap:4px;font-size:15px;line-height:1.5}
+#sj.sj-p-teach .sjtj-facts li{position:relative;padding-left:16px}
+#sj.sj-p-teach .sjtj-facts li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--sj-ink)}
+#sj.sj-p-teach .sjtj-final{display:grid;justify-items:center;text-align:center}
+#sj.sj-p-teach .sjtj-final .sj-row{justify-content:center}
+@media (max-width:899px){.joinchat,#back-to-top{display:none!important}}
+@media (min-width:900px){
+  #sj.sj-p-teach .sjtj-hero{grid-template-columns:minmax(0,1fr) minmax(0,540px);grid-template-areas:"copy form" "more form";grid-template-rows:auto 1fr;column-gap:var(--sj-s8);row-gap:var(--sj-s5);align-items:start}
+  #sj.sj-p-teach .sjtj-copy{padding-top:var(--sj-s5)}
+  #sj.sj-p-teach .sjtj-more{position:sticky;top:120px}
+  #sj.sj-p-teach .sjtj-two{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--sj-s8);align-items:center}
+  #sj.sj-p-teach .sjtj-side{display:grid;justify-items:center}
+}
+
+/* WPForms skin for form 8616 once it sits inside the hero card */
+#sj.sj-p-teach .sjtj-form .wpforms-container{--wpforms-field-border-radius:12px;--wpforms-field-border-size:1.5px;--wpforms-field-border-color:#151515;--wpforms-field-border-color-spare:#151515;--wpforms-field-text-color:#151515;--wpforms-field-background-color:#fff;--wpforms-label-color:#151515;--wpforms-label-sublabel-color:#66625A;--wpforms-label-error-color:#B3261E;--wpforms-field-size-input-height:50px;--wpforms-field-size-input-spacing:8px;--wpforms-field-size-font-size:16px;--wpforms-field-size-line-height:1.4;--wpforms-label-size-font-size:15px;--wpforms-label-size-line-height:1.4;--wpforms-label-size-sublabel-font-size:13px;--wpforms-button-background-color:#CC4A00;--wpforms-button-border-color:#151515;--wpforms-button-text-color:#fff;--wpforms-button-border-radius:12px;margin:0!important;padding:0!important;font-family:var(--sj-font)}
+#sj.sj-p-teach .sjtj-form .wpforms-field{padding:9px 0!important;margin:0!important}
+#sj.sj-p-teach .sjtj-form fieldset{border:0!important;margin:0!important;padding:0!important;min-width:0}
+#sj.sj-p-teach .sjtj-form .wpforms-field-label,#sj.sj-p-teach .sjtj-form legend.wpforms-field-label{display:block!important;width:auto!important;border:0!important;padding:0!important;font-family:var(--sj-font)!important;font-size:15px!important;line-height:1.4!important;font-weight:500!important;letter-spacing:0!important;text-transform:none!important;color:var(--sj-ink)!important;margin:0 0 8px!important}
+#sj.sj-p-teach .sjtj-form .wpforms-required-label{color:var(--sj-err)!important}
+#sj.sj-p-teach .sjtj-form .wpforms-field-row{display:flex!important;gap:12px;max-width:none!important}
+#sj.sj-p-teach .sjtj-form .wpforms-field-row-block{flex:1 1 0;min-width:0;width:auto!important;margin:0!important;padding:0!important}
+#sj.sj-p-teach .sjtj-form .wpforms-field-row::before,#sj.sj-p-teach .sjtj-form .wpforms-field-row::after{display:none!important}
+#sj.sj-p-teach .sjtj-form .wpforms-field-sublabel{margin-top:4px!important;font-size:13px!important;color:var(--sj-muted)!important}
+#sj.sj-p-teach .sjtj-form input[type=text]:not(.dropzone-input),#sj.sj-p-teach .sjtj-form input[type=email],#sj.sj-p-teach .sjtj-form input[type=tel],#sj.sj-p-teach .sjtj-form select{display:block;width:100%!important;max-width:100%!important;height:50px!important;min-height:50px!important;padding:12px 14px!important;margin:0!important;border:1.5px solid var(--sj-ink)!important;border-radius:var(--sj-r-md)!important;background-color:#fff!important;color:var(--sj-ink)!important;font-family:var(--sj-font)!important;font-size:16px!important;line-height:1.4!important;box-shadow:none!important}
+#sj.sj-p-teach .sjtj-form .iti{width:100%}
+#sj.sj-p-teach .sjtj-form .iti input[type=tel]{padding-left:52px!important}
+#sj.sj-p-teach .sjtj-form input:not([type=checkbox]):focus,#sj.sj-p-teach .sjtj-form select:focus{outline:3px solid var(--sj-ink)!important;outline-offset:2px;box-shadow:4px 4px 0 var(--sj-yellow)!important;border-color:var(--sj-ink)!important}
+#sj.sj-p-teach .sjtj-form select{-webkit-appearance:none!important;appearance:none!important;padding-right:44px!important;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23151515' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center/20px!important}
+#sj.sj-p-teach .sjtj-form #wpforms-8616-field_3-container{display:none!important}
+#sj.sj-p-teach .sjtj-form .wpforms-field-checkbox ul{display:flex!important;flex-wrap:wrap!important;gap:8px!important;margin:0!important;padding:0!important}
+#sj.sj-p-teach .sjtj-form .wpforms-field-checkbox ul li{position:relative!important;display:block!important;width:auto!important;margin:0!important;padding:0!important}
+#sj.sj-p-teach .sjtj-form .wpforms-field-checkbox ul li input{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;opacity:0!important;z-index:1;cursor:pointer}
+#sj.sj-p-teach .sjtj-form .wpforms-field-checkbox ul li label{display:inline-flex!important;align-items:center;gap:6px;min-height:44px;padding:8px 14px!important;margin:0!important;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-pill);background:#fff;box-shadow:2px 2px 0 rgba(0,0,0,.14);font-family:var(--sj-font);font-size:14px!important;line-height:1.3!important;font-weight:500!important;color:var(--sj-ink)!important;transition:transform var(--sj-fast) ease-out,box-shadow var(--sj-fast) ease-out}
+#sj.sj-p-teach .sjtj-form .wpforms-field-checkbox ul li input:checked+label{background:var(--sj-yellow);box-shadow:0 0 0 rgba(0,0,0,0);transform:translate(2px,2px)}
+#sj.sj-p-teach .sjtj-form .wpforms-field-checkbox ul li input:checked+label::before{content:"\2713"}
+#sj.sj-p-teach .sjtj-form .wpforms-field-checkbox ul li input:focus-visible+label{outline:3px solid var(--sj-ink);outline-offset:3px}
+#sj.sj-p-teach .sjtj-form div.wpforms-uploader{border:1.5px dashed #A8A396!important;border-radius:var(--sj-r-md)!important;background:var(--sj-canvas)!important;padding:16px!important}
+#sj.sj-p-teach .sjtj-form div.wpforms-uploader .dz-message{font-size:14px!important;color:var(--sj-muted)!important}
+#sj.sj-p-teach .sjtj-form div.wpforms-uploader .dz-message svg{width:28px;height:28px;color:var(--sj-ink)}
+#sj.sj-p-teach .sjtj-form .wpforms-submit-container{padding:12px 4px 4px 0!important;margin:0!important}
+#sj.sj-p-teach .sjtj-form button.wpforms-submit{width:100%!important;min-height:56px!important;height:auto!important;padding:14px 22px!important;border:1.5px solid var(--sj-ink)!important;border-radius:var(--sj-r-md)!important;background:var(--sj-cta)!important;color:#fff!important;box-shadow:4px 4px 0 var(--sj-ink)!important;font-family:var(--sj-font)!important;font-size:17px!important;font-weight:500!important;line-height:1.3!important;text-align:center!important;justify-content:center!important}
+@media (hover:hover){#sj.sj-p-teach .sjtj-form button.wpforms-submit:hover{background:var(--sj-cta-dark)!important;transform:translate(-1px,-1px)}}
+#sj.sj-p-teach .sjtj-form .wpforms-error,#sj.sj-p-teach .sjtj-form em.wpforms-error{font-size:14px!important;font-weight:500!important;color:var(--sj-err)!important;font-style:normal!important}
+#sj.sj-p-teach .sjtj-form .wpforms-confirmation-container-full{background:var(--sj-ok-bg)!important;border:1.5px solid var(--sj-ok)!important;border-radius:var(--sj-r-md)!important;color:var(--sj-ink)!important;padding:16px!important;margin:0!important}
+</style>
+
+<script>
+/* Page script for the Online Teaching Jobs page.
+   1. Moves WPForms form 8616 (placed in a widget below this one) into the hero card, then hides the empty section it came from.
+   2. Tidies the form's display labels. The saved field names in WPForms entries are not changed.
+   3. "Apply to teach" links scroll to the form and focus the first field.
+   4. Sends teacher_apply to Analytics when an application is sent. */
+(function(){
+  var root=document.getElementById('sj'); if(!root||!root.classList.contains('sj-p-teach')) return;
+  var slot=document.getElementById('sjtj-slot'),FORM='wpforms-8616',moved=false;
+  var each=function(list,fn){Array.prototype.forEach.call(list,fn)};
+  var LABELS={1:'Your name',6:'WhatsApp number',8:'Subjects you can teach',9:'How do you want to teach?',10:'When are you free?',11:'Highest qualification',12:'CV (optional, but it helps)'};
+  function relabel(box){
+    Object.keys(LABELS).forEach(function(id){
+      var l=box.querySelector('#wpforms-8616-field_'+id+'-container .wpforms-field-label'); if(!l) return;
+      for(var n=l.firstChild;n;n=n.nextSibling){ if(n.nodeType===3&&n.nodeValue.trim()){ n.nodeValue=LABELS[id]+' '; break; } }
+    });
+    var opt=box.querySelector('#wpforms-8616-field_11 option[value=""]'); if(opt) opt.textContent='Choose one';
+    var btn=box.querySelector('#wpforms-submit-8616');
+    if(btn){ btn.textContent='Send my application'; btn.setAttribute('data-submit-text','Send my application'); }
+  }
+  function find(){
+    var hit=null;
+    each(document.querySelectorAll('div.wpforms-container[id="'+FORM+'"]'),function(c){
+      if(!hit&&!root.contains(c)&&!c.closest('[data-elementor-type="popup"]')) hit=c;
+    });
+    return hit;
+  }
+  function move(){
+    if(moved) return true;
+    var c=find(); if(!c) return false;
+    var widget=c.closest('.elementor-widget'),top=c.closest('.e-con.e-parent,.elementor-top-section');
+    relabel(c); slot.appendChild(c); moved=true;
+    if(top&&!top.contains(root)&&!(top.textContent||'').trim()) top.style.display='none';
+    else if(widget&&!widget.contains(root)) widget.style.display='none';
+    return true;
+  }
+  if(!move()){
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',move);
+    window.addEventListener('load',function(){
+      if(!move()) setTimeout(function(){ if(!move()){ document.getElementById('sjtj-wait').hidden=true; document.getElementById('sjtj-fallback').hidden=false; } },1500);
+    });
+  }
+
+  /* Apply links: scroll to the card and focus the first field */
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  each(root.querySelectorAll('[data-sjtj-apply]'),function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var card=document.getElementById('apply');
+      card.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+      setTimeout(function(){ var f=card.querySelector('input[type=text],input[type=email]'); if(f){ try{f.focus({preventScroll:true})}catch(x){f.focus()} } },reduce?0:600);
+      var g=window['gt'+'ag']; if(typeof g==='function') g('event','apply_click',{link_location:a.getAttribute('data-loc')||'unknown',page_family:'hire'});
+    });
+  });
+
+  /* Successful application */
+  if(window.jQuery){
+    window.jQuery(document).on('wpformsAjaxSubmitSuccess',function(e){
+      if(!e.target||e.target.id!=='wpforms-form-8616') return;
+      var g=window['gt'+'ag']; if(typeof g==='function') g('event','teacher_apply',{link_location:'hero_form',page_family:'hire'});
+      var card=document.getElementById('apply'); if(card) card.scrollIntoView({block:'start'});
+    });
+  }
+})();
+</script>
+
+<script>
+/* Standard page script, copied unchanged from 02 Website/Scripts/sj-page-script.js */
+(function(){
+  var root=document.getElementById('sj');
+  if(!root){return;}
+  var each=function(list,fn){Array.prototype.forEach.call(list,fn);};
+
+  /* Tabs: role="tablist" > role="tab" aria-controls="panel-id" */
+  each(root.querySelectorAll('[role="tablist"]'),function(list){
+    var tabs=Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    var pick=function(tab,focus){
+      tabs.forEach(function(t){
+        var on=t===tab;
+        t.setAttribute('aria-selected',on?'true':'false');
+        t.tabIndex=on?0:-1;
+        var panel=document.getElementById(t.getAttribute('aria-controls'));
+        if(panel){panel.hidden=!on;}
+      });
+      if(focus){tab.focus();}
+    };
+    tabs.forEach(function(tab,i){
+      tab.addEventListener('click',function(){pick(tab,false);});
+      tab.addEventListener('keydown',function(e){
+        var step=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+        if(!step){return;}
+        e.preventDefault();
+        pick(tabs[(i+step+tabs.length)%tabs.length],true);
+      });
+    });
+  });
+
+  /* Phone bottom bar: shows once the element marked data-sj-hero has scrolled away */
+  var bar=root.querySelector('.sj-bar');
+  var hero=root.querySelector('[data-sj-hero]');
+  if(bar&&hero&&'IntersectionObserver' in window){
+    root.classList.add('sj-has-bar');
+    new IntersectionObserver(function(entries){
+      bar.classList.toggle('is-on',!entries[0].isIntersecting);
+    }).observe(hero);
+  }
+
+  /* Video: loads the player only after a tap */
+  each(root.querySelectorAll('.sj-video[data-src]'),function(v){
+    v.addEventListener('click',function(e){
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src=v.getAttribute('data-src');
+      f.title=v.getAttribute('data-title')||'Video';
+      f.allow='autoplay; encrypted-media; picture-in-picture';
+      f.allowFullscreen=true;
+      f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';
+      v.innerHTML='';
+      v.appendChild(f);
+    });
+  });
+
+  /* Measurement: one event name per action, location read from data-loc */
+  var send=function(name,loc){
+    var g=window['gt'+'ag'];
+    if(typeof g==='function'){g('event',name,{link_location:loc||'unknown',page_family:root.getAttribute('data-family')||''});}
+  };
+  root.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a,button'):null;
+    if(!a){return;}
+    var href=a.getAttribute('href')||'';
+    var loc=a.getAttribute('data-loc');
+    if(href.indexOf('wa.me')>-1){send('whatsapp_click',loc);}
+    else if(href.indexOf('popup%3Aopen')>-1){send('register_open',loc);}
+    else if(a.hasAttribute('download')){send('resource_download',loc);}
+    else if(a.hasAttribute('data-event')){send(a.getAttribute('data-event'),loc);}
+  });
+})();
+</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need teaching experience to apply?","acceptedAnswer":{"@type":"Answer","text":"No. Fresh graduates are welcome. If you know your subject well and can explain it clearly, apply. We talk about how you teach on the screening call."}},{"@type":"Question","name":"Can I teach online from outside Karachi?","acceptedAnswer":{"@type":"Answer","text":"Yes. SJ Academy runs live online classes, so you can apply from anywhere in Pakistan. In-class teaching happens at our campus in DHA Phase 7, Karachi."}},{"@type":"Question","name":"Which subjects are you hiring for?","acceptedAnswer":{"@type":"Answer","text":"O Level and A Level Mathematics, Physics, Chemistry, Biology, Business, Economics, Accounting, Computer Science, English Language, English Literature, Urdu, Pakistan Studies, Islamiat, Law, Psychology and Sociology. If your subject is not listed, add it under Others in the form."}},{"@type":"Question","name":"Do you hire for IELTS and entry test prep?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tick IELTS or Entry Test in the form, and name the tests you prepare students for, such as IBA, LUMS or DOW."}},{"@type":"Question","name":"Can I teach part-time?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tell us in the form whether you are free on weekdays, weekends or both, and we match classes to those times. Classes run on weekends too."}},{"@type":"Question","name":"How long does the application take?","acceptedAnswer":{"@type":"Answer","text":"About 3 minutes. The form asks for your name, email, WhatsApp number, subjects, levels, availability and highest qualification. A CV is optional but recommended."}},{"@type":"Question","name":"What happens after I apply?","acceptedAnswer":{"@type":"Answer","text":"We read every application ourselves. If your subjects and timings fit, we call you for a short screening call. Once approved, we match you with students and you start teaching."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.sjacademy.pk/"},{"@type":"ListItem","position":2,"name":"Teach with us","item":"https://www.sjacademy.pk/online-teaching-jobs/"}]}</script>

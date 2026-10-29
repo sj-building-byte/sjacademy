@@ -1,0 +1,85 @@
+# Asset Descriptions
+
+⚠️  No vision credentials — descriptions below are catalog-derived (alt text, headings, section context, filename) instead of Vision-generated. To get richer Vision descriptions on the next capture, set GEMINI_API_KEY (or GOOGLE_API_KEY), or HYPERFRAMES_VERTEX_PROJECT_ID plus HYPERFRAMES_VERTEX_SERVICE_ACCOUNT for Vertex service-account auth, and re-run.
+
+The `logo-<hash>.svg` filename prefix is a structural hint (DOM said this SVG was inside a `<header>`, home-link `<a>`, or had an aria-label matching the page brand). To pick the actual brand logo without Vision, open the `logo-*` candidates in a previewer or rasterize them with `sharp` before referencing — composing a fake logo ships off-brand in the final video.
+
+- blog-banners-768x432.png — 39KB, blog banners 768x432
+- favicon.svg — 4KB, favicon
+- flags-2x.webp — 49KB, flags 2x
+- flags.webp — 22KB, flags
+- icon-apple-touch-icon-180x180.png — 10KB, icon apple touch icon 180x180
+- icon-icon-unsized.svg — 4KB, icon icon unsized
+- img-1632-1024x560.jpg — 74KB, img 1632 1024x560
+- img-1632-768x420.jpg — 48KB, img 1632 768x420
+- latest-guides-for-caie-students.jpg — 27KB, latest guides for caie students
+- logo-b9d7b803.svg — 11KB, logo b9d7b803
+- logo-d69ac25b.svg — 10KB, logo d69ac25b
+- og-image.jpg — 113KB, og image
+- screenshot-2026-09-10-at-7-31-32-am-768x.jpg — 30KB, screenshot 2026 09 10 at 7 31 32 am 768x
+- sir-kashaan-ali-islamiyat-pak-studies-te.jpg — 13KB, sir kashaan ali islamiyat pak studies te
+- sir-khawar-shuaib-economics-teacher-at-s.jpg — 36KB, sir khawar shuaib economics teacher at s
+- sir-riza-walji-computer-science-teacher-.webp — 31KB, sir riza walji computer science teacher 
+- sir-salman-junaid-maths-physics-teacher-.png — 13KB, sir salman junaid maths physics teacher 
+- sir-sunyyan-junaid-business-teacher-at-s.jpg — 28KB, sir sunyyan junaid business teacher at s
+- sir-umair-biology-teacher-at-sj-academy.jpg — 23KB, sir umair biology teacher at sj academy
+- svg-20513ae9.svg — 1KB, svg 20513ae9
+- svg-2d4333a6.svg — 0KB, svg 2d4333a6
+- svg-321e4566.svg — 1KB, svg 321e4566
+- svg-693cb57c.svg — 1KB, svg 693cb57c
+- svg-85e8dfa9.svg — 1KB, svg 85e8dfa9
+- svg-8c49fb49.svg — 1KB, svg 8c49fb49
+- svg-97072fa3.svg — 0KB, svg 97072fa3
+- svgs/logo-01ce7be3.svg — logo 01ce7be3
+- svgs/logo-12bb1f4e-2.svg — logo 12bb1f4e 2
+- svgs/logo-12bb1f4e-3.svg — logo 12bb1f4e 3
+- svgs/logo-12bb1f4e-4.svg — logo 12bb1f4e 4
+- svgs/logo-12bb1f4e.svg — logo 12bb1f4e
+- svgs/logo-1c8212e2.svg — logo 1c8212e2
+- svgs/logo-44d73fbf.svg — logo 44d73fbf
+- svgs/logo-577abaf0.svg — logo 577abaf0
+- svgs/logo-60a874fd.svg — logo 60a874fd
+- svgs/logo-6302645c.svg — logo 6302645c
+- svgs/logo-7072147b.svg — logo 7072147b
+- svgs/logo-84d00cf8-2.svg — logo 84d00cf8 2
+- svgs/logo-84d00cf8-3.svg — logo 84d00cf8 3
+- svgs/logo-84d00cf8.svg — logo 84d00cf8
+- svgs/logo-b29c3088.svg — logo b29c3088
+- svgs/logo-bd99cdfa.svg — logo bd99cdfa
+- svgs/logo-d2a85776.svg — logo d2a85776
+- svgs/logo-d905319a.svg — logo d905319a
+- svgs/logo-dbc25cc8.svg — logo dbc25cc8
+- svgs/logo-f2569871.svg — logo f2569871
+- svgs/logo-f4b79dc2.svg — logo f4b79dc2
+- svgs/logo-f4ef57f9.svg — logo f4ef57f9
+- svgs/logo-f7c76e82.svg — logo f7c76e82
+- fonts/92zatBhPNqw73oDd4jQmfxIC7w.woff2 — font file
+- fonts/92zatBhPNqw73oTd4jQmfxI.woff2 — font file
+- fonts/92zatBhPNqw73ord4jQmfxIC7w.woff2 — font file
+- fonts/GTWalsheimPro-Bold-2.woff2 — font file
+- fonts/GTWalsheimPro-Bold.ttf — font file
+- fonts/GTWalsheimPro-Bold.woff — font file
+- fonts/GTWalsheimPro-Bold.woff2 — font file
+- fonts/GTWalsheimPro-Medium.woff2 — font file
+- fonts/GTWalsheimPro-Regular-2.woff2 — font file
+- fonts/GTWalsheimPro-Regular.ttf — font file
+- fonts/GTWalsheimPro-Regular.woff — font file
+- fonts/GTWalsheimPro-Regular.woff2 — font file
+- fonts/WnznHAc5bAfYB2QRah7pcpNvOx-pjSx6eIGpYT5Kmgq3s84t.woff2 — font file
+- fonts/WnznHAc5bAfYB2QRah7pcpNvOx-pjSx6eIWpYT5Kmgq3sw.woff2 — font file
+- fonts/WnznHAc5bAfYB2QRah7pcpNvOx-pjSx6eIipYT5Kmgq3s84t.woff2 — font file
+- fonts/WnznHAc5bAfYB2QRah7pcpNvOx-pjSx6eIupYT5Kmgq3s84t.woff2 — font file
+- fonts/fa-brands-400.ttf — font file
+- fonts/fa-brands-400.woff — font file
+- fonts/fa-brands-400.woff2 — font file
+- fonts/fa-regular-400.ttf — font file
+- fonts/fa-regular-400.woff — font file
+- fonts/fa-regular-400.woff2 — font file
+- fonts/fa-solid-900.woff — font file
+- fonts/fa-solid-900.woff2 — font file
+- fonts/pxiByp8kv8JHgFVrLEj6Z11lFd2JQEl8qw.woff2 — font file
+- fonts/pxiByp8kv8JHgFVrLEj6Z1JlFd2JQEl8qw.woff2 — font file
+- fonts/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2 — font file
+- fonts/pxiGyp8kv8JHgFVrLPTucHtAOvWDSA.woff2 — font file
+- fonts/pxiGyp8kv8JHgFVrLPTucXtAOvWDSHFF.woff2 — font file
+- fonts/pxiGyp8kv8JHgFVrLPTufntAOvWDSHFF.woff2 — font file

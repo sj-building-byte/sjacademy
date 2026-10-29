@@ -1,0 +1,316 @@
+<style>
+  #sja-refund-policy {
+    --sja-yellow: #FCE004;
+    --sja-brown: #453516;
+    --sja-black: #000000;
+    --sja-orange: #FE6100;
+    --sja-white: #FFFFFF;
+    --sja-grey: #555555;
+    --sja-dark-grey: #222222;
+    --sja-light-bg: #FAFAFA;
+    --sja-light-yellow: #fff9cc;
+    --sja-border-light: #e5e5e5;
+    --sja-transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    font-family: 'Poppins', sans-serif;
+    color: var(--sja-dark-grey);
+    line-height: 1.6;
+    background: var(--sja-light-bg);
+    padding-bottom: 60px;
+  }
+
+  #sja-refund-policy * {
+    box-sizing: border-box;
+  }
+
+  #sja-refund-policy .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #sja-refund-policy header {
+    text-align: center;
+    padding: 60px 0 40px;
+  }
+
+  #sja-refund-policy .sja-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--sja-black);
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+  }
+
+  #sja-refund-policy .sja-highlight {
+    background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 35%;
+    background-position: 0 85%;
+    display: inline;
+    padding: 0 5px;
+  }
+
+  #sja-refund-policy .effective-date {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--sja-grey);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  #sja-refund-policy .policy-content {
+    background: var(--sja-white);
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--sja-border-light);
+  }
+
+  #sja-refund-policy .intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--sja-dark-grey);
+  }
+
+  #sja-refund-policy .policy-section {
+    margin-bottom: 35px;
+    padding-bottom: 30px;
+    border-bottom: 1px dashed var(--sja-border-light);
+  }
+
+  #sja-refund-policy .policy-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #sja-refund-policy .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--sja-black);
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #sja-refund-policy .section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--sja-yellow);
+    color: var(--sja-black);
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 800;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+  }
+
+  #sja-refund-policy .policy-section p {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  #sja-refund-policy .policy-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  #sja-refund-policy .policy-section ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style-type: none;
+  }
+
+  #sja-refund-policy .policy-section li {
+    position: relative;
+    margin-bottom: 12px;
+    padding-left: 25px;
+  }
+
+  #sja-refund-policy .policy-section li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--sja-orange);
+    border-radius: 50%;
+  }
+
+  #sja-refund-policy .policy-section li strong {
+    color: var(--sja-black);
+    font-weight: 600;
+  }
+
+  #sja-refund-policy .highlight-box {
+    background-color: #fff9e6;
+    border-left: 4px solid var(--sja-orange);
+    padding: 18px 22px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+  }
+
+  #sja-refund-policy .highlight-box p {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  #sja-refund-policy .contact-box {
+    background-color: var(--sja-light-yellow);
+    border-left: 4px solid var(--sja-yellow);
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 20px;
+  }
+
+  #sja-refund-policy .contact-box p {
+    margin: 5px 0;
+    font-weight: 500;
+  }
+
+  #sja-refund-policy .contact-box a {
+    color: var(--sja-orange);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  #sja-refund-policy .contact-box a:hover {
+    color: var(--sja-brown);
+  }
+
+  @media (max-width: 600px) {
+    #sja-refund-policy .policy-content {
+      padding: 30px 20px;
+    }
+    #sja-refund-policy .sja-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<div id="sja-refund-policy">
+  <div class="container">
+    <header>
+      <h1 class="sja-title">Refund & <span class="sja-highlight">Cancellation Policy</span></h1>
+      <div class="effective-date">Effective Date: August 4, 2026</div>
+    </header>
+
+    <div class="policy-content">
+      <p class="intro-text">
+        At SJ Academy ("we," "our," or "us"), we are committed to transparent educational practices and the highest quality of Cambridge O Level, IGCSE, and A Level coaching. We believe in providing prospective students with the opportunity to evaluate our teaching methodology before making a financial commitment. This Refund and Cancellation Policy clearly defines how trial sessions, tuition fees, multi-month advance packages, and withdrawals are handled.
+      </p>
+
+      <div class="highlight-box">
+        <p><strong>Quick Summary:</strong> Students may attend a free demo class with zero obligation and pay only once satisfied to enroll. For a complete list of monthly tuition rates and subject packages, please visit our official <a href="https://www.sjacademy.pk/fee-structure/" target="_blank" rel="noopener" style="color: var(--sja-orange); text-decoration: underline; font-weight: 600;">Fee Structure</a> page. Once enrolled, tuition fees become strictly <strong>non-refundable after the student has taken at least three (3) classes</strong>. Approved refunds are processed via bank transfer within <strong>10 to 14 business days</strong>.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">1</span> Free Demo Classes & Post-Trial Enrollment</h2>
+        <p>We want every student and parent to feel completely confident in our faculty, teaching pace, and learning environment:</p>
+        <ul>
+          <li><strong>Free Demo Session:</strong> Prospective students are invited to attend a free demo/trial class without paying any upfront tuition fees.</li>
+          <li><strong>Post-Demo Payment:</strong> Students and parents only proceed with fee payment after attending the demo session and confirming they are satisfied and wish to continue with SJ Academy.</li>
+          <li><strong>Enrollment Finalization:</strong> Once satisfaction is confirmed and fee payment is submitted, the student's seat is secured in their designated batch.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">2</span> The 3-Class Non-Refundable Rule</h2>
+        <p>To ensure fairness while protecting the operational continuity and limited seat capacity of our batches:</p>
+        <ul>
+          <li><strong>Satisfaction Window:</strong> If a newly enrolled student experiences irreconcilable scheduling or academic difficulties within their first two (2) classes, they may submit a withdrawal request for review.</li>
+          <li><strong>Non-Refundable Threshold:</strong> Tuition fees become <strong>strictly 100% non-refundable once the student has attended at least three (3) classes</strong> in the session or billing cycle.</li>
+          <li><strong>Attendance Definition:</strong> Attendance is counted across physical attendance at our DHA campus, joining live interactive online lectures, or accessing class session links.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">3</span> Advance 3-Month Packages (Quarterly Drop-Out Policy)</h2>
+        <p>Students who take advantage of our 10% advance tuition discount (detailed on our <a href="https://www.sjacademy.pk/fee-structure/" target="_blank" rel="noopener" style="color: var(--sja-orange); text-decoration: underline; font-weight: 600;">Fee Structure</a> page) by prepaying for three (3) months upfront are governed by the following drop-out terms:</p>
+        <ul>
+          <li><strong>Completed Months:</strong> Completed months (where the student attended classes) are considered fully utilized and non-refundable.</li>
+          <li><strong>70% Refund on Remaining Months:</strong> If a student drops out after one (1) or two (2) months of a 3-month prepaid cycle, <strong>only 70% of the remaining unused month's fee will be refunded at the discounted rate</strong>.</li>
+          <li><strong>30% Administrative Retention:</strong> The remaining 30% of the unused balance is retained by SJ Academy to cover administrative onboarding costs, batch seat holding reservations, and the forfeiture of the advance quarterly promotion.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">4</span> General Situations Not Eligible for Refund</h2>
+        <p>Outside of the provisions outlined in Sections 1, 2, and 3, fees paid to SJ Academy are non-refundable and non-transferable under standard circumstances, including:</p>
+        <ul>
+          <li><strong>Change of Mind:</strong> Deciding to drop a subject or discontinue after taking three (3) or more classes.</li>
+          <li><strong>Missed Classes & Absenteeism:</strong> Classes missed due to school tests, family travel, private commitments, or illness. (Recorded lectures and class materials are provided where available to help students catch up).</li>
+          <li><strong>Partial Month Discontinuation:</strong> Stopping attendance mid-month without prior written notice before that month commenced.</li>
+          <li><strong>Failure to Utilize Resources:</strong> Inability or failure to join live online lectures, watch recorded classes, or complete assigned mock examinations.</li>
+          <li><strong>Disciplinary Dismissal:</strong> Suspension or removal resulting from behavioral misconduct, harassment, academic dishonesty, or violation of our Code of Conduct.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">5</span> Registration & Admission Fees</h2>
+        <p>Every student enrolling in regular cohorts pays a one-time registration fee (PKR 3,000, as listed on our <a href="https://www.sjacademy.pk/fee-structure/" target="_blank" rel="noopener" style="color: var(--sja-orange); text-decoration: underline; font-weight: 600;">Fee Structure</a>):</p>
+        <ul>
+          <li>This fee covers administrative setup, portal configuration, student database management, and diagnostic batch allocations.</li>
+          <li>The registration fee is <strong>strictly non-refundable and non-transferable</strong> once paid, regardless of class attendance.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">6</span> Science Lab Practical Workshops & Recordings</h2>
+        <p>Specialized workshops and auxiliary digital services have custom resource requirements:</p>
+        <ul>
+          <li><strong>A Level Science Practicals (Physics, Chemistry, Biology):</strong> Because laboratory apparatus, chemical reagents, and instructor workstations are strictly booked per seat (see our official <a href="https://www.sjacademy.pk/fee-structure/" target="_blank" rel="noopener" style="color: var(--sja-orange); text-decoration: underline; font-weight: 600;">Fee Structure</a> for practical workshop charges), practical workshop fees are <strong>non-refundable and non-transferable</strong> once a workshop seat is confirmed.</li>
+          <li><strong>Archive Recording Access (PKR 8,000):</strong> Fees paid for accessing past months' digital lecture archives are strictly non-refundable, as full digital access to proprietary recordings is unlocked immediately upon payment verification.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">7</span> Advance Exam Months Payment Protection</h2>
+        <p>For students appearing in CAIE external examination sessions:</p>
+        <ul>
+          <li><strong>Oct/Nov Session:</strong> September and October tuition fees are payable together in advance before the start of September.</li>
+          <li><strong>May/June Session:</strong> April and May tuition fees are payable together in advance before the start of April.</li>
+          <li>Because our faculty dedicates extensive time to intensive mock evaluations, individual paper marking, and exam marathons during these periods, advance final-month fees are non-refundable once the revision phase has commenced.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">8</span> Withdrawal Notice Procedure</h2>
+        <p>To officially discontinue classes and avoid being billed for upcoming months:</p>
+        <ul>
+          <li><strong>Notice Submission:</strong> Written notice must be communicated via WhatsApp (<a href="tel:+923362144454">+92 336 2144454</a>) or email (<a href="mailto:contact@sjacademy.pk">contact@sjacademy.pk</a>) <strong>prior to the 1st day of the next billing month</strong>.</li>
+          <li><strong>Active Enrollment:</strong> If a student remains active in classroom WhatsApp groups, attends sessions, or receives teacher support into a new month without advance written notice, the full monthly fee remains payable.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">9</span> Refund Processing Timeline & Method</h2>
+        <p>When an eligible refund or drop-out adjustment is verified and approved by SJ Academy:</p>
+        <ul>
+          <li><strong>Disbursement Method:</strong> All refunds are issued exclusively via direct online bank transfer to the bank account registered by the student or parent. Cash refunds are not disbursed at the reception desk.</li>
+          <li><strong>Timeline:</strong> Eligible refunds will be disbursed within <strong>10 to 14 business days</strong> from the date of formal written approval by the accounts office.</li>
+          <li><strong>Deductions:</strong> Applicable inter-bank transfer charges or transaction fees may be deducted from the net refunded amount.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">10</span> Contact Our Accounts Team</h2>
+        <p>For any questions, payment verifications, or refund inquiries, please contact our administrative team directly:</p>
+        <div class="contact-box">
+          <p><strong>SJ Academy Accounts & Administration</strong></p>
+          <p>📧 Email: <a href="mailto:contact@sjacademy.pk">contact@sjacademy.pk</a></p>
+          <p>📞 Phone / WhatsApp: <a href="tel:+923362144454">+92 336 2144454</a></p>
+          <p>📍 Campus Address: Plot 29C, Lane No. 5, D.H.A. Phase 7 Seher Commercial Area, Karachi, 75500, Pakistan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

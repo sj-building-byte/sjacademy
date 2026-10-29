@@ -1,0 +1,685 @@
+<!-- SJ Academy A Level subject combinations tool, Elementor HTML widget. Version 2.0, October 2026.
+     Page: /a-level-subject-combinations-tool/ (address unchanged). Family: Tool, on the graph-paper surface.
+     Needs the shared stylesheet sj-brand.css 3.1.1 in Additional CSS.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     This replaces the old tool widget in full (old CSS, old script, html2pdf and the Free Expert Help form are gone).
+     Set in Yoast: Title  A Level subjects combination tool for Pakistan | SJ Academy
+                   Meta   Free A Level subjects combination tool for Pakistan. Get three ranked picks for medicine, engineering, business, law and more, with IBCC rules.
+                   Focus keyphrase  a level subjects combination
+     Not used on purpose: phone bottom bar (it would cover the result), registration form (popup 6023 is the only one), PDF export.
+     The page script block near the end is the standard sj-page-script.js, copied unchanged.
+     This file is plain ASCII: symbols are written as codes so they cannot be garbled. -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet"></noscript>
+
+<div id="sj" class="sj-p-subject-combos" data-family="tool">
+
+  <!-- 1. HERO: the tool is the offset card -->
+  <section class="sj-section sj-bg-grid">
+    <div class="sj-wrap sj-grid sj-grid-hero">
+      <div class="sj-stack">
+        <h1 class="sj-h1"><span class="sj-pill"><span>A Level subjects combination tool</span></span>Choose the subjects that fit your <span class="sj-hl">degree</span></h1>
+        <p class="sj-lead sj-measure">The right A Level subjects combination in Pakistan keeps your degree open. Answer four questions and get three ranked Cambridge combinations, with the degrees, entry tests and universities each one leads to.</p>
+        <div class="sj-row"><span class="sj-chip sj-chip-yellow">Free</span><span class="sj-chip">4 questions</span><span class="sj-updated">Updated October 2026</span></div>
+      </div>
+
+      <div class="sj-offset sj-stack" id="sjc-tool">
+        <!-- Quiz -->
+        <div id="sjc-quiz" class="sj-stack">
+          <div>
+            <p class="sj-eyebrow" id="sjc-count" aria-live="polite">Step 1 of 4</p>
+            <ol class="sjc-prog" aria-hidden="true"><li class="is-on"></li><li></li><li></li><li></li></ol>
+          </div>
+          <div id="sjc-step" class="sj-stack"></div>
+          <p class="sj-help" id="sjc-hint" aria-live="polite"></p>
+          <div class="sjc-nav">
+            <button class="sj-btn sj-btn-ghost" type="button" id="sjc-back" hidden>Back</button>
+            <button class="sj-btn sj-btn-primary" type="button" id="sjc-next" data-loc="tool" disabled>Continue</button>
+          </div>
+        </div>
+        <!-- Summary, shown once the result is on screen -->
+        <div id="sjc-done" class="sj-stack" hidden>
+          <h2 class="sj-h3">Your answers</h2>
+          <div id="sjc-sum" class="sj-stack"></div>
+          <div class="sj-row">
+            <button class="sj-btn sj-btn-ghost sj-btn-sm" type="button" id="sjc-edit">Edit answers</button>
+            <button class="sj-btn sj-btn-ghost sj-btn-sm" type="button" id="sjc-reset">Start again</button>
+          </div>
+        </div>
+        <!-- Error state -->
+        <div id="sjc-err" class="sj-alert sj-alert-err" role="alert" hidden><b>Something went wrong</b><p>The tool could not build your result. Try again, or <a class="sj-link" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20the%20subject%20combinations%20tool%20did%20not%20work%20for%20me.%0A%28Ref%3A%20TL-COMBOS%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="tool_error">WhatsApp us</a>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. RESULT (filled by the script) -->
+  <section class="sj-section sj-bg-canvas" id="sjc-result" hidden>
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">Your result</div>
+        <h2 class="sj-h2" id="sjc-rh" tabindex="-1">Your three <span class="sj-hl">combinations</span></h2>
+        <span class="sj-hand">ranked best fit first</span>
+      </div>
+      <div id="sjc-note"></div>
+      <div id="sjc-routes" class="sj-stack-lg"></div>
+      <div class="sj-stack">
+        <p class="sj-small sj-muted sj-measure">Rankings compare your answers with common degree routes. They are guidance, not an admissions rule. Check each university&rsquo;s current requirements before you choose.</p>
+        <p><a class="sj-link" href="https://wa.me/?text=Free%20A%20Level%20subject%20combinations%20tool%20from%20SJ%20Academy%3A%20https%3A%2F%2Fwww.sjacademy.pk%2Fa-level-subject-combinations-tool%2F" target="_blank" rel="noopener" data-event="resource_share" data-loc="result">Share this tool on WhatsApp</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. HOW IT WORKS -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sjc-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">How it works</div>
+        <h2 class="sj-h2">Four answers, <span class="sj-hl">three routes</span></h2>
+        <ol class="sj-steps">
+          <li><b>Pick your O Level strengths</b><span>The subjects you enjoy and expect strong grades in.</span></li>
+          <li><b>Say how you score best</b><span>Maths problems, essays, applied science, business analysis or portfolios.</span></li>
+          <li><b>Choose a direction</b><span>Up to two, or undecided.</span></li>
+          <li><b>Rule out what you refuse</b><span>Any subject you will not take at A Level is removed from the routes.</span></li>
+        </ol>
+      </div>
+      <div class="sj-card sj-stack">
+        <h3 class="sj-h3">How the ranking works</h3>
+        <p>Your direction counts most. How you score best comes next, then your O Level strengths. A route that needs a subject you ruled out is removed, and the tool tells you when that changes your options.</p>
+        <p>Every route shows the degrees it opens, the entry tests, and universities in Pakistan and abroad.</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- 3b. BY DEGREE (written into the HTML from the same data as the tool, so search engines and readers see it without JavaScript) -->
+  <section class="sj-section sj-bg-canvas" id="sjc-goals">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">By degree</div>
+        <h2 class="sj-h2">A Level subject combinations for <span class="sj-hl">every degree</span></h2>
+        <p class="sj-measure">The tool above ranks these routes for you. Here they are in full, for medicine, engineering, computer science, business and finance, law, and architecture and design.</p>
+      </div>
+      <div class="sj-grid sj-grid-2"><article class="sj-card sjc-goal"><div class="sj-stack"><h3 class="sj-h3">A Level subject combination for medicine</h3><p class="sj-small sj-measure">Medicine and dentistry in Pakistan need the full science set. Abroad, Biology and Chemistry are the core.</p></div><div class="sj-stack"><h4 class="sj-h4">Pre-Medical (Pakistan)</h4><p class="sj-small"><b>Subjects:</b> Biology, Chemistry and Physics.</p><p class="sj-small"><b>Degrees:</b> MBBS, BDS, Pharm-D, Doctor of Physical Therapy.</p><p class="sj-small sj-muted"><b>Equivalence:</b> IBCC Pre-Medical equivalence needs Physics, Chemistry and Biology at A Level, plus SSC Science with Biology.</p></div><div class="sj-stack"><h4 class="sj-h4">Medicine and biosciences abroad</h4><p class="sj-small"><b>Subjects:</b> Biology and Chemistry plus one of Mathematics, Physics or Psychology.</p><p class="sj-small"><b>Degrees:</b> Medicine (UK), Biomedical Sciences, Genetics, Biotechnology, Pharmacy.</p><p class="sj-small sj-muted"><b>Equivalence:</b> Without Physics this route does not earn Pre-Medical equivalence in Pakistan.</p></div></article><article class="sj-card sjc-goal"><div class="sj-stack"><h3 class="sj-h3">A Level subject combination for engineering</h3><p class="sj-small sj-measure">Mathematics and Physics sit at the centre of every engineering route. Chemistry matters for IBCC equivalence.</p></div><div class="sj-stack"><h4 class="sj-h4">Pre-Engineering (Pakistan)</h4><p class="sj-small"><b>Subjects:</b> Mathematics, Physics and Chemistry.</p><p class="sj-small"><b>Degrees:</b> Mechanical, Civil, Chemical, Electrical and Aerospace Engineering.</p><p class="sj-small sj-muted"><b>Equivalence:</b> IBCC Pre-Engineering equivalence needs Physics, Chemistry and Mathematics at A Level.</p></div><div class="sj-stack"><h4 class="sj-h4">Engineering abroad</h4><p class="sj-small"><b>Subjects:</b> Mathematics and Physics plus one of Further Mathematics, Chemistry or Computer Science.</p><p class="sj-small"><b>Degrees:</b> Mechanical, Electrical, Civil, Chemical, Aerospace and Materials Engineering.</p><p class="sj-small sj-muted"><b>Equivalence:</b> Choose Chemistry as your third subject if you may also study engineering in Pakistan, because IBCC Pre-Engineering needs Mathematics, Physics and Chemistry.</p></div></article><article class="sj-card sjc-goal"><div class="sj-stack"><h3 class="sj-h3">A Level subject combination for computer science</h3><p class="sj-small sj-measure">Mathematics comes first. Physics or Computer Science completes the combination IBCC accepts.</p></div><div class="sj-stack"><h4 class="sj-h4">Computer science and ICS</h4><p class="sj-small"><b>Subjects:</b> Mathematics, Physics and Computer Science.</p><p class="sj-small"><b>Degrees:</b> Computer Science, Software Engineering, Artificial Intelligence, Data Science, Cybersecurity.</p><p class="sj-small sj-muted"><b>Equivalence:</b> IBCC accepts Mathematics, Physics and Computer Science for the Computer Science group.</p></div><div class="sj-stack"><h4 class="sj-h4">Data science and AI</h4><p class="sj-small"><b>Subjects:</b> Mathematics and Computer Science plus one of Further Mathematics, Physics or Economics.</p><p class="sj-small"><b>Degrees:</b> Data Science, Artificial Intelligence, Statistics, Actuarial Science, Software Engineering.</p><p class="sj-small sj-muted"><b>Equivalence:</b> Mathematics, Computer Science and Economics is an IBCC-accepted combination. Mathematics, Physics and Computer Science also works.</p></div></article><article class="sj-card sjc-goal"><div class="sj-stack"><h3 class="sj-h3">A Level subject combination for business and finance</h3><p class="sj-small sj-measure">Business routes are flexible. Finance and actuarial routes lean on Mathematics.</p></div><div class="sj-stack"><h4 class="sj-h4">Finance, economics and actuarial</h4><p class="sj-small"><b>Subjects:</b> Mathematics and Economics plus one of Accounting, Computer Science, Further Mathematics or Business.</p><p class="sj-small"><b>Degrees:</b> Finance, Economics, Actuarial Science, Accounting and Finance (ACCA, CA), Data Analytics.</p><p class="sj-small sj-muted"><b>Equivalence:</b> Mathematics, Economics and Computer Science is an IBCC-accepted combination. Check IBCC if you choose Accounting or Business as your third subject.</p></div><div class="sj-stack"><h4 class="sj-h4">Business and management</h4><p class="sj-small"><b>Subjects:</b> Business, Economics and Accounting.</p><p class="sj-small"><b>Degrees:</b> BBA, Marketing, Management, Human Resources, Accounting (ACCA, CA).</p><p class="sj-small sj-muted"><b>Equivalence:</b> IBCC accepts any three A Level subjects for the Humanities group. Confirm on the IBCC website.</p></div><div class="sj-stack"><h4 class="sj-h4">Economics, policy and social sciences</h4><p class="sj-small"><b>Subjects:</b> Economics plus two of Mathematics, History, Sociology, English Literature or Business.</p><p class="sj-small"><b>Degrees:</b> Economics, Public Policy, Development Studies, International Relations, Political Science.</p><p class="sj-small sj-muted"><b>Equivalence:</b> IBCC does not fix the subjects for the Humanities group. Confirm on the IBCC website.</p></div></article><article class="sj-card sjc-goal"><div class="sj-stack"><h3 class="sj-h3">A Level subject combination for law</h3><p class="sj-small sj-measure">Law programmes rarely fix A Level subjects. Essay subjects build the skills they test.</p></div><div class="sj-stack"><h4 class="sj-h4">Law and humanities</h4><p class="sj-small"><b>Subjects:</b> Any three of History, English Literature, Sociology, Law, Economics or Psychology.</p><p class="sj-small"><b>Degrees:</b> Law (LLB), International Relations, Journalism, Public Policy, Liberal Arts.</p><p class="sj-small sj-muted"><b>Equivalence:</b> IBCC does not fix the subjects for the Humanities group. Confirm on the IBCC website.</p></div></article><article class="sj-card sjc-goal"><div class="sj-stack"><h3 class="sj-h3">A Level subject combination for architecture and design</h3><p class="sj-small sj-measure">Art and Design anchors the portfolio. Mathematics or Physics helps for architecture.</p></div><div class="sj-stack"><h4 class="sj-h4">Architecture</h4><p class="sj-small"><b>Subjects:</b> Art and Design plus two of Mathematics, Physics, Computer Science or Geography.</p><p class="sj-small"><b>Degrees:</b> Architecture, Urban Design, Interior Architecture.</p><p class="sj-small sj-muted"><b>Equivalence:</b> Confirm equivalence with IBCC if you need it for a Pakistani university.</p></div><div class="sj-stack"><h4 class="sj-h4">Design, media and communication</h4><p class="sj-small"><b>Subjects:</b> Art and Design plus two of English Literature, Business, Computer Science or Psychology.</p><p class="sj-small"><b>Degrees:</b> Graphic and Communication Design, Media Studies, Marketing, Fine Arts.</p><p class="sj-small sj-muted"><b>Equivalence:</b> Confirm equivalence with IBCC if you need it for a Pakistani university.</p></div></article></div>
+    </div>
+  </section>
+
+    <!-- 3c. SUBJECTS LIST -->
+  <section class="sj-section sj-bg-white" id="sjc-list">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">Subjects list</div>
+        <h2 class="sj-h2">A Level subjects list for <span class="sj-hl">Pakistan</span></h2>
+        <p class="sj-measure">Cambridge International AS and A Level has more than 50 subjects. These are the ones Pakistani students choose most, with their syllabus codes. Cambridge sets no compulsory subjects, so the subjects you need depend on your degree.</p>
+      </div>
+      <div class="sj-table-wrap">
+        <table class="sj-table sj-table-stack">
+          <caption class="sj-vh">Cambridge A Level subjects and syllabus codes</caption>
+          <thead><tr><th scope="col">Subject</th><th scope="col" class="sj-num">Syllabus code</th><th scope="col">Often chosen for</th></tr></thead>
+          <tbody><tr><td data-label="Subject">Mathematics</td><td data-label="Code" class="sj-num">9709</td><td data-label="Often chosen for">Engineering, computer science, finance, architecture</td></tr><tr><td data-label="Subject">Further Mathematics</td><td data-label="Code" class="sj-num">9231</td><td data-label="Often chosen for">Engineering and mathematics at top universities</td></tr><tr><td data-label="Subject">Physics</td><td data-label="Code" class="sj-num">9702</td><td data-label="Often chosen for">Engineering, computer science, medicine in Pakistan</td></tr><tr><td data-label="Subject">Chemistry</td><td data-label="Code" class="sj-num">9701</td><td data-label="Often chosen for">Medicine, engineering, biosciences</td></tr><tr><td data-label="Subject">Biology</td><td data-label="Code" class="sj-num">9700</td><td data-label="Often chosen for">Medicine, biosciences, psychology</td></tr><tr><td data-label="Subject">Computer Science</td><td data-label="Code" class="sj-num">9618</td><td data-label="Often chosen for">Computer science, data science, AI</td></tr><tr><td data-label="Subject">Economics</td><td data-label="Code" class="sj-num">9708</td><td data-label="Often chosen for">Finance, economics, policy, business</td></tr><tr><td data-label="Subject">Business</td><td data-label="Code" class="sj-num">9609</td><td data-label="Often chosen for">Business, management, marketing</td></tr><tr><td data-label="Subject">Accounting</td><td data-label="Code" class="sj-num">9706</td><td data-label="Often chosen for">Accounting, finance, ACCA and CA routes</td></tr><tr><td data-label="Subject">English Language</td><td data-label="Code" class="sj-num">9093</td><td data-label="Often chosen for">Law, media, humanities</td></tr><tr><td data-label="Subject">Literature in English</td><td data-label="Code" class="sj-num">9695</td><td data-label="Often chosen for">Law, humanities, communication</td></tr><tr><td data-label="Subject">History</td><td data-label="Code" class="sj-num">9489</td><td data-label="Often chosen for">Law, international relations, humanities</td></tr><tr><td data-label="Subject">Sociology</td><td data-label="Code" class="sj-num">9699</td><td data-label="Often chosen for">Social sciences, policy, law</td></tr><tr><td data-label="Subject">Psychology</td><td data-label="Code" class="sj-num">9990</td><td data-label="Often chosen for">Psychology, health sciences, neuroscience</td></tr><tr><td data-label="Subject">Law</td><td data-label="Code" class="sj-num">9084</td><td data-label="Often chosen for">Law and legal studies</td></tr><tr><td data-label="Subject">Geography</td><td data-label="Code" class="sj-num">9696</td><td data-label="Often chosen for">Architecture, planning, environmental studies</td></tr><tr><td data-label="Subject">Art and Design</td><td data-label="Code" class="sj-num">9479</td><td data-label="Often chosen for">Architecture, design, media</td></tr><tr><td data-label="Subject">Urdu</td><td data-label="Code" class="sj-num">9686</td><td data-label="Often chosen for">A second language option for any route</td></tr></tbody>
+        </table>
+      </div>
+      <p class="sj-small sj-muted sj-measure">Codes are Cambridge syllabus numbers. Check the current syllabus and the subjects your school or centre offers before you decide.</p>
+    </div>
+  </section>
+
+  <!-- 4. CAVEATS -->
+  <section class="sj-section sj-bg-grid">
+    <div class="sj-wrap sjc-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">Before you commit</div>
+        <h2 class="sj-h2">What IBCC <span class="sj-hl">requires</span></h2>
+        <p class="sj-measure">If you need Pakistani equivalence for a university in Pakistan, IBCC fixes the A Level subjects for the science groups. These rules come from IBCC&rsquo;s equivalence guidance.</p>
+        <div class="sj-table-wrap">
+          <table class="sj-table sj-table-stack">
+            <thead><tr><th scope="col">Group</th><th scope="col">A Level subjects IBCC accepts</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Group">Pre-Medical</td><td data-label="Subjects">Physics, Chemistry and Biology</td></tr>
+              <tr><td data-label="Group">Pre-Engineering</td><td data-label="Subjects">Physics, Chemistry and Mathematics</td></tr>
+              <tr><td data-label="Group">Computer Science</td><td data-label="Subjects">Physics, Computer Science and Mathematics</td></tr>
+              <tr><td data-label="Group">General Science</td><td data-label="Subjects">Mathematics with Economics and Computer Science, or Mathematics with Physics and Statistics, among other listed combinations</td></tr>
+              <tr><td data-label="Group">Humanities</td><td data-label="Subjects">Any three A Level subjects</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sj-small sj-muted sj-measure">The science groups also need SSC Science (with Biology for Pre-Medical), and IBCC sets a minimum grade for each subject. Rules change, so confirm on the IBCC website before you finalise.</p>
+      </div>
+      <div class="sj-stack sjc-side">
+        <div class="sj-sticky sj-tilt-r"><span class="sj-hand">remember</span><p>Three A Levels is the usual load. Add a fourth only if a degree you want asks for it.</p></div>
+        <div class="sj-card sj-stack">
+          <h3 class="sj-h3">Check these too</h3>
+          <ul class="sj-ticks">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>The university&rsquo;s own subject requirements for your year</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Entry test dates and formats</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Whether a portfolio or interview is needed</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. RELATED TOOLS -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div>
+        <div class="sj-eyebrow">Next</div>
+        <h2 class="sj-h2">More tools for <span class="sj-hl">your plan</span></h2>
+      </div>
+      <div class="sj-grid sj-grid-4">
+        <a class="sj-tile" href="https://www.sjacademy.pk/ibcc-equivalence-calculator/"><b>IBCC equivalence calculator</b><p>Estimate your IBCC equivalence.</p><span class="sj-link sj-link-go">Open the calculator</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/a-level-grade-strategy-tool/"><b>A Level grade strategy tool</b><p>Plan the grades you are aiming for.</p><span class="sj-link sj-link-go">Open the tool</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/university-admission-criteria-tool/"><b>University admission criteria</b><p>Check what universities ask for.</p><span class="sj-link sj-link-go">Open the tool</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/blog/best-a-level-subjects-combinations/"><b>Best A Level subject combinations</b><p>A longer guide to choosing subjects.</p><span class="sj-link sj-link-go">Read the guide</span></a>
+      </div>
+      <p class="sj-small sj-measure">Already know your subjects? See <a class="sj-link" href="https://www.sjacademy.pk/a-level-tuition-center-karachi/">A Level tuition in Karachi</a>, <a class="sj-link" href="https://www.sjacademy.pk/a-level-business-tuition/">A Level Business tuition</a> and <a class="sj-link" href="https://www.sjacademy.pk/a-level-maths-tuition/">A Level Maths tuition</a>, or practise with <a class="sj-link" href="https://www.sjacademy.pk/a-level-past-papers/">A Level past papers</a>.</p>
+      <p class="sj-small sj-muted sj-measure">SJ Academy is an independent tuition centre and is not affiliated with or endorsed by Cambridge.</p>
+    </div>
+  </section>
+
+  <!-- 6. CLASS OFFER -->
+  <section class="sj-section sj-bg-yellow">
+    <div class="sj-wrap sj-stack sjc-final">
+      <h2 class="sj-h2">Try a class before you commit</h2>
+      <p class="sj-measure">SJ Academy teaches Cambridge A Level in DHA Phase 7, Karachi, and live online. Every class except lab practicals starts with a free demo.</p>
+      <div class="sj-row"><a class="sj-btn sj-btn-primary" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%27d%20like%20to%20book%20a%20free%20demo%20class.%0ALevel%3A%20A%20Level%0ASubject%3A%20%0ASession%3A%20%0AMode%20%28in%20class%20or%20online%29%3A%20%0A%28Ref%3A%20TL-COMBOS%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="final_band">Book a free demo</a></div>
+      <p><a class="sj-link" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" data-loc="final_band">or register for a class</a></p>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div>
+        <div class="sj-eyebrow">FAQ</div>
+        <h2 class="sj-h2">Questions about <span class="sj-hl">subject choice</span></h2>
+      </div>
+      <div class="sj-faq">
+<details open><summary>What is the best A Level subject combination?</summary><div class="sj-faq-a"><p>There is no single best combination. It depends on the degree you want. Physics, Chemistry and Biology suit medicine in Pakistan. Mathematics, Physics and Chemistry suit engineering. Mathematics with Economics suits finance. Pick the degree first, then the subjects it asks for.</p></div></details>
+<details><summary>How many A Level subjects should I take?</summary><div class="sj-faq-a"><p>Cambridge says students typically take four subjects at AS and three at A Level. IBCC equivalence is built on three A Level subjects, so three is the usual load. Take a fourth only if a degree you want asks for it.</p></div></details>
+<details><summary>Are any A Level subjects compulsory?</summary><div class="sj-faq-a"><p>No. Cambridge does not make any A Level subject compulsory. Your degree, university and IBCC equivalence decide which subjects you need. IBCC fixes the subjects for the science groups, and Humanities accepts any three.</p></div></details>
+<details><summary>Which A Level subject combination do I need for medicine in Pakistan?</summary><div class="sj-faq-a"><p>For IBCC Pre-Medical equivalence you need Physics, Chemistry and Biology at A Level, plus SSC Science with Biology. Biology and Chemistry without Physics suits medicine abroad, but it does not earn Pre-Medical equivalence in Pakistan.</p></div></details>
+<details><summary>Which A Levels do I need for engineering?</summary><div class="sj-faq-a"><p>Mathematics, Physics and Chemistry give you IBCC Pre-Engineering equivalence. Many UK engineering courses ask for Mathematics and Physics, and some prefer Further Mathematics. Check the course page for your target university.</p></div></details>
+<details><summary>Which A Level subjects do I need for computer science?</summary><div class="sj-faq-a"><p>Mathematics is the subject computer science courses most often ask for. IBCC accepts Physics, Computer Science and Mathematics for its Computer Science group. Check each course, because requirements differ by university.</p></div></details>
+<details><summary>Can I study business or law with science subjects?</summary><div class="sj-faq-a"><p>Often yes. Many business and law programmes do not fix A Level subjects, though finance and economics programmes usually prefer Mathematics. Check each programme before you decide.</p></div></details>
+<details><summary>Which A Level subjects are the easiest or the hardest?</summary><div class="sj-faq-a"><p>There is no official ranking, and difficulty depends on you. Choose subjects you can score well in and that your degree needs. Question 2 of the tool asks how you score best, so the ranking reflects your strengths.</p></div></details>
+<details><summary>How accurate are the results?</summary><div class="sj-faq-a"><p>The tool compares your answers with common degree routes and IBCC's equivalence rules. It is guidance, not an admissions rule. Confirm requirements with each university and with IBCC before you finalise your subjects.</p></div></details>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+/* Page-only layout for the subject combinations tool. Every rule is scoped to this page. */
+#sj.sj-p-subject-combos [hidden]{display:none!important}
+#sj.sj-p-subject-combos .sjc-prog{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:10px}
+#sj.sj-p-subject-combos .sjc-prog li{height:6px;border-radius:3px;background:var(--sj-line)}
+#sj.sj-p-subject-combos .sjc-prog li.is-on{background:var(--sj-cta)}
+#sj.sj-p-subject-combos .sjc-nav{display:flex;flex-wrap:wrap;gap:var(--sj-s3);align-items:center;justify-content:space-between}
+#sj.sj-p-subject-combos .sjc-top{display:flex;gap:var(--sj-s4);align-items:flex-start;justify-content:space-between}
+#sj.sj-p-subject-combos .sjc-cols,#sj.sj-p-subject-combos .sjc-two{display:grid;gap:var(--sj-s6);grid-template-columns:minmax(0,1fr)}
+#sj.sj-p-subject-combos .sjc-dl{display:grid;gap:var(--sj-s3);margin:0}
+#sj.sj-p-subject-combos .sjc-dl dt{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sj-muted)}
+#sj.sj-p-subject-combos .sjc-dl dd{margin:2px 0 0;font-size:15px}
+#sj.sj-p-subject-combos .sjc-side{justify-items:start}
+#sj.sj-p-subject-combos .sjc-final{text-align:center;display:grid;justify-items:center}
+#sj.sj-p-subject-combos .sjc-final .sj-row{justify-content:center}
+#sj.sj-p-subject-combos #sjc-tool{scroll-margin-top:110px}
+#sj.sj-p-subject-combos .sjc-goal{display:grid;gap:var(--sj-s5);align-content:start}
+#sj.sj-p-subject-combos .sjc-goal ul{margin:0;padding-left:1.1em;display:grid;gap:var(--sj-s2)}
+@media (min-width:900px){
+  #sj.sj-p-subject-combos .sjc-cols{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+  #sj.sj-p-subject-combos .sjc-two{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--sj-s7);align-items:start}
+}
+</style>
+
+<script>
+/* Subject combinations tool. Wrapped in a function, no jQuery, every id starts with sjc-. */
+(function(){
+  var root=document.getElementById('sj');
+  if(!root||!root.classList.contains('sj-p-subject-combos')){return;}
+  var $=function(id){return document.getElementById(id);};
+
+  /* ---------- Data ---------- */
+  var SUBJ={math:'Mathematics',fmath:'Further Mathematics',physics:'Physics',chemistry:'Chemistry',biology:'Biology',cs:'Computer Science',econ:'Economics',business:'Business',accounting:'Accounting',english:'English Literature',history:'History',sociology:'Sociology',law:'Law',psychology:'Psychology',art:'Art and Design',geography:'Geography'};
+  var OL_GROUPS=[
+    {label:'Sciences and maths',items:[['math','Mathematics'],['addmath','Additional Mathematics'],['physics','Physics'],['chemistry','Chemistry'],['biology','Biology'],['cs','Computer Science']]},
+    {label:'Business and humanities',items:[['econ','Economics'],['business','Business'],['accounting','Accounting'],['english','English Language or Literature'],['history','History'],['sociology','Sociology'],['art','Art and Design']]}
+  ];
+  /* O Level strength -> the A Level subjects it supports */
+  var OL2A={math:['math'],addmath:['math','fmath'],physics:['physics'],chemistry:['chemistry'],biology:['biology'],cs:['cs'],econ:['econ'],business:['business'],accounting:['accounting'],english:['english'],history:['history'],sociology:['sociology'],art:['art']};
+  var HAS_OL={math:1,fmath:1,physics:1,chemistry:1,biology:1,cs:1,econ:1,business:1,accounting:1,english:1,history:1,sociology:1,art:1};
+  var STYLES=[
+    {id:'logic',text:'Solving maths and logic problems (Maths, Physics, Computer Science)'},
+    {id:'essays',text:'Writing structured, analytical essays (English, History, Law)'},
+    {id:'science',text:'Applying scientific ideas and practicals (Biology, Chemistry)'},
+    {id:'systems',text:'Analysing businesses and economies (Economics, Business, Accounting)'},
+    {id:'projects',text:'Building projects and portfolios (Art and Design)'}
+  ];
+  var DIRS=[
+    {id:'medicine',text:'Medicine and healthcare'},
+    {id:'engineering',text:'Engineering and technology'},
+    {id:'cs',text:'Computer science and AI'},
+    {id:'business',text:'Business, finance and accounting'},
+    {id:'law',text:'Law, policy and social sciences'},
+    {id:'creative',text:'Creative arts and architecture'}
+  ];
+  var BAN_GROUPS=[
+    {label:'Sciences and maths',items:[
+      {id:'biology',name:'Biology',keys:['biology']},{id:'chemistry',name:'Chemistry',keys:['chemistry']},{id:'physics',name:'Physics',keys:['physics']},
+      {id:'math',name:'Mathematics',keys:['math','fmath']},{id:'cs',name:'Computer Science',keys:['cs']}]},
+    {label:'Business and humanities',items:[
+      {id:'econ',name:'Economics',keys:['econ']},{id:'accounting',name:'Accounting',keys:['accounting']},
+      {id:'essay',name:'Essay-heavy subjects',label:'No essay-heavy subjects',keys:['history','english','sociology','law'],hint:'History, English Literature, Sociology and Law'}]}
+  ];
+  var ROUTES=[
+    {id:'med_pk',title:'Pre-Medical (Pakistan)',core:['biology','chemistry','physics'],extra:['math','psychology'],tags:['medicine'],style:'science',strict:1,
+     ibcc:'IBCC Pre-Medical equivalence needs Physics, Chemistry and Biology at A Level, plus SSC Science with Biology.',
+     degrees:'MBBS, BDS, Pharm-D, Doctor of Physical Therapy',
+     tests:'MDCAT (run by PMDC) for most medical and dental colleges. Aga Khan University runs its own admission test.',
+     pk:'Aga Khan University, Dow University of Health Sciences, King Edward Medical University, NUMS',
+     abroad:'UK medical schools such as King&rsquo;s College London, Edinburgh and Manchester, which also require UCAT'},
+    {id:'med_abroad',title:'Medicine and biosciences abroad',core:['biology','chemistry'],choose:{n:1,from:['math','physics','psychology'],label:'Pick one more'},tags:['medicine'],style:'science',
+     ibcc:'Without Physics this route does not earn Pre-Medical equivalence in Pakistan.',
+     degrees:'Medicine (UK), Biomedical Sciences, Genetics, Biotechnology, Pharmacy',
+     tests:'UCAT for UK medicine. NUST NET for NUST biosciences programmes.',
+     pk:'NUST (Atta-ur-Rahman School of Applied Biosciences), Aga Khan University, LUMS (SBASSE)',
+     abroad:'University of Edinburgh, King&rsquo;s College London, University of Toronto, NUS'},
+    {id:'eng_pk',title:'Pre-Engineering (Pakistan)',core:['math','physics','chemistry'],extra:['fmath','cs'],tags:['engineering'],style:'logic',strict:1,
+     ibcc:'IBCC Pre-Engineering equivalence needs Physics, Chemistry and Mathematics at A Level.',
+     degrees:'Mechanical, Civil, Chemical, Electrical and Aerospace Engineering',
+     tests:'NUST NET, UET ECAT, and the GIKI and PIEAS admission tests. NED runs its own entry test.',
+     pk:'NUST, UET Lahore, GIKI, PIEAS, NED University',
+     abroad:'Imperial College London, University of Cambridge, University of Toronto, NUS'},
+    {id:'eng_abroad',title:'Engineering abroad',core:['math','physics'],choose:{n:1,from:['fmath','chemistry','cs'],label:'Pick a third'},tags:['engineering'],style:'logic',
+     ibcc:'Choose Chemistry as your third subject if you may also study engineering in Pakistan, because IBCC Pre-Engineering needs Mathematics, Physics and Chemistry.',
+     degrees:'Mechanical, Electrical, Civil, Chemical, Aerospace and Materials Engineering',
+     tests:'Many UK courses use grades alone. Some add a maths admissions test, so check each course.',
+     pk:'NUST, UET Lahore, GIKI, PIEAS, NED University',
+     abroad:'University of Cambridge, Imperial College London, UCL, University of Toronto, NUS'},
+    {id:'cs_ics',title:'Computer science and ICS',core:['math','physics','cs'],extra:['fmath','econ'],tags:['cs','engineering'],style:'logic',strict:1,
+     ibcc:'IBCC accepts Mathematics, Physics and Computer Science for the Computer Science group.',
+     degrees:'Computer Science, Software Engineering, Artificial Intelligence, Data Science, Cybersecurity',
+     tests:'FAST-NUCES admission test, NUST NET and the GIKI admission test. LUMS and ITU set their own requirements.',
+     pk:'FAST-NUCES, NUST (SEECS), LUMS, GIKI, ITU Lahore',
+     abroad:'Imperial College London, University of Cambridge, Carnegie Mellon University, NUS'},
+    {id:'data_ai',title:'Data science and AI',core:['math','cs'],choose:{n:1,from:['fmath','physics','econ'],label:'Pick a third'},tags:['cs','business'],style:'logic',
+     ibcc:'Mathematics, Computer Science and Economics is an IBCC-accepted combination. Mathematics, Physics and Computer Science also works.',
+     degrees:'Data Science, Artificial Intelligence, Statistics, Actuarial Science, Software Engineering',
+     tests:'FAST-NUCES admission test, NUST NET and the IBA aptitude test.',
+     pk:'FAST-NUCES, LUMS, IBA Karachi, NUST, ITU Lahore',
+     abroad:'University of Edinburgh, University of Warwick, University of Toronto, NUS'},
+    {id:'finance',title:'Finance, economics and actuarial',core:['math','econ'],choose:{n:1,from:['accounting','cs','fmath','business'],label:'Pick a third'},tags:['business'],style:'systems',
+     ibcc:'Mathematics, Economics and Computer Science is an IBCC-accepted combination. Check IBCC if you choose Accounting or Business as your third subject.',
+     degrees:'Finance, Economics, Actuarial Science, Accounting and Finance (ACCA, CA), Data Analytics',
+     tests:'IBA aptitude test and NUST NET. Check LUMS and FAST-NUCES for their current rules.',
+     pk:'IBA Karachi, LUMS (Suleman Dawood School of Business), NUST Business School, FAST-NUCES',
+     abroad:'London School of Economics, University of Warwick, UCL, University of Toronto'},
+    {id:'business',title:'Business and management',core:['business','econ','accounting'],extra:['math','sociology'],tags:['business'],style:'systems',
+     ibcc:'IBCC accepts any three A Level subjects for the Humanities group. Confirm on the IBCC website.',
+     degrees:'BBA, Marketing, Management, Human Resources, Accounting (ACCA, CA)',
+     tests:'IBA aptitude test and the admission test of each university.',
+     pk:'IBA Karachi, LUMS, SZABIST, Institute of Business Management (IoBM)',
+     abroad:'University of Manchester, University of Warwick, University of Leeds, NUS'},
+    {id:'econ_policy',title:'Economics, policy and social sciences',core:['econ'],choose:{n:2,from:['math','history','sociology','english','business'],label:'Pick two more'},tags:['business','law'],style:'essays',
+     ibcc:'IBCC does not fix the subjects for the Humanities group. Confirm on the IBCC website.',
+     degrees:'Economics, Public Policy, Development Studies, International Relations, Political Science',
+     tests:'IBA aptitude test, plus the LUMS and Habib University admission requirements.',
+     pk:'LUMS, IBA Karachi, Habib University, SZABIST',
+     abroad:'London School of Economics, University of Oxford (PPE), King&rsquo;s College London, University of Toronto'},
+    {id:'law',title:'Law and humanities',core:[],choose:{n:3,from:['history','english','sociology','law','econ','psychology'],label:'Pick any three'},tags:['law'],style:'essays',
+     ibcc:'IBCC does not fix the subjects for the Humanities group. Confirm on the IBCC website.',
+     degrees:'Law (LLB), International Relations, Journalism, Public Policy, Liberal Arts',
+     tests:'The HEC Law Admission Test (LAT) for LLB programmes in Pakistan. Many UK law schools require the LNAT.',
+     pk:'LUMS, IBA Karachi, SZABIST, University of Karachi',
+     abroad:'University of Oxford, UCL, King&rsquo;s College London, London School of Economics'},
+    {id:'psych',title:'Psychology and health sciences',core:['psychology','biology'],choose:{n:1,from:['math','chemistry','sociology','english'],label:'Pick a third'},tags:['medicine','law'],style:'science',
+     ibcc:'Confirm equivalence with IBCC if you need it for a Pakistani university.',
+     degrees:'Psychology, Neuroscience, Public Health, Health Sciences',
+     tests:'Each university sets its own test. Check whether Biology or Mathematics is required alongside Psychology.',
+     pk:'Aga Khan University, Habib University, IBA Karachi',
+     abroad:'UCL, University of Edinburgh, King&rsquo;s College London'},
+    {id:'arch',title:'Architecture',core:['art'],choose:{n:2,from:['math','physics','cs','geography'],label:'Pick two more'},tags:['creative'],style:'projects',
+     ibcc:'Confirm equivalence with IBCC if you need it for a Pakistani university.',
+     degrees:'Architecture, Urban Design, Interior Architecture',
+     tests:'Most programmes ask for a portfolio. NCA, NED and DUET run their own entry tests. Many programmes ask for Mathematics or Physics alongside Art.',
+     pk:'National College of Arts, NED University, Indus Valley School of Art and Architecture, Dawood University of Engineering and Technology',
+     abroad:'UCL (Bartlett), University of Cambridge, TU Delft, University of Toronto'},
+    {id:'design',title:'Design, media and communication',core:['art'],choose:{n:2,from:['english','business','cs','psychology'],label:'Pick two more'},tags:['creative','business'],style:'projects',
+     ibcc:'Confirm equivalence with IBCC if you need it for a Pakistani university.',
+     degrees:'Graphic and Communication Design, Media Studies, Marketing, Fine Arts',
+     tests:'Most art and design schools ask for a portfolio and an interview.',
+     pk:'Indus Valley School of Art and Architecture, Beaconhouse National University, National College of Arts, SZABIST',
+     abroad:'University of the Arts London, Parsons School of Design, Rhode Island School of Design'}
+  ];
+
+  /* ---------- State ---------- */
+  var STEPS=[
+    {title:'Which O Level subjects are your strengths?',desc:'Pick the subjects you enjoy and expect strong grades in. If your grades were lower, pick the ones you are willing to work hardest at.',err:'Pick at least one subject to continue.'},
+    {title:'Which kind of question do you score best on?',desc:'Liking a subject at O Level is not the same as scoring well on its A Level papers. Pick the style that fits you.',err:'Pick one style to continue.'},
+    {title:'Where do you want to be after A Levels?',desc:'Pick up to two directions, or choose undecided.',err:'Pick a direction, or choose undecided.'},
+    {title:'Is any subject a dealbreaker?',desc:'Pick any subject you refuse to take at A Level. Routes that need it are removed. Leave this blank if you are open to anything.',err:''}
+  ];
+  var st={step:0,strong:[],style:null,dirs:[],bans:[]};
+  var shown=false;
+
+  /* ---------- Helpers ---------- */
+  var TICK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg>';
+  var names=function(keys){return keys.map(function(k){return SUBJ[k];});};
+  var list=function(arr,joiner){
+    if(arr.length<2){return arr.join('');}
+    return arr.slice(0,-1).join(', ')+' '+(joiner||'and')+' '+arr[arr.length-1];
+  };
+  var dirName=function(id){for(var i=0;i<DIRS.length;i++){if(DIRS[i].id===id){return DIRS[i].text;}}return id;};
+  var has=function(arr,v){return arr.indexOf(v)>-1;};
+  var chip=function(group,val,text,on){
+    return '<label class="sj-choice"><input type="checkbox" data-g="'+group+'" value="'+val+'"'+(on?' checked':'')+'><span>'+text+'</span></label>';
+  };
+
+  /* ---------- Ranking (pure) ---------- */
+  function rank(s){
+    var banned={};
+    BAN_GROUPS.forEach(function(g){g.items.forEach(function(b){
+      if(has(s.bans,b.id)){b.keys.forEach(function(k){banned[k]=b.name;});}
+    });});
+    var strong={};
+    s.strong.forEach(function(id){(OL2A[id]||[]).forEach(function(k){strong[k]=true;});});
+    var undecided=has(s.dirs,'undecided');
+    var out=[],removed=[];
+    ROUTES.forEach(function(r,i){
+      var hit=r.core.filter(function(k){return banned[k];});
+      var pool=r.choose?r.choose.from.filter(function(k){return !banned[k];}):[];
+      var dead=hit.length>0||(r.choose&&pool.length<r.choose.n);
+      var dirHit=r.tags.filter(function(t){return has(s.dirs,t);});
+      if(dead){
+        if(dirHit.length){
+          var by=hit.length?hit:r.choose.from.filter(function(k){return banned[k];});
+          var seen={},byNames=[];
+          by.forEach(function(k){if(!seen[banned[k]]){seen[banned[k]]=1;byNames.push(banned[k]);}});
+          removed.push({r:r,by:byNames});
+        }
+        return;
+      }
+      var score=0,reasons=[],gaps=[];
+      if(undecided){score+=r.tags.length*2;reasons.push('It keeps more than one degree path open.');}
+      else if(dirHit.length){score+=10*dirHit.length;reasons.push('It fits your direction: '+list(dirHit.map(dirName).map(function(t){return t.toLowerCase();}))+'.');}
+      else{score-=20;}
+      if(r.style===s.style){score+=5;reasons.push('It matches how you score best.');}
+      var sc=r.core.filter(function(k){return strong[k];});
+      var wk=r.core.filter(function(k){return !strong[k]&&HAS_OL[k];});
+      var cov=sc.length,tot=r.core.length;
+      if(r.choose){tot+=r.choose.n;cov+=Math.min(r.choose.n,pool.filter(function(k){return strong[k];}).length);}
+      score+=Math.round((tot?cov/tot:0)*10)-2*wk.length;
+      if(sc.length){reasons.push('You listed '+list(names(sc))+' as '+(sc.length>1?'strengths':'a strength')+'.');}
+      if(!reasons.length){reasons.push('It is the closest match to your answers.');}
+      if(wk.length){gaps.push({names:names(wk),strict:!!r.strict});}
+      out.push({r:r,i:i,score:score,reasons:reasons,gaps:gaps,pool:pool,dirHit:dirHit});
+    });
+    out.sort(function(a,b){return b.score-a.score||a.i-b.i;});
+    /* Two directions: make sure the best route for each one is shown, then fill by score */
+    var top=[];
+    s.dirs.forEach(function(d){
+      for(var j=0;j<out.length;j++){
+        if(has(out[j].r.tags,d)){if(top.indexOf(out[j])<0){top.push(out[j]);}break;}
+      }
+    });
+    for(var q=0;q<out.length&&top.length<3;q++){if(top.indexOf(out[q])<0){top.push(out[q]);}}
+    top.sort(function(a,b){return b.score-a.score||a.i-b.i;});
+    var fallback=!undecided&&top.length>0&&top[0].dirHit.length===0;
+    return {top:top,removed:removed,fallback:fallback};
+  }
+
+  /* ---------- Quiz rendering ---------- */
+  function valid(){
+    if(st.step===0){return st.strong.length>0;}
+    if(st.step===1){return !!st.style;}
+    if(st.step===2){return st.dirs.length>0;}
+    return true;
+  }
+  function renderStep(){
+    var s=STEPS[st.step],h='';
+    h+='<h2 class="sj-h3" id="sjc-q" tabindex="-1">'+s.title+'</h2><p class="sj-small sj-measure">'+s.desc+'</p>';
+    if(st.step===0){
+      OL_GROUPS.forEach(function(g){
+        h+='<div class="sj-stack"><h3 class="sj-h4">'+g.label+'</h3><div class="sj-choices" role="group" aria-label="'+g.label+'">';
+        g.items.forEach(function(it){h+=chip('strong',it[0],it[1],has(st.strong,it[0]));});
+        h+='</div></div>';
+      });
+    }else if(st.step===1){
+      h+='<div role="radiogroup" aria-label="Question style">';
+      STYLES.forEach(function(o){
+        h+='<label class="sj-check"><input type="radio" name="sjc-style" value="'+o.id+'"'+(st.style===o.id?' checked':'')+'><span>'+o.text+'</span></label>';
+      });
+      h+='</div>';
+    }else if(st.step===2){
+      h+='<div class="sj-choices" role="group" aria-label="Directions">';
+      DIRS.forEach(function(d){h+=chip('dirs',d.id,d.text,has(st.dirs,d.id));});
+      h+=chip('dirs','undecided','Undecided: keep my options open',has(st.dirs,'undecided'));
+      h+='</div>';
+    }else{
+      BAN_GROUPS.forEach(function(g){
+        h+='<div class="sj-stack"><h3 class="sj-h4">'+g.label+'</h3><div class="sj-choices" role="group" aria-label="'+g.label+'">';
+        g.items.forEach(function(b){h+=chip('bans',b.id,b.label||('No '+b.name),has(st.bans,b.id));});
+        h+='</div></div>';
+      });
+      h+='<p class="sj-help">Essay-heavy subjects means History, English Literature, Sociology and Law.</p>';
+    }
+    $('sjc-step').innerHTML=h;
+    $('sjc-count').textContent='Step '+(st.step+1)+' of '+STEPS.length;
+    var dots=root.querySelectorAll('.sjc-prog li');
+    Array.prototype.forEach.call(dots,function(d,i){d.classList.toggle('is-on',i<=st.step);});
+    $('sjc-back').hidden=st.step===0;
+    var last=st.step===STEPS.length-1;
+    var nx=$('sjc-next');
+    nx.textContent=last?'Show my combinations':'Continue';
+    if(last){nx.setAttribute('data-event','tool_complete');}else{nx.removeAttribute('data-event');}
+    sync();
+  }
+  function sync(){
+    var ok=valid();
+    $('sjc-next').disabled=!ok;
+    $('sjc-hint').textContent=ok?'':STEPS[st.step].err;
+  }
+  function focusQ(){var q=$('sjc-q');if(q){q.focus({preventScroll:true});}}
+
+  /* ---------- Result rendering ---------- */
+  function routeCard(x,idx){
+    var r=x.r,h='';
+    var tag=['best fit','also strong','worth a look'][idx];
+    h+='<article class="sj-card sj-stack"><div class="sjc-top"><h3 class="sj-h3">'+r.title+'</h3><span class="sj-stamp-box">'+tag+'</span></div>';
+    h+='<div class="sjc-cols"><div class="sj-stack">';
+    h+='<div class="sj-eyebrow">Subjects</div>';
+    if(r.core.length){
+      h+='<ul class="sj-ticks">';
+      r.core.forEach(function(k){h+='<li>'+TICK+'<span>'+SUBJ[k]+'</span></li>';});
+      h+='</ul>';
+    }
+    if(r.choose){
+      h+='<p class="sj-small"><b>'+r.choose.label+':</b></p><div class="sj-row">';
+      x.pool.forEach(function(k){h+='<span class="sj-chip">'+SUBJ[k]+'</span>';});
+      h+='</div>';
+    }
+    if(r.extra){
+      h+='<p class="sj-small sj-muted"><b>Optional fourth subject:</b> '+list(names(r.extra),'or')+', or none.</p>';
+    }
+    h+='<div class="sj-eyebrow">Why it fits you</div><p class="sj-small">'+x.reasons.join(' ')+'</p>';
+    x.gaps.forEach(function(g){
+      h+='<p class="sj-small"><b>Catch-up needed:</b> you did not list '+list(g.names)+' as an O Level strength. '+(g.strict?'IBCC requires '+(g.names.length>1?'these subjects':'this subject')+' for this route, so plan extra practice early.':'This route needs '+(g.names.length>1?'them':'it')+', so plan extra practice.')+'</p>';
+    });
+    h+='</div><dl class="sjc-dl">';
+    h+='<div><dt>Degrees it opens</dt><dd>'+r.degrees+'</dd></div>';
+    h+='<div><dt>Entry tests</dt><dd>'+r.tests+'</dd></div>';
+    h+='<div><dt>Universities in Pakistan</dt><dd>'+r.pk+'</dd></div>';
+    h+='<div><dt>Universities abroad</dt><dd>'+r.abroad+'</dd></div>';
+    h+='<div><dt>IBCC equivalence</dt><dd>'+r.ibcc+'</dd></div>';
+    h+='</dl></div></article>';
+    return h;
+  }
+  function summary(){
+    var rows=[];
+    var sn=[];OL_GROUPS.forEach(function(g){g.items.forEach(function(it){if(has(st.strong,it[0])){sn.push(it[1]);}});});
+    rows.push('<p class="sj-small"><b>Strengths:</b> '+sn.join(', ')+'</p>');
+    var sty=STYLES.filter(function(o){return o.id===st.style;})[0];
+    rows.push('<p class="sj-small"><b>Scores best on:</b> '+(sty?sty.text:'')+'</p>');
+    rows.push('<p class="sj-small"><b>Direction:</b> '+(has(st.dirs,'undecided')?'Undecided':list(st.dirs.map(dirName)))+'</p>');
+    var bn=[];BAN_GROUPS.forEach(function(g){g.items.forEach(function(b){if(has(st.bans,b.id)){bn.push(b.name);}});});
+    rows.push('<p class="sj-small"><b>Dealbreakers:</b> '+(bn.length?bn.join(', '):'None')+'</p>');
+    return rows.join('');
+  }
+  function showResult(){
+    var res=rank(st),h='',note='';
+    if(!res.top.length){
+      h='<div class="sj-empty"><b>No combinations left</b><p>Your dealbreakers rule out every route for the answers you gave. Remove one and try again.</p><button class="sj-btn sj-btn-sm" type="button" data-sjc="edit">Edit answers</button></div>';
+    }else{
+      res.top.forEach(function(x,i){h+=routeCard(x,i);});
+    }
+    if(res.removed.length){
+      var t=res.removed.map(function(x){return '<b>'+x.r.title+'</b>';});
+      var med=res.removed.some(function(x){return x.r.id==='med_pk'&&has(x.by,'Physics');});
+      var msg=med?'No Physics removes Pre-Medical (Pakistan), because IBCC needs Physics, Chemistry and Biology for that equivalence.':'Your dealbreakers removed '+list(t)+(res.fallback?', so these are the closest routes.':'.');
+      note='<div class="sj-alert" role="note"><b>Dealbreakers applied</b><p>'+msg+'</p></div>';
+    }else if(res.fallback){
+      note='<div class="sj-alert" role="note"><b>Closest routes</b><p>No route matches your direction exactly, so these are the nearest options.</p></div>';
+    }
+    $('sjc-note').innerHTML=note;
+    $('sjc-routes').innerHTML=h;
+    $('sjc-sum').innerHTML=summary();
+    $('sjc-result').hidden=false;
+    $('sjc-quiz').hidden=true;
+    $('sjc-done').hidden=false;
+    $('sjc-err').hidden=true;
+    shown=true;
+    var rh=$('sjc-rh');
+    if(rh){rh.scrollIntoView({block:'start'});rh.focus({preventScroll:true});}
+  }
+
+  /* ---------- Events ---------- */
+  $('sjc-step').addEventListener('change',function(e){
+    var el=e.target;
+    if(el.name==='sjc-style'){st.style=el.value;sync();return;}
+    var g=el.getAttribute('data-g');
+    if(!g){return;}
+    var v=el.value,arr=st[g];
+    if(g==='dirs'){
+      if(el.checked){
+        if(v==='undecided'){st.dirs=['undecided'];}
+        else{
+          st.dirs=st.dirs.filter(function(x){return x!=='undecided';});
+          if(st.dirs.length>=2){el.checked=false;$('sjc-hint').textContent='Pick up to two directions. Untick one first.';return;}
+          st.dirs.push(v);
+        }
+      }else{st.dirs=st.dirs.filter(function(x){return x!==v;});}
+      Array.prototype.forEach.call($('sjc-step').querySelectorAll('input[data-g="dirs"]'),function(i){i.checked=has(st.dirs,i.value);});
+    }else{
+      if(el.checked){if(!has(arr,v)){arr.push(v);}}
+      else{st[g]=arr.filter(function(x){return x!==v;});}
+    }
+    sync();
+  });
+  $('sjc-next').addEventListener('click',function(){
+    if(!valid()){return;}
+    if(st.step<STEPS.length-1){st.step++;renderStep();focusQ();return;}
+    try{showResult();}
+    catch(err){
+      $('sjc-err').hidden=false;
+      $('sjc-quiz').hidden=true;
+    }
+  });
+  $('sjc-back').addEventListener('click',function(){if(st.step>0){st.step--;renderStep();focusQ();}});
+  var backToQuiz=function(reset){
+    if(reset){st={step:0,strong:[],style:null,dirs:[],bans:[]};}
+    else{st.step=0;}
+    $('sjc-result').hidden=true;
+    $('sjc-done').hidden=true;
+    $('sjc-err').hidden=true;
+    $('sjc-quiz').hidden=false;
+    shown=false;
+    renderStep();
+    var t=$('sjc-tool');if(t){t.scrollIntoView({block:'center'});}
+    focusQ();
+  };
+  $('sjc-edit').addEventListener('click',function(){backToQuiz(false);});
+  $('sjc-reset').addEventListener('click',function(){backToQuiz(true);});
+  $('sjc-routes').addEventListener('click',function(e){
+    var b=e.target.closest?e.target.closest('[data-sjc="edit"]'):null;
+    if(b){backToQuiz(false);}
+  });
+
+  renderStep();
+})();
+</script>
+
+<script>
+/* Standard page script, copied unchanged from 02 Website/Scripts/sj-page-script.js */
+(function(){
+  var root=document.getElementById('sj');
+  if(!root){return;}
+  var each=function(list,fn){Array.prototype.forEach.call(list,fn);};
+
+  /* Tabs: role="tablist" > role="tab" aria-controls="panel-id" */
+  each(root.querySelectorAll('[role="tablist"]'),function(list){
+    var tabs=Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    var pick=function(tab,focus){
+      tabs.forEach(function(t){
+        var on=t===tab;
+        t.setAttribute('aria-selected',on?'true':'false');
+        t.tabIndex=on?0:-1;
+        var panel=document.getElementById(t.getAttribute('aria-controls'));
+        if(panel){panel.hidden=!on;}
+      });
+      if(focus){tab.focus();}
+    };
+    tabs.forEach(function(tab,i){
+      tab.addEventListener('click',function(){pick(tab,false);});
+      tab.addEventListener('keydown',function(e){
+        var step=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+        if(!step){return;}
+        e.preventDefault();
+        pick(tabs[(i+step+tabs.length)%tabs.length],true);
+      });
+    });
+  });
+
+  /* Phone bottom bar: shows once the element marked data-sj-hero has scrolled away */
+  var bar=root.querySelector('.sj-bar');
+  var hero=root.querySelector('[data-sj-hero]');
+  if(bar&&hero&&'IntersectionObserver' in window){
+    root.classList.add('sj-has-bar');
+    new IntersectionObserver(function(entries){
+      bar.classList.toggle('is-on',!entries[0].isIntersecting);
+    }).observe(hero);
+  }
+
+  /* Video: loads the player only after a tap */
+  each(root.querySelectorAll('.sj-video[data-src]'),function(v){
+    v.addEventListener('click',function(e){
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src=v.getAttribute('data-src');
+      f.title=v.getAttribute('data-title')||'Video';
+      f.allow='autoplay; encrypted-media; picture-in-picture';
+      f.allowFullscreen=true;
+      f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';
+      v.innerHTML='';
+      v.appendChild(f);
+    });
+  });
+
+  /* Measurement: one event name per action, location read from data-loc */
+  var send=function(name,loc){
+    var g=window['gt'+'ag'];
+    if(typeof g==='function'){g('event',name,{link_location:loc||'unknown',page_family:root.getAttribute('data-family')||''});}
+  };
+  root.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a,button'):null;
+    if(!a){return;}
+    var href=a.getAttribute('href')||'';
+    var loc=a.getAttribute('data-loc');
+    if(href.indexOf('wa.me')>-1){send('whatsapp_click',loc);}
+    else if(href.indexOf('popup%3Aopen')>-1){send('register_open',loc);}
+    else if(a.hasAttribute('download')){send('resource_download',loc);}
+    else if(a.hasAttribute('data-event')){send(a.getAttribute('data-event'),loc);}
+  });
+})();
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "A Level subject combinations tool", "url": "https://www.sjacademy.pk/a-level-subject-combinations-tool/", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "description": "Free A Level subjects combination tool for Pakistan. Answer four questions and get three ranked Cambridge combinations, with the degrees, entry tests and universities each one leads to.", "provider": {"@type": "EducationalOrganization", "name": "SJ Academy", "url": "https://www.sjacademy.pk/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PKR"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the best A Level subject combination?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single best combination. It depends on the degree you want. Physics, Chemistry and Biology suit medicine in Pakistan. Mathematics, Physics and Chemistry suit engineering. Mathematics with Economics suits finance. Pick the degree first, then the subjects it asks for."}}, {"@type": "Question", "name": "How many A Level subjects should I take?", "acceptedAnswer": {"@type": "Answer", "text": "Cambridge says students typically take four subjects at AS and three at A Level. IBCC equivalence is built on three A Level subjects, so three is the usual load. Take a fourth only if a degree you want asks for it."}}, {"@type": "Question", "name": "Are any A Level subjects compulsory?", "acceptedAnswer": {"@type": "Answer", "text": "No. Cambridge does not make any A Level subject compulsory. Your degree, university and IBCC equivalence decide which subjects you need. IBCC fixes the subjects for the science groups, and Humanities accepts any three."}}, {"@type": "Question", "name": "Which A Level subject combination do I need for medicine in Pakistan?", "acceptedAnswer": {"@type": "Answer", "text": "For IBCC Pre-Medical equivalence you need Physics, Chemistry and Biology at A Level, plus SSC Science with Biology. Biology and Chemistry without Physics suits medicine abroad, but it does not earn Pre-Medical equivalence in Pakistan."}}, {"@type": "Question", "name": "Which A Levels do I need for engineering?", "acceptedAnswer": {"@type": "Answer", "text": "Mathematics, Physics and Chemistry give you IBCC Pre-Engineering equivalence. Many UK engineering courses ask for Mathematics and Physics, and some prefer Further Mathematics. Check the course page for your target university."}}, {"@type": "Question", "name": "Which A Level subjects do I need for computer science?", "acceptedAnswer": {"@type": "Answer", "text": "Mathematics is the subject computer science courses most often ask for. IBCC accepts Physics, Computer Science and Mathematics for its Computer Science group. Check each course, because requirements differ by university."}}, {"@type": "Question", "name": "Can I study business or law with science subjects?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes. Many business and law programmes do not fix A Level subjects, though finance and economics programmes usually prefer Mathematics. Check each programme before you decide."}}, {"@type": "Question", "name": "Which A Level subjects are the easiest or the hardest?", "acceptedAnswer": {"@type": "Answer", "text": "There is no official ranking, and difficulty depends on you. Choose subjects you can score well in and that your degree needs. Question 2 of the tool asks how you score best, so the ranking reflects your strengths."}}, {"@type": "Question", "name": "How accurate are the results?", "acceptedAnswer": {"@type": "Answer", "text": "The tool compares your answers with common degree routes and IBCC's equivalence rules. It is guidance, not an admissions rule. Confirm requirements with each university and with IBCC before you finalise your subjects."}}]}</script>

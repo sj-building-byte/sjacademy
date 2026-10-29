@@ -1,0 +1,79 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;font-family:'SJ Poppins';}
+#bg-base{position:absolute;inset:0;background:radial-gradient(120% 80% at 20% 10%,#151C52 0%,#0A0F2C 60%,#05081C 100%);}
+#bg-g1{position:absolute;left:-300px;top:-200px;width:1100px;height:1100px;border-radius:50%;color:#A78BFA;
+  background:radial-gradient(circle,currentColor 0%,transparent 68%);opacity:0.30;}
+#bg-g2{position:absolute;left:400px;top:1100px;width:1100px;height:1100px;border-radius:50%;color:#FE6100;
+  background:radial-gradient(circle,currentColor 0%,transparent 68%);opacity:0.22;}
+#bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.045) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,0.045) 2px,transparent 2px);
+  background-size:60px 60px;-webkit-mask-image:radial-gradient(circle at 50% 45%,#000 20%,transparent 75%);mask-image:radial-gradient(circle at 50% 45%,#000 20%,transparent 75%);}
+#bg-graphs{position:absolute;left:0;top:0;color:#A78BFA;opacity:0.16;}
+#bg-chalk{position:absolute;left:0;top:0;width:1080px;height:3600px;}
+.ck{position:absolute;white-space:nowrap;font-family:'SJ Caveat';font-weight:600;color:rgba(255,255,255,0.11);}
+#bg-ops{position:absolute;left:0;top:0;width:1080px;height:3600px;}
+.op{position:absolute;font-weight:800;line-height:1;color:rgba(255,255,255,0.05);}
+#bg-vig{position:absolute;inset:0;background:radial-gradient(130% 90% at 50% 45%,transparent 55%,rgba(3,5,18,0.75) 100%);}
+  </style>
+  <div id="root" data-composition-id="bg" data-width="1080" data-height="1920" data-layout-ignore>
+    <div id="bg-base"></div>
+    <div id="bg-g1"></div>
+    <div id="bg-g2"></div>
+    <div id="bg-grid"></div>
+    <svg id="bg-graphs" width="1080" height="3600" viewBox="0 0 1080 3600">
+  <g fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M680 560 L1040 560 M850 300 L850 600" stroke-width="3" opacity="0.5"/>
+    <path d="M700 290 L706 310 L712 328 L718 346 L724 364 L730 380 L736 396 L742 410 L748 424 L754 438 L760 450 L766 462 L772 472 L778 482 L784 492 L790 500 L796 508 L802 514 L808 520 L814 526 L820 530 L826 534 L832 536 L838 538 L844 540 L850 540 L856 540 L862 538 L868 536 L874 534 L880 530 L886 526 L892 520 L898 514 L904 508 L910 500 L916 492 L922 482 L928 472 L934 462 L940 450 L946 438 L952 424 L958 410 L964 396 L970 380 L976 364 L982 346 L988 328 L994 310 L1000 290" stroke-width="5"/>
+    <circle cx="250" cy="1000" r="150" stroke-width="4"/>
+    <path d="M250 1000 L380 925 M250 1000 L400 1000 M290 1000 A40 40 0 0 0 285 980" stroke-width="4"/>
+    <path d="M0 1450 L12 1459 L24 1468 L36 1477 L48 1486 L60 1493 L72 1500 L84 1506 L96 1511 L108 1515 L120 1518 L132 1520 L144 1520 L156 1519 L168 1517 L180 1514 L192 1509 L204 1504 L216 1497 L228 1490 L240 1482 L252 1473 L264 1464 L276 1455 L288 1446 L300 1437 L312 1428 L324 1419 L336 1411 L348 1404 L360 1397 L372 1391 L384 1387 L396 1383 L408 1381 L420 1380 L432 1380 L444 1382 L456 1384 L468 1388 L480 1393 L492 1399 L504 1406 L516 1413 L528 1422 L540 1430 L552 1440 L564 1449 L576 1458 L588 1467 L600 1476 L612 1485 L624 1492 L636 1499 L648 1506 L660 1511 L672 1515 L684 1518 L696 1519 L708 1520 L720 1519 L732 1517 L744 1514 L756 1510 L768 1504 L780 1498 L792 1491 L804 1483 L816 1475 L828 1466 L840 1456 L852 1447 L864 1438 L876 1429 L888 1420 L900 1412 L912 1404 L924 1398 L936 1392 L948 1387 L960 1384 L972 1381 L984 1380 L996 1380 L1008 1381 L1020 1384 L1032 1388 L1044 1392 L1056 1398 L1068 1405 L1080 1412 L1092 1421" stroke-width="5"/>
+    <path d="M60 2150 L1020 2150" stroke-width="4"/>
+    <path d="M60 2135 L60 2165" stroke-width="4"/><path d="M156 2135 L156 2165" stroke-width="4"/><path d="M252 2135 L252 2165" stroke-width="4"/><path d="M348 2135 L348 2165" stroke-width="4"/><path d="M444 2135 L444 2165" stroke-width="4"/><path d="M540 2135 L540 2165" stroke-width="4"/><path d="M636 2135 L636 2165" stroke-width="4"/><path d="M732 2135 L732 2165" stroke-width="4"/><path d="M828 2135 L828 2165" stroke-width="4"/><path d="M924 2135 L924 2165" stroke-width="4"/><path d="M1020 2135 L1020 2165" stroke-width="4"/>
+    <path d="M700 2950 L700 3250 L1000 3250 Z M700 3215 L735 3215 L735 3250" stroke-width="4"/>
+    <circle cx="300" cy="2900" r="110" stroke-width="3" stroke-dasharray="10 14"/>
+  </g>
+</svg>
+    <div id="bg-chalk"><div class="ck" style="left:600px;top:120px;font-size:70px;transform:rotate(-6deg)">a² + b² = c²</div><div class="ck" style="left:80px;top:560px;font-size:64px;transform:rotate(4deg)">π ≈ 3.14159</div><div class="ck" style="left:540px;top:760px;font-size:58px;transform:rotate(-3deg)">sin²θ + cos²θ = 1</div><div class="ck" style="left:60px;top:1180px;font-size:56px;transform:rotate(-2deg)">x = (−b ± √(b² − 4ac)) / 2a</div><div class="ck" style="left:420px;top:1620px;font-size:54px;transform:rotate(3deg)">1 + 2 + … + n = n(n + 1)/2</div><div class="ck" style="left:640px;top:1960px;font-size:62px;transform:rotate(-5deg)">∫ x dx = x²/2</div><div class="ck" style="left:90px;top:1880px;font-size:66px;transform:rotate(6deg)">7 × 8 = 56</div><div class="ck" style="left:300px;top:2240px;font-size:56px;transform:rotate(-4deg)">(a + b)² = a² + 2ab + b²</div><div class="ck" style="left:700px;top:2480px;font-size:60px;transform:rotate(5deg)">√2 ≈ 1.414</div><div class="ck" style="left:110px;top:2600px;font-size:66px;transform:rotate(-3deg)">y = mx + c</div><div class="ck" style="left:640px;top:2820px;font-size:64px;transform:rotate(4deg)">12² = 144</div><div class="ck" style="left:120px;top:3060px;font-size:64px;transform:rotate(-5deg)">e ≈ 2.718</div><div class="ck" style="left:620px;top:3220px;font-size:70px;transform:rotate(3deg)">A = πr²</div><div class="ck" style="left:140px;top:3420px;font-size:66px;transform:rotate(-4deg)">25% = ¼</div></div>
+    <div id="bg-ops"><div class="op" id="bg-op0" style="left:860px;top:380px;font-size:170px">+</div><div class="op" id="bg-op1" style="left:70px;top:900px;font-size:150px">÷</div><div class="op" id="bg-op2" style="left:880px;top:1350px;font-size:190px">×</div><div class="op" id="bg-op3" style="left:90px;top:1560px;font-size:140px">=</div><div class="op" id="bg-op4" style="left:820px;top:2050px;font-size:160px">%</div><div class="op" id="bg-op5" style="left:140px;top:2350px;font-size:180px">√</div><div class="op" id="bg-op6" style="left:860px;top:2700px;font-size:200px">π</div><div class="op" id="bg-op7" style="left:110px;top:3150px;font-size:170px">∑</div></div>
+    <div id="bg-vig"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+        tl.fromTo('#bg-chalk',{y:0},{y:-1500,duration:102.668,ease:'none'},0);
+    tl.fromTo('#bg-graphs',{y:0},{y:-1000,duration:102.668,ease:'none'},0);
+    tl.fromTo('#bg-ops',{y:0},{y:-1800,duration:102.668,ease:'none'},0);
+    tl.fromTo('.op',{rotation:-20},{rotation:25,duration:102.668,ease:'none'},0);
+    tl.fromTo('#bg-g1',{x:0,y:0},{x:260,y:500,duration:51.334,ease:'sine.inOut'},0);
+    tl.to('#bg-g1',{x:-120,y:200,duration:51.334,ease:'sine.inOut'},51.334);
+    tl.fromTo('#bg-g2',{x:0,y:0},{x:-300,y:-420,duration:51.334,ease:'sine.inOut'},0);
+    tl.to('#bg-g2',{x:80,y:-100,duration:51.334,ease:'sine.inOut'},51.334);
+    tl.to('#bg-g1,#bg-graphs',{color:'#22D3EE',duration:0.35,ease:'none'},4.025);
+    tl.to('#bg-g2',{color:'#22D3EE',duration:0.35,ease:'none'},4.025);
+    tl.to('#bg-g1,#bg-graphs',{color:'#FF4D6D',duration:0.35,ease:'none'},11.316);
+    tl.to('#bg-g2',{color:'#FF4D6D',duration:0.35,ease:'none'},11.316);
+    tl.to('#bg-g1,#bg-graphs',{color:'#A78BFA',duration:0.35,ease:'none'},19.000);
+    tl.to('#bg-g2',{color:'#A78BFA',duration:0.35,ease:'none'},19.000);
+    tl.to('#bg-g1,#bg-graphs',{color:'#34D399',duration:0.35,ease:'none'},28.915);
+    tl.to('#bg-g2',{color:'#34D399',duration:0.35,ease:'none'},28.915);
+    tl.to('#bg-g1,#bg-graphs',{color:'#FB923C',duration:0.35,ease:'none'},37.260);
+    tl.to('#bg-g2',{color:'#FB923C',duration:0.35,ease:'none'},37.260);
+    tl.to('#bg-g1,#bg-graphs',{color:'#F472B6',duration:0.35,ease:'none'},45.918);
+    tl.to('#bg-g2',{color:'#F472B6',duration:0.35,ease:'none'},45.918);
+    tl.to('#bg-g1,#bg-graphs',{color:'#60A5FA',duration:0.35,ease:'none'},54.999);
+    tl.to('#bg-g2',{color:'#60A5FA',duration:0.35,ease:'none'},54.999);
+    tl.to('#bg-g1,#bg-graphs',{color:'#2DD4BF',duration:0.35,ease:'none'},65.688);
+    tl.to('#bg-g2',{color:'#2DD4BF',duration:0.35,ease:'none'},65.688);
+    tl.to('#bg-g1,#bg-graphs',{color:'#FF6B6B',duration:0.35,ease:'none'},74.298);
+    tl.to('#bg-g2',{color:'#FF6B6B',duration:0.35,ease:'none'},74.298);
+    tl.to('#bg-g1,#bg-graphs',{color:'#C084FC',duration:0.35,ease:'none'},82.116);
+    tl.to('#bg-g2',{color:'#C084FC',duration:0.35,ease:'none'},82.116);
+    tl.to('#bg-g1,#bg-graphs',{color:'#A78BFA',duration:0.35,ease:'none'},91.284);
+    tl.to('#bg-g2',{color:'#A78BFA',duration:0.35,ease:'none'},91.284);
+    window.__timelines["bg"] = tl;
+  </script>
+</template>

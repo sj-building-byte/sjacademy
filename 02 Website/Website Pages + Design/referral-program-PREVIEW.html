@@ -1,0 +1,599 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Preview</title>
+<style>html,body{margin:0;background:#F7F5EF}html,body{margin:0;background:#F7F5EF}#sj{--sj-yellow:#FCE004;--sj-yellow-light:#FFF9CC;--sj-orange:#FE6100;--sj-cta:#CC4A00;--sj-cta-dark:#B54200;--sj-brown:#453516;--sj-ink:#151515;--sj-text:#2B2B2B;--sj-muted:#66625A;--sj-canvas:#F7F5EF;--sj-white:#FFFFFF;--sj-line:#E2DDD0;--sj-kraft:#E9DFC9;--sj-whatsapp:#25D366;--sj-pen:#D63A2F;--sj-pen-text:#B92F25;--sj-exam-ink:#1B2A4A;--sj-ok:#1F7A3D;--sj-ok-bg:#E9F4EC;--sj-err:#B3261E;--sj-err-bg:#FBECEA;--sj-font:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;--sj-hand:'Caveat','Segoe Script','Bradley Hand',cursive;--sj-s1:4px;--sj-s2:8px;--sj-s3:12px;--sj-s4:16px;--sj-s5:24px;--sj-s6:32px;--sj-s7:48px;--sj-s8:72px;--sj-s9:96px;--sj-r-sm:6px;--sj-r-md:12px;--sj-r-lg:18px;--sj-r-pill:999px;--sj-sh-soft:0 8px 18px rgba(0,0,0,.10);--sj-sh-lift:0 14px 34px rgba(0,0,0,.18);--sj-sh-offset:7px 7px 0 var(--sj-yellow),7px 7px 0 1.5px var(--sj-ink);--sj-tap:48px;--sj-measure:68ch;--sj-wide:1550px;--sj-gutter:16px;--sj-section:48px;--sj-fast:120ms;--sj-med:200ms;--sj-z-raised:2;--sj-z-bar:900}@media (min-width:600px){#sj{--sj-section:72px}}@media (min-width:900px){#sj{--sj-gutter:24px}}@media (min-width:1200px){#sj{--sj-section:96px}}#sj{font-family:var(--sj-font);font-size:16px;line-height:1.6;font-weight:400;color:var(--sj-text);background:var(--sj-canvas);text-align:left;overflow-x:clip;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}#sj *,#sj *::before,#sj *::after{box-sizing:border-box}#sj h1,#sj h2,#sj h3,#sj h4,#sj h5,#sj h6{margin:0;padding:0;font-family:var(--sj-font);font-weight:400;color:var(--sj-ink);text-transform:none;letter-spacing:normal;line-height:1.2}#sj p{margin:0;padding:0;font-size:inherit;line-height:inherit;color:inherit}#sj ul,#sj ol{margin:0;padding:0;list-style:none}#sj li{margin:0;padding:0}#sj a{color:inherit;font-weight:inherit;text-decoration:none;background:none;box-shadow:none}#sj img{display:block;max-width:100%;height:auto;border:0;border-radius:0;box-shadow:none}#sj button{all:unset;box-sizing:border-box;cursor:pointer;font-family:inherit}#sj table{border-collapse:collapse;border-spacing:0;width:100%;margin:0;border:0}#sj th,#sj td{border:0;padding:0;text-align:left;background:none;font-weight:400}#sj input,#sj select,#sj textarea{font-family:inherit;font-size:16px;margin:0}#sj summary{list-style:none;cursor:pointer}#sj summary::-webkit-details-marker{display:none}#sj svg{flex:none}#sj [hidden]{display:none!important}#sj :focus-visible{outline:3px solid var(--sj-ink);outline-offset:3px;border-radius:4px}#sj .sj-bg-brown :focus-visible{outline-color:var(--sj-yellow)}#sj .sj-section{padding:var(--sj-section) 0}#sj .sj-wrap{width:100%;max-width:var(--sj-wide);margin:0 auto;padding:0 var(--sj-gutter)}#sj .sj-measure{max-width:var(--sj-measure)}#sj .sj-stack>*+*{margin-top:var(--sj-s4)}#sj .sj-stack-lg>*+*{margin-top:var(--sj-s6)}#sj .sj-grid{display:grid;gap:var(--sj-s4);grid-template-columns:minmax(0,1fr)}#sj .sj-grid>*{min-width:0}@media (min-width:600px){#sj .sj-grid-2,#sj .sj-grid-3,#sj .sj-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:900px){#sj .sj-grid{gap:var(--sj-s5)}#sj .sj-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}#sj .sj-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}#sj .sj-grid-hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:var(--sj-s7)}}#sj .sj-row{display:flex;flex-wrap:wrap;gap:var(--sj-s3);align-items:center}#sj .sj-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}#sj .sj-bg-white{background:#fff}#sj .sj-bg-canvas{background:var(--sj-canvas)}#sj .sj-bg-dots{background:radial-gradient(#DAD4C3 1.1px,transparent 1.2px) 0 0/22px 22px,var(--sj-canvas)}#sj .sj-bg-grid{background:linear-gradient(#E6E0D0 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,#E6E0D0 1px,transparent 1px) 0 0/22px 22px,var(--sj-canvas)}#sj .sj-bg-ruled{background:repeating-linear-gradient(transparent 0 31px,#E2DDD0 31px 32px),var(--sj-canvas)}#sj .sj-bg-brown{background:var(--sj-brown);color:#EDE6D3}#sj .sj-bg-brown h1,#sj .sj-bg-brown h2,#sj .sj-bg-brown h3,#sj .sj-bg-brown h4{color:#fff}#sj .sj-bg-yellow{background:radial-gradient(rgba(0,0,0,.12) 1.1px,transparent 1.2px) 0 0/22px 22px,var(--sj-yellow);color:var(--sj-ink)}#sj .sj-h1{font-size:clamp(32px,calc(24px + 2.2vw),54px);font-weight:600;line-height:1.08;letter-spacing:-.03em;text-wrap:balance}#sj .sj-h2{font-size:clamp(26px,calc(21px + 1.3vw),38px);font-weight:500;line-height:1.15;letter-spacing:-.025em;text-wrap:balance}#sj .sj-h3{font-size:clamp(18px,calc(17px + .3vw),21px);line-height:1.3;font-weight:500}#sj .sj-h4{font-size:16px;line-height:1.4;font-weight:500}#sj .sj-lead{font-size:clamp(17px,calc(16px + .25vw),19px);line-height:1.6;color:inherit}#sj .sj-small{font-size:14px;line-height:1.5}#sj .sj-caption{font-size:13px;line-height:1.45;color:var(--sj-muted)}#sj .sj-muted{color:var(--sj-muted)}#sj .sj-bg-brown .sj-muted,#sj .sj-bg-brown .sj-caption{color:#D8CFB8}#sj .sj-num{font-variant-numeric:tabular-nums;white-space:nowrap}#sj .sj-hl{background-image:linear-gradient(100deg,transparent 0,var(--sj-yellow) .14em,var(--sj-yellow) calc(100% - .14em),transparent 100%);background-repeat:no-repeat;background-size:100% .4em;background-position:0 calc(100% - .31em);padding:0 .14em;margin:0 -.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone;white-space:nowrap}#sj .sj-bg-brown .sj-hl,#sj .sj-bg-yellow .sj-hl{background:none;padding:0;margin:0}#sj .sj-bg-brown .sj-hl{color:var(--sj-yellow)}#sj .sj-pill{display:table;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-pill);padding:4px;background:#fff;box-shadow:3px 3px 0 rgba(0,0,0,.14);margin-bottom:var(--sj-s4)}#sj .sj-pill>span{display:block;background:var(--sj-yellow);border-radius:var(--sj-r-pill);padding:6px 14px;font-size:12px;line-height:1.4;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--sj-ink)}#sj .sj-offset{background:#fff;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-lg);padding:var(--sj-s5) var(--sj-s4);box-shadow:var(--sj-sh-offset);margin-right:9px;margin-bottom:9px;align-self:start}@media (min-width:600px){#sj .sj-offset{padding:var(--sj-s5)}}#sj .sj-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 22px;border-radius:var(--sj-r-md);border:1.5px solid var(--sj-ink);background:#fff;color:var(--sj-ink);font-size:16px;line-height:1.3;font-weight:500;text-align:center;transition:transform var(--sj-fast) ease-out,box-shadow var(--sj-fast) ease-out,background-color var(--sj-fast) ease-out}#sj .sj-btn-primary{background:var(--sj-cta);color:#fff;box-shadow:4px 4px 0 var(--sj-ink);margin-right:4px;margin-bottom:4px}#sj .sj-btn-wa{background:var(--sj-whatsapp);color:#000}#sj .sj-btn-ghost{background:#fff;color:var(--sj-ink)}#sj .sj-btn-sm{min-height:var(--sj-tap);padding:10px 16px;font-size:15px}#sj .sj-btn-block{display:flex;width:100%}#sj .sj-btn svg{width:20px;height:20px}@media (hover:hover){#sj .sj-btn:hover{background:var(--sj-yellow-light)}#sj .sj-btn-primary:hover{background:var(--sj-cta-dark);transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--sj-ink)}#sj .sj-btn-wa:hover{background:#1FC25C}}#sj .sj-btn:active{transform:translate(1px,1px)}#sj .sj-btn-primary:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--sj-ink)}#sj .sj-btn[disabled],#sj .sj-btn[aria-disabled="true"]{background:var(--sj-line);color:var(--sj-muted);border-color:#A8A396;box-shadow:none;cursor:not-allowed;pointer-events:none;transform:none}#sj .sj-btn[aria-busy="true"]{pointer-events:none}#sj .sj-btn[aria-busy="true"]::before{content:"";width:18px;height:18px;border-radius:50%;border:2.5px solid currentColor;border-right-color:transparent;animation:sj-spin .7s linear infinite}@keyframes sj-spin{to{transform:rotate(360deg)}}#sj .sj-link,#sj .sj-prose a{font-weight:500;color:var(--sj-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;box-shadow:inset 0 -.42em 0 var(--sj-yellow);transition:box-shadow var(--sj-med) ease-out}#sj .sj-link-go::after{content:" \2192"}@media (hover:hover){#sj .sj-link:hover,#sj .sj-prose a:hover{box-shadow:inset 0 -1.4em 0 var(--sj-yellow)}}#sj .sj-bg-brown .sj-link{color:var(--sj-yellow);box-shadow:none}#sj .sj-bg-yellow .sj-link{box-shadow:none;text-decoration-thickness:2px}#sj .sj-hand{font-family:var(--sj-hand);font-weight:600;font-size:22px;line-height:1.1;color:var(--sj-cta-dark);display:inline-block}#sj .sj-hand-lg{font-size:28px}#sj .sj-bg-brown .sj-hand{color:var(--sj-yellow)}#sj .sj-bg-yellow .sj-hand{color:var(--sj-ink)}#sj .sj-tilt-l{transform:rotate(-1.5deg)}#sj .sj-tilt-r{transform:rotate(1.2deg)}#sj .sj-circled{position:relative;display:inline-block;padding:2px 10px}#sj .sj-circled>b{font-weight:400;position:relative;color:inherit}#sj .sj-circle{position:absolute;left:-6px;top:-4px;width:calc(100% + 12px);height:calc(100% + 8px);pointer-events:none}#sj .sj-arrow{width:64px;height:40px;vertical-align:middle}#sj .sj-under{position:relative;display:inline-block;color:var(--sj-ink)}#sj .sj-scribble{position:absolute;left:-2%;bottom:-.35em;width:104%;height:.5em;pointer-events:none}#sj .sj-tagged{position:relative}#sj .sj-tag{position:absolute;top:-14px;right:16px;background:var(--sj-ink);color:var(--sj-yellow);font-family:var(--sj-hand);font-weight:600;font-size:20px;line-height:1.2;padding:2px 12px;border-radius:var(--sj-r-sm);transform:rotate(2deg)}#sj .sj-ticks{display:grid;gap:10px;color:var(--sj-ink)}#sj .sj-ticks li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start;line-height:1.5}#sj .sj-ticks svg{width:22px;height:22px;margin-top:1px;fill:none;stroke:var(--sj-cta);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}#sj .sj-bg-brown .sj-ticks{color:#fff}#sj .sj-bg-brown .sj-ticks svg{stroke:var(--sj-yellow)}#sj .sj-margin{border-left:2px solid var(--sj-pen);padding:2px 0 2px 16px}#sj .sj-margin-note{display:block;font-family:var(--sj-hand);font-weight:600;font-size:21px;line-height:1.15;color:var(--sj-pen-text);margin-top:4px;transform:rotate(-1deg);transform-origin:left}#sj .sj-starred{display:inline-flex;align-items:center;gap:6px;font-weight:500;color:var(--sj-ink)}#sj .sj-star{width:26px;height:26px}#sj .sj-polaroid{position:relative;background:#fff;padding:10px 10px 12px;box-shadow:var(--sj-sh-lift);transform:rotate(-1.4deg);max-width:300px;margin:14px 8px 8px}#sj .sj-polaroid img{width:100%;aspect-ratio:4/3;object-fit:cover}#sj .sj-polaroid .sj-hand{display:block;text-align:center;color:var(--sj-ink);font-size:20px;margin-top:8px}#sj .sj-tape{position:absolute;top:-12px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(252,224,4,.78);transform:rotate(2deg);box-shadow:0 1px 2px rgba(0,0,0,.1)}#sj .sj-tape-kraft{background:rgba(203,180,137,.85)}#sj .sj-photo{border-radius:14px;overflow:hidden}#sj .sj-photo img{width:100%;object-fit:cover}#sj .sj-sticky{background:var(--sj-yellow-light);padding:16px 16px 20px;max-width:260px;transform:rotate(1.2deg);box-shadow:var(--sj-sh-soft);border-bottom-right-radius:18px 4px;margin:6px}#sj .sj-sticky .sj-hand{display:block;color:var(--sj-ink);margin-bottom:6px}#sj .sj-sticky p{font-size:15px;line-height:1.5;color:var(--sj-ink)}#sj .sj-paper{position:relative;overflow:hidden;background:#FFFEF9;color:var(--sj-exam-ink);border-radius:4px;box-shadow:var(--sj-sh-lift);transform:rotate(-.6deg);max-width:460px;margin:8px 6px}#sj .sj-paper::before{content:"";position:absolute;left:34px;top:0;bottom:0;width:1.5px;background:#E9A29C}#sj .sj-paper-q{padding:14px 16px 12px 46px;border-bottom:1.5px solid var(--sj-exam-ink);font-size:15px;line-height:1.5;color:#111}#sj .sj-paper-q small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5E5E5E}#sj .sj-paper-a{padding:8px 16px 8px 46px;font-size:16px;line-height:30px;background:repeating-linear-gradient(transparent 0 29px,#D8E2EE 29px 30px);min-height:90px}#sj .sj-mark{font-family:var(--sj-hand);font-weight:600;color:var(--sj-pen-text);font-size:21px;margin:0 3px}#sj .sj-paper-note{padding:10px 16px 14px 46px;font-family:var(--sj-hand);font-weight:600;font-size:21px;line-height:1.2;color:var(--sj-pen-text)}#sj .sj-paper-full{max-width:760px;transform:none}#sj .sj-stamp{display:inline-grid;place-items:center;width:74px;height:74px;border:2.5px solid var(--sj-pen);border-radius:50%;font-family:var(--sj-hand);font-weight:600;font-size:30px;color:var(--sj-pen-text);transform:rotate(-9deg);vertical-align:middle}#sj .sj-stamp-box{display:inline-block;border:2.5px solid var(--sj-pen);border-radius:var(--sj-r-sm);padding:4px 12px;font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sj-pen-text);transform:rotate(-6deg);vertical-align:middle;background:#fff}#sj .sj-grade{display:inline-grid;place-items:center;flex:none;width:56px;height:56px;border-radius:50%;background:var(--sj-yellow);font-weight:500;font-size:22px;color:var(--sj-ink)}#sj .sj-tabs{display:flex;gap:4px;padding:0 12px;margin-bottom:-1.5px;position:relative;z-index:1;overflow-x:auto;scrollbar-width:none}#sj .sj-tabs::-webkit-scrollbar{display:none}#sj .sj-tabs [role="tab"]{flex:none;display:inline-flex;align-items:center;min-height:var(--sj-tap);padding:8px 18px;border:1.5px solid var(--sj-ink);border-bottom:0;border-radius:var(--sj-r-md) var(--sj-r-md) 0 0;background:var(--sj-kraft);color:var(--sj-ink);font-size:15px;white-space:nowrap}#sj .sj-tabs [role="tab"][aria-selected="true"]{background:#fff;font-weight:500;box-shadow:inset 0 4px 0 var(--sj-yellow)}#sj .sj-tabs [role="tab"]:focus-visible{outline-offset:-5px}#sj .sj-tabpanel{border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);background:#fff;padding:var(--sj-s4)}@media (min-width:600px){#sj .sj-tabpanel{padding:var(--sj-s5)}}#sj .sj-clipped,#sj .sj-card.sj-clipped{position:relative;padding-left:54px}#sj .sj-clip{position:absolute;left:14px;top:-14px;width:22px;height:52px;transform:rotate(-6deg)}#sj .sj-ticket{display:grid;grid-template-columns:84px minmax(0,1fr);border:1.5px solid var(--sj-ink);border-radius:14px;overflow:hidden;background:#fff;max-width:420px}#sj .sj-ticket-stub{background:var(--sj-kraft);border-right:2px dashed var(--sj-ink);display:grid;place-items:center;align-content:center;padding:12px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--sj-ink);text-align:center}#sj .sj-ticket-stub b{display:block;font-weight:400;font-size:30px;line-height:1;letter-spacing:-.03em}#sj .sj-ticket-body{padding:14px 16px}#sj .sj-ticket-body b{display:block;font-weight:500;color:var(--sj-ink)}#sj .sj-ticket-body span{font-size:14px;color:var(--sj-muted)}#sj .sj-pinned{position:relative;background:#fff;border:1px solid var(--sj-line);border-radius:var(--sj-r-sm);padding:22px 16px 14px;box-shadow:var(--sj-sh-soft);transform:rotate(-1deg);text-align:center;margin:8px 4px 4px}#sj .sj-pinned:nth-child(even){transform:rotate(1.3deg)}#sj .sj-pinned b{display:block;font-weight:500;color:var(--sj-ink)}#sj .sj-pinned p{margin-top:2px;font-size:14px;color:var(--sj-muted)}#sj .sj-pin{position:absolute;top:-8px;left:50%;margin-left:-8px;width:16px;height:16px;border-radius:50%;background:var(--sj-cta);box-shadow:inset -3px -3px 0 rgba(0,0,0,.2),0 3px 4px rgba(0,0,0,.25)}#sj .sj-steps{counter-reset:sj}#sj .sj-steps li{counter-increment:sj;display:grid;grid-template-columns:44px minmax(0,1fr);gap:2px 8px;padding:14px 0;border-top:1px solid var(--sj-line)}#sj .sj-steps li::before{content:"0" counter(sj);font-family:var(--sj-hand);font-weight:600;font-size:26px;color:var(--sj-cta-dark);line-height:1;grid-row:span 2}#sj .sj-steps b{font-weight:500;color:var(--sj-ink)}#sj .sj-steps span{font-size:15px;color:var(--sj-muted);grid-column:2}#sj .sj-bg-brown .sj-steps li{border-color:rgba(255,255,255,.18)}#sj .sj-bg-brown .sj-steps li::before{color:var(--sj-yellow)}#sj .sj-bg-brown .sj-steps b{color:#fff}#sj .sj-bg-brown .sj-steps span{color:#D8CFB8}#sj .sj-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 12px;border-top:1.5px solid var(--sj-ink);border-bottom:1.5px solid var(--sj-ink)}#sj .sj-proof>*{padding:14px 6px 14px 0;font-size:14px;color:var(--sj-muted);line-height:1.35;min-width:0}#sj .sj-proof b{display:block;font-weight:400;font-size:clamp(25px,calc(22px + 1vw),36px);line-height:1.1;color:var(--sj-ink);letter-spacing:-.03em}#sj .sj-eyebrow{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sj-muted);display:flex;align-items:center;gap:10px;margin-bottom:var(--sj-s3)}#sj .sj-eyebrow::before{content:"";width:26px;height:2px;background:var(--sj-ink);flex:none}#sj .sj-bg-brown .sj-eyebrow{color:#D8CFB8}#sj .sj-bg-brown .sj-eyebrow::before{background:var(--sj-yellow)}#sj .sj-tile{display:block;background:#fff;border:1.5px solid transparent;border-radius:var(--sj-r-lg);padding:18px;transition:border-color var(--sj-fast) ease-out,background-color var(--sj-fast) ease-out}#sj .sj-bg-white .sj-tile{background:var(--sj-canvas)}#sj .sj-tile>b{display:block;font-weight:500;color:var(--sj-ink)}#sj .sj-tile>p{margin:4px 0 12px;font-size:15px;color:var(--sj-muted)}@media (hover:hover){#sj a.sj-tile:hover{border-color:var(--sj-ink);background:var(--sj-yellow-light)}}#sj a.sj-tile:active{border-color:var(--sj-ink)}#sj .sj-card{background:#fff;border:1px solid var(--sj-line);border-radius:var(--sj-r-lg);padding:var(--sj-s5) var(--sj-s4)}@media (min-width:600px){#sj .sj-card{padding:var(--sj-s5)}#sj .sj-card.sj-clipped{padding-left:54px}}#sj .sj-crumbs ol{display:flex;flex-wrap:wrap;gap:4px 8px;font-size:14px;color:var(--sj-muted)}#sj .sj-crumbs li+li::before{content:"/";margin-right:8px;color:#A8A396}#sj .sj-crumbs li{display:inline-flex;align-items:center;min-height:44px}#sj .sj-crumbs a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:3px}#sj .sj-crumbs [aria-current]{color:var(--sj-ink)}#sj .sj-chip{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:4px 12px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-pill);background:#fff;font-size:14px;font-weight:500;color:var(--sj-ink)}#sj .sj-chip-yellow{background:var(--sj-yellow)}#sj .sj-updated{font-size:14px;color:var(--sj-muted)}#sj .sj-field{display:grid;gap:6px;min-width:0}#sj .sj-label{font-size:15px;font-weight:500;color:var(--sj-ink)}#sj .sj-input,#sj .sj-select,#sj .sj-textarea{display:block;width:100%;min-height:52px;padding:12px 14px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);background-color:#fff;color:var(--sj-ink);font-size:16px;line-height:1.4;box-shadow:none;-webkit-appearance:none;appearance:none;transition:box-shadow var(--sj-fast) ease-out}#sj .sj-textarea{min-height:120px;resize:vertical}#sj .sj-select{padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23151515' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:20px}#sj .sj-input::placeholder,#sj .sj-textarea::placeholder{color:var(--sj-muted);opacity:1}#sj .sj-input:focus,#sj .sj-select:focus,#sj .sj-textarea:focus{outline:3px solid var(--sj-ink);outline-offset:2px;box-shadow:4px 4px 0 var(--sj-yellow)}#sj .sj-input[disabled],#sj .sj-select[disabled]{background-color:var(--sj-line);color:var(--sj-muted);border-color:#A8A396}#sj .sj-help{font-size:14px;color:var(--sj-muted)}#sj .sj-error{font-size:14px;font-weight:500;color:var(--sj-err);display:none}#sj .sj-error::before{content:"! ";font-weight:500}#sj .sj-field.is-error .sj-input,#sj .sj-field.is-error .sj-select,#sj .sj-field.is-error .sj-textarea{border-color:var(--sj-err);border-width:2px;background-color:var(--sj-err-bg)}#sj .sj-field.is-error .sj-error{display:block}#sj .sj-choices{display:flex;flex-wrap:wrap;gap:10px}#sj .sj-choice{position:relative;display:inline-flex}#sj .sj-choice input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:pointer}#sj .sj-choice span{display:inline-flex;align-items:center;gap:6px;min-height:var(--sj-tap);padding:8px 16px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-pill);background:#fff;box-shadow:3px 3px 0 rgba(0,0,0,.14);font-size:15px;font-weight:500;color:var(--sj-ink);transition:transform var(--sj-fast) ease-out,box-shadow var(--sj-fast) ease-out}#sj .sj-choice input:checked+span{background:var(--sj-yellow);box-shadow:1px 1px 0 rgba(0,0,0,.14);transform:translate(2px,2px)}#sj .sj-choice input:checked+span::before{content:"\2713"}#sj .sj-choice input:focus-visible+span{outline:3px solid var(--sj-ink);outline-offset:3px}#sj .sj-check{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;align-items:start;min-height:var(--sj-tap);padding:10px 0;color:var(--sj-ink);cursor:pointer}#sj .sj-check input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--sj-ink)}#sj .sj-search{position:relative}#sj .sj-search .sj-input{padding-left:46px}#sj .sj-search svg{position:absolute;left:14px;top:50%;width:22px;height:22px;margin-top:-11px;fill:none;stroke:var(--sj-ink);stroke-width:2.2;stroke-linecap:round;pointer-events:none}#sj .sj-filterbar{display:grid;gap:var(--sj-s3)}@media (min-width:900px){#sj .sj-filterbar{grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));align-items:end}}#sj .sj-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-lg);background:#fff}#sj .sj-table th{padding:12px 16px;border-bottom:1.5px solid var(--sj-ink);background:var(--sj-canvas);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--sj-muted);white-space:nowrap}#sj .sj-table td{padding:14px 16px;border-top:1px solid var(--sj-line);font-size:16px;line-height:1.45;color:var(--sj-ink);vertical-align:top}#sj .sj-table tbody tr:first-child td{border-top:0}#sj .sj-table .is-key td{background:var(--sj-yellow-light)}#sj .sj-table .sj-num{text-align:right}#sj .sj-table-cue{display:none;font-size:14px;color:var(--sj-muted);margin-top:8px}@media (max-width:599px){#sj .sj-table-cue{display:block}#sj .sj-table-stack,#sj .sj-table-stack tbody,#sj .sj-table-stack tr,#sj .sj-table-stack td{display:block;width:100%}#sj .sj-table-stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}#sj .sj-table-stack tr{padding:12px 16px;border-top:1.5px solid var(--sj-ink)}#sj .sj-table-stack tbody tr:first-child{border-top:0}#sj .sj-table-stack td{display:grid;grid-template-columns:38% minmax(0,1fr);gap:12px;padding:5px 0;border:0;background:none}#sj .sj-table-stack td::before{content:attr(data-label);font-size:14px;color:var(--sj-muted)}#sj .sj-table-stack .sj-num{text-align:left}#sj .sj-table-stack tr.is-key{background:var(--sj-yellow-light)}#sj .sj-table-stack+.sj-table-cue,#sj .sj-table-wrap:has(.sj-table-stack)+.sj-table-cue{display:none}}#sj .sj-faq{border-top:1.5px solid var(--sj-ink);max-width:860px}#sj .sj-faq details{border-bottom:1px solid var(--sj-line)}#sj .sj-faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:14px 0;font-size:17px;line-height:1.4;font-weight:500;color:var(--sj-ink)}#sj .sj-faq summary::after{content:"+";flex:none;display:grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--sj-ink);border-radius:50%;font-size:22px;font-weight:400;line-height:1}#sj .sj-faq details[open] summary::after{content:"\2212";background:var(--sj-yellow)}#sj .sj-faq-a{padding:0 46px 18px 0;max-width:var(--sj-measure)}#sj .sj-faq-a>*+*{margin-top:10px}#sj .sj-alert{display:grid;gap:2px;padding:14px 16px;border:1.5px solid var(--sj-ink);border-left-width:7px;border-radius:var(--sj-r-md);background:#fff;color:var(--sj-ink)}#sj .sj-alert>b{font-weight:500}#sj .sj-alert>p{font-size:15px;color:var(--sj-text)}#sj .sj-alert-deadline{background:var(--sj-yellow-light)}#sj .sj-alert-ok{border-color:var(--sj-ok);background:var(--sj-ok-bg)}#sj .sj-alert-err{border-color:var(--sj-err);background:var(--sj-err-bg)}#sj .sj-teacher{display:grid;grid-template-columns:88px minmax(0,1fr);gap:14px;align-items:start}#sj .sj-teacher img{width:88px;height:88px;object-fit:cover;border-radius:14px}#sj .sj-teacher b{display:block;font-weight:500;font-size:17px;color:var(--sj-ink);line-height:1.3}#sj .sj-teacher span{display:block;font-size:15px;color:var(--sj-muted)}#sj .sj-teacher ul{grid-column:1/-1;display:grid;gap:4px;margin-top:4px;font-size:15px;color:var(--sj-text)}#sj .sj-teacher ul li{padding-left:16px;position:relative}#sj .sj-teacher ul li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--sj-ink)}#sj .sj-review{display:grid;gap:12px;align-content:start}#sj .sj-review-text{font-size:16px;line-height:1.6;color:var(--sj-ink)}#sj .sj-review-by{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--sj-muted)}#sj .sj-review-by b{font-weight:500;color:var(--sj-ink)}#sj .sj-avatar{display:grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;background:var(--sj-brown);color:#fff;font-weight:500;font-size:15px}#sj .sj-result{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;align-items:center}#sj .sj-result div b{display:block;font-weight:500;color:var(--sj-ink);line-height:1.3}#sj .sj-result div span{display:block;font-size:14px;color:var(--sj-muted)}#sj .sj-download{display:grid;gap:12px;align-items:center}#sj .sj-download b{display:block;font-weight:500;color:var(--sj-ink);line-height:1.35}#sj .sj-download .sj-meta{display:block;font-size:14px;color:var(--sj-muted)}@media (min-width:600px){#sj .sj-download{grid-template-columns:minmax(0,1fr) auto}}#sj .sj-video{position:relative;display:block;aspect-ratio:16/9;border:1.5px solid var(--sj-ink);border-radius:14px;overflow:hidden;background:var(--sj-brown)}#sj .sj-video img{width:100%;height:100%;object-fit:cover}#sj .sj-video-play{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;display:grid;place-items:center;border:1.5px solid var(--sj-ink);border-radius:50%;background:var(--sj-yellow);box-shadow:3px 3px 0 var(--sj-ink)}#sj .sj-video-play svg{width:26px;height:26px;fill:var(--sj-ink);margin-left:3px}#sj .sj-empty{display:grid;justify-items:center;gap:8px;padding:var(--sj-s6) var(--sj-s4);border:1.5px dashed #A8A396;border-radius:var(--sj-r-lg);text-align:center;color:var(--sj-ink)}#sj .sj-empty p{font-size:15px;color:var(--sj-muted);max-width:42ch}#sj .sj-skel{display:block;height:16px;border-radius:var(--sj-r-sm);background:linear-gradient(90deg,#EAE5D8 25%,#F3EFE4 45%,#EAE5D8 65%) 0 0/300% 100%;animation:sj-skel 1.4s ease-in-out infinite}#sj .sj-skel+.sj-skel{margin-top:10px}@keyframes sj-skel{from{background-position:100% 0}to{background-position:0 0}}#sj .sj-pager{display:flex;flex-wrap:wrap;gap:8px;align-items:center}#sj .sj-pager a,#sj .sj-pager span{display:grid;place-items:center;min-width:var(--sj-tap);min-height:var(--sj-tap);padding:0 12px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);background:#fff;font-weight:500;color:var(--sj-ink)}#sj .sj-pager [aria-current]{background:var(--sj-yellow);box-shadow:inset 0 -4px 0 var(--sj-ink)}#sj .sj-bar{display:none}@media (max-width:767px){#sj .sj-bar{position:fixed;left:0;right:0;bottom:0;z-index:var(--sj-z-bar);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1.5px solid var(--sj-ink);transform:translateY(110%);visibility:hidden;transition:transform var(--sj-med) ease-out,visibility 0s linear var(--sj-med)}#sj .sj-bar.is-on{transform:none;visibility:visible;transition-delay:0s}#sj .sj-bar .sj-btn{min-height:var(--sj-tap);padding:8px 10px;font-size:15px;box-shadow:none;margin:0}#sj.sj-has-bar{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}}#sj .sj-prose{max-width:var(--sj-measure);font-size:17px;line-height:1.7;color:var(--sj-text)}#sj .sj-prose>*+*{margin-top:1.1em}#sj .sj-prose h2{font-size:clamp(24px,calc(20px + 1vw),32px);font-weight:500;line-height:1.2;margin-top:2em;letter-spacing:-.02em}#sj .sj-prose h3{font-size:20px;line-height:1.3;font-weight:500;margin-top:1.7em}#sj .sj-prose ul,#sj .sj-prose ol{display:grid;gap:.5em;padding-left:1.4em}#sj .sj-prose ul{list-style:disc}#sj .sj-prose ol{list-style:decimal}#sj .sj-prose li::marker{color:var(--sj-cta-dark);font-weight:500}#sj .sj-prose strong,#sj .sj-prose b{font-weight:500;color:var(--sj-ink)}#sj .sj-quote{border-left:4px solid var(--sj-ink);padding:4px 0 4px 18px;font-size:19px;line-height:1.5;color:var(--sj-ink)}#sj .sj-answer{background:#fff;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);padding:16px 18px}#sj .sj-figure img{border-radius:14px;width:100%}#sj .sj-figure .sj-caption{margin-top:8px}@media (prefers-reduced-motion:reduce){#sj *,#sj *::before,#sj *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}@media print{#sj,#sj [class*="sj-bg-"]{background:#fff!important;color:#000!important}#sj .sj-bar,#sj .sj-btn,#sj .sj-video,#sj .sj-noprint{display:none!important}#sj .sj-section{padding:16px 0}#sj .sj-paper,#sj .sj-polaroid,#sj .sj-sticky,#sj .sj-pinned,#sj .sj-offset,#sj .sj-card{transform:none!important;box-shadow:none!important;border:1px solid #000}#sj .sj-hl{background:none}#sj .sj-prose a::after{content:" (" attr(href) ")";font-weight:400;font-size:13px}#sj .sj-printonly{display:block!important}}#sj .sj-printonly{display:none}</style></head><body>
+<!-- PREVIEW ONLY: not for Elementor. Shared stylesheet inlined. -->
+<div class="elementor-top-section"><div class="elementor-widget"><!-- SJ Academy Referral Program page, Elementor HTML widget. Version 1.0, 28 October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Partner. Lead reader: student who refers friends.
+     Address stays /referral-program/ (do not rename it). Page code for WhatsApp references: REF.
+
+     HOW THE SIGN-UP FORM GETS INTO THE FIRST FOLD
+     The sign-up form is still WPForms form 8197, so entries and notifications keep working as they do now.
+     1. Paste this whole file into one HTML widget, replacing the old page content. Section: full width, zero padding, no entrance animation.
+     2. Directly below it, add a WPForms widget (or a Shortcode widget with [wpforms id="8197"]) in its own full-width section with zero padding.
+        On page load, this widget moves that form into the hero card and hides the empty section it came from.
+     Page layout: Elementor Full Width. Hide Title: Yes.
+     Yoast: SEO title "Earn money by referring students | SJ Academy". Meta description:
+     "Refer a friend to SJ Academy and earn Rs. 850 a month per O Level friend or Rs. 1,050 per A Level friend while they study, plus Rs. 5,000 for every 5 friends."
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet"></noscript>
+
+<div id="sj" class="sj-p-ref" data-family="partner">
+
+  <!-- 1. HERO WITH THE SIGN-UP FORM -->
+  <section class="sj-section sj-bg-dots" data-sj-hero>
+    <div class="sj-wrap">
+      <nav class="sj-crumbs" aria-label="Breadcrumb"><ol><li><a href="https://www.sjacademy.pk/">Home</a></li><li aria-current="page">Referral program</li></ol></nav>
+    </div>
+    <div class="sj-wrap sjrf-hero">
+      <div class="sjrf-copy sj-stack">
+        <h1 class="sj-h1"><span class="sj-pill"><span>Earn money by referring students</span></span>Recommend us once. Get paid <span class="sj-hl">every month.</span></h1>
+        <p class="sj-lead sj-measure">Refer a friend to SJ Academy and earn Rs. 850 a month for every O Level friend and Rs. 1,050 for every A Level friend, for as long as they study with us. Your friend gets Rs. 1,000 off the admission fee.</p>
+      </div>
+
+      <div class="sj-offset sj-tagged sjrf-join" id="join">
+        <span class="sj-tag">takes a minute</span>
+        <h2 class="sj-h3">Join the referral program</h2>
+        <p class="sj-small sj-muted sjrf-sub">Free to join. We send your personal referral code on WhatsApp.</p>
+        <div class="sjrf-form" id="sjrf-slot">
+          <div class="sjrf-wait" id="sjrf-wait" aria-hidden="true"><span class="sj-skel"></span><span class="sj-skel"></span><span class="sj-skel"></span><span class="sj-skel"></span></div>
+        </div>
+        <div class="sj-alert" id="sjrf-fallback" hidden>
+          <b>The form did not load</b>
+          <p>Send us your name on WhatsApp instead, and we will sign you up there.</p>
+          <a class="sj-btn sj-btn-wa sj-btn-sm" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%27d%20like%20to%20join%20the%20referral%20program.%0A%28Ref%3A%20REF-JOIN%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="form_fallback">Join on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="sjrf-more sj-stack">
+        <div class="sj-proof sjrf-rates">
+          <span><b>Rs. 850</b>a month for each O Level friend</span>
+          <span><b>Rs. 1,050</b>a month for each A Level friend</span>
+          <span><b>Rs. 5,000</b>for every 5 friends who join</span>
+        </div>
+        <p class="sj-caption">10% of one subject&rsquo;s standard monthly fee (O Level Rs. 8,500, AS or A2 Rs. 10,500), whatever number of subjects your friend takes. <a class="sj-link" href="https://www.sjacademy.pk/fee-structure/" data-loc="hero_rates">See full fees</a></p>
+        <span class="sj-hand sj-tilt-l sjrf-note">you were recommending us anyway</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CALCULATOR -->
+  <section class="sj-section sj-bg-white" id="calculator">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">Do the maths</div>
+        <h2 class="sj-h2">Every friend is a <span class="sj-hl">monthly payment.</span></h2>
+        <p class="sjrf-top">Each friend who joins pays you every month they stay, and every 5 friends add a Rs. 5,000 bonus. Slide to see what your friends could add up to.</p>
+      </div>
+
+      <div class="sjrf-calc">
+        <div class="sj-card sjrf-inputs">
+          <div class="sjrf-sl">
+            <div class="sjrf-sl-top"><label class="sj-label" for="sjrf-oN">O Level friends who join</label><output class="sj-num" for="sjrf-oN" id="sjrf-oN-v">0</output></div>
+            <input class="sjrf-range" type="range" id="sjrf-oN" data-key="oN" min="0" max="50" step="1" value="0" aria-describedby="sjrf-oN-c">
+            <span class="sj-caption" id="sjrf-oN-c">Rs. 850 a month for each one</span>
+          </div>
+          <div class="sjrf-sl">
+            <div class="sjrf-sl-top"><label class="sj-label" for="sjrf-aN">A Level friends who join</label><output class="sj-num" for="sjrf-aN" id="sjrf-aN-v">10</output></div>
+            <input class="sjrf-range" type="range" id="sjrf-aN" data-key="aN" min="0" max="50" step="1" value="10" aria-describedby="sjrf-aN-c">
+            <span class="sj-caption" id="sjrf-aN-c">Rs. 1,050 a month for each one</span>
+          </div>
+          <div class="sjrf-sl">
+            <div class="sjrf-sl-top"><label class="sj-label" for="sjrf-m">Months they study with us</label><output class="sj-num" for="sjrf-m" id="sjrf-m-v">6</output></div>
+            <input class="sjrf-range" type="range" id="sjrf-m" data-key="m" min="1" max="24" step="1" value="6" aria-describedby="sjrf-m-c">
+            <span class="sj-caption" id="sjrf-m-c">You earn every month they stay enrolled</span>
+          </div>
+        </div>
+
+        <div class="sjrf-slipwrap">
+          <div class="sjrf-slip" aria-live="polite">
+            <div class="sjrf-slip-head"><b>Referral payslip</b><span>example</span></div>
+            <dl class="sjrf-lines">
+              <div><dt>O Level<small id="sjrf-o-line">0 friends &times; Rs. 850</small></dt><dd class="sj-num" id="sjrf-o-amt">Rs. 0</dd></div>
+              <div><dt>A Level<small id="sjrf-a-line">10 friends &times; Rs. 1,050</small></dt><dd class="sj-num" id="sjrf-a-amt">Rs. 10,500</dd></div>
+              <div class="is-sum"><dt>Every month</dt><dd class="sj-num" id="sjrf-month">Rs. 12,600</dd></div>
+              <div><dt id="sjrf-m-line">For 6 months</dt><dd class="sj-num" id="sjrf-run">Rs. 75,600</dd></div>
+              <div><dt>Bonus<small id="sjrf-b-line">1 &times; Rs. 5,000, for every 5 friends</small></dt><dd class="sj-num" id="sjrf-bonus">Rs. 5,000</dd></div>
+            </dl>
+            <div class="sjrf-total">
+              <span id="sjrf-tlab">Total over 6 months</span>
+              <b class="sj-num" id="sjrf-total">Rs. 80,600</b>
+            </div>
+            <p class="sjrf-tnote" id="sjrf-tnote">Paid as Rs. 8,400 a month, plus Rs. 10,000 in bonuses.</p>
+          </div>
+          <span class="sj-hand sj-tilt-r sjrf-note2">not bad for a few texts</span>
+        </div>
+      </div>
+      <p class="sj-caption sj-measure">An example on standard fees, not a promise. Your share is worked out on what your friend actually pays, so a fee discount lowers it by the same amount. A friend who leaves in their first 30 days does not count. Full rules are in the <a class="sj-link" href="https://www.sjacademy.pk/referral-terms/" data-loc="calc">referral terms</a>.</p>
+    </div>
+  </section>
+
+  <!-- 3. HOW IT WORKS (brown band) -->
+  <section class="sj-section sj-bg-brown">
+    <div class="sj-wrap sjrf-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">How it works</div>
+        <h2 class="sj-h2">Four steps. <span class="sj-hl">No selling.</span></h2>
+        <p class="sj-measure">Your friend sits one class free before paying for anything. You share the link. We do the rest.</p>
+      </div>
+      <ol class="sj-steps">
+        <li><b>Join the program</b><span>Fill in the form at the top of this page. It takes about a minute.</span></li>
+        <li><b>Get your code</b><span>We send your personal referral code on WhatsApp. It looks like ALI27.</span></li>
+        <li><b>Share your link</b><span>Make your share link below and send it. Your friend's free demo request reaches us with your code in it, and they get Rs. 1,000 off the admission fee.</span></li>
+        <li><b>Get paid every month</b><span>When your friend joins, you earn every month they pay. Payouts go out between the 5th and 10th of each month.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4. SHARE KIT -->
+  <section class="sj-section sj-bg-dots" id="share">
+    <div class="sj-wrap sjrf-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">Your share kit</div>
+        <h2 class="sj-h2">Got your code? <span class="sj-hl">Send it.</span></h2>
+        <p class="sj-measure">Type your code once. You get a ready message for your friends, with a link that opens WhatsApp to SJ Academy and puts your code in their free demo request. No forms for them, no &ldquo;I forgot to mention your name&rdquo; for you.</p>
+        <ul class="sj-ticks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Send it to one friend, a class group or your story</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Your friend can also give your code when they register</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>The code has to reach us before they enrol, not after</span></li>
+        </ul>
+      </div>
+
+      <div class="sj-offset sjrf-kit">
+        <div class="sj-field" id="sjrf-code-f">
+          <label class="sj-label" for="sjrf-code">Your referral code</label>
+          <input class="sj-input sjrf-code" id="sjrf-code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="24" placeholder="ALI27" aria-describedby="sjrf-code-h sjrf-code-e">
+          <span class="sj-help" id="sjrf-code-h">No code yet? <a class="sj-link" href="#join" data-sjrf-join data-loc="share_kit">Join first</a> and we will send it.</span>
+          <span class="sj-error" id="sjrf-code-e">Type your code as we sent it, like ALI27.</span>
+        </div>
+        <div class="sjrf-out" id="sjrf-out" hidden>
+          <span class="sj-label">Your message</span>
+          <p class="sjrf-msg" id="sjrf-msg"></p>
+          <div class="sjrf-acts">
+            <a class="sj-btn sj-btn-wa" id="sjrf-wa" href="#" target="_blank" rel="noopener" data-event="referral_share" data-loc="share_whatsapp">Send on WhatsApp</a>
+            <button type="button" class="sj-btn sj-btn-ghost" id="sjrf-copy" data-event="referral_copy" data-loc="share_copy">Copy message</button>
+          </div>
+          <p class="sj-small sjrf-copied" id="sjrf-copied" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. THE RULES -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">The rules, in plain words</div>
+        <h2 class="sj-h2">What counts, and <span class="sj-hl">what does not</span></h2>
+        <p class="sjrf-top">Read this before you share, so every friend you send actually pays you. The full version is in the <a class="sj-link" href="https://www.sjacademy.pk/referral-terms/" data-loc="rules">referral terms</a>.</p>
+      </div>
+      <div class="sj-grid sj-grid-3 sjrf-rules">
+        <div class="sj-card sj-stack">
+          <h3 class="sj-h3">Counts</h3>
+          <ul class="sj-ticks">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>A friend who has not studied at SJ Academy in the last 12 months</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Your code reaches us before they enrol</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>They pay their fee and stay past their first 30 days</span></li>
+          </ul>
+        </div>
+        <div class="sj-card sj-stack">
+          <h3 class="sj-h3">Does not count</h3>
+          <ul class="sjrf-x">
+            <li>A friend who already messaged us, visited or booked a demo before your referral</li>
+            <li>A code added after your friend has enrolled</li>
+            <li>Your own child, if you are a parent</li>
+            <li>Referrals by anyone who works at SJ Academy, teachers included</li>
+          </ul>
+        </div>
+        <div class="sj-card sj-stack">
+          <h3 class="sj-h3">Payday</h3>
+          <div class="sj-ticket sjrf-ticket">
+            <div class="sj-ticket-stub"><b>5&ndash;10</b>of the month</div>
+            <div class="sj-ticket-body"><b>Every month</b><span>For the month before</span></div>
+          </div>
+          <p class="sj-small">Paid by bank transfer, JazzCash, EasyPaisa or cash at the academy counter (tell us in advance). Balances under Rs. 1,000 roll over to the next month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. EASY TO RECOMMEND -->
+  <section class="sj-section sj-bg-canvas">
+    <div class="sj-wrap sjrf-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">Why friends say yes</div>
+        <h2 class="sj-h2">They try first. <span class="sj-hl">Then decide.</span></h2>
+        <p class="sj-measure">You are not asking anyone to pay for a stranger's class. Your friend sits one class free, meets the teacher and decides, and your code takes Rs. 1,000 off their admission fee. If they stay, you earn. If not, nobody owes anybody anything.</p>
+        <div class="sj-proof">
+          <a href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener" data-loc="proof"><b>5.0 on Google</b>from 226 reviews</a>
+          <span><b>4,500+</b>students taught</span>
+          <span><b>Free</b>demo class first</span>
+        </div>
+        <p class="sj-small sj-muted">Teachers from LUMS, IBA and ex-KGS. Classes in DHA Phase 7, Karachi, and live online. Lab practicals have no demo class: students join those directly.</p>
+      </div>
+      <div class="sjrf-side">
+        <div class="sj-sticky sjrf-sticky">
+          <span class="sj-hand">play fair</span>
+          <p>Share with people who need classes. Do not post your code on SJ Academy's own pages, reviews or groups. Do not promise anyone a grade. Do not run Google ads on the name &ldquo;SJ Academy&rdquo;. Codes used that way do not earn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div>
+        <div class="sj-eyebrow">FAQ</div>
+        <h2 class="sj-h2">Questions before you <span class="sj-hl">start sharing</span></h2>
+      </div>
+      <div class="sj-faq">
+        <details open><summary>Who can join the referral program?</summary><div class="sj-faq-a"><p>Anyone outside SJ Academy. Current students, old students, parents referring other families, school teachers and content creators can all join. You do not have to study at SJ Academy. If you are under 18, a parent or guardian has to agree, and payouts go to their account. Parents cannot refer their own children, and people who work at SJ Academy, teachers included, cannot join.</p></div></details>
+        <details><summary>How much do I earn for each friend?</summary><div class="sj-faq-a"><p>You earn 10% of one subject&rsquo;s monthly fee for each friend, however many subjects they take. On standard fees, that is Rs. 850 a month for an O Level friend and Rs. 1,050 a month for an A Level friend.</p></div></details>
+        <details><summary>What does my friend get?</summary><div class="sj-faq-a"><p>Rs. 1,000 off the one-time admission fee, as long as your code reaches us before they enrol. They also sit one class free before paying for anything.</p></div></details>
+        <details><summary>How long do I keep earning?</summary><div class="sj-faq-a"><p>Every month your friend stays enrolled and pays their fee. There is no cut-off. A Level runs over two years (AS and A2), so a friend who studies both with us keeps paying you for both.</p></div></details>
+        <details><summary>How does the Rs. 5,000 bonus work?</summary><div class="sj-faq-a"><p>You get Rs. 5,000 for every 5 friends you refer who are active students. Ten friends means Rs. 10,000 in bonuses. There is no limit.</p></div></details>
+        <details><summary>When and how do I get paid?</summary><div class="sj-faq-a"><p>Earnings are counted at the end of each month and paid between the 5th and 10th of the next month, by bank transfer, JazzCash, EasyPaisa or cash at the academy counter. The minimum payout is Rs. 1,000. Smaller balances roll over to the next month.</p></div></details>
+        <details><summary>How does SJ Academy know my friend came from me?</summary><div class="sj-faq-a"><p>Your referral code. Send your friend the link from the share kit on this page and your code is already in their first WhatsApp message to us. They can also give your code when they register. The code has to reach us before they enrol: it cannot be added later.</p></div></details>
+        <details><summary>What if my friend gets a discount?</summary><div class="sj-faq-a"><p>You earn on what your friend actually pays. If they get 10% off for paying three months upfront, or a need-based discount, your share is worked out on the lower amount.</p></div></details>
+        <details><summary>What if my friend leaves after a few weeks?</summary><div class="sj-faq-a"><p>If your friend leaves or gets a full refund within their first 30 days, that referral does not count. If a payment for that friend has already gone out, it is taken from your next earnings.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FINAL -->
+  <section class="sj-section sj-bg-yellow">
+    <div class="sj-wrap sj-stack sjrf-final">
+      <h2 class="sj-h2">Your friends will ask someone. <span class="sj-hl">Make it you.</span></h2>
+      <p class="sj-measure">Join in a minute, get your code on WhatsApp, and send your first link today.</p>
+      <div class="sj-row"><a class="sj-btn sj-btn-primary" href="#join" data-sjrf-join data-loc="final_band">Join the referral program</a></div>
+      <p>Questions first? <a class="sj-link" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20the%20referral%20program.%0A%28Ref%3A%20REF-Q%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="final_band">WhatsApp us</a></p>
+    </div>
+  </section>
+
+  <!-- phone bottom bar -->
+  <div class="sj-bar">
+    <a class="sj-btn sj-btn-primary" href="#join" data-sjrf-join data-loc="bottom_bar">Join the program</a>
+    <a class="sj-btn sj-btn-wa" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20the%20referral%20program.%0A%28Ref%3A%20REF-Q%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="bottom_bar">WhatsApp us</a>
+  </div>
+</div>
+
+<style>
+/* Page-only layout for the Referral Program page. Every rule is scoped to this page. */
+#sj.sj-p-ref .sjrf-top{margin-top:var(--sj-s3)}
+#sj.sj-p-ref .sjrf-hero{display:grid;gap:var(--sj-s5);grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "form" "more";margin-top:var(--sj-s2)}
+#sj.sj-p-ref .sjrf-copy{grid-area:copy}
+#sj.sj-p-ref .sjrf-join{grid-area:form;scroll-margin-top:96px;margin-top:6px}
+#sj.sj-p-ref .sjrf-more{grid-area:more}
+#sj.sj-p-ref .sjrf-sub{margin-top:4px}
+#sj.sj-p-ref .sjrf-wait{padding:var(--sj-s4) 0}
+#sj.sj-p-ref .sjrf-form:has(.wpforms-container) .sjrf-wait{display:none}
+#sj.sj-p-ref #sjrf-fallback{margin-top:var(--sj-s3)}
+#sj.sj-p-ref #sjrf-fallback .sj-btn{justify-self:start;margin-top:var(--sj-s2)}
+#sj.sj-p-ref .sjrf-rates b{font-size:clamp(22px,calc(19px + 1vw),32px)}
+#sj.sj-p-ref .sjrf-note{display:block;max-width:30ch}
+#sj.sj-p-ref .sjrf-two{display:grid;gap:var(--sj-s6);grid-template-columns:minmax(0,1fr)}
+#sj.sj-p-ref .sjrf-calc{display:grid;gap:var(--sj-s6);grid-template-columns:minmax(0,1fr);align-items:start}
+#sj.sj-p-ref .sjrf-inputs{display:grid;gap:var(--sj-s6)}
+#sj.sj-p-ref .sjrf-sl{display:grid;gap:10px}
+#sj.sj-p-ref .sjrf-sl-top{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sj-s3)}
+#sj.sj-p-ref .sjrf-sl-top output{flex:none;min-width:56px;text-align:center;padding:2px 10px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-pill);background:var(--sj-yellow);font-size:18px;font-weight:600;color:var(--sj-ink)}
+#sj.sj-p-ref .sjrf-range{--sjrf-fill:0%;-webkit-appearance:none;appearance:none;width:100%;height:44px;margin:0;background:transparent;cursor:pointer}
+#sj.sj-p-ref .sjrf-range::-webkit-slider-runnable-track{height:10px;border-radius:999px;border:1.5px solid var(--sj-ink);background:linear-gradient(90deg,var(--sj-cta) var(--sjrf-fill),#fff var(--sjrf-fill))}
+#sj.sj-p-ref .sjrf-range::-moz-range-track{height:7px;border-radius:999px;border:1.5px solid var(--sj-ink);background:#fff}
+#sj.sj-p-ref .sjrf-range::-moz-range-progress{height:7px;border-radius:999px;background:var(--sj-cta)}
+#sj.sj-p-ref .sjrf-range::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-11.5px;border-radius:50%;border:2px solid var(--sj-ink);background:var(--sj-yellow);box-shadow:2px 2px 0 var(--sj-ink)}
+#sj.sj-p-ref .sjrf-range::-moz-range-thumb{width:26px;height:26px;border-radius:50%;border:2px solid var(--sj-ink);background:var(--sj-yellow);box-shadow:2px 2px 0 var(--sj-ink)}
+#sj.sj-p-ref .sjrf-range:focus-visible{outline:3px solid var(--sj-ink);outline-offset:4px}
+#sj.sj-p-ref .sjrf-slipwrap{display:grid;justify-items:center;gap:var(--sj-s3)}
+#sj.sj-p-ref .sjrf-slip{position:relative;width:100%;max-width:480px;background:#FFFEF9;border:1.5px solid var(--sj-ink);border-radius:4px 4px 0 0;padding:0 18px 22px;box-shadow:var(--sj-sh-lift);transform:rotate(-.6deg);margin:6px 0 18px;-webkit-mask:radial-gradient(circle 7px at 9px 100%,transparent 6.5px,#000 7px) 0 0/18px 100% repeat-x;mask:radial-gradient(circle 7px at 9px 100%,transparent 6.5px,#000 7px) 0 0/18px 100% repeat-x}
+#sj.sj-p-ref .sjrf-slip-head{display:flex;justify-content:space-between;align-items:baseline;margin:0 -18px;padding:14px 18px;background:var(--sj-kraft);border-bottom:1.5px solid var(--sj-ink)}
+#sj.sj-p-ref .sjrf-slip-head b{font-weight:500;color:var(--sj-ink);letter-spacing:.06em;text-transform:uppercase;font-size:14px}
+#sj.sj-p-ref .sjrf-slip-head span{font-family:var(--sj-hand);font-weight:600;font-size:21px;color:var(--sj-pen-text)}
+#sj.sj-p-ref .sjrf-lines>div{display:flex;justify-content:space-between;gap:var(--sj-s3);padding:12px 0;border-bottom:1.5px dashed #CFC8B6;font-size:15px;line-height:1.4}
+#sj.sj-p-ref .sjrf-lines dt{color:var(--sj-ink);font-weight:500;min-width:0}
+#sj.sj-p-ref .sjrf-lines dd{margin:0;color:var(--sj-ink);font-weight:500}
+#sj.sj-p-ref .sjrf-lines .is-sum dt,#sj.sj-p-ref .sjrf-lines .is-sum dd{font-weight:600;color:var(--sj-ink)}
+#sj.sj-p-ref .sjrf-total{display:flex;justify-content:space-between;align-items:baseline;gap:var(--sj-s3);padding-top:14px}
+#sj.sj-p-ref .sjrf-total span{font-size:15px;color:var(--sj-muted)}
+#sj.sj-p-ref .sjrf-total b{font-weight:600;font-size:clamp(30px,calc(24px + 2vw),44px);letter-spacing:-.03em;color:var(--sj-ink);background-image:linear-gradient(100deg,transparent 0,var(--sj-yellow) .1em,var(--sj-yellow) calc(100% - .1em),transparent 100%);background-repeat:no-repeat;background-size:100% .42em;background-position:0 calc(100% - .2em);padding:0 .1em}
+#sj.sj-p-ref .sjrf-tnote{margin-top:10px;text-align:right;font-size:14px;line-height:1.45;color:var(--sj-muted)}
+#sj.sj-p-ref .sjrf-lines dt small{display:block;font-size:13px;color:var(--sj-muted);margin-top:2px}
+#sj.sj-p-ref .sjrf-kit{display:grid;gap:var(--sj-s4)}
+#sj.sj-p-ref .sjrf-code{text-transform:uppercase;letter-spacing:.06em;font-weight:500}
+#sj.sj-p-ref .sjrf-code::placeholder{text-transform:none;letter-spacing:.06em;font-weight:400}
+#sj.sj-p-ref .sjrf-out{display:grid;gap:var(--sj-s2)}
+#sj.sj-p-ref .sjrf-msg{white-space:pre-line;overflow-wrap:anywhere;background:var(--sj-canvas);border:1px solid var(--sj-line);border-radius:var(--sj-r-md);padding:14px 16px;font-size:15px;line-height:1.55;color:var(--sj-ink)}
+#sj.sj-p-ref .sjrf-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--sj-s2)}
+#sj.sj-p-ref .sjrf-copied{min-height:1.5em;color:var(--sj-ok);font-weight:500}
+#sj.sj-p-ref .sjrf-rules{align-items:stretch}
+#sj.sj-p-ref .sjrf-x{display:grid;gap:10px;color:var(--sj-ink)}
+#sj.sj-p-ref .sjrf-x li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;line-height:1.5}
+#sj.sj-p-ref .sjrf-x li::before{content:"\00D7";font-size:24px;line-height:1;color:var(--sj-pen-text);text-align:center}
+#sj.sj-p-ref .sjrf-ticket{grid-template-columns:96px minmax(0,1fr)}
+#sj.sj-p-ref .sjrf-ticket .sj-ticket-stub b{font-size:26px}
+#sj.sj-p-ref .sjrf-side{display:grid;justify-items:center;align-content:center}
+#sj.sj-p-ref .sjrf-sticky{max-width:340px}
+#sj.sj-p-ref .sjrf-final{display:grid;justify-items:center;text-align:center}
+#sj.sj-p-ref .sjrf-final .sj-row{justify-content:center}
+@media (max-width:899px){.joinchat,#back-to-top{display:none!important}}
+@media (min-width:900px){
+  #sj.sj-p-ref .sjrf-hero{grid-template-columns:minmax(0,1fr) minmax(0,500px);grid-template-areas:"copy form" "more form";grid-template-rows:auto 1fr;column-gap:var(--sj-s8);row-gap:var(--sj-s5);align-items:start}
+  #sj.sj-p-ref .sjrf-copy{padding-top:var(--sj-s5)}
+  #sj.sj-p-ref .sjrf-two{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--sj-s8);align-items:center}
+  #sj.sj-p-ref .sjrf-calc{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sj-s8)}
+}
+
+/* WPForms skin for form 8197 once it sits inside the hero card */
+#sj.sj-p-ref .sjrf-form .wpforms-container{--wpforms-field-border-radius:12px;--wpforms-field-border-size:1.5px;--wpforms-field-border-color:#151515;--wpforms-field-text-color:#151515;--wpforms-field-background-color:#fff;--wpforms-label-color:#151515;--wpforms-label-sublabel-color:#66625A;--wpforms-label-error-color:#B3261E;--wpforms-field-size-input-height:50px;--wpforms-field-size-font-size:16px;--wpforms-label-size-font-size:15px;--wpforms-button-background-color:#CC4A00;--wpforms-button-border-color:#151515;--wpforms-button-text-color:#fff;--wpforms-button-border-radius:12px;margin:0!important;padding:0!important;font-family:var(--sj-font)}
+#sj.sj-p-ref .sjrf-form .wpforms-field{padding:9px 0!important;margin:0!important}
+#sj.sj-p-ref .sjrf-form fieldset{border:0!important;margin:0!important;padding:0!important;min-width:0}
+#sj.sj-p-ref .sjrf-form .wpforms-field-label,#sj.sj-p-ref .sjrf-form legend.wpforms-field-label{display:block!important;width:auto!important;border:0!important;padding:0!important;font-family:var(--sj-font)!important;font-size:15px!important;line-height:1.4!important;font-weight:500!important;letter-spacing:0!important;text-transform:none!important;color:var(--sj-ink)!important;margin:0 0 8px!important}
+#sj.sj-p-ref .sjrf-form .wpforms-required-label{color:var(--sj-err)!important}
+#sj.sj-p-ref .sjrf-form .wpforms-field-row{display:flex!important;gap:12px;max-width:none!important}
+#sj.sj-p-ref .sjrf-form .wpforms-field-row-block{flex:1 1 0;min-width:0;width:auto!important;margin:0!important;padding:0!important}
+#sj.sj-p-ref .sjrf-form .wpforms-field-row::before,#sj.sj-p-ref .sjrf-form .wpforms-field-row::after{display:none!important}
+#sj.sj-p-ref .sjrf-form .wpforms-field-sublabel{margin-top:4px!important;font-size:13px!important;color:var(--sj-muted)!important}
+#sj.sj-p-ref .sjrf-form input[type=text],#sj.sj-p-ref .sjrf-form input[type=email],#sj.sj-p-ref .sjrf-form input[type=number],#sj.sj-p-ref .sjrf-form input[type=tel]{display:block;width:100%!important;max-width:100%!important;height:50px!important;min-height:50px!important;padding:12px 14px!important;margin:0!important;border:1.5px solid var(--sj-ink)!important;border-radius:var(--sj-r-md)!important;background-color:#fff!important;color:var(--sj-ink)!important;font-family:var(--sj-font)!important;font-size:16px!important;line-height:1.4!important;box-shadow:none!important;-moz-appearance:textfield}
+#sj.sj-p-ref .sjrf-form input[type=number]::-webkit-outer-spin-button,#sj.sj-p-ref .sjrf-form input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+#sj.sj-p-ref .sjrf-form input:not([type=checkbox]):focus{outline:3px solid var(--sj-ink)!important;outline-offset:2px;box-shadow:4px 4px 0 var(--sj-yellow)!important;border-color:var(--sj-ink)!important}
+#sj.sj-p-ref .sjrf-form .wpforms-captcha-math{display:flex;align-items:center;gap:12px}
+#sj.sj-p-ref .sjrf-form .wpforms-captcha-equation{flex:none;font-size:17px;font-weight:500;color:var(--sj-ink);white-space:nowrap}
+#sj.sj-p-ref .sjrf-form .wpforms-captcha-math input{max-width:140px!important}
+#sj.sj-p-ref .sjrf-form .wpforms-field-checkbox ul{margin:0!important;padding:0!important;list-style:none!important}
+#sj.sj-p-ref .sjrf-form .wpforms-field-checkbox ul li{display:grid!important;grid-template-columns:24px minmax(0,1fr);gap:10px;align-items:start;margin:0!important;padding:0!important}
+#sj.sj-p-ref .sjrf-form .wpforms-field-checkbox input{width:22px!important;height:22px!important;margin:2px 0 0!important;accent-color:var(--sj-ink)}
+#sj.sj-p-ref .sjrf-form .wpforms-field-label-inline{font-size:15px!important;line-height:1.5!important;color:var(--sj-ink)!important;font-family:var(--sj-font)!important}
+#sj.sj-p-ref .sjrf-form .wpforms-field-label-inline a{color:var(--sj-ink)!important;text-decoration:underline!important;text-underline-offset:3px;box-shadow:inset 0 -.42em 0 var(--sj-yellow);font-weight:500!important}
+#sj.sj-p-ref .sjrf-form .wpforms-submit-container{padding:12px 4px 4px 0!important;margin:0!important}
+#sj.sj-p-ref .sjrf-form button.wpforms-submit{width:100%!important;min-height:56px!important;height:auto!important;padding:14px 22px!important;border:1.5px solid var(--sj-ink)!important;border-radius:var(--sj-r-md)!important;background:var(--sj-cta)!important;color:#fff!important;box-shadow:4px 4px 0 var(--sj-ink)!important;font-family:var(--sj-font)!important;font-size:17px!important;font-weight:500!important;line-height:1.3!important;text-align:center!important;justify-content:center!important}
+@media (hover:hover){#sj.sj-p-ref .sjrf-form button.wpforms-submit:hover{background:var(--sj-cta-dark)!important;transform:translate(-1px,-1px)}}
+#sj.sj-p-ref .sjrf-form .wpforms-error,#sj.sj-p-ref .sjrf-form em.wpforms-error{font-size:14px!important;font-weight:500!important;color:var(--sj-err)!important;font-style:normal!important}
+#sj.sj-p-ref .sjrf-form .wpforms-confirmation-container-full{background:var(--sj-ok-bg)!important;border:1.5px solid var(--sj-ok)!important;border-radius:var(--sj-r-md)!important;color:var(--sj-ink)!important;padding:16px!important;margin:0!important}
+</style>
+
+<script>
+/* Page script for the Referral Program page.
+   1. Moves WPForms form 8197 (placed in a widget below this one) into the hero card, then hides the empty section it came from.
+   2. Tidies the form's display labels. The saved field names in WPForms entries are not changed.
+   3. Earnings calculator (the payslip).
+   4. Share kit: turns a referral code into a WhatsApp message and link.
+   5. "Join" links scroll to the form and focus the first field. Sends referral_signup to Analytics on a successful sign-up. */
+(function(){
+  var root=document.getElementById('sj'); if(!root||!root.classList.contains('sj-p-ref')) return;
+  var $=function(id){return document.getElementById(id)};
+  var each=function(list,fn){Array.prototype.forEach.call(list,fn)};
+  var send=function(name,loc){var g=window['gt'+'ag']; if(typeof g==='function') g('event',name,{link_location:loc||'unknown',page_family:'partner'});};
+
+  /* 1 and 2. Form 8197 into the hero card */
+  var slot=$('sjrf-slot'),FORM='wpforms-8197',moved=false;
+  var LABELS={1:'Your name',2:'Email',3:'WhatsApp number',5:'Quick check: what is the answer?'};
+  function setText(el,txt){ if(!el) return; for(var n=el.firstChild;n;n=n.nextSibling){ if(n.nodeType===3&&n.nodeValue.trim()){ n.nodeValue=txt; return; } } }
+  function relabel(box){
+    Object.keys(LABELS).forEach(function(id){ setText(box.querySelector('#wpforms-8197-field_'+id+'-container .wpforms-field-label'),LABELS[id]+' '); });
+    var terms=box.querySelector('#wpforms-8197-field_6-container legend'); setText(terms,'Referral terms ');
+    var tick=box.querySelector('label[for="wpforms-8197-field_6_1"]'); setText(tick,'I have read and agree to the ');
+    var link=tick&&tick.querySelector('a'); if(link){ link.textContent='referral terms'; link.setAttribute('href','https://www.sjacademy.pk/referral-terms/'); link.setAttribute('rel','noopener'); }
+    var ph=box.querySelector('#wpforms-8197-field_3'); if(ph){ ph.setAttribute('inputmode','numeric'); ph.setAttribute('placeholder','03001234567'); ph.setAttribute('autocomplete','tel'); }
+    var em=box.querySelector('#wpforms-8197-field_2'); if(em) em.setAttribute('autocomplete','email');
+    var btn=box.querySelector('#wpforms-submit-8197');
+    if(btn){ btn.textContent='Join and get my code'; btn.setAttribute('data-submit-text','Join and get my code'); }
+  }
+  function find(){
+    var hit=null;
+    each(document.querySelectorAll('div.wpforms-container[id="'+FORM+'"]'),function(c){
+      if(!hit&&!root.contains(c)&&!c.closest('[data-elementor-type="popup"]')) hit=c;
+    });
+    return hit;
+  }
+  function move(){
+    if(moved) return true;
+    var c=find(); if(!c) return false;
+    var widget=c.closest('.elementor-widget'),top=c.closest('.e-con.e-parent,.elementor-top-section');
+    relabel(c); slot.appendChild(c); moved=true;
+    if(top&&!top.contains(root)&&!(top.textContent||'').trim()) top.style.display='none';
+    else if(widget&&!widget.contains(root)) widget.style.display='none';
+    return true;
+  }
+  if(!move()){
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',move);
+    window.addEventListener('load',function(){
+      if(!move()) setTimeout(function(){ if(!move()){ $('sjrf-wait').hidden=true; $('sjrf-fallback').hidden=false; } },1500);
+    });
+  }
+
+  /* 3. Calculator. Fees per subject per month, from the live fee page. Change them here if fees change. */
+  /* You earn on one subject's fee for each friend, however many subjects they take. */
+  var FEE={o:8500,a:10500},RATE={o:.10,a:.10},BONUS=5000;
+  var st={oN:0,aN:10,m:6};
+  var fmt=function(n){return 'Rs. '+Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')};
+  var X=' '+String.fromCharCode(215)+' ';
+  var plural=function(n,w){return n+' '+w+(n===1?'':'s')};
+  function render(){
+    var oPer=FEE.o*RATE.o,aPer=FEE.a*RATE.a;
+    var oAmt=st.oN*oPer,aAmt=st.aN*aPer,month=oAmt+aAmt,run=month*st.m;
+    var blocks=Math.floor((st.oN+st.aN)/5),bonus=blocks*BONUS;
+    $('sjrf-o-line').textContent=plural(st.oN,'friend')+X+fmt(oPer);
+    $('sjrf-a-line').textContent=plural(st.aN,'friend')+X+fmt(aPer);
+    $('sjrf-o-amt').textContent=fmt(oAmt);
+    $('sjrf-a-amt').textContent=fmt(aAmt);
+    $('sjrf-month').textContent=fmt(month);
+    $('sjrf-m-line').textContent='For '+plural(st.m,'month');
+    $('sjrf-run').textContent=fmt(run);
+    $('sjrf-b-line').textContent=blocks?(blocks+X+fmt(BONUS)+', for every 5 friends'):'Refer 5 friends to unlock it';
+    $('sjrf-bonus').textContent=fmt(bonus);
+    $('sjrf-total').textContent=fmt(run+bonus);
+    $('sjrf-tlab').textContent='Total over '+plural(st.m,'month');
+    $('sjrf-tnote').textContent=month?('Paid as '+fmt(month)+' a month'+(bonus?', plus '+fmt(bonus)+' in bonuses.':'.')):'Add a friend to see your earnings.';
+  }
+  each(root.querySelectorAll('.sjrf-range'),function(r){
+    var key=r.getAttribute('data-key'),out=$(r.id+'-v');
+    var sync=function(){
+      st[key]=+r.value; out.textContent=r.value;
+      r.style.setProperty('--sjrf-fill',((r.value-r.min)/(r.max-r.min)*100)+'%');
+      r.setAttribute('aria-valuetext',key==='m'?plural(st.m,'month'):plural(st[key],'friend'));
+      render();
+    };
+    r.addEventListener('input',sync); sync();
+  });
+  render();
+
+  /* 4. Share kit */
+  var input=$('sjrf-code'),field=$('sjrf-code-f'),out=$('sjrf-out'),msgEl=$('sjrf-msg'),wa=$('sjrf-wa'),copyBtn=$('sjrf-copy'),copied=$('sjrf-copied'),current='';
+  var KEY='sjrf-code';
+  function clean(v){ return (v||'').toUpperCase().replace(/\s+/g,'').replace(/[^A-Z0-9-]/g,''); }
+  function build(code){
+    var ask='Hi SJ Academy, I would like to book a free demo class.\nReferral code: '+code+'\nMy name is ';
+    var link='https://wa.me/923362144454?text='+encodeURIComponent(ask).replace(/'/g,'%27').replace(/\(/g,'%28').replace(/\)/g,'%29');
+    return 'Looking for O Level or A Level classes? Try SJ Academy. You sit one class free before you pay anything, and my referral code gets you Rs. 1,000 off the admission fee. In class at DHA Phase 7, Karachi, or live online.\n\nBook your free demo here (my code is already in the message):\n'+link;
+  }
+  function update(){
+    var code=clean(input.value);
+    if(input.value!==code) input.value=code;
+    var ok=/^[A-Z0-9][A-Z0-9-]{3,22}$/.test(code);
+    field.classList.toggle('is-error',code.length>=4&&!ok);
+    if(!ok){ out.hidden=true; current=''; return; }
+    current=build(code);
+    msgEl.textContent=current;
+    wa.setAttribute('href','https://wa.me/?text='+encodeURIComponent(current));
+    out.hidden=false; copied.textContent='';
+    try{ localStorage.setItem(KEY,code); }catch(e){}
+  }
+  input.addEventListener('input',update);
+  try{ var saved=localStorage.getItem(KEY); if(saved){ input.value=saved; update(); } }catch(e){}
+  copyBtn.addEventListener('click',function(){
+    if(!current) return;
+    var done=function(){ copied.textContent='Copied. Paste it anywhere.'; };
+    if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(current).then(done,fallback); } else fallback();
+    function fallback(){
+      var t=document.createElement('textarea'); t.value=current; t.setAttribute('readonly',''); t.style.cssText='position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(t); t.select(); try{ document.execCommand('copy'); done(); }catch(e){ copied.textContent='Select the message above and copy it.'; } document.body.removeChild(t);
+    }
+  });
+
+  /* 5. Join links: scroll to the card and focus the first field */
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  each(root.querySelectorAll('[data-sjrf-join]'),function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var card=$('join');
+      card.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+      setTimeout(function(){ var f=card.querySelector('input[type=text],input[type=email]'); if(f){ try{f.focus({preventScroll:true})}catch(x){f.focus()} } },reduce?0:600);
+      send('join_click',a.getAttribute('data-loc'));
+    });
+  });
+  if(window.jQuery){
+    window.jQuery(document).on('wpformsAjaxSubmitSuccess',function(e){
+      if(!e.target||e.target.id!=='wpforms-form-8197') return;
+      send('referral_signup','hero_form');
+      var card=$('join'); if(card) card.scrollIntoView({block:'start'});
+    });
+  }
+})();
+</script>
+
+<script>
+/* Standard page script, copied unchanged from 02 Website/Scripts/sj-page-script.js */
+(function(){
+  var root=document.getElementById('sj');
+  if(!root){return;}
+  var each=function(list,fn){Array.prototype.forEach.call(list,fn);};
+
+  /* Tabs: role="tablist" > role="tab" aria-controls="panel-id" */
+  each(root.querySelectorAll('[role="tablist"]'),function(list){
+    var tabs=Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    var pick=function(tab,focus){
+      tabs.forEach(function(t){
+        var on=t===tab;
+        t.setAttribute('aria-selected',on?'true':'false');
+        t.tabIndex=on?0:-1;
+        var panel=document.getElementById(t.getAttribute('aria-controls'));
+        if(panel){panel.hidden=!on;}
+      });
+      if(focus){tab.focus();}
+    };
+    tabs.forEach(function(tab,i){
+      tab.addEventListener('click',function(){pick(tab,false);});
+      tab.addEventListener('keydown',function(e){
+        var step=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+        if(!step){return;}
+        e.preventDefault();
+        pick(tabs[(i+step+tabs.length)%tabs.length],true);
+      });
+    });
+  });
+
+  /* Phone bottom bar: shows once the element marked data-sj-hero has scrolled away */
+  var bar=root.querySelector('.sj-bar');
+  var hero=root.querySelector('[data-sj-hero]');
+  if(bar&&hero&&'IntersectionObserver' in window){
+    root.classList.add('sj-has-bar');
+    new IntersectionObserver(function(entries){
+      bar.classList.toggle('is-on',!entries[0].isIntersecting);
+    }).observe(hero);
+  }
+
+  /* Video: loads the player only after a tap */
+  each(root.querySelectorAll('.sj-video[data-src]'),function(v){
+    v.addEventListener('click',function(e){
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src=v.getAttribute('data-src');
+      f.title=v.getAttribute('data-title')||'Video';
+      f.allow='autoplay; encrypted-media; picture-in-picture';
+      f.allowFullscreen=true;
+      f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';
+      v.innerHTML='';
+      v.appendChild(f);
+    });
+  });
+
+  /* Measurement: one event name per action, location read from data-loc */
+  var send=function(name,loc){
+    var g=window['gt'+'ag'];
+    if(typeof g==='function'){g('event',name,{link_location:loc||'unknown',page_family:root.getAttribute('data-family')||''});}
+  };
+  root.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a,button'):null;
+    if(!a){return;}
+    var href=a.getAttribute('href')||'';
+    var loc=a.getAttribute('data-loc');
+    if(href.indexOf('wa.me')>-1){send('whatsapp_click',loc);}
+    else if(href.indexOf('popup%3Aopen')>-1){send('register_open',loc);}
+    else if(a.hasAttribute('download')){send('resource_download',loc);}
+    else if(a.hasAttribute('data-event')){send(a.getAttribute('data-event'),loc);}
+  });
+})();
+</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who can join the referral program?","acceptedAnswer":{"@type":"Answer","text":"Anyone outside SJ Academy. Current students, old students, parents referring other families, school teachers and content creators can all join. You do not have to study at SJ Academy. If you are under 18, a parent or guardian has to agree, and payouts go to their account. Parents cannot refer their own children, and people who work at SJ Academy, teachers included, cannot join."}},{"@type":"Question","name":"How much do I earn for each friend?","acceptedAnswer":{"@type":"Answer","text":"You earn 10% of one subject's monthly fee for each friend, however many subjects they take. On standard fees, that is Rs. 850 a month for an O Level friend and Rs. 1,050 a month for an A Level friend."}},{"@type":"Question","name":"What does my friend get?","acceptedAnswer":{"@type":"Answer","text":"Rs. 1,000 off the one-time admission fee, as long as your code reaches us before they enrol. They also sit one class free before paying for anything."}},{"@type":"Question","name":"How long do I keep earning?","acceptedAnswer":{"@type":"Answer","text":"Every month your friend stays enrolled and pays their fee. There is no cut-off. A Level runs over two years (AS and A2), so a friend who studies both with us keeps paying you for both."}},{"@type":"Question","name":"How does the Rs. 5,000 bonus work?","acceptedAnswer":{"@type":"Answer","text":"You get Rs. 5,000 for every 5 friends you refer who are active students. Ten friends means Rs. 10,000 in bonuses. There is no limit."}},{"@type":"Question","name":"When and how do I get paid?","acceptedAnswer":{"@type":"Answer","text":"Earnings are counted at the end of each month and paid between the 5th and 10th of the next month, by bank transfer, JazzCash, EasyPaisa or cash at the academy counter. The minimum payout is Rs. 1,000. Smaller balances roll over to the next month."}},{"@type":"Question","name":"How does SJ Academy know my friend came from me?","acceptedAnswer":{"@type":"Answer","text":"Your referral code. Send your friend the link from the share kit on this page and your code is already in their first WhatsApp message to us. They can also give your code when they register. The code has to reach us before they enrol: it cannot be added later."}},{"@type":"Question","name":"What if my friend gets a discount?","acceptedAnswer":{"@type":"Answer","text":"You earn on what your friend actually pays. If they get 10% off for paying three months upfront, or a need-based discount, your share is worked out on the lower amount."}},{"@type":"Question","name":"What if my friend leaves after a few weeks?","acceptedAnswer":{"@type":"Answer","text":"If your friend leaves or gets a full refund within their first 30 days, that referral does not count. If a payment for that friend has already gone out, it is taken from your next earnings."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.sjacademy.pk/"},{"@type":"ListItem","position":2,"name":"Referral program","item":"https://www.sjacademy.pk/referral-program/"}]}</script>
+</div></div>
+<div class="elementor-top-section"><div class="elementor-widget"><div class="wpforms-container wpforms-container-full wpforms-render-modern" id="wpforms-8197"><form onsubmit="return false" id="wpforms-form-8197" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="8197" method="post" enctype="multipart/form-data" action="/referral-program/" data-token="1292d6bdc4c82b9b9a3d6c1e47e879d7" data-token-time="1793180506"><noscript class="wpforms-error-noscript">Please enable JavaScript in your browser to complete this form.</noscript><div id="wpforms-error-noscript" style="display: none;">Please enable JavaScript in your browser to complete this form.</div><div class="wpforms-field-container"><div id="wpforms-8197-field_1-container" class="wpforms-field wpforms-field-name" data-field-type="name" data-field-id="1"><fieldset><legend class="wpforms-field-label">Name <span class="wpforms-required-label" aria-hidden="true">*</span></legend><div class="wpforms-field-row wpforms-field-medium"><div class="wpforms-field-row-block wpforms-first wpforms-one-half"><input type="text" id="wpforms-8197-field_1" class="wpforms-field-name-first wpforms-field-required" name="wpforms[fields][1][first]" aria-errormessage="wpforms-8197-field_1-error" required><label for="wpforms-8197-field_1" class="wpforms-field-sublabel after">First</label></div><div class="wpforms-field-row-block wpforms-one-half"><input type="text" id="wpforms-8197-field_1-last" class="wpforms-field-name-last wpforms-field-required" name="wpforms[fields][1][last]" aria-errormessage="wpforms-8197-field_1-last-error" required><label for="wpforms-8197-field_1-last" class="wpforms-field-sublabel after">Last</label></div></div></fieldset></div>		<div id="wpforms-8197-field_7-container"
+			class="wpforms-field wpforms-field-text"
+			data-field-type="text"
+			data-field-id="7"
+			>
+			<label class="wpforms-field-label" for="wpforms-8197-field_7" >Terms Conditions Captcha</label>
+			<input type="text" id="wpforms-8197-field_7" class="wpforms-field-medium" name="wpforms[fields][7]" >
+		</div>
+		<div id="wpforms-8197-field_2-container" class="wpforms-field wpforms-field-email" data-field-type="email" data-field-id="2"><label class="wpforms-field-label" for="wpforms-8197-field_2">Email <span class="wpforms-required-label" aria-hidden="true">*</span></label><input type="email" id="wpforms-8197-field_2" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][2]" spellcheck="false" aria-errormessage="wpforms-8197-field_2-error" required></div><div id="wpforms-8197-field_3-container" class="wpforms-field wpforms-field-number" data-field-type="number" data-field-id="3"><label class="wpforms-field-label" for="wpforms-8197-field_3">Contact/WhatsApp # <span class="wpforms-required-label" aria-hidden="true">*</span></label><input type="number" id="wpforms-8197-field_3" class="wpforms-field-medium wpforms-field-required" name="wpforms[fields][3]" step="any" aria-errormessage="wpforms-8197-field_3-error" required></div><div id="wpforms-8197-field_4-container" class="wpforms-field wpforms-field-hidden" data-field-type="hidden" data-field-id="4"><input type="hidden" id="wpforms-8197-field_4" name="wpforms[fields][4]"></div><div id="wpforms-8197-field_5-container" class="wpforms-field wpforms-field-captcha" data-field-type="captcha" data-field-id="5"><label class="wpforms-field-label" for="wpforms-8197-field_5">Custom Captcha <span class="wpforms-required-label" aria-hidden="true">*</span></label>			<div class="wpforms-captcha-math">
+				<span id="wpforms-8197-field_5-question" class="wpforms-captcha-equation">
+											<span class="n1"></span>
+						<span class="cal"></span>
+						<span class="n2"></span>
+											<span class="e">=</span>
+				</span>
+				<input type="text" id="wpforms-8197-field_5" class="wpforms-field-medium wpforms-field-required a" data-rule-wpf-captcha="math" data-is-wrapped-field="1" name="wpforms[fields][5][a]" aria-errormessage="wpforms-8197-field_5-error" aria-describedby="wpforms-8197-field_5-question" required>				<input type="hidden" name="wpforms[fields][5][cal]" class="cal">
+				<input type="hidden" name="wpforms[fields][5][n2]" class="n2">
+				<input type="hidden" name="wpforms[fields][5][n1]" class="n1">
+			</div>
+			</div><div id="wpforms-8197-field_6-container" class="wpforms-field wpforms-field-checkbox" data-field-type="checkbox" data-field-id="6"><fieldset><legend class="wpforms-field-label">Terms &amp; Conditions <span class="wpforms-required-label" aria-hidden="true">*</span></legend><ul id="wpforms-8197-field_6" class="wpforms-field-required"><li class="choice-1 depth-1"><input type="checkbox" id="wpforms-8197-field_6_1" name="wpforms[fields][6][]" value="First I have read and agree to the &lt;a href=&quot;/referral-terms&quot; target=&quot;_blank&quot;&gt;Terms &amp; Conditions&lt;/a&gt;" aria-errormessage="wpforms-8197-field_6_1-error" required ><label class="wpforms-field-label-inline" for="wpforms-8197-field_6_1">First I have read and agree to the <a href="/referral-terms" target="_blank">Terms &amp; Conditions</a></label></li></ul></fieldset></div><script>
+				( function() {
+					const style = document.createElement( 'style' );
+					style.appendChild( document.createTextNode( '#wpforms-8197-field_7-container { position: absolute !important; overflow: hidden !important; display: inline !important; height: 1px !important; width: 1px !important; z-index: -1000 !important; padding: 0 !important; } #wpforms-8197-field_7-container input { visibility: hidden; } #wpforms-conversational-form-page #wpforms-8197-field_7-container label { counter-increment: none; }' ) );
+					document.head.appendChild( style );
+					document.currentScript?.remove();
+				} )();
+			</script></div><!-- .wpforms-field-container --><div class="wpforms-submit-container" ><input type="hidden" name="wpforms[id]" value="8197"><input type="hidden" name="page_title" value="Referral Program"><input type="hidden" name="page_url" value="https://www.sjacademy.pk/referral-program/"><input type="hidden" name="url_referer" value=""><input type="hidden" name="page_id" value="8187"><input type="hidden" name="wpforms[post_id]" value="8187"><button type="submit" name="wpforms[submit]" id="wpforms-submit-8197" class="wpforms-submit" data-alt-text="Sending..." data-submit-text="Join the Referral Program" aria-live="assertive" value="wpforms-submit">Join the Referral Program</button><img decoding="async" src="https://www.sjacademy.pk/wp-content/plugins/wpforms/assets/images/submit-spin.svg" class="wpforms-submit-spinner" style="display: none;" width="26" height="26" alt="Loading"></div></form></div></div></div>
+</body></html>

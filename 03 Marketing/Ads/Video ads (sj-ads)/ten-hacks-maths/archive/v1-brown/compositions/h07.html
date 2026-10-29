@@ -1,0 +1,74 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#FFF6DC;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;color:#FE6100;line-height:1.2;z-index:2;}
+.box{position:absolute;background:#FCE004;border-radius:10px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#FFF6DC;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+
+#h07-stage{position:absolute;inset:0;}
+#h07-title{position:absolute;left:390px;top:426px;width:600px;font-size:76px;font-weight:700;line-height:1.1;letter-spacing:-0.01em;}
+#h07-title .w{display:inline-block;}
+#h07-rule{position:absolute;left:90px;top:590px;width:880px;font-size:42px;font-weight:500;line-height:1.38;color:rgba(255,246,220,0.86);}
+#h07-rule .hl{background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;
+  padding:0 6px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone;font-weight:600;}
+  </style>
+  <div id="root" data-composition-id="h07" data-width="1080" data-height="1920">
+    <div id="h07-stage" data-layout-allow-overlap>
+      <div class="title" id="h07-title"><span class="w" id="h07-tw0">Near</span> <span class="w" id="h07-tw1">50²</span></div>
+      <div class="rule" id="h07-rule"><span class="" id="h07-r0">For (50 + d)², write </span><span class="hl" id="h07-r1">25 + d, then d²</span><span class="" id="h07-r2"> as two digits</span></div>
+      <div class="tk" id="h07-a52" style="left:90.0px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">52²</div>
+      <div class="tk" id="h07-bl" style="left:90.0px;top:857.8px;font-size:112px;font-weight:700;color:#FFF6DC">25 + 2</div>
+      <div class="tk" id="h07-bb" style="left:408.5px;top:857.8px;font-size:112px;font-weight:700;color:#FFF6DC">  |  </div>
+      <div class="tk" id="h07-br" style="left:536.1px;top:857.8px;font-size:112px;font-weight:700;color:#FFF6DC">2²</div>
+      <div class="tk" id="h07-ce" style="left:90.0px;top:988.0px;font-size:120px;font-weight:700;color:#FFF6DC">= </div>
+      <div class="tk" id="h07-c27" style="left:199.0px;top:988.0px;font-size:120px;font-weight:700;color:#FFF6DC">27</div>
+      <div class="tk" id="h07-c04" style="left:331.7px;top:988.0px;font-size:120px;font-weight:700;color:#FFF6DC">04</div>
+      <div class="note" id="h07-nd" style="left:319.6px;top:756.5px;font-size:54px">d = 2</div>
+      <div class="note" id="h07-nr" style="left:520.0px;top:1032.7px;font-size:44px">works for 41² to 59²</div>
+      <div class="box" id="h07-box0" style="left:181.0px;top:983.6px;width:328.2px;height:144.4px"></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#h07-title .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out',stagger:0.07},0.12);
+    tl.fromTo('#h07-rule',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.22,ease:'power4.out'},0.28);
+    tl.set('#h07-a52',{opacity:0},0);
+    tl.set('#h07-bl',{opacity:0},0);
+    tl.set('#h07-bb',{opacity:0},0);
+    tl.set('#h07-br',{opacity:0},0);
+    tl.set('#h07-ce',{opacity:0},0);
+    tl.set('#h07-c27',{opacity:0},0);
+    tl.set('#h07-c04',{opacity:0},0);
+    tl.set('#h07-nd',{opacity:0},0);
+    tl.set('#h07-nr',{opacity:0},0);
+    tl.fromTo('#h07-a52',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.35);
+    tl.fromTo('#h07-nd',{opacity:1,clipPath:'inset(0% 100% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:0.4,ease:'sine.inOut'},1.269);
+    tl.fromTo('#h07-rule .hl',{backgroundSize:'0% 100%',color:'#FFF6DC'},{backgroundSize:'100% 100%',color:'#453516',duration:0.3,ease:'power2.out'},2.089);
+    tl.fromTo('#h07-bl',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},2.294);
+    tl.fromTo('#h07-bb',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},3.81);
+    tl.fromTo('#h07-br',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},3.88);
+    tl.fromTo('#h07-ce',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},5.446);
+    tl.set('#h07-c27',{opacity:1,transformOrigin:'0% 50%'},5.762);
+    tl.fromTo('#h07-c27',{x:-109.0,scale:0.933},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},5.762);
+    tl.fromTo('#h07-c27',{y:-135.0},{y:0,duration:0.62,ease:'power2.inOut'},5.762);
+    tl.set('#h07-c04',{opacity:1,transformOrigin:'0% 50%'},6.666);
+    tl.fromTo('#h07-c04',{x:204.4,scale:0.933},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},6.666);
+    tl.fromTo('#h07-c04',{y:-135.0},{y:0,duration:0.62,ease:'power2.inOut'},6.666);
+    tl.set('#h07-box0',{opacity:0},0);
+    tl.fromTo('#h07-box0',{opacity:0,scale:1.3,rotation:-7},{opacity:1,scale:1,rotation:-1.5,duration:0.14,ease:'back.out(1.7)'},8.294);
+    tl.fromTo('#h07-box0',{x:2},{x:0,duration:0.13,ease:'steps(4)'},8.434);
+    tl.fromTo('#h07-c27',{color:'#FFF6DC'},{color:'#453516',duration:0.05},8.334);
+    tl.fromTo('#h07-c04',{color:'#FFF6DC'},{color:'#453516',duration:0.05},8.334);
+    tl.fromTo('#h07-nr',{opacity:1,clipPath:'inset(0% 100% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:0.4,ease:'sine.inOut'},9.289);
+    tl.fromTo('#h07-stage',{opacity:1,filter:'blur(0px)',y:0},{opacity:0,filter:'blur(10px)',duration:0.22,ease:'expo.in'},9.849);
+    window.__timelines["h07"] = tl;
+  </script>
+</template>

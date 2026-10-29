@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SJ Academy homepage wireframe v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow:#FCE004; --orange:#FE6100; --orange-d:#CC4A00; --brown:#453516;
+  --ink:#151515; --muted:#5F5F5F; --canvas:#F7F5EF; --white:#fff; --line:#D9D4C7; --wa:#25D366;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:400;color:var(--ink);background:#E9E6DD;line-height:1.55;font-size:16px}
+button{font-family:inherit}
+
+/* viewer toolbar */
+.bar{position:sticky;top:0;z-index:50;background:var(--ink);color:#fff;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:10px 16px;font-size:13px}
+.bar strong{font-weight:500;margin-right:auto}
+.seg{display:inline-flex;border:1px solid #555;border-radius:8px;overflow:hidden}
+.seg button{background:transparent;color:#ccc;border:0;padding:8px 14px;font-size:13px;cursor:pointer;min-height:36px}
+.seg button[aria-pressed="true"]{background:var(--yellow);color:var(--ink);font-weight:500}
+
+.stage{padding:20px 0 60px}
+.frame{container-type:inline-size;margin:0 auto;background:var(--canvas);width:min(390px,100%);box-shadow:0 10px 40px rgba(0,0,0,.15);transition:width .25s;position:relative}
+.frame.desktop{width:min(1200px,100%)}
+
+/* wireframe primitives */
+.wp{background:repeating-linear-gradient(45deg,#ddd 0 10px,#e8e8e8 10px 20px);color:#555;text-align:center;padding:14px;font-size:12px;letter-spacing:.5px;text-transform:uppercase}
+.sec{padding:36px 16px;position:relative;border-top:1px dashed var(--line)}
+.sec.white{background:var(--white)}
+.sec.brown{background:var(--brown);color:#fff}
+.wrap{max-width:1080px;margin:0 auto}
+.tag{position:absolute;top:8px;left:8px;background:var(--ink);color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;letter-spacing:.3px}
+.note{margin:14px 0 0;border-left:3px solid var(--orange);background:#FFF2EA;color:#5a2a00;font-size:12.5px;padding:8px 10px;line-height:1.45}
+.brown .note{color:#5a2a00}
+.hide-notes .note,.hide-notes .tag{display:none}
+h1,h2,h3{font-weight:400;margin:0;letter-spacing:-.3px}
+h1{font-size:30px;line-height:1.22}
+h2{font-size:24px;line-height:1.25;margin-bottom:8px}
+h3{font-size:17px;line-height:1.3}
+p{margin:0 0 12px}
+.lead{color:#333;font-size:16px}
+.muted{color:var(--muted);font-size:14px}
+.hl{background:linear-gradient(var(--yellow),var(--yellow)) no-repeat 0 88%/100% 38%;padding:0 3px}
+.pill{display:inline-block;border:1.5px solid var(--ink);border-radius:50px;padding:4px;background:#fff;box-shadow:3px 3px 0 rgba(0,0,0,.12);margin-bottom:16px}
+.pill span{display:block;background:var(--yellow);border-radius:40px;padding:5px 14px;font-size:12px;font-weight:500;letter-spacing:.6px;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 20px;border-radius:10px;border:1.5px solid transparent;font-size:15px;font-weight:500;cursor:pointer;text-decoration:none;width:100%}
+.btn.primary{background:var(--orange-d);color:#fff}
+.btn.wa{background:var(--wa);color:#000}
+.btn.ghost{background:#fff;border-color:var(--ink);color:var(--ink)}
+a.link{color:var(--ink);text-decoration:underline;text-underline-offset:3px;font-size:14px}
+.brown a.link{color:#fff}
+.ph{background:repeating-linear-gradient(135deg,#e7e2d5 0 12px,#efebe0 12px 24px);border:1.5px dashed #b9b29f;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;color:#6b6453;font-size:12.5px;padding:10px}
+.card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--brown);border-radius:12px;padding:16px}
+.grid{display:grid;gap:12px}
+
+/* hero */
+.hero .wrap{display:grid;gap:20px}
+.finder{background:#fff;border:1.5px solid var(--ink);border-radius:14px;padding:16px;box-shadow:4px 4px 0 rgba(0,0,0,.1)}
+.finder h3{font-weight:500;font-size:15px;margin-bottom:10px}
+.step{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin:12px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:8px 14px;border-radius:50px;border:1.5px solid var(--line);background:#FAFAFA;font-size:14px;cursor:pointer;color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--yellow);border-color:var(--ink);font-weight:500}
+.result{margin-top:14px;border-top:1px dashed var(--line);padding-top:14px}
+.trow{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.av{width:52px;height:52px;border-radius:50%;flex:none;font-size:14px;padding:0}
+.facts{list-style:none;margin:0 0 12px;padding:0;font-size:14px;display:grid;gap:4px}
+.facts b{font-weight:500}
+.live{display:inline-block;font-size:11px;background:#EAF7EE;color:#14632b;border-radius:4px;padding:1px 6px;margin-left:4px}
+.field{display:block;margin-bottom:10px;font-size:13px;font-weight:500}
+.field input{display:block;width:100%;min-height:48px;margin-top:4px;border:1.5px solid #999;border-radius:10px;padding:10px 12px;font:inherit;font-size:16px}
+.msg{background:#E7FBEA;border:1px solid #9bd9a8;border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px}
+.proof div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px}
+.proof b{display:block;font-weight:500;font-size:20px;line-height:1.2}
+[hidden]{display:none!important}
+
+/* levels */
+.level h3{margin-bottom:6px}
+.level ul{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.level li a{display:inline-block;font-size:13px;border:1px solid var(--line);border-radius:6px;padding:6px 8px;color:var(--ink);text-decoration:none;background:#FAFAFA}
+
+/* teachers */
+.teachers{grid-template-columns:1fr 1fr}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.tcard .ph{aspect-ratio:1/1;margin-bottom:10px}
+.tcard b{font-weight:500;display:block;font-size:15px}
+.tcard span{display:block;font-size:13px;color:var(--muted)}
+
+/* before/after */
+.toggle{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;margin:14px 0}
+.toggle button{min-height:46px;border:0;background:#fff;font-size:14px;cursor:pointer;color:var(--ink)}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:#fff;font-weight:500}
+.paper{background:#fff repeating-linear-gradient(#fff 0 27px,#dfe6ee 27px 28px);border:1px solid #c9c9c9;border-radius:6px;padding:14px 14px 14px 22px;border-left:3px double #e59a9a;font-size:15px;line-height:28px;color:#1b2a4a}
+.q{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px;margin-bottom:10px}
+.k{background:rgba(252,224,4,.75)} .ap{background:rgba(254,97,0,.22)} .an{background:rgba(37,211,102,.25)}
+.mk{font-size:11px;font-weight:500;border:1px solid currentColor;border-radius:4px;padding:0 4px;margin-left:3px;white-space:nowrap;line-height:1.4;display:inline-block}
+.score{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:14px}
+.score b{font-weight:500;font-size:20px}
+.method{margin-top:16px}
+.method .card{border-top-color:var(--yellow)}
+
+/* reviews */
+.rev{background:#fff;color:var(--ink);border-radius:12px;padding:14px;font-size:14px}
+.rev small{display:block;margin-top:8px;color:var(--muted)}
+.res{background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.5);border-radius:12px;padding:12px;font-size:13px;text-align:center}
+.res b{display:block;font-size:26px;font-weight:500;color:var(--yellow)}
+
+details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:0 14px;margin-bottom:8px}
+summary{cursor:pointer;min-height:52px;display:flex;align-items:center;font-weight:500;font-size:15px;list-style:none;gap:10px}
+summary::before{content:"+";font-size:20px;line-height:1}
+details[open] summary::before{content:"\2212"}
+details p{font-size:14px;color:#333}
+
+.sticky{position:sticky;bottom:0;z-index:20;display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px 12px;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08)}
+.sticky .btn{min-height:46px}
+.sticky .wa{width:auto;padding:0 16px}
+
+/* desktop layout, driven by the frame width */
+@container (min-width:900px){
+  .sec{padding:64px 32px}
+  h1{font-size:46px} h2{font-size:32px}
+  .hero .wrap{grid-template-columns:1.05fr .95fr;align-items:start;gap:48px}
+  .proof{grid-template-columns:repeat(4,1fr)}
+  .g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+  .teachers{grid-template-columns:repeat(6,1fr)}
+  .ba{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+  .btn{width:auto}
+  .finder .btn,.sticky .btn{width:100%}
+  .sticky{display:none}
+  .faq{max-width:760px;margin:0 auto}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <strong>SJ Academy homepage wireframe v1</strong>
+  <div class="seg" role="group" aria-label="Preview width">
+    <button id="vPhone" aria-pressed="true">Phone</button><button id="vDesk" aria-pressed="false">Desktop</button>
+  </div>
+  <div class="seg" role="group" aria-label="Notes">
+    <button id="nOn" aria-pressed="true">Notes on</button><button id="nOff" aria-pressed="false">Notes off</button>
+  </div>
+</div>
+
+<div class="stage">
+<div class="frame" id="frame">
+
+  <div class="wp">Existing WordPress header (unchanged)</div>
+
+  <!-- 1 HERO -->
+  <section class="sec hero">
+    <span class="tag">1 Hero</span>
+    <div class="wrap">
+      <div>
+        <div class="pill"><span>O &amp; A Level · In-class &amp; online</span></div>
+        <h1>Karachi's O &amp; A Level tutor academy where an A* comes from <span class="hl">method, not luck</span>.</h1>
+        <p class="lead" style="margin-top:14px">Batches of 15 or fewer, taught by faculty from LUMS, IBA and KGS. At our DHA Phase 7 campus or live online.</p>
+        <div class="proof" style="margin-top:16px">
+          <div><b>950+</b>A*s achieved</div>
+          <div><b>226+</b>five-star Google reviews</div>
+          <div><b>15</b>students max per batch</div>
+          <div><b>4,500+</b>students taught</div>
+        </div>
+        <p class="note">H1 carries "O &amp; A Level", "Karachi" and "tutor academy" (your page-2 queries with 8,000+ impressions each). Supporting line fixes the 1-on-1 contradiction by stating the real number: 15. Each proof tile links to its evidence.</p>
+      </div>
+
+      <div class="finder" id="finder">
+        <h3>Find your class</h3>
+        <div class="step">1. Choose a level</div>
+        <div class="chips" id="levels"></div>
+        <div id="subWrap" hidden>
+          <div class="step">2. Choose a subject</div>
+          <div class="chips" id="subjects"></div>
+        </div>
+        <div class="result" id="result" hidden>
+          <div class="trow">
+            <div class="ph av" id="rAv">Photo</div>
+            <div><b id="rTitle" style="font-weight:500"></b><div class="muted" id="rTeacher"></div></div>
+          </div>
+          <ul class="facts">
+            <li><b>Days:</b> <span id="rDays"></span><span class="live">live from Sheet</span></li>
+            <li><b>Time:</b> <span id="rTime"></span></li>
+            <li><b>Mode:</b> In-class (DHA Phase 7) and live online</li>
+          </ul>
+          <button class="btn primary" id="demoBtn">Book a free demo class</button>
+
+          <div id="panel" hidden style="margin-top:12px">
+            <label class="field">Your name<input id="fName" autocomplete="name" placeholder="e.g. Ayesha Khan"></label>
+            <label class="field">WhatsApp number<input id="fPhone" inputmode="tel" autocomplete="tel" placeholder="03XX XXXXXXX"></label>
+            <button class="btn wa" id="sendBtn">Continue on WhatsApp</button>
+            <p class="muted" style="margin:8px 0 0">We save your details first, so we can reach you even if WhatsApp does not open.</p>
+          </div>
+
+          <div id="done" hidden>
+            <p class="muted" style="margin:10px 0 4px">Saved as a WPForms entry, then WhatsApp opens with:</p>
+            <div class="msg" id="waMsg"></div>
+          </div>
+        </div>
+        <p style="margin:12px 0 0;text-align:center"><a class="link" href="#">Ready to enrol? Register here</a></p>
+        <p class="note">Signature element. Level, then subject, then one result card. Days and times load from the timetable Google Sheet. The two-field panel captures the lead before WhatsApp opens. The full registration form stays one tap away for decided visitors.</p>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:20px">
+      <div class="ph" style="aspect-ratio:16/9;max-height:360px;width:100%;grid-column:1/-1">Real classroom photo: teacher at the board, students visible. Loaded eagerly as the main image.</div>
+    </div>
+  </section>
+
+  <!-- 2 LEVELS -->
+  <section class="sec white">
+    <span class="tag">2 Choose your level</span>
+    <div class="wrap">
+      <h2>Pick where you are in the <span class="hl">Cambridge journey</span></h2>
+      <p class="muted">Every subject is a real link to its own page.</p>
+      <div class="grid g4" style="margin-top:14px">
+        <div class="card level"><h3>O Level</h3><p class="muted">Two or three year track</p>
+          <ul><li><a href="#">Maths 4024</a></li><li><a href="#">Physics 5054</a></li><li><a href="#">Chemistry 5070</a></li><li><a href="#">Biology 5090</a></li><li><a href="#">Accounting 7707</a></li><li><a href="#">Economics 2281</a></li><li><a href="#">Business 7115</a></li><li><a href="#">Pak Studies 2059</a></li><li><a href="#">Islamiyat 2058</a></li></ul></div>
+        <div class="card level"><h3>AS Level</h3><p class="muted">First year of A Level</p>
+          <ul><li><a href="#">Maths 9709</a></li><li><a href="#">Physics 9702</a></li><li><a href="#">Chemistry 9701</a></li><li><a href="#">Biology 9700</a></li><li><a href="#">Business 9609</a></li><li><a href="#">Economics 9708</a></li><li><a href="#">Computer Science 9618</a></li></ul></div>
+        <div class="card level"><h3>A2 Level</h3><p class="muted">Second year of A Level</p>
+          <ul><li><a href="#">Maths 9709</a></li><li><a href="#">Physics 9702</a></li><li><a href="#">Chemistry 9701</a></li><li><a href="#">Biology 9700</a></li><li><a href="#">Business 9609</a></li><li><a href="#">Economics 9708</a></li><li><a href="#">Computer Science 9618</a></li></ul></div>
+        <div class="card level"><h3>Lab practicals</h3><p class="muted">Paper 3 and Paper 5, including private candidates</p>
+          <ul><li><a href="#">Physics practicals</a></li><li><a href="#">Chemistry practicals</a></li><li><a href="#">Biology practicals</a></li></ul></div>
+      </div>
+      <p class="note">This block is fixed HTML, not loaded from the Sheet. It keeps every subject link visible to Google even though the finder above is live data. It also adds the subjects the current homepage leaves out, including Business 9609.</p>
+    </div>
+  </section>
+
+  <!-- 3 TEACHERS -->
+  <section class="sec">
+    <span class="tag">3 Teachers</span>
+    <div class="wrap">
+      <h2>The teachers behind the <span class="hl">950+ A*s</span></h2>
+      <div class="grid teachers" style="margin-top:14px">
+        <div class="tcard"><div class="ph">Photo</div><b>Sir Salman Junaid</b><span>Maths, Physics</span><span>Ex-KGS faculty, 12+ years</span></div>
+        <div class="tcard"><div class="ph">Photo</div><b>Sir Sunyyan Junaid</b><span>Business 9609</span><span>8+ years</span></div>
+        <div class="tcard"><div class="ph">Photo</div><b>Sir Khawar Shuaib</b><span>Economics</span><span>Teaching since 2014</span></div>
+        <div class="tcard"><div class="ph">Photo</div><b>Sir Abdullah Zaman</b><span>Chemistry</span><span>5+ years</span></div>
+        <div class="tcard"><div class="ph">Photo</div><b>Sir Umair</b><span>Biology</span><span>8+ years, ex-Beaconhouse</span></div>
+        <div class="tcard"><div class="ph">Photo</div><b>Sir Riza Walji</b><span>Computer Science</span><span>9+ years</span></div>
+      </div>
+      <p style="margin-top:14px"><a class="link" href="#">Meet all teachers</a></p>
+      <p class="note">Names and lines come from your teachers page. Two columns on phones, six across on desktop. Tapping a card goes to that teacher's profile.</p>
+    </div>
+  </section>
+
+  <!-- 4 HOW WE TEACH -->
+  <section class="sec white">
+    <span class="tag">4 How we teach</span>
+    <div class="wrap ba">
+      <div>
+        <h2>See the difference <span class="hl">method</span> makes</h2>
+        <p class="lead">Same student. Same question. Six weeks apart.</p>
+        <div class="grid method">
+          <div class="card"><h3>Mark-scheme marking</h3><p class="muted" style="margin:6px 0 0">Every answer is marked the way a Cambridge examiner marks it.</p></div>
+          <div class="card"><h3>Weekly past-paper drills</h3><p class="muted" style="margin:6px 0 0">Timed questions every week, with written feedback.</p></div>
+          <div class="card"><h3>15 students, maximum</h3><p class="muted" style="margin:6px 0 0">Small enough that the teacher reads every script.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="q"><b style="font-weight:500">A Level Business 9609, Paper 1.</b> Analyse two benefits to a business of using job enrichment. [8]</div>
+        <div class="toggle" role="group" aria-label="Answer version">
+          <button id="bBefore" aria-pressed="true">First attempt</button><button id="bAfter" aria-pressed="false">After SJ method</button>
+        </div>
+        <div class="paper" id="ansBefore">Job enrichment is when workers get more interesting work. This is good because workers will be happy and work harder. It also means the business will do better and make more profit. Workers will also not leave the business.</div>
+        <div class="paper" id="ansAfter" hidden><span class="k">Job enrichment gives employees more challenging tasks and more responsibility.</span><span class="mk">K</span> <span class="ap">For a business with skilled staff doing repetitive work,</span><span class="mk">APP</span> <span class="an">this meets Herzberg's motivators, so employees put in more effort, which raises output per worker and lowers unit labour cost.</span><span class="mk">AN</span> <span class="k">A second benefit is lower labour turnover.</span><span class="mk">K</span> <span class="an">Employees who feel trusted are less likely to leave, so the business spends less on recruitment and training and keeps experienced staff, which protects quality.</span><span class="mk">AN</span></div>
+        <div class="score"><span id="scoreNote">Describes, but no chain of reasoning.</span><span><b id="scoreVal">3</b> / 8</span></div>
+        <p class="muted" id="legend" hidden style="margin-top:8px"><span class="k">&nbsp;K&nbsp;</span> knowledge &nbsp; <span class="ap">&nbsp;APP&nbsp;</span> application &nbsp; <span class="an">&nbsp;AN&nbsp;</span> analysis</p>
+        <p class="note">Sample text only. Replace with a real marked answer of yours. Both versions sit in the page as text, so Google reads original teaching content that no competitor has.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 RESULTS + REVIEWS -->
+  <section class="sec brown">
+    <span class="tag">5 Results and reviews</span>
+    <div class="wrap">
+      <h2 style="color:var(--yellow)">Results students and parents talk about</h2>
+      <div class="grid g3" style="margin-top:14px;grid-template-columns:repeat(3,1fr)">
+        <div class="res"><b>A*</b>Subject, series, student first name</div>
+        <div class="res"><b>A*</b>Subject, series, student first name</div>
+        <div class="res"><b>A</b>Subject, series, student first name</div>
+      </div>
+      <div class="grid g3" style="margin-top:12px">
+        <div class="rev">"I used to be really bad at practicals but this has really helped. They make us do a wide range of practicals so we're prepared for whatever comes up."<small>Maryam Shajani · Chemistry and Physics practicals</small></div>
+        <div class="rev">"I've always been struggling with maths, but it's been so much more enjoyable for me because of his teaching style."<small>Mariam Ahmad · A Level Maths</small></div>
+        <div class="rev" style="border:2px dashed var(--orange)">Parent review slot. One review from a parent, with the child's subject and grade.<small>Parent name · Subject</small></div>
+      </div>
+      <p style="margin-top:14px;display:flex;gap:18px;flex-wrap:wrap"><a class="link" href="#">See the full results wall</a><a class="link" href="#">Read all 226+ Google reviews</a></p>
+      <p class="note">No carousel. Three results and three reviews, always visible. Each review shows the subject. One slot is reserved for a parent, since parents pay.</p>
+    </div>
+  </section>
+
+  <!-- 6 FREE TOOLS -->
+  <section class="sec">
+    <span class="tag">6 Free tools</span>
+    <div class="wrap">
+      <h2>Free tools students use <span class="hl">every week</span></h2>
+      <div class="grid g3" style="margin-top:14px">
+        <div class="card"><h3>IBCC equivalence calculator</h3><p class="muted" style="margin:6px 0 0">Convert O and A Level grades to Pakistani marks.</p></div>
+        <div class="card"><h3>Past papers</h3><p class="muted" style="margin:6px 0 0">Every O and A Level subject, by year and series.</p></div>
+        <div class="card"><h3>A Level grade strategy tool</h3><p class="muted" style="margin:6px 0 0">Retake or carry forward? See the numbers.</p></div>
+        <div class="card"><h3>Subject combination finder</h3><p class="muted" style="margin:6px 0 0">Match A Level subjects to your career.</p></div>
+        <div class="card"><h3>CAIE date sheet</h3><p class="muted" style="margin:6px 0 0">Your exam dates for the next series.</p></div>
+        <div class="card"><h3>University admission criteria</h3><p class="muted" style="margin:6px 0 0">LUMS, IBA, NUST and more.</p></div>
+      </div>
+      <p class="note">Replaces the "latest 3 blog posts" block. The homepage passes its link strength to your best pages.</p>
+    </div>
+  </section>
+
+  <!-- 7 FEES, SCHEDULE, LOCATION -->
+  <section class="sec white">
+    <span class="tag">7 Fees, timetable, location</span>
+    <div class="wrap">
+      <h2>The practical details</h2>
+      <div class="grid g3" style="margin-top:14px">
+        <div class="card"><h3>Fees</h3><p style="margin:8px 0">From <b style="font-weight:500">PKR 8,500</b> per subject per month.</p><a class="link" href="#">See the full fee structure</a></div>
+        <div class="card"><h3>Timetable</h3><p style="margin:8px 0">May/June 2027 batches are open now.</p><a class="link" href="#">See this week's timetable</a></div>
+        <div class="card"><h3>Visit us</h3><p style="margin:8px 0">Plot 29C, Lane 5, Seher Commercial Area, DHA Phase 7, Karachi.</p><div class="ph" style="height:90px;margin-bottom:8px">Static map image, opens Google Maps</div><a class="link" href="#">Get directions</a></div>
+      </div>
+      <p class="note">Confirm the "from" price before launch. The full address matches your Google Business Profile, which helps the "near me" searches.</p>
+    </div>
+  </section>
+
+  <!-- 8 FAQ -->
+  <section class="sec">
+    <span class="tag">8 FAQ</span>
+    <div class="wrap faq">
+      <h2>Questions parents ask us</h2>
+      <div style="margin-top:14px">
+        <details open><summary>How many students are in each batch?</summary><p>A maximum of 15. The teacher marks every student's work each week.</p></details>
+        <details><summary>Can my child try a class before we pay?</summary><p>Yes. The first demo class is free for every subject.</p></details>
+        <details><summary>Do you teach online as well as in-class?</summary><p>Draft answer here.</p></details>
+        <details><summary>What are the fees per subject?</summary><p>Draft answer here.</p></details>
+        <details><summary>Who teaches at SJ Academy?</summary><p>Draft answer here.</p></details>
+        <details><summary>Do you offer one-on-one or home tuition?</summary><p>No. We teach in small batches of up to 15, at the academy and live online.</p></details>
+        <details><summary>Can private candidates do lab practicals with you?</summary><p>Draft answer here.</p></details>
+        <details><summary>Where is SJ Academy located?</summary><p>Draft answer here.</p></details>
+      </div>
+      <p class="note">Native accordion, readable by Google without JavaScript. Same count as today (8), rewritten around real parent questions with specific answers.</p>
+    </div>
+  </section>
+
+  <!-- 9 FINAL CTA -->
+  <section class="sec" style="background:var(--yellow)">
+    <span class="tag">9 Final call to action</span>
+    <div class="wrap" style="text-align:center">
+      <h2>Sit in on a class. Then decide.</h2>
+      <p class="lead">The first demo class is free.</p>
+      <div style="display:grid;gap:10px;max-width:420px;margin:16px auto 0">
+        <a class="btn primary" href="#finder">Book a free demo class</a>
+        <a class="btn ghost" href="#">Register for a class</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sticky"><a class="btn primary" href="#finder">Book a free demo class</a><a class="btn wa" href="#" aria-label="WhatsApp">WhatsApp</a></div>
+
+  <div class="wp">Existing WordPress footer (unchanged)</div>
+</div>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  function pair(a,b,fn){[a,b].forEach(function(x){x.addEventListener('click',function(){a.setAttribute('aria-pressed',x===a);b.setAttribute('aria-pressed',x===b);fn(x===a)})})}
+  pair($('vPhone'),$('vDesk'),function(p){$('frame').classList.toggle('desktop',!p)});
+  pair($('nOn'),$('nOff'),function(on){document.body.classList.toggle('hide-notes',!on)});
+  pair($('bBefore'),$('bAfter'),function(b){
+    $('ansBefore').hidden=!b;$('ansAfter').hidden=b;$('legend').hidden=b;
+    $('scoreVal').textContent=b?'3':'8';
+    $('scoreNote').textContent=b?'Describes, but no chain of reasoning.':'Two points, each applied and analysed.';
+  });
+
+  /* sample data: the live build reads days and times from the timetable Google Sheet */
+  var T={sal:'Sir Salman Junaid',sun:'Sir Sunyyan Junaid',kha:'Sir Khawar Shuaib',zam:'Sir Abdullah Zaman',uma:'Sir Umair',riz:'Sir Riza Walji'};
+  var S='Loads from Sheet';
+  var A=[['Maths (9709)',T.sal,'Mon, Wed, Fri'],['Physics (9702)',T.sal,'Tue, Wed, Thu, Fri'],['Chemistry (9701)',T.zam,'Tue, Thu, Fri'],['Biology (9700)',T.uma,S],['Business (9609)',T.sun,S],['Economics (9708)',T.kha,S],['Computer Science (9618)',T.riz,S]];
+  var DATA={
+    'O Level':[['Maths (4024)',T.sal,S],['Physics (5054)',T.sal,S],['Chemistry (5070)',T.zam,S],['Biology (5090)',T.uma,S],['Computer Science (2210)',T.riz,S]],
+    'AS Level':A,'A2 Level':A,
+    'Practicals':[['Physics practicals',T.sal,S],['Chemistry practicals',T.zam,S],['Biology practicals',T.uma,S]]
+  };
+  var level=null,sub=null;
+  function chips(el,items,cur,on){el.innerHTML='';items.forEach(function(t){var b=document.createElement('button');b.className='chip';b.type='button';b.textContent=t;b.setAttribute('aria-pressed',t===cur);b.onclick=function(){on(t)};el.appendChild(b)})}
+  function drawLevels(){chips($('levels'),Object.keys(DATA),level,function(l){level=l;sub=null;drawLevels();drawSubs();$('result').hidden=true})}
+  function drawSubs(){$('subWrap').hidden=!level;if(!level)return;chips($('subjects'),DATA[level].map(function(r){return r[0]}),sub,function(s){sub=s;drawSubs();show()})}
+  function show(){
+    var r=DATA[level].filter(function(x){return x[0]===sub})[0];
+    $('rTitle').textContent=level+' '+r[0];$('rTeacher').textContent='with '+r[1];
+    $('rDays').textContent=r[2];$('rTime').textContent=S;
+    $('rAv').textContent=r[1].split(' ').slice(1).map(function(w){return w[0]}).join('');
+    $('result').hidden=false;$('panel').hidden=true;$('done').hidden=true;$('demoBtn').hidden=false;
+  }
+  $('demoBtn').onclick=function(){$('panel').hidden=false;$('demoBtn').hidden=true;$('fName').focus()};
+  $('sendBtn').onclick=function(){
+    var n=$('fName').value.trim()||'[name]';
+    $('waMsg').textContent='Hi SJ Academy, I am '+n+'. I would like a free demo class for '+level+' '+sub+'.';
+    $('panel').hidden=true;$('done').hidden=false;
+  };
+  drawLevels();
+})();
+</script>
+</body>
+</html>

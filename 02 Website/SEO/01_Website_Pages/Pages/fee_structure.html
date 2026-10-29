@@ -1,0 +1,550 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-yellow: #FCE004;
+      --brown: #453516;
+      --orange: #FE6100;
+      --black: #111111;
+      --white: #FFFFFF;
+      --surface: #FAF8F3;
+      --border: #E8E2D8;
+      --text-muted: #5A5245;
+      --green: #25D366;
+      --shadow-sm: 0 10px 30px rgba(0,0,0,0.03);
+      --shadow-md: 0 20px 40px rgba(0,0,0,0.08);
+      --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Reset & Typography */
+    body { font-family: 'Poppins', sans-serif; background: var(--white); color: var(--black); line-height: 1.7; font-weight: 400; overflow-x: hidden; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
+    .container { max-width: 1250px; margin: 0 auto; padding: 0 24px; }
+    h1, h2, h3, h4 { font-weight: 600; color: var(--black); margin: 0; }
+    
+    /* Hero Section */
+    .hero-neo { 
+        padding: 80px 0 80px; 
+        background: radial-gradient(circle at top left, #FFFFFF 0%, #FAF8F3 100%); 
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        padding: 8px 24px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--black);
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 35px;
+    }
+
+    .hero-neo h1 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 1.1;
+        letter-spacing: -2px;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
+    
+    .highlight-marker {
+        background: linear-gradient(120deg, var(--primary-yellow) 0%, var(--primary-yellow) 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 35%;
+        background-position: 0 85%;
+        display: inline;
+        padding: 0 3px;
+        color: var(--black);
+    }
+
+    .hero-neo p {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto 30px;
+    }
+
+    /* Registration Banner */
+    .registration-banner {
+        background: var(--black);
+        color: var(--white);
+        padding: 30px 40px;
+        border-radius: 20px;
+        text-align: left;
+        max-width: 900px;
+        margin: -40px auto 60px;
+        position: relative;
+        z-index: 10;
+        box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+        border: 2px solid var(--black);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .registration-banner .reg-content {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .registration-banner .reg-icon {
+        font-size: 30px;
+        color: var(--black);
+        background: var(--primary-yellow);
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--black);
+        box-shadow: 4px 4px 0px var(--white);
+        flex-shrink: 0;
+    }
+    
+    .registration-banner h3 {
+        font-size: 1.6rem;
+        margin: 0 0 5px 0;
+        font-weight: 800;
+        color: var(--primary-yellow);
+    }
+    .registration-banner p {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 500;
+        max-width: 450px;
+        color: #f0f0f0;
+    }
+    
+    .registration-banner .reg-price {
+        background: var(--primary-yellow);
+        color: var(--black);
+        padding: 15px 30px;
+        border-radius: 12px;
+        text-align: center;
+        transform: rotate(2deg);
+        box-shadow: 4px 4px 0px var(--white);
+        border: 2px solid var(--black);
+    }
+    .registration-banner .reg-price span {
+        display: block;
+        font-size: 12px;
+        color: var(--black);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+    }
+    .registration-banner .reg-price strong {
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    /* Sections Shared */
+    .fee-section { padding: 80px 0; }
+    .fee-section.bg-surface { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-header { text-align: center; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .section-header h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; }
+    .section-header p { font-size: 1.05rem; color: var(--text-muted); }
+
+    /* Fee Grids */
+    .fee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+    
+    .fee-card { 
+        background: var(--white); 
+        border-radius: 24px; 
+        padding: 40px 30px; 
+        text-align: center; 
+        border: 2px solid var(--black); 
+        transition: all 0.3s var(--ease); 
+        box-shadow: 6px 6px 0px rgba(0,0,0,0.06); 
+        position: relative;
+        overflow: hidden;
+    }
+    .fee-card:hover { 
+        transform: translate(-4px, -4px); 
+        border-color: var(--black); 
+        box-shadow: 10px 10px 0px var(--primary-yellow); 
+    }
+    
+    .fee-card.premium-card {
+        box-shadow: 6px 6px 0px var(--primary-yellow);
+    }
+    .badge {
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        background: var(--primary-yellow);
+        color: var(--black);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-transform: uppercase;
+    }
+    .badge-orange { background: var(--orange); color: var(--white); }
+    
+    .card-icon { font-size: 40px; color: var(--black); margin-bottom: 20px; }
+    .fee-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+    .price { font-size: 2.5rem; font-weight: 800; color: var(--black); line-height: 1; margin: 15px 0; }
+    .price span { font-size: 1rem; color: var(--text-muted); font-weight: 500; }
+    .fee-card p.desc { color: var(--text-muted); font-size: 14px; margin-bottom: 25px; }
+
+    .fee-features { list-style: none; padding: 0; margin: 0 0 30px; text-align: left; }
+    .fee-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--black); margin-bottom: 12px; }
+    .fee-features li i { color: var(--green); margin-top: 3px; }
+
+    /* Lab Practicals Combo Alert */
+    .combo-alert {
+        background: #FFF4E5;
+        border-left: 4px solid var(--orange);
+        padding: 20px 24px;
+        border-radius: 0 12px 12px 0;
+        margin: 40px auto 0;
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .combo-alert i { font-size: 24px; color: var(--orange); }
+    .combo-alert div { font-size: 15px; color: var(--brown); }
+    .combo-alert strong { font-size: 1.1rem; color: var(--black); display: block; margin-bottom: 4px; }
+
+    /* Separate Service CTA */
+    .private-cta-section { padding: 80px 0; background: var(--black); }
+    .cta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .cta-box {
+        background: var(--primary-yellow);
+        border: 2px solid var(--primary-yellow);
+        border-radius: 24px;
+        padding: 50px 30px;
+        text-align: center;
+        box-shadow: 8px 8px 0px var(--white);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cta-box.cta-white {
+        background: var(--white);
+        border: 2px solid var(--white);
+        box-shadow: 8px 8px 0px var(--primary-yellow);
+    }
+    .cta-box h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--black); line-height: 1.2; }
+    .cta-box p { color: var(--black); font-weight: 500; margin-bottom: 30px; }
+    
+    .btn-neo {
+        background: var(--black) !important;
+        color: var(--primary-yellow) !important;
+        padding: 18px 40px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s ease-in-out;
+        border: 2px solid var(--black) !important;
+    }
+    .btn-neo:hover {
+        background: var(--primary-yellow) !important;
+        color: var(--black) !important;
+        transform: translate(-3px, -3px);
+        box-shadow: 6px 6px 0px var(--black) !important;
+    }
+    
+    .btn-neo-white {
+        background: var(--white) !important;
+        color: var(--black) !important;
+    }
+    .btn-neo-white:hover {
+        background: var(--black) !important;
+        color: var(--white) !important;
+    }
+    
+    .btn-outline {
+        background: transparent;
+        color: var(--black);
+        border-color: var(--border);
+    }
+    .btn-outline:hover {
+        background: var(--white);
+        border-color: var(--black);
+    }
+
+    /* FAQ Section for SEO */
+    .faq-section { padding: 80px 0; }
+    .faq-item {
+        background: var(--white);
+        border-radius: 16px;
+        padding: 24px 30px;
+        margin-bottom: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid var(--black);
+        box-shadow: 4px 4px 0px rgba(0,0,0,0.06);
+        transition: transform 0.2s;
+    }
+    .faq-item:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px var(--black);
+    }
+    .faq-item h4 { font-size: 1.15rem; margin-bottom: 12px; font-weight: 700; color: var(--black); }
+    .faq-item p { margin: 0; color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .hero-neo h1 { font-size: 2.2rem; }
+      .registration-banner { flex-direction: column; text-align: center; gap: 10px; padding: 20px; }
+      .combo-alert { flex-direction: column; text-align: center; }
+    }
+  </style>
+<!-- HERO SECTION -->
+  <section class="hero-neo">
+    <div class="container">
+      <div class="hero-pill">
+        <i class="fa-solid fa-wallet"></i> Transparent Pricing
+      </div>
+      
+      <h1>
+        SJ Academy <span class="highlight-marker">Fee Structure.</span>
+      </h1>
+      
+      <p>Excellence shouldn't come with surprises. Simple, transparent pricing that lets you focus entirely on your next A*.</p>
+    </div>
+  </section>
+
+
+  <!-- REGISTRATION FEE BANNER -->
+  <div class="container">
+    <div class="registration-banner">
+      <div class="reg-content">
+        <i class="fa-solid fa-user-graduate reg-icon"></i>
+        <div>
+          <h3>Where Top Grades Begin</h3>
+          <p>Secure your place today and join Karachi's most elite CAIE coaching.</p>
+        </div>
+      </div>
+      <div class="reg-price">
+        <span>One-Time Admission</span>
+        <strong>Rs. 3,500</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- REGULAR BATCH FEES -->
+  <section class="fee-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Regular Batch Fees</h2>
+        <p>Master the syllabus at a steady, confident pace. Consistent guidance all year round.</p>
+      </div>
+      
+      <div class="fee-grid" style="max-width: 1100px;">
+        <!-- O Level Card -->
+        <div class="fee-card">
+          <i class="fa-solid fa-book-open card-icon"></i>
+          <h3>O Level / IGCSE</h3>
+          <p class="desc">Per subject / Month</p>
+          <div class="price">Rs. 8,500<span> /mo</span></div>
+          
+          <ul class="fee-features">
+            <li><i class="fa-solid fa-check"></i> Complete syllabus coverage</li>
+            <li><i class="fa-solid fa-check"></i> Past paper topical practice</li>
+            <li><i class="fa-solid fa-check"></i> Regular assessments & mocks</li>
+            <li><i class="fa-solid fa-check"></i> Direct access to subject experts</li>
+          </ul>
+
+          <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn-neo" style="width: 100%; justify-content: center; margin-top: 15px;">
+            Register Now
+          </a>
+        </div>
+        
+        <!-- A Level Card -->
+        <div class="fee-card premium-card">
+          <div class="badge">A LEVEL</div>
+          <i class="fa-solid fa-graduation-cap card-icon"></i>
+          <h3>A Level</h3>
+          <p class="desc">Per subject / Month</p>
+          <div class="price">Rs. 10,500<span> /mo</span></div>
+          
+          <ul class="fee-features">
+            <li><i class="fa-solid fa-check"></i> AS & A2 comprehensive preparation</li>
+            <li><i class="fa-solid fa-check"></i> Intensive past paper sessions</li>
+            <li><i class="fa-solid fa-check"></i> Marking scheme focused techniques</li>
+            <li><i class="fa-solid fa-check"></i> University admission guidance</li>
+          </ul>
+
+          <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn-neo" style="width: 100%; justify-content: center; margin-top: 15px;">
+            Register Now
+          </a>
+        </div>
+        
+        <!-- Lab Practicals Card -->
+        <div class="fee-card">
+          <i class="fa-solid fa-flask card-icon"></i>
+          <h3>A Level Lab Practicals</h3>
+          <p class="desc">Physics, Chemistry, or Biology</p>
+          <div class="price">Rs. 25,500<span style="display: block; font-size: 1rem; margin-top: 5px;">(One-Time / per subject)</span></div>
+          
+          <ul class="fee-features">
+            <li><i class="fa-solid fa-check"></i> Hands-on lab experience</li>
+            <li><i class="fa-solid fa-check"></i> Complete practical preparation</li>
+            <li><i class="fa-solid fa-check"></i> Paper 3 apparatus handling</li>
+            <li><i class="fa-solid fa-check"></i> Mock practical exams</li>
+          </ul>
+
+          <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn-neo" style="width: 100%; justify-content: center; margin-top: 15px;">
+            Register Now
+          </a>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 30px; font-size: 14px; font-style: italic; color: var(--text-muted);">
+        *Get 10% off your monthly fees when you pay for 3 months upfront.
+      </p>
+    </div>
+  </section>
+
+  <!-- ACCELERATED / OCT-NOV BATCH FEES -->
+  <section class="fee-section bg-surface">
+    <div class="container">
+      <div class="section-header">
+        <h2>Oct/Nov Accelerated Batches</h2>
+        <p>Short on time? Move faster. An intensive, laser-focused sprint to the finish line.</p>
+      </div>
+      
+      <div class="fee-grid">
+        <!-- O Level Oct/Nov Card -->
+        <div class="fee-card">
+          <div class="badge badge-orange">OCT/NOV</div>
+          <i class="fa-solid fa-rocket card-icon"></i>
+          <h3>O Level / IGCSE Fast-Track</h3>
+          <p class="desc">Per subject / Month</p>
+          <div class="price">Rs. 10,500<span> /mo</span></div>
+          
+          <ul class="fee-features">
+            <li><i class="fa-solid fa-check"></i> Accelerated syllabus completion</li>
+            <li><i class="fa-solid fa-check"></i> Intensive crash courses</li>
+            <li><i class="fa-solid fa-check"></i> Focused past paper drills</li>
+          </ul>
+
+          <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn-neo" style="width: 100%; justify-content: center; margin-top: 15px;">
+            Register Now
+          </a>
+        </div>
+        
+        <!-- A Level Oct/Nov Card -->
+        <div class="fee-card premium-card">
+          <div class="badge badge-orange">OCT/NOV</div>
+          <i class="fa-solid fa-meteor card-icon"></i>
+          <h3>A Level Fast-Track</h3>
+          <p class="desc">Per subject / Month</p>
+          <div class="price">Rs. 15,500<span> /mo</span></div>
+          
+          <ul class="fee-features">
+            <li><i class="fa-solid fa-check"></i> Fast-paced AS & A2 completion</li>
+            <li><i class="fa-solid fa-check"></i> Highly targeted revision</li>
+            <li><i class="fa-solid fa-check"></i> Final mock exams & feedback</li>
+          </ul>
+
+          <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn-neo" style="width: 100%; justify-content: center; margin-top: 15px;">
+            Register Now
+          </a>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 30px; font-size: 14px; font-style: italic; color: var(--text-muted);">
+        *Get 10% off your monthly fees when you pay for 3 months upfront.
+      </p>
+    </div>
+  </section>
+
+
+
+  <!-- BOTTOM CTAS -->
+  <section class="private-cta-section">
+    <div class="container">
+      <div class="cta-grid">
+        <!-- Class Schedule CTA -->
+        <div class="cta-box cta-white">
+          <i class="fa-solid fa-calendar-days" style="font-size: 40px; color: var(--black); margin-bottom: 20px;"></i>
+          <h3>Check the Class Schedule</h3>
+          <p>Find the perfect timings for your subjects across our O Level, AS, and A2 batches.</p>
+          <a href="https://www.sjacademy.pk/classes-schedule/" class="btn-neo" target="_blank">
+            View Timetable <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Private Candidate CTA -->
+        <div class="cta-box">
+          <i class="fa-solid fa-file-signature" style="font-size: 40px; color: var(--black); margin-bottom: 20px;"></i>
+          <h3>Register as a Private Candidate?</h3>
+          <p>Skip the paperwork. We manage your entire CAIE exam registration securely.</p>
+          <a href="https://www.sjacademy.pk/caie-private-candidate-registration/" class="btn-neo btn-neo-white" target="_blank">
+            Register Hassle-Free <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION (SEO Purpose) -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      
+      <div class="faq-item">
+        <h4>Are there any hidden charges besides the tuition fee?</h4>
+        <p>No. SJ Academy believes in transparent pricing. Apart from the Rs. 3,500 one-time registration fee for new students, you only pay the monthly tuition fee for your selected subjects, or the one-time lab fee if applicable.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h4>How does the lab practical fee work?</h4>
+        <p>The A Level lab practical fee is a one-time payment of Rs. 25,500 per subject. This covers the entire practical preparation course for the exam session, without any recurring monthly costs for labs.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h4>What is the difference between Regular and Oct/Nov batches?</h4>
+        <p>Regular batches run throughout the academic year at standard pacing. The Oct/Nov batches are accelerated, intensive programs designed specifically to prepare students for the Oct/Nov series in a shorter timeframe, hence the different fee structure.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Does the monthly fee include the official British Council CAIE exam fee?</h4>
+        <p>No, our monthly tuition covers the coaching, assessments, and study resources provided at SJ Academy. The final CAIE exam registration fee is paid separately to the British Council.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h4>Are study materials and past papers included in the tuition fee?</h4>
+        <p>Yes. We provide all essential topical worksheets, past papers, and proprietary revision notes as part of your regular tuition. There are no surprise costs for basic academy study materials.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h4>Do you offer any scholarships or financial aid?</h4>
+        <p>Yes, we believe every bright student deserves top-tier education. We offer merit-based scholarships and need-based financial aid for deserving students. Please reach out to our administration office to discuss eligibility.</p>
+      </div>
+      
+    </div>
+  </section>

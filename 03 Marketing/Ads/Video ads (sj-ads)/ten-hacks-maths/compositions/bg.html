@@ -1,0 +1,68 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;font-family:'SJ Poppins';}
+#bg-base{position:absolute;inset:0;background:radial-gradient(120% 80% at 20% 10%,#151C52 0%,#0A0F2C 60%,#05081C 100%);}
+#bg-g1{position:absolute;left:-300px;top:-200px;width:1100px;height:1100px;border-radius:50%;color:#A78BFA;
+  background:radial-gradient(circle,currentColor 0%,transparent 68%);opacity:0.18;}
+#bg-g2{position:absolute;left:400px;top:1100px;width:1100px;height:1100px;border-radius:50%;color:#FE6100;
+  background:radial-gradient(circle,currentColor 0%,transparent 68%);opacity:0.10;}
+#bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.022) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,0.022) 2px,transparent 2px);
+  background-size:60px 60px;-webkit-mask-image:radial-gradient(circle at 50% 45%,#000 20%,transparent 75%);mask-image:radial-gradient(circle at 50% 45%,#000 20%,transparent 75%);}
+#bg-graphs{position:absolute;left:0;top:0;color:#A78BFA;opacity:0.09;}
+#bg-chalk{position:absolute;left:0;top:0;width:1080px;height:2120px;}
+.ck{position:absolute;white-space:nowrap;font-family:'SJ Caveat';font-weight:600;color:rgba(255,255,255,0.06);}
+#bg-vig{position:absolute;inset:0;background:radial-gradient(130% 90% at 50% 45%,transparent 55%,rgba(3,5,18,0.75) 100%);}
+  </style>
+  <div id="root" data-composition-id="bg" data-width="1080" data-height="1920" data-layout-ignore>
+    <div id="bg-base"></div>
+    <div id="bg-g1"></div>
+    <div id="bg-g2"></div>
+    <div id="bg-grid"></div>
+    <svg id="bg-graphs" width="1080" height="2120" viewBox="0 0 1080 2120">
+  <g fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M740 1755 L746 1771 L752 1787 L758 1802 L764 1816 L770 1829 L776 1842 L782 1854 L788 1865 L794 1876 L800 1886 L806 1896 L812 1905 L818 1913 L824 1920 L830 1927 L836 1933 L842 1939 L848 1944 L854 1948 L860 1952 L866 1955 L872 1957 L878 1959 L884 1960 L890 1960 L896 1960 L902 1959 L908 1957 L914 1955 L920 1952 L926 1948 L932 1944 L938 1939 L944 1933 L950 1927 L956 1920 L962 1913 L968 1905 L974 1896 L980 1886 L986 1876 L992 1865 L998 1854 L1004 1842 L1010 1829 L1016 1816 L1022 1802 L1028 1787 L1034 1771 L1040 1755" stroke-width="4"/>
+    <circle cx="40" cy="40" r="170" stroke-width="3"/>
+    <path d="M40 40 L187 -45 M40 40 L210 40" stroke-width="3"/>
+  </g>
+</svg>
+    <div id="bg-chalk"><div class="ck" style="left:640px;top:110px;font-size:60px;transform:rotate(-4deg)">a² + b² = c²</div><div class="ck" style="left:110px;top:1700px;font-size:58px;transform:rotate(3deg)">π ≈ 3.14159</div><div class="ck" style="left:700px;top:1810px;font-size:58px;transform:rotate(-3deg)">y = mx + c</div><div class="ck" style="left:300px;top:1930px;font-size:54px;transform:rotate(2deg)">sin²θ + cos²θ = 1</div></div>
+    <div id="bg-vig"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+        tl.fromTo('#bg-chalk',{y:0},{y:-140,duration:102.668,ease:'none'},0);
+    tl.fromTo('#bg-graphs',{y:0},{y:-90,duration:102.668,ease:'none'},0);
+    tl.fromTo('#bg-g1',{x:0,y:0},{x:160,y:260,duration:51.334,ease:'sine.inOut'},0);
+    tl.to('#bg-g1',{x:-60,y:120,duration:51.334,ease:'sine.inOut'},51.334);
+    tl.fromTo('#bg-g2',{x:0,y:0},{x:-160,y:-200,duration:51.334,ease:'sine.inOut'},0);
+    tl.to('#bg-g2',{x:40,y:-60,duration:51.334,ease:'sine.inOut'},51.334);
+    tl.to('#bg-g1,#bg-graphs',{color:'#22D3EE',duration:0.35,ease:'none'},4.025);
+    tl.to('#bg-g2',{color:'#22D3EE',duration:0.35,ease:'none'},4.025);
+    tl.to('#bg-g1,#bg-graphs',{color:'#FF4D6D',duration:0.35,ease:'none'},11.316);
+    tl.to('#bg-g2',{color:'#FF4D6D',duration:0.35,ease:'none'},11.316);
+    tl.to('#bg-g1,#bg-graphs',{color:'#A78BFA',duration:0.35,ease:'none'},19.000);
+    tl.to('#bg-g2',{color:'#A78BFA',duration:0.35,ease:'none'},19.000);
+    tl.to('#bg-g1,#bg-graphs',{color:'#34D399',duration:0.35,ease:'none'},28.915);
+    tl.to('#bg-g2',{color:'#34D399',duration:0.35,ease:'none'},28.915);
+    tl.to('#bg-g1,#bg-graphs',{color:'#FB923C',duration:0.35,ease:'none'},37.260);
+    tl.to('#bg-g2',{color:'#FB923C',duration:0.35,ease:'none'},37.260);
+    tl.to('#bg-g1,#bg-graphs',{color:'#F472B6',duration:0.35,ease:'none'},45.918);
+    tl.to('#bg-g2',{color:'#F472B6',duration:0.35,ease:'none'},45.918);
+    tl.to('#bg-g1,#bg-graphs',{color:'#60A5FA',duration:0.35,ease:'none'},54.999);
+    tl.to('#bg-g2',{color:'#60A5FA',duration:0.35,ease:'none'},54.999);
+    tl.to('#bg-g1,#bg-graphs',{color:'#2DD4BF',duration:0.35,ease:'none'},65.688);
+    tl.to('#bg-g2',{color:'#2DD4BF',duration:0.35,ease:'none'},65.688);
+    tl.to('#bg-g1,#bg-graphs',{color:'#FF6B6B',duration:0.35,ease:'none'},74.298);
+    tl.to('#bg-g2',{color:'#FF6B6B',duration:0.35,ease:'none'},74.298);
+    tl.to('#bg-g1,#bg-graphs',{color:'#C084FC',duration:0.35,ease:'none'},82.116);
+    tl.to('#bg-g2',{color:'#C084FC',duration:0.35,ease:'none'},82.116);
+    tl.to('#bg-g1,#bg-graphs',{color:'#A78BFA',duration:0.35,ease:'none'},91.284);
+    tl.to('#bg-g2',{color:'#A78BFA',duration:0.35,ease:'none'},91.284);
+    window.__timelines["bg"] = tl;
+  </script>
+</template>

@@ -1,0 +1,478 @@
+<div class="sja-creative-lp">
+    <style>
+        /* ==================================================
+           SJ ACADEMY - CREATIVE "GRAPH PAPER" SAAS MODE
+           ================================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap');
+
+        .sja-creative-lp, .sja-creative-lp * { box-sizing: border-box !important; }
+
+        .sja-creative-lp {
+            --orange: #FE6100;
+            --yellow: #FCE004;
+            --dark-brown: #2D230F;
+            --text-main: #111827;
+            --text-muted: #4B5563;
+            --border-light: #E5E7EB;
+            --white: #FFFFFF;
+            
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .sja-creative-lp h1, .sja-creative-lp h2, .sja-creative-lp h3 {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            line-height: 1.25; /* Increased line-height to prevent highlight clipping */
+            letter-spacing: -0.02em;
+        }
+
+        .lp-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* 100% WORDPRESS-SAFE ICONS (Base64 CSS Backgrounds) */
+        .icon-star {
+            width: 18px; height: 18px; display: inline-block; flex-shrink: 0;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0iI0Y1OUUwQiI+PHBhdGggZD0iTTkuMDQ5IDIuOTI3Yy4zLS45MjEgMS42MDMtLjkyMSAxLjkwMiAwbDEuMDcgMy4yOTJhMSAxIDAgMDAuOTUuNjloMy40NjJjLjk2OSAwIDEuMzcxIDEuMjQuNTg4IDEuODFsLTIuOCAyLjAzNGExIDEgMCAwMC0uMzY0IDEuMTE4bDEuMDcgMy4yOTJjLjMuOTIxLS43NTUgMS42ODgtMS41NCAxLjExOGwtMi44LTIuMDM0YTEgMSAwIDAwLTEuMTc1IDBsLTIuOCAyLjAzNGMtLjc4NC41Ny0xLjgzOC0uMTk3LTEuNTM5LTEuMTE4bDEuMDctMy4yOTJhMSAxIDAgMDAtLjM2NC0xLjExOEwyLjk4IDguNzJjLS43ODMtLjU3LS4zOC0xLjgxLjU4OC0xLjgxaDMuNDYxYTEgMSAwIDAwLjk1MS0uNjlsMS4wNy0zLjI5MnoiLz48L3N2Zz4=");
+            background-size: contain; background-repeat: no-repeat; background-position: center;
+        }
+        .icon-check {
+            width: 24px; height: 24px; display: inline-block; flex-shrink: 0;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTBCOTgxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTkgMTJsMiAyIDQtNCIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjkiLz48L3N2Zz4=");
+            background-size: contain; background-repeat: no-repeat;
+        }
+        .icon-cross {
+            width: 24px; height: 24px; display: inline-block; flex-shrink: 0;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRUY0NDQ0IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEwIDE0bDItMm0wIDBsMi0ybS0yIDJsLTItMm0yIDJsMiAybTctMmE5IDkgMCAxMS0xOCAwIDkgOSAwIDAxMTggMHoiLz48L3N2Zz4=");
+            background-size: contain; background-repeat: no-repeat;
+        }
+        .icon-whatsapp {
+            width: 20px; height: 20px; display: inline-block; flex-shrink: 0;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzI1RDM2NiI+PHBhdGggZD0iTTE3LjQ3MiAxNC4zODJjLS4yOTctLjE0OS0xLjc1OC0uODY3LTIuMDMtLjk2Ny0uMjczLS4wOTktLjQ3MS0uMTQ4LS42Ny4xNS0uMTk3LjI5Ny0uNzY3Ljk2Ni0uOTQgMS4xNjQtLjE3My4xOTktLjM0Ny4yMjMtLjY0NC4wNzUtLjI5Ny0uMTUtMS4yNTUtLjQ2My0yLjM5LTEuNDc1LS44ODMtLjc4OC0xLjQ4LTEuNzYxLTEuNjUzLTIuMDU5LS4xNzMtLjI5Ny0uMDE4LS40NTguMTMtLjYwNi4xMzQtLjEzMy4yOTgtLjM0Ny40NDYtLjUyLjE0OS0uMTc0LjE5OC0uMjk4LjI5OC0uNDk3LjA5OS0uMTk4LjA1LS4zNzEtLjAyNS0uNTItLjA3NS0uMTQ5LS42NjktMS42MTItLjkxNi0yLjIwNy0uMjQyLS41NzktLjQ4Ny0uNS0uNjY5LS41MWExMi44IDEyLjggMCAwMC0uNTctLjAxYy0uMTk4IDAtLjUyLjA3NC0uNzkyLjM3Mi0uMjcyLjI5Ny0xLjA0IDEuMDE2LTEuMDQgMi40NzkgMCAxLjQ2MiAxLjA2NSAyLjg3NSAxLjIxMyAzLjA3NC4xNDkuMTk4IDIuMDk2IDMuMiA1LjA3NyA0LjQ4Ny43MDkuMzA2IDEuMjYyLjQ4OSAxLjk0LjYyNS43MTIuMjI3IDEuMzYuMTk1IDEuODcxLjExOC41NzEtLjA4NSAxLjc1OC0uNzE5IDIuMDA2LTEuNDEzLjI0OC0uNjk0LjI0OC0xLjI4OS4xNzMtMS40MTMtLjA3NC0uMTI0LS4yNzItLjE5OC0uNTctLjM0N20tNS40MjkgNy40MDNoLS4wMDRhOS44NyA5Ljg3IDAgMDEtNS4wMzEtMS4zNzhsLS4zNjEtLjIxNC0zLjc0MS45ODIgLjk5OC0zLjY0OC0uMjM1LS4zNzRhOS44NiA5Ljg2IDAgMDEtMS41MS01LjI2YzEuMDAtNS40NSA0LjQzNi05Ljg4NCA5Ljg4OC05Ljg4NCAyLjY0IDAgNS4xMjIgMS4wMyA2Ljk4OCAyLjg5OGE5LjgyNSA5LjgyNSAwIDAxMi44OTMgNi45OTRjLS4wMDMgNS40NS00LjQzNyA5Ljg4NC05Ljg4NSA5Ljg4NG04LjQxMy0xOC4yOTdBMTEuODE1IDExLjgxNSAwIDAwMTIuMDUgMEM1LjQ5NSAwIC4xNiA1LjMzNS4xNTcgMTEuODkyYzAgMi4wOTYuNTQ3IDQuMTQyIDEuNTg4IDUuOTQ1TC4wNTcgMjRsNi4zMDUtMS42NTRhMTEuODgyIDExLjg4MiAwIDAwNS42ODMgMS40NDhoLjAwNWM2LjU1NCAwIDExLjg5LTUuMzM1IDExLjkzLTExLjg5M2ExMS44MjEgMTEuODIxIDAgMDAtMy40OC04LjQxM3oiLz48L3N2Zz4=");
+            background-size: contain; background-repeat: no-repeat;
+        }
+
+        /* --- NEW LOCATION PILL (Adapted from provided code style) --- */
+        .location-pill {
+            display: inline-flex; align-items: center; background: var(--white);
+            border: 1.5px solid var(--border-light); border-radius: 40px; padding: 4px;
+            margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+        }
+        .loc-physical {
+            background: var(--yellow); color: var(--dark-brown);
+            padding: 6px 14px; border-radius: 40px; display: flex; align-items: center; gap: 6px;
+        }
+        .loc-divider { width: 1.5px; height: 16px; background: var(--border-light); margin: 0 4px; }
+        .loc-online {
+            color: var(--text-muted);
+            padding: 6px 14px 6px 8px; display: flex; align-items: center; gap: 6px;
+        }
+        .icon-pin {
+            width: 12px; height: 12px; display: inline-block; flex-shrink: 0;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI0RDMjYyNiI+PHBhdGggZD0iTTEyIDJDOC4xMyAyIDUgNS4xMyA1IDljMCA1LjI1IDcgMTMgNyAxM3M3LTcuNzUgNy0xM2MwLTMuODctMy4xMy03LTctN3ptMCA5LjVhMi41IDIuNSAwIDAxMC01IDIuNSAyLjUgMCAwMTAgNXoiLz48L3N2Zz4=");
+            background-size: contain; background-repeat: no-repeat;
+        }
+        .live-dot {
+            width: 6px; height: 6px; background: #EF4444; border-radius: 50%; flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(239,68,68,0.2); animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239,68,68,0.5); } 70% { box-shadow: 0 0 0 6px rgba(239,68,68,0); } 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); } }
+
+        /* --- 1. HERO WITH GRAPH PAPER BACKGROUND --- */
+        .hero-section {
+            position: relative;
+            padding: 100px 0 80px;
+            /* Graph Paper Effect */
+            background-color: #FAFAFA;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            border-bottom: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr; gap: 60px;
+            align-items: center; position: relative; z-index: 10;
+        }
+        @media (min-width: 992px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 80px; } }
+
+        .hero-text h1 { font-size: clamp(2.5rem, 4.5vw, 4rem); font-weight: 700; margin-bottom: 24px; color: var(--text-main); }
+        
+        /* THE EXACT HIGHLIGHTER COPIED FROM USER CODE */
+        .highlight-marker {
+            background: linear-gradient(120deg, var(--yellow) 0%, var(--yellow) 100%);
+            background-repeat: no-repeat; 
+            background-size: 100% 35%; 
+            background-position: 0 85%; 
+            padding: 0 3px;
+            display: inline;
+        }
+
+        .hero-text p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; }
+        .hero-text p strong { color: var(--dark-brown); }
+
+        .btn-group { display: flex; flex-wrap: wrap; gap: 16px; }
+        
+        .btn-primary, .btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 32px; border-radius: 8px;
+            font-size: 16px; font-weight: 600; text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary { background: var(--orange); color: var(--white); box-shadow: 0 4px 15px rgba(254,97,0,0.25); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(254,97,0,0.35); color: var(--white); }
+        
+        .btn-secondary { background: var(--white); color: var(--dark-brown); border: 2px solid var(--border-light); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .btn-secondary:hover { border-color: #25D366; background: #F0FDF4; color: #065F46; }
+
+        /* Floating UI Image Setup */
+        .hero-visual { position: relative; }
+        .main-image { width: 100%; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); position: relative; z-index: 1; }
+        
+        /* Floating SaaS UI Element */
+        .floating-ui-card {
+            position: absolute; bottom: -30px; left: -40px;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
+            padding: 20px; border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.4);
+            display: flex; gap: 16px; align-items: center;
+            z-index: 10; max-width: 330px;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+        
+        .floating-ui-card img { width: 50px; height: 50px; border-radius: 50px; object-fit: cover; flex-shrink: 0; }
+        
+        .floating-ui-card > div { display: flex; flex-direction: column; }
+        .stars-container { display: flex; flex-direction: row; align-items: center; gap: 2px; margin-bottom: 8px; }
+
+        .floating-ui-card p { font-size: 12px; font-weight: 500; color: var(--text-main); margin: 0; line-height: 1.4; }
+
+        @media (max-width: 991px) {
+            .hero-text { text-align: center; }
+            .hero-text p { margin: 0 auto 30px; }
+            .btn-group { justify-content: center; }
+            .floating-ui-card { left: 10px; bottom: -20px; width: 90%; }
+        }
+
+        /* --- 2. VIDEO DEMO SECTION --- */
+        .lp-section { padding: 100px 0; }
+        .bg-white { background: var(--white); }
+        .bg-light { background: #FAFAFA; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+
+        .video-wrapper {
+            max-width: 1000px; margin: 0 auto;
+            border-radius: 20px; overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            position: relative; padding-bottom: 56.25%; height: 0;
+            border: 8px solid var(--white);
+            background: var(--dark-brown);
+        }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* --- 3. THE REALITY CHECK (PAIN POINTS) --- */
+        .pain-grid { display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 1000px; margin: 50px auto 0; }
+        @media (min-width: 768px) { .pain-grid { grid-template-columns: 1fr 1fr; } }
+        
+        .pain-card {
+            background: var(--white); border: 1px solid var(--border-light);
+            padding: 40px 32px; border-radius: 16px; position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); overflow: hidden;
+        }
+        .pain-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; }
+        .pain-card.bad::before { background: #EF4444; }
+        .pain-card.good::before { background: #10B981; }
+        .pain-card h3 { display: flex; align-items: center; gap: 12px; font-size: 1.3rem; margin-bottom: 16px; }
+        .pain-card p { color: var(--text-muted); }
+
+        /* --- 4. ORIGINAL ACADEMIC ROADMAP --- */
+        .timeline-grid { display: grid; grid-template-columns: 1fr; gap: 50px; }
+        @media (min-width: 992px) { .timeline-grid { grid-template-columns: 0.8fr 1.2fr; align-items: center; } }
+        .timeline-header h2 { font-size: clamp(2rem, 3vw, 3rem); margin-bottom: 20px; color: var(--text-main); }
+        .timeline-header p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 30px; }
+
+        .interactive-timeline { border-left: 2px dashed var(--border-light); padding-left: 32px; margin-left: 16px; }
+        .timeline-node {
+            position: relative; margin-bottom: 40px;
+            background: var(--white); padding: 24px;
+            border-radius: 12px; border: 1px solid var(--border-light);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: all 0.3s ease;
+        }
+        .timeline-node:hover { border-color: var(--orange); box-shadow: 0 10px 20px rgba(254,97,0,0.08); transform: translateX(5px); }
+        .timeline-node::before {
+            content: ''; position: absolute; left: -41px; top: 30px;
+            width: 16px; height: 16px; background: var(--white); border: 4px solid var(--orange);
+            border-radius: 50%; box-shadow: 0 0 0 4px #FFF7ED;
+        }
+        .timeline-node h3 { font-size: 1.25rem; margin-bottom: 8px; color: var(--text-main); }
+        .timeline-node p { font-size: 1rem; color: var(--text-muted); margin: 0; }
+        .node-tag {
+            position: absolute; top: -12px; right: 20px;
+            background: var(--yellow); color: var(--dark-brown);
+            font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* --- 5. DEDICATED PAST PAPERS FOLD --- */
+        .past-papers-section {
+            background-color: var(--dark-brown);
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--white);
+            text-align: center;
+        }
+        .pp-box { max-width: 800px; margin: 0 auto; padding: 40px 0; }
+        .pp-box h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--white); }
+        .pp-box p { font-size: 1.15rem; color: #D1D5DB; margin-bottom: 40px; }
+        .pp-box .btn-primary { background: var(--white); color: var(--dark-brown); }
+        .pp-box .btn-primary:hover { background: var(--yellow); color: var(--dark-brown); }
+
+        /* --- 6. REVIEWS GRID --- */
+        .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 1100px; margin: 50px auto 0; }
+        @media (min-width: 768px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+        .review-box {
+            background: var(--white); padding: 30px; border-radius: 16px;
+            border: 1px solid var(--border-light); box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .review-box p { font-size: 0.95rem; font-style: italic; color: var(--text-main); margin-bottom: 20px; }
+        .review-author { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; }
+
+        /* --- 7. FAQs --- */
+        .faq-wrapper { max-width: 800px; margin: 50px auto 0; }
+        .faq-item { background: var(--white); border: 1px solid var(--border-light); border-radius: 12px; margin-bottom: 16px; }
+        .faq-item summary { padding: 24px; font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        
+        .faq-item summary::after { content: '+'; color: var(--orange); font-size: 1.5rem; font-weight: 400; }
+        .faq-item details[open] summary::after { content: '-'; }
+        
+        .faq-content { padding: 0 24px 24px; color: var(--text-muted); line-height: 1.7; }
+    </style>
+
+    <!-- 1. HERO WITH GRAPH BACKGROUND -->
+    <header class="hero-section">
+        <div class="lp-container hero-grid">
+            <div class="hero-text">
+                
+                <!-- PILL EFFECT EXTRACTED -->
+                <div class="location-pill">
+                    <div class="loc-physical">
+                        <span class="icon-pin"></span> KARACHI CAMPUS
+                    </div>
+                    <div class="loc-divider"></div>
+                    <div class="loc-online">
+                        <span class="live-dot"></span> LIVE ONLINE
+                    </div>
+                </div>
+
+                <h1>Top-Rated <span class="highlight-marker">A-Level Maths Tuition</span> in Karachi</h1>
+                <p>Looking for an expert tutor for your <strong>AS & A Level Mathematics 9709 Course</strong>? Master the CAIE syllabus with Sir Salman Junaid (Ex-KGS) and secure your A* with our May/June 2027 batch.</p>
+                
+                <div class="btn-group">
+                    <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn-primary">
+                        Book a Free Demo Class
+                    </a>
+                    <a href="https://wa.me/923362144454" class="btn-secondary" target="_blank" rel="noopener">
+                        <span class="icon-whatsapp"></span>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1632.jpg" alt="A Level Math Class" class="main-image">
+                
+                <!-- Floating SaaS-style notification card -->
+                <div class="floating-ui-card">
+                    <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1636.jpg" alt="Student Review">
+                    <div>
+                        <div class="stars-container">
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                        </div>
+                        <p>"Sir Salman's methodical approach helped me build a strong foundation. Highly recommended!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. VIDEO DEMO FOLD -->
+    <section class="lp-section bg-white">
+        <div class="lp-container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2>Experience an AS Level Mathematics 9709 Class</h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 600px; margin: 10px auto 0;">Watch Sir Salman in action. See exactly how we break down complex formulas into simple, actionable steps for the exam.</p>
+            </div>
+            
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/vx2UZDvAaHI?rel=0" title="A Level Math Demo Class" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. THE REALITY CHECK -->
+    <section class="lp-section bg-light">
+        <div class="lp-container">
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <h2>Why A-Level Math Breaks Students</h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; margin-top: 10px;">The jump from O-Level Add Math to CAIE A-Levels is brutal. Here is how our methodology bridges the gap.</p>
+            </div>
+            
+            <div class="pain-grid">
+                <div class="pain-card bad">
+                    <h3>
+                        <span class="icon-cross"></span>
+                        The Abstract Theory Trap
+                    </h3>
+                    <p>Most tutors rush through syllabus formulas without explaining the "why". When CAIE twists a Mechanics or P3 integration question, students freeze because they memorized steps instead of truly understanding the underlying concepts.</p>
+                </div>
+                
+                <div class="pain-card good">
+                    <h3>
+                        <span class="icon-check"></span>
+                        The SJ Academy Method
+                    </h3>
+                    <p>We make abstract concepts highly visual. Sir Salman breaks down complex calculus and mechanics into intuitive, real-world models. We don't just teach the formula; we teach the examiner's logic so you can tackle any paper variation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ORIGINAL ACADEMIC ROADMAP -->
+    <section class="lp-section bg-white">
+        <div class="lp-container timeline-grid">
+            <div class="timeline-header">
+                <h2>The A-Level Math (9709) Preparation Roadmap</h2>
+                <p>Navigating the syllabus requires more than just memorizing formulas. Follow the exact month-by-month academic roadmap Sir Salman uses to guarantee full syllabus coverage and robust past paper practice.</p>
+                <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn-primary" style="padding: 12px 24px; font-size: 14px;">Join the Current Batch</a>
+            </div>
+            
+            <div class="interactive-timeline">
+                <div class="timeline-node">
+                    <span class="node-tag">Aug - Dec</span>
+                    <h3>Core Syllabus Coverage</h3>
+                    <p>We build the mathematical foundation. AS Level students master Pure Mathematics (P1) and their applied component (S1 or M1), ensuring step-by-step working is heavily enforced.</p>
+                </div>
+                <div class="timeline-node">
+                    <span class="node-tag">Jan - Feb</span>
+                    <h3>Advanced Topics & A2 Components</h3>
+                    <p>We tackle the hardest papers. A2 students dive deep into Pure Mathematics 3 (P3) and advanced integration, utilizing examiner-logic frameworks so you never freeze during an exam.</p>
+                </div>
+                <div class="timeline-node">
+                    <span class="node-tag">Mar - May</span>
+                    <h3>Final Preparation Phase</h3>
+                    <p>The syllabus is complete. Students move into a shared final preparation phase focusing purely on structured revision, timed yearly past papers, and final exam strategy workshops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DEDICATED PAST PAPERS FOLD -->
+    <section class="lp-section past-papers-section">
+        <div class="lp-container">
+            <div class="pp-box">
+                <h2>Access Free 9709 Past Papers</h2>
+                <p>Don't scramble for resources. We have built the ultimate, filterable database of Cambridge A Level Math past papers and official marking schemes for all our students.</p>
+                <a href="/a-level-past-papers/mathematics-9709/" class="btn-primary">View the 9709 Past Paper Database</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. REVIEWS -->
+    <section class="lp-section bg-light">
+        <div class="lp-container">
+            <div style="text-align: center;">
+                <h2>What Our Students Say</h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; margin-top: 10px;">Join hundreds of successful students who secured their A* with Sir Salman.</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-box">
+                    <div>
+                        <div class="stars-container">
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                        </div>
+                        <p>"Sir Salman has been so helpful throughout my A Level Math course. I've always been struggling with maths, but it's been so much more enjoyable because of his teaching style."</p>
+                    </div>
+                    <span class="review-author">— A-Level Student</span>
+                </div>
+                <div class="review-box">
+                    <div>
+                        <div class="stars-container">
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                        </div>
+                        <p>"I am a private candidate, and studying on my own has been challenging. This academy has been extremely helpful. Sir Salman is always available to solve queries and conducts mocks to track progress."</p>
+                    </div>
+                    <span class="review-author">— Private Candidate</span>
+                </div>
+                <div class="review-box">
+                    <div>
+                        <div class="stars-container">
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                        </div>
+                        <p>"An outstanding math teacher! His ability to explain difficult concepts in a simple, understandable way is truly remarkable. A truly great math teacher and an even greater human being."</p>
+                    </div>
+                    <span class="review-author">— AS Level Student</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FAQs -->
+    <section class="lp-section bg-white" style="padding-bottom: 120px;">
+        <div class="lp-container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <details>
+                        <summary>Is A-Level Math (9709) hard compared to O-Level?</summary>
+                        <div class="faq-content">
+                            Yes, there is a significant difficulty jump, particularly in Pure Mathematics 3 (P3) and Mechanics (M1). O-Level Add Math provides a good foundation, but A-Level questions require a much deeper understanding of application rather than just memorizing formulas. Our classes focus heavily on bridging this gap through visual learning and topic-by-topic past paper drills.
+                        </div>
+                    </details>
+                </div>
+                <div class="faq-item">
+                    <details>
+                        <summary>What is the syllabus structure for A-Level Mathematics 9709?</summary>
+                        <div class="faq-content">
+                            The Cambridge International AS & A Level Mathematics (9709) syllabus requires candidates to take four papers. Typically, AS Level students take Pure Mathematics 1 (P1) and either Probability & Statistics 1 (S1) or Mechanics (M1). For the full A Level, candidates must add Pure Mathematics 3 (P3) and the remaining applied paper (S1, S2, or M1) depending on their selected route.
+                        </div>
+                    </details>
+                </div>
+                <div class="faq-item">
+                    <details>
+                        <summary>Do you offer online A-Level Math tuition in Pakistan?</summary>
+                        <div class="faq-content">
+                            Yes! While we offer in-person classes at our DHA Phase 7 campus in Karachi, we also conduct highly interactive, live online classes for students across Pakistan and the Middle East. Sir Salman uses digital whiteboards to ensure online students get the exact same experience and attention as physical students.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

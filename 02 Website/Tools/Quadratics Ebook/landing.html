@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SJ Academy | Free A Level Math Quadratics E-Book</title>
+<link rel="icon" type="image/webp" href="https://www.sjacademy.pk/wp-content/uploads/2025/06/sj-fav-icon@2x.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --yellow: #ffd400;
+  --yellow-hover: #ffea5c;
+  --black: #0d0d0d;
+  --orange: #f28c28;
+  --cream: #fffaf0;
+  --muted: #5d5d5d;
+  --line: #e9e3cf;
+  --font: 'Poppins', sans-serif;
+  --bg-gradient: linear-gradient(135deg, var(--cream) 0%, #ffffff 100%);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: #1f1f1f;
+  background: var(--bg-gradient);
+  font-family: var(--font);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+.page { overflow: hidden; }
+
+/* Mobile First Layout Container */
+.hero-inner, .section-inner {
+  width: min(100% - 40px, 1180px);
+  margin: auto;
+}
+
+/* Typography */
+h1, h2, h3, p { margin-top: 0; }
+h1 {
+  color: var(--black);
+  font-size: clamp(2.4rem, 8vw, 4.2rem);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+.hero-subheading {
+  color: var(--black);
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
+  line-height: 1.35;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.hero-copy {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  padding: 40px 0 60px;
+  border-bottom: 1px solid var(--line);
+  background: radial-gradient(circle at top left, rgba(255, 212, 0, 0.12), transparent 50%), 
+              radial-gradient(circle at bottom right, rgba(242, 140, 40, 0.05), transparent 50%);
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (min-width: 980px) {
+  .hero { padding: 80px 0 100px; }
+  .hero-inner {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 60px;
+    align-items: start;
+  }
+}
+
+.hero-content { display: flex; flex-direction: column; }
+
+.eyebrow {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  background: rgba(255, 212, 0, 0.15);
+  color: #b39500;
+  border: 1px solid rgba(255, 212, 0, 0.3);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Features List */
+.highlight-grid {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 40px;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 640px) {
+  .highlight-grid { grid-template-columns: 1fr 1fr; }
+}
+.highlight-grid li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--black);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.highlight-grid li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+}
+.check {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  background: var(--yellow);
+  color: var(--black);
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+/* Mockup row */
+.mockup-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .mockup-row {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+}
+.cover-shell {
+  position: relative;
+  flex: none;
+  width: min(180px, 50vw);
+  padding: 12px;
+  background: #fff;
+  border: 1px solid rgba(13,13,13,0.08);
+  border-radius: 16px;
+  box-shadow: 0 24px 48px rgba(13,13,13,0.12);
+  transform: rotate(-3deg);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.cover-shell:hover {
+  transform: rotate(0deg) scale(1.04);
+}
+.cover-shell > img {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+}
+.cover-badge {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  padding: 10px;
+  background: #fff;
+  border: 2px solid var(--yellow);
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.cover-badge img { width: 100%; height: 100%; object-fit: contain; }
+.mini-proof { font-weight: 800; color: var(--black); line-height: 1.4; }
+.stars { display: block; color: var(--orange); font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 6px; }
+.mini-proof span:last-child { display: block; font-size: 0.95rem; color: var(--muted); font-weight: 500;}
+
+/* Form Card */
+.form-card {
+  position: relative;
+  padding: 36px 28px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-top: 6px solid var(--yellow);
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.03);
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+}
+@media (min-width: 980px) {
+  .form-card { margin: 0; max-width: none; }
+}
+.form-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.title-icon {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  background: #fff9d6;
+  border: 2px solid var(--yellow);
+  border-radius: 50%;
+}
+.title-icon img { width: 100%; height: 100%; object-fit: contain; }
+.form-card h2 {
+  margin: 0;
+  color: var(--black);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  line-height: 1.1;
+  font-weight: 800;
+  text-align: center;
+}
+.form-subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 28px;
+  font-size: 1.05rem;
+}
+.privacy {
+  text-align: center;
+  color: #888;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+/* Sections */
+.section { padding: 70px 0; }
+@media (min-width: 980px) { .section { padding: 100px 0; } }
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.section-heading {
+  margin: 0;
+  color: var(--black);
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.1;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* Grid Layouts */
+.review-grid, .learn-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 640px) {
+  .review-grid { grid-template-columns: repeat(2, 1fr); }
+  .learn-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 980px) {
+  .review-grid { grid-template-columns: repeat(3, 1fr); }
+  .learn-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Cards */
+.review-card, .learn-card {
+  padding: 32px 28px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+.review-card:hover, .learn-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+.review-name {
+  margin-bottom: 16px;
+  color: var(--black);
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+.review-name span { color: var(--orange); }
+.review-card p, .learn-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Learn Section */
+.learn {
+  background: #faf9f6;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.learn-card {
+  border-top: 4px solid transparent; /* Replaced with gradient border top below */
+  position: relative;
+  overflow: hidden;
+}
+.learn-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--yellow);
+  transition: background 0.3s ease;
+}
+.learn-card:hover::before {
+  background: linear-gradient(90deg, var(--yellow), var(--orange));
+}
+.learn-number {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  background: rgba(255, 212, 0, 0.2);
+  color: #b39500;
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+.learn-card h3 {
+  margin-bottom: 12px;
+  color: var(--black);
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+/* Final CTA */
+.final-cta {
+  padding: 100px 0;
+  background: var(--black);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 212, 0, 0.1) 0%, transparent 40%);
+  pointer-events: none;
+}
+/* IMPORTANT: Explicit colors to fix dark text on dark background issue */
+.final-cta h2 {
+  color: #ffffff; 
+  max-width: 800px;
+  margin: 0 auto 20px;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+.final-cta p {
+  color: rgba(255, 255, 255, 0.85); 
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/* Global Button Style */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 14px 36px;
+  color: var(--black);
+  background: var(--yellow);
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255, 212, 0, 0.3);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-decoration: none;
+}
+.button:hover {
+  background: var(--yellow-hover);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(255, 212, 0, 0.4);
+}
+.button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 12px rgba(255, 212, 0, 0.3);
+}
+
+.final-cta .button {
+  box-shadow: 0 8px 30px rgba(255, 212, 0, 0.2);
+}
+.final-cta .button:hover {
+  box-shadow: 0 12px 40px rgba(255, 212, 0, 0.3);
+}
+
+/* =======================================
+   WPFORMS PREMIUM STYLING OVERRIDES
+   ======================================= */
+.landing-page-wrapper div.wpforms-container-full {
+  margin: 24px 0 0 0 !important;
+}
+.landing-page-wrapper div.wpforms-container-full .wpforms-form .wpforms-field {
+  margin-bottom: 24px !important;
+}
+/* Field Labels */
+.landing-page-wrapper div.wpforms-container-full .wpforms-form .wpforms-field-label {
+  font-family: var(--font) !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: var(--black) !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+/* Required Asterisk */
+.landing-page-wrapper div.wpforms-container-full .wpforms-form .wpforms-required-label {
+  color: var(--orange) !important;
+}
+/* Input Fields (Text, Email, Tel, Select) */
+.landing-page-wrapper div.wpforms-container-full .wpforms-form input[type=text],
+.landing-page-wrapper div.wpforms-container-full .wpforms-form input[type=email],
+.landing-page-wrapper div.wpforms-container-full .wpforms-form input[type=tel],
+.landing-page-wrapper div.wpforms-container-full .wpforms-form input[type=number],
+.landing-page-wrapper div.wpforms-container-full .wpforms-form select,
+.landing-page-wrapper div.wpforms-container-full .wpforms-form textarea {
+  font-family: var(--font) !important;
+  font-size: 1rem !important;
+  color: var(--black) !important;
+  background-color: #ffffff !important;
+  border: 1px solid #dcdcdc !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02) inset !important;
+  transition: all 0.25s ease !important;
+  width: 100% !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+}
+/* Input Focus State */
+.landing-page-wrapper div.wpforms-container-full .wpforms-form input:focus,
+.landing-page-wrapper div.wpforms-container-full .wpforms-form select:focus,
+.landing-page-wrapper div.wpforms-container-full .wpforms-form textarea:focus {
+  border-color: var(--yellow) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgba(255, 212, 0, 0.2) !important;
+}
+/* Sublabels (e.g. First / Last Name) */
+.landing-page-wrapper div.wpforms-container-full .wpforms-form .wpforms-field-sublabel {
+  font-family: var(--font) !important;
+  font-size: 0.8rem !important;
+  color: var(--muted) !important;
+  font-weight: 500 !important;
+  margin-top: 6px !important;
+  display: block !important;
+}
+/* Submit Button */
+.landing-page-wrapper div.wpforms-container-full .wpforms-form button[type=submit] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 56px !important;
+  padding: 14px 36px !important;
+  color: var(--black) !important;
+  background: var(--yellow) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+  font-size: 1.05rem !important;
+  font-family: var(--font) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  cursor: pointer !important;
+  box-shadow: 0 8px 24px rgba(255, 212, 0, 0.3) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  margin-top: 16px !important;
+}
+.landing-page-wrapper div.wpforms-container-full .wpforms-form button[type=submit]:hover {
+  background: var(--yellow-hover) !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 32px rgba(255, 212, 0, 0.4) !important;
+}
+.landing-page-wrapper div.wpforms-container-full .wpforms-form button[type=submit]:active {
+  transform: translateY(1px) !important;
+  box-shadow: 0 4px 12px rgba(255, 212, 0, 0.3) !important;
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+<main id="top">
+<section class="hero"><div class="hero-inner">
+<div class="hero-content">
+  <div class="eyebrow">Free Quadratics Revision Guide</div>
+  <h1>Download the Free A Level Math Quadratics E-Book</h1>
+  <p class="hero-subheading">A complete revision guide designed to boost your grades by at least 30%.</p>
+  <p class="hero-copy">Stop guessing what to revise. This e-book gives you clear explanations, solved examples, past paper questions and video lesson support so you can master Quadratics with confidence.</p>
+  <ul class="highlight-grid">
+    <li><span class="check">✓</span>Video lessons included</li>
+    <li><span class="check">✓</span>Past paper questions</li>
+    <li><span class="check">✓</span>Step-by-step explanations</li>
+    <li><span class="check">✓</span>CAIE A Level Math 9709</li>
+  </ul>
+  
+  <div class="mockup-row">
+    <div class="cover-shell">
+      <span class="cover-badge"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/06/sj-fav-icon@2x.webp" alt=""></span>
+      <img src="assets/sj-academy-quadratics-ebook-cover.png" alt="A Level Math Quadratics e-book">
+    </div>
+    <div class="mini-proof">
+      <span class="stars">★★★★★</span>
+      <span>"Clear, focused Quadratics revision for CAIE A Level Math students."</span>
+    </div>
+  </div>
+</div>
+
+<aside class="form-card" id="ebook-form">
+  <div class="form-title-row">
+    <span class="title-icon"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/06/sj-fav-icon@2x.webp" alt=""></span>
+    <h2>Get Your Free E-Book</h2>
+  </div>
+  <p class="form-subtitle">Improve your A Level Math grade starting today.</p>
+  
+  [wpforms id="9765"]
+  
+  <p class="privacy">🔒 100% secure. We respect your privacy.</p>
+</aside>
+</div></section>
+
+<section class="section"><div class="section-inner">
+  <div class="section-title-row">
+    <span class="title-icon"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/06/sj-fav-icon@2x.webp" alt=""></span>
+    <h2 class="section-heading">Student Reviews</h2>
+  </div>
+  <div class="review-grid">
+    <article class="review-card">
+      <div class="review-name">Arham Adeel — <span>★★★★★</span></div>
+      <p>"Honestly, this tuition academy has been a really great experience. The teachers are super helpful and explain things in a way that actually makes sense, even the topics that usually feel confusing."</p>
+    </article>
+    <article class="review-card">
+      <div class="review-name">Hamza — <span>★★★★★</span></div>
+      <p>"SJ Academy just feels like a good place to learn. The teachers are approachable and always willing to help. They break things down in a way that actually makes sense, so you don’t feel lost."</p>
+    </article>
+    <article class="review-card">
+      <div class="review-name">Shahr Bano — <span>★★★★★</span></div>
+      <p>"I am a private candidate, and studying on my own has been challenging. This academy has been extremely helpful. The classes are well-structured and scheduled properly."</p>
+    </article>
+  </div>
+</div></section>
+
+<section class="section learn"><div class="section-inner">
+  <div class="section-title-row">
+    <span class="title-icon"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/06/sj-fav-icon@2x.webp" alt=""></span>
+    <h2 class="section-heading">What You’ll Learn Inside</h2>
+  </div>
+  <div class="learn-grid">
+    <article class="learn-card">
+      <div class="learn-number">1</div>
+      <h3>Concept Clarity</h3>
+      <p>Understand Quadratics from the basics instead of memorising steps.</p>
+    </article>
+    <article class="learn-card">
+      <div class="learn-number">2</div>
+      <h3>Exam Technique</h3>
+      <p>Learn how CAIE questions are structured and how to approach them.</p>
+    </article>
+    <article class="learn-card">
+      <div class="learn-number">3</div>
+      <h3>Past Paper Practice</h3>
+      <p>Practise targeted questions with proper guidance.</p>
+    </article>
+    <article class="learn-card">
+      <div class="learn-number">4</div>
+      <h3>Video Support</h3>
+      <p>Watch video explanations to strengthen weak areas.</p>
+    </article>
+  </div>
+</div></section>
+
+<section class="final-cta"><div class="section-inner">
+  <h2>Ready to Start Improving Your Math Grade?</h2>
+  <p>Download the free Quadratics e-book and start revising with a clear plan today.</p>
+  <a class="button" href="#ebook-form">Get the Free E-Book</a>
+</div></section>
+</main>
+</div>
+</body>
+</html>

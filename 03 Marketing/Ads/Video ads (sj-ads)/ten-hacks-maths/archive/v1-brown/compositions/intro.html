@@ -1,0 +1,39 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#FFF6DC;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;color:#FE6100;line-height:1.2;z-index:2;}
+.box{position:absolute;background:#FCE004;border-radius:10px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#FFF6DC;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+
+#in-big{position:absolute;left:58px;top:330px;font-size:560px;font-weight:800;line-height:1;letter-spacing:-0.05em;color:#FCE004;}
+#in-title{position:absolute;left:90px;top:880px;font-size:132px;font-weight:800;line-height:1;letter-spacing:-0.03em;white-space:nowrap;}
+#in-hl{background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;padding:0 14px;border-radius:12px;}
+#in-sub{position:absolute;left:90px;top:1050px;font-size:44px;font-weight:500;color:rgba(255,246,220,0.86);}
+#in-sub .w{display:inline-block;}
+#in-tick{position:absolute;left:0;top:300px;font-size:40px;font-weight:600;white-space:nowrap;color:rgba(255,246,220,0.34);}
+  </style>
+  <div id="root" data-composition-id="intro" data-width="1080" data-height="1920">
+    <div id="in-stage">
+      <div id="in-tick" data-layout-allow-overflow data-layout-ignore>34 × 11 = 374     68 × 5 = 340     37 × 99 = 3663     8% of 50 = 4     49 × 51 = 2499     52² = 2704     34 × 11 = 374     68 × 5 = 340     37 × 99 = 3663     8% of 50 = 4     49 × 51 = 2499     52² = 2704     34 × 11 = 374     68 × 5 = 340     37 × 99 = 3663     8% of 50 = 4     49 × 51 = 2499     52² = 2704     </div>
+      <div id="in-big">10</div>
+      <div id="in-title">maths <span id="in-hl">hacks</span></div>
+      <div id="in-sub"><span class="w">No</span> <span class="w">calculator.</span> <span class="w">No</span> <span class="w">long</span> <span class="w">working.</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#in-tick',{x:0},{x:-1807,duration:3.875,ease:'none'},0);
+    tl.fromTo('#in-big',{scale:1.04,transformOrigin:'0% 50%'},{scale:1,duration:0.7,ease:'expo.out'},0);
+    tl.fromTo('#in-hl',{backgroundSize:'0% 100%',color:'#FFF6DC'},{backgroundSize:'100% 100%',color:'#453516',duration:0.3,ease:'power2.out'},0.35);
+    tl.fromTo('#in-sub .w',{opacity:0,filter:'blur(6px)'},{opacity:1,filter:'blur(0px)',duration:0.16,ease:'power4.out',stagger:0.08},0.7);
+    window.__timelines["intro"] = tl;
+  </script>
+</template>

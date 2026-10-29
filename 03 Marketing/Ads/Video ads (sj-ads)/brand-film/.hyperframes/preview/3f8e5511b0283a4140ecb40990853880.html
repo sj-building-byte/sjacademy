@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script data-hf-gsap-fallback>
+(function(){
+  var cdnBase="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/";
+  var loaded={};
+  function loadFallback(file){
+    if(loaded[file])return loaded[file];
+    return loaded[file]=new Promise(function(ok,fail){
+      var s=document.createElement("script");
+      s.src=cdnBase+file;s.hfGsapFallback=true;s.onload=ok;s.onerror=fail;
+      document.head.appendChild(s);
+    });
+  }
+  document.addEventListener("error",function(e){
+    var t=e.target;
+    if(!t||t.tagName!=="SCRIPT"||!t.src||t.hfGsapFallback)return;
+    var m=t.src.match(/gsap[^/]*\/dist\/(.+\.js)/);
+    if(m)loadFallback(m[1]).catch(function(){
+      reportError(new Error("GSAP could not load from "+t.src+" or "+cdnBase+m[1]+", so this preview's animations will not play."));
+    });
+  },true);
+})();
+</script>
+<meta name="hyperframes-studio-preview"><script>(function(){var seen=window.__hfPreviewErrors=[];
+addEventListener("error",function(e){seen.push(e.message||String(e))});})();</script>
+<base href="/api/projects/brand-film/preview/"><style data-hyperframes-text-rendering="true">html,body,*{text-rendering:geometricPrecision}</style><script data-hf-after-fonts-fallback="">document.addEventListener("DOMContentLoaded", function () {
+  if (window.__hfAfterFontsClaimed) return;
+  var T = "text/hf-after-fonts";
+  var all = [].slice.call(document.querySelectorAll('script[type="text/hf-after-fonts"], script[type="text/hf-after-fonts+module"]'));
+  if (!all.length) return;
+  console.warn("[hyperframes] the runtime has no web-font gate; composition scripts run without waiting for fonts");
+  var late = function (el) { return el.type !== T || el.matches('[defer][src], [defer][data-hf-inlined-src]'); };
+  var queue = all.filter(function (el) { return !late(el); }).concat(all.filter(late));
+  (function next() {
+    var el = queue.shift();
+    if (!el) return;
+    var s = document.createElement("script");
+    for (var i = 0; i < el.attributes.length; i++) s.setAttribute(el.attributes[i].name, el.attributes[i].value);
+    if (el.type === T) s.removeAttribute("type"); else s.type = "module";
+    s.async = el.hasAttribute("async");
+    s.text = el.text;
+    var waits = s.type !== "module" && s.hasAttribute("src") && !s.async && !s.noModule;
+    if (waits) { s.addEventListener("load", next); s.addEventListener("error", next); }
+    el.replaceWith(s);
+    if (!waits) next();
+  })();
+});
+//# sourceURL=hyperframes://after-fonts-fallback</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>SJ Academy Squad</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Caveat"; src: url("assets/brand/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #151515; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: #151515; background: #151515; }
+
+      /* ---------- footage: every scene is real footage first ---------- */
+      .vw { position: absolute; inset: 0; overflow: hidden; }
+      .vw video { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+      .shadeB { position: absolute; left: 0; right: 0; bottom: 0; height: 1100px; background: linear-gradient(rgba(21, 21, 21, 0) 0%, rgba(21, 21, 21, 0.62) 38%, rgba(21, 21, 21, 0.88) 100%); }
+      .shadeT { position: absolute; left: 0; top: 0; width: 1080px; height: 620px; background: linear-gradient(rgba(21, 21, 21, 0.7), rgba(21, 21, 21, 0)); }
+      .layer { position: absolute; inset: 0; }
+
+      /* ---------- brand atoms ---------- */
+      .logo { position: absolute; left: 120px; top: 300px; height: 80px; width: auto; display: block; }
+      .w { display: inline-block; position: relative; white-space: nowrap; }
+      .hlw { isolation: isolate; color: #151515; }
+      .hl { position: absolute; left: -0.08em; right: -0.08em; top: 0.14em; bottom: 0.02em; background: #FCE004; z-index: -1; border-radius: 8px; transform-origin: 0 50%; }
+      .hand { position: absolute; font-family: "Caveat", cursive; font-weight: 600; color: #FFFFFF; font-size: 66px; line-height: 1; white-space: nowrap; }
+      svg.pen { position: absolute; overflow: visible; }
+      svg.pen path { fill: none; stroke: #D63A2F; stroke-linecap: round; stroke-linejoin: round; }
+      .chip { position: absolute; left: 120px; top: 400px; background: #F7F5EF; border: 4px solid #151515; border-radius: 999px; padding: 8px 34px 12px; font-weight: 600; font-size: 60px; line-height: 1.1; letter-spacing: -0.035em; white-space: nowrap; box-shadow: 8px 8px 0 #151515; }
+      .live { position: absolute; left: 120px; top: 520px; display: flex; align-items: center; gap: 18px; background: #151515; color: #FFFFFF; border-radius: 999px; padding: 10px 34px 14px 26px; font-weight: 600; font-size: 48px; line-height: 1.1; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+      .live .dot { width: 28px; height: 28px; border-radius: 50%; background: #D63A2F; margin-top: 4px; }
+
+      /* ---------- S1 hook ---------- */
+      .say { position: absolute; left: 120px; width: 840px; color: #FFFFFF; font-weight: 600; font-size: 86px; line-height: 1.1; letter-spacing: -0.045em; }
+      .say .l { display: block; }
+      #note1 { left: 440px; top: 1400px; }
+
+      /* ---------- S2 meet the squad ---------- */
+      #s2 .ground { position: absolute; inset: 0; background: #151515; }
+      #h2 { position: absolute; left: 0; top: 640px; width: 1080px; text-align: center; color: #F7F5EF; font-weight: 600; font-size: 190px; line-height: 1.04; letter-spacing: -0.05em; }
+      #h2 .l { display: block; }
+
+      /* ---------- walkout cards ---------- */
+      .bgstill, .still { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; display: block; }
+      .dim { position: absolute; inset: 0; background: rgba(21, 21, 21, 0.78); }
+      .marq { position: absolute; left: 0; width: 1080px; overflow: hidden; height: 250px; }
+      .mrow { position: absolute; left: 0; top: 0; color: #F7F5EF; opacity: 0.13; font-weight: 600; font-size: 220px; line-height: 1; letter-spacing: -0.05em; white-space: nowrap; }
+      .cg { position: absolute; inset: 0; transform-origin: 540px 860px; }
+      .cardbg { position: absolute; left: 150px; top: 330px; width: 780px; height: 1070px; background: #F7F5EF; border: 6px solid #151515; border-radius: 30px; box-shadow: 18px 18px 0 #151515; }
+      .code { position: absolute; left: 200px; top: 382px; min-width: 220px; background: #F7F5EF; border: 5px solid #151515; border-radius: 18px; padding: 10px 24px 14px; text-align: center; }
+      .code .n { display: block; font-weight: 600; font-size: 88px; line-height: 1; letter-spacing: -0.04em; }
+      .code .p { display: block; font-weight: 600; font-size: 44px; line-height: 1.1; letter-spacing: 0.08em; margin-top: 4px; }
+      .nm { position: absolute; left: 186px; top: 1060px; width: 720px; font-weight: 600; font-size: 66px; line-height: 1.1; letter-spacing: -0.035em; white-space: nowrap; }
+      .sub { position: absolute; left: 186px; top: 1158px; width: 720px; font-weight: 500; font-size: 46px; line-height: 1.2; letter-spacing: -0.02em; white-space: nowrap; }
+      .tags { position: absolute; left: 186px; top: 1250px; display: flex; gap: 18px; }
+      .tag { border: 4px solid #151515; border-radius: 999px; padding: 4px 26px 8px; font-weight: 500; font-size: 44px; line-height: 1.15; white-space: nowrap; background: #FFFFFF; }
+
+      /* ---------- end card ---------- */
+      #s9 .yellow { position: absolute; inset: 0; background: #FCE004; }
+      #logo9 { position: absolute; left: 330px; top: 270px; width: 420px; height: auto; display: block; }
+      .mini { position: absolute; top: 400px; width: 290px; height: 400px; border: 5px solid #151515; border-radius: 20px; overflow: hidden; background: #151515; box-shadow: 10px 10px 0 #151515; }
+      .mini img { position: absolute; width: 800px; height: 1422px; display: block; }
+      .mname { position: absolute; top: 826px; width: 290px; text-align: center; font-weight: 600; font-size: 44px; line-height: 1.1; letter-spacing: -0.03em; white-space: nowrap; }
+      #more9 { position: absolute; left: 0; top: 920px; width: 1080px; text-align: center; font-weight: 500; font-size: 48px; line-height: 1.2; }
+      #mode9 { position: absolute; left: 0; top: 650px; width: 1080px; text-align: center; font-weight: 600; font-size: 92px; line-height: 1.1; letter-spacing: -0.045em; }
+      .erow { position: absolute; left: 0; width: 1080px; display: flex; justify-content: center; }
+      #btn9 { background: #CC4A00; color: #FFFFFF; border: 4px solid #151515; border-radius: 22px; padding: 24px 52px 30px; font-weight: 500; font-size: 62px; line-height: 1.1; white-space: nowrap; box-shadow: 12px 12px 0 #FFFFFF; }
+      #info9 { position: absolute; left: 0; top: 1440px; width: 1080px; text-align: center; color: #FFFFFF; font-weight: 500; font-size: 46px; line-height: 1.3; white-space: nowrap; }
+      #info9 .l { display: block; }
+
+
+      .ctashade { position: absolute; inset: 0; background: linear-gradient(rgba(21, 21, 21, 0.55) 0%, rgba(21, 21, 21, 0.62) 45%, rgba(21, 21, 21, 0.45) 100%); }
+      .ctablack { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); }
+      .big9 { position: absolute; left: 0; top: 520px; width: 1080px; text-align: center; color: #FFFFFF; font-weight: 600; font-size: 114px; line-height: 1.08; letter-spacing: -0.05em; }
+      .big9 .l { display: block; }
+      .prow { position: absolute; left: 0; width: 1080px; display: flex; justify-content: center; gap: 28px; }
+      .p9 { display: inline-block; background: #FFFFFF; border: 4px solid #151515; border-radius: 999px; padding: 6px 40px 12px; font-weight: 500; font-size: 64px; line-height: 1.15; letter-spacing: -0.02em; white-space: nowrap; box-shadow: 10px 10px 0 #FCE004; }
+      #note9 { left: 450px; top: 380px; }
+      #flash { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; z-index: 50; pointer-events: none; }
+
+      /* frame-1 states live in CSS (tl.set at 0 is not seek-safe here) */
+      .pre { opacity: 0; }
+    
+      .capbox { position: absolute; left: 120px; top: 1150px; width: 840px; }
+      .cl { display: block; color: #FFFFFF; font-weight: 600; font-size: 68px; line-height: 1.15; letter-spacing: -0.035em; }
+      .slot { position: absolute; left: 174px; top: 354px; width: 732px; height: 670px; border: 5px dashed #151515; border-radius: 18px; background: #EDE9DF; display: flex; align-items: center; justify-content: center; }
+      .slot .hand { position: static; }
+      .ink { color: #151515 !important; }
+      .pill9 { position: absolute; left: 0; right: 0; margin: 0 auto; top: 520px; width: max-content; background: #FFFFFF; border: 4px solid #151515; border-radius: 999px; padding: 8px 30px 12px; font-weight: 500; font-size: 44px; line-height: 1.2; white-space: nowrap; }
+      #sub9 { position: absolute; left: 0; top: 790px; width: 1080px; text-align: center; font-weight: 500; font-size: 48px; line-height: 1.2; }
+      #addr9 { position: absolute; left: 0; top: 1140px; width: 1080px; text-align: center; font-weight: 400; font-size: 44px; line-height: 1.2; white-space: nowrap; }
+</style>
+  
+<script data-hyperframes-preview-runtime="1" src="/api/runtime.js"></script>
+<meta name="hyperframes-project-signature" content="2c83f2e3caf815db01ae3a71">
+</head>
+  <body>
+    <div data-hf-id="hf-dvei" id="root" data-composition-id="main" data-start="0" data-duration="44.0" data-width="1080" data-height="1920" data-fps="30">
+<div data-hf-id="hf-kbue" id="vw-hook" class="vw"><video data-hf-id="hf-7k08" id="v-hook" class="clip" src="assets/clips/hook.mp4" data-start="0.0" data-duration="3.5556" data-media-start="0" data-track-index="1" muted playsinline data-end="3.5556" data-has-audio="false"></video></div>
+<div data-hf-id="hf-lv9o" id="vw-lab" class="vw"><video data-hf-id="hf-jnqd" id="v-lab" class="clip" src="assets/clips/lab.mp4" data-start="3.5556" data-duration="0.8888" data-media-start="0.1" data-track-index="1" muted playsinline data-end="4.4444" data-has-audio="false"></video></div>
+<div data-hf-id="hf-xn4e" id="vw-room" class="vw"><video data-hf-id="hf-brt0" id="v-room" class="clip" src="assets/clips/room.mp4" data-start="4.4444" data-duration="0.8889" data-media-start="0.1" data-track-index="1" muted playsinline data-end="5.3332999999999995" data-has-audio="false"></video></div>
+<div data-hf-id="hf-r0h7" id="vw-packed" class="vw"><video data-hf-id="hf-ph3m" id="v-packed" class="clip" src="assets/clips/packed.mp4" data-start="5.3333" data-duration="0.8889" data-media-start="0.0" data-track-index="1" muted playsinline data-end="6.222200000000001" data-has-audio="false"></video></div>
+<div data-hf-id="hf-9v80" id="vw-girls" class="vw"><video data-hf-id="hf-y9qc" id="v-girls" class="clip" src="assets/clips/girls.mp4" data-start="6.2222" data-duration="0.8889" data-media-start="0.1" data-track-index="1" muted playsinline data-end="7.1111" data-has-audio="false"></video></div>
+<div data-hf-id="hf-fjol" id="vw-graph" class="vw"><video data-hf-id="hf-ps5b" id="v-graph" class="clip" src="assets/clips/graph.mp4" data-start="7.1111" data-duration="0.8889" data-media-start="0.1" data-track-index="1" muted playsinline data-end="8" data-has-audio="false"></video></div>
+<div data-hf-id="hf-rr1n" id="vw-point" class="vw"><video data-hf-id="hf-wgni" id="v-point" class="clip" src="assets/clips/point.mp4" data-start="8.0" data-duration="0.8889" data-media-start="0.1" data-track-index="1" muted playsinline data-end="8.8889" data-has-audio="false"></video></div>
+<div data-hf-id="hf-snti" id="vw-kashaan" class="vw"><video data-hf-id="hf-34f1" id="v-kashaan" class="clip" src="assets/clips/kashaan.mp4" data-start="8.8889" data-duration="1.3333" data-media-start="0.883" data-track-index="1" muted playsinline data-end="10.222199999999999" data-has-audio="false"></video></div>
+<div data-hf-id="hf-nvy8" id="vw-sunyyan" class="vw"><video data-hf-id="hf-rdwz" id="v-sunyyan" class="clip" src="assets/clips/sunyyan.mp4" data-start="11.5556" data-duration="0.8888" data-media-start="1.128" data-track-index="1" muted playsinline data-end="12.4444" data-has-audio="false"></video></div>
+<div data-hf-id="hf-3i5v" id="vw-salman" class="vw"><video data-hf-id="hf-qftp" id="v-salman" class="clip" src="assets/clips/salman.mp4" data-start="13.3333" data-duration="0.8889" data-media-start="0.46" data-track-index="1" muted playsinline data-end="14.222199999999999" data-has-audio="false"></video></div>
+<div data-hf-id="hf-ubfr" id="vw-tay" class="vw"><video data-hf-id="hf-cov0" id="v-tay" class="clip" src="assets/clips/tay.mp4" data-start="15.1111" data-duration="0.8889" data-media-start="0.1" data-track-index="1" muted playsinline data-end="16" data-has-audio="false"></video></div>
+<div data-hf-id="hf-zh1s" id="vw-sai" class="vw"><video data-hf-id="hf-l18p" id="v-sai" class="clip" src="assets/clips/sai.mp4" data-start="16.0" data-duration="0.8889" data-media-start="0.1" data-track-index="1" muted playsinline data-end="16.8889" data-has-audio="false"></video></div>
+<div data-hf-id="hf-nfd1" id="vw-umr" class="vw"><video data-hf-id="hf-bmje" id="v-umr" class="clip" src="assets/clips/umr.mp4" data-start="16.8889" data-duration="1.1111" data-media-start="0.1" data-track-index="1" muted playsinline data-end="18" data-has-audio="false"></video></div>
+<div data-hf-id="hf-fwyg" id="vw-work" class="vw"><video data-hf-id="hf-e3um" id="v-work" class="clip" src="assets/clips/work.mp4" data-start="18.0" data-duration="1.7778" data-media-start="0.3" data-track-index="1" muted playsinline data-end="19.7778" data-has-audio="false"></video></div>
+<div data-hf-id="hf-tr9t" id="vw-prac" class="vw"><video data-hf-id="hf-zxli" id="v-prac" class="clip" src="assets/clips/prac.mp4" data-start="19.7778" data-duration="1.7778" data-media-start="0.1" data-track-index="1" muted playsinline data-end="21.5556" data-has-audio="false"></video></div>
+<div data-hf-id="hf-e5jt" id="vw-sb1" class="vw"><video data-hf-id="hf-xiql" id="v-sb1" class="clip" src="assets/clips/sb1.mp4" data-start="21.5556" data-duration="2.0" data-media-start="0.0" data-track-index="1" data-has-audio="true" playsinline data-end="23.5556"></video></div>
+<div data-hf-id="hf-6p77" id="vw-screen" class="vw"><video data-hf-id="hf-3j4v" id="v-screen" class="clip" src="assets/clips/screen.mp4" data-start="23.5556" data-duration="1.3333" data-media-start="0.2" data-track-index="1" muted playsinline data-end="24.8889" data-has-audio="false"></video></div>
+<div data-hf-id="hf-slsc" id="vw-abdullah" class="vw"><video data-hf-id="hf-dy38" id="v-abdullah" class="clip" src="assets/clips/abdullah.mp4" data-start="24.8889" data-duration="0.8889" data-media-start="1.128" data-track-index="1" muted playsinline data-end="25.7778" data-has-audio="false"></video></div>
+<div data-hf-id="hf-hjd7" id="vw-ipad" class="vw"><video data-hf-id="hf-wwxb" id="v-ipad" class="clip" src="assets/clips/ipad.mp4" data-start="26.6667" data-duration="1.3333" data-media-start="0.1" data-track-index="1" muted playsinline data-end="28" data-has-audio="false"></video></div>
+<div data-hf-id="hf-b07k" id="vw-khaon" class="vw"><video data-hf-id="hf-mok6" id="v-khaon" class="clip" src="assets/clips/khaon.mp4" data-start="28.0" data-duration="1.3333" data-media-start="0.1" data-track-index="1" muted playsinline data-end="29.3333" data-has-audio="false"></video></div>
+<div data-hf-id="hf-j0jj" id="vw-energy" class="vw"><video data-hf-id="hf-yaa6" id="v-energy" class="clip" src="assets/clips/energy.mp4" data-start="29.3333" data-duration="1.7778" data-media-start="0.1" data-track-index="1" muted playsinline data-end="31.1111" data-has-audio="false"></video></div>
+<div data-hf-id="hf-9sfs" id="vw-fifa1" class="vw"><video data-hf-id="hf-swgd" id="v-fifa1" class="clip" src="assets/clips/fifa1.mp4" data-start="31.1111" data-duration="0.8889" data-media-start="0.0" data-track-index="1" muted playsinline data-end="32" data-has-audio="false"></video></div>
+<div data-hf-id="hf-igbn" id="vw-fifa2" class="vw"><video data-hf-id="hf-p374" id="v-fifa2" class="clip" src="assets/clips/fifa2.mp4" data-start="32.0" data-duration="1.3333" data-media-start="0.0" data-track-index="1" muted playsinline data-end="33.3333" data-has-audio="false"></video></div>
+<div data-hf-id="hf-ubvy" id="vw-dance2" class="vw"><video data-hf-id="hf-9oeb" id="v-dance2" class="clip" src="assets/clips/dance2.mp4" data-start="33.3333" data-duration="2.2223" data-media-start="0.0" data-track-index="1" muted playsinline data-end="35.5556" data-has-audio="false"></video></div>
+<div data-hf-id="hf-vkfn" id="vw-proof" class="vw"><video data-hf-id="hf-6wmh" id="v-proof" class="clip" src="assets/clips/proof.mp4" data-start="35.5556" data-duration="1.3333" data-media-start="0.05" data-track-index="1" muted playsinline data-end="36.8889" data-has-audio="false"></video></div>
+<div data-hf-id="hf-jd52" id="vw-ctabg" class="vw"><video data-hf-id="hf-l1rj" id="v-ctabg" class="clip" src="assets/clips/ctabg.mp4" data-start="39.5556" data-duration="4.4444" data-media-start="0.0" data-track-index="1" muted playsinline data-end="44" data-has-audio="false"></video></div>
+<div data-hf-id="hf-huka" id="s1" class="clip layer" data-start="0" data-duration="3.5556" data-track-index="3">
+<div data-hf-id="hf-toat" class="shadeT"></div><div data-hf-id="hf-vbbn" class="shadeB"></div>
+<img data-hf-id="hf-2tsl" id="logo1" class="logo" src="assets/brand/sj-academy-logo-horizontal-on-brown.svg" alt="SJ Academy">
+<div data-hf-id="hf-sbwh" class="say" style="top: 1000px"><span data-hf-id="hf-e457" class="l"><span data-hf-id="hf-iwpb" id="w11" class="w pre">POV:</span></span><span data-hf-id="hf-5ut7" class="l"><span data-hf-id="hf-slif" id="w12" class="w pre">you just joined</span></span>
+<span data-hf-id="hf-5gi6" class="l"><span data-hf-id="hf-gsx0" id="w13" class="w hlw pre"><span data-hf-id="hf-1j33" id="hl13" class="hl"></span>SJ Academy.</span></span></div>
+<div data-hf-id="hf-ryct" id="note1" class="hand pre">your squad is waiting</div>
+<svg data-hf-id="hf-jcoc" class="pen" style="left: 740px; top: 1470px; width: 160px; height: 160px" viewBox="0 0 160 160"><path data-hf-id="hf-yygg" id="arr1" d="M 20 10 C 70 30, 110 70, 120 140 M 92 112 L 121 142 L 146 108" stroke-width="7" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" /></svg></div>
+<div data-hf-id="hf-d75l" id="y1" class="clip layer" data-start="3.5556" data-duration="1.7777" data-track-index="3"><div data-hf-id="hf-84fn" class="shadeB"></div><div data-hf-id="hf-rs59" class="say" style="top: 1040px"><span data-hf-id="hf-5275" class="l"><span data-hf-id="hf-wv65" id="y1w0" class="w pre">Your</span></span><span data-hf-id="hf-4nw4" class="l"><span data-hf-id="hf-wpgs" id="y1w1" class="w hlw pre"><span data-hf-id="hf-agxc" id="y1h1" class="hl"></span>classmates.</span></span></div></div>
+<div data-hf-id="hf-fljq" id="y2" class="clip layer" data-start="5.3333" data-duration="3.5556" data-track-index="3"><div data-hf-id="hf-7q4m" class="shadeB"></div><div data-hf-id="hf-2ngx" class="say" style="top: 1040px"><span data-hf-id="hf-49l3" class="l"><span data-hf-id="hf-u9v6" id="y2w0" class="w pre">Small batches.</span></span><span data-hf-id="hf-3va2" class="l"><span data-hf-id="hf-cdrc" id="y2w1" class="w hlw pre"><span data-hf-id="hf-jmoz" id="y2h1" class="hl"></span>Real questions.</span></span></div></div>
+<div data-hf-id="hf-tyi2" id="y3" class="clip layer" data-start="8.8889" data-duration="1.3333" data-track-index="3"><div data-hf-id="hf-7btl" class="shadeB"></div><div data-hf-id="hf-3ue0" class="say" style="top: 1040px"><span data-hf-id="hf-3gz1" class="l"><span data-hf-id="hf-x3zz" id="y3w0" class="w pre">Your</span></span><span data-hf-id="hf-dhjk" class="l"><span data-hf-id="hf-i4it" id="y3w1" class="w hlw pre"><span data-hf-id="hf-zaqy" id="y3h1" class="hl"></span>teachers.</span></span></div></div>
+<div data-hf-id="hf-xaxo" id="y4" class="clip layer" data-start="16.0" data-duration="2.0" data-track-index="3"><div data-hf-id="hf-6xik" class="shadeB"></div><div data-hf-id="hf-kgkp" class="say" style="top: 1080px"><span data-hf-id="hf-d38j" class="l"><span data-hf-id="hf-y5il" id="y4w0" class="w pre">+ more subject</span></span><span data-hf-id="hf-ahch" class="l"><span data-hf-id="hf-4m7e" id="y4w1" class="w pre">specialists.</span></span></div></div>
+<div data-hf-id="hf-ugkr" id="y5" class="clip layer" data-start="18.0" data-duration="1.7778" data-track-index="3"><div data-hf-id="hf-6j7j" class="shadeB"></div><div data-hf-id="hf-8o5x" class="say" style="top: 1000px"><span data-hf-id="hf-avni" class="l"><span data-hf-id="hf-5fba" id="y5w0" class="w pre">Your work</span></span><span data-hf-id="hf-b9yj" class="l"><span data-hf-id="hf-mjkf" id="y5w1" class="w pre">gets checked.</span></span><span data-hf-id="hf-bo9k" class="l"><span data-hf-id="hf-vj9a" id="y5w2" class="w hlw pre"><span data-hf-id="hf-v70v" id="y5h2" class="hl"></span>In class.</span></span></div></div>
+<div data-hf-id="hf-j3fg" id="y6" class="clip layer" data-start="19.7778" data-duration="1.7778" data-track-index="3"><div data-hf-id="hf-64wi" class="shadeB"></div><div data-hf-id="hf-9v30" class="say" style="top: 1000px"><span data-hf-id="hf-8w4d" class="l"><span data-hf-id="hf-uw1u" id="y6w0" class="w pre">Practice the exam</span></span><span data-hf-id="hf-9afe" class="l"><span data-hf-id="hf-3df7" id="y6w1" class="w pre">before</span></span><span data-hf-id="hf-9oqf" class="l"><span data-hf-id="hf-gakg" id="y6w2" class="w hlw pre"><span data-hf-id="hf-7vp8" id="y6h2" class="hl"></span>the exam.</span></span></div></div>
+<div data-hf-id="hf-kgvt" id="y7" class="clip layer" data-start="23.5556" data-duration="1.3333" data-track-index="3"><div data-hf-id="hf-5qlh" class="shadeB"></div><div data-hf-id="hf-3g2z" class="say" style="top: 1040px"><span data-hf-id="hf-a31g" class="l"><span data-hf-id="hf-38ri" id="y7w0" class="w pre">Can't make it</span></span><span data-hf-id="hf-dnsp" class="l"><span data-hf-id="hf-ust9" id="y7w1" class="w hlw pre"><span data-hf-id="hf-03we" id="y7h1" class="hl"></span>to DHA?</span></span></div></div>
+<div data-hf-id="hf-x9ot" id="y8" class="clip layer" data-start="26.6667" data-duration="1.3333" data-track-index="3"><div data-hf-id="hf-5cag" class="shadeB"></div><div data-hf-id="hf-1gju" class="say" style="top: 1040px"><span data-hf-id="hf-e23q" class="l"><span data-hf-id="hf-p81h" id="y8w0" class="w pre">Live classes.</span></span><span data-hf-id="hf-wdsq" class="l"><span data-hf-id="hf-501c" id="y8w1" class="w hlw pre"><span data-hf-id="hf-unwp" id="y8h1" class="hl"></span>Not recordings.</span></span></div></div>
+<div data-hf-id="hf-txqp" id="y9" class="clip layer" data-start="28.0" data-duration="1.3333" data-track-index="3"><div data-hf-id="hf-4xzf" class="shadeB"></div><div data-hf-id="hf-128t" class="say" style="top: 1040px"><span data-hf-id="hf-vzhp" class="l"><span data-hf-id="hf-b8xy" id="y9w0" class="w pre">Join from</span></span><span data-hf-id="hf-x6es" class="l"><span data-hf-id="hf-jt4l" id="y9w1" class="w hlw pre"><span data-hf-id="hf-dp5k" id="y9h1" class="hl"></span>anywhere.</span></span></div></div>
+<div data-hf-id="hf-wgwl" id="y10" class="clip layer" data-start="29.3333" data-duration="1.7778" data-track-index="3"><div data-hf-id="hf-rhq1" class="shadeB"></div><div data-hf-id="hf-9grz" class="say" style="top: 1000px"><span data-hf-id="hf-ws3r" class="l"><span data-hf-id="hf-ebmw" id="y10w0" class="w pre">Class you'll</span></span><span data-hf-id="hf-xz0u" class="l"><span data-hf-id="hf-uov4" id="y10w1" class="w pre">actually</span></span><span data-hf-id="hf-xkpt" class="l"><span data-hf-id="hf-qhbg" id="y10w2" class="w hlw pre"><span data-hf-id="hf-ki75" id="y10h2" class="hl"></span>look forward to.</span></span></div></div>
+<div data-hf-id="hf-g873" id="y11" class="clip layer" data-start="31.1111" data-duration="2.2222" data-track-index="3"><div data-hf-id="hf-rw12" class="shadeB"></div><div data-hf-id="hf-anp2" class="say" style="top: 1000px"><span data-hf-id="hf-yrmw" class="l"><span data-hf-id="hf-n2cb" id="y11w0" class="w pre">After study hours:</span></span><span data-hf-id="hf-ydbv" class="l"><span data-hf-id="hf-yd8w" id="y11w1" class="w pre">FIFA with</span></span><span data-hf-id="hf-zk8y" class="l"><span data-hf-id="hf-m5d6" id="y11w2" class="w hlw pre"><span data-hf-id="hf-vif4" id="y11h2" class="hl"></span>your teachers.</span></span></div></div>
+<div data-hf-id="hf-zjrp" id="y13" class="clip layer" data-start="35.5556" data-duration="1.3333" data-track-index="3"><div data-hf-id="hf-sac3" class="shadeB"></div><div data-hf-id="hf-a9e1" class="say" style="top: 1000px"><span data-hf-id="hf-z5xx" class="l"><span data-hf-id="hf-mm8p" id="y13w0" class="w hlw pre"><span data-hf-id="hf-07ts" id="y13h0" class="hl"></span>Rated 5.0</span></span><span data-hf-id="hf-9v9f" class="l"><span data-hf-id="hf-lr3u" id="y13w1" class="w pre">on Google</span></span><span data-hf-id="hf-a9kg" class="l"><span data-hf-id="hf-rrcu" id="y13w2" class="w pre">from 226 reviews</span></span></div></div>
+<div data-hf-id="hf-rket" id="ck" class="clip layer" data-start="8.8889" data-duration="1.3333" data-track-index="2"><div data-hf-id="hf-2yzd" class="shadeT"></div><div data-hf-id="hf-f2lx" id="ck-c" class="chip pre" style="top: 340px">Islamiat</div></div>
+<div data-hf-id="hf-kfea" id="cs" class="clip layer" data-start="11.5556" data-duration="0.8888" data-track-index="2"><div data-hf-id="hf-45wg" class="shadeT"></div><div data-hf-id="hf-xhmr" id="cs-c" class="chip pre" style="top: 340px">Business</div></div>
+<div data-hf-id="hf-un0u" id="cm" class="clip layer" data-start="13.3333" data-duration="0.8889" data-track-index="2"><div data-hf-id="hf-3rlf" class="shadeT"></div><div data-hf-id="hf-wzma" id="cm-c" class="chip pre" style="top: 340px">Maths</div></div>
+<div data-hf-id="hf-p5ld" id="ct" class="clip layer" data-start="15.1111" data-duration="0.8889" data-track-index="2"><div data-hf-id="hf-1s2a" class="shadeT"></div><div data-hf-id="hf-5ecs" id="ct-c" class="chip pre" style="top: 340px">Miss Tayyaba · English</div></div>
+<div data-hf-id="hf-ifoc" id="csa" class="clip layer" data-start="16.0" data-duration="0.8889" data-track-index="2"><div data-hf-id="hf-1dr9" class="shadeT"></div><div data-hf-id="hf-4w0c" id="csa-c" class="chip pre" style="top: 340px">Sir Saifullah · Accounts</div></div>
+<div data-hf-id="hf-e95q" id="cu" class="clip layer" data-start="16.8889" data-duration="1.1111" data-track-index="2"><div data-hf-id="hf-2koc" class="shadeT"></div><div data-hf-id="hf-awav" id="cu-c" class="chip pre" style="top: 340px">Sir Umair · Biology</div></div>
+<div data-hf-id="hf-w2l0" id="crb" class="clip layer" data-start="21.5556" data-duration="2.0" data-track-index="2"><div data-hf-id="hf-26db" class="shadeT"></div><div data-hf-id="hf-c8sa" id="crb-c" class="chip pre" style="top: 340px">Sir Riza · Computer Science</div></div>
+<div data-hf-id="hf-m5rj" id="ca" class="clip layer" data-start="24.8889" data-duration="0.8889" data-track-index="2"><div data-hf-id="hf-06u6" class="shadeT"></div><div data-hf-id="hf-pfwf" id="ca-c" class="chip pre" style="top: 340px">Chemistry</div><div data-hf-id="hf-7u5g" id="ca-live" class="live pre" style="top: 480px"><span data-hf-id="hf-wi8i" id="ca-dot" class="dot"></span>Live online</div></div>
+<div data-hf-id="hf-uqzb" id="cko" class="clip layer" data-start="28.0" data-duration="1.3333" data-track-index="2"><div data-hf-id="hf-zsj5" class="shadeT"></div><div data-hf-id="hf-tczk" id="cko-c" class="chip pre" style="top: 1290px">Sir Khawar · Economics</div><div data-hf-id="hf-rqgf" id="cko-live" class="live pre" style="top: 1430px"><span data-hf-id="hf-cj8v" id="cko-dot" class="dot"></span>Live online</div></div>
+<div data-hf-id="hf-3wfe" id="k1" class="clip layer" data-start="10.2222" data-duration="1.3334" data-track-index="4">
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-6sqo" class="bgstill" src="assets/clips/kashaan-freeze.jpg" alt=""><div data-hf-id="hf-ds84" id="dim1" class="dim pre"></div>
+<div data-hf-id="hf-toid" class="marq" style="top: 50px"><div data-hf-id="hf-41dr" id="m1a" class="mrow" data-layout-allow-overflow="" data-layout-allow-occlusion="">Islamiat · Islamiat · Islamiat · Islamiat · </div></div>
+<div data-hf-id="hf-43bm" class="marq" style="top: 1520px"><div data-hf-id="hf-bfmm" id="m1b" class="mrow" data-layout-allow-overflow="" data-layout-allow-occlusion="">Pak Studies · Pak Studies · Pak Studies · Pak Studies · </div></div>
+<div data-hf-id="hf-81b3" id="cg1" class="cg"><div data-hf-id="hf-kjda" id="cb1" class="cardbg pre"></div>
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-bmhy" id="st1" class="still" src="assets/clips/kashaan-freeze.jpg" alt="Sir Kashaan Ali">
+<div data-hf-id="hf-sy38" id="cd1" class="code pre"><span data-hf-id="hf-rjku" class="n">2058</span><span data-hf-id="hf-1o1h" class="p">ISL</span></div>
+<div data-hf-id="hf-haiy" id="nm1" class="nm pre"><span data-hf-id="hf-0a6i" class="w hlw"><span data-hf-id="hf-v2lg" id="hl1" class="hl"></span>Sir Kashaan Ali</span></div>
+<div data-hf-id="hf-wdtp" id="sb1" class="sub pre">Islamiat · Pak Studies</div><div data-hf-id="hf-uncy" id="tg1" class="tags pre"><span data-hf-id="hf-yfee" class="tag">O Level</span><span data-hf-id="hf-ods0" class="tag">IGCSE</span></div></div>
+<svg data-hf-id="hf-j3n3" class="pen" style="left: 150px; top: 330px; width: 340px; height: 260px" viewBox="0 0 340 260"><path data-hf-id="hf-4p17" id="pc1" d="M 186 22 C 290 20, 330 80, 318 138 C 304 210, 200 246, 120 236 C 44 226, 14 170, 22 112 C 32 50, 110 18, 214 30" stroke-width="8" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" /></svg></div>
+<div data-hf-id="hf-0f06" id="k2" class="clip layer" data-start="12.4444" data-duration="0.8889" data-track-index="4">
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-mtka" class="bgstill" src="assets/clips/sunyyan-freeze.jpg" alt=""><div data-hf-id="hf-mg3z" id="dim2" class="dim pre"></div>
+<div data-hf-id="hf-ns7d" class="marq" style="top: 50px"><div data-hf-id="hf-zf18" id="m2a" class="mrow" data-layout-allow-overflow="" data-layout-allow-occlusion="">Business · Business · Business · Business · </div></div>
+<div data-hf-id="hf-raqe" class="marq" style="top: 1520px"><div data-hf-id="hf-baep" id="m2b" class="mrow" data-layout-allow-overflow="" data-layout-allow-occlusion="">A Level · A Level · A Level · A Level · </div></div>
+<div data-hf-id="hf-zdf8" id="cg2" class="cg"><div data-hf-id="hf-ednh" id="cb2" class="cardbg pre"></div>
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-mvzc" id="st2" class="still" src="assets/clips/sunyyan-freeze.jpg" alt="Sir Sunyyan Junaid">
+<div data-hf-id="hf-3tkv" id="cd2" class="code pre"><span data-hf-id="hf-sigt" class="n">9609</span><span data-hf-id="hf-tuon" class="p">BUS</span></div>
+<div data-hf-id="hf-dcex" id="nm2" class="nm pre"><span data-hf-id="hf-hjph" class="w hlw"><span data-hf-id="hf-5y33" id="hl2" class="hl"></span>Sir Sunyyan Junaid</span></div>
+<div data-hf-id="hf-752g" id="sb2" class="sub pre">Business</div><div data-hf-id="hf-ohn5" id="tg2" class="tags pre"><span data-hf-id="hf-sx58" class="tag">A Level</span></div></div>
+<svg data-hf-id="hf-lpvz" class="pen" style="left: 150px; top: 330px; width: 340px; height: 260px" viewBox="0 0 340 260"><path data-hf-id="hf-ymb0" id="pc2" d="M 186 22 C 290 20, 330 80, 318 138 C 304 210, 200 246, 120 236 C 44 226, 14 170, 22 112 C 32 50, 110 18, 214 30" stroke-width="8" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" /></svg></div>
+<div data-hf-id="hf-5m6x" id="k3" class="clip layer" data-start="14.2222" data-duration="0.8889" data-track-index="4">
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-lf6x" class="bgstill" src="assets/clips/salman-freeze.jpg" alt=""><div data-hf-id="hf-ihzy" id="dim3" class="dim pre"></div>
+<div data-hf-id="hf-oz4g" class="marq" style="top: 50px"><div data-hf-id="hf-ttad" id="m3a" class="mrow" data-layout-allow-overflow="" data-layout-allow-occlusion="">Maths · Maths · Maths · Maths · </div></div>
+<div data-hf-id="hf-rp1f" class="marq" style="top: 1520px"><div data-hf-id="hf-3904" id="m3b" class="mrow" data-layout-allow-overflow="" data-layout-allow-occlusion="">Physics · Physics · Physics · Physics · </div></div>
+<div data-hf-id="hf-0531" id="cg3" class="cg"><div data-hf-id="hf-dlzo" id="cb3" class="cardbg pre"></div>
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-tkox" id="st3" class="still" src="assets/clips/salman-freeze.jpg" alt="Sir Salman Junaid">
+<div data-hf-id="hf-zvgu" id="cd3" class="code pre"><span data-hf-id="hf-b8nn" class="n">4024</span><span data-hf-id="hf-p676" class="p">MTH</span></div>
+<div data-hf-id="hf-ckr4" id="nm3" class="nm pre"><span data-hf-id="hf-fe52" class="w hlw"><span data-hf-id="hf-1zz2" id="hl3" class="hl"></span>Sir Salman Junaid</span></div>
+<div data-hf-id="hf-8b8u" id="sb3" class="sub pre">Maths · Physics</div><div data-hf-id="hf-npzc" id="tg3" class="tags pre"><span data-hf-id="hf-7jyy" class="tag">O Level</span><span data-hf-id="hf-5dk4" class="tag">A Level</span></div></div>
+<svg data-hf-id="hf-lbky" class="pen" style="left: 150px; top: 330px; width: 340px; height: 260px" viewBox="0 0 340 260"><path data-hf-id="hf-mput" id="pc3" d="M 186 22 C 290 20, 330 80, 318 138 C 304 210, 200 246, 120 236 C 44 226, 14 170, 22 112 C 32 50, 110 18, 214 30" stroke-width="8" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" /></svg></div>
+<div data-hf-id="hf-zjk3" id="k4" class="clip layer" data-start="25.7778" data-duration="0.8889" data-track-index="4">
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-eusc" class="bgstill" src="assets/clips/abdullah-freeze.jpg" alt=""><div data-hf-id="hf-tdhl" id="dim4" class="dim pre"></div>
+<div data-hf-id="hf-oktf" class="marq" style="top: 50px"><div data-hf-id="hf-c3xe" id="m4a" class="mrow" data-layout-allow-overflow="" data-layout-allow-occlusion="">Chemistry · Chemistry · Chemistry · Chemistry · </div></div>
+<div data-hf-id="hf-s3cg" class="marq" style="top: 1520px"><div data-hf-id="hf-6gw7" id="m4b" class="mrow" data-layout-allow-overflow="" data-layout-allow-occlusion="">Live online · Live online · Live online · Live online · </div></div>
+<div data-hf-id="hf-gp6y" id="cg4" class="cg"><div data-hf-id="hf-13h7" id="cb4" class="cardbg pre"></div>
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-og6u" id="st4" class="still" src="assets/clips/abdullah-freeze.jpg" alt="Sir Abdullah Zaman">
+<div data-hf-id="hf-8jcp" id="cd4" class="code pre"><span data-hf-id="hf-51xv" class="n">5070</span><span data-hf-id="hf-cw17" class="p">CHE</span></div>
+<div data-hf-id="hf-8mn3" id="nm4" class="nm pre"><span data-hf-id="hf-q933" class="w hlw"><span data-hf-id="hf-anux" id="hl4" class="hl"></span>Sir Abdullah Zaman</span></div>
+<div data-hf-id="hf-ses2" id="sb4" class="sub pre">Chemistry</div><div data-hf-id="hf-jrvb" id="tg4" class="tags pre"><span data-hf-id="hf-7y9z" class="tag">O Level</span><span data-hf-id="hf-46n1" class="tag">A Level</span></div></div>
+<svg data-hf-id="hf-kx9x" class="pen" style="left: 150px; top: 330px; width: 340px; height: 260px" viewBox="0 0 340 260"><path data-hf-id="hf-j43a" id="pc4" d="M 186 22 C 290 20, 330 80, 318 138 C 304 210, 200 246, 120 236 C 44 226, 14 170, 22 112 C 32 50, 110 18, 214 30" stroke-width="8" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" /></svg></div>
+<div data-hf-id="hf-38vl" id="dn" class="clip layer" data-start="33.3333" data-duration="2.2222" data-track-index="2">
+<div data-hf-id="hf-l90q" id="dnote" class="hand pre" style="left: 150px; top: 1290px">yes, this is the lab</div>
+<svg data-hf-id="hf-8voe" class="pen" style="left: 140px; top: 1360px; width: 520px; height: 40px" viewBox="0 0 520 40"><path data-hf-id="hf-3tre" id="dline" d="M 6 22 C 150 10, 330 32, 512 14" stroke-width="7" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" /></svg></div>
+<div data-hf-id="hf-xt1a" id="cap" class="clip layer" data-start="21.5556" data-duration="2.0" data-track-index="5">
+<div data-hf-id="hf-son4" class="shadeB"></div><div data-hf-id="hf-sx6j" class="capbox"><span data-hf-id="hf-9b78" id="cap1" class="cl pre">“You can get full marks</span><span data-hf-id="hf-yg3u" id="cap2" class="cl pre">out of the paper.”</span></div></div>
+<div data-hf-id="hf-s0tu" id="k9" class="clip layer" data-start="36.8889" data-duration="2.6667" data-track-index="4">
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-nrib" class="bgstill" src="assets/clips/proof-freeze.jpg" alt=""><div data-hf-id="hf-4uf6" class="dim" style="background: rgba(21, 21, 21, 0.86)"></div>
+<div data-hf-id="hf-pb79" class="marq" style="top: 1520px"><div data-hf-id="hf-ibwc" id="m9b" class="mrow" data-layout-allow-overflow="">May/June 2027 · May/June 2027 · May/June 2027 · May/June 2027 · </div></div>
+<div data-hf-id="hf-zgwn" id="cg9" class="cg"><div data-hf-id="hf-byyu" id="cb9" class="cardbg pre"></div>
+<div data-hf-id="hf-fp2u" id="slot9" class="slot pre"><span data-hf-id="hf-1abd" class="hand ink">your photo here</span></div>
+<div data-hf-id="hf-kdos" id="cd9" class="code pre"><span data-hf-id="hf-mzid" class="n">NEW</span><span data-hf-id="hf-0qym" class="p">SIGNING</span></div>
+<div data-hf-id="hf-axqa" id="nm9" class="nm pre"><span data-hf-id="hf-1gho" class="w hlw"><span data-hf-id="hf-opss" id="hl9" class="hl"></span>You.</span></div>
+<div data-hf-id="hf-ztzt" id="sb9" class="sub pre">Your subjects · Your batch</div>
+<div data-hf-id="hf-105m" id="tg9" class="tags pre"><span data-hf-id="hf-8cl0" class="tag">O Level</span><span data-hf-id="hf-4ky2" class="tag">A Level</span><span data-hf-id="hf-rhyw" class="tag">IGCSE</span></div></div>
+<svg data-hf-id="hf-npf4" class="pen" style="left: 150px; top: 330px; width: 340px; height: 260px" viewBox="0 0 340 260"><path data-hf-id="hf-o5df" id="pc9" d="M 186 22 C 290 20, 330 80, 318 138 C 304 210, 200 246, 120 236 C 44 226, 14 170, 22 112 C 32 50, 110 18, 214 30" stroke-width="8" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" /></svg>
+<div data-hf-id="hf-cjov" id="say9" class="say pre" style="top: 236px; text-align: center; left: 0; width: 1080px; font-size: 76px">New signing:</div></div>
+<div data-hf-id="hf-h53c" id="s9" class="clip layer" data-start="39.5556" data-duration="4.4444" data-track-index="4">
+<div data-hf-id="hf-qn89" class="ctashade"></div><div data-hf-id="hf-5gj3" class="ctablack"></div>
+<img loading="lazy" data-hf-preview-lazy data-hf-id="hf-2lh5" id="logo9" class="pre" src="assets/brand/sj-academy-logo-horizontal-on-brown.svg" alt="SJ Academy">
+<div data-hf-id="hf-p12y" id="join9" class="big9"><span data-hf-id="hf-92nd" class="l"><span data-hf-id="hf-7mg8" id="j1" class="w pre">Join our</span></span>
+<span data-hf-id="hf-9gye" class="l"><span data-hf-id="hf-mw4h" id="j2" class="w hlw pre"><span data-hf-id="hf-6mhj" id="hlj" class="hl"></span>May/June 2027</span></span>
+<span data-hf-id="hf-8a1b" class="l"><span data-hf-id="hf-4hu8" id="j3" class="w pre">batches</span></span></div>
+<div data-hf-id="hf-tbvs" class="prow" style="top: 1000px"><span data-hf-id="hf-pqsn" id="p1" class="p9 pre">O Level</span><span data-hf-id="hf-efe0" id="p2" class="p9 pre">A Level</span></div>
+<div data-hf-id="hf-to2z" class="prow" style="top: 1120px"><span data-hf-id="hf-24nx" id="p3" class="p9 pre">In class or online</span></div>
+<div data-hf-id="hf-cjyn" class="erow" style="top: 1260px"><div data-hf-id="hf-w61j" id="btn9" class="pre">Book a free demo class</div></div>
+<div data-hf-id="hf-bxeq" id="info9" class="pre"><span data-hf-id="hf-l9xp" class="l">WhatsApp +92-336-2144454</span><span data-hf-id="hf-eojr" class="l">sjacademy.pk</span></div>
+<div data-hf-id="hf-1tbp" id="note9" class="hand pre">your squad is waiting</div>
+<svg data-hf-id="hf-nywb" class="pen" style="left: 440px; top: 440px; width: 420px; height: 40px" viewBox="0 0 420 40"><path data-hf-id="hf-ll8m" id="u9" d="M 6 24 C 120 12, 260 30, 414 14" stroke-width="7" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: 1" /></svg>
+</div>
+      <div data-hf-id="hf-hmg5" id="flash"></div>
+      <audio data-hf-id="hf-lgmv" id="music" src="assets/audio/music.wav" data-start="0" data-duration="44.0" data-track-index="10" data-volume="0.6" data-end="44"></audio>
+      <audio data-hf-id="hf-vi5o" id="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="44.0" data-track-index="11" data-volume="0.8" data-end="44"></audio>
+    </div>
+    
+  <script type="text/hf-after-fonts">var B = 60 / 135;
+var b = function(n) {
+  return +(n * B).toFixed(4);
+};
+var SIGN = 83, CTA = 89, BEATS_ALL = 99, CUTS = [["hook", 0, 3.5556], ["lab", 3.5556, 4.4444], ["room", 4.4444, 5.3333], ["packed", 5.3333, 6.2222], ["girls", 6.2222, 7.1111], ["graph", 7.1111, 8], ["point", 8, 8.8889], ["kashaan", 8.8889, 10.2222], ["sunyyan", 11.5556, 12.4444], ["salman", 13.3333, 14.2222], ["tay", 15.1111, 16], ["sai", 16, 16.8889], ["umr", 16.8889, 18], ["work", 18, 19.7778], ["prac", 19.7778, 21.5556], ["sb1", 21.5556, 23.5556], ["screen", 23.5556, 24.8889], ["abdullah", 24.8889, 25.7778], ["ipad", 26.6667, 28], ["khaon", 28, 29.3333], ["energy", 29.3333, 31.1111], ["fifa1", 31.1111, 32], ["fifa2", 32, 33.3333], ["dance2", 33.3333, 35.5556], ["proof", 35.5556, 36.8889]], SAYS = [["y1", [[3.5556, false], [3.7778, true]]], ["y2", [[5.3333, false], [7.1111, true]]], ["y3", [[8.8889, false], [9.1111, true]]], ["y4", [[16, false], [16.1111, false]]], ["y5", [[18, false], [18.2222, false], [18.6667, true]]], ["y6", [[19.7778, false], [20.2222, false], [20.4444, true]]], ["y7", [[23.5556, false], [23.7778, true]]], ["y8", [[26.6667, false], [27, true]]], ["y9", [[28, false], [28.2222, true]]], ["y10", [[29.4444, false], [29.6, false], [29.7778, true]]], ["y11", [[31.1111, false], [32, false], [32.2222, true]]], ["y13", [[35.5556, true], [35.7333, false], [35.8889, false]]]], CHIPS = [["ck", 8.8889, false], ["cs", 11.5556, false], ["cm", 13.3333, false], ["ct", 15.1111, false], ["csa", 16, false], ["cu", 16.8889, false], ["crb", 21.5556, false], ["ca", 24.8889, true], ["cko", 28, true]], CARDS = [[1, 10.2222, 11.5556], [2, 12.4444, 13.3333], [3, 14.2222, 15.1111], [4, 25.7778, 26.6667]];
+window.__sfxEvents = [];
+function sfx(t, type, gain) {
+  window.__sfxEvents.push({ t: +t.toFixed(4), type, g: gain == null ? 1 : gain });
+}
+var tl = gsap.timeline({ paused: true });
+function slam(sel, t, from, origin) {
+  tl.fromTo(sel, { opacity: 0, scale: from || 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.out", transformOrigin: origin || "0% 60%" }, t);
+}
+function draw(sel, t, d) {
+  tl.fromTo(sel, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 0.3, ease: "power2.inOut" }, t);
+}
+function swipe(sel, t) {
+  tl.fromTo(sel, { scaleX: 0 }, { scaleX: 1, duration: 0.22, ease: "power3.out" }, t);
+}
+function rise(sel, t) {
+  tl.fromTo(sel, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.2, ease: "power3.out" }, t);
+}
+function flash(t, peak) {
+  tl.fromTo("#flash", { opacity: peak || 0.85 }, { opacity: 0, duration: 0.18, ease: "power2.out", immediateRender: false }, t);
+}
+var SECTION = { 8: 1, 20: 1, 40.5: 1, 53: 1, 66: 1, 70: 1, 75: 1, 80: 1 };
+CUTS.forEach(function(c) {
+  var id = c[0], s = c[1], e = c[2], beat = Math.round(s / B * 2) / 2;
+  tl.fromTo("#vw-" + id, { scale: id === "hook" ? 1.14 : 1.12 }, { scale: 1, duration: e - s, ease: id === "hook" ? "power1.out" : "power2.out" }, s);
+  if (s > 0) {
+    if (SECTION[beat]) sfx(s, "whip", 0.85);
+    else sfx(s, "hit", 0.4);
+  }
+});
+tl.fromTo("#logo1", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
+slam("#w11", 0);
+sfx(0, "slam", 1);
+slam("#w12", b(2), 1.4);
+sfx(b(2), "slam", 0.8);
+slam("#w13", b(4), 1.5);
+sfx(b(4), "slam", 1);
+swipe("#hl13", b(4.4));
+sfx(b(4.4), "swipe", 0.7);
+tl.fromTo("#note1", { opacity: 0, rotation: -4, y: 12 }, { opacity: 1, rotation: -4, y: 0, duration: 0.25, ease: "power2.out" }, b(6));
+draw("#arr1", b(6.4), 0.35);
+sfx(b(6.3), "pen", 0.6);
+sfx(b(7.5), "riser2", 0.8);
+[8, 20, 53, SIGN].forEach(function(n) {
+  flash(b(n), 0.6);
+  sfx(b(n), "drop", 0.9);
+});
+SAYS.forEach(function(s) {
+  s[1].forEach(function(l, k) {
+    slam("#" + s[0] + "w" + k, l[0], 1.5);
+    sfx(l[0], "slam", k ? 0.55 : 0.75);
+    if (l[1]) {
+      swipe("#" + s[0] + "h" + k, l[0] + 0.12);
+      sfx(l[0] + 0.12, "swipe", 0.6);
+    }
+  });
+});
+CHIPS.forEach(function(c) {
+  tl.fromTo("#" + c[0] + "-c", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.18, ease: "back.out(2)" }, c[1] + 0.06);
+  sfx(c[1] + 0.06, "pop", 0.6);
+  if (c[2]) {
+    tl.fromTo("#" + c[0] + "-live", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.18, ease: "back.out(2)" }, c[1] + B * 0.5);
+    sfx(c[1] + B * 0.5, "tick", 0.8);
+    tl.fromTo("#" + c[0] + "-dot", { opacity: 1 }, { opacity: 0.25, duration: B / 2, repeat: 1, yoyo: true, ease: "none" }, c[1] + B);
+  }
+});
+tl.fromTo("#dnote", { opacity: 0, rotation: -3, y: 12 }, { opacity: 1, rotation: -3, y: 0, duration: 0.25, ease: "power2.out" }, b(76));
+draw("#dline", b(76.4), 0.35);
+sfx(b(76.4), "pen", 0.7);
+rise("#cap1", b(48.5) + 0.09);
+rise("#cap2", b(48.5) + 1.04);
+function walkout(i, T, tOut) {
+  var span = tOut - T, fast = span < b(2.5);
+  flash(T, 0.9);
+  sfx(T, "stamp", 1);
+  tl.fromTo("#dim" + i, { opacity: 0 }, { opacity: 1, duration: 0.22, ease: "power2.out" }, T);
+  tl.fromTo(
+    "#st" + i,
+    { clipPath: "inset(0px 0px 0px 0px round 0px)" },
+    { clipPath: "inset(354px 174px 896px 174px round 18px)", duration: 0.3, ease: "power3.inOut" },
+    T
+  );
+  tl.fromTo("#cb" + i, { opacity: 0 }, { opacity: 1, duration: 0.12 }, T + 0.12);
+  tl.fromTo("#cg" + i, { scale: 1.06 }, { scale: 1, duration: 0.24, ease: "back.out(2.5)" }, T + 0.3);
+  sfx(T + 0.3, "slam", 0.7);
+  tl.fromTo("#m" + i + "a", { x: 0 }, { x: -520, duration: span, ease: "none" }, T);
+  tl.fromTo("#m" + i + "b", { x: -600 }, { x: -80, duration: span, ease: "none" }, T);
+  var c = T + (fast ? b(0.5) : b(0.75));
+  tl.fromTo("#cd" + i, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.6)", transformOrigin: "50% 50%" }, c);
+  sfx(c, "pop", 0.9);
+  var pc = c + (fast ? 0.12 : b(0.5));
+  draw("#pc" + i, pc, fast ? 0.24 : 0.32);
+  sfx(pc, "pen", 0.7);
+  var n = T + (fast ? b(0.6) : b(1.25));
+  rise("#nm" + i, n);
+  swipe("#hl" + i, n + 0.08);
+  sfx(n + 0.08, "swipe", 0.7);
+  var s = T + (fast ? b(0.95) : b(1.75));
+  rise("#sb" + i, s);
+  rise("#tg" + i, s + 0.06);
+  sfx(s + 0.06, "tick", 0.7);
+}
+CARDS.forEach(function(c) {
+  walkout(c[0], c[1], c[2]);
+});
+var N9 = b(SIGN);
+sfx(N9, "stamp", 1);
+slam("#say9", N9 + 0.05, 1.4, "50% 50%");
+tl.fromTo("#cb9", { opacity: 0 }, { opacity: 1, duration: 0.15 }, N9 + 0.1);
+tl.fromTo("#cg9", { scale: 1.12, y: 120 }, { scale: 1, y: 0, duration: 0.32, ease: "back.out(2)" }, N9 + 0.1);
+tl.fromTo("#slot9", { opacity: 0 }, { opacity: 1, duration: 0.2 }, N9 + 0.2);
+tl.fromTo("#m9b", { x: -700 }, { x: 0, duration: b(CTA - SIGN), ease: "none" }, N9);
+tl.fromTo("#cd9", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.6)", transformOrigin: "50% 50%" }, b(SIGN + 1));
+sfx(b(SIGN + 1), "pop", 0.9);
+draw("#pc9", b(SIGN + 1.5), 0.32);
+sfx(b(SIGN + 1.5), "pen", 0.8);
+rise("#nm9", b(SIGN + 2));
+swipe("#hl9", b(SIGN + 2.1));
+sfx(b(SIGN + 2.1), "swipe", 0.8);
+rise("#sb9", b(SIGN + 3));
+rise("#tg9", b(SIGN + 3.5));
+sfx(b(SIGN + 3.5), "tick", 0.8);
+sfx(b(CTA), "whoosh2", 0.9);
+sfx(b(CTA), "hit", 0.7);
+tl.fromTo("#vw-ctabg", { scale: 1.12 }, { scale: 1, duration: b(BEATS_ALL - CTA), ease: "power2.out" }, b(CTA));
+tl.fromTo("#logo9", { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, b(CTA + 0.25));
+slam("#j1", b(CTA + 0.5), 1.5, "50% 60%");
+sfx(b(CTA + 0.5), "slam", 0.7);
+slam("#j2", b(CTA + 1), 1.9, "50% 60%");
+flash(b(CTA + 1), 0.45);
+sfx(b(CTA + 1), "drop", 0.9);
+swipe("#hlj", b(CTA + 1.15));
+sfx(b(CTA + 1.15), "swipe", 0.8);
+slam("#j3", b(CTA + 1.75), 1.5, "50% 60%");
+sfx(b(CTA + 1.75), "slam", 0.7);
+["#p1", "#p2", "#p3"].forEach(function(id, k) {
+  var at = b(CTA + 2.5 + k * 0.25);
+  tl.fromTo(id, { opacity: 0, y: 40, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.24, ease: "back.out(2.6)" }, at);
+  sfx(at, "pop", 0.7);
+});
+tl.fromTo("#btn9", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.26, ease: "back.out(2.4)" }, b(CTA + 3.5));
+sfx(b(CTA + 3.5), "stamp", 0.8);
+[5.5, 7.5].forEach(function(o) {
+  tl.fromTo("#btn9", { scale: 1 }, { scale: 1.05, duration: B / 2, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, b(CTA + o));
+});
+rise("#info9", b(CTA + 4));
+tl.fromTo("#note9", { opacity: 0, rotation: -4, y: 10 }, { opacity: 1, rotation: -4, y: 0, duration: 0.25, ease: "power2.out" }, b(CTA + 4.5));
+draw("#u9", b(CTA + 4.8), 0.3);
+sfx(b(CTA + 4.8), "pen", 0.6);
+window.__timelines["main"] = tl;</script></body>
+</html>

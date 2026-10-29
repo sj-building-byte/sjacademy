@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJ Academy | Project Manager</title>
+    
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="page-container">
+        
+        <!-- Header Section -->
+        <header class="header">
+            <div class="container">
+                <div class="mode-badge">
+                    <span>⚙️ PROJECT MANAGER</span>
+                </div>
+                <h1 class="page-title">Active <span class="highlight">Projects</span></h1>
+                
+                <!-- Tabs Navigation -->
+                <nav class="project-tabs" aria-label="Project Tabs">
+                    <button class="tab-btn active" data-tab="admissions">Admissions Portal</button>
+                    <button class="tab-btn" data-tab="schools">School Discovery</button>
+                    <button class="tab-btn" data-tab="tools">Academic Tools</button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Controls Section -->
+        <section class="controls-section">
+            <div class="container">
+                <div class="controls-grid">
+                    <div class="filter-group">
+                        <select class="custom-select" aria-label="Filter tasks">
+                            <option value="all">All Tasks</option>
+                            <option value="todo">To Do</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="review">Needs Review</option>
+                            <option value="done">Completed</option>
+                        </select>
+                    </div>
+                    <div class="action-group">
+                        <button class="btn btn-primary" onclick="alert('New task modal would open here.')">+ Add New Task</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="container">
+                
+                <!-- TAB CONTENT: Admissions Portal -->
+                <div id="admissions" class="tab-content active" aria-live="polite">
+                    <div class="task-grid">
+                        
+                        <!-- Task Card (In Progress) -->
+                        <article class="card">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">User Registration Flow</h3>
+                                    <p class="subtitle">Assignee: Ali Khan</p>
+                                </div>
+                                <span class="badge badge-warning">In Progress</span>
+                            </div>
+                            <div class="card-body">
+                                <p>Implement backend logic for student sign-ups, including email verification and initial profile setup.</p>
+                                <div class="key-value-list">
+                                    <div class="kv-item">
+                                        <div class="kv-label">DUE DATE</div>
+                                        <div class="kv-value">Aug 15, 2026</div>
+                                    </div>
+                                    <div class="kv-item">
+                                        <div class="kv-label">PRIORITY</div>
+                                        <div class="kv-value">High</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-outline" onclick="alert('View task details.')">View Details</button>
+                            </div>
+                        </article>
+
+                        <!-- Task Card (Highlight Callout) -->
+                        <article class="card card-highlight">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">Fix Login Bug</h3>
+                                    <p class="subtitle">Assignee: Fatima</p>
+                                </div>
+                                <span class="badge badge-danger">Urgent</span>
+                            </div>
+                            <div class="card-body">
+                                <p>Users are reporting random disconnects during the application process. Needs immediate debugging.</p>
+                                <div class="key-value-list">
+                                    <div class="kv-item">
+                                        <div class="kv-label">REPORTED BY</div>
+                                        <div class="kv-value">Support Team</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary" onclick="alert('Start debugging.')">Start Working</button>
+                            </div>
+                        </article>
+
+                        <!-- Task Card (To Do) -->
+                        <article class="card">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">Update Terms of Service</h3>
+                                    <p class="subtitle">Assignee: Legal</p>
+                                </div>
+                                <span class="badge">To Do</span>
+                            </div>
+                            <div class="card-body">
+                                <p>Review and update the privacy policy regarding user data handling for university submissions.</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-outline">View Details</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- TAB CONTENT: School Discovery (Hidden by default) -->
+                <div id="schools" class="tab-content" aria-live="polite">
+                    <div class="task-grid">
+                        <article class="card">
+                            <div class="card-header">
+                                <div>
+                                    <h3 class="card-title">Map Integration</h3>
+                                    <p class="subtitle">Assignee: Dev Team</p>
+                                </div>
+                                <span class="badge">To Do</span>
+                            </div>
+                            <div class="card-body">
+                                <p>Integrate Google Maps API to display school locations based on user proximity.</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-map">Test Map API</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- TAB CONTENT: Academic Tools (Hidden by default) -->
+                <div id="tools" class="tab-content" aria-live="polite">
+                    <div class="status-bar">
+                        No active tasks in this project yet. Click "Add New Task" to get started.
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="meta-note">
+                    Internal Dashboard v1.2 &bull; <a href="#">Need Help?</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

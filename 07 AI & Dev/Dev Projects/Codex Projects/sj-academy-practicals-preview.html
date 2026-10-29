@@ -1,0 +1,1649 @@
+<!-- SJ Academy A Level Practicals Main Landing Page -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --sja-black: #111111;
+    --sja-ink: #231b0d;
+    --sja-muted: #625a4d;
+    --sja-line: #eadfbd;
+    --sja-soft: #fff9d8;
+    --sja-yellow: #FCE004;
+    --sja-yellow-dark: #e6ca00;
+    --sja-brown: #453516;
+    --sja-orange: #fe6100;
+    --sja-whatsapp: #25D366;
+    --sja-white: #ffffff;
+    --sja-radius: 12px;
+
+    --sja-hero-image: url("https://www.sjacademy.pk/wp-content/uploads/2025/07/IMG_1492-840x450-1.jpg");
+    --sja-lab-image: url("https://www.sjacademy.pk/wp-content/uploads/2025/07/IMG_1492-840x450-1.jpg");
+    --sja-setup-image: url("https://www.sjacademy.pk/wp-content/uploads/2025/08/Physics-practicals.webp");
+    --sja-class-image: url("https://www.sjacademy.pk/wp-content/uploads/2025/07/image-27.png");
+    --sja-physics-image: url("https://www.sjacademy.pk/wp-content/uploads/2025/05/83F63DED-01B6-4BEB-AEAC-7E3979363913-768x576.jpg");
+    --sja-chemistry-image: url("https://www.sjacademy.pk/wp-content/uploads/2025/07/image-26.png");
+    --sja-biology-image: url("https://www.sjacademy.pk/wp-content/uploads/2025/08/Biolo-768x1119.jpg");
+    --sja-gallery-image-4: url("https://www.sjacademy.pk/wp-content/uploads/2025/08/Biolo.jpg");
+    --sja-gallery-image-5: url("https://www.sjacademy.pk/wp-content/uploads/2025/07/image-25.png");
+    --sja-gallery-image-6: url("https://www.sjacademy.pk/wp-content/uploads/2025/07/image-24.png");
+    --sja-gallery-image-7: url("https://www.sjacademy.pk/wp-content/uploads/2025/07/image-16.png");
+    --sja-gallery-image-8: url("https://www.sjacademy.pk/wp-content/uploads/2025/07/image-15.png");
+    --sja-gallery-image-9: url("https://www.sjacademy.pk/wp-content/uploads/2025/06/physics-img-01.webp");
+    --sja-gallery-image-10: url("https://www.sjacademy.pk/wp-content/uploads/2025/07/1.png");
+  }
+
+  .sja-practicals-page,
+  .sja-practicals-page * {
+    box-sizing: border-box;
+  }
+
+  .sja-practicals-page {
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--sja-ink);
+    background: var(--sja-white);
+    overflow-x: hidden;
+  }
+
+  .sja-practicals-page a {
+    color: inherit;
+  }
+
+  .sja-wrap {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .sja-section {
+    padding: 68px 0;
+  }
+
+  .sja-section--soft {
+    background: #fffbea;
+  }
+
+  .sja-section-head {
+    max-width: 760px;
+    margin: 0 auto 34px;
+    text-align: center;
+  }
+
+  .sja-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 7px 12px;
+    border: 1px solid rgba(17, 17, 17, 0.1);
+    border-radius: 6px;
+    background: rgba(252, 224, 4, 0.22);
+    color: var(--sja-brown);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .sja-title {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--sja-brown);
+    font-size: clamp(34px, 4.4vw, 56px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .sja-section-title {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--sja-brown);
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: 0;
+  }
+
+  .sja-lead {
+    margin: 16px 0 0;
+    color: var(--sja-muted);
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.6;
+  }
+
+  .sja-grid {
+    display: grid;
+    gap: 22px;
+  }
+
+  .sja-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sja-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sja-grid--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sja-card {
+    position: relative;
+    height: 100%;
+    border: 1px solid var(--sja-line);
+    border-radius: var(--sja-radius);
+    background: var(--sja-white);
+    box-shadow: 0 10px 28px rgba(69, 53, 22, 0.08);
+    overflow: hidden;
+  }
+
+  .sja-card__body {
+    padding: 26px;
+  }
+
+  .sja-card h3 {
+    margin: 0 0 12px;
+    color: var(--sja-brown);
+    font-size: 23px;
+    line-height: 1.18;
+    letter-spacing: 0;
+  }
+
+  .sja-card p {
+    margin: 0;
+    color: var(--sja-muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .sja-list {
+    display: grid;
+    gap: 9px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--sja-ink);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .sja-list li {
+    display: flex;
+    gap: 9px;
+    align-items: flex-start;
+  }
+
+  .sja-list li::before {
+    content: "\2713";
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(252, 224, 4, 0.26);
+    color: var(--sja-brown);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 900;
+    margin-top: 1px;
+  }
+
+  .sja-topic-list {
+    columns: 1;
+    margin: 18px 0 0;
+    padding-left: 0;
+    list-style: none;
+    color: var(--sja-muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .sja-topic-list li {
+    position: relative;
+    padding-left: 16px;
+  }
+
+  .sja-topic-list li::before {
+    content: "";
+    position: absolute;
+    top: 0.75em;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--sja-yellow);
+  }
+
+  .sja-btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .sja-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .sja-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .sja-btn--yellow {
+    background: var(--sja-yellow);
+    color: var(--sja-brown);
+    box-shadow: 0 10px 22px rgba(254, 97, 0, 0.16);
+  }
+
+  .sja-btn--yellow:hover {
+    background: var(--sja-yellow-dark);
+  }
+
+  .sja-btn--outline {
+    border: 1px solid rgba(69, 53, 22, 0.22);
+    background: var(--sja-white);
+    color: var(--sja-brown);
+  }
+
+  .sja-btn--orange {
+    background: var(--sja-orange);
+    color: var(--sja-white);
+    box-shadow: 0 10px 24px rgba(254, 97, 0, 0.2);
+  }
+
+  .sja-hero {
+    padding: 70px 0 62px;
+    color: var(--sja-ink);
+    background:
+      linear-gradient(135deg, rgba(252, 224, 4, 0.26), rgba(252, 224, 4, 0) 38%),
+      linear-gradient(180deg, #ffffff 0%, #fffbea 100%);
+  }
+
+  .sja-hero__head {
+    max-width: 880px;
+    margin: 0 auto 32px;
+    text-align: left;
+  }
+
+  .sja-hero__head .sja-lead {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sja-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.62fr);
+    gap: 36px;
+    align-items: center;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .sja-hero__content {
+    max-width: 640px;
+    text-align: left;
+  }
+
+  .sja-hero .sja-lead {
+    max-width: 600px;
+    color: var(--sja-muted);
+  }
+
+  .sja-hero__highlights {
+    display: grid;
+    gap: 10px;
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sja-hero__highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--sja-brown);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .sja-hero__highlights li::before {
+    content: "\2713";
+    flex: 0 0 auto;
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(252, 224, 4, 0.32);
+    color: var(--sja-brown);
+    font-size: 12px;
+    font-weight: 900;
+    margin-top: 1px;
+  }
+
+  .sja-hero__media {
+    position: relative;
+    min-height: 360px;
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--sja-line);
+    border-radius: 18px;
+    background:
+      var(--sja-hero-image) center / cover no-repeat,
+      linear-gradient(135deg, #f2f3f5, #ffffff);
+    box-shadow: 0 18px 42px rgba(69, 53, 22, 0.12);
+    overflow: hidden;
+  }
+
+  .sja-hero__media::after {
+    content: "SJ Academy Practical Lab";
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--sja-brown);
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 8px 24px rgba(17, 17, 17, 0.12);
+  }
+
+  .sja-batches {
+    display: block;
+    max-width: 600px;
+    margin-top: 18px;
+  }
+
+  .sja-hero .sja-btn-row {
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 26px;
+  }
+
+  .sja-hero__faq-link {
+    color: var(--sja-brown);
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .sja-hero__faq-link:hover {
+    color: var(--sja-yellow-dark);
+  }
+
+  .sja-batch {
+    border-left: 4px solid var(--sja-yellow);
+    border-radius: 0;
+    padding: 2px 0 2px 12px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .sja-batch strong {
+    display: inline;
+    color: var(--sja-brown);
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+
+  .sja-batch span {
+    color: var(--sja-brown);
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .sja-session-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    text-decoration: none;
+  }
+
+  .sja-session-card::before,
+  .sja-feature-card::before,
+  .sja-detail-card::before {
+    content: "";
+    display: block;
+    height: 6px;
+    background: var(--sja-yellow);
+  }
+
+  .sja-session-card--active {
+    border-color: rgba(252, 224, 4, 0.9);
+    box-shadow: 0 14px 34px rgba(69, 53, 22, 0.1);
+  }
+
+  .sja-session-card--active::before {
+    height: 8px;
+  }
+
+  .sja-active-label {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 14px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: var(--sja-yellow);
+    color: var(--sja-brown);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .sja-session-meta {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    width: fit-content;
+    margin-bottom: 20px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: var(--sja-soft);
+    color: var(--sja-black);
+    font-size: 13px;
+  }
+
+  .sja-session-meta strong {
+    font-size: 12px;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+  }
+
+  .sja-session-subjects {
+    margin: 0 0 18px;
+    color: var(--sja-black);
+    font-weight: 800;
+  }
+
+  .sja-card-link {
+    display: inline-flex;
+    margin-top: 24px;
+    color: var(--sja-black);
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .sja-feature-icon {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    background: rgba(252, 224, 4, 0.28);
+    color: var(--sja-brown);
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .sja-experiment-card .sja-card__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .sja-experiment-card .sja-card-link {
+    margin-top: auto;
+    padding-top: 22px;
+  }
+
+  #why-choose .sja-section-title {
+    font-size: clamp(28px, 3vw, 40px);
+  }
+
+  .sja-faq {
+    background: #f7f8fa;
+  }
+
+  .sja-faq-list {
+    display: grid;
+    gap: 14px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .sja-faq-item {
+    border: 1px solid var(--sja-line);
+    border-radius: var(--sja-radius);
+    background: var(--sja-white);
+    box-shadow: 0 10px 30px rgba(17, 17, 17, 0.05);
+    overflow: hidden;
+  }
+
+  .sja-faq-item summary {
+    position: relative;
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 56px 20px 22px;
+    color: var(--sja-black);
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .sja-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sja-faq-item summary::after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(252, 224, 4, 0.28);
+    color: var(--sja-brown);
+    font-size: 20px;
+    font-weight: 900;
+    transform: translateY(-50%);
+  }
+
+  .sja-faq-item[open] summary::after {
+    content: "-";
+  }
+
+  .sja-faq-answer {
+    padding: 0 22px 22px;
+    color: var(--sja-muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .sja-faq-answer p {
+    margin: 0;
+  }
+
+  .sja-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .sja-gallery-main {
+    grid-column: span 2;
+    min-height: 430px;
+    border-radius: var(--sja-radius);
+    background:
+      var(--sja-lab-image) center / cover no-repeat,
+      linear-gradient(135deg, #f2f3f5, #ffffff);
+    box-shadow: 0 10px 30px rgba(17, 17, 17, 0.06);
+  }
+
+  .sja-gallery-side {
+    display: grid;
+    gap: 18px;
+  }
+
+  .sja-gallery-side .sja-photo {
+    min-height: 206px;
+  }
+
+  .sja-gallery-extra {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+  }
+
+  .sja-photo {
+    min-height: 240px;
+    border-radius: var(--sja-radius);
+    background-color: #eef0f3;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 10px 30px rgba(17, 17, 17, 0.06);
+  }
+
+  .sja-photo--lab { background-image: var(--sja-lab-image); }
+  .sja-photo--setup { background-image: var(--sja-setup-image); }
+  .sja-photo--class { background-image: var(--sja-class-image); }
+  .sja-photo--physics { background-image: var(--sja-physics-image); }
+  .sja-photo--chemistry { background-image: var(--sja-chemistry-image); }
+  .sja-photo--biology { background-image: var(--sja-biology-image); }
+  .sja-photo--gallery-4 { background-image: var(--sja-gallery-image-4); }
+  .sja-photo--gallery-5 { background-image: var(--sja-gallery-image-5); }
+  .sja-photo--gallery-6 { background-image: var(--sja-gallery-image-6); }
+  .sja-photo--gallery-7 { background-image: var(--sja-gallery-image-7); }
+  .sja-photo--gallery-8 { background-image: var(--sja-gallery-image-8); }
+  .sja-photo--gallery-9 { background-image: var(--sja-gallery-image-9); }
+  .sja-photo--gallery-10 { background-image: var(--sja-gallery-image-10); }
+
+  .sja-feature-card {
+    min-height: 100%;
+  }
+
+  .sja-subject-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .sja-subject-card__image {
+    aspect-ratio: 16 / 10;
+    background-color: #eef0f3;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .sja-subject-card--physics .sja-subject-card__image { background-image: var(--sja-physics-image); }
+  .sja-subject-card--chemistry .sja-subject-card__image { background-image: var(--sja-chemistry-image); }
+  .sja-subject-card--biology .sja-subject-card__image { background-image: var(--sja-biology-image); }
+
+  .sja-subject-pill {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 12px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(252, 224, 4, 0.22);
+    color: var(--sja-brown);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  .sja-details-grid {
+    align-items: stretch;
+  }
+
+  .sja-timetable {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .sja-time-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 13px 14px;
+    border-radius: 12px;
+    background: var(--sja-soft);
+  }
+
+  .sja-time-row strong {
+    color: var(--sja-black);
+  }
+
+  .sja-time-row span {
+    color: var(--sja-muted);
+  }
+
+  .sja-note {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-left: 4px solid var(--sja-yellow);
+    border-radius: 10px;
+    background: rgba(252, 224, 4, 0.18);
+    color: var(--sja-ink);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .sja-fee {
+    display: grid;
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .sja-fee-row {
+    padding: 18px;
+    border-radius: 14px;
+    background: var(--sja-soft);
+  }
+
+  .sja-fee-row span {
+    display: block;
+    color: var(--sja-muted);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  .sja-fee-row strong {
+    display: block;
+    margin-top: 5px;
+    color: var(--sja-black);
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0;
+  }
+
+  .sja-reviews-section {
+    padding: 78px 0 88px;
+    background: var(--sja-brown);
+    border-bottom: 8px solid var(--sja-yellow);
+    box-shadow: inset 0 -4px 0 var(--sja-orange);
+  }
+
+  .sja-reviews-section .sja-kicker {
+    border-color: rgba(255, 215, 0, 0.28);
+    background: rgba(255, 215, 0, 0.12);
+    color: var(--sja-yellow);
+  }
+
+  .sja-reviews-section .sja-section-title {
+    color: var(--sja-yellow);
+  }
+
+  .sja-reviews-section .sja-lead {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .sja-reviews-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 320px);
+    gap: 18px;
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 4px 4px 16px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .sja-review-card {
+    scroll-snap-align: start;
+    height: 315px;
+    border: 0;
+    border-left: 7px solid var(--sja-yellow);
+    border-radius: 8px;
+    background: #59441c;
+    box-shadow: none;
+    overflow: hidden;
+  }
+
+  .sja-review-card.is-expanded {
+    height: auto;
+  }
+
+  .sja-review-card__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+  }
+
+  .sja-review-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .sja-review-name {
+    margin: 0;
+    color: var(--sja-white);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .sja-review-source {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .sja-stars {
+    color: var(--sja-yellow);
+    font-size: 15px;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .sja-review-text {
+    position: relative;
+    display: grid;
+    gap: 8px;
+    max-height: 145px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 14px;
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  .sja-review-text::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 42px;
+    background: linear-gradient(180deg, rgba(89, 68, 28, 0), #59441c);
+    pointer-events: none;
+  }
+
+  .sja-review-card.is-expanded .sja-review-text {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .sja-review-card.is-expanded .sja-review-text::after {
+    display: none;
+  }
+
+  .sja-review-text p {
+    margin: 0;
+  }
+
+  .sja-review-toggle {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 10px 0 0;
+    border: 0;
+    background: transparent;
+    color: var(--sja-yellow);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .sja-google-link-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .sja-reviews-section .sja-btn--outline {
+    border-color: rgba(255, 215, 0, 0.45);
+    background: transparent;
+    color: var(--sja-yellow);
+  }
+
+  .sja-final-cta {
+    padding: 74px 0;
+    background:
+      linear-gradient(135deg, rgba(252, 224, 4, 0.26), rgba(252, 224, 4, 0) 36%),
+      #fffbea;
+    color: var(--sja-ink);
+    text-align: center;
+  }
+
+  .sja-final-cta .sja-section-title,
+  .sja-final-cta .sja-lead {
+    color: var(--sja-black);
+  }
+
+  .sja-final-cta .sja-lead {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--sja-muted);
+  }
+
+  .sja-final-cta .sja-btn-row {
+    justify-content: center;
+  }
+
+  .sja-mobile-sticky-cta {
+    display: none;
+  }
+
+  @media (max-width: 920px) {
+    .sja-grid--3,
+    .sja-grid--4,
+    .sja-grid--2,
+    .sja-media-strip,
+    .sja-hero__grid,
+    .sja-gallery-grid,
+    .sja-gallery-extra {
+      grid-template-columns: 1fr;
+    }
+
+    .sja-hero__media {
+      min-height: 320px;
+    }
+
+    .sja-media-strip {
+      margin-top: 26px;
+    }
+
+    .sja-photo {
+      min-height: 220px;
+    }
+
+    .sja-gallery-main {
+      grid-column: span 1;
+      min-height: 320px;
+    }
+
+    .sja-reviews-track {
+      grid-auto-columns: minmax(270px, 84vw);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sja-practicals-page {
+      padding-bottom: 84px;
+    }
+
+    .sja-wrap {
+      width: min(100% - 28px, 1180px);
+    }
+
+    .sja-section,
+    .sja-reviews-keep,
+    .sja-reviews-section {
+      padding: 44px 0;
+    }
+
+    .sja-hero {
+      padding: 34px 0 42px;
+    }
+
+    .sja-hero__head {
+      margin-bottom: 18px;
+    }
+
+    .sja-title {
+      font-size: 34px;
+      line-height: 1.08;
+    }
+
+    .sja-section-title {
+      font-size: 27px;
+      line-height: 1.14;
+    }
+
+    .sja-lead {
+      font-size: 15.5px;
+      line-height: 1.55;
+    }
+
+    .sja-section-head {
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .sja-btn-row,
+    .sja-batches {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .sja-btn {
+      width: 100%;
+      min-height: 50px;
+      padding: 14px 16px;
+      border-radius: 10px;
+    }
+
+    .sja-hero__faq-link {
+      justify-self: stretch;
+      padding: 12px 0;
+      text-align: center;
+    }
+
+    .sja-card__body {
+      padding: 20px;
+    }
+
+    .sja-card h3 {
+      font-size: 20px;
+    }
+
+    .sja-grid {
+      gap: 16px;
+    }
+
+    .sja-hero__media {
+      min-height: 220px;
+      margin-top: 4px;
+      border-radius: 14px;
+    }
+
+    .sja-hero__media::after {
+      left: 12px;
+      bottom: 12px;
+      max-width: calc(100% - 24px);
+      font-size: 12px;
+    }
+
+    .sja-hero__highlights {
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .sja-hero__highlights li {
+      font-size: 13.5px;
+    }
+
+    .sja-batch {
+      padding-left: 10px;
+    }
+
+    .sja-batch strong,
+    .sja-batch span {
+      display: block;
+      font-size: 14px;
+    }
+
+    .sja-gallery-main,
+    .sja-gallery-side .sja-photo,
+    .sja-photo {
+      min-height: 210px;
+    }
+
+    .sja-gallery-extra {
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(210px, 76vw);
+      grid-template-columns: none;
+      overflow-x: auto;
+      padding: 0 2px 12px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+
+    .sja-gallery-extra .sja-photo {
+      scroll-snap-align: start;
+    }
+
+    .sja-subject-card__image {
+      aspect-ratio: 16 / 9;
+    }
+
+    .sja-reviews-track {
+      grid-auto-columns: minmax(260px, 86vw);
+      gap: 14px;
+    }
+
+    .sja-review-card {
+      height: 300px;
+    }
+
+    .sja-review-card__body {
+      padding: 18px;
+    }
+
+    .sja-review-top {
+      display: grid;
+      gap: 6px;
+    }
+
+    .sja-fee-row strong {
+      font-size: 24px;
+    }
+
+    .sja-time-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .sja-mobile-sticky-cta {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 9999;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      border-top: 1px solid rgba(69, 53, 22, 0.14);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 -10px 26px rgba(69, 53, 22, 0.14);
+      backdrop-filter: blur(10px);
+    }
+
+    .sja-mobile-sticky-cta .sja-btn {
+      min-height: 46px;
+      padding: 12px 10px;
+      font-size: 13px;
+      border-radius: 10px;
+    }
+  }
+</style>
+
+<div class="sja-practicals-page">
+  <section class="sja-hero" id="practicals-hero">
+    <div class="sja-wrap">
+      <div class="sja-hero__head">
+        <h1 class="sja-title">A Level Practicals at SJ Academy</h1>
+        <p class="sja-lead"><strong>CAIE Physics, Chemistry and Biology practical preparation in Karachi</strong></p>
+      </div>
+
+      <div class="sja-hero__grid">
+        <div class="sja-hero__content">
+          <p class="sja-lead">Prepare for your Cambridge A Level practical exams through real lab work, checked practicals, teacher feedback, and Paper 3 exam technique.</p>
+
+          <ul class="sja-hero__highlights" aria-label="Course highlights">
+            <li>20+ practical experiments per subject</li>
+            <li>Every practical checked by experienced teachers</li>
+            <li>Learn CAIE tables, graphs, errors and marking technique</li>
+          </ul>
+
+          <div class="sja-btn-row">
+            <a class="sja-btn sja-btn--orange" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">Register for Oct/Nov '26 Batch &rarr;</a>
+            <a class="sja-btn sja-btn--outline" href="#course-details">View Course Details</a>
+            <a class="sja-hero__faq-link" href="#faqs">FAQs</a>
+          </div>
+
+          <div class="sja-batches" aria-label="Upcoming batches">
+            <div class="sja-batch">
+              <strong>Oct/Nov 2026 Batch Starting:</strong>
+              <span>1st July 2026</span>
+            </div>
+          </div>
+        </div>
+        <div class="sja-hero__media" role="img" aria-label="SJ Academy practical laboratory class"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sja-section" id="why-choose">
+    <div class="sja-wrap">
+      <div class="sja-section-head">
+        <h2 class="sja-section-title">Why Choose SJ Academy for Your A Level Practical Preparation?</h2>
+      </div>
+
+      <div class="sja-grid sja-grid--4">
+        <div class="sja-card sja-feature-card">
+          <div class="sja-card__body">
+            <span class="sja-feature-icon">1</span>
+            <h3>Complete Practical Preparation</h3>
+            <p>Perform Cambridge-style practical experiments covering all major Paper 3 skills using proper laboratory equipment.</p>
+          </div>
+        </div>
+
+        <div class="sja-card sja-feature-card">
+          <div class="sja-card__body">
+            <span class="sja-feature-icon">2</span>
+            <h3>Every Practical Checked by Expert Teachers</h3>
+            <p>Students don't just perform experiments. Every practical is checked by our experienced teachers with corrections and feedback to improve exam performance.</p>
+          </div>
+        </div>
+
+        <div class="sja-card sja-feature-card">
+          <div class="sja-card__body">
+            <span class="sja-feature-icon">3</span>
+            <h3>Learn How Your CAIE Exam Will Be Marked</h3>
+            <p>Master exactly how Cambridge awards marks for:</p>
+            <ul class="sja-list">
+              <li>Tables</li>
+              <li>Graphs</li>
+              <li>Significant figures</li>
+              <li>Units</li>
+              <li>Calculations</li>
+              <li>Errors &amp; improvements</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sja-card sja-feature-card">
+          <div class="sja-card__body">
+            <span class="sja-feature-icon">4</span>
+            <h3>Trusted by Hundreds of Students</h3>
+            <p>Hundreds of A Level students trust SJ Academy for practical classes, structured lab work, and Cambridge-focused exam preparation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sja-section sja-faq" id="faqs">
+    <div class="sja-wrap">
+      <div class="sja-section-head">
+        <h2 class="sja-section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="sja-faq-list">
+        <details class="sja-faq-item">
+          <summary>How long does the practical session last?</summary>
+          <div class="sja-faq-answer">
+            <p>Our practical session continues until the exam. However, students are prepared completely by mid-September so that all core practical skills are covered well before the exam period. Students are then called back before their exam for final revision, exam technique practice, and expected practical practice if reliable information is available.</p>
+          </div>
+        </details>
+
+        <details class="sja-faq-item">
+          <summary>When is the best time to join?</summary>
+          <div class="sja-faq-answer">
+            <p>The best time to join is when the session starts. This gives students more time to perform each practical in detail, understand the method properly, correct their mistakes, and build confidence gradually. Students who join later can still cover the practicals, but they may need to attend more regularly to complete everything before the exam.</p>
+          </div>
+        </details>
+
+        <details class="sja-faq-item">
+          <summary>Can I join just before the exam?</summary>
+          <div class="sja-faq-answer">
+            <p>Yes, students can join close to the exam through our practical workshops, where the key experiments and exam skills are covered in a short time. However, joining earlier is strongly recommended because students get more hands-on practice, more teacher feedback, and more time to improve. The fee remains the same regardless of when a student joins, so it is better to start early.</p>
+          </div>
+        </details>
+
+        <details class="sja-faq-item">
+          <summary>What do I need to bring for the classes?</summary>
+          <div class="sja-faq-answer">
+            <p>Students should bring basic stationery, a calculator, and a 30 cm ruler. These can also be purchased from the academy if needed. For Chemistry and Biology practicals, students are recommended to keep a lab coat. SJ Academy will provide the practical manual.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sja-section sja-section--soft" id="practical-experiments">
+    <div class="sja-wrap">
+      <div class="sja-section-head">
+        <span class="sja-kicker">Practical Experiments Covered</span>
+        <h2 class="sja-section-title">20+ Cambridge Style Practical Experiments Per Subject</h2>
+        <p class="sja-lead">Important examples are shown below. Students can open the complete subject lists for full details.</p>
+      </div>
+
+      <div class="sja-grid sja-grid--3">
+        <a class="sja-card sja-subject-card sja-subject-card--physics sja-experiment-card" href="/a-level-physics-practicals/">
+          <div class="sja-subject-card__image" role="img" aria-label="Physics practical apparatus and measurements"></div>
+          <div class="sja-card__body">
+            <span class="sja-subject-pill">Physics</span>
+            <h3>Physics Practical Experiments</h3>
+            <ul class="sja-topic-list">
+              <li>Oscillations</li>
+              <li>Objects in Equilibrium</li>
+              <li>Springs and Hooke's Law</li>
+              <li>Force and Extension Experiments</li>
+              <li>Density Measurements</li>
+              <li>Resistance Wire Experiments</li>
+              <li>Filament Bulb I-V Characteristics</li>
+              <li>Electrical Circuits</li>
+              <li>Graph analysis</li>
+              <li>Errors &amp; Uncertainties</li>
+            </ul>
+            <span class="sja-card-link">View Complete Physics Practical List &rarr;</span>
+          </div>
+        </a>
+
+        <a class="sja-card sja-subject-card sja-subject-card--chemistry sja-experiment-card" href="/a-level-chemistry-practicals/">
+          <div class="sja-subject-card__image" role="img" aria-label="Chemistry practical titration and lab work"></div>
+          <div class="sja-card__body">
+            <span class="sja-subject-pill">Chemistry</span>
+            <h3>Chemistry Practical Experiments</h3>
+            <ul class="sja-topic-list">
+              <li>Acid-Base Titrations</li>
+              <li>Redox Titrations</li>
+              <li>Salt analysis</li>
+              <li>Water of Crystallisation</li>
+              <li>Enthalpy Experiments</li>
+              <li>Rate Experiments</li>
+              <li>Qualitative Analysis</li>
+              <li>Organic tests</li>
+              <li>Gas Tests</li>
+              <li>Planning Questions</li>
+            </ul>
+            <span class="sja-card-link">View Complete Chemistry Practical List &rarr;</span>
+          </div>
+        </a>
+
+        <a class="sja-card sja-subject-card sja-subject-card--biology sja-experiment-card" href="/a-level-biology-practicals/">
+          <div class="sja-subject-card__image" role="img" aria-label="Biology practical microscope and laboratory work"></div>
+          <div class="sja-card__body">
+            <span class="sja-subject-pill">Biology</span>
+            <h3>Biology Practical Experiments</h3>
+            <ul class="sja-topic-list">
+              <li>Microscopy</li>
+              <li>Biological drawings</li>
+              <li>Magnification</li>
+              <li>Food Tests</li>
+              <li>Enzyme experiments</li>
+              <li>Osmosis</li>
+              <li>Photosynthesis</li>
+              <li>Serial Dilution</li>
+              <li>Data Analysis</li>
+              <li>Planning Questions</li>
+            </ul>
+            <span class="sja-card-link">View Complete Biology Practical List &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sja-section" id="exam-session">
+    <div class="sja-wrap">
+      <div class="sja-section-head">
+        <span class="sja-kicker">Select Your Practical Session</span>
+        <h2 class="sja-section-title">Choose the Batch That Matches Your Exam Session</h2>
+      </div>
+
+      <div class="sja-grid sja-grid--2">
+        <a class="sja-card sja-session-card sja-session-card--active" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">
+          <div class="sja-card__body">
+            <span class="sja-active-label">Current active session</span>
+            <div class="sja-session-meta">
+              <strong>Starting</strong>
+              <span>1st July 2026</span>
+            </div>
+            <h3>Oct/Nov 2026 Practical Batch</h3>
+            <p class="sja-session-subjects">Physics | Chemistry | Biology</p>
+            <ul class="sja-list">
+              <li>Complete practical preparation</li>
+              <li>Weekly lab classes</li>
+              <li>Past paper practice</li>
+              <li>Examiner focused preparation</li>
+            </ul>
+            <span class="sja-card-link">Register for Oct/Nov '26 &rarr;</span>
+          </div>
+        </a>
+
+        <a class="sja-card sja-session-card" href="/a-level-practical-may-june/">
+          <div class="sja-card__body">
+            <div class="sja-session-meta">
+              <strong>Starting</strong>
+              <span>November 2026</span>
+            </div>
+            <h3>May/June 2027 Practical Batch</h3>
+            <p class="sja-session-subjects">Physics | Chemistry | Biology</p>
+            <ul class="sja-list">
+              <li>Complete practical preparation</li>
+              <li>Regular laboratory practice</li>
+              <li>Exam preparation sessions</li>
+              <li>Expected paper practice if reliable information is received</li>
+            </ul>
+            <span class="sja-card-link">View May/June Details &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sja-section sja-section--soft" id="lab-gallery">
+    <div class="sja-wrap">
+      <div class="sja-section-head">
+        <span class="sja-kicker">Lab Gallery</span>
+        <h2 class="sja-section-title">Learn in a Real Practical Environment</h2>
+        <p class="sja-lead">Students practise with real apparatus, proper laboratory setup, and guided teacher supervision.</p>
+      </div>
+
+      <div class="sja-gallery-grid" aria-label="SJ Academy practical lab gallery">
+        <div class="sja-gallery-main" role="img" aria-label="Students performing practical experiments at SJ Academy"></div>
+        <div class="sja-gallery-side">
+          <div class="sja-photo sja-photo--setup" role="img" aria-label="SJ Academy laboratory setup and practical equipment"></div>
+          <div class="sja-photo sja-photo--class" role="img" aria-label="SJ Academy practical class in progress"></div>
+        </div>
+      </div>
+
+      <div class="sja-gallery-extra" aria-label="Additional SJ Academy practical photos">
+        <div class="sja-photo sja-photo--physics" role="img" aria-label="Physics practical apparatus at SJ Academy"></div>
+        <div class="sja-photo sja-photo--chemistry" role="img" aria-label="Chemistry practical lab work at SJ Academy"></div>
+        <div class="sja-photo sja-photo--biology" role="img" aria-label="Biology practical setup at SJ Academy"></div>
+        <div class="sja-photo sja-photo--gallery-4" role="img" aria-label="Biology practical photo at SJ Academy"></div>
+        <div class="sja-photo sja-photo--gallery-5" role="img" aria-label="Students performing practical work at SJ Academy"></div>
+        <div class="sja-photo sja-photo--gallery-6" role="img" aria-label="Practical lab apparatus at SJ Academy"></div>
+        <div class="sja-photo sja-photo--gallery-7" role="img" aria-label="A Level practical class photo at SJ Academy"></div>
+        <div class="sja-photo sja-photo--gallery-8" role="img" aria-label="A Level practical equipment photo at SJ Academy"></div>
+        <div class="sja-photo sja-photo--gallery-9" role="img" aria-label="Physics experiment setup at SJ Academy"></div>
+        <div class="sja-photo sja-photo--gallery-10" role="img" aria-label="Students working in the SJ Academy lab"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sja-section" id="course-details">
+    <div class="sja-wrap">
+      <div class="sja-section-head">
+        <span class="sja-kicker">Class Timings and Fees</span>
+        <h2 class="sja-section-title">Practical Class Schedule</h2>
+      </div>
+
+      <div class="sja-grid sja-grid--2 sja-details-grid">
+        <div class="sja-card sja-detail-card">
+          <div class="sja-card__body">
+            <h3>Saturday Classes</h3>
+            <div class="sja-timetable">
+              <div class="sja-time-row">
+                <strong>Chemistry</strong>
+                <span>10:00 AM - 12:00 PM</span>
+              </div>
+              <div class="sja-time-row">
+                <strong>Physics</strong>
+                <span>12:00 PM - 2:00 PM</span>
+              </div>
+              <div class="sja-time-row">
+                <strong>Biology</strong>
+                <span>2:00 PM - 4:00 PM</span>
+              </div>
+            </div>
+            <div class="sja-note">Weekday classes will also be available from September for students joining late or requiring extra practical preparation.</div>
+          </div>
+        </div>
+
+        <div class="sja-card sja-detail-card">
+          <div class="sja-card__body">
+            <h3>Fees</h3>
+            <div class="sja-fee">
+              <div class="sja-fee-row">
+                <span>Practical Course Fee</span>
+                <strong>PKR 25,000 / Subject</strong>
+              </div>
+              <div class="sja-fee-row">
+                <span>Registration Fee</span>
+                <strong>PKR 3,000</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sja-reviews-section" id="student-reviews">
+    <div class="sja-wrap">
+      <div class="sja-section-head">
+        <span class="sja-kicker">Student Reviews</span>
+        <h2 class="sja-section-title">What Our Practical Students Say</h2>
+        <p class="sja-lead">Trusted by A Level students preparing for Physics, Chemistry, and Biology practical exams.</p>
+        <p class="sja-lead">Swipe or scroll to view more reviews.</p>
+      </div>
+
+      <div class="sja-reviews-track" aria-label="A Level practical student reviews">
+        <article class="sja-review-card">
+          <div class="sja-review-card__body">
+            <div class="sja-review-top">
+              <div>
+                <h3 class="sja-review-name">Ayra</h3>
+                <span class="sja-review-source">Student</span>
+              </div>
+              <div class="sja-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <div class="sja-review-text">
+              <p>Sir Salman is an excellent teacher! Cleared all my concepts and corrected every mistake I was making during my Physics practical. Wonderful experience, really helpful.</p>
+            </div>
+            <button class="sja-review-toggle" type="button" aria-expanded="false">Read More</button>
+          </div>
+        </article>
+
+        <article class="sja-review-card">
+          <div class="sja-review-card__body">
+            <div class="sja-review-top">
+              <div>
+                <h3 class="sja-review-name">Mubarka Millwala</h3>
+                <span class="sja-review-source">Student</span>
+              </div>
+              <div class="sja-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <div class="sja-review-text">
+              <p>I joined start of May with my Chemistry practical being around the end of the month and the work environment is a perfect balance of fun and studying.</p>
+              <p>We did each and every type of practical and Sir Salman is an amazing teacher to learn from.</p>
+              <p>From a person who never understood qualitative analysis, I finally got a hang of it.</p>
+              <p>I used to get tired doing even one practical but now I sit and do 3&ndash;4 with Sir.</p>
+              <p>Would recommend for sure!</p>
+            </div>
+            <button class="sja-review-toggle" type="button" aria-expanded="false">Read More</button>
+          </div>
+        </article>
+
+        <article class="sja-review-card">
+          <div class="sja-review-card__body">
+            <div class="sja-review-top">
+              <div>
+                <h3 class="sja-review-name">Fabiha Zahid</h3>
+                <span class="sja-review-source">Student</span>
+              </div>
+              <div class="sja-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <div class="sja-review-text">
+              <p>SJ Academy is an excellent place.</p>
+              <p>The teacher (Sir Salman) is highly supportive and explains concepts clearly, making tough topics easy to understand.</p>
+              <p>Taking practical classes here really boosted my confidence, and I learned a lot of new skills that I needed for my exams.</p>
+              <p>The environment is friendly and motivating.</p>
+              <p>Highly recommend it to anyone aiming for strong results.</p>
+            </div>
+            <button class="sja-review-toggle" type="button" aria-expanded="false">Read More</button>
+          </div>
+        </article>
+
+        <article class="sja-review-card">
+          <div class="sja-review-card__body">
+            <div class="sja-review-top">
+              <div>
+                <h3 class="sja-review-name">Hania Shaikh</h3>
+                <span class="sja-review-source">Student</span>
+              </div>
+              <div class="sja-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <div class="sja-review-text">
+              <p>I had a fantastic experience at SJ Academy!</p>
+              <p>Sir Salman was incredibly helpful with my Chemistry and Physics practicals.</p>
+              <p>His jokes made the lab sessions a blast, and I always looked forward to class.</p>
+              <p>Sir Umair was great for Biology practicals too.</p>
+              <p>As a private student with little experience, I felt a bit lost at first, but after attending classes, I gained so much confidence for my CAIEs.</p>
+              <p>Overall, SJ Academy made learning fun and effective.</p>
+              <p>Highly recommend it!</p>
+            </div>
+            <button class="sja-review-toggle" type="button" aria-expanded="false">Read More</button>
+          </div>
+        </article>
+
+        <article class="sja-review-card">
+          <div class="sja-review-card__body">
+            <div class="sja-review-top">
+              <div>
+                <h3 class="sja-review-name">Manahil Ahmed</h3>
+                <span class="sja-review-source">Student</span>
+              </div>
+              <div class="sja-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <div class="sja-review-text">
+              <p>Sir Salman was honestly the best help I could have gotten for Chemistry P3 preparation.</p>
+              <p>He explained everything really clearly and made practicals so much easier to understand.</p>
+              <p>He always made sure learning with him never felt boring or stressful, and was super patient and always open to questions.</p>
+              <p>Because of his classes, I felt a lot more confident going into my exam and I can truly say he made the biggest difference in my performance.</p>
+              <p>I'd definitely recommend him to anyone who needs support with Chem P3!</p>
+            </div>
+            <button class="sja-review-toggle" type="button" aria-expanded="false">Read More</button>
+          </div>
+        </article>
+
+        <article class="sja-review-card">
+          <div class="sja-review-card__body">
+            <div class="sja-review-top">
+              <div>
+                <h3 class="sja-review-name">Wareesha T.</h3>
+                <span class="sja-review-source">Student</span>
+              </div>
+              <div class="sja-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <div class="sja-review-text">
+              <p>Sir Salman is honestly the best teacher for Physics.</p>
+              <p>When I first started going to SJ Academy, I had no clue what to do in the Physics lab but within just a week, I learned so much!</p>
+              <p>Now the lab feels super easy and even fun.</p>
+              <p>Sir Salman gives individual attention to everyone and makes sure we're on track with the syllabus and fully ready for CAIEs.</p>
+              <p>The staff is also really helpful and friendly.</p>
+              <p>SJ Academy is super convenient and helpful.</p>
+              <p>10/10 experience!</p>
+            </div>
+            <button class="sja-review-toggle" type="button" aria-expanded="false">Read More</button>
+          </div>
+        </article>
+
+        <article class="sja-review-card">
+          <div class="sja-review-card__body">
+            <div class="sja-review-top">
+              <div>
+                <h3 class="sja-review-name">Laiba Baksh</h3>
+                <span class="sja-review-source">Student</span>
+              </div>
+              <div class="sja-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <div class="sja-review-text">
+              <p>Sir Salman is hands down the BEST Chemistry teacher in town!</p>
+              <p>He's always available to help, going above and beyond to ensure his students understand the material.</p>
+              <p>He's willing to put in extra hours, provide additional support, and tailor his teaching to meet individual needs.</p>
+              <p>His dedication and passion for teaching are truly inspiring!</p>
+              <p>If you're looking for a Chemistry teacher who will genuinely help you excel, look no further than Sir Salman.</p>
+              <p>Highly recommended!</p>
+            </div>
+            <button class="sja-review-toggle" type="button" aria-expanded="false">Read More</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="sja-google-link-row">
+        <a class="sja-btn sja-btn--outline" href="https://www.google.com/search?q=SJ+Academy+Karachi+Google+Reviews" target="_blank" rel="noopener">See All Reviews on Google</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sja-final-cta" id="register-practicals">
+    <div class="sja-wrap">
+      <h2 class="sja-section-title">Admissions Open for Oct/Nov 2026 Practical Batch</h2>
+      <p class="sja-lead">Join SJ Academy and prepare for your practical exam through real experiments, teacher feedback, and CAIE-focused preparation.</p>
+      <div class="sja-btn-row">
+        <a class="sja-btn sja-btn--orange" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">Register for Oct/Nov '26 Batch &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sja-mobile-sticky-cta" aria-label="Mobile registration actions">
+    <a class="sja-btn sja-btn--orange" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">Register</a>
+    <a class="sja-btn sja-btn--outline" href="#course-details">Details</a>
+  </div>
+</div>
+
+<script>
+  (function () {
+    document.querySelectorAll(".sja-review-card").forEach(function (card) {
+      var text = card.querySelector(".sja-review-text");
+      var toggle = card.querySelector(".sja-review-toggle");
+
+      if (!text || !toggle) return;
+
+      if (text.scrollHeight <= text.clientHeight + 2) {
+        toggle.style.display = "none";
+        return;
+      }
+
+      toggle.addEventListener("click", function () {
+        var isExpanded = card.classList.toggle("is-expanded");
+        toggle.textContent = isExpanded ? "Show Less" : "Read More";
+        toggle.setAttribute("aria-expanded", String(isExpanded));
+      });
+    });
+  })();
+</script>

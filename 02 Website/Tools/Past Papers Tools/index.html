@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Level Past Papers — Download Math, Physics, Business & Biology Free</title>
+  <meta name="description" content="Download free A Level past papers for all subjects. Access business past papers, physics past papers, A level math past papers, and chemistry past papers with mark schemes instantly at SJ Academy.">
+  <meta name="keywords" content="A Level past papers, A Level Business past papers, A Level Math past papers, A Level Physics past papers, A Level Economics past papers, A Level Chemistry past papers, A Level Biology past papers, CIE past papers, Cambridge A Level papers, free past papers download">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sjacademy.com/a-level-past-papers">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="A Level Past Papers — Download Free | SJ Academy">
+  <meta property="og:description" content="Download free A Level past papers for all major subjects. Filter by subject, year, session, and paper type.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sjacademy.com/a-level-past-papers">
+  <meta name="twitter:card" content="summary">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-yellow: #FCE004;
+      --brown: #453516;
+      --orange: #FE6100;
+      --orange-dark: #e55800;
+      --black: #000000;
+      --white: #FFFFFF;
+      --grey: #555555;
+      --dark-grey: #222222;
+      --light-bg: #FAFAFA;
+      --light-yellow: #FFF9CC;
+      --whatsapp-green: #25D366;
+      --border-light: #e5e5e5;
+      --shadow-card: 0 10px 25px rgba(0,0,0,0.05);
+      --shadow-card-hover: 0 20px 40px rgba(0,0,0,0.1);
+      --shadow-button: 0 4px 10px rgba(254,97,0,0.3);
+      --shadow-button-hover: 0 10px 20px rgba(254,97,0,0.4);
+      --transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    header { padding: 24px 0 0; text-align: center; }
+
+    .mode-badge-wrap {
+      display: inline-block;
+      border: 2px solid var(--black);
+      border-radius: 50px;
+      padding: 6px 8px;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+      margin-bottom: 16px;
+    }
+
+    .mode-badge {
+      background: var(--primary-yellow);
+      color: var(--black);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 6px 18px;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mode-badge svg { width: 14px; height: 14px; fill: var(--black); }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+
+    header h1 .highlight {
+      background: linear-gradient(120deg, var(--primary-yellow) 0%, var(--primary-yellow) 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 35%;
+      background-position: 0 85%;
+      display: inline;
+      padding: 0 3px;
+    }
+
+    header .subtitle {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--dark-grey);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    .subject-links { padding: 20px 0 0; text-align: center; }
+
+    .subject-links p {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--grey);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .subject-links-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .subject-link {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 40px;
+      border: 1.5px solid var(--brown);
+      background: var(--white);
+      color: var(--brown);
+      text-decoration: none;
+      transition: all 0.3s var(--transition);
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .subject-link:hover {
+      background: var(--primary-yellow);
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    }
+
+    .controls-section { padding: 24px 0 16px; }
+
+    .filters-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--dark-grey);
+      margin-bottom: 5px;
+    }
+
+    .filter-group select {
+      width: 100%;
+      padding: 12px 35px 12px 14px;
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      background: var(--white);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23453516' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      cursor: pointer;
+    }
+
+    .active-filters {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      min-height: 30px;
+    }
+
+    .results-section { padding: 12px 0 40px; }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-light);
+    }
+
+    .results-count { font-size: 13px; color: var(--grey); font-weight: 500; }
+    .results-count span { font-weight: 800; color: var(--orange); }
+
+    .papers-list { display: flex; flex-direction: column; gap: 16px; min-height: 200px; }
+
+    .paper-card {
+      background: var(--white);
+      padding: 20px;
+      border-top: 5px solid var(--brown);
+      border-radius: 12px;
+      box-shadow: var(--shadow-card);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      transition: all 0.3s var(--transition);
+      animation: fadeUp 0.4s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .paper-subject {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      line-height: 1.3;
+    }
+
+    .paper-code {
+      font-size: 10px;
+      font-weight: 800;
+      background: var(--primary-yellow);
+      color: var(--black);
+      padding: 2px 8px;
+      border-radius: 40px;
+      border: 1.5px solid var(--brown);
+    }
+
+    .paper-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr; 
+      gap: 12px 10px;
+    }
+
+    .paper-meta .kv { display: flex; flex-direction: column; }
+
+    .kv-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--grey);
+      margin-bottom: 2px;
+    }
+
+    .kv-value { font-size: 13px; font-weight: 600; color: var(--dark-grey); line-height: 1.2; }
+    
+    /* Type Color Coding */
+    .kv-value.type-qp { color: var(--orange); }
+    .kv-value.type-ms { color: #16a34a; }
+    .kv-value.type-er { color: #92400e; }
+    .kv-value.type-in { color: #4b5563; }
+    .kv-value.type-ci { color: #7c3aed; }
+
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-button);
+      width: 100%;
+    }
+
+    .download-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .show-more-wrap { text-align: center; margin-top: 24px; }
+
+    .show-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--brown);
+      border: 2px solid var(--brown);
+      border-radius: 8px;
+      padding: 14px 30px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--light-yellow);
+      border-top: 6px solid var(--primary-yellow);
+      border-radius: 12px;
+    }
+
+    footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-light); background: var(--light-bg); }
+    footer .meta { font-size: 11px; color: #666; font-style: italic; line-height: 1.6; }
+    footer .contact-info { margin-top: 12px; font-size: 12px; font-weight: 700; color: var(--dark-grey); }
+    footer .meta a { color: var(--orange); text-decoration: none; font-weight: 700; }
+
+    @media (min-width: 768px) {
+      header { padding: 40px 0 0; }
+      header h1 { font-size: 3.2rem; }
+      header .subtitle { font-size: 1.05rem; }
+      .filters-grid { grid-template-columns: repeat(5, 1fr); gap: 14px; }
+      .paper-card { grid-template-columns: 1fr auto; align-items: center; padding: 22px 28px; gap: 24px; }
+      .paper-subject { font-size: 1.35rem; margin-bottom: 12px; }
+      .paper-meta { grid-template-columns: repeat(5, auto); gap: 20px; }
+      .download-btn { width: auto; padding: 12px 24px; }
+      .show-more-btn { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="mode-badge-wrap">
+        <div class="mode-badge">
+          <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+          Past Papers
+        </div>
+      </div>
+      <h1>A Level <span class="highlight">Past Papers</span></h1>
+      <p class="subtitle">Search and download all CAIE A Level past papers and marking schemes, instantly!</p>
+    </div>
+  </header>
+
+  <section class="subject-links">
+    <div class="container">
+      <p>Quick Jump:</p>
+      <div class="subject-links-grid">
+        <a class="subject-link" data-subject="Mathematics">Mathematics (9709)</a>
+        <a class="subject-link" data-subject="Physics">Physics (9702)</a>
+        <a class="subject-link" data-subject="Chemistry">Chemistry (9701)</a>
+        <a class="subject-link" data-subject="Business">Business (9609)</a>
+        <a class="subject-link" data-subject="Economics">Economics (9708)</a>
+        <a class="subject-link" data-subject="Biology">Biology (9700)</a>
+        <a class="subject-link" data-subject="Computer Science">Computer Science (9618)</a>
+        <a class="subject-link" data-subject="Law">Law (9084)</a>
+        <a class="subject-link" data-subject="Psychology">Psychology (9990)</a>
+        <a class="subject-link" data-subject="Sociology">Sociology (9699)</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="controls-section">
+    <div class="container">
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label for="subjectFilter">Subject</label>
+          <select id="subjectFilter"><option value="">All Subjects</option></select>
+        </div>
+        <div class="filter-group">
+          <label for="yearFilter">Year</label>
+          <select id="yearFilter"><option value="">All Years</option></select>
+        </div>
+        <div class="filter-group">
+          <label for="sessionFilter">Session</label>
+          <select id="sessionFilter"><option value="">All Sessions</option></select>
+        </div>
+        <div class="filter-group">
+          <label for="paperFilter">Paper</label>
+          <select id="paperFilter"><option value="">All Papers</option></select>
+        </div>
+        <div class="filter-group">
+          <label for="typeFilter">Type</label>
+          <select id="typeFilter"><option value="">All Types</option></select>
+        </div>
+      </div>
+      <div class="active-filters" id="activeFilters"></div>
+    </div>
+  </section>
+
+  <section class="results-section">
+    <div class="container">
+      <div class="results-header">
+        <div class="results-count">Showing <span id="resultsCount">0</span></div>
+      </div>
+      <div class="papers-list" id="papersList">
+        <!-- JS populated results -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="meta">Past papers for educational purposes only. All content belongs to their respective exam boards.</p>
+      <div class="contact-info">contact@sjacademy.pk | WhatsApp: +923362144454</div>
+    </div>
+  </footer>
+
+<script>
+(function() {
+  const BUCKET_BASE = "https://f006.backblazeb2.com/file/Past-papers-storage";
+  const PAGE_SIZE = 25;
+  
+  // A Level Subject Configuration (Years 2020 - 2025)
+  const subjectsData = [
+    { folderName: "Accounts (9706)", displayName: "Accounts", code: "9706", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } },
+    { folderName: "Biology (9700)", displayName: "Biology", code: "9700", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in", "ci"], 4: ["qp", "ms"], 5: ["qp", "ms"] } },
+    { folderName: "Business (9609)", displayName: "Business", code: "9609", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } },
+    { folderName: "Chemistry (9701)", displayName: "Chemistry", code: "9701", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in", "ci"], 4: ["qp", "ms"], 5: ["qp", "ms"] } },
+    { folderName: "Computer Science (9618)", displayName: "Computer Science", code: "9618", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } },
+    { folderName: "Economics (9708)", displayName: "Economics", code: "9708", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } },
+    { folderName: "English (9695)", displayName: "English", code: "9695", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } },
+    { folderName: "Law (9084)", displayName: "Law", code: "9084", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } },
+    { folderName: "Mathematics (9709)", displayName: "Mathematics", code: "9709", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"], 5: ["qp", "ms"], 6: ["qp", "ms"] } },
+    { folderName: "Physics (9702)", displayName: "Physics", code: "9702", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in", "ci"], 4: ["qp", "ms"], 5: ["qp", "ms"] } },
+    { folderName: "Psychology (9990)", displayName: "Psychology", code: "9990", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } },
+    { folderName: "Sociology (9699)", displayName: "Sociology", code: "9699", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } },
+    { folderName: "Urdu (9686)", displayName: "Urdu", code: "9686", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [2, 3], paperTypes: { 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } }
+  ];
+
+  const typeLabels = { qp: "Question Paper", ms: "Mark Scheme", in: "Insert", er: "Examiner Report", ci: "Confidential Instructions" };
+  const sessionLabels = { s: "May/June", w: "Oct/Nov" };
+
+  let allPapers = [];
+  let currentFiltered = [];
+  let currentCount = PAGE_SIZE;
+
+  function buildUrl(subj, year, session, paper, type, variant) {
+    const shortYear = String(year).slice(-2);
+    const filename = `${subj.code}_${session}${shortYear}_${type}_${paper}${variant}`;
+    const sessionFolder = session === "s" ? `May+June+${year}` : `October+November+${year}`;
+    const folderPart = subj.folderName.replace(/\s/g, '+').replace(/\(/g, '%28').replace(/\)/g, '%29');
+    return `${BUCKET_BASE}/A+Level/${folderPart}/${sessionFolder}/${filename}.pdf`;
+  }
+
+  function init() {
+    const listEl = document.getElementById('papersList');
+    if (!listEl) return;
+
+    subjectsData.forEach(subj => {
+      subj.years.forEach(year => {
+        subj.sessions.forEach(session => {
+          Object.keys(subj.paperTypes).forEach(paperNum => {
+            const types = subj.paperTypes[paperNum];
+            subj.variants.forEach(variant => {
+              types.forEach(type => {
+                allPapers.push({
+                  subject: subj.displayName, code: subj.code, year: year, session: sessionLabels[session],
+                  paper: parseInt(paperNum), variant: variant, type: typeLabels[type], typeCode: type, url: buildUrl(subj, year, session, paperNum, type, variant)
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+
+    const subFilter = document.getElementById('subjectFilter');
+    const yrFilter = document.getElementById('yearFilter');
+    const sessFilter = document.getElementById('sessionFilter');
+    const pFilter = document.getElementById('paperFilter');
+    const tFilter = document.getElementById('typeFilter');
+
+    const subjs = [...new Set(allPapers.map(p => p.subject))].sort();
+    const years = [...new Set(allPapers.map(p => p.year))].sort((a,b) => b-a);
+    const sess = [...new Set(allPapers.map(p => p.session))];
+    const types = [...new Set(allPapers.map(p => p.type))].sort();
+
+    subjs.forEach(s => subFilter.add(new Option(s, s)));
+    years.forEach(y => yrFilter.add(new Option(y, y)));
+    sess.forEach(s => sessFilter.add(new Option(s, s)));
+    types.forEach(t => tFilter.add(new Option(t, t)));
+    [1,2,3,4,5,6].forEach(p => pFilter.add(new Option(`Paper ${p}`, p)));
+
+    [subFilter, yrFilter, sessFilter, pFilter, tFilter].forEach(el => {
+      el.addEventListener('change', () => { currentCount = PAGE_SIZE; render(); });
+    });
+
+    document.querySelectorAll('.subject-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        subFilter.value = link.getAttribute('data-subject');
+        [yrFilter, sessFilter, pFilter, tFilter].forEach(f => f.value = '');
+        currentCount = PAGE_SIZE;
+        render();
+        document.querySelector('.controls-section').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    render();
+  }
+
+  function render() {
+    const subject = document.getElementById('subjectFilter').value;
+    const year = document.getElementById('yearFilter').value;
+    const session = document.getElementById('sessionFilter').value;
+    const paper = document.getElementById('paperFilter').value;
+    const type = document.getElementById('typeFilter').value;
+
+    currentFiltered = allPapers.filter(p => {
+      if (subject && p.subject !== subject) return false;
+      if (year && p.year != year) return false;
+      if (session && p.session !== session) return false;
+      if (paper && p.paper != paper) return false;
+      if (type && p.type !== type) return false;
+      return true;
+    }).sort((a,b) => b.year - a.year || a.subject.localeCompare(b.subject) || a.paper - b.paper || a.variant - b.variant);
+
+    const container = document.getElementById('papersList');
+    const countEl = document.getElementById('resultsCount');
+    
+    container.innerHTML = '';
+    const toShow = currentFiltered.slice(0, currentCount);
+    countEl.innerHTML = `<span>${toShow.length}</span> of <span>${currentFiltered.length}</span> papers`;
+
+    if (toShow.length === 0) {
+      container.innerHTML = `<div class="empty-state"><h3>No papers found</h3><p>Adjust filters or try a different year.</p></div>`;
+    } else {
+      toShow.forEach((p, i) => {
+        const card = document.createElement('div');
+        card.className = 'paper-card';
+        card.style.animationDelay = `${i * 0.02}s`;
+        const typeClass = `type-${p.typeCode}`;
+        
+        card.innerHTML = `
+          <div class="paper-info">
+            <div class="paper-subject">${p.subject} <span class="paper-code">${p.code}</span></div>
+            <div class="paper-meta">
+              <div class="kv"><span class="kv-label">Year</span><span class="kv-value">${p.year}</span></div>
+              <div class="kv"><span class="kv-label">Session</span><span class="kv-value">${p.session}</span></div>
+              <div class="kv"><span class="kv-label">Paper</span><span class="kv-value">${p.paper}</span></div>
+              <div class="kv"><span class="kv-label">Variant</span><span class="kv-value">${p.variant}</span></div>
+              <div class="kv"><span class="kv-label">Type</span><span class="kv-value ${typeClass}">${p.type}</span></div>
+            </div>
+          </div>
+          <a href="${p.url}" class="download-btn" target="_blank" rel="noopener" download>
+            <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Download
+          </a>
+        `;
+        container.appendChild(card);
+      });
+
+      if (currentCount < currentFiltered.length) {
+        const btnWrap = document.createElement('div');
+        btnWrap.className = 'show-more-wrap';
+        btnWrap.innerHTML = `<button class="show-more-btn" id="loadMoreALevel">Show More Results</button>`;
+        container.appendChild(btnWrap);
+        
+        document.getElementById('loadMoreALevel').addEventListener('click', () => {
+          currentCount += PAGE_SIZE;
+          render();
+        });
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

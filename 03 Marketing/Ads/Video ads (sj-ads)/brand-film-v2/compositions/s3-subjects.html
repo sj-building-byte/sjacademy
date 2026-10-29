@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-ExtraBold.ttf") format("truetype"); font-weight: 800; }
+        #root { position: absolute; inset: 0; overflow: hidden; background: #151515; font-family: "Poppins", sans-serif; }
+        .s3-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+        #s3-codes { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+        .s3-m { display: block; overflow: hidden; padding: 0 0.1em 0.06em; }
+        .s3-m > span { display: inline-block; }
+        .s3-lab { position: absolute; left: 100px; top: 1140px; width: 880px; text-align: center; color: #453516; font-weight: 600; font-size: 52px; line-height: 1.2; letter-spacing: -0.02em; opacity: 0; }
+        #s3-know { position: absolute; left: 100px; top: 1360px; width: 880px; text-align: center; color: #151515; font-weight: 600; font-size: 76px; line-height: 1.1; letter-spacing: -0.04em; }
+        #s3-grid { position: absolute; inset: 0; background: #151515; opacity: 0; }
+        #s3-head { position: absolute; left: 100px; top: 300px; width: 880px; color: #F7F5EF; font-weight: 600; font-size: 104px; line-height: 1.05; letter-spacing: -0.045em; }
+        .s3-hlw { position: relative; display: inline-block; }
+        #s3-hl { position: absolute; left: -0.06em; right: -0.06em; top: 0.14em; bottom: 0.02em; background: #FCE004; border-radius: 10px; transform-origin: 0 50%; }
+        #s3-teach { position: relative; color: #F7F5EF; }
+        .s3-cell { position: absolute; width: 428px; height: 364px; overflow: hidden; border-radius: 28px; background: #2B2B2B; opacity: 0; }
+        .s3-cell video { position: absolute; left: 0; width: 428px; height: 761px; object-fit: cover; }
+        .s3-cell .s3-fade { position: absolute; left: 0; bottom: 0; width: 428px; height: 170px; background: linear-gradient(rgba(21, 21, 21, 0), rgba(21, 21, 21, 0.8)); }
+        .s3-cell .s3-tag { position: absolute; left: 26px; bottom: 20px; color: #F7F5EF; font-weight: 600; font-size: 44px; line-height: 1.1; letter-spacing: -0.03em; white-space: nowrap; }
+        #s3-pen { position: absolute; left: 100px; top: 480px; width: 428px; height: 364px; overflow: visible; }
+        #s3-pen path { fill: none; stroke: #D63A2F; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+      </style>
+      <div data-hf-id="hf-mt9i" id="root" data-composition-id="s3-subjects" data-width="1080" data-height="1920" data-duration="4.9664">
+        <!-- bar 7: one code per beat, the subject playing inside the digits -->
+        <video data-hf-id="hf-wio3" data-hf-media-start-basis="local" id="s3-v1" class="clip s3-full" src="assets/clips/flask.mp4" data-start="0" data-duration="0.6208" data-track-index="1" muted playsinline></video>
+        <video data-hf-id="hf-78u6" data-hf-media-start-basis="local" id="s3-v2" class="clip s3-full" src="assets/clips/calc.mp4" data-start="0.6208" data-duration="0.6208" data-track-index="1" muted playsinline></video>
+        <video data-hf-id="hf-g231" data-hf-media-start-basis="local" id="s3-v3" class="clip s3-full" src="assets/clips/biz.mp4" data-start="1.2416" data-duration="0.6208" data-track-index="1" muted playsinline></video>
+        <video data-hf-id="hf-6k1y" data-hf-media-start-basis="local" id="s3-v4" class="clip s3-full" src="assets/clips/cs.mp4" data-start="1.8624" data-duration="0.6208" data-track-index="1" muted playsinline></video>
+        <svg data-hf-id="hf-4wi8" id="s3-codes" viewBox="0 0 1080 1920" aria-label="Subject codes">
+          <defs data-hf-id="hf-mh0t">
+            <mask data-hf-id="hf-bple" id="s3-holes" maskUnits="userSpaceOnUse" x="0" y="0" width="1080" height="1920">
+              <rect data-hf-id="hf-97fe" x="0" y="0" width="1080" height="1920" fill="white" />
+              <g data-hf-id="hf-gjp9" font-family="Poppins" font-weight="800" font-size="330" letter-spacing="-12" text-anchor="middle" fill="black">
+                <text data-hf-id="hf-dtcs" id="s3-t1" x="540" y="1040">5070</text>
+                <text data-hf-id="hf-uyjs" id="s3-t2" x="540" y="1040" opacity="0">9709</text>
+                <text data-hf-id="hf-wqf4" id="s3-t3" x="540" y="1040" opacity="0">9609</text>
+                <text data-hf-id="hf-tdmn" id="s3-t4" x="540" y="1040" opacity="0">9618</text>
+              </g>
+            </mask>
+          </defs>
+          <rect data-hf-id="hf-mcpq" x="0" y="0" width="1080" height="1920" fill="#FCE004" mask="url(#s3-holes)" />
+        </svg>
+        <div data-hf-id="hf-2vh1" id="s3-l1" class="s3-lab">O Level Chemistry</div>
+        <div data-hf-id="hf-wdnz" id="s3-l2" class="s3-lab">A Level Maths</div>
+        <div data-hf-id="hf-3oh3" id="s3-l3" class="s3-lab">A Level Business</div>
+        <div data-hf-id="hf-vcnt" id="s3-l4" class="s3-lab">A Level Computer Science</div>
+        <div data-hf-id="hf-vsv5" id="s3-know"><span data-hf-id="hf-nred" class="s3-m"><span data-hf-id="hf-8wwo" id="s3-k1">You know these</span></span><span class="s3-m"><span id="s3-k2">subject codes.</span></span></div>
+
+        <!-- bar 8: the subjects as a bento grid -->
+        <div data-hf-id="hf-27sg" id="s3-grid"></div>
+        <div data-hf-id="hf-ktpi" id="s3-head"><span data-hf-id="hf-bzqh" class="s3-m"><span data-hf-id="hf-12io" id="s3-h1">We <span data-hf-id="hf-wbir" class="s3-hlw"><span data-hf-id="hf-pek1" id="s3-hl"></span><span data-hf-id="hf-qg41" id="s3-teach">teach</span></span> them.</span></span></div>
+        <div data-hf-id="hf-l1vq" id="s3-c1" class="s3-cell" style="left: 100px; top: 480px">
+          <video data-hf-id="hf-y5sb" data-hf-media-start-basis="local" id="s3-g1" class="clip" src="assets/clips/flask.mp4" data-start="2.4832" data-duration="2.4832" data-media-start="2.2" data-track-index="2" muted playsinline style="top: -252px"></video>
+          <div data-hf-id="hf-19rh" class="s3-fade"></div><div data-hf-id="hf-xf19" class="s3-tag">Chemistry</div>
+        </div>
+        <div data-hf-id="hf-gd5o" id="s3-c2" class="s3-cell" style="left: 552px; top: 480px">
+          <video data-hf-id="hf-cb58" data-hf-media-start-basis="local" id="s3-g2" class="clip" src="assets/clips/phys.mp4" data-start="2.4832" data-duration="2.4832" data-track-index="2" muted playsinline style="top: -120px"></video>
+          <div data-hf-id="hf-ydlt" class="s3-fade"></div><div data-hf-id="hf-qmbu" class="s3-tag">Physics</div>
+        </div>
+        <div data-hf-id="hf-i2bi" id="s3-c3" class="s3-cell" style="left: 100px; top: 868px">
+          <video data-hf-id="hf-uc2k" data-hf-media-start-basis="local" id="s3-g3" class="clip" src="assets/clips/bio.mp4" data-start="2.4832" data-duration="2.4832" data-track-index="2" muted playsinline style="top: -200px"></video>
+          <div data-hf-id="hf-zkiw" class="s3-fade"></div><div data-hf-id="hf-77lw" class="s3-tag">Biology</div>
+        </div>
+        <div data-hf-id="hf-w0k4" id="s3-c4" class="s3-cell" style="left: 552px; top: 868px">
+          <video data-hf-id="hf-2lwx" data-hf-media-start-basis="local" id="s3-g4" class="clip" src="assets/clips/calc.mp4" data-start="2.4832" data-duration="2.4832" data-media-start="1.5" data-track-index="2" muted playsinline style="top: -200px"></video>
+          <div data-hf-id="hf-z67v" class="s3-fade"></div><div data-hf-id="hf-ld3g" class="s3-tag">Maths</div>
+        </div>
+        <div data-hf-id="hf-2nym" id="s3-c5" class="s3-cell" style="left: 100px; top: 1256px">
+          <video data-hf-id="hf-vbxt" data-hf-media-start-basis="local" id="s3-g5" class="clip" src="assets/clips/eng.mp4" data-start="2.4832" data-duration="2.4832" data-track-index="2" muted playsinline style="top: -230px"></video>
+          <div data-hf-id="hf-x6oq" class="s3-fade"></div><div data-hf-id="hf-7gib" class="s3-tag">English</div>
+        </div>
+        <div data-hf-id="hf-nnew" id="s3-c6" class="s3-cell" style="left: 552px; top: 1256px">
+          <video data-hf-id="hf-v4ij" data-hf-media-start-basis="local" id="s3-g6" class="clip" src="assets/clips/biz.mp4" data-start="2.4832" data-duration="2.4832" data-media-start="0.8" data-track-index="2" muted playsinline style="top: -60px"></video>
+          <div data-hf-id="hf-wsdp" class="s3-fade"></div><div data-hf-id="hf-dneb" class="s3-tag">Business</div>
+        </div>
+        <!-- red pen rings the flask as it turns pink -->
+        <svg data-hf-id="hf-v8as" id="s3-pen" viewBox="0 0 428 364"><path data-hf-id="hf-73x6" id="s3-ring" pathLength="1" d="M 232 92 C 312 96, 334 150, 322 196 C 308 252, 236 282, 176 276 C 112 270, 82 226, 88 178 C 96 120, 150 88, 252 100" /></svg>
+      </div>
+      <script>
+        (function () {
+          const BAR = 2.483187, BEAT = BAR / 4;
+          const tl = gsap.timeline({ paused: true });
+
+          // Bar 7: codes swap on the beat; the line holds under them.
+          for (let i = 2; i <= 4; i++) {
+            tl.set("#s3-t" + (i - 1), { attr: { opacity: 0 } }, (i - 1) * BEAT);
+            tl.set("#s3-t" + i, { attr: { opacity: 1 } }, (i - 1) * BEAT);
+          }
+          for (let i = 1; i <= 4; i++) {
+            tl.set("#s3-l" + i, { opacity: 1 }, (i - 1) * BEAT + 0.04);
+            if (i < 4) tl.set("#s3-l" + i, { opacity: 0 }, i * BEAT);
+          }
+          tl.fromTo("#s3-codes", { scale: 1.06 }, { scale: 1, duration: BAR, ease: "power2.out" }, 0);
+          tl.fromTo("#s3-k1", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "expo.out" }, 0.2);
+          tl.fromTo("#s3-k2", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "expo.out" }, 0.28);
+          tl.to(["#s3-k1", "#s3-k2"], { yPercent: -110, duration: 0.25, ease: "expo.in" }, BAR - 0.28);
+          tl.to("#s3-l4", { opacity: 0, duration: 0.2, ease: "power1.in" }, BAR - 0.25);
+
+          // Bar 8: the grid. "We teach them." The pen rings the flask.
+          tl.set("#s3-grid", { opacity: 1 }, BAR);
+          tl.fromTo("#s3-h1", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "expo.out" }, BAR + 0.05);
+          tl.fromTo("#s3-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.27, ease: "power2.out" }, BAR + 0.45);
+          tl.fromTo("#s3-teach", { color: "#F7F5EF" }, { color: "#151515", duration: 0.27, ease: "power2.out" }, BAR + 0.45);
+          for (let i = 1; i <= 6; i++) {
+            tl.fromTo("#s3-c" + i, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, BAR + 0.08 + (i - 1) * 0.06);
+          }
+          tl.fromTo("#s3-ring", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "sine.inOut" }, BAR + 0.6);
+
+          window.__timelines["s3-subjects"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

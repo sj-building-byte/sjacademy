@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJ Academy - A Level Business Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sja-yellow: #FCE004;
+            --sja-brown: #453516;
+            --sja-black: #000000;
+            --sja-orange: #FE6100;
+            --sja-white: #ffffff;
+            --sja-grey: #555;
+            --sja-dark-grey: #222;
+            --sja-light-bg: #fafafa;
+            --sja-light-yellow: #FFF9CC;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body, #sja-quiz-tool {
+            font-family: 'Poppins', sans-serif;
+            color: var(--sja-black);
+            line-height: 1.6;
+            background-color: var(--sja-white);
+            width: 100%;
+        }
+
+        #sja-quiz-tool .sja-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #sja-quiz-tool .sja-header {
+            background: #fff;
+            padding: 60px 0 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        #sja-quiz-tool .sja-badge {
+            display: inline-block;
+            background-color: #fff;
+            border: 2px solid var(--sja-black);
+            border-radius: 50px;
+            padding: 5px;
+            margin-bottom: 25px;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+        }
+
+        #sja-quiz-tool .sja-mode-pill {
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1;
+            background-color: var(--sja-yellow);
+            color: var(--sja-black);
+        }
+
+        #sja-quiz-tool .sja-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--sja-black);
+            margin: 0 0 20px;
+            line-height: 1.2;
+        }
+
+        #sja-quiz-tool .sja-subtitle {
+            font-size: 1.1rem;
+            color: var(--sja-dark-grey);
+            margin: 0 auto 30px;
+            max-width: 700px;
+        }
+
+        .sja-highlight {
+            background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 35%;
+            background-position: 0 85%;
+            display: inline;
+            color: var(--sja-black);
+            padding: 0 3px;
+        }
+
+        .sja-screen { display: none; animation: sjaFadeUp 0.4s ease; }
+        .sja-screen.active { display: block; }
+
+        @keyframes sjaFadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #sja-quiz-tool .sja-controls {
+            background: var(--sja-light-bg);
+            padding: 50px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        #sja-quiz-tool .sja-controls-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        #sja-quiz-tool .sja-unit-label {
+            grid-column: 1 / -1;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--sja-brown);
+            margin-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--sja-yellow);
+        }
+
+        #sja-quiz-tool .sja-unit-label:first-child { margin-top: 0; }
+
+        #sja-quiz-tool .sja-chapter-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            grid-column: 1 / -1;
+        }
+
+        #sja-quiz-tool .sja-chapter-card {
+            background: #fff;
+            padding: 30px;
+            border-top: 6px solid var(--sja-brown);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        #sja-quiz-tool .sja-chapter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-top-color: var(--sja-orange);
+        }
+
+        #sja-quiz-tool .sja-chapter-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--sja-yellow);
+            line-height: 1;
+            -webkit-text-stroke: 1px var(--sja-brown);
+        }
+
+        #sja-quiz-tool .sja-chapter-card h3 {
+            color: var(--sja-black);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        #sja-quiz-tool .sja-chapter-meta {
+            font-size: 13px;
+            color: var(--sja-grey);
+            margin-top: auto;
+        }
+
+        #sja-quiz-tool .sja-level-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 10px;
+            border-radius: 3px;
+            background: var(--sja-light-yellow);
+            color: var(--sja-brown);
+        }
+
+        #sja-quiz-tool .sja-quiz-section,
+        #sja-quiz-tool .sja-results-section,
+        #sja-quiz-tool .sja-review-section {
+            padding: 50px 0;
+            background: #fff;
+        }
+
+        #sja-quiz-tool .sja-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--sja-grey);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+            margin-bottom: 25px;
+            transition: color 0.2s ease;
+        }
+
+        #sja-quiz-tool .sja-back-link:hover {
+            color: var(--sja-orange);
+            text-decoration: underline;
+        }
+
+        #sja-quiz-tool .sja-quiz-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        #sja-quiz-tool .sja-quiz-chapter-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--sja-black);
+        }
+
+        #sja-quiz-tool .sja-quiz-chapter-name span { color: var(--sja-orange); }
+
+        #sja-quiz-tool .sja-timer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--sja-white);
+            border: 2px solid #e5e5e5;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--sja-black);
+            font-variant-numeric: tabular-nums;
+            transition: all 0.3s ease;
+        }
+
+        #sja-quiz-tool .sja-timer-badge svg { color: var(--sja-orange); }
+        #sja-quiz-tool .sja-timer-badge.warning { border-color: var(--sja-orange); color: var(--sja-orange); }
+        #sja-quiz-tool .sja-timer-badge.danger { border-color: #e74c3c; color: #e74c3c; animation: sjaPulse 1s infinite; }
+
+        @keyframes sjaPulse { 50% { opacity: 0.6; } }
+
+        #sja-quiz-tool .sja-progress-wrap { margin-bottom: 30px; }
+
+        #sja-quiz-tool .sja-progress-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--sja-grey);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #sja-quiz-tool .sja-progress-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        #sja-quiz-tool .sja-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--sja-yellow), var(--sja-orange));
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        #sja-quiz-tool .sja-question-card,
+        #sja-quiz-tool .sja-results-card,
+        #sja-quiz-tool .sja-review-item,
+        #sja-quiz-tool .sja-message-card {
+            background: #fff;
+            padding: 35px;
+            border-top: 6px solid var(--sja-brown);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        #sja-quiz-tool .sja-q-number {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--sja-orange);
+            margin-bottom: 14px;
+        }
+
+        #sja-quiz-tool .sja-q-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--sja-black);
+            line-height: 1.4;
+            margin-bottom: 28px;
+        }
+
+        #sja-quiz-tool .sja-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #sja-quiz-tool .sja-option-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            background: var(--sja-light-bg);
+            border: 2px solid #e5e5e5;
+            border-radius: 5px;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-align: left;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--sja-black);
+        }
+
+        #sja-quiz-tool .sja-option-btn:hover:not(.disabled) {
+            border-color: var(--sja-orange);
+            background: var(--sja-white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(254, 97, 0, 0.15);
+        }
+
+        #sja-quiz-tool .sja-option-btn.disabled { cursor: default; }
+
+        #sja-quiz-tool .sja-option-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 5px;
+            background: #e5e5e5;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--sja-grey);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        #sja-quiz-tool .sja-option-btn.selected {
+            border-color: var(--sja-yellow);
+            background: var(--sja-light-yellow);
+            box-shadow: 0 0 0 3px rgba(252, 224, 4, 0.2);
+        }
+
+        #sja-quiz-tool .sja-option-btn.selected .sja-option-letter {
+            background: var(--sja-yellow);
+            color: var(--sja-black);
+        }
+
+        #sja-quiz-tool .sja-option-btn.correct {
+            border-color: #2ecc71 !important;
+            background: #eafaf1 !important;
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2) !important;
+        }
+
+        #sja-quiz-tool .sja-option-btn.correct .sja-option-letter { background: #2ecc71; color: #fff; }
+
+        #sja-quiz-tool .sja-option-btn.wrong {
+            border-color: #e74c3c !important;
+            background: #fdedec !important;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2) !important;
+        }
+
+        #sja-quiz-tool .sja-option-btn.wrong .sja-option-letter { background: #e74c3c; color: #fff; }
+
+        #sja-quiz-tool .sja-explanation {
+            margin-top: 20px;
+            padding: 18px 22px;
+            background: var(--sja-light-yellow);
+            border-left: 4px solid var(--sja-yellow);
+            border-radius: 0 5px 5px 0;
+            font-size: 14px;
+            color: var(--sja-dark-grey);
+            line-height: 1.6;
+            animation: sjaFadeUp 0.3s ease;
+        }
+
+        #sja-quiz-tool .sja-explanation strong {
+            color: var(--sja-black);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        #sja-quiz-tool .sja-btn-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        #sja-quiz-tool .sja-btn {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            padding: 16px 35px;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        #sja-quiz-tool .sja-btn-primary {
+            background-color: var(--sja-orange);
+            color: var(--sja-white);
+            border-color: var(--sja-orange);
+            box-shadow: 0 4px 10px rgba(254, 97, 0, 0.3);
+        }
+
+        #sja-quiz-tool .sja-btn-primary:hover {
+            background-color: #e55800;
+            border-color: #e55800;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(254, 97, 0, 0.4);
+        }
+
+        #sja-quiz-tool .sja-btn-secondary {
+            background-color: var(--sja-white);
+            color: var(--sja-black);
+            border-color: #e5e5e5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        #sja-quiz-tool .sja-btn-secondary:hover {
+            border-color: var(--sja-grey);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        #sja-quiz-tool .sja-btn-yellow {
+            background-color: var(--sja-yellow);
+            color: var(--sja-black);
+            border-color: var(--sja-yellow);
+            box-shadow: 0 4px 10px rgba(252, 224, 4, 0.3);
+        }
+
+        #sja-quiz-tool .sja-btn:disabled,
+        #sja-quiz-tool .sja-btn:disabled:hover {
+            background-color: #ccc;
+            color: #666;
+            border-color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #sja-quiz-tool .sja-results-card {
+            padding: 50px 40px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #sja-quiz-tool .sja-results-ring {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        #sja-quiz-tool .sja-results-ring svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        #sja-quiz-tool .sja-results-ring circle {
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+
+        #sja-quiz-tool .sja-ring-bg { stroke: #eee; }
+        #sja-quiz-tool .sja-ring-fill { stroke: var(--sja-orange); transition: stroke-dashoffset 1.2s ease; }
+
+        #sja-quiz-tool .sja-ring-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #sja-quiz-tool .sja-ring-pct {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--sja-black);
+            line-height: 1;
+        }
+
+        #sja-quiz-tool .sja-ring-label,
+        #sja-quiz-tool .sja-results-detail {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--sja-grey);
+            margin-top: 4px;
+        }
+
+        #sja-quiz-tool .sja-results-grade {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        #sja-quiz-tool .sja-results-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        #sja-quiz-tool .sja-stat-item { text-align: center; }
+
+        #sja-quiz-tool .sja-stat-val {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        #sja-quiz-tool .sja-stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--sja-grey);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        #sja-quiz-tool .sja-results-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        #sja-quiz-tool .sja-review-item {
+            padding: 28px 30px;
+            margin-bottom: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #sja-quiz-tool .sja-review-item.sja-correct-item { border-top-color: #2ecc71; }
+        #sja-quiz-tool .sja-review-item.sja-wrong-item { border-top-color: #e74c3c; }
+
+        #sja-quiz-tool .sja-review-status {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 5px;
+            margin-bottom: 14px;
+        }
+
+        #sja-quiz-tool .sja-review-status.sja-correct { background: #eafaf1; color: #2ecc71; }
+        #sja-quiz-tool .sja-review-status.sja-wrong { background: #fdedec; color: #e74c3c; }
+
+        #sja-quiz-tool .sja-review-q {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--sja-black);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        #sja-quiz-tool .sja-review-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        #sja-quiz-tool .sja-review-opt {
+            padding: 10px 16px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--sja-grey);
+            background: var(--sja-light-bg);
+            border: 1px solid #eee;
+        }
+
+        #sja-quiz-tool .sja-review-opt.sja-user-correct,
+        #sja-quiz-tool .sja-review-opt.sja-is-correct {
+            background: #eafaf1;
+            color: #27ae60;
+            font-weight: 700;
+            border-color: #2ecc71;
+        }
+
+        #sja-quiz-tool .sja-review-opt.sja-user-wrong {
+            background: #fdedec;
+            color: #c0392b;
+            text-decoration: line-through;
+            border-color: #e74c3c;
+        }
+
+        #sja-quiz-tool .sja-btn:focus,
+        #sja-quiz-tool .sja-option-btn:focus,
+        #sja-quiz-tool .sja-chapter-card:focus {
+            outline: 3px solid var(--sja-orange);
+            outline-offset: 2px;
+        }
+
+        @media (min-width: 768px) {
+            #sja-quiz-tool .sja-controls-grid { grid-template-columns: 1fr 1fr; }
+            #sja-quiz-tool .sja-chapter-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 992px) {
+            #sja-quiz-tool .sja-title { font-size: 3.8rem; }
+            #sja-quiz-tool .sja-chapter-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 767px) {
+            #sja-quiz-tool .sja-title { font-size: 2.2rem; }
+            #sja-quiz-tool .sja-header { padding: 40px 0 30px; }
+            #sja-quiz-tool .sja-controls,
+            #sja-quiz-tool .sja-quiz-section,
+            #sja-quiz-tool .sja-results-section { padding: 40px 0; }
+            #sja-quiz-tool .sja-question-card,
+            #sja-quiz-tool .sja-message-card { padding: 25px; }
+            #sja-quiz-tool .sja-results-card { padding: 35px 25px; }
+            #sja-quiz-tool .sja-btn { width: 100%; text-align: center; }
+            #sja-quiz-tool .sja-btn-row { flex-direction: column; }
+            #sja-quiz-tool .sja-results-stats { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+<div id="sja-quiz-tool">
+    <div class="sja-container">
+        <div class="sja-header">
+            <div class="sja-badge">
+                <div class="sja-mode-pill">
+                    <span>SJ Academy Quiz Tool</span>
+                </div>
+            </div>
+            <h1 class="sja-title"><span class="sja-highlight">A Level Business (9609) Quizzes</span></h1>
+            <p class="sja-subtitle">
+                Select a chapter, answer multiple-choice questions, and track your progress with our free quiz tool.
+            </p>
+        </div>
+
+        <div id="sja-screen-select" class="sja-screen active">
+            <div class="sja-controls">
+                <div class="sja-controls-grid" id="sja-chapter-container">
+                    <div class="sja-message-card">Loading question bank...</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sja-screen-quiz" class="sja-screen">
+            <div class="sja-quiz-section">
+                <div class="sja-container">
+                    <div id="sja-quiz-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sja-screen-results" class="sja-screen">
+            <div class="sja-results-section">
+                <div class="sja-container">
+                    <div id="sja-results-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sja-screen-review" class="sja-screen">
+            <div class="sja-review-section">
+                <div class="sja-container">
+                    <div id="sja-review-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){
+    let chapters = {};
+
+    const state = {
+        chapterId: null,
+        questions: [],
+        currentQ: 0,
+        answers: [],
+        timer: 0,
+        timerInterval: null,
+        answered: false,
+        selected: null,
+    };
+
+    const letters = ['A','B','C','D'];
+    const timePerQ = 45;
+
+    function shuffleArray(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function escapeHtml(str) {
+        return String(str ?? '')
+            .replaceAll('&','&amp;')
+            .replaceAll('<','&lt;')
+            .replaceAll('>','&gt;')
+            .replaceAll('"','&quot;')
+            .replaceAll("'", '&#039;');
+    }
+
+    function showScreen(id) {
+        document.querySelectorAll('.sja-screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function normalizeQuestionBank(data) {
+        const source = Array.isArray(data?.chapters) ? data.chapters : Object.entries(data || {}).map(([id, ch]) => ({ id, ...ch }));
+        const normalized = {};
+
+        for (const chapter of source) {
+            const id = Number(chapter.id);
+            if (!Number.isInteger(id)) continue;
+
+            normalized[id] = {
+                title: chapter.title,
+                unit: Number(chapter.unit),
+                level: chapter.level,
+                questions: (chapter.questions || []).map(question => ({
+                    q: question.q || question.question,
+                    opts: question.opts || question.options || [],
+                    ans: Number.isInteger(question.ans) ? question.ans : Number(question.answer),
+                    explain: question.explain || question.explanation || ''
+                })).filter(question =>
+                    question.q &&
+                    question.opts.length >= 2 &&
+                    Number.isInteger(question.ans) &&
+                    question.ans >= 0 &&
+                    question.ans < question.opts.length
+                )
+            };
+        }
+
+        return normalized;
+    }
+
+    async function loadQuestionBank() {
+        try {
+            const response = await fetch('questions.json', { cache: 'no-store' });
+            if (!response.ok) throw new Error(`questions.json returned ${response.status}`);
+            const data = await response.json();
+            chapters = normalizeQuestionBank(data);
+
+            if (!Object.keys(chapters).length) {
+                throw new Error('No valid chapters found in questions.json');
+            }
+
+            renderChapterSelect();
+        } catch (error) {
+            document.getElementById('sja-chapter-container').innerHTML = `
+                <div class="sja-message-card">
+                    <h3>Question bank could not be loaded</h3>
+                    <p>${escapeHtml(error.message)}</p>
+                    <p>Make sure <strong>questions.json</strong> is in the same folder as this HTML file and run the quiz from a web server.</p>
+                </div>
+            `;
+        }
+    }
+
+    function renderChapterSelect() {
+        const container = document.getElementById('sja-chapter-container');
+        const units = {};
+        for (const [id, ch] of Object.entries(chapters)) {
+            if (!units[ch.unit]) units[ch.unit] = [];
+            units[ch.unit].push({ id: parseInt(id, 10), ...ch });
+        }
+
+        let html = '';
+        for (const [unit, chs] of Object.entries(units).sort(([a], [b]) => Number(a) - Number(b))) {
+            const unitNames = {
+                1: 'Business and its Environment',
+                2: 'Human Resource Management',
+                3: 'Marketing',
+                4: 'Operations Management',
+                5: 'Finance and Accounting'
+            };
+            html += `<div class="sja-unit-label">Unit ${unit}: ${unitNames[unit] || ''}</div>`;
+            html += '<div class="sja-chapter-grid">';
+
+            for (const ch of chs.sort((a, b) => a.id - b.id)) {
+                const qCount = ch.questions.length;
+                const estTime = Math.ceil(qCount * timePerQ / 60);
+                html += `
+                    <div class="sja-chapter-card" tabindex="0" role="button" onclick="window.sjaQuiz.start(${ch.id})"
+                         onkeydown="if(event.key==='Enter'||event.key===' ')window.sjaQuiz.start(${ch.id})">
+                        <div style="display:flex;align-items:center;gap:12px;width:100%">
+                            <div class="sja-chapter-num">${ch.id}</div>
+                            <span class="sja-level-tag">${escapeHtml(ch.level)} Level</span>
+                        </div>
+                        <h3>${escapeHtml(ch.title)}</h3>
+                        <div class="sja-chapter-meta">${qCount} questions &middot; ~${estTime} min</div>
+                    </div>`;
+            }
+            html += '</div>';
+        }
+        container.innerHTML = html;
+    }
+
+    function startQuiz(chId) {
+        const ch = chapters[chId];
+        if (!ch || !ch.questions.length) return;
+
+        state.chapterId = chId;
+        state.questions = shuffleArray(ch.questions).slice(0, Math.min(10, ch.questions.length));
+        state.currentQ = 0;
+        state.answers = new Array(state.questions.length).fill(null);
+        state.answered = false;
+        state.selected = null;
+        state.timer = state.questions.length * timePerQ;
+
+        showScreen('sja-screen-quiz');
+        renderQuiz();
+        startTimer();
+    }
+
+    function startTimer() {
+        clearInterval(state.timerInterval);
+        state.timerInterval = setInterval(() => {
+            state.timer--;
+            updateTimerDisplay();
+            if (state.timer <= 0) {
+                clearInterval(state.timerInterval);
+                finishQuiz();
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const el = document.getElementById('sja-timer-display');
+        if (!el) return;
+        const m = Math.floor(state.timer / 60);
+        const s = state.timer % 60;
+        el.textContent = `${m}:${s.toString().padStart(2,'0')}`;
+        const badge = el.closest('.sja-timer-badge');
+        badge.classList.remove('warning','danger');
+        if (state.timer <= 30) badge.classList.add('danger');
+        else if (state.timer <= state.questions.length * timePerQ * 0.2) badge.classList.add('warning');
+    }
+
+    function renderQuiz() {
+        const content = document.getElementById('sja-quiz-content');
+        const ch = chapters[state.chapterId];
+        const qi = state.currentQ;
+        const q = state.questions[qi];
+        const total = state.questions.length;
+        const progress = ((qi + (state.answered ? 1 : 0)) / total) * 100;
+        const answeredCount = state.answers.filter(a => a !== null).length;
+
+        content.innerHTML = `
+            <button class="sja-back-link" onclick="window.sjaQuiz.confirmQuit()">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Back to chapters
+            </button>
+            <div class="sja-quiz-top">
+                <div class="sja-quiz-chapter-name"><span>Ch ${state.chapterId}:</span> ${escapeHtml(ch.title)}</div>
+                <div class="sja-timer-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span id="sja-timer-display">${Math.floor(state.timer/60)}:${(state.timer%60).toString().padStart(2,'0')}</span>
+                </div>
+            </div>
+            <div class="sja-progress-wrap">
+                <div class="sja-progress-meta">
+                    <span>Question ${qi + 1} of ${total}</span>
+                    <span>${answeredCount} answered</span>
+                </div>
+                <div class="sja-progress-bar"><div class="sja-progress-fill" style="width:${progress}%"></div></div>
+            </div>
+            <div class="sja-question-card">
+                <div class="sja-q-number">Question ${qi + 1}</div>
+                <div class="sja-q-text">${escapeHtml(q.q)}</div>
+                <div class="sja-options">
+                    ${q.opts.map((opt, i) => {
+                        let cls = 'sja-option-btn';
+                        if (state.answered) {
+                            cls += ' disabled';
+                            if (i === q.ans) cls += ' correct';
+                            else if (i === state.selected && i !== q.ans) cls += ' wrong';
+                        } else if (state.selected === i) {
+                            cls += ' selected';
+                        }
+                        return `<button class="${cls}" onclick="window.sjaQuiz.selectOption(${i})">
+                            <span class="sja-option-letter">${letters[i] || i + 1}</span>
+                            <span>${escapeHtml(opt)}</span>
+                        </button>`;
+                    }).join('')}
+                </div>
+                ${state.answered ? `
+                    <div class="sja-explanation">
+                        <strong>${state.selected === q.ans ? 'Correct!' : 'Incorrect.'}</strong>
+                        ${escapeHtml(q.explain)}
+                    </div>` : ''}
+            </div>
+            <div class="sja-btn-row">
+                ${!state.answered
+                    ? `<button class="sja-btn sja-btn-primary" id="sja-btn-confirm" onclick="window.sjaQuiz.confirmAnswer()" ${state.selected === null ? 'disabled' : ''}>Confirm Answer</button>`
+                    : `<button class="sja-btn sja-btn-secondary" onclick="window.sjaQuiz.prevQuestion()" ${qi === 0 ? 'disabled' : ''}>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Previous
+                      </button>
+                      <button class="sja-btn sja-btn-primary" onclick="window.sjaQuiz.nextQuestion()">
+                        ${qi === total - 1 ? 'See Results' : 'Next Question'}
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </button>`
+                }
+            </div>
+        `;
+        updateTimerDisplay();
+    }
+
+    function selectOption(i) {
+        if (state.answered) return;
+        state.selected = i;
+        const btn = document.getElementById('sja-btn-confirm');
+        if (btn) btn.disabled = false;
+        document.querySelectorAll('.sja-option-btn').forEach((el, idx) => {
+            el.classList.toggle('selected', idx === i);
+        });
+    }
+
+    function confirmAnswer() {
+        if (state.selected === null) return;
+        state.answered = true;
+        state.answers[state.currentQ] = state.selected;
+        renderQuiz();
+    }
+
+    function nextQuestion() {
+        if (state.currentQ >= state.questions.length - 1) {
+            finishQuiz();
+            return;
+        }
+        state.currentQ++;
+        state.answered = state.answers[state.currentQ] !== null;
+        state.selected = state.answers[state.currentQ];
+        renderQuiz();
+    }
+
+    function prevQuestion() {
+        if (state.currentQ <= 0) return;
+        state.currentQ--;
+        state.answered = state.answers[state.currentQ] !== null;
+        state.selected = state.answers[state.currentQ];
+        renderQuiz();
+    }
+
+    function confirmQuit() {
+        if (state.answers.some(a => a !== null)) {
+            if (!confirm('Are you sure you want to quit? Your progress will be lost.')) return;
+        }
+        clearInterval(state.timerInterval);
+        showScreen('sja-screen-select');
+    }
+
+    function finishQuiz() {
+        clearInterval(state.timerInterval);
+        const total = state.questions.length;
+        const correct = state.questions.filter((q, i) => state.answers[i] === q.ans).length;
+        const pct = Math.round((correct / total) * 100);
+        const circumference = 2 * Math.PI * 68;
+        const offset = circumference - (pct / 100) * circumference;
+        const timeUsed = (state.questions.length * timePerQ) - state.timer;
+        const m = Math.floor(timeUsed / 60);
+        const s = timeUsed % 60;
+        const wrong = total - correct;
+
+        let grade, gradeColor;
+        if (pct >= 80) { grade = 'Excellent!'; gradeColor = '#2ecc71'; }
+        else if (pct >= 60) { grade = 'Good Work!'; gradeColor = 'var(--sja-orange)'; }
+        else if (pct >= 40) { grade = 'Keep Practising'; gradeColor = 'var(--sja-yellow)'; }
+        else { grade = 'Needs More Study'; gradeColor = '#e74c3c'; }
+
+        document.getElementById('sja-results-content').innerHTML = `
+            <div class="sja-results-card">
+                <div class="sja-results-ring">
+                    <svg viewBox="0 0 160 160">
+                        <circle class="sja-ring-bg" cx="80" cy="80" r="68"/>
+                        <circle class="sja-ring-fill" cx="80" cy="80" r="68"
+                            stroke="${gradeColor}"
+                            stroke-dasharray="${circumference}"
+                            stroke-dashoffset="${offset}"/>
+                    </svg>
+                    <div class="sja-ring-text">
+                        <div class="sja-ring-pct">${pct}%</div>
+                        <div class="sja-ring-label">${correct}/${total}</div>
+                    </div>
+                </div>
+                <div class="sja-results-grade" style="color:${gradeColor}">${grade}</div>
+                <div class="sja-results-detail">Chapter ${state.chapterId}: ${escapeHtml(chapters[state.chapterId].title)}</div>
+                <div class="sja-results-stats">
+                    <div class="sja-stat-item"><div class="sja-stat-val" style="color:#2ecc71">${correct}</div><div class="sja-stat-label">Correct</div></div>
+                    <div class="sja-stat-item"><div class="sja-stat-val" style="color:#e74c3c">${wrong}</div><div class="sja-stat-label">Wrong</div></div>
+                    <div class="sja-stat-item"><div class="sja-stat-val" style="color:var(--sja-grey)">${m}:${s.toString().padStart(2,'0')}</div><div class="sja-stat-label">Time Used</div></div>
+                </div>
+            </div>
+            <div class="sja-results-actions">
+                <button class="sja-btn sja-btn-secondary" onclick="window.sjaQuiz.review()">Review Answers</button>
+                <button class="sja-btn sja-btn-yellow" onclick="window.sjaQuiz.start(${state.chapterId})">Retry Chapter</button>
+                <button class="sja-btn sja-btn-primary" onclick="window.sjaQuiz.home()">All Chapters</button>
+            </div>
+        `;
+        showScreen('sja-screen-results');
+    }
+
+    function review() {
+        let html = `
+            <button class="sja-back-link" onclick="window.sjaQuiz.showResults()">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Back to results
+            </button>
+            <div class="sja-quiz-chapter-name" style="margin-bottom:25px"><span>Review:</span> Chapter ${state.chapterId} - ${escapeHtml(chapters[state.chapterId].title)}</div>
+        `;
+
+        state.questions.forEach((q, i) => {
+            const userAns = state.answers[i];
+            const isCorrect = userAns === q.ans;
+            html += `
+                <div class="sja-review-item ${isCorrect ? 'sja-correct-item' : 'sja-wrong-item'}">
+                    <div class="sja-review-status ${isCorrect ? 'sja-correct' : 'sja-wrong'}">${isCorrect ? 'Correct' : 'Incorrect'}</div>
+                    <div class="sja-review-q">${i+1}. ${escapeHtml(q.q)}</div>
+                    <div class="sja-review-answers">
+                        ${q.opts.map((opt, oi) => {
+                            let cls = 'sja-review-opt';
+                            if (oi === q.ans) cls += ' sja-is-correct';
+                            if (oi === userAns && !isCorrect) cls += ' sja-user-wrong';
+                            if (oi === userAns && isCorrect) cls += ' sja-user-correct';
+                            return `<div class="${cls}">${letters[oi] || oi + 1}. ${escapeHtml(opt)}</div>`;
+                        }).join('')}
+                    </div>
+                    ${q.explain ? `<div class="sja-explanation"><strong>Explanation</strong>${escapeHtml(q.explain)}</div>` : ''}
+                </div>`;
+        });
+
+        html += `
+            <div class="sja-results-actions" style="margin-top:30px">
+                <button class="sja-btn sja-btn-yellow" onclick="window.sjaQuiz.start(${state.chapterId})">Retry Chapter</button>
+                <button class="sja-btn sja-btn-primary" onclick="window.sjaQuiz.home()">All Chapters</button>
+            </div>
+        `;
+
+        document.getElementById('sja-review-content').innerHTML = html;
+        showScreen('sja-screen-review');
+    }
+
+    window.sjaQuiz = {
+        start: startQuiz,
+        selectOption,
+        confirmAnswer,
+        nextQuestion,
+        prevQuestion,
+        confirmQuit,
+        review,
+        showResults: () => showScreen('sja-screen-results'),
+        home: () => {
+            clearInterval(state.timerInterval);
+            showScreen('sja-screen-select');
+        },
+    };
+
+    loadQuestionBank();
+})();
+</script>
+</body>
+</html>

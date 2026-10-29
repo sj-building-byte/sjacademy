@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SJ Academy · Batch 2 Reel — Minimal Broadcast Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       SJ ACADEMY BRAND SYSTEM — MINIMAL BROADCAST MOTION
+       ========================================================================== */
+    :root {
+      --sj-yellow: #FCE004;
+      --sj-ink: #111113;
+      --sj-orange: #FF5500;
+      --sj-red-pen: #E52E2E;
+      --sj-mint: #10B981;
+      --sj-font: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      --sj-hand: 'Caveat', cursive, sans-serif;
+      --sj-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(circle at 50% 15%, #1f1f26 0%, #0c0c0e 100%);
+      color: #fff;
+      font-family: var(--sj-font);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 16px 14px 40px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Studio Bar */
+    .studio-bar {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding: 8px 16px;
+      background: rgba(26, 26, 32, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .studio-logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .studio-badge {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--sj-yellow);
+      color: var(--sj-ink);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .studio-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .studio-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ccc;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+    .studio-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .studio-btn.active {
+      background: var(--sj-yellow);
+      color: var(--sj-ink);
+      border-color: var(--sj-yellow);
+      font-weight: 800;
+    }
+
+    /* Master Controls Deck */
+    .controls-deck {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #17171a;
+      border: 1px solid #28282e;
+      padding: 12px 16px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+    .controls-main-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-pill {
+      background: var(--sj-yellow);
+      color: var(--sj-ink);
+      border: 1.5px solid var(--sj-ink);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 12.5px;
+      cursor: pointer;
+      font-family: var(--sj-font);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.12s ease;
+    }
+    .btn-pill:hover { filter: brightness(1.06); }
+    .btn-pill-dark {
+      background: #26262c;
+      color: #eee;
+      border: 1px solid #3d3d46;
+    }
+    .btn-pill-dark:hover { background: #32323a; color: #fff; }
+    .btn-pill-active {
+      background: var(--sj-orange);
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* Timeline Scrubber */
+    .timeline-strip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .timeline-slider-wrap {
+      position: relative;
+      flex: 1;
+      height: 24px;
+      display: flex;
+      align-items: center;
+    }
+    .timeline-slider {
+      width: 100%;
+      height: 5px;
+      background: #2a2a32;
+      border-radius: 6px;
+      accent-color: var(--sj-yellow);
+      cursor: pointer;
+      outline: none;
+    }
+    .timer-pill {
+      font-family: var(--sj-mono);
+      font-size: 12px;
+      font-weight: 700;
+      background: #09090b;
+      color: var(--sj-yellow);
+      border: 1px solid #27272a;
+      padding: 3px 8px;
+      border-radius: 6px;
+      min-width: 102px;
+      text-align: center;
+    }
+
+    /* Scene Navigator */
+    .scene-navigator {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      width: 100%;
+    }
+    .nav-step {
+      background: #202026;
+      border: 1px solid #2e2e38;
+      color: #888;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 5px 2px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav-step:hover { background: #2b2b34; color: #fff; }
+    .nav-step.active {
+      background: var(--sj-yellow);
+      color: var(--sj-ink);
+      border-color: var(--sj-yellow);
+      font-weight: 800;
+    }
+
+    /* Video Input Row */
+    .presenter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #25252b;
+      padding-top: 8px;
+      font-size: 11px;
+      color: #888;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .presenter-group {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    #videoFileInput { display: none; }
+
+    /* ==========================================================================
+       PHONE CANVAS (iPhone 16 Pro Style)
+       ========================================================================== */
+    .stage-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      perspective: 1200px;
+      transition: height 0.25s ease;
+    }
+
+    .phone-chassis {
+      width: 440px;
+      height: 782px; /* 9:16 aspect ratio */
+      background: #09090b;
+      position: relative;
+      border-radius: 46px;
+      padding: 8px;
+      box-shadow:
+        0 0 0 3px #38383e,
+        0 0 0 6px #19191c,
+        0 25px 70px rgba(0, 0, 0, 0.95);
+      transform-origin: top center;
+      transition: transform 0.2s ease;
+    }
+
+    .screen-container {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      position: relative;
+      border-radius: 38px;
+      overflow: hidden;
+    }
+
+    /* Dynamic Island */
+    .dynamic-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 105px;
+      height: 25px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+    .wave-bar {
+      width: 2.2px;
+      background: var(--sj-yellow);
+      border-radius: 99px;
+      animation: soundWave 0.8s ease-in-out infinite alternate;
+    }
+    .wave-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+    .wave-bar:nth-child(2) { height: 12px; animation-delay: 0.3s; }
+    .wave-bar:nth-child(3) { height: 8px; animation-delay: 0.2s; }
+    @keyframes soundWave { 0% { height: 3px; } 100% { height: 13px; } }
+    .island-lens {
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle at 35% 35%, #222 0%, #000 80%);
+      border-radius: 50%;
+    }
+
+    /* Phone Status Bar */
+    .phone-status-bar {
+      position: absolute;
+      top: 13px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      z-index: 190;
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       LAYER 1: 100% FULL-SCREEN TALKING HEAD PRESENTER
+       ========================================================================== */
+    .presenter-viewport {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+    }
+
+    /* High-Fidelity Presenter Footage Simulation (Full screen portrait) */
+    .cinematic-presenter {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: radial-gradient(circle at 50% 32%, #322818 0%, #171614 45%, #09090b 90%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+    .cinematic-ambient {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 440px;
+      height: 440px;
+      background: radial-gradient(circle, rgba(252, 224, 4, 0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* Presenter Silhouette & Body (Anchored like real video framing) */
+    .presenter-body-rig {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 360px;
+      height: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+      animation: subtleBreathe 4s ease-in-out infinite alternate;
+    }
+    @keyframes subtleBreathe {
+      0% { transform: translateX(-50%) translateY(0); }
+      100% { transform: translateX(-50%) translateY(3px); }
+    }
+    .speaker-face {
+      width: 145px;
+      height: 185px;
+      background: linear-gradient(180deg, #2b261f 0%, #1a1714 100%);
+      border-radius: 70px 70px 60px 60px;
+      border: 1.5px solid rgba(252, 224, 4, 0.25);
+      box-shadow: 0 0 40px rgba(252, 224, 4, 0.15);
+      position: relative;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .eye-line-marker {
+      width: 80%;
+      height: 1px;
+      background: rgba(252, 224, 4, 0.4);
+      margin-bottom: 6px;
+      position: relative;
+    }
+    .eye-line-marker::before, .eye-line-marker::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sj-yellow);
+    }
+    .eye-line-marker::before { left: 16px; }
+    .eye-line-marker::after { right: 16px; }
+    .face-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.75);
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+    .speaker-torso {
+      width: 360px;
+      height: 380px;
+      background: linear-gradient(180deg, #1e1b17 0%, #0e0d0c 100%);
+      border-radius: 170px 170px 0 0;
+      margin-top: -30px;
+      border: 1.5px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Live Feed Elements */
+    #userVideoFeed {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    #userWebcamFeed {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1);
+      display: none;
+    }
+    #userImageFeed {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    /* ==========================================================================
+       LAYER 2: AUTHENTIC INSTAGRAM REELS INTERFACE & RED-ZONE VISUALIZER
+       ========================================================================== */
+    .ig-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 120;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: opacity 0.2s ease;
+    }
+    .ig-overlay > * { pointer-events: auto; }
+
+    /* Top Reels Bar */
+    .ig-top-header {
+      padding: 42px 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    .ig-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 17px;
+      font-weight: 800;
+    }
+    .ig-header-right { font-size: 19px; }
+
+    /* Right Action Sidebar */
+    .ig-action-sidebar {
+      position: absolute;
+      right: 12px;
+      bottom: 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+      z-index: 130;
+    }
+    .ig-action-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .ig-icon-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.7));
+    }
+    .ig-audio-disc {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: conic-gradient(from 0deg, #222, #fff, #222);
+      animation: spinDisc 3s linear infinite;
+      margin-top: 2px;
+    }
+    @keyframes spinDisc { 100% { transform: rotate(360deg); } }
+
+    /* Bottom Account & Expandable Description */
+    .ig-bottom-content {
+      position: absolute;
+      left: 0;
+      right: 68px; /* Safe space from right sidebar */
+      bottom: 0;
+      padding: 12px 14px 16px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 60%, transparent 100%);
+      color: #fff;
+      z-index: 125;
+      pointer-events: auto;
+    }
+    .ig-user-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+    .ig-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--sj-yellow);
+      color: var(--sj-ink);
+      font-size: 12px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #fff;
+    }
+    .ig-username {
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .ig-verified { color: #3897f0; font-size: 12px; }
+    .ig-follow-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .ig-caption-text {
+      font-size: 12px;
+      line-height: 1.38;
+      color: #eee;
+      max-height: 34px;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+    .ig-caption-text.expanded {
+      max-height: 220px;
+      background: rgba(0,0,0,0.5);
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+    .ig-more-toggle {
+      color: #bbb;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .ig-audio-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #ddd;
+      margin-top: 6px;
+    }
+
+    /* Red Zone Visualization Guides */
+    .safe-zone-box {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 180;
+      display: block;
+    }
+    .danger-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 85px;
+      background: rgba(239, 68, 68, 0.16);
+      border-bottom: 2px dashed #EF4444;
+      display: flex;
+      align-items: flex-end;
+      padding: 4px 12px;
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #FCA5A5;
+    }
+    .danger-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 150px;
+      background: rgba(239, 68, 68, 0.16);
+      border-top: 2px dashed #EF4444;
+      display: flex;
+      align-items: flex-start;
+      padding: 4px 12px;
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #FCA5A5;
+    }
+    .danger-right {
+      position: absolute;
+      top: 85px; bottom: 150px; right: 0;
+      width: 68px;
+      background: rgba(239, 68, 68, 0.16);
+      border-left: 2px dashed #EF4444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      writing-mode: vertical-rl;
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #FCA5A5;
+    }
+    .safe-zone-center {
+      position: absolute;
+      top: 92px;
+      left: 14px;
+      right: 76px;
+      bottom: 158px;
+      border: 1.5px dashed rgba(16, 185, 129, 0.7);
+      border-radius: 12px;
+      padding: 6px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .safe-badge {
+      background: rgba(16, 185, 129, 0.9);
+      color: #fff;
+      font-size: 8.5px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ==========================================================================
+       LAYER 3: ORGANIC BROADCAST MOTION GRAPHICS (NO CLUNKY BOXES!)
+       Pure typography, real highlighters, red-pen markings, and minimal accents.
+       ========================================================================== */
+    .motion-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 60;
+      pointer-events: none;
+    }
+
+    /* Top Persistent Minimal Course Ticker (Clear of face, clear of IG header) */
+    .minimal-top-ticker {
+      position: absolute;
+      top: 94px;
+      left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      padding: 4px 10px 4px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 80;
+    }
+    .ticker-pulse {
+      width: 7px;
+      height: 7px;
+      background: var(--sj-yellow);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--sj-yellow);
+      animation: pulseDot 1.4s infinite;
+    }
+    @keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .ticker-title {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    /* Scene Container */
+    .scene-view {
+      position: absolute;
+      inset: 0;
+      display: none;
+    }
+    .scene-view.active { display: block; }
+
+    /* ==========================================================================
+       SCENE 1: 0.0s - 3.2s — "The 12-Mark Tragedy"
+       ========================================================================== */
+    .s1-anchor {
+      position: absolute;
+      top: 130px;
+      left: 20px;
+      right: 76px;
+      animation: popMotion 0.35s cubic-bezier(0.18, 1.25, 0.4, 1) forwards;
+    }
+    @keyframes popMotion {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .s1-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    }
+    .s1-headline {
+      font-size: 23px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    }
+
+    /* Direct Red Ink Score Stamp (No rectangular card behind it!) */
+    .s1-mark-stamp {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: 8px;
+      position: relative;
+    }
+    .s1-score-num {
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--sj-yellow);
+      text-shadow: 0 3px 12px rgba(0,0,0,0.9), 0 0 20px rgba(252,224,4,0.3);
+      line-height: 1;
+      font-family: var(--sj-font);
+    }
+    .s1-circle-svg {
+      position: absolute;
+      top: -8px;
+      left: -12px;
+      width: 135px;
+      height: 60px;
+      pointer-events: none;
+    }
+    .s1-hand-note {
+      font-family: var(--sj-hand);
+      font-size: 26px;
+      color: #FF6B6B;
+      font-weight: 700;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+      margin-left: 8px;
+      transform: rotate(-3deg);
+      display: inline-block;
+    }
+
+    /* ==========================================================================
+       SCENE 2: 3.2s - 7.2s — "AO3 & AO4 Where Marks Hide"
+       ========================================================================== */
+    .s2-anchor {
+      position: absolute;
+      top: 130px;
+      left: 20px;
+      right: 76px;
+      animation: popMotion 0.35s cubic-bezier(0.18, 1.25, 0.4, 1) forwards;
+    }
+    .s2-strike-phrase {
+      font-size: 15px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.5);
+      position: relative;
+      display: inline-block;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+      margin-bottom: 8px;
+    }
+    .s2-red-line {
+      position: absolute;
+      top: 50%;
+      left: -4px;
+      right: -4px;
+      height: 3.5px;
+      background: var(--sj-red-pen);
+      border-radius: 2px;
+      transform: translateY(-50%) rotate(-1.5deg);
+      animation: strikeExpand 0.3s ease 0.15s both;
+      box-shadow: 0 0 8px rgba(229, 46, 46, 0.6);
+    }
+    @keyframes strikeExpand {
+      0% { width: 0; }
+      100% { width: calc(100% + 8px); }
+    }
+
+    .s2-hero-phrase {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    }
+    /* Signature SJ Yellow Highlighter Band directly over video text */
+    .sj-marker-hl {
+      background: linear-gradient(180deg, transparent 45%, var(--sj-yellow) 45%, var(--sj-yellow) 92%, transparent 92%);
+      color: var(--sj-ink);
+      padding: 0 6px;
+      border-radius: 2px;
+      font-weight: 900;
+      display: inline;
+      text-shadow: none;
+    }
+    .s2-sub-stat {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--sj-yellow);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+    }
+
+    /* ==========================================================================
+       SCENE 3-5: 7.2s - 19.2s — "Minimal Broadcast HUD Step Indicator"
+       ========================================================================== */
+    .bento-hud-anchor {
+      position: absolute;
+      top: 130px;
+      left: 20px;
+      right: 76px;
+      animation: popMotion 0.35s cubic-bezier(0.18, 1.25, 0.4, 1) forwards;
+    }
+    /* Minimal Linear Step Bar */
+    .hud-step-tracker {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    .hud-bar {
+      flex: 1;
+      height: 3.5px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 99px;
+      transition: all 0.3s ease;
+    }
+    .hud-bar.active {
+      background: var(--sj-yellow);
+      box-shadow: 0 0 10px var(--sj-yellow);
+    }
+    .hud-bar.done {
+      background: var(--sj-mint);
+    }
+
+    .hud-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--sj-yellow);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+    .hud-headline {
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+      margin-bottom: 6px;
+    }
+    .hud-dynamic-content {
+      /* Injected dynamically */
+    }
+
+    /* ==========================================================================
+       SCENE 6: 19.2s - 25.0s — "High-Converting Minimal Outro"
+       ========================================================================== */
+    .s6-anchor {
+      position: absolute;
+      top: 130px;
+      left: 20px;
+      right: 76px;
+      animation: popMotion 0.4s cubic-bezier(0.18, 1.25, 0.4, 1) forwards;
+    }
+    .s6-headline {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    }
+    .s6-subject-tags {
+      display: flex;
+      gap: 5px;
+      margin: 10px 0 14px;
+      flex-wrap: wrap;
+    }
+    .s6-tag {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .s6-cta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sj-yellow);
+      color: var(--sj-ink);
+      font-size: 14px;
+      font-weight: 900;
+      padding: 10px 20px;
+      border-radius: 999px;
+      box-shadow: 0 4px 20px rgba(252, 224, 4, 0.45);
+      cursor: pointer;
+      animation: ctaFloat 1.8s ease-in-out infinite alternate;
+    }
+    @keyframes ctaFloat {
+      0% { transform: translateY(0); box-shadow: 0 4px 15px rgba(252, 224, 4, 0.4); }
+      100% { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(252, 224, 4, 0.7); }
+    }
+
+    /* ==========================================================================
+       LAYER 4: KINETIC KARAOKE CAPTIONS (STRICT CHEST SWEET SPOT)
+       Positioned at 360px down: Clear of speaker's mouth & clear of IG bottom bar!
+       ========================================================================== */
+    .subtitles-cockpit {
+      position: absolute;
+      top: 360px;
+      left: 20px;
+      right: 76px;
+      z-index: 140;
+      text-align: center;
+      pointer-events: none;
+    }
+    .subtitle-capsule {
+      display: inline-block;
+      background: rgba(12, 12, 15, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 8px 14px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.7);
+    }
+    .karaoke-word {
+      font-size: 14px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0 2px;
+      transition: all 0.1s ease;
+    }
+    .karaoke-word.active {
+      color: var(--sj-ink);
+      background: var(--sj-yellow);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 900;
+      transform: scale(1.08);
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(252, 224, 4, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Studio Toolbar -->
+  <div class="studio-bar">
+    <div class="studio-logo-area">
+      <span style="font-weight:900; font-size:14px; letter-spacing:0.04em;">SJ ACADEMY</span>
+      <span class="studio-badge">Minimal Reel Pro</span>
+    </div>
+    <div class="studio-actions">
+      <button class="studio-btn active" id="audioToggleBtn" onclick="toggleAudioFX()">🔊 Audio FX</button>
+      <button class="studio-btn active" id="safeZoneToggleBtn" onclick="toggleSafeZone()">📐 Red Zones</button>
+      <button class="studio-btn active" id="igUiToggleBtn" onclick="toggleIgUI()">📱 IG UI</button>
+    </div>
+  </div>
+
+  <!-- Master Controls Deck -->
+  <div class="controls-deck">
+    <div class="controls-main-row">
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button class="btn-pill" id="playBtn" onclick="togglePlay()">⏸ Pause</button>
+        <button class="btn-pill btn-pill-dark" onclick="restartReel()">↻ Replay</button>
+      </div>
+
+      <!-- Playback Speed -->
+      <div style="display:flex; gap:4px; align-items:center;">
+        <span style="font-size:11px; color:#888; font-weight:700;">SPEED:</span>
+        <button class="studio-btn" id="spd05" onclick="setSpeed(0.5)">0.5x</button>
+        <button class="studio-btn active" id="spd10" onclick="setSpeed(1.0)">1.0x</button>
+        <button class="studio-btn" id="spd15" onclick="setSpeed(1.5)">1.5x</button>
+      </div>
+
+      <!-- Scale -->
+      <div style="display:flex; gap:4px; align-items:center;">
+        <span style="font-size:11px; color:#888; font-weight:700;">SCALE:</span>
+        <button class="studio-btn active" id="scaleFit" onclick="setScale('fit')">Fit</button>
+        <button class="studio-btn" id="scale100" onclick="setScale(1.0)">100%</button>
+        <button class="studio-btn" id="scale80" onclick="setScale(0.8)">80%</button>
+      </div>
+    </div>
+
+    <!-- Scrubber -->
+    <div class="timeline-strip">
+      <div class="timeline-slider-wrap">
+        <input type="range" class="timeline-slider" id="scrubber" min="0" max="25" step="0.05" value="0" oninput="onScrub(this.value)">
+      </div>
+      <div class="timer-pill" id="timerDisplay">00:00.0 / 25.0s</div>
+    </div>
+
+    <!-- Scene Navigator -->
+    <div class="scene-navigator">
+      <button class="nav-step active" id="nav-1" onclick="jumpTo(0.1)">1. 12-Marker</button>
+      <button class="nav-step" id="nav-2" onclick="jumpTo(3.2)">2. Rubric</button>
+      <button class="nav-step" id="nav-3" onclick="jumpTo(7.2)">3. Syllabus</button>
+      <button class="nav-step" id="nav-4" onclick="jumpTo(11.2)">4. Formula</button>
+      <button class="nav-step" id="nav-5" onclick="jumpTo(15.2)">5. Mocks</button>
+      <button class="nav-step" id="nav-6" onclick="jumpTo(17.2)">6. Vault</button>
+      <button class="nav-step" id="nav-7" onclick="jumpTo(19.2)">7. CTA</button>
+    </div>
+
+    <!-- Presenter Video Controls -->
+    <div class="presenter-row">
+      <div class="presenter-group">
+        <span>PRESENTER VIDEO:</span>
+        <button class="studio-btn active" id="btnPresetVideo" onclick="setPresenterMode('cinematic')">👤 Studio Silhouette</button>
+        <button class="studio-btn" id="btnWebcam" onclick="toggleWebcam()">📹 Live Webcam</button>
+        <label class="studio-btn" style="cursor:pointer;">
+          📁 Upload Video/Photo
+          <input type="file" id="videoFileInput" accept="video/*,image/*" onchange="handleFileUpload(event)">
+        </label>
+      </div>
+      <div style="font-size:10px; color:#777;">
+        SPACE: Play/Pause · R: Replay
+      </div>
+    </div>
+  </div>
+
+  <!-- Stage Container / Phone Chassis -->
+  <div class="stage-wrapper" id="stageWrapper">
+    <div class="phone-chassis" id="phoneChassis">
+      <div class="screen-container">
+
+        <!-- Dynamic Island -->
+        <div class="dynamic-island">
+          <div style="display:flex; align-items:center; gap:4px;">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <span style="font-size:8.5px; font-weight:800; color:var(--sj-yellow);">REEL</span>
+          </div>
+          <div class="island-lens"></div>
+        </div>
+
+        <!-- Phone Status Bar -->
+        <div class="phone-status-bar">
+          <span>9:41</span>
+          <div style="display:flex; gap:5px; align-items:center;">
+            <span>5G</span>
+            <span>100%</span>
+          </div>
+        </div>
+
+        <!-- RED ZONE OVERLAY GUIDES (Toggled via button) -->
+        <div class="safe-zone-box" id="safeZoneBox" style="display:block;">
+          <div class="danger-top">⛔ RED ZONE: NOTCH &amp; INSTAGRAM TOP BAR</div>
+          <div class="danger-right">⛔ RED ZONE: LIKES, COMMENTS, SHARE RAIL</div>
+          <div class="danger-bottom">⛔ RED ZONE: USERNAME, CAPTION &amp; AUDIO BAR</div>
+          <div class="safe-zone-center">
+            <span class="safe-badge">✓ UNBLOCKED SAFE SWEET SPOT</span>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             LAYER 1: 100% FULL-SCREEN TALKING HEAD PRESENTER
+             =================================================================== -->
+        <div class="presenter-viewport">
+          <!-- Full-Bleed Cinematic Presenter Rig -->
+          <div class="cinematic-presenter" id="cinematicPresenter">
+            <div class="cinematic-ambient"></div>
+            <div class="presenter-body-rig">
+              <div class="speaker-face">
+                <div class="eye-line-marker"></div>
+                <div class="face-tag">
+                  TALKING HEAD<br>
+                  <span style="font-size:8.5px; color:var(--sj-yellow);">EYE LEVEL</span>
+                </div>
+              </div>
+              <div class="speaker-torso"></div>
+            </div>
+          </div>
+
+          <!-- Real User Upload Video/Image -->
+          <video id="userVideoFeed" loop playsinline></video>
+          <img id="userImageFeed" style="position:absolute; width:100%; height:100%; object-fit:cover; display:none;" alt="Talking head">
+
+          <!-- Real Live Webcam Feed -->
+          <video id="userWebcamFeed" autoplay playsinline muted></video>
+        </div>
+
+        <!-- Top Minimal Course Ticker (Clean, modern broadcast pill) -->
+        <div class="minimal-top-ticker">
+          <div class="ticker-pulse"></div>
+          <span class="ticker-title">A Level Business · 9609</span>
+        </div>
+
+        <!-- ===================================================================
+             LAYER 2: KINETIC KARAOKE CAPTIONS (CHEST LEVEL SWEET SPOT)
+             =================================================================== -->
+        <div class="subtitles-cockpit">
+          <div class="subtitle-capsule">
+            <div id="karaokeText" style="line-height:1.4;">
+              <!-- Words injected dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             LAYER 3: ORGANIC BROADCAST MOTION GRAPHICS (NO CLUNKY BOXES!)
+             =================================================================== -->
+        <div class="motion-layer">
+
+          <!-- SCENE 1: 0.0s - 3.2s — "The 12-Marker Hook" -->
+          <div class="scene-view active" id="scene1">
+            <div class="s1-anchor">
+              <div class="s1-eyebrow">Cambridge 9609 · 12-Mark Essay</div>
+              <div class="s1-headline">2 Full Pages Written...</div>
+
+              <div class="s1-mark-stamp">
+                <!-- SVG Hand-drawn Circle -->
+                <svg class="s1-circle-svg" viewBox="0 0 135 60" fill="none">
+                  <path d="M12 28C8 14 35 6 70 8C108 10 130 20 126 38C122 52 82 56 42 54C16 52 6 42 14 26"
+                        stroke="#E52E2E" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-dasharray="320" stroke-dashoffset="0" style="filter: drop-shadow(0 0 6px rgba(229,46,46,0.6));"/>
+                </svg>
+                <span class="s1-score-num">5/12</span>
+                <span class="s1-hand-note">still a Grade D?!</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCENE 2: 3.2s - 7.2s — "AO3 & AO4 Where Marks Hide" -->
+          <div class="scene-view" id="scene2">
+            <div class="s2-anchor">
+              <div class="s2-strike-phrase">
+                200 Memorized Definitions (AO1)
+                <div class="s2-red-line"></div>
+              </div>
+
+              <div class="s2-hero-phrase">
+                Reward comes from<br>
+                <span class="sj-marker-hl">Analysis &amp; Evaluation</span>
+              </div>
+
+              <div class="s2-sub-stat">
+                <span>✦</span>
+                <span>Where 70% of exam marks actually hide</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCENE 3-5: 7.2s - 19.2s — "Minimal HUD Step Indicator" -->
+          <div class="scene-view" id="sceneBento">
+            <div class="bento-hud-anchor">
+              <!-- Minimal 4-Bar Step Tracker -->
+              <div class="hud-step-tracker">
+                <div class="hud-bar active" id="hudBar-1"></div>
+                <div class="hud-bar" id="hudBar-2"></div>
+                <div class="hud-bar" id="hudBar-3"></div>
+                <div class="hud-bar" id="hudBar-4"></div>
+              </div>
+
+              <div class="hud-eyebrow" id="hudEyebrow">Pillar 01 / 04 · Syllabus Rebuild</div>
+              <div class="hud-headline" id="hudHeadline">100% Coverage From Scratch</div>
+              <div class="hud-dynamic-content" id="hudDynamic">
+                <!-- Injected dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- SCENE 6: 19.2s - 25.0s — "High-Converting Minimal Outro" -->
+          <div class="scene-view" id="scene6">
+            <div class="s6-anchor">
+              <div style="font-size:12px; font-weight:800; color:var(--sj-yellow); letter-spacing:0.06em; margin-bottom:2px;">
+                LIVE ONLINE BATCH 2 · STARTS NOV 2
+              </div>
+              <div class="s6-headline">
+                Don't leave your May/June A* to chance.
+              </div>
+
+              <div class="s6-subject-tags">
+                <span class="s6-tag">Business 9609</span>
+                <span class="s6-tag">Economics 9708</span>
+                <span class="s6-tag">Accounting 9706</span>
+              </div>
+
+              <div class="s6-cta-pill">
+                <span>Reserve Your Seat</span>
+                <span style="font-size:16px;">↗</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ===================================================================
+             LAYER 4: AUTHENTIC INSTAGRAM REELS INTERFACE
+             =================================================================== -->
+        <div class="ig-overlay" id="igOverlay">
+          <!-- Top Header -->
+          <div class="ig-top-header">
+            <div class="ig-header-left">
+              <span>‹</span>
+              <span>Reels</span>
+            </div>
+            <div class="ig-header-right">
+              <span>📷</span>
+            </div>
+          </div>
+
+          <!-- Right Action Sidebar -->
+          <div class="ig-action-sidebar">
+            <div class="ig-action-item" onclick="toggleLikeHeart()">
+              <div class="ig-icon-btn" id="igHeartIcon">🤍</div>
+              <span id="igLikeCount">24.8K</span>
+            </div>
+            <div class="ig-action-item">
+              <div class="ig-icon-btn">💬</div>
+              <span>842</span>
+            </div>
+            <div class="ig-action-item">
+              <div class="ig-icon-btn">↗️</div>
+              <span>Share</span>
+            </div>
+            <div class="ig-action-item">
+              <div class="ig-icon-btn">🔖</div>
+              <span>Save</span>
+            </div>
+            <div class="ig-action-item">
+              <div class="ig-icon-btn" style="font-size:15px;">•••</div>
+            </div>
+            <div class="ig-audio-disc"></div>
+          </div>
+
+          <!-- Bottom Creator Bar & Description -->
+          <div class="ig-bottom-content">
+            <div class="ig-user-row">
+              <div class="ig-avatar">SJ</div>
+              <div class="ig-username">
+                <span>sjacademy.pk</span>
+                <span class="ig-verified">●</span>
+              </div>
+              <button class="ig-follow-btn">Follow</button>
+            </div>
+
+            <!-- Expandable Instagram Caption -->
+            <div class="ig-caption-text" id="igCaption">
+              Writing 2 full pages for a 12-marker and still stuck on Grade D? 😩
+              Here's what Cambridge examiners actually look for:
+              <br><br>
+              Stop memorizing definitions. Nail AO3 analysis &amp; AO4 evaluation.
+              In our live online Batch 2 starting Nov 2, we teach the entire syllabus from scratch, drill past papers, and mark your mocks line-by-line.
+              <br><br>
+              👉 Link in bio to book your seat!
+              <br>
+              #ALevelBusiness #Cambridge9609 #ALevels #Business9609 #SJAacademy
+            </div>
+            <span class="ig-more-toggle" id="igMoreBtn" onclick="toggleCaptionExpand()">... more</span>
+
+            <!-- Audio Ticker -->
+            <div class="ig-audio-row">
+              <span>🎵</span>
+              <span>sjacademy.pk · Original audio</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       SYNTHESIZED WEB AUDIO (Paper Rustle, Stamp Thud, Marker Swoosh)
+       ========================================================================== */
+    let audioCtx = null;
+    let audioEnabled = true;
+
+    function initAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    function playSound(type) {
+      if (!audioEnabled || !audioCtx) return;
+      try {
+        const now = audioCtx.currentTime;
+        if (type === 'stamp') {
+          // Punchy examiner stamp
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(140, now);
+          osc.frequency.exponentialRampToValueAtTime(28, now + 0.12);
+          gain.gain.setValueAtTime(0.55, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.13);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.14);
+        } else if (type === 'strike') {
+          // Red pen marker swoosh
+          const bufferSize = audioCtx.sampleRate * 0.1;
+          const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+          const noise = audioCtx.createBufferSource();
+          noise.buffer = buffer;
+          const filter = audioCtx.createBiquadFilter();
+          filter.type = 'bandpass';
+          filter.frequency.setValueAtTime(1400, now);
+          const gain = audioCtx.createGain();
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+          noise.connect(filter);
+          filter.connect(gain);
+          gain.connect(audioCtx.destination);
+          noise.start(now);
+        } else if (type === 'step') {
+          // Sleek digital tick
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(560, now);
+          osc.frequency.exponentialRampToValueAtTime(240, now + 0.06);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.06);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.07);
+        }
+      } catch (e) {}
+    }
+
+    function toggleAudioFX() {
+      initAudio();
+      audioEnabled = !audioEnabled;
+      const btn = document.getElementById('audioToggleBtn');
+      btn.innerText = audioEnabled ? '🔊 Audio FX' : '🔇 Muted';
+      btn.classList.toggle('active', audioEnabled);
+    }
+
+    /* ==========================================================================
+       SCRIPT & KARAOKE TIMELINE
+       ========================================================================== */
+    const scriptTimeline = [
+      {
+        start: 0.0, end: 3.2,
+        words: [
+          { text: "Writing", t: 0.0 }, { text: "two", t: 0.3 }, { text: "pages", t: 0.6 },
+          { text: "for", t: 0.9 }, { text: "a", t: 1.1 }, { text: "twelve-marker", t: 1.3 },
+          { text: "and", t: 1.8 }, { text: "still", t: 2.0 }, { text: "getting", t: 2.3 },
+          { text: "5 / 12?!", t: 2.6 }
+        ]
+      },
+      {
+        start: 3.2, end: 7.2,
+        words: [
+          { text: "That's", t: 3.2 }, { text: "because", t: 3.5 }, { text: "examiners", t: 3.8 },
+          { text: "don't", t: 4.2 }, { text: "reward", t: 4.5 }, { text: "definitions.", t: 4.8 },
+          { text: "They", t: 5.5 }, { text: "reward", t: 5.8 }, { text: "Analysis", t: 6.1 },
+          { text: "&", t: 6.5 }, { text: "Evaluation.", t: 6.7 }
+        ]
+      },
+      {
+        start: 7.2, end: 11.2,
+        words: [
+          { text: "In", t: 7.2 }, { text: "Batch 2,", t: 7.4 }, { text: "we", t: 7.8 },
+          { text: "rebuild", t: 8.1 }, { text: "the", t: 8.5 }, { text: "entire", t: 8.8 },
+          { text: "syllabus", t: 9.2 }, { text: "from", t: 9.6 }, { text: "scratch,", t: 10.0 },
+          { text: "zero", t: 10.4 }, { text: "gaps.", t: 10.7 }
+        ]
+      },
+      {
+        start: 11.2, end: 15.2,
+        words: [
+          { text: "We", t: 11.2 }, { text: "drill", t: 11.5 }, { text: "the", t: 11.8 },
+          { text: "past", t: 12.1 }, { text: "paper", t: 12.4 }, { text: "formula", t: 12.7 },
+          { text: "for", t: 13.1 }, { text: "8,", t: 13.4 }, { text: "12", t: 13.7 },
+          { text: "and", t: 14.1 }, { text: "20-markers.", t: 14.4 }
+        ]
+      },
+      {
+        start: 15.2, end: 17.2,
+        words: [
+          { text: "Full-scale", t: 15.2 }, { text: "mock", t: 15.5 }, { text: "exams", t: 15.8 },
+          { text: "with", t: 16.1 }, { text: "line-by-line", t: 16.4 }, { text: "marking.", t: 16.8 }
+        ]
+      },
+      {
+        start: 17.2, end: 19.2,
+        words: [
+          { text: "Plus", t: 17.2 }, { text: "instant", t: 17.5 }, { text: "access", t: 17.8 },
+          { text: "to", t: 18.1 }, { text: "all", t: 18.3 }, { text: "notes", t: 18.6 },
+          { text: "&", t: 18.8 }, { text: "papers.", t: 19.0 }
+        ]
+      },
+      {
+        start: 19.2, end: 25.0,
+        words: [
+          { text: "Classes", t: 19.2 }, { text: "start", t: 19.5 }, { text: "Nov 2", t: 19.9 },
+          { text: "for", t: 20.4 }, { text: "Business,", t: 20.8 }, { text: "Economics,", t: 21.3 },
+          { text: "Accounting.", t: 22.0 }, { text: "Book", t: 22.7 }, { text: "via", t: 23.0 },
+          { text: "link", t: 23.3 }, { text: "in", t: 23.6 }, { text: "bio!", t: 23.9 }
+        ]
+      }
+    ];
+
+    /* ==========================================================================
+       DYNAMIC HUD STEP CONTROLLER (Scenes 3-5)
+       ========================================================================== */
+    let currentHudStep = 0;
+
+    function renderHudStep(step) {
+      if (step === currentHudStep) return;
+      currentHudStep = step;
+      playSound('step');
+
+      for (let i = 1; i <= 4; i++) {
+        const bar = document.getElementById(`hudBar-${i}`);
+        bar.className = 'hud-bar';
+        if (i === step) bar.classList.add('active');
+        else if (i < step) bar.classList.add('done');
+      }
+
+      const eyebrow = document.getElementById('hudEyebrow');
+      const headline = document.getElementById('hudHeadline');
+      const dyn = document.getElementById('hudDynamic');
+
+      if (step === 1) {
+        eyebrow.innerText = 'Pillar 01 / 04 · Complete Syllabus';
+        headline.innerHTML = 'Taught from scratch.<br><span style="color:var(--sj-yellow);">Zero skipped topics.</span>';
+        dyn.innerHTML = `
+          <div style="font-family:var(--sj-hand); font-size:22px; color:#fff; text-shadow:0 1px 6px rgba(0,0,0,0.9); margin-top:4px;">
+            Every college gap filled before mocks.
+          </div>
+        `;
+      } else if (step === 2) {
+        eyebrow.innerText = 'Pillar 02 / 04 · Exam Technique';
+        headline.innerHTML = 'The 12 &amp; 20-Mark Formula';
+        dyn.innerHTML = `
+          <div style="font-size:13px; font-weight:800; color:#fff; text-shadow:0 1px 6px rgba(0,0,0,0.9); margin-top:4px;">
+            <span style="color:var(--sj-yellow);">Context Hook</span> ➔
+            <span style="color:#93C5FD;">Analytical Chain</span> ➔
+            <span style="color:var(--sj-mint);">Evaluation</span>
+          </div>
+        `;
+      } else if (step === 3) {
+        eyebrow.innerText = 'Pillar 03 / 04 · Assessment';
+        headline.innerHTML = 'Line-by-Line Mock Marking';
+        dyn.innerHTML = `
+          <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(16,185,129,0.25); border:1px solid #10B981; padding:4px 10px; border-radius:999px; font-size:12px; font-weight:800; color:#fff; margin-top:4px;">
+            <span>✓ Personal audio &amp; margin corrections</span>
+          </div>
+        `;
+      } else if (step === 4) {
+        eyebrow.innerText = 'Pillar 04 / 04 · Resource Vault';
+        headline.innerHTML = 'All 2025/2026 Solved Papers';
+        dyn.innerHTML = `
+          <div style="font-size:12.5px; font-weight:700; color:rgba(255,255,255,0.85); text-shadow:0 1px 4px rgba(0,0,0,0.9); margin-top:4px;">
+            Topicals • Marking guides • Custom notes included
+          </div>
+        `;
+      }
+    }
+
+    /* ==========================================================================
+       ENGINE LOOP & FRAME RENDERER
+       ========================================================================== */
+    let isPlaying = true;
+    let currentTime = 0;
+    let playbackSpeed = 1.0;
+    let lastPerf = performance.now();
+    let lastSceneIdx = 0;
+
+    const scrubber = document.getElementById('scrubber');
+    const timerDisplay = document.getElementById('timerDisplay');
+    const playBtn = document.getElementById('playBtn');
+    const karaokeText = document.getElementById('karaokeText');
+
+    function updateKaraoke(elapsed) {
+      const seg = scriptTimeline.find(s => elapsed >= s.start && elapsed < s.end);
+      if (!seg) { karaokeText.innerHTML = ''; return; }
+      karaokeText.innerHTML = seg.words.map(w => {
+        const isCur = elapsed >= w.t && elapsed < (w.t + 0.38);
+        return `<span class="karaoke-word ${isCur ? 'active' : ''}">${w.text}</span>`;
+      }).join(' ');
+    }
+
+    function renderMasterFrame(elapsed) {
+      const secs = Math.floor(elapsed);
+      const dec = Math.floor((elapsed - secs) * 10);
+      const strSec = secs < 10 ? '0' + secs : secs;
+      timerDisplay.innerText = `00:${strSec}.${dec} / 25.0s`;
+      scrubber.value = elapsed;
+
+      updateKaraoke(elapsed);
+
+      const s1 = document.getElementById('scene1');
+      const s2 = document.getElementById('scene2');
+      const sB = document.getElementById('sceneBento');
+      const s6 = document.getElementById('scene6');
+
+      [s1, s2, sB, s6].forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-step').forEach(btn => btn.classList.remove('active'));
+
+      if (elapsed < 3.2) {
+        s1.classList.add('active');
+        document.getElementById('nav-1').classList.add('active');
+        if (lastSceneIdx !== 1) {
+          lastSceneIdx = 1;
+          currentHudStep = 0;
+          playSound('stamp');
+        }
+      } else if (elapsed < 7.2) {
+        s2.classList.add('active');
+        document.getElementById('nav-2').classList.add('active');
+        if (lastSceneIdx !== 2) {
+          lastSceneIdx = 2;
+          currentHudStep = 0;
+          playSound('strike');
+        }
+      } else if (elapsed < 19.2) {
+        sB.classList.add('active');
+        lastSceneIdx = 3;
+        if (elapsed < 11.2) {
+          document.getElementById('nav-3').classList.add('active');
+          renderHudStep(1);
+        } else if (elapsed < 15.2) {
+          document.getElementById('nav-4').classList.add('active');
+          renderHudStep(2);
+        } else if (elapsed < 17.2) {
+          document.getElementById('nav-5').classList.add('active');
+          renderHudStep(3);
+        } else {
+          document.getElementById('nav-6').classList.add('active');
+          renderHudStep(4);
+        }
+      } else {
+        s6.classList.add('active');
+        document.getElementById('nav-7').classList.add('active');
+        if (lastSceneIdx !== 6) {
+          lastSceneIdx = 6;
+          currentHudStep = 0;
+          playSound('step');
+        }
+      }
+    }
+
+    function mainLoop(now) {
+      const delta = (now - lastPerf) / 1000;
+      lastPerf = now;
+
+      if (isPlaying) {
+        currentTime += delta * playbackSpeed;
+        if (currentTime >= 25.0) currentTime = currentTime % 25.0;
+        renderMasterFrame(currentTime);
+      }
+      requestAnimationFrame(mainLoop);
+    }
+
+    function togglePlay() {
+      initAudio();
+      isPlaying = !isPlaying;
+      playBtn.innerText = isPlaying ? '⏸ Pause' : '▶ Play';
+      playBtn.classList.toggle('btn-pill-active', !isPlaying);
+      lastPerf = performance.now();
+
+      const userVid = document.getElementById('userVideoFeed');
+      if (userVid.src) {
+        if (isPlaying) userVid.play();
+        else userVid.pause();
+      }
+    }
+
+    function restartReel() {
+      initAudio();
+      currentTime = 0;
+      isPlaying = true;
+      playBtn.innerText = '⏸ Pause';
+      playBtn.classList.remove('btn-pill-active');
+      lastPerf = performance.now();
+      renderMasterFrame(0);
+
+      const userVid = document.getElementById('userVideoFeed');
+      if (userVid.src) {
+        userVid.currentTime = 0;
+        userVid.play();
+      }
+    }
+
+    function onScrub(val) {
+      currentTime = parseFloat(val);
+      lastPerf = performance.now();
+      renderMasterFrame(currentTime);
+
+      const userVid = document.getElementById('userVideoFeed');
+      if (userVid.src && userVid.duration) {
+        userVid.currentTime = (currentTime / 25.0) * userVid.duration;
+      }
+    }
+
+    function jumpTo(sec) {
+      initAudio();
+      currentTime = sec;
+      lastPerf = performance.now();
+      renderMasterFrame(currentTime);
+    }
+
+    function setSpeed(spd) {
+      playbackSpeed = spd;
+      document.querySelectorAll('#spd05, #spd10, #spd15').forEach(b => b.classList.remove('active'));
+      if (spd === 0.5) document.getElementById('spd05').classList.add('active');
+      if (spd === 1.0) document.getElementById('spd10').classList.add('active');
+      if (spd === 1.5) document.getElementById('spd15').classList.add('active');
+
+      const userVid = document.getElementById('userVideoFeed');
+      if (userVid.src) userVid.playbackRate = spd;
+    }
+
+    /* ==========================================================================
+       VIEWPORT RESIZE & SCALING
+       ========================================================================== */
+    let currentScaleMode = 'fit';
+    const chassis = document.getElementById('phoneChassis');
+    const stageWrapper = document.getElementById('stageWrapper');
+
+    function applyScale() {
+      let scale = 1;
+      const baseHeight = 782;
+      const baseWidth = 440;
+
+      if (currentScaleMode === 'fit') {
+        const availH = window.innerHeight - 190;
+        const availW = window.innerWidth - 32;
+        const sH = availH / baseHeight;
+        const sW = availW / baseWidth;
+        scale = Math.min(sH, sW, 1.0);
+        if (scale < 0.45) scale = 0.45;
+      } else {
+        scale = currentScaleMode;
+      }
+
+      chassis.style.transform = `scale(${scale})`;
+      stageWrapper.style.height = `${baseHeight * scale + 20}px`;
+    }
+
+    function setScale(mode) {
+      currentScaleMode = mode;
+      document.querySelectorAll('#scaleFit, #scale100, #scale80').forEach(b => b.classList.remove('active'));
+      if (mode === 'fit') document.getElementById('scaleFit').classList.add('active');
+      if (mode === 1.0) document.getElementById('scale100').classList.add('active');
+      if (mode === 0.8) document.getElementById('scale80').classList.add('active');
+      applyScale();
+    }
+
+    window.addEventListener('resize', () => {
+      if (currentScaleMode === 'fit') applyScale();
+    });
+
+    /* ==========================================================================
+       PRESENTER SOURCE (Silhouette, Webcam, Upload)
+       ========================================================================== */
+    let webcamStream = null;
+
+    function setPresenterMode(mode) {
+      const preset = document.getElementById('cinematicPresenter');
+      const video = document.getElementById('userVideoFeed');
+      const img = document.getElementById('userImageFeed');
+      const cam = document.getElementById('userWebcamFeed');
+
+      if (webcamStream) {
+        webcamStream.getTracks().forEach(t => t.stop());
+        webcamStream = null;
+        cam.style.display = 'none';
+      }
+
+      document.querySelectorAll('#btnPresetVideo, #btnWebcam').forEach(b => b.classList.remove('active'));
+
+      if (mode === 'cinematic') {
+        preset.style.display = 'flex';
+        video.style.display = 'none';
+        img.style.display = 'none';
+        document.getElementById('btnPresetVideo').classList.add('active');
+      }
+    }
+
+    async function toggleWebcam() {
+      const preset = document.getElementById('cinematicPresenter');
+      const video = document.getElementById('userVideoFeed');
+      const img = document.getElementById('userImageFeed');
+      const cam = document.getElementById('userWebcamFeed');
+      const btn = document.getElementById('btnWebcam');
+
+      if (webcamStream) {
+        setPresenterMode('cinematic');
+        return;
+      }
+
+      try {
+        webcamStream = await navigator.mediaDevices.getUserMedia({ video: { width: 1080, height: 1920 } });
+        cam.srcObject = webcamStream;
+        cam.style.display = 'block';
+        preset.style.display = 'none';
+        video.style.display = 'none';
+        img.style.display = 'none';
+        document.querySelectorAll('#btnPresetVideo').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      } catch (err) {
+        alert('Could not access webcam. You can upload your video or test with the cinematic silhouette!');
+      }
+    }
+
+    function handleFileUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const preset = document.getElementById('cinematicPresenter');
+      const video = document.getElementById('userVideoFeed');
+      const img = document.getElementById('userImageFeed');
+      const cam = document.getElementById('userWebcamFeed');
+
+      if (webcamStream) {
+        webcamStream.getTracks().forEach(t => t.stop());
+        webcamStream = null;
+        cam.style.display = 'none';
+      }
+
+      const fileUrl = URL.createObjectURL(file);
+      if (file.type.startsWith('video/')) {
+        video.src = fileUrl;
+        video.style.display = 'block';
+        preset.style.display = 'none';
+        img.style.display = 'none';
+        video.currentTime = 0;
+        video.play();
+      } else if (file.type.startsWith('image/')) {
+        img.src = fileUrl;
+        img.style.display = 'block';
+        preset.style.display = 'none';
+        video.style.display = 'none';
+      }
+    }
+
+    /* ==========================================================================
+       INSTAGRAM TOGGLES
+       ========================================================================== */
+    function toggleCaptionExpand() {
+      const cap = document.getElementById('igCaption');
+      const btn = document.getElementById('igMoreBtn');
+      cap.classList.toggle('expanded');
+      btn.innerText = cap.classList.contains('expanded') ? 'less' : '... more';
+    }
+
+    let isLiked = false;
+    function toggleLikeHeart() {
+      isLiked = !isLiked;
+      const icon = document.getElementById('igHeartIcon');
+      const count = document.getElementById('igLikeCount');
+      if (isLiked) {
+        icon.innerText = '❤️';
+        count.innerText = '24.9K';
+      } else {
+        icon.innerText = '🤍';
+        count.innerText = '24.8K';
+      }
+    }
+
+    let safeZoneVisible = true;
+    function toggleSafeZone() {
+      safeZoneVisible = !safeZoneVisible;
+      document.getElementById('safeZoneBox').style.display = safeZoneVisible ? 'block' : 'none';
+      document.getElementById('safeZoneToggleBtn').classList.toggle('active', safeZoneVisible);
+    }
+
+    let igUiVisible = true;
+    function toggleIgUI() {
+      igUiVisible = !igUiVisible;
+      document.getElementById('igOverlay').style.opacity = igUiVisible ? '1' : '0';
+      document.getElementById('igUiToggleBtn').classList.toggle('active', igUiVisible);
+    }
+
+    /* Keyboard Shortcuts */
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        togglePlay();
+      } else if (e.code === 'KeyR') {
+        restartReel();
+      }
+    });
+
+    /* Init */
+    setScale('fit');
+    renderMasterFrame(0);
+    requestAnimationFrame((now) => {
+      lastPerf = now;
+      mainLoop(now);
+    });
+  </script>
+</body>
+</html>

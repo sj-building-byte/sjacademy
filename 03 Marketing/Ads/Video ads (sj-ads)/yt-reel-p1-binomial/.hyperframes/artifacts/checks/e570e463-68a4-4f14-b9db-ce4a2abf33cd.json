@@ -1,0 +1,297 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"s1\"> is a timeline element that contains nested <img id=\"logo\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/yt-reel-p1-binomial/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"s1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"s2\"> is a timeline element that contains nested <div id=\"e-logo\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s2",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/yt-reel-p1-binomial/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"s2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 4,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 25.833,
+        "selector": "#e1",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 289.59,
+          "top": 513.93,
+          "right": 790.39,
+          "bottom": 644.83,
+          "width": 500.8,
+          "height": 130.91
+        },
+        "containerSelector": "#e-words > div:nth-of-type(1) > span:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 292.36,
+          "top": 420,
+          "right": 787.63,
+          "bottom": 524.98,
+          "width": 495.27,
+          "height": 104.98
+        },
+        "overflow": {
+          "left": 2.77,
+          "right": 2.76,
+          "bottom": 119.85
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 289.59,
+          "y": 513.93,
+          "width": 500.8,
+          "height": 130.91
+        },
+        "firstSeen": 25.833,
+        "lastSeen": 25.833,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          25.833
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 25.833,
+        "selector": "#e2",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 172.13,
+          "top": 628.83,
+          "right": 907.86,
+          "bottom": 791.77,
+          "width": 735.73,
+          "height": 162.94
+        },
+        "containerSelector": "#e-words > div:nth-of-type(2) > span:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 175.16,
+          "top": 524.98,
+          "right": 904.83,
+          "bottom": 647.69,
+          "width": 729.67,
+          "height": 122.7
+        },
+        "overflow": {
+          "left": 3.03,
+          "right": 3.03,
+          "bottom": 144.08
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 172.13,
+          "y": 628.83,
+          "width": 735.73,
+          "height": 162.94
+        },
+        "firstSeen": 25.833,
+        "lastSeen": 25.833,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          25.833
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 25.833,
+        "selector": "#e3",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 210.84,
+          "top": 759.04,
+          "right": 869.14,
+          "bottom": 920.69,
+          "width": 658.3,
+          "height": 161.65
+        },
+        "containerSelector": "#e-words > div:nth-of-type(3) > span:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 214.11,
+          "top": 647.69,
+          "right": 865.88,
+          "bottom": 774.55,
+          "width": 651.77,
+          "height": 126.86
+        },
+        "overflow": {
+          "left": 3.27,
+          "right": 3.26,
+          "bottom": 146.14
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 210.84,
+          "y": 759.04,
+          "width": 658.3,
+          "height": 161.65
+        },
+        "firstSeen": 25.833,
+        "lastSeen": 25.833,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          25.833
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 29.278,
+        "selector": "#e-paper > img:nth-of-type(1)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 169.28,
+          "top": 902.24,
+          "right": 909.58,
+          "bottom": 1726.12,
+          "width": 740.3,
+          "height": 823.88
+        },
+        "containerSelector": "#e-paper",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 178.18,
+          "top": 1072,
+          "right": 901.82,
+          "bottom": 1578,
+          "width": 723.64,
+          "height": 505.99
+        },
+        "overflow": {
+          "left": 8.9,
+          "right": 7.76,
+          "top": 169.76,
+          "bottom": 148.12
+        },
+        "dataAttributes": {
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 169.28,
+          "y": 902.24,
+          "width": 740.3,
+          "height": 823.88
+        },
+        "firstSeen": 29.278,
+        "lastSeen": 29.278,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          29.278
+        ]
+      }
+    ],
+    "duration": 31,
+    "samples": [
+      1.722,
+      5.167,
+      8.611,
+      12.056,
+      15.5,
+      18.944,
+      22.389,
+      25.833,
+      29.278
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 4,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.722,
+      8.611,
+      15.5,
+      22.389,
+      29.278
+    ],
+    "checked": 46,
+    "passed": 46
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

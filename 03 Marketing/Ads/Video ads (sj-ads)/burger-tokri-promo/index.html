@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Playfair"; src: url("assets/fonts/PlayfairDisplay.ttf") format("truetype"); font-weight: 400 900; font-style: normal; }
+      @font-face { font-family: "Playfair"; src: url("assets/fonts/PlayfairDisplay-Italic.ttf") format("truetype"); font-weight: 400 900; font-style: italic; }
+      @font-face { font-family: "Montserrat"; src: url("assets/fonts/Montserrat.ttf") format("truetype"); font-weight: 100 900; }
+      /* Burger Tokri: espresso, bronze and dusty rose, taken from the burgertokri.com hero */
+      :root { --ground: #1d140e; --espresso: #2a180e; --bronze: #5e2f1a; --gold-1: #f7e3b5; --shade: 34, 22, 14; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+      .abs { position: absolute; }
+      #vw { inset: 0; overflow: hidden; transform-origin: 53% 70%; }
+      .media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+      /* the words lie on the pavement, inside the basket's footprint, so the basket hides them until it is lifted.
+         multiply lets the pavement texture show through, as if printed on the ground */
+      #ground { left: 0; top: 0; width: 1080px; height: 1920px; mix-blend-mode: multiply; opacity: 0; }
+      #eyebrow { position: absolute; top: 1222px; left: 575px; transform: translateX(-50%); font-family: "Playfair"; font-style: italic; font-weight: 700; font-size: 48px; color: var(--bronze); white-space: nowrap; }
+      .word { position: absolute; left: 575px; transform: translateX(-50%); font-family: "Playfair"; font-weight: 800; font-size: 104px; line-height: 1; letter-spacing: 0.04em; color: var(--espresso); white-space: nowrap; }
+      #w1 { top: 1284px; }
+      #w2 { top: 1392px; }
+
+      #topshade { left: 0; right: 0; top: 0; height: 360px; background: linear-gradient(180deg, rgba(var(--shade), 0.35), rgba(var(--shade), 0)); }
+      #frame { inset: 44px; border: 2px solid rgba(247, 227, 181, 0.6); border-radius: 26px; opacity: 0; }
+      #url { bottom: 104px; left: 0; right: 0; text-align: center; font-family: "Montserrat"; font-weight: 600; font-size: 30px; letter-spacing: 0.26em; color: var(--espresso); opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="3.8" data-width="1080" data-height="1920">
+      <div id="vw" class="abs">
+        <video id="clip" class="clip media" src="assets/basket.mp4" data-start="0" data-duration="3.2" data-media-start="0.33" data-track-index="0" muted playsinline data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:0.75,&quot;adjust&quot;:{&quot;exposure&quot;:0,&quot;contrast&quot;:0.09,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:0.06,&quot;whites&quot;:0,&quot;blacks&quot;:-0.04,&quot;temperature&quot;:0.05,&quot;tint&quot;:0.02,&quot;vibrance&quot;:0.06,&quot;saturation&quot;:0},&quot;details&quot;:{&quot;vignette&quot;:0.04,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0,&quot;grainSize&quot;:0.25,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}"></video>
+        <img id="hold" class="clip media" src="assets/last.png" data-start="3.2" data-duration="0.6" data-track-index="0" data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:0.75,&quot;adjust&quot;:{&quot;exposure&quot;:0,&quot;contrast&quot;:0.09,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:0.06,&quot;whites&quot;:0,&quot;blacks&quot;:-0.04,&quot;temperature&quot;:0.05,&quot;tint&quot;:0.02,&quot;vibrance&quot;:0.06,&quot;saturation&quot;:0},&quot;details&quot;:{&quot;vignette&quot;:0.04,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0,&quot;grainSize&quot;:0.25,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" />
+        <div id="ground" class="abs">
+          <div id="eyebrow">Delivering Happiness</div>
+          <div id="w1" class="word">BURGER</div>
+          <div id="w2" class="word">TOKRI</div>
+        </div>
+        <!-- the basket and the person, cut out, on top of the words -->
+        <video id="fg" class="clip media" src="assets/fg-hard.webm" data-start="0" data-duration="3.2" data-media-start="0.33" data-track-index="2" muted playsinline data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:0.75,&quot;adjust&quot;:{&quot;exposure&quot;:0,&quot;contrast&quot;:0.09,&quot;highlights&quot;:-0.14,&quot;shadows&quot;:0.06,&quot;whites&quot;:0,&quot;blacks&quot;:-0.04,&quot;temperature&quot;:0.05,&quot;tint&quot;:0.02,&quot;vibrance&quot;:0.06,&quot;saturation&quot;:0},&quot;details&quot;:{&quot;vignette&quot;:0.04,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0,&quot;grainSize&quot;:0.25,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}"></video>
+      </div>
+      <div id="topshade" class="abs"></div>
+      <div id="frame" class="abs"></div>
+      <div id="url" class="abs">BURGERTOKRI.COM</div>
+      <audio id="sound" src="assets/audio/sound.wav" data-start="0" data-duration="3.8" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // slow push-in towards the spot where the basket sits
+      tl.fromTo("#vw", { scale: 1.0 }, { scale: 1.1, duration: 3.8, ease: "sine.inOut" }, 0);
+      tl.fromTo("#frame", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0.1);
+      // the words are switched on while the basket still covers them (1.9s in the source); the cut-out reveals them as it lifts
+      tl.set("#ground", { opacity: 1 }, 1.57);
+      tl.fromTo("#url", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 2.5);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Level Practicals Mock Exams | SJ Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Brand Primary Accents */
+            --sja-yellow: #FCE004;         
+            --sja-light-yellow: #FFF9CC;   
+            --sja-orange: #FE6100;         
+            --sja-orange-hover: #E55800;   
+            --sja-brown: #453516;          
+            
+            /* Monochrome & Neutral Surfaces */
+            --sja-black: #000000;          
+            --sja-dark-grey: #222222;      
+            --sja-grey: #555555;           
+            --sja-light-bg: #FAFAFA;       
+            --sja-white: #FFFFFF;          
+            --sja-border-light: #E5E5E5;   
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            color: var(--sja-dark-grey);
+            background-color: var(--sja-light-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--sja-black);
+            font-weight: 500;
+        }
+
+        /* SJ Academy Signature Highlighter (Light Mode) */
+        .sja-highlight {
+            background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%) no-repeat 0 85% / 100% 35%;
+            display: inline;
+            color: var(--sja-black);
+            padding: 0 3px;
+            font-weight: 400;
+        }
+
+
+
+        /* SJ Academy Card */
+        .sja-card {
+            background: var(--sja-white);
+            padding: 28px;
+            border-top: 5px solid var(--sja-brown);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--sja-border-light);
+            border-right: 1px solid var(--sja-border-light);
+            border-bottom: 1px solid var(--sja-border-light);
+        }
+        
+        .sja-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--sja-orange);
+        }
+
+        /* Pill / Badge */
+        .sja-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--sja-yellow);
+            border: 1.5px solid var(--sja-black);
+            border-radius: 50px;
+            padding: 6px 18px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--sja-black);
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        /* WPForms Overrides to match SJ Academy brand */
+        .wpforms-custom-wrapper {
+            margin-top: 10px;
+        }
+        .wpforms-custom-wrapper .wpforms-container { margin: 0 !important; padding: 0 !important; }
+        .wpforms-custom-wrapper .wpforms-field { margin-bottom: 1rem !important; clear: both !important; }
+        .wpforms-custom-wrapper .wpforms-field-label { display: block !important; font-size: 0.9rem !important; font-weight: 400 !important; color: var(--sja-dark-grey) !important; margin-bottom: 0.25rem !important; }
+        .wpforms-custom-wrapper .wpforms-field input[type=text], 
+        .wpforms-custom-wrapper .wpforms-field input[type=email], 
+        .wpforms-custom-wrapper .wpforms-field input[type=tel], 
+        .wpforms-custom-wrapper .wpforms-field input[type=number], 
+        .wpforms-custom-wrapper .wpforms-field select, 
+        .wpforms-custom-wrapper .wpforms-field textarea {
+            width: 100% !important; max-width: 100% !important; padding: 0.75rem 1rem !important; border: 1.5px solid var(--sja-border-light) !important; border-radius: 8px !important; outline: none !important; box-shadow: none !important; font-family: 'Poppins', sans-serif !important; background-color: #fafafa !important; color: var(--sja-black) !important; transition: all 0.3s !important; box-sizing: border-box !important; font-size: 1rem !important; font-weight: 300 !important;
+        }
+        .wpforms-custom-wrapper .wpforms-field input:focus,
+        .wpforms-custom-wrapper .wpforms-field textarea:focus {
+            border-color: var(--sja-orange) !important; background-color: #fff !important; box-shadow: 0 0 0 3px rgba(254, 97, 0, 0.1) !important;
+        }
+        .wpforms-custom-wrapper .wpforms-submit-container { margin-top: 1.5rem !important; }
+        .wpforms-custom-wrapper .wpforms-submit {
+            width: 100% !important; background-color: var(--sja-orange) !important; color: white !important; font-weight: 400 !important; text-transform: uppercase !important; letter-spacing: 0.8px !important; padding: 14px 28px !important; border-radius: 8px !important; border: none !important; cursor: pointer !important; transition: all 0.3s !important; font-size: 13.5px !important; text-align: center !important; font-family: 'Poppins', sans-serif !important; box-shadow: 0 4px 10px rgba(254,97,0,0.3) !important;
+        }
+        .wpforms-custom-wrapper .wpforms-submit:hover {
+            background-color: var(--sja-orange-hover) !important; transform: translateY(-2px) !important; box-shadow: 0 10px 20px rgba(254,97,0,0.4) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section (First Fold) -->
+    <section class="relative bg-[#1a1a1a] text-white pt-16 pb-20 overflow-hidden">
+        <!-- Background Pattern/Image Overlay -->
+        <div class="absolute inset-0 opacity-25 bg-cover bg-center" style="background-image: url('https://www.sjacademy.pk/wp-content/uploads/2026/09/student4.jpg'); filter: blur(3px);"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-[#1a1a1a] to-transparent opacity-90"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="space-y-6">
+                    <div class="sja-badge !border-[#FCE004]">
+                        <i class="fa-solid fa-location-dot mr-2"></i> Exclusively For Karachi Students
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-[54px] leading-[1.2] tracking-tight !text-white">
+                        A Level Practicals <br>
+                        <span class="text-[var(--sja-yellow)]" style="font-weight: 600 !important;">Mock Exams</span>
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-[#E5E5E5] max-w-lg leading-relaxed font-normal">
+                        Get the ultimate exam-style practical experience with fully equipped apparatuses, timed practice, and expert supervision.
+                    </p>
+                    
+                    <!-- Dates Quick Info -->
+                    <div class="flex flex-wrap gap-3 mt-6">
+                        <div class="flex items-center gap-2.5 bg-[#000000]/60 border border-[#FCE004]/40 rounded-lg px-3 py-2">
+                            <i class="fa-solid fa-flask text-[#FCE004] text-lg"></i>
+                            <div>
+                                <div class="text-[0.7rem] text-gray-300 uppercase tracking-widest leading-none mb-1">Chemistry</div>
+                                <div class="text-[0.9rem] text-white font-medium leading-none">19th Sep (Sat)</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-[#000000]/60 border border-[#FCE004]/40 rounded-lg px-3 py-2">
+                            <i class="fa-solid fa-microscope text-[#FCE004] text-lg"></i>
+                            <div>
+                                <div class="text-[0.7rem] text-gray-300 uppercase tracking-widest leading-none mb-1">Biology</div>
+                                <div class="text-[0.9rem] text-white font-medium leading-none">19th Sep (Sat)</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5 bg-[#000000]/60 border border-[#FCE004]/40 rounded-lg px-3 py-2">
+                            <i class="fa-solid fa-atom text-[#FCE004] text-lg"></i>
+                            <div>
+                                <div class="text-[0.7rem] text-gray-300 uppercase tracking-widest leading-none mb-1">Physics</div>
+                                <div class="text-[0.9rem] text-white font-medium leading-none">20th Sep (Sun)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 text-[#F3F4F6] mt-8 font-normal">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-[#FE6100]"></i> Realistic Practical Exam Setup</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-[#FE6100]"></i> Timed Examination Practice</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-[#FE6100]"></i> Hands-on Practical Skills</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-[#FE6100]"></i> Exam-Focused Preparation</li>
+                    </ul>
+                </div>
+
+                <!-- Registration Form Container -->
+                <div class="sja-card relative z-10 w-full max-w-md mx-auto lg:ml-auto">
+                    <div class="text-center mb-4">
+                        <h3 class="text-[1.4rem] !text-black tracking-tight mb-2">Limited Seats Available</h3>
+                        <p class="text-[0.95rem] text-[#555555] font-normal">Register now to secure your spot</p>
+                    </div>
+
+                    <!-- WPForms Integration -->
+                    <div class="wpforms-custom-wrapper">
+                        [wpforms id="10764"]
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Details Section -->
+    <section class="py-20 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl text-[#000000] mb-4 tracking-tight">Schedule & <span class="sja-highlight">Timings</span></h2>
+                <p class="text-[#555555] max-w-2xl mx-auto font-normal text-lg">Prepare with industry-leading experts in a proper lab setting. Each session costs Rs. 4,000.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Chemistry Card -->
+                <div class="sja-card group">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mb-5 bg-[#FFF9CC] border border-[#FCE004] text-[#453516]">
+                        <i class="fa-solid fa-flask text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl text-[#000000] mb-4">Chemistry</h3>
+                    <div class="bg-[#FAFAFA] rounded-md py-3 px-4 border border-[#E5E5E5] mb-5 inline-block text-center w-fit">
+                        <div class="flex items-center gap-2 text-[#000000] text-lg">
+                            <i class="fa-regular fa-calendar text-[#FE6100]"></i> 19th Sep
+                        </div>
+                        <div class="text-[0.75rem] text-[#555555] uppercase tracking-widest mt-1">Saturday</div>
+                    </div>
+                    <ul class="text-left space-y-4 mt-2 text-[#222222] font-normal text-[0.95rem]">
+                        <li class="flex justify-between items-center border-b border-[#E5E5E5] pb-3">
+                            <span class="text-[#555555]"><i class="fa-regular fa-clock mr-1"></i> Timing:</span> 
+                            <span class="text-[#000000]">10am - 12pm</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-[#E5E5E5] pb-3">
+                            <span class="text-[#555555]"><i class="fa-solid fa-user-tie mr-1"></i> Teacher:</span> 
+                            <span class="text-[#000000]">Sir Salman Junaid</span>
+                        </li>
+                        <li class="flex justify-between items-center pt-1">
+                            <span class="text-[#555555]"><i class="fa-solid fa-tag mr-1"></i> Fee:</span> 
+                            <span class="text-[#FE6100]">Rs. 4,000</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Biology Card -->
+                <div class="sja-card group">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mb-5 bg-[#FFF9CC] border border-[#FCE004] text-[#453516]">
+                        <i class="fa-solid fa-microscope text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl text-[#000000] mb-4">Biology</h3>
+                    <div class="bg-[#FAFAFA] rounded-md py-3 px-4 border border-[#E5E5E5] mb-5 inline-block text-center w-fit">
+                        <div class="flex items-center gap-2 text-[#000000] text-lg">
+                            <i class="fa-regular fa-calendar text-[#FE6100]"></i> 19th Sep
+                        </div>
+                        <div class="text-[0.75rem] text-[#555555] uppercase tracking-widest mt-1">Saturday</div>
+                    </div>
+                    <ul class="text-left space-y-4 mt-2 text-[#222222] font-normal text-[0.95rem]">
+                        <li class="flex justify-between items-center border-b border-[#E5E5E5] pb-3">
+                            <span class="text-[#555555]"><i class="fa-regular fa-clock mr-1"></i> Timing:</span> 
+                            <span class="text-[#000000]">2pm - 4pm</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-[#E5E5E5] pb-3">
+                            <span class="text-[#555555]"><i class="fa-solid fa-user-tie mr-1"></i> Teacher:</span> 
+                            <span class="text-[#000000]">Sir Muhammad Ubaid</span>
+                        </li>
+                        <li class="flex justify-between items-center pt-1">
+                            <span class="text-[#555555]"><i class="fa-solid fa-tag mr-1"></i> Fee:</span> 
+                            <span class="text-[#FE6100]">Rs. 4,000</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Physics Card -->
+                <div class="sja-card group">
+                    <div class="w-14 h-14 rounded-full flex items-center justify-center mb-5 bg-[#FFF9CC] border border-[#FCE004] text-[#453516]">
+                        <i class="fa-solid fa-atom text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl text-[#000000] mb-4">Physics</h3>
+                    <div class="bg-[#FAFAFA] rounded-md py-3 px-4 border border-[#E5E5E5] mb-5 inline-block text-center w-fit">
+                        <div class="flex items-center gap-2 text-[#000000] text-lg">
+                            <i class="fa-regular fa-calendar text-[#FE6100]"></i> 20th Sep
+                        </div>
+                        <div class="text-[0.75rem] text-[#555555] uppercase tracking-widest mt-1">Sunday</div>
+                    </div>
+                    <ul class="text-left space-y-4 mt-2 text-[#222222] font-normal text-[0.95rem]">
+                        <li class="flex justify-between items-center border-b border-[#E5E5E5] pb-3">
+                            <span class="text-[#555555]"><i class="fa-regular fa-clock mr-1"></i> Timing:</span> 
+                            <span class="text-[#000000]">2pm - 4pm</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-[#E5E5E5] pb-3">
+                            <span class="text-[#555555]"><i class="fa-solid fa-user-tie mr-1"></i> Teacher:</span> 
+                            <span class="text-[#000000]">Sir Salman Junaid</span>
+                        </li>
+                        <li class="flex justify-between items-center pt-1">
+                            <span class="text-[#555555]"><i class="fa-solid fa-tag mr-1"></i> Fee:</span> 
+                            <span class="text-[#FE6100]">Rs. 4,000</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Collage Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl text-[#000000] mb-4 tracking-tight">Experience the <span class="sja-highlight">Real Exam</span> Environment</h2>
+                <p class="text-[#555555] max-w-2xl mx-auto font-normal text-lg">Join students from across Karachi practicing with fully equipped apparatuses.</p>
+            </div>
+            
+            <!-- Bulletproof Flexbox Collage -->
+            <div class="flex flex-col md:flex-row gap-4 items-stretch">
+                <!-- Large Image (Left) -->
+                <div class="w-full md:w-1/2 flex">
+                    <img src="https://www.sjacademy.pk/wp-content/uploads/2026/09/practical-scaled.jpg" alt="Students conducting experiments" class="shadow-lg w-full h-full object-cover min-h-[300px] md:min-h-[500px]" style="border-radius: 16px !important;">
+                </div>
+                
+                <!-- Right Side Grid (2x2) -->
+                <div class="w-full md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
+                    <!-- Top Left -->
+                    <img src="https://www.sjacademy.pk/wp-content/uploads/2026/09/student1.jpg" alt="Student using a microscope" class="shadow-lg w-full h-full object-cover min-h-[180px] md:min-h-[240px]" style="border-radius: 16px !important;">
+                    
+                    <!-- Top Right (New Image) -->
+                    <img src="https://www.sjacademy.pk/wp-content/uploads/2026/09/IMG_7078-scaled.jpg" alt="Lab Session Details" class="shadow-lg w-full h-full object-cover min-h-[180px] md:min-h-[240px]" style="border-radius: 16px !important;">
+
+                    <!-- Bottom Left -->
+                    <img src="https://www.sjacademy.pk/wp-content/uploads/2025/08/Physics-practicals.webp" alt="Students in physics lab" class="shadow-lg w-full h-full object-cover min-h-[180px] md:min-h-[240px]" style="border-radius: 16px !important;">
+                    
+                    <!-- Bottom Right -->
+                    <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1633-e1787358217316.jpg" alt="Students interacting in lab" class="shadow-lg w-full h-full object-cover min-h-[180px] md:min-h-[240px]" style="border-radius: 16px !important;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

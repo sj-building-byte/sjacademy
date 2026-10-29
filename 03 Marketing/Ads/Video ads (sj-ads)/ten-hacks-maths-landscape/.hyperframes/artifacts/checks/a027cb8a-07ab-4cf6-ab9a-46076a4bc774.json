@@ -1,0 +1,699 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 50 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/compositions/captions.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "gsap_timeline_set_initial_hide",
+        "severity": "warning",
+        "message": "Initial hidden state for \"#ht0-x\" is set via tl.set(...) at position 0 inside the paused timeline. A zero-duration set at 0 does not render while the playhead sits exactly at 0, so frame 0 shows the un-hidden state.",
+        "selector": "#ht0-x",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/compositions/hits.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use gsap.set(...) (immediate, outside the timeline) for initial states, or author the hidden state directly in CSS/attributes."
+      }
+    ],
+    "filesScanned": 18
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 11,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 5.704,
+        "selector": "#h01-cardglow",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1382,
+          "top": 413,
+          "right": 2002,
+          "bottom": 1033,
+          "width": 620,
+          "height": 620
+        },
+        "containerSelector": "#h01-card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 900,
+          "top": 215,
+          "right": 1824,
+          "bottom": 815,
+          "width": 924,
+          "height": 600
+        },
+        "overflow": {
+          "right": 178,
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/h01.html",
+        "bbox": {
+          "x": 1382,
+          "y": 413,
+          "width": 620,
+          "height": 620
+        },
+        "firstSeen": 5.704,
+        "lastSeen": 5.704,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.704
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 15.083,
+        "selector": "#cap7-t",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 666.13,
+          "top": 942,
+          "right": 1253.86,
+          "bottom": 998,
+          "width": 587.73,
+          "height": 56
+        },
+        "containerSelector": "#cap8-t",
+        "text": "multiply by ten, then halve it.",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/captions.html",
+        "bbox": {
+          "x": 666.13,
+          "y": 942,
+          "width": 587.73,
+          "height": 56
+        },
+        "firstSeen": 15.083,
+        "lastSeen": 15.083,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.083
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 17.111,
+        "selector": "#h02-cardglow",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1382,
+          "top": 413,
+          "right": 2002,
+          "bottom": 1033,
+          "width": 620,
+          "height": 620
+        },
+        "containerSelector": "#h02-card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 900,
+          "top": 215,
+          "right": 1824,
+          "bottom": 815,
+          "width": 924,
+          "height": 600
+        },
+        "overflow": {
+          "right": 178,
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/h02.html",
+        "bbox": {
+          "x": 1382,
+          "y": 413,
+          "width": 620,
+          "height": 620
+        },
+        "firstSeen": 17.111,
+        "lastSeen": 17.111,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17.111
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 23.996,
+        "selector": "#cap12-t",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 724.38,
+          "top": 942,
+          "right": 1195.63,
+          "bottom": 998,
+          "width": 471.25,
+          "height": 56
+        },
+        "containerSelector": "#cap13-t",
+        "text": "take the number away.",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/captions.html",
+        "bbox": {
+          "x": 724.38,
+          "y": 942,
+          "width": 471.25,
+          "height": 56
+        },
+        "firstSeen": 23.996,
+        "lastSeen": 23.996,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          23.996
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 28.519,
+        "selector": "#h03-cardglow",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1382,
+          "top": 413,
+          "right": 2002,
+          "bottom": 1033,
+          "width": 620,
+          "height": 620
+        },
+        "containerSelector": "#h03-card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 900,
+          "top": 215,
+          "right": 1824,
+          "bottom": 815,
+          "width": 924,
+          "height": 600
+        },
+        "overflow": {
+          "right": 178,
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/h03.html",
+        "bbox": {
+          "x": 1382,
+          "y": 413,
+          "width": 620,
+          "height": 620
+        },
+        "firstSeen": 28.519,
+        "lastSeen": 28.519,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.519
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 39.926,
+        "selector": "#h05-cardglow",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1382,
+          "top": 413,
+          "right": 2002,
+          "bottom": 1033,
+          "width": 620,
+          "height": 620
+        },
+        "containerSelector": "#h05-card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 900,
+          "top": 215,
+          "right": 1824,
+          "bottom": 815,
+          "width": 924,
+          "height": 600
+        },
+        "overflow": {
+          "right": 178,
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/h05.html",
+        "bbox": {
+          "x": 1382,
+          "y": 413,
+          "width": 620,
+          "height": 620
+        },
+        "firstSeen": 39.926,
+        "lastSeen": 39.926,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          39.926
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 51.334,
+        "selector": "#h06-cardglow",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1382,
+          "top": 413,
+          "right": 2002,
+          "bottom": 1033,
+          "width": 620,
+          "height": 620
+        },
+        "containerSelector": "#h06-card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 900,
+          "top": 215,
+          "right": 1824,
+          "bottom": 815,
+          "width": 924,
+          "height": 600
+        },
+        "overflow": {
+          "right": 178,
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/h06.html",
+        "bbox": {
+          "x": 1382,
+          "y": 413,
+          "width": 620,
+          "height": 620
+        },
+        "firstSeen": 51.334,
+        "lastSeen": 51.334,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          51.334
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 62.742,
+        "selector": "#h07-cardglow",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1382,
+          "top": 413,
+          "right": 2002,
+          "bottom": 1033,
+          "width": 620,
+          "height": 620
+        },
+        "containerSelector": "#h07-card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 900,
+          "top": 215,
+          "right": 1824,
+          "bottom": 815,
+          "width": 924,
+          "height": 600
+        },
+        "overflow": {
+          "right": 178,
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/h07.html",
+        "bbox": {
+          "x": 1382,
+          "y": 413,
+          "width": 620,
+          "height": 620
+        },
+        "firstSeen": 62.742,
+        "lastSeen": 62.742,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          62.742
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 74.149,
+        "selector": "#h08-cardglow",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1406.1,
+          "top": 402.66,
+          "right": 2061.5,
+          "bottom": 1058.07,
+          "width": 655.4,
+          "height": 655.4
+        },
+        "containerSelector": "#h08-card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 896.57,
+          "top": 193.36,
+          "right": 1873.33,
+          "bottom": 827.62,
+          "width": 976.76,
+          "height": 634.26
+        },
+        "overflow": {
+          "right": 188.17,
+          "bottom": 230.45
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/h08.html",
+        "bbox": {
+          "x": 1406.1,
+          "y": 402.66,
+          "width": 655.4,
+          "height": 655.4
+        },
+        "firstSeen": 74.149,
+        "lastSeen": 74.149,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          74.149
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 85.557,
+        "selector": "#h10-cardglow",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1382,
+          "top": 413,
+          "right": 2002,
+          "bottom": 1033,
+          "width": 620,
+          "height": 620
+        },
+        "containerSelector": "#h10-card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 900,
+          "top": 215,
+          "right": 1824,
+          "bottom": 815,
+          "width": 924,
+          "height": 600
+        },
+        "overflow": {
+          "right": 178,
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/h10.html",
+        "bbox": {
+          "x": 1382,
+          "y": 413,
+          "width": 620,
+          "height": 620
+        },
+        "firstSeen": 85.557,
+        "lastSeen": 85.557,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          85.557
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 85.557,
+        "selector": "#h10-l8",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1125,
+          "top": 616.59,
+          "right": 1166.48,
+          "bottom": 693.39,
+          "width": 41.48,
+          "height": 76.8
+        },
+        "containerSelector": "#h10-board",
+        "text": "8",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 850,
+          "top": -445,
+          "right": 2770,
+          "bottom": 635,
+          "width": 1920,
+          "height": 1080
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/h10.html",
+        "bbox": {
+          "x": 1125,
+          "y": 616.59,
+          "width": 41.48,
+          "height": 76.8
+        },
+        "firstSeen": 85.557,
+        "lastSeen": 85.557,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          85.557
+        ]
+      }
+    ],
+    "duration": 102.668,
+    "samples": [
+      5.704,
+      17.111,
+      28.519,
+      39.926,
+      51.334,
+      62.742,
+      74.149,
+      85.557,
+      96.964
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 11,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 5,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.26:1; WCAG AA requires 3:1.",
+        "text": "take the number away once",
+        "fg": "rgb(10,15,44)",
+        "bg": "rgb(37,37,58)",
+        "ratio": 1.26,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(108,111,128)",
+        "large": true,
+        "selector": "#h03-r1",
+        "dataAttributes": {},
+        "sourceFile": "compositions/h03.html",
+        "bbox": {
+          "x": 96,
+          "y": 521,
+          "width": 605.0625,
+          "height": 112
+        },
+        "time": 28.519,
+        "times": [
+          28.519
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.23:1; WCAG AA requires 3:1.",
+        "text": "take away the gap squared",
+        "fg": "rgb(10,15,44)",
+        "bg": "rgb(46,31,57)",
+        "ratio": 1.23,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(107,110,128)",
+        "large": true,
+        "selector": "#h06-r1",
+        "dataAttributes": {},
+        "sourceFile": "compositions/h06.html",
+        "bbox": {
+          "x": 96,
+          "y": 521,
+          "width": 729.09375,
+          "height": 112
+        },
+        "time": 51.334,
+        "times": [
+          51.334
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.44:1; WCAG AA requires 3:1.",
+        "text": "New bottom: multiply them",
+        "fg": "rgb(10,15,44)",
+        "bg": "rgb(34,52,55)",
+        "ratio": 1.44,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(119,121,138)",
+        "large": true,
+        "selector": "#h08-r1",
+        "dataAttributes": {},
+        "sourceFile": "compositions/h08.html",
+        "bbox": {
+          "x": 46.665565490722656,
+          "y": 516.8317260742188,
+          "width": 689.8403930664062,
+          "height": 118.39520263671875
+        },
+        "time": 74.149,
+        "times": [
+          74.149
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.05:1; WCAG AA requires 3:1.",
+        "text": "8",
+        "fg": "rgb(10,15,44)",
+        "bg": "rgb(78,73,30)",
+        "ratio": 2.05,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(145,148,161)",
+        "large": true,
+        "selector": "#h08-rn",
+        "dataAttributes": {},
+        "sourceFile": "compositions/h08.html",
+        "bbox": {
+          "x": 1419.8385009765625,
+          "y": 505.40179443359375,
+          "width": 65.771484375,
+          "height": 121.76470947265625
+        },
+        "time": 74.149,
+        "times": [
+          74.149
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.99:1; WCAG AA requires 3:1.",
+        "text": "15",
+        "fg": "rgb(10,15,44)",
+        "bg": "rgb(76,71,26)",
+        "ratio": 1.99,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(143,145,158)",
+        "large": true,
+        "selector": "#h08-rd",
+        "dataAttributes": {},
+        "sourceFile": "compositions/h08.html",
+        "bbox": {
+          "x": 1400.5960693359375,
+          "y": 647.482666015625,
+          "width": 104.124267578125,
+          "height": 121.76470947265625
+        },
+        "time": 74.149,
+        "times": [
+          74.149
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      5.704,
+      28.519,
+      51.334,
+      74.149,
+      96.964
+    ],
+    "checked": 53,
+    "passed": 48
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

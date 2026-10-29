@@ -1,0 +1,436 @@
+<!-- SJ Academy class timetable page, Elementor HTML widget. Version 1.0, October 2026.
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Everything is scoped to #sjt. Timetable data comes live from the "SJA Class Timetable" Google Sheet.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet"></noscript>
+
+<style>
+#sjt{--y:#FCE004;--yl:#FFF9CC;--o:#FE6100;--cta:#CC4A00;--br:#453516;--ink:#151515;--tx:#2B2B2B;--mu:#66625A;--cv:#F7F5EF;--ln:#E2DDD0;--kr:#E9DFC9;--wa:#25D366;--pen:#D63A2F;--hand:'Caveat','Segoe Script','Bradley Hand',cursive;
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.6;font-weight:400;color:var(--tx);background:var(--cv);text-align:left;width:100%;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+#sjt,#sjt *,#sjt *::before,#sjt *::after{box-sizing:border-box}
+#sjt h1,#sjt h2,#sjt h3{font-family:inherit;font-weight:400;margin:0;padding:0;color:var(--ink);text-transform:none;letter-spacing:-.4px}
+#sjt h1{font-size:32px;line-height:1.18}
+#sjt h2{font-size:26px;line-height:1.22}
+#sjt h3{font-size:17px;line-height:1.3;font-weight:500;letter-spacing:-.1px}
+#sjt p{margin:0;padding:0;font-family:inherit;font-size:inherit;line-height:inherit;color:inherit}
+#sjt a{color:inherit;text-decoration:none;font-weight:inherit;transition:none;box-shadow:none}
+#sjt ul{margin:0;padding:0;list-style:none}
+#sjt li{margin:0;padding:0}
+#sjt b{font-weight:500}
+#sjt svg{display:inline-block;vertical-align:middle}
+#sjt button{all:unset;box-sizing:border-box;cursor:pointer;font-family:inherit;-webkit-tap-highlight-color:transparent}
+#sjt table{border-collapse:separate;border-spacing:0;width:100%;margin:0;border:0;background:none;font-size:inherit;table-layout:fixed}
+#sjt th,#sjt td{border:0;background:none;padding:0;text-align:left;font-weight:400;vertical-align:top;color:inherit}
+#sjt [hidden]{display:none!important}
+#sjt a:focus-visible,#sjt button:focus-visible,#sjt summary:focus-visible{outline:3px solid var(--o);outline-offset:2px}
+
+#sjt .sjt-sec{padding:44px 16px;background:var(--cv)}
+#sjt .sjt-white{background:#fff}
+#sjt .sjt-wrap{max-width:1280px;margin:0 auto}
+#sjt .sjt-head{margin-bottom:22px}
+#sjt .sjt-muted{color:var(--mu);font-size:14px}
+#sjt .sjt-hl{background-image:linear-gradient(100deg,transparent 0,var(--y) .14em,var(--y) calc(100% - .14em),transparent 100%);background-repeat:no-repeat;background-size:100% .4em;background-position:0 calc(100% - .31em);padding:0 .14em;margin:0 -.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone;white-space:nowrap}
+#sjt .sjt-hand{font-family:var(--hand);font-weight:600;font-size:21px;line-height:1.1;color:var(--cta)}
+#sjt .sjt-eyebrow{font-size:12px;font-weight:500;letter-spacing:1.4px;text-transform:uppercase;color:var(--mu);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+#sjt .sjt-eyebrow::before{content:"";width:26px;height:2px;background:var(--ink)}
+#sjt .sjt-pill{display:table;border:1.5px solid var(--ink);border-radius:50px;padding:4px;background:#fff;box-shadow:3px 3px 0 rgba(0,0,0,.14);margin:0 auto 18px}
+#sjt .sjt-pill span{display:block;background:var(--y);border-radius:40px;padding:6px 14px;font-size:11px;line-height:1.4;font-weight:500;letter-spacing:.7px;text-transform:uppercase;color:var(--ink)}
+#sjt .sjt-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 18px;border-radius:12px;border:1.5px solid var(--ink);font-size:15.5px;line-height:1.3;font-weight:500;text-align:center;width:100%;text-transform:none;letter-spacing:0}
+#sjt .sjt-btn-primary,#sjt .sjt-btn-primary:hover,#sjt .sjt-btn-primary:focus{background:var(--cta);color:#fff}
+#sjt .sjt-btn-primary{box-shadow:4px 4px 0 var(--ink)}
+#sjt .sjt-btn-wa,#sjt .sjt-btn-wa:hover,#sjt .sjt-btn-wa:focus{background:var(--wa);color:#000}
+#sjt .sjt-btn-ghost,#sjt .sjt-btn-ghost:hover{background:#fff;color:var(--ink)}
+#sjt .sjt-btn svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
+#sjt .sjt-link,#sjt .sjt-link:hover{font-size:14px;font-weight:500;color:var(--ink);border-bottom:2px solid var(--y);padding-bottom:2px;display:inline-block}
+#sjt .sjt-link::after{content:" \2192"}
+
+/* hero */
+#sjt .sjt-hero{text-align:center;padding-top:34px;padding-bottom:26px}
+#sjt .sjt-lead{font-size:16px;margin:14px auto 0;max-width:620px}
+#sjt .sjt-hero .sjt-hand{display:inline-block;margin-top:14px;transform:rotate(-1.5deg)}
+
+/* planner */
+#sjt .sjt-planner-sec{padding-top:8px}
+#sjt .sjt-tabs{display:flex;gap:4px;padding:0 10px;overflow-x:auto;scrollbar-width:none}
+#sjt .sjt-tabs::-webkit-scrollbar{display:none}
+#sjt .sjt-tabs button{flex:1 1 0;min-width:0;min-height:48px;padding:8px 4px;border:1.5px solid var(--ink);border-bottom:0;border-radius:12px 12px 0 0;background:var(--kr);color:var(--ink);font-size:13.5px;line-height:1.2;text-align:center;position:relative;top:1.5px;white-space:nowrap}
+#sjt .sjt-tabs button[aria-pressed="true"]{background:#fff;font-weight:500;z-index:1}
+#sjt .sjt-planner{background:#fff;border:1.5px solid var(--ink);border-radius:16px;box-shadow:7px 7px 0 var(--y),7px 7px 0 1.5px var(--ink);padding:16px;min-height:320px}
+#sjt .sjt-top{display:flex;justify-content:space-between;align-items:center;gap:8px 14px;flex-wrap:wrap}
+#sjt .sjt-batch{display:inline-flex;background:var(--cv);border-radius:10px;padding:3px}
+#sjt .sjt-batch button{min-height:38px;padding:6px 12px;border-radius:8px;font-size:13px;color:var(--mu);white-space:nowrap}
+#sjt .sjt-batch button[aria-pressed="true"]{background:var(--ink);color:#fff;font-weight:500}
+#sjt .sjt-stamp{display:inline-block;border:2.5px solid var(--pen);border-radius:6px;padding:2px 10px;font-size:11.5px;font-weight:500;letter-spacing:1.4px;text-transform:uppercase;color:var(--pen);transform:rotate(-4deg)}
+#sjt .sjt-q{font-size:13px;font-weight:500;color:var(--ink);margin:18px 0 8px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+#sjt .sjt-q button{font-size:13px;font-weight:400;color:var(--mu);text-decoration:underline;text-underline-offset:3px;min-height:32px}
+#sjt .sjt-chips{display:flex;flex-wrap:wrap;gap:8px}
+#sjt .sjt-chip{min-height:44px;padding:8px 14px;border-radius:50px;border:1.5px solid var(--ln);background:#fff;font-size:14px;line-height:1.3;color:var(--ink);display:inline-flex;align-items:center}
+#sjt .sjt-chip:hover{border-color:var(--ink)}
+#sjt .sjt-chip[aria-pressed="true"]{background:var(--y);border-color:var(--ink);font-weight:500}
+
+/* day picker (phones) */
+#sjt .sjt-days{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;margin-top:20px}
+#sjt .sjt-days button{min-height:54px;border-radius:12px;border:1.5px solid var(--ln);text-align:center;font-size:13.5px;line-height:1.2;color:var(--ink);display:grid;align-content:center;justify-items:center;gap:3px;padding:6px 2px}
+#sjt .sjt-days button small{font-size:11px;color:var(--mu)}
+#sjt .sjt-days button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:500}
+#sjt .sjt-days button[aria-pressed="true"] small{color:#D9D0B8}
+#sjt .sjt-days button[data-today]::after{content:"today";font-family:var(--hand);font-weight:600;font-size:13px;line-height:.8;color:var(--cta)}
+#sjt .sjt-days button[data-today][aria-pressed="true"]::after{color:var(--y)}
+
+/* day list (phones) */
+#sjt .sjt-list{margin-top:14px;border-top:1.5px solid var(--ink)}
+#sjt .sjt-slot{display:grid;grid-template-columns:92px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid var(--ln);align-items:start}
+#sjt .sjt-time{font-size:13px;color:var(--mu);line-height:1.35;padding-top:9px}
+#sjt .sjt-cls{display:flex;flex-wrap:wrap;gap:6px}
+#sjt .sjt-c{display:inline-flex;flex-direction:column;align-items:flex-start;gap:1px;min-height:44px;justify-content:center;padding:6px 12px;border-radius:10px;background:var(--cv);border:1.5px solid transparent;font-size:14px;line-height:1.25;color:var(--ink)}
+#sjt .sjt-c small{font-size:11.5px;color:var(--mu);line-height:1.3}
+#sjt .sjt-c[aria-pressed="true"]{background:var(--y);border-color:var(--ink);font-weight:500}
+#sjt .sjt-c[aria-pressed="true"] small{color:var(--ink);font-weight:400}
+#sjt .sjt-dim .sjt-c[aria-pressed="false"]{opacity:.38}
+#sjt .sjt-on::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#1DB954;margin-right:5px;vertical-align:1px}
+#sjt .sjt-none{padding:22px 0;text-align:center;color:var(--mu);font-size:14.5px}
+
+/* week grid (desktop) */
+#sjt .sjt-grid{display:none}
+#sjt .sjt-grid th,#sjt .sjt-grid td{padding:8px;border-bottom:1px solid var(--ln);border-left:1px solid var(--ln)}
+#sjt .sjt-grid tr>*:first-child{border-left:0;width:120px}
+#sjt .sjt-grid thead th{border-bottom:1.5px solid var(--ink);font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--ink);padding:10px 8px}
+#sjt .sjt-grid thead th[data-today]{background:var(--yl)}
+#sjt .sjt-grid thead th[data-today]::after{content:" today";font-family:var(--hand);font-weight:600;font-size:16px;letter-spacing:0;text-transform:none;color:var(--cta)}
+#sjt .sjt-grid tbody th{font-size:13px;color:var(--mu);line-height:1.35;padding-top:18px;white-space:nowrap}
+#sjt .sjt-grid td[data-today]{background:rgba(255,249,204,.45)}
+#sjt .sjt-grid .sjt-cls{flex-direction:column;align-items:stretch}
+#sjt .sjt-grid .sjt-c{min-height:40px}
+
+/* my week */
+#sjt .sjt-mine{margin-top:20px;background:var(--yl);border-radius:14px;padding:16px}
+#sjt .sjt-mine h3{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+#sjt .sjt-mine ul{margin-top:10px;display:grid;gap:8px;font-size:14.5px;color:var(--ink)}
+#sjt .sjt-mine li b{display:block}
+#sjt .sjt-mine li span{color:var(--tx);font-size:14px}
+#sjt .sjt-clash{margin-top:12px;border-left:2px solid var(--pen);padding-left:12px;font-size:14px;color:var(--ink)}
+#sjt .sjt-clash .sjt-hand{display:block;color:var(--pen);font-size:19px;margin-bottom:2px}
+#sjt .sjt-acts{display:grid;gap:10px;margin-top:16px}
+#sjt .sjt-foot{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;font-size:13px;color:var(--mu)}
+
+/* skeleton and error */
+@keyframes sjt-sh{0%{opacity:.5}50%{opacity:1}100%{opacity:.5}}
+#sjt .sjt-skel span{display:block;height:44px;border-radius:10px;background:var(--cv);margin-top:10px;animation:sjt-sh 1.2s ease-in-out infinite}
+#sjt .sjt-err{text-align:center;padding:30px 10px}
+#sjt .sjt-err p{margin-bottom:14px}
+
+/* tiles, faq, final */
+#sjt .sjt-next{display:grid;gap:12px}
+#sjt .sjt-tile{display:block;background:var(--cv);border-radius:16px;padding:18px;transition:background .15s}
+#sjt .sjt-tile:hover{background:var(--yl)}
+#sjt .sjt-tile p{font-size:14px;color:var(--mu);margin:4px 0 10px}
+#sjt .sjt-faq{max-width:820px}
+#sjt details{border-top:1px solid #CFC9B8;margin:0;padding:0;background:none}
+#sjt details:last-child{border-bottom:1px solid #CFC9B8}
+#sjt summary{cursor:pointer;min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:16px;line-height:1.4;font-weight:400;color:var(--ink);list-style:none;padding:10px 0;margin:0;background:none;border:0}
+#sjt summary::-webkit-details-marker{display:none}
+#sjt summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font-size:18px;line-height:1}
+#sjt details[open] summary::after{content:"\2212";background:var(--y)}
+#sjt details p{font-size:15px;padding:0 44px 18px 0}
+#sjt details p a{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:2px;text-underline-offset:3px}
+#sjt .sjt-final{background:radial-gradient(rgba(0,0,0,.12) 1.1px,transparent 1.2px) 0 0/22px 22px,var(--y);text-align:center;padding:56px 20px}
+#sjt .sjt-final h2{font-size:30px}
+#sjt .sjt-final p{color:var(--ink);max-width:560px;margin:12px auto 22px}
+#sjt .sjt-cta2{display:grid;gap:12px;max-width:340px;margin:0 auto}
+#sjt .sjt-or{margin-top:14px;font-size:14.5px;color:var(--ink)}
+#sjt .sjt-or a{text-decoration:underline;text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){#sjt *{transition:none!important;animation:none!important}}
+
+@media (min-width:600px){
+  #sjt .sjt-next{grid-template-columns:repeat(3,1fr)}
+  #sjt .sjt-acts{grid-template-columns:1fr 1fr}
+  #sjt .sjt-tabs button{flex:0 0 auto;padding:8px 22px;font-size:14.5px}
+}
+@media (min-width:900px){
+  #sjt .sjt-sec{padding:72px 40px}
+  #sjt .sjt-hero{padding-top:60px;padding-bottom:34px}
+  #sjt .sjt-planner-sec{padding-top:10px}
+  #sjt h1{font-size:50px;letter-spacing:-1.3px;line-height:1.1}
+  #sjt h2{font-size:36px;letter-spacing:-.8px}
+  #sjt .sjt-lead{font-size:18px}
+  #sjt .sjt-head{margin-bottom:34px}
+  #sjt .sjt-planner{padding:26px}
+  #sjt .sjt-tabs{padding:0 18px}
+  #sjt .sjt-days,#sjt .sjt-list{display:none}
+  #sjt .sjt-grid{display:table;margin-top:22px;border-top:1.5px solid var(--ink)}
+  #sjt .sjt-acts{max-width:640px}
+  #sjt .sjt-final{padding:90px 40px}
+  #sjt .sjt-final h2{font-size:46px}
+}
+
+/* Heading weights, brand guidelines 3.1 */
+#sjt h1{font-weight:600;letter-spacing:-.03em;line-height:1.08}
+#sjt h2{font-weight:500;letter-spacing:-.025em}
+</style>
+
+<div id="sjt">
+
+  <!-- 1. HERO -->
+  <section class="sjt-sec sjt-hero">
+    <div class="sjt-wrap">
+      <h1><span class="sjt-pill"><span>O &amp; A Level class schedule</span></span>SJ Academy class timetable for <span class="sjt-hl">May/June 2027</span></h1>
+      <p class="sjt-lead">Pick your level, tap your subjects, and see your week.</p>
+      <span class="sjt-hand">tap a subject to build your week &darr;</span>
+    </div>
+  </section>
+
+  <!-- 2. PLANNER -->
+  <section class="sjt-sec sjt-planner-sec">
+    <div class="sjt-wrap">
+      <div class="sjt-tabs" id="sjt-levels" role="group" aria-label="Level">
+        <button type="button" aria-pressed="true" data-level="o">O Level</button>
+        <button type="button" aria-pressed="false" data-level="as">AS Level</button>
+        <button type="button" aria-pressed="false" data-level="a2">A2 Level</button>
+        <button type="button" aria-pressed="false" data-level="lab">Practicals</button>
+      </div>
+      <div class="sjt-planner" id="sjt-planner" aria-live="polite">
+        <div class="sjt-top">
+          <div class="sjt-batch" id="sjt-batches" role="group" aria-label="Exam series">
+            <button type="button" aria-pressed="true" data-batch="mj27">May/June 2027</button>
+            <button type="button" aria-pressed="false" data-batch="on26">Oct/Nov 2026</button>
+          </div>
+          <span class="sjt-stamp" id="sjt-closed" hidden>Closed for new students</span>
+        </div>
+
+        <div id="sjt-body">
+          <div class="sjt-skel" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        </div>
+        <noscript><p class="sjt-none">The timetable needs JavaScript to load. Message us on WhatsApp at +92-336-2144454 and we will send it to you.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. NEXT STEPS -->
+  <section class="sjt-sec sjt-white">
+    <div class="sjt-wrap">
+      <div class="sjt-head"><div class="sjt-eyebrow">Next</div><h2>Found your slots? <span class="sjt-hl">Here is what follows</span></h2></div>
+      <div class="sjt-next">
+        <a class="sjt-tile" href="https://www.sjacademy.pk/fee-structure/"><h3>Fee structure</h3><p>One monthly fee per subject, and a fee calculator.</p><span class="sjt-link">See the fees</span></a>
+        <a class="sjt-tile" href="https://www.sjacademy.pk/meet-the-teachers/"><h3>Meet the teachers</h3><p>See who teaches each subject.</p><span class="sjt-link">Meet the teachers</span></a>
+        <a class="sjt-tile" href="https://www.sjacademy.pk/lab-practicals/"><h3>A Level lab practicals</h3><p>Physics, Chemistry and Biology practical batches.</p><span class="sjt-link">About lab practicals</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FAQ -->
+  <section class="sjt-sec">
+    <div class="sjt-wrap">
+      <div class="sjt-head"><div class="sjt-eyebrow">FAQ</div><h2>Questions about <span class="sjt-hl">class timings</span></h2></div>
+      <div class="sjt-faq">
+        <details open><summary>Where do I find the SJ Academy class schedule?</summary><p>On this page. Choose O Level, AS Level, A2 Level or lab practicals, then tap your subjects to see the days and times for each one.</p></details>
+        <details><summary>Are classes held in-class or online?</summary><p>Classes run in-class at our DHA Phase 7 campus in Karachi and live online. A class marked "online" on the timetable runs online only.</p></details>
+        <details><summary>What does "Batch 2" mean on the timetable?</summary><p>It is a second batch of the same subject at a different time. If the first batch clashes with another subject, the second one may fit.</p></details>
+        <details><summary>What if two of my subjects are at the same time?</summary><p>Message us on WhatsApp with your subjects. We will tell you which batches fit together.</p></details>
+        <details><summary>Does the timetable change?</summary><p>Sometimes, for example when a new batch starts. This page shows the current timetable, and your teacher will tell you about any change to your class.</p></details>
+        <details><summary>Can I try a class before I register?</summary><p>Yes, for O Level and A Level classes: the first demo class is free. Lab practicals have no demo class; students join directly.</p></details>
+        <details><summary>What time zone are the timings in?</summary><p>All timings are in Pakistan Standard Time. If you join online from another country, convert them to your local time.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FINAL -->
+  <section class="sjt-final">
+    <div class="sjt-wrap">
+      <h2>Ready to register?</h2>
+      <p>Choose your subjects in the registration form and we will confirm your batch.</p>
+      <div class="sjt-cta2"><a class="sjt-btn sjt-btn-primary" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">Register for a class</a></div>
+      <p class="sjt-or">or <a href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20class%20timings.%20My%20name%20is%20" target="_blank" rel="noopener" data-sjt-wa="final">WhatsApp us</a></p>
+    </div>
+  </section>
+</div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where do I find the SJ Academy class schedule?","acceptedAnswer":{"@type":"Answer","text":"On this page. Choose O Level, AS Level, A2 Level or lab practicals, then tap your subjects to see the days and times for each one."}},{"@type":"Question","name":"Are classes held in-class or online?","acceptedAnswer":{"@type":"Answer","text":"Classes run in-class at our DHA Phase 7 campus in Karachi and live online. A class marked \"online\" on the timetable runs online only."}},{"@type":"Question","name":"What does \"Batch 2\" mean on the timetable?","acceptedAnswer":{"@type":"Answer","text":"It is a second batch of the same subject at a different time. If the first batch clashes with another subject, the second one may fit."}},{"@type":"Question","name":"What if two of my subjects are at the same time?","acceptedAnswer":{"@type":"Answer","text":"Message us on WhatsApp with your subjects. We will tell you which batches fit together."}},{"@type":"Question","name":"Does the timetable change?","acceptedAnswer":{"@type":"Answer","text":"Sometimes, for example when a new batch starts. This page shows the current timetable, and your teacher will tell you about any change to your class."}},{"@type":"Question","name":"Can I try a class before I register?","acceptedAnswer":{"@type":"Answer","text":"Yes, for O Level and A Level classes: the first demo class is free. Lab practicals have no demo class; students join directly."}},{"@type":"Question","name":"What time zone are the timings in?","acceptedAnswer":{"@type":"Answer","text":"All timings are in Pakistan Standard Time. If you join online from another country, convert them to your local time."}}]}</script>
+
+<script>
+(function(){
+  var root=document.getElementById('sjt'); if(!root) return;
+  var $=function(id){return document.getElementById(id)};
+  var SHEET='https://docs.google.com/spreadsheets/d/e/2PACX-1vRNaIRWzVbWjAz6uXXzEngSykiYmSrY_jeeRCjLgMXf1aF8Zo39EqRCM7s8VuE4RWzf0edXe7UhTCf8/pub?single=true&output=tsv&gid=';
+  var WA='https://wa.me/923362144454?text=';
+  var REG='#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D';
+  var GIDS={mj27:{o:'674937139',as:'1456859397',a2:'1559855613',lab:'1270410396'},on26:{o:'230541006',as:'526799171',a2:'1529699202',lab:'1049078162'}};
+  var LEVEL={o:'O Level',as:'AS Level',a2:'A2 Level',lab:'A Level lab practicals'};
+  var SUBJECTS=[['add','Add Maths',/add/],['math','Maths',/math/],['phys','Physics',/phys/],['chem','Chemistry',/chem/],['bio','Biology',/bio/],['comp','Computer Science',/comp|\bcs\b/],['acc','Accounting',/acc/],['bus','Business',/bus/],['eco','Economics',/eco/],['pak','Pakistan Studies',/pak|p\.?\s?st/],['isl','Islamiyat',/isl/],['urdu','Urdu',/urdu/],['eng','English',/eng/],['psy','Psychology',/psy/],['soc','Sociology',/soc/],['law','Law',/law/]];
+  var TIME=/\d{1,2}(?::\d{2})?\s*-\s*\d{1,2}(?::\d{2})?\s*(?:am|pm)?/i;
+  var state={level:'o',batch:'mj27',sel:{},day:null,data:null,token:0}, sheets={};
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})}
+
+  /* ---- load one sheet tab (shares its cache with the homepage finder) ---- */
+  function parseTsv(text){
+    var rows=[],row=[],f='',q=false;
+    for(var i=0;i<text.length;i++){var c=text[i],n=text[i+1];
+      if(c==='"'&&q&&n==='"'){f+='"';i++;continue}
+      if(c==='"'){q=!q;continue}
+      if(c==='\t'&&!q){row.push(f);f='';continue}
+      if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;row.push(f);rows.push(row);row=[];f='';continue}
+      f+=c}
+    row.push(f);rows.push(row);
+    rows=rows.filter(function(r){return r.some(function(v){return String(v||'').trim()!==''})});
+    if(rows.length<2) return null;
+    var days=rows[0].slice(1).map(function(d){return String(d||'').trim()});
+    return {days:days,rows:rows.slice(1).map(function(r){return {time:String(r[0]||'').trim(),cells:r.slice(1,days.length+1)}}).filter(function(r){return r.time})};
+  }
+  function load(gid,cb){
+    if(sheets[gid]!==undefined) return cb(sheets[gid]);
+    try{var s=sessionStorage.getItem('sjh-tt-'+gid);if(s){sheets[gid]=JSON.parse(s);return cb(sheets[gid])}}catch(e){}
+    if(!window.fetch) return cb(null);
+    fetch(SHEET+gid).then(function(r){if(!r.ok)throw 0;return r.text()}).then(function(t){
+      var d=parseTsv(t);sheets[gid]=d;try{if(d)sessionStorage.setItem('sjh-tt-'+gid,JSON.stringify(d))}catch(e){}cb(d);
+    }).catch(function(){cb(null)});
+  }
+
+  /* ---- turn a free-text cell into classes ---- */
+  function flags(s){var b=/batch[\s-]*(\d+)/i.exec(s),t=TIME.exec(s);return {online:/online/i.test(s),batch:b?b[1]:'',time:t?t[0].replace(/\s+/g,' '):''}}
+  function clean(s){return s.replace(/[()]/g,' ').replace(/online/ig,' ').replace(/batch[\s-]*\d+/ig,' ').replace(TIME,' ').replace(/\s+/g,' ').trim()}
+  function subject(raw){
+    var l=raw.toLowerCase();
+    for(var i=0;i<SUBJECTS.length;i++) if(SUBJECTS[i][2].test(l)) return {key:SUBJECTS[i][0],label:SUBJECTS[i][1]};
+    return {key:'x-'+l.replace(/[^a-z0-9]+/g,'-'),label:raw.charAt(0).toUpperCase()+raw.slice(1)};
+  }
+  function item(text,extra,lab){
+    var name=clean(text); if(!/[a-z]/i.test(name)) return null;
+    if(lab) name=name.replace(/practicals?/ig,'').trim()||name;
+    var f=flags(text),s=subject(name);
+    return {key:s.key,label:s.label,online:f.online||(extra&&extra.online)||false,batch:f.batch||(extra&&extra.batch)||'',time:f.time||(extra&&extra.time)||''};
+  }
+  function parseCell(text,lab){
+    var s=String(text||'').replace(/\[/g,'(').replace(/\]/g,')').trim(); if(!s||s==='-') return [];
+    var segs=[],buf='',depth=0,i,c;
+    for(i=0;i<s.length;i++){c=s[i];
+      if(c==='('){if(depth===0){if(buf.trim())segs.push(['t',buf]);buf=''}else buf+=c;depth++;continue}
+      if(c===')'){if(depth>0){depth--;if(depth===0){segs.push(['g',buf]);buf=''}else buf+=c}continue}
+      buf+=c}
+    if(buf.trim()) segs.push([depth>0?'g':'t',buf]);
+    var out=[];
+    segs.forEach(function(sg){
+      var parts=sg[1].split('+');
+      if(sg[0]==='t'){parts.forEach(function(p){var it=item(p,null,lab);if(it)out.push(it)});return}
+      var f=flags(sg[1]),made=[];
+      parts.forEach(function(p){var it=item(p,f,lab);if(it)made.push(it)});
+      if(made.length){out=out.concat(made);return}
+      var last=out[out.length-1]; if(!last) return;
+      if(f.online)last.online=true; if(f.batch)last.batch=f.batch; if(f.time)last.time=f.time;
+    });
+    return out;
+  }
+  function build(d,lab){
+    var classes=[],order=[];
+    d.rows.forEach(function(r,ri){r.cells.forEach(function(cell,di){
+      parseCell(cell,lab).forEach(function(it){it.di=di;it.ri=ri;it.rowTime=r.time;classes.push(it);
+        if(!order.some(function(o){return o.key===it.key})) order.push({key:it.key,label:it.label})})})});
+    order.sort(function(a,b){return a.label<b.label?-1:1});
+    return {days:d.days,rows:d.rows,classes:classes,subjects:order};
+  }
+
+  /* ---- drawing ---- */
+  function today(days){var n=['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()];for(var i=0;i<days.length;i++)if(days[i].toLowerCase().slice(0,3)===n)return i;return -1}
+  function hasSel(){for(var k in state.sel)if(state.sel[k])return true;return false}
+  function pill(c){
+    var sub=[]; if(c.time)sub.push(esc(c.time)); if(c.batch)sub.push('Batch '+esc(c.batch)); if(c.online)sub.push('<span class="sjt-on">online</span>');
+    return '<button type="button" class="sjt-c" data-key="'+esc(c.key)+'" aria-pressed="'+(!!state.sel[c.key])+'">'+esc(c.label)+(sub.length?'<small>'+sub.join(' &middot; ')+'</small>':'')+'</button>';
+  }
+  function dayLabel(i,cl){return (cl.time||cl.rowTime)}
+  function draw(){
+    var d=state.data,sel=hasSel(),lab=state.level==='lab',closed=state.batch==='on26';
+    var usedDays=d.days.map(function(_,i){return d.classes.some(function(c){return c.di===i})});
+    var usedRows=d.rows.map(function(_,i){return d.classes.some(function(c){return c.ri===i})});
+    var td=today(d.days);
+    if(state.day===null||!usedDays[state.day]){state.day=(td>-1&&usedDays[td])?td:usedDays.indexOf(true)}
+    var h='';
+    h+='<p class="sjt-q"><span>'+(lab?'Practical subjects':'Your subjects')+'</span>'+(sel?'<button type="button" id="sjt-clear">Clear</button>':'')+'</p>';
+    h+='<div class="sjt-chips" id="sjt-chips">'+d.subjects.map(function(s){return '<button type="button" class="sjt-chip" data-key="'+esc(s.key)+'" aria-pressed="'+(!!state.sel[s.key])+'">'+esc(s.label)+'</button>'}).join('')+'</div>';
+
+    /* phones: day picker and list */
+    h+='<div class="sjt-days" id="sjt-days" role="group" aria-label="Day">';
+    d.days.forEach(function(name,i){if(!usedDays[i])return;
+      var n=d.classes.filter(function(c){return c.di===i&&(!sel||state.sel[c.key])}).length;
+      h+='<button type="button" data-day="'+i+'" aria-pressed="'+(i===state.day)+'"'+(i===td?' data-today="1"':'')+'>'+esc(name.slice(0,3))+'<small>'+n+'</small></button>'});
+    h+='</div><div class="sjt-list">';
+    var any=false;
+    d.rows.forEach(function(r,ri){
+      var cs=d.classes.filter(function(c){return c.di===state.day&&c.ri===ri&&(!sel||state.sel[c.key])});
+      if(!cs.length)return; any=true;
+      h+='<div class="sjt-slot"><div class="sjt-time">'+esc(r.time)+'</div><div class="sjt-cls">'+cs.map(pill).join('')+'</div></div>'});
+    if(!any) h+='<p class="sjt-none">None of your subjects run on this day.</p>';
+    h+='</div>';
+
+    /* desktop: week grid */
+    h+='<table class="sjt-grid'+(sel?' sjt-dim':'')+'"><thead><tr><th scope="col">Time</th>';
+    d.days.forEach(function(name,i){if(usedDays[i])h+='<th scope="col"'+(i===td?' data-today="1"':'')+'>'+esc(name.slice(0,3))+'</th>'});
+    h+='</tr></thead><tbody>';
+    d.rows.forEach(function(r,ri){if(!usedRows[ri])return;
+      h+='<tr><th scope="row">'+esc(r.time)+'</th>';
+      d.days.forEach(function(_,i){if(!usedDays[i])return;
+        var cs=d.classes.filter(function(c){return c.di===i&&c.ri===ri});
+        h+='<td'+(i===td?' data-today="1"':'')+'>'+(cs.length?'<div class="sjt-cls">'+cs.map(pill).join('')+'</div>':'')+'</td>'});
+      h+='</tr>'});
+    h+='</tbody></table>';
+
+    /* my week */
+    if(sel){
+      var names=[],lines='',clash=[];
+      d.subjects.forEach(function(s){if(!state.sel[s.key])return; names.push(s.label);
+        var groups={};
+        d.classes.filter(function(c){return c.key===s.key}).forEach(function(c){
+          var g=(c.batch?'Batch '+c.batch:'')+(c.online?(c.batch?', ':'')+'online':''),k=g+'|'+(c.time||c.rowTime);
+          (groups[k]=groups[k]||{g:g,t:c.time||c.rowTime,days:[]}).days.push(d.days[c.di].slice(0,3))});
+        lines+='<li><b>'+esc(s.label)+'</b>';
+        for(var k in groups){var gr=groups[k];lines+='<span>'+esc(gr.days.join(', '))+' &middot; '+esc(gr.t)+(gr.g?' &middot; '+esc(gr.g):'')+'</span><br>'}
+        lines+='</li>'});
+      d.rows.forEach(function(r,ri){d.days.forEach(function(dn,di){
+        var cs=d.classes.filter(function(c){return c.di===di&&c.ri===ri&&state.sel[c.key]}),ks=[];
+        cs.forEach(function(c){if(ks.indexOf(c.label)<0)ks.push(c.label)});
+        if(ks.length>1) clash.push(esc(ks.join(' and '))+', '+esc(dn.slice(0,3))+' '+esc(r.time))})});
+      var msg=lab?'Hi SJ Academy, I would like to join A Level lab practicals: '+names.join(', ')+'. My name is ':'Hi SJ Academy, I would like to book a free demo class for '+LEVEL[state.level]+': '+names.join(', ')+'. My name is ';
+      if(closed) msg='Hi SJ Academy, I have a question about the Oct/Nov 2026 timetable for '+LEVEL[state.level]+': '+names.join(', ')+'. My name is ';
+      h+='<div class="sjt-mine"><h3>Your week <span class="sjt-hand">'+names.length+' subject'+(names.length>1?'s':'')+'</span></h3><ul>'+lines+'</ul>';
+      if(clash.length) h+='<div class="sjt-clash"><span class="sjt-hand">same time</span>'+clash.slice(0,4).join('<br>')+'<br>Message us and we will tell you which batches fit together.</div>';
+      h+='<div class="sjt-acts"><a class="sjt-btn sjt-btn-wa" href="'+WA+encodeURIComponent(msg)+'" target="_blank" rel="noopener" data-sjt-wa="planner"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.4-4.2A8.5 8.5 0 1 1 8.4 18.7z"/></svg>'+(closed?'Ask on WhatsApp':lab?'Join on WhatsApp':'Book a free demo on WhatsApp')+'</a>'+(closed?'':'<a class="sjt-btn sjt-btn-ghost" href="'+REG+'">Register for a class</a>')+'</div>';
+      if(lab&&!closed) h+='<p class="sjt-muted" style="margin-top:10px">Practicals have no demo class. Students join directly.</p>';
+      h+='</div>';
+    }
+    h+='<p class="sjt-foot"><span><span class="sjt-on"></span>online = runs online only</span><span>Batch 2 = a second batch of the same subject</span><span>Timings are in Pakistan time</span></p>';
+    $('sjt-body').innerHTML=h;
+  }
+  function fail(){
+    $('sjt-body').innerHTML='<div class="sjt-err"><p>The timetable did not load. Even we need the internet to cooperate.</p><div class="sjt-acts" style="margin:0 auto"><button type="button" class="sjt-btn sjt-btn-ghost" id="sjt-retry">Try again</button><a class="sjt-btn sjt-btn-wa" href="'+WA+encodeURIComponent('Hi SJ Academy, please send me the class timetable for '+LEVEL[state.level]+'. My name is ')+'" target="_blank" rel="noopener" data-sjt-wa="error">Get it on WhatsApp</a></div></div>';
+  }
+  function refresh(){
+    var t=++state.token; state.data=null;
+    $('sjt-closed').hidden=state.batch!=='on26';
+    $('sjt-body').innerHTML='<div class="sjt-skel" aria-hidden="true"><span></span><span></span><span></span><span></span></div>';
+    load(GIDS[state.batch][state.level],function(d){
+      if(t!==state.token) return;
+      if(!d){fail();return}
+      state.data=build(d,state.level==='lab'); draw();
+    });
+  }
+
+  /* ---- events ---- */
+  function press(group,btn){[].forEach.call(group.children,function(c){c.setAttribute('aria-pressed',c===btn)})}
+  $('sjt-levels').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;press(this,b);state.level=b.getAttribute('data-level');state.sel={};state.day=null;refresh()});
+  $('sjt-batches').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;press(this,b);state.batch=b.getAttribute('data-batch');state.sel={};state.day=null;refresh()});
+  $('sjt-body').addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    if(b.id==='sjt-retry'){var g=GIDS[state.batch][state.level];delete sheets[g];refresh();return}
+    if(b.id==='sjt-clear'){state.sel={};draw();return}
+    if(b.hasAttribute('data-day')){state.day=+b.getAttribute('data-day');draw();return}
+    var k=b.getAttribute('data-key'); if(k){state.sel[k]=!state.sel[k];
+      if(state.data&&hasSel()&&!state.data.classes.some(function(c){return c.di===state.day&&state.sel[c.key]})){
+        var f=state.data.classes.filter(function(c){return state.sel[c.key]}).sort(function(a,b){return a.di-b.di})[0]; if(f) state.day=f.di}
+      draw()}
+  });
+  root.addEventListener('click',function(e){var a=e.target.closest('[data-sjt-wa]'),g=window['gt'+'ag'];if(!a||typeof g!=='function')return;
+    g('event','whatsapp_click',{link_location:'timetable_'+a.getAttribute('data-sjt-wa')})});
+  refresh();
+})();
+</script>

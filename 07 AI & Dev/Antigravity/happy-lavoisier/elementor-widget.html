@@ -1,0 +1,693 @@
+<style>
+  .sja-calendar-widget {
+    --brand-yellow: #FCE004;
+    --brand-brown: #453516;
+    --brand-orange: #FE6100;
+    --brand-black: #000000;
+    --brand-white: #FFFFFF;
+    --brand-grey: #555555;
+    --brand-dark-grey: #222222;
+    --brand-light-bg: #FAFAFA;
+    --brand-light-yellow: #FFF9CC;
+    font-family: 'Poppins', sans-serif;
+    color: var(--brand-dark-grey);
+    line-height: 1.6;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .sja-calendar-widget * {
+    box-sizing: border-box;
+  }
+
+  /* Typography */
+  .sja-calendar-widget .page-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--brand-black);
+    line-height: 1.2;
+    margin: 0 0 10px 0;
+    text-align: center;
+  }
+  
+  @media (min-width: 992px) {
+    .sja-calendar-widget .page-title {
+      font-size: 3.8rem;
+    }
+  }
+  
+  .sja-calendar-widget .subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--brand-dark-grey);
+    text-align: center;
+    margin: 0 0 30px 0;
+  }
+
+  .sja-calendar-widget .text-highlight {
+    background: linear-gradient(120deg, var(--brand-yellow) 0%, var(--brand-yellow) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 35%;
+    background-position: 0 85%;
+    display: inline;
+    padding: 0 3px;
+  }
+  
+  /* Cards */
+  .sja-calendar-widget .card {
+    background: var(--brand-white);
+    padding: 30px;
+    border-top: 6px solid var(--brand-brown);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-bottom: 30px;
+  }
+  
+  .sja-calendar-widget .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-top-color: var(--brand-orange);
+  }
+
+  .sja-calendar-widget .card-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brand-black);
+    margin: 0 0 20px 0;
+    line-height: 1.3;
+  }
+
+  /* Tables */
+  .sja-calendar-widget .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sja-calendar-widget .table-container {
+    background: var(--brand-white);
+    border-top: 6px solid var(--brand-brown);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  @media (min-width: 768px) {
+    .sja-calendar-widget .table-container {
+      padding: 30px;
+    }
+  }
+
+  .sja-calendar-widget .table-container:hover {
+    border-top-color: var(--brand-orange);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+
+  .sja-calendar-widget table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+  }
+  
+  .sja-calendar-widget th {
+    text-align: left;
+    padding: 15px 12px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--brand-black);
+    border-bottom: 2px solid var(--brand-brown);
+    letter-spacing: 0.5px;
+  }
+  
+  .sja-calendar-widget td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+    font-size: 15px;
+    color: #444;
+  }
+
+  .sja-calendar-widget td strong {
+    color: var(--brand-black);
+    font-weight: 600;
+  }
+  
+  .sja-calendar-widget tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Tags / Badges */
+  .sja-calendar-widget .tag {
+    display: inline-block;
+    background: var(--brand-yellow);
+    color: var(--brand-black);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 40px;
+    border: 1.5px solid var(--brand-brown);
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .sja-calendar-widget .tag:hover {
+    background: #ffe66f;
+  }
+
+  .sja-calendar-widget .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .sja-calendar-widget .grid-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .sja-calendar-widget .checklist-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    color: #444;
+  }
+
+  .sja-calendar-widget .checklist-list li {
+    margin-bottom: 10px;
+  }
+
+  .sja-calendar-widget .checklist-list li strong {
+    color: var(--brand-black);
+    font-weight: 600;
+  }
+
+  /* Mode Pill */
+  .sja-calendar-widget .mode-pill-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .sja-calendar-widget .mode-pill {
+    display: inline-block;
+    border: 2px solid var(--brand-black);
+    border-radius: 50px;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
+    background: var(--brand-yellow);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    font-size: 0.85rem;
+    color: var(--brand-black);
+  }
+
+  /* Primary Button */
+  .sja-calendar-widget .primary-btn {
+    display: inline-block !important;
+    width: max-content;
+    margin: 0 auto;
+    background: var(--brand-orange);
+    color: var(--brand-white);
+    border: 2px solid var(--brand-orange);
+    border-radius: 5px;
+    padding: 16px 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(254,97,0,0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .sja-calendar-widget .primary-btn:hover {
+    background: #e55800;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(254,97,0,0.4);
+    color: var(--brand-white);
+  }
+  
+  /* Download Button */
+  .sja-calendar-widget .download-btn-container {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .sja-calendar-widget .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--brand-brown);
+    color: var(--brand-white);
+    border: 2px solid var(--brand-brown);
+    border-radius: 5px;
+    padding: 14px 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(69,53,22,0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .sja-calendar-widget .download-btn:hover {
+    background: var(--brand-black);
+    border-color: var(--brand-black);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    color: var(--brand-white);
+  }
+
+  .sja-calendar-widget .tags-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .sja-calendar-widget .cta-card {
+    text-align: center; 
+    border-top-color: var(--brand-orange); 
+    padding: 50px 30px;
+  }
+
+  /* ============================================================ */
+  /* MOBILE RESPONSIVE (SCALED DOWN TABLES)                       */
+  /* ============================================================ */
+  @media (max-width: 767px) {
+    .sja-calendar-widget {
+      padding: 20px 10px;
+    }
+    
+    .sja-calendar-widget .page-title {
+      font-size: 1.6rem;
+    }
+
+    .sja-calendar-widget .subtitle {
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+
+    /* Scale down the table */
+    .sja-calendar-widget .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -15px; /* Allows scrolling edge-to-edge on mobile */
+      padding: 0 15px;
+    }
+
+    .sja-calendar-widget table {
+      min-width: 500px; /* Reduced minimum width */
+    }
+    
+    .sja-calendar-widget th {
+      padding: 10px 8px;
+      font-size: 11px;
+    }
+    
+    .sja-calendar-widget td {
+      padding: 12px 8px;
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+    
+    .sja-calendar-widget .tag {
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+
+    .sja-calendar-widget .table-container {
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .sja-calendar-widget .table-container .card-heading {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .sja-calendar-widget .card {
+      padding: 20px 15px;
+    }
+
+    .sja-calendar-widget .cta-card {
+      padding: 30px 15px;
+    }
+
+    .sja-calendar-widget .primary-btn,
+    .sja-calendar-widget .download-btn {
+      width: 100% !important; /* Stretch button across mobile screen */
+      justify-content: center;
+      padding: 14px 20px;
+      font-size: 14px;
+    }
+  }
+
+</style>
+
+<div class="sja-calendar-widget">
+
+  <div class="mode-pill-container">
+    <div class="mode-pill">📅 Academic Calendar</div>
+  </div>
+
+  <h1 class="page-title">CAIE O & A Level <span class="text-highlight">2027 Master Timeline</span></h1>
+  <p class="subtitle">Comprehensive Timeline for Results, Registrations, Mocks & Exam Windows (Aug 2026 – June 2027)</p>
+  
+  <div class="download-btn-container">
+    <a href="https://www.sjacademy.pk/wp-content/uploads/2026/08/SJ_Academy_Timeline_Premium.pdf" target="_blank" class="download-btn" download>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      Download Timeline as PDF
+    </a>
+  </div>
+
+  <div class="table-container">
+    <h2 class="card-heading">Master Academic Timeline (2026 – 2027)</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th width="15%">Date / Window</th>
+            <th width="15%">Category</th>
+            <th width="35%">Event / Milestone</th>
+            <th width="35%">Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aug 6, 2026</strong></td>
+            <td><span class="tag">REG DEADLINE</span></td>
+            <td><strong>CAIE Oct/Nov 2026 Normal Registration Deadline</strong></td>
+            <td>British Council Pakistan standard-fee cutoff for first-time Oct/Nov entries.</td>
+          </tr>
+          <tr>
+            <td><strong>Aug 11, 2026</strong></td>
+            <td><span class="tag">RESULTS</span></td>
+            <td><strong>CAIE May/June 2026 AS & A Level Results Day</strong></td>
+            <td>Online release at 11:00 AM PKT. Determines A2 progression or autumn retake requirements.</td>
+          </tr>
+          <tr>
+            <td><strong>Aug 11 – Sep 3, 2026</strong></td>
+            <td><span class="tag">REG WINDOW</span></td>
+            <td><strong>AS/A Level Oct/Nov 2026 Retake Window</strong></td>
+            <td>Dedicated window for June series AS/A Level candidates to register for retakes without standard late fees.</td>
+          </tr>
+          <tr>
+            <td><strong>Aug 14, 2026</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Pakistan Independence Day</strong></td>
+            <td>National holiday. Educational institutes and British Council physical offices closed.</td>
+          </tr>
+          <tr>
+            <td><strong>Aug 18, 2026</strong></td>
+            <td><span class="tag">RESULTS</span></td>
+            <td><strong>CAIE May/June 2026 O Level & IGCSE Results Day</strong></td>
+            <td>Online release at 11:00 AM PKT. Required for O3 graduates finalizing A-Level college admissions.</td>
+          </tr>
+          <tr>
+            <td><strong>Aug 18 – Sep 3, 2026</strong></td>
+            <td><span class="tag">REG WINDOW</span></td>
+            <td><strong>O Level Oct/Nov 2026 Retake Window</strong></td>
+            <td>Dedicated registration window for O Level / IGCSE candidates following May/June result releases.</td>
+          </tr>
+          <tr>
+            <td><strong>Aug 25, 2026</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Eid Milad-un-Nabi (12 Rabi-ul-Awwal)</strong></td>
+            <td>National public holiday (subject to lunar sighting).</td>
+          </tr>
+          <tr>
+            <td><strong>Sep 3, 2026</strong></td>
+            <td><span class="tag">REG DEADLINE</span></td>
+            <td><strong>Oct/Nov 2026 Retake & Late Entry Cutoff</strong></td>
+            <td>Absolute final deadline for British Council Pakistan SRS portal processing for Oct/Nov 2026.</td>
+          </tr>
+          <tr>
+            <td><strong>Sep 6, 2026</strong></td>
+            <td><span class="tag">OBSERVANCE</span></td>
+            <td><strong>Defense Day</strong></td>
+            <td>National observance across schools and institutions.</td>
+          </tr>
+          <tr>
+            <td><strong>Sep 15 – Oct 27, 2026</strong></td>
+            <td><span class="tag">EXAM WINDOW</span></td>
+            <td><strong>Practical & Speaking Component Windows</strong></td>
+            <td>Conducted for English Speaking (0500/1123 P4), ICT practicals, and Science laboratory practicals.</td>
+          </tr>
+          <tr>
+            <td><strong>Sep 18, 2026</strong></td>
+            <td><span class="tag">DEADLINE</span></td>
+            <td><strong>Deadline for May/June 2026 Remarks (EAR)</strong></td>
+            <td>Final date to submit Enquiry About Results (re-checks/component reviews) via British Council.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th width="15%">Date / Window</th>
+            <th width="15%">Category</th>
+            <th width="35%">Event / Milestone</th>
+            <th width="35%">Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sep 28, 2026</strong></td>
+            <td><span class="tag">EXAM START</span></td>
+            <td><strong>CAIE Oct/Nov 2026 Written Exams Begin</strong></td>
+            <td>Official start of autumn written examination series in Pakistan (Zone 4).</td>
+          </tr>
+          <tr>
+            <td><strong>Oct 10, 2026</strong></td>
+            <td><span class="tag">DEADLINE</span></td>
+            <td><strong>Estimated Entries Deadline for May/June 2027</strong></td>
+            <td>Registered Cambridge schools submit estimated candidate numbers for summer 2027 series.</td>
+          </tr>
+          <tr>
+            <td><strong>Mid-Oct 2026</strong></td>
+            <td><span class="tag">MILESTONE</span></td>
+            <td><strong>School Mid-Term Examinations</strong></td>
+            <td>Mid-term evaluation window across major private school networks in Karachi/Pakistan.</td>
+          </tr>
+          <tr>
+            <td><strong>Nov 9, 2026</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Allama Iqbal Day</strong></td>
+            <td>National public holiday.</td>
+          </tr>
+          <tr>
+            <td><strong>Nov 13, 2026</strong></td>
+            <td><span class="tag">EXAM END</span></td>
+            <td><strong>CAIE Oct/Nov 2026 Written Exams End</strong></td>
+            <td>Official conclusion of autumn written examination papers.</td>
+          </tr>
+          <tr>
+            <td><strong>Mid-Nov 2026</strong></td>
+            <td><span class="tag">MILESTONE</span></td>
+            <td><strong>Mid-Term Report Cards & PTMs</strong></td>
+            <td>School progress reports released alongside parent-teacher consultation meetings.</td>
+          </tr>
+          <tr>
+            <td><strong>Dec 21, 2026 – Jan 2, 2027</strong></td>
+            <td><span class="tag">VACATION</span></td>
+            <td><strong>School Winter Break</strong></td>
+            <td>Annual winter vacation across private and government educational institutions nationwide.</td>
+          </tr>
+          <tr>
+            <td><strong>Dec 25, 2026</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Quaid-e-Azam Day / Christmas</strong></td>
+            <td>National public holiday.</td>
+          </tr>
+          <tr>
+            <td><strong>Jan 1, 2027</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>New Year's Day</strong></td>
+            <td>Official bank holiday and institutional closure.</td>
+          </tr>
+          <tr>
+            <td><strong>Jan 7, 2027</strong></td>
+            <td><span class="tag">RESULTS</span></td>
+            <td><strong>CAIE Oct/Nov 2026 AS & A Level Results</strong></td>
+            <td>Autumn series results released online at 1:00 PM PKT for A-Level candidates.</td>
+          </tr>
+          <tr>
+            <td><strong>Jan 14, 2027</strong></td>
+            <td><span class="tag">RESULTS</span></td>
+            <td><strong>CAIE Oct/Nov 2026 O Level & IGCSE Results</strong></td>
+            <td>Autumn series results released online at 1:00 PM PKT for O-Level candidates.</td>
+          </tr>
+          <tr>
+            <td><strong>Mid-Jan 2027</strong></td>
+            <td><span class="tag">REG WINDOW</span></td>
+            <td><strong>May/June 2027 Normal Registration Opens</strong></td>
+            <td>British Council SRS portal opens for first-time entries for the summer 2027 series.</td>
+          </tr>
+          <tr>
+            <td><strong>Feb 1 – Feb 20, 2027</strong></td>
+            <td><span class="tag">MILESTONE</span></td>
+            <td><strong>School Pre-Board / Mock Examinations</strong></td>
+            <td>Mandatory mock exams determining predicted grades and final candidate entry verification.</td>
+          </tr>
+          <tr>
+            <td><strong>Feb 5, 2027</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Kashmir Day</strong></td>
+            <td>National public holiday.</td>
+          </tr>
+          <tr>
+            <td><strong>Feb 8 – Mar 8, 2027</strong></td>
+            <td><span class="tag">RELIGIOUS</span></td>
+            <td><strong>Holy Month of Ramadan 1448 AH</strong></td>
+            <td>Fasting period. School operating hours shift to early morning. Revision schedules must adjust.</td>
+          </tr>
+          <tr>
+            <td><strong>Feb 10, 2027</strong></td>
+            <td><span class="tag">REG DEADLINE</span></td>
+            <td><strong>May/June 2027 Normal Registration Deadline</strong></td>
+            <td>Standard pricing cutoff for registering for May/June 2027 via British Council / Schools.</td>
+          </tr>
+          <tr>
+            <td><strong>Feb 25 – 26, 2027</strong></td>
+            <td><span class="tag">DEADLINE</span></td>
+            <td><strong>Deadline for Oct/Nov 2026 Remarks (EAR)</strong></td>
+            <td>Final date to submit Enquiry About Results for autumn series component re-checks.</td>
+          </tr>
+          <tr>
+            <td><strong>Mar 10 – 12, 2027</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Eid-ul-Fitr Holidays</strong></td>
+            <td>3-day national public holiday (tentative based on moon sighting) marking the end of Ramadan.</td>
+          </tr>
+          <tr>
+            <td><strong>Mar 17, 2027</strong></td>
+            <td><span class="tag">REG DEADLINE</span></td>
+            <td><strong>May/June 2027 Late & Retake Entry Deadline</strong></td>
+            <td>Final deadline to submit May/June 2027 entries with late fees or for Oct/Nov retakers.</td>
+          </tr>
+          <tr>
+            <td><strong>Mar 23, 2027</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Pakistan Day</strong></td>
+            <td>National public holiday.</td>
+          </tr>
+          <tr>
+            <td><strong>Late March 2027</strong></td>
+            <td><span class="tag">MILESTONE</span></td>
+            <td><strong>Exam Study Leave Begins</strong></td>
+            <td>Final-year students (O3, A1, A2) transition to full-time home study and past-paper revision.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th width="15%">Date / Window</th>
+            <th width="15%">Category</th>
+            <th width="35%">Event / Milestone</th>
+            <th width="35%">Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Early April 2027</strong></td>
+            <td><span class="tag">MILESTONE</span></td>
+            <td><strong>Statement of Entry (SOE) & Venue Dispatch</strong></td>
+            <td>British Council and schools dispatch hall tickets, roll number slips, and venue details.</td>
+          </tr>
+          <tr>
+            <td><strong>Late April 2027 (~Apr 22)</strong></td>
+            <td><span class="tag">EXAM START</span></td>
+            <td><strong>CAIE May/June 2027 Written Exams Begin</strong></td>
+            <td>Major summer examination series commences across Pakistan (Zone 4).</td>
+          </tr>
+          <tr>
+            <td><strong>May 1, 2027</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Labour Day</strong></td>
+            <td>National public holiday.</td>
+          </tr>
+          <tr>
+            <td><strong>May 17 – 19, 2027</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Eid-ul-Adha Holidays</strong></td>
+            <td>National holidays. Note: CAIE exams adhere to global Security Key Times and continue.</td>
+          </tr>
+          <tr>
+            <td><strong>May 28, 2027</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Youm-e-Takbeer</strong></td>
+            <td>National public holiday.</td>
+          </tr>
+          <tr>
+            <td><strong>Mid-June 2027 (~June 11)</strong></td>
+            <td><span class="tag">EXAM END</span></td>
+            <td><strong>CAIE May/June 2027 Written Exams End</strong></td>
+            <td>Official end of the summer 2027 written examination series.</td>
+          </tr>
+          <tr>
+            <td><strong>June 15 – 16, 2027</strong></td>
+            <td><span class="tag">HOLIDAY</span></td>
+            <td><strong>Ashura (9th & 10th Muharram 1449 AH)</strong></td>
+            <td>National public holidays.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2 class="card-heading">Phase 1: Autumn Series Focus <br><span style="font-size: 1rem; font-weight: 400; color: #555;">(Aug – Dec 2026)</span></h2>
+      <ul class="checklist-list">
+        <li><strong>Aug 11/18:</strong> Audit May/June results immediately upon release.</li>
+        <li><strong>Before Sep 3:</strong> Register for Oct/Nov retakes if threshold marks fall below target.</li>
+        <li><strong>Sep 15 - Oct 27:</strong> Prepare for science practicals & English speaking tests.</li>
+        <li><strong>Sep 28 - Nov 13:</strong> Execute past-paper test series for Oct/Nov written exams.</li>
+        <li><strong>Mid-Oct:</strong> Utilize school mid-term exams to benchmark A2 / O3 trajectory.</li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h2 class="card-heading">Phase 2: Summer Series Prep <br><span style="font-size: 1rem; font-weight: 400; color: #555;">(Jan – June 2027)</span></h2>
+      <ul class="checklist-list">
+        <li><strong>Jan 7/14:</strong> Evaluate Oct/Nov results; plan May/June retakes if required.</li>
+        <li><strong>Feb 1 - 20:</strong> Peak mock exam focus; confirm predicted grades for university.</li>
+        <li><strong>Feb 8 - Mar 8 (Ramadan):</strong> Set early-morning study blocks to maintain energy.</li>
+        <li><strong>Before Feb 10:</strong> Submit May/June normal registration via school / SRS.</li>
+        <li><strong>April First Week:</strong> Verify Statement of Entry (SOE) candidate details and venue.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card cta-card">
+     <h2 class="card-heading" style="font-size: 2rem; margin-bottom: 15px;">May/June 2027 Batches: Secure <span class="text-highlight">A* Grades</span></h2>
+     <p style="font-size: 16px; color: #444; max-width: 800px; margin: 0 auto 30px auto;">
+        Study with top educators from <strong>KGS, LUMS, IBA, and NED</strong>. We don't just teach the syllabus; we decode the exam format to guarantee your success in O/A Levels & IGCSE.
+     </p>
+     <div class="tags-container">
+        <span class="tag">Live & Onsite</span>
+        <span class="tag">Recorded Lectures</span>
+        <span class="tag">Complete Resources</span>
+        <span class="tag">Past Papers</span>
+        <span class="tag">Mock Exams</span>
+     </div>
+     <a href="https://sjacademy.pk/o-a-level-classes/" class="primary-btn">Explore Classes & Register Now</a>
+  </div>
+
+</div>

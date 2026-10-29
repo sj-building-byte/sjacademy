@@ -1,0 +1,745 @@
+<!-- SJ Academy homepage, Elementor HTML widget. Version 2.0, October 2026 (copy rewritten to the landing page copy guidelines 1.2: problem and parents sections, fee figures, WhatsApp message with page reference).
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Everything is scoped to #sjh. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet"></noscript>
+
+<style>
+/* ---------- base and theme overrides (all scoped) ---------- */
+#sjh{--y:#FCE004;--yl:#FFF9CC;--o:#FE6100;--cta:#CC4A00;--br:#453516;--ink:#151515;--tx:#2B2B2B;--mu:#66625A;--cv:#F7F5EF;--ln:#E2DDD0;--wa:#25D366;--pen:#D63A2F;--hand:'Caveat','Segoe Script','Bradley Hand',cursive;
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.6;font-weight:400;color:var(--tx);background:var(--cv);text-align:left;width:100%;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+#sjh,#sjh *,#sjh *::before,#sjh *::after{box-sizing:border-box}
+#sjh h1,#sjh h2,#sjh h3{font-family:inherit;font-weight:400;margin:0;padding:0;color:var(--ink);text-transform:none;letter-spacing:-.4px}
+#sjh h1{font-size:32px;line-height:1.18}
+#sjh h2{font-size:26px;line-height:1.22}
+#sjh h3{font-size:17px;line-height:1.3;letter-spacing:-.1px}
+#sjh p{margin:0;padding:0;font-family:inherit;font-size:inherit;line-height:inherit;color:inherit}
+#sjh a{color:inherit;text-decoration:none;font-weight:inherit;transition:none;box-shadow:none}
+#sjh a:hover,#sjh a:focus{color:inherit}
+#sjh ul,#sjh ol,#sjh dl{margin:0;padding:0;list-style:none}
+#sjh li,#sjh dd,#sjh dt{margin:0;padding:0}
+#sjh img{display:block;max-width:100%;height:auto;border:0;border-radius:0;box-shadow:none}
+#sjh svg{display:inline-block;vertical-align:middle}
+#sjh address{font-style:normal;margin:0}
+#sjh small{font-size:inherit}
+#sjh b{font-weight:500}
+#sjh i{font-style:normal}
+#sjh button{all:unset;box-sizing:border-box;cursor:pointer;font-family:inherit;-webkit-tap-highlight-color:transparent}
+#sjh [hidden]{display:none!important}
+#sjh a:focus-visible,#sjh button:focus-visible,#sjh summary:focus-visible{outline:3px solid var(--o);outline-offset:2px}
+
+#sjh .sjh-sec{padding:52px 20px;background:var(--cv)}
+#sjh .sjh-white{background:#fff}
+#sjh .sjh-wrap{max-width:1550px;margin:0 auto}
+#sjh .sjh-head{margin-bottom:26px}
+#sjh .sjh-head p{margin-top:10px}
+#sjh .sjh-lead{font-size:16px;margin-top:14px;color:var(--tx)}
+#sjh .sjh-muted{color:var(--mu);font-size:14px}
+#sjh .sjh-hl{background-image:linear-gradient(100deg,transparent 0,var(--y) .14em,var(--y) calc(100% - .14em),transparent 100%);background-repeat:no-repeat;background-size:100% .4em;background-position:0 calc(100% - .31em);padding:0 .14em;margin:0 -.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone;white-space:nowrap}
+#sjh .sjh-hand{font-family:var(--hand);font-weight:600;font-size:22px;line-height:1.1;color:var(--cta)}
+#sjh .sjh-eyebrow{font-size:12px;font-weight:500;letter-spacing:1.4px;text-transform:uppercase;color:var(--mu);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+#sjh .sjh-eyebrow::before{content:"";width:26px;height:2px;background:var(--ink)}
+#sjh .sjh-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 22px;border-radius:12px;border:1.5px solid var(--ink);font-size:15.5px;line-height:1.3;font-weight:500;text-align:center;width:100%;white-space:nowrap;text-transform:none;letter-spacing:0;transition:transform .15s,box-shadow .15s}
+#sjh .sjh-btn-primary,#sjh .sjh-btn-primary:hover,#sjh .sjh-btn-primary:focus{background:var(--cta);color:#fff}
+#sjh .sjh-btn-primary{box-shadow:4px 4px 0 var(--ink)}
+#sjh .sjh-btn-primary:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+#sjh .sjh-btn-wa,#sjh .sjh-btn-wa:hover,#sjh .sjh-btn-wa:focus{background:var(--wa);color:#000}
+#sjh .sjh-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
+#sjh .sjh-arrow,#sjh .sjh-arrow:hover{font-size:14px;font-weight:500;color:var(--ink);border-bottom:2px solid var(--y);padding-bottom:2px;display:inline-block}
+#sjh .sjh-arrow::after{content:" \2192"}
+#sjh .sjh-links{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:22px}
+
+/* ---------- hero ---------- */
+#sjh .sjh-hero{background:radial-gradient(#DAD4C3 1.1px,transparent 1.2px) 0 0/22px 22px,var(--cv);padding-top:34px}
+#sjh .sjh-hgrid{display:grid;gap:26px;grid-template-areas:"intro" "finder" "proof" "photo"}
+#sjh .sjh-intro{grid-area:intro;min-width:0}
+#sjh .sjh-finder{grid-area:finder;min-width:0}
+#sjh .sjh-proof{grid-area:proof}
+#sjh .sjh-photo{grid-area:photo}
+#sjh .sjh-pill{display:table;border:1.5px solid var(--ink);border-radius:50px;padding:4px;background:#fff;box-shadow:3px 3px 0 rgba(0,0,0,.14);margin-bottom:18px}
+#sjh .sjh-pill span{display:block;background:var(--y);border-radius:40px;padding:6px 14px;font-size:11px;line-height:1.4;font-weight:500;letter-spacing:.7px;text-transform:uppercase;color:var(--ink)}
+#sjh .sjh-hcta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
+#sjh .sjh-hcta .sjh-btn{padding:12px 8px;font-size:14px;gap:6px;min-width:0}
+#sjh .sjh-ticks{margin-top:20px;display:grid;gap:10px;font-size:15px;color:var(--ink)}
+#sjh .sjh-ticks li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;line-height:1.45}
+#sjh .sjh-ticks svg{width:22px;height:22px;margin-top:1px;fill:none;stroke:var(--cta);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+#sjh .sjh-intro>.sjh-hand{display:inline-block;margin-top:16px;transform:rotate(-1.5deg);transform-origin:left}
+#sjh .sjh-d{display:none}
+
+#sjh .sjh-finder{background:#fff;border:1.5px solid var(--ink);border-radius:18px;box-shadow:7px 7px 0 var(--y),7px 7px 0 1.5px var(--ink);padding:18px;align-self:start;scroll-margin-top:90px}
+@keyframes sjh-pulse{0%{box-shadow:7px 7px 0 var(--y),7px 7px 0 1.5px var(--ink),0 0 0 0 rgba(254,97,0,.55)}100%{box-shadow:7px 7px 0 var(--y),7px 7px 0 1.5px var(--ink),0 0 0 22px rgba(254,97,0,0)}}
+#sjh .sjh-finder.sjh-pulse{animation:sjh-pulse .9s ease-out 2}
+#sjh .sjh-fhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:14px}
+#sjh .sjh-fhead h2{font-size:20px}
+#sjh .sjh-fhead .sjh-hand{font-size:18px;color:var(--mu);white-space:nowrap}
+#sjh .sjh-fhead h2{white-space:nowrap}
+#sjh .sjh-tabs{display:grid;grid-template-columns:repeat(4,1fr);background:var(--cv);border-radius:12px;padding:4px;gap:2px}
+#sjh .sjh-tabs button{min-height:44px;border-radius:9px;font-size:13.5px;line-height:1.2;color:var(--mu);padding:0 4px;text-align:center;display:flex;align-items:center;justify-content:center}
+#sjh .sjh-tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;font-weight:500}
+#sjh .sjh-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+#sjh .sjh-chip{min-height:44px;padding:8px 14px;border-radius:50px;border:1.5px solid var(--ln);background:#fff;font-size:14px;line-height:1.3;color:var(--ink);display:inline-flex;align-items:center;gap:5px}
+#sjh .sjh-chip small{color:var(--mu);font-size:12px}
+#sjh .sjh-chip:hover{border-color:var(--ink)}
+#sjh .sjh-chip[aria-pressed="true"]{background:var(--y);border-color:var(--ink);font-weight:500}
+#sjh .sjh-chip[aria-pressed="true"] small{color:var(--ink)}
+#sjh .sjh-chip-more{border-style:dashed;color:var(--mu)}
+#sjh .sjh-empty{margin-top:14px;border:1.5px dashed var(--ln);border-radius:12px;padding:16px;text-align:center;color:var(--mu);font-size:14px}
+#sjh .sjh-result{margin-top:14px;background:var(--yl);border-radius:14px;padding:16px}
+#sjh .sjh-trow{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+#sjh .sjh-av{width:56px;height:56px;flex:none;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--ink);background:var(--br) center 15%/cover no-repeat;color:var(--y);display:grid;place-items:center;font-size:17px;font-weight:500}
+#sjh .sjh-trow b{color:var(--ink);font-size:16.5px;display:block;line-height:1.25}
+#sjh .sjh-facts{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px;margin-bottom:14px}
+#sjh .sjh-facts dt{color:var(--mu);font-weight:400}
+#sjh .sjh-facts dd{font-weight:400}
+#sjh .sjh-result .sjh-btn{white-space:normal;padding:12px 12px;font-size:15px}
+#sjh .sjh-facts dd{color:var(--ink)}
+#sjh .sjh-facts dd a{text-decoration:underline;text-underline-offset:3px}
+#sjh .sjh-note{font-size:14px;color:var(--mu);text-align:center;margin-top:8px}
+#sjh .sjh-fmeta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:14px;font-size:13.5px}
+#sjh .sjh-fmeta .sjh-reg{color:var(--mu);text-decoration:underline;text-underline-offset:3px}
+
+#sjh .sjh-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:0 12px;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+#sjh .sjh-proof>*{padding:14px 6px 14px 0;font-size:13px;color:var(--mu);line-height:1.35;position:relative;display:block}
+#sjh .sjh-proof b{display:block;font-weight:400;font-size:27px;line-height:1.1;color:var(--ink);letter-spacing:-1px;margin-bottom:2px}
+#sjh .sjh-circle{position:absolute;left:-12px;top:7px;width:92px;height:42px;pointer-events:none}
+#sjh .sjh-photo{padding-top:6px}
+#sjh .sjh-polaroid{background:#fff;padding:10px 10px 12px;box-shadow:0 10px 28px rgba(0,0,0,.14);transform:rotate(-1.4deg);position:relative}
+#sjh .sjh-polaroid img{width:100%;aspect-ratio:16/9.4;object-fit:cover}
+#sjh .sjh-polaroid .sjh-hand{display:block;text-align:center;color:var(--ink);font-size:20px;margin-top:8px}
+#sjh .sjh-tape{position:absolute;top:-12px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(252,224,4,.75);transform:rotate(2deg);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+
+/* ---------- teachers ---------- */
+#sjh .sjh-tgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px 14px}
+#sjh .sjh-t{display:block}
+#sjh .sjh-t img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:50% 12%;border-radius:14px;background:#EFEBE0}
+#sjh .sjh-t b{display:block;color:var(--ink);font-size:15px;margin-top:10px;line-height:1.3}
+#sjh .sjh-t i{font-size:13px;color:var(--ink);background:var(--y);padding:0 5px;display:inline-block;margin-top:4px}
+#sjh .sjh-t span{display:block;font-size:13px;color:var(--mu);margin-top:4px;line-height:1.4}
+
+/* ---------- method ---------- */
+#sjh .sjh-method{background:var(--br);color:#EDE6D3}
+#sjh .sjh-method h2{color:#fff}
+#sjh .sjh-method h2 em{font-style:normal;color:var(--y)}
+#sjh .sjh-method .sjh-eyebrow{color:#CFC4A6}
+#sjh .sjh-method .sjh-eyebrow::before{background:var(--y)}
+#sjh .sjh-method .sjh-lead{color:#EDE6D3}
+#sjh .sjh-steps{margin-top:26px;counter-reset:sjh}
+#sjh .sjh-steps li{counter-increment:sjh;display:grid;grid-template-columns:44px 1fr;gap:4px 8px;padding:16px 0;border-top:1px solid rgba(255,255,255,.18)}
+#sjh .sjh-steps li::before{content:"0" counter(sjh);font-family:var(--hand);font-size:26px;color:var(--y);line-height:1;grid-row:span 2}
+#sjh .sjh-steps b{color:#fff;font-size:16px}
+#sjh .sjh-steps span{font-size:14px;color:#D9D0B8;grid-column:2}
+#sjh .sjh-sheet{margin-top:30px}
+#sjh .sjh-toggle{display:grid;grid-template-columns:1fr 1fr;background:rgba(0,0,0,.25);border-radius:12px;padding:4px;margin-bottom:16px}
+#sjh .sjh-toggle button{min-height:46px;font-size:14px;color:#E7DFC8;border-radius:9px;text-align:center;display:flex;align-items:center;justify-content:center}
+#sjh .sjh-toggle button[aria-pressed="true"]{background:var(--y);color:var(--ink);font-weight:500}
+#sjh .sjh-paper{background:#FFFEF9;color:#1b2a4a;border-radius:4px;box-shadow:0 18px 40px rgba(0,0,0,.35);transform:rotate(-.6deg);position:relative;overflow:hidden}
+#sjh .sjh-paper::before{content:"";position:absolute;left:34px;top:0;bottom:0;width:1.5px;background:#E9A29C}
+#sjh .sjh-q{padding:14px 16px 12px 46px;border-bottom:1.5px solid #1b2a4a;font-size:13.5px;line-height:1.5;color:#111}
+#sjh .sjh-q small{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#666;margin-bottom:2px}
+#sjh .sjh-ans{padding:8px 16px 6px 46px;font-size:15px;line-height:30px;color:#1b2a4a;background:repeating-linear-gradient(transparent 0 29px,#D8E2EE 29px 30px);min-height:270px}
+#sjh .sjh-k{background:rgba(252,224,4,.8)}
+#sjh .sjh-ap{background:rgba(254,97,0,.25)}
+#sjh .sjh-an{background:rgba(37,211,102,.28)}
+#sjh .sjh-mk{font-family:var(--hand);font-weight:600;color:var(--pen);font-size:19px;margin:0 2px;white-space:nowrap}
+#sjh .sjh-pfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px 16px 46px}
+#sjh .sjh-pfoot .sjh-hand{color:var(--pen);font-size:21px;transform:rotate(-2deg)}
+#sjh .sjh-stamp{flex:none;width:74px;height:74px;border:2.5px solid var(--pen);border-radius:50%;display:grid;place-items:center;font-family:var(--hand);font-weight:600;font-size:30px;color:var(--pen);transform:rotate(-9deg)}
+#sjh .sjh-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#D9D0B8;margin-top:16px}
+#sjh .sjh-legend span span{padding:0 6px;color:var(--ink);margin-right:4px}
+#sjh .sjh-legend .sjh-ap{background:#FBC9A8}
+#sjh .sjh-legend .sjh-an{background:#BDEFCD}
+
+/* ---------- who ---------- */
+#sjh .sjh-who{display:grid;gap:12px}
+#sjh .sjh-w{display:grid;grid-template-columns:34px 1fr;gap:4px 10px;background:var(--cv);border-radius:16px;padding:16px 18px;transition:background .15s}
+#sjh .sjh-w:hover{background:var(--yl)}
+#sjh .sjh-w .sjh-hand{font-size:24px;grid-row:span 3;line-height:1.1}
+#sjh .sjh-w h3{font-weight:500}
+#sjh .sjh-w p{font-size:14.5px;line-height:1.5;color:var(--tx);grid-column:2}
+#sjh .sjh-w .sjh-arrow{grid-column:2;justify-self:start;margin-top:4px}
+
+/* ---------- reviews ---------- */
+#sjh .sjh-gsum{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#fff;border:1.5px solid var(--ink);border-radius:16px;padding:16px 20px;box-shadow:5px 5px 0 var(--y),5px 5px 0 1.5px var(--ink)}
+#sjh .sjh-gsum .sjh-n{font-size:44px;line-height:1;color:var(--ink);letter-spacing:-1.5px}
+#sjh .sjh-stars{color:var(--o);letter-spacing:2px;font-size:15px;line-height:1.3;margin-bottom:8px}
+#sjh .sjh-gsum .sjh-stars{margin:0;font-size:20px}
+#sjh .sjh-gsum p{font-size:14px;color:var(--mu);line-height:1.4}
+#sjh .sjh-gsum p b{color:var(--ink)}
+#sjh .sjh-revs{display:grid;gap:14px;margin-top:22px}
+#sjh .sjh-rev{background:#fff;border-radius:16px;padding:20px;border:1px solid var(--ln);position:relative;display:flex;flex-direction:column}
+#sjh .sjh-rev p{font-size:15px;color:var(--ink)}
+#sjh .sjh-rf{margin-top:auto;padding-top:14px;font-size:13px;color:var(--mu)}
+#sjh .sjh-rf b{color:var(--ink)}
+#sjh .sjh-rev-parent{background:var(--yl);border:1.5px solid var(--ink)}
+#sjh .sjh-rev-parent .sjh-hand{position:absolute;top:-14px;right:16px;background:var(--ink);color:var(--y);padding:2px 12px;border-radius:6px;font-size:18px;transform:rotate(2deg)}
+
+/* ---------- tools ---------- */
+#sjh .sjh-tools{display:grid;gap:12px}
+#sjh .sjh-feat{background:var(--y);border:1.5px solid var(--ink);border-radius:18px;padding:22px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:10px;min-height:230px}
+#sjh .sjh-feat h3{font-size:24px;line-height:1.2}
+#sjh .sjh-feat p{color:var(--ink);font-size:15px}
+#sjh .sjh-feat .sjh-hand{color:var(--ink);font-size:20px}
+#sjh .sjh-feat .sjh-go{margin-top:auto;font-weight:500;color:var(--ink);font-size:15px}
+#sjh .sjh-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+#sjh .sjh-tags span{background:#fff;border:1.5px solid var(--ink);border-radius:8px;padding:4px 10px;font-size:13px;color:var(--ink)}
+#sjh .sjh-tool{display:grid;grid-template-columns:44px 1fr 20px;gap:14px;align-items:center;padding:16px;border-radius:14px;background:var(--cv);transition:background .15s}
+#sjh .sjh-tool:hover{background:var(--yl)}
+#sjh .sjh-ic{width:44px;height:44px;border-radius:12px;background:#fff;display:grid;place-items:center;border:1px solid var(--ln)}
+#sjh .sjh-tool svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#sjh .sjh-tool h3{font-size:15.5px;font-weight:500}
+#sjh .sjh-tool p{font-size:13.5px;color:var(--mu);line-height:1.4;margin-top:2px}
+#sjh .sjh-ar{font-size:18px;color:var(--ink)}
+
+/* ---------- blog ---------- */
+#sjh .sjh-posts{display:grid;gap:22px}
+#sjh .sjh-post{display:grid;grid-template-columns:112px 1fr;gap:14px;align-items:start}
+#sjh .sjh-post img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#EFEBE0}
+#sjh .sjh-post-noimg{grid-template-columns:1fr}
+#sjh .sjh-post small{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--cta);font-weight:500;display:block}
+#sjh .sjh-post h3{font-size:15.5px;line-height:1.4;margin-top:4px}
+#sjh .sjh-post time{display:block;font-size:13px;color:var(--mu);margin-top:6px}
+
+/* ---------- faq ---------- */
+#sjh .sjh-faqgrid{display:grid;gap:26px}
+#sjh details{border-top:1px solid #CFC9B8;margin:0;padding:0;background:none}
+#sjh details:last-child{border-bottom:1px solid #CFC9B8}
+#sjh summary{cursor:pointer;min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:16px;line-height:1.4;color:var(--ink);list-style:none;padding:10px 0;margin:0;background:none;border:0;font-weight:400}
+#sjh summary::-webkit-details-marker{display:none}
+#sjh summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font-size:18px;line-height:1}
+#sjh details[open] summary::after{content:"\2212";background:var(--y)}
+#sjh details p{font-size:15px;padding:0 44px 18px 0}
+#sjh details p a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:2px;text-underline-offset:3px}
+#sjh .sjh-ask{background:#fff;border-radius:16px;padding:18px;border:1px solid var(--ln);margin-top:18px}
+#sjh .sjh-ask .sjh-btn{margin-top:12px}
+
+/* ---------- final ---------- */
+#sjh .sjh-final{background:radial-gradient(rgba(0,0,0,.12) 1.1px,transparent 1.2px) 0 0/22px 22px,var(--y);text-align:center;padding:60px 20px}
+#sjh .sjh-final h2{font-size:32px}
+#sjh .sjh-nb{display:block;white-space:nowrap}
+#sjh .sjh-fsub{font-size:16px;color:var(--ink);max-width:640px;margin:12px auto 0}
+#sjh .sjh-final .sjh-hand{color:var(--ink);font-size:24px;display:block;margin:10px 0 22px;transform:rotate(-1.5deg)}
+#sjh .sjh-cta2{max-width:340px;margin:0 auto}
+#sjh .sjh-orwa{display:none}
+#sjh .sjh-final address{font-size:14px;color:var(--ink);margin-top:22px;line-height:1.6}
+#sjh .sjh-final address a,#sjh .sjh-orwa a{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- phone bottom bar ---------- */
+#sjh .sjh-sticky{position:fixed;left:0;right:0;bottom:0;z-index:9990;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--ln);box-shadow:0 -8px 24px rgba(0,0,0,.1);transform:translateY(110%);transition:transform .25s}
+#sjh .sjh-sticky.sjh-on{transform:none}
+#sjh .sjh-sticky .sjh-btn{min-height:48px;padding:10px 8px;font-size:14px;gap:6px;min-width:0;box-shadow:none}
+@media (max-width:899px){
+  #sjh .sjh-final{padding-bottom:110px}
+  /* the page has its own WhatsApp button on phones, so hide the floating bubble here */
+  .joinchat{display:none!important}
+}
+/* this page hides the theme's back-to-top arrow (it overlaps the finder and the bottom bar) */
+#back-to-top{display:none!important}
+@media (max-width:339px){#sjh .sjh-hcta{grid-template-columns:1fr}#sjh .sjh-sec{padding-left:16px;padding-right:16px}}
+@media (prefers-reduced-motion:reduce){#sjh *{animation:none!important;transition:none!important}}
+
+/* ---------- tablet ---------- */
+@media (min-width:600px){
+  #sjh .sjh-tgrid{grid-template-columns:repeat(3,1fr)}
+  #sjh .sjh-who{grid-template-columns:1fr 1fr}
+  #sjh .sjh-ticks{grid-template-columns:1fr 1fr;gap:12px 24px}
+}
+/* ---------- desktop ---------- */
+@media (min-width:900px){
+  #sjh .sjh-sec{padding:92px 40px}
+  #sjh h1{font-size:54px;letter-spacing:-1.4px;line-height:1.1}
+  #sjh h2{font-size:38px;letter-spacing:-.8px}
+  #sjh .sjh-lead{font-size:18px;max-width:600px}
+  #sjh .sjh-head{margin-bottom:40px}
+  #sjh .sjh-hero{padding-top:64px}
+  #sjh .sjh-hgrid{grid-template-columns:1.08fr .92fr;gap:34px 64px;grid-template-areas:"intro finder" "proof finder" "photo finder";align-items:start}
+  #sjh .sjh-hcta{display:flex;gap:12px}
+  #sjh .sjh-hcta .sjh-btn{width:auto;padding:12px 22px;font-size:15.5px}
+  #sjh .sjh-ticks{font-size:15.5px}
+  #sjh .sjh-d{display:inline}
+  #sjh .sjh-m{display:none}
+  #sjh .sjh-finder{padding:26px;position:sticky;top:90px}
+  #sjh .sjh-fhead h2{font-size:24px;letter-spacing:-.4px}
+  #sjh .sjh-proof>*{padding:18px 10px 18px 0}
+  #sjh .sjh-proof b{font-size:36px}
+  #sjh .sjh-circle{left:-16px;top:10px;width:122px;height:52px}
+  #sjh .sjh-photo{max-width:600px}
+  #sjh .sjh-tgrid{grid-template-columns:repeat(6,1fr);gap:20px}
+  #sjh .sjh-mgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
+  #sjh .sjh-sheet{margin-top:0}
+  #sjh .sjh-ans{font-size:16px;min-height:300px;padding-left:60px;padding-right:26px}
+  #sjh .sjh-q,#sjh .sjh-pfoot{padding-left:60px}
+  #sjh .sjh-paper::before{left:44px}
+  #sjh .sjh-who{grid-template-columns:repeat(4,1fr);gap:16px}
+  #sjh .sjh-w{display:flex;flex-direction:column;gap:8px;padding:22px}
+  #sjh .sjh-w .sjh-arrow{margin-top:auto;align-self:flex-start}
+  #sjh .sjh-revs{grid-template-columns:repeat(3,1fr);gap:18px}
+  #sjh .sjh-tools{grid-template-columns:1.05fr 1fr 1fr;gap:14px}
+  #sjh .sjh-feat{grid-row:span 3;padding:30px}
+  #sjh .sjh-feat h3{font-size:30px}
+  #sjh .sjh-tool-wide{grid-column:span 2}
+  #sjh .sjh-posts{grid-template-columns:repeat(3,1fr);gap:28px}
+  #sjh .sjh-post{grid-template-columns:1fr;gap:14px}
+  #sjh .sjh-post img{aspect-ratio:16/9.5;border-radius:14px}
+  #sjh .sjh-post h3{font-size:18px}
+  #sjh .sjh-faqgrid{grid-template-columns:.7fr 1.3fr;gap:72px;max-width:1200px}
+  #sjh .sjh-faqgrid .sjh-head{position:sticky;top:100px;align-self:start;margin:0}
+  #sjh .sjh-final{padding:100px 40px}
+  #sjh .sjh-final h2{font-size:52px}
+  #sjh .sjh-nb{display:inline}
+  #sjh .sjh-fsub{font-size:18px}
+  #sjh .sjh-orwa{display:block;margin-top:14px;font-size:14.5px;color:var(--ink)}
+  #sjh .sjh-btn{width:auto}
+  #sjh .sjh-finder .sjh-btn,#sjh .sjh-cta2 .sjh-btn,#sjh .sjh-ask .sjh-btn{width:100%}
+  #sjh .sjh-sticky{display:none}
+}
+
+
+/* ---------- v2.0 additions ---------- */
+#sjh .sjh-hcta1{margin-top:22px}
+#sjh .sjh-under{margin-top:14px;font-size:14.5px;color:var(--ink)}
+#sjh .sjh-under a{text-decoration:underline;text-decoration-color:var(--y);text-decoration-thickness:2px;text-underline-offset:3px}
+#sjh .sjh-alt .sjh-w{background:#fff;border:1px solid var(--ln)}
+#sjh .sjh-alt .sjh-w:hover{background:var(--yl)}
+#sjh .sjh-ws:hover{background:var(--cv)}
+#sjh .sjh-alt .sjh-ws:hover{background:#fff}
+#sjh .sjh-turn{margin-top:26px;font-size:17px;color:var(--ink);max-width:640px}
+#sjh .sjh-mhand{display:inline-block;color:var(--y);margin-top:16px;transform:rotate(-1.5deg);transform-origin:left}
+#sjh .sjh-fsub a{text-decoration:underline;text-underline-offset:3px}
+#sjh .sjh-w .sjh-arrow{margin-top:6px}
+@media (min-width:900px){
+  #sjh .sjh-who3{grid-template-columns:repeat(3,1fr)}
+  #sjh .sjh-turn{font-size:19px}
+}
+
+/* Heading weights, brand guidelines 3.1 */
+#sjh h1{font-weight:600;letter-spacing:-.03em;line-height:1.08}
+#sjh h2{font-weight:500;letter-spacing:-.025em}
+</style>
+
+<div id="sjh">
+
+  <!-- 1. HERO -->
+  <section class="sjh-sec sjh-hero">
+    <div class="sjh-wrap sjh-hgrid">
+      <div class="sjh-intro">
+        <h1><span class="sjh-pill"><span>O &amp; A Level coaching center in Karachi</span></span>Learn to think<br>like a <span class="sjh-hl">CAIE examiner</span>.</h1>
+        <p class="sjh-lead">See the paper the way the person marking it does. O and A Level tuition at SJ Academy, in Karachi and live online, with teachers from LUMS, IBA and KGS.</p>
+        <div class="sjh-hcta1"><a class="sjh-btn sjh-btn-primary" href="#sjh-finder" id="sjh-herocta">Book a free demo</a></div>
+        <p class="sjh-under">One class free, then decide. Already sure? <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">Register for a class</a>.</p>
+        <ul class="sjh-ticks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Past papers marked to the Cambridge scheme</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>See exactly where marks were lost</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>O and A Level tuition, in class or online</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>A free demo class before you enrol</span></li>
+        </ul>
+        <span class="sjh-hand">pick a subject, try one free <span class="sjh-m">&#8595;</span><span class="sjh-d">&#8594;</span></span>
+      </div>
+
+      <div class="sjh-finder" id="sjh-finder">
+        <div class="sjh-fhead"><h2>Find your class</h2><span class="sjh-hand">takes 10 seconds</span></div>
+        <div class="sjh-tabs" id="sjh-levels" role="group" aria-label="Choose a level"><button type="button" aria-pressed="false" data-level="o">O Level</button><button type="button" aria-pressed="false" data-level="as">AS</button><button type="button" aria-pressed="true" data-level="a2">A2</button><button type="button" aria-pressed="false" data-level="lab">Practicals</button></div>
+        <div id="sjh-panels">
+          <div class="sjh-chips" data-level="o" data-gid="674937139" hidden>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Maths (4024)" data-teacher="Sir Salman Junaid" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" data-url="/o-level-math-tuition/" data-own="1" data-key="math">Maths <small>4024</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Physics (5054)" data-teacher="Sir Basharat in class, Sir Salman Junaid online" data-img="" data-url="/o-level-physics-tuition/" data-own="1" data-key="phys">Physics <small>5054</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Chemistry (5070)" data-teacher="Sir Abdullah Zaman" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/12/Zaman-chemistry-768x569.jpeg" data-url="/o-level-chemistry-tuitions/" data-own="1" data-key="chem">Chemistry <small>5070</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Biology (5090)" data-teacher="Sir Umair" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/11/Umair-Pic-1.jpg" data-url="/o-level-biology-sj-academy/" data-own="1" data-key="bio">Biology <small>5090</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Pakistan Studies (2059)" data-teacher="Sir Kashaan Ali" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/07/Kashan-Ali-768x431.jpeg" data-url="/o-level-pakistan-studies-tuition/" data-own="1" data-key="pak">Pakistan Studies <small>2059</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Islamiyat (2058)" data-teacher="Sir Kashaan Ali" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/07/Kashan-Ali-768x431.jpeg" data-url="/o-level-islamiat-tuition/" data-own="1" data-key="isl">Islamiyat <small>2058</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level English Language (1123)" data-teacher="Miss Tayyaba Yaseen" data-img="" data-url="/o-level-tuition-center-karachi/" data-own="0" data-key="eng">English Language <small>1123</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Accounting (7707)" data-teacher="Sir Saifullah" data-img="https://www.sjacademy.pk/wp-content/uploads/2026/07/Saifullah-Accounts-768x829.jpeg" data-url="/o-level-accounting-tuition/" data-own="1" data-key="acc" data-x="1" hidden>Accounting <small>7707</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Business (7081)" data-teacher="Sir Aaliyan" data-img="https://www.sjacademy.pk/wp-content/uploads/2026/06/Alyaan-240x300.jpeg" data-url="/business7081/" data-own="1" data-key="bus" data-x="1" hidden>Business <small>7081</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Economics (2281)" data-teacher="Sir Aaliyan" data-img="https://www.sjacademy.pk/wp-content/uploads/2026/06/Alyaan-240x300.jpeg" data-url="/economics/" data-own="1" data-key="eco" data-x="1" hidden>Economics <small>2281</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Computer Science (2210)" data-teacher="Sir Riza Walji" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/11/Sir-Riza-768x454.webp" data-url="/o-level-tuition-center-karachi/" data-own="0" data-key="comp" data-x="1" hidden>Computer Science <small>2210</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="O Level Urdu" data-teacher="Miss Asmat Zafar" data-img="" data-url="/o-level-tuition-center-karachi/" data-own="0" data-key="urdu" data-x="1" hidden>Urdu</button>
+            <button type="button" class="sjh-chip sjh-chip-more" data-more="1">+ 6 more subjects</button>
+          </div>
+          <div class="sjh-chips" data-level="as" data-gid="1456859397" hidden>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Maths (9709)" data-teacher="Sir Salman Junaid" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" data-url="/a-level-maths-tuition/" data-own="1" data-key="math">Maths <small>9709</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Physics (9702)" data-teacher="Sir Salman Junaid" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" data-url="/a-level-physics-tuition/" data-own="1" data-key="phys">Physics <small>9702</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Chemistry (9701)" data-teacher="Sir Abdullah Zaman" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/12/Zaman-chemistry-768x569.jpeg" data-url="/a-level-chemistry/" data-own="1" data-key="chem">Chemistry <small>9701</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Biology (9700)" data-teacher="Sir Umair" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/11/Umair-Pic-1.jpg" data-url="/a-level-biology-tuition/" data-own="1" data-key="bio">Biology <small>9700</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Business (9609)" data-teacher="Sir Sunyyan Junaid" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/07/296167730_10159330125240939_9121453372746153911_n-min-768x521.jpg" data-url="/a-level-business-tuition/" data-own="1" data-key="bus">Business <small>9609</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Economics (9708)" data-teacher="Sir Khawar Shuaib" data-img="https://www.sjacademy.pk/wp-content/uploads/2026/06/Khawar-2-768x615.jpeg" data-url="/a-level-economics-tuition/" data-own="1" data-key="eco">Economics <small>9708</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Computer Science (9618)" data-teacher="Sir Riza Walji" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/11/Sir-Riza-768x454.webp" data-url="/a-level-computer-science-tuition/" data-own="1" data-key="comp">Computer Science <small>9618</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Accounting (9706)" data-teacher="Sir Shaibaz Ali" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="acc" data-x="1" hidden>Accounting <small>9706</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Psychology (9990)" data-teacher="Miss Muzna Zaidi" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="psy" data-x="1" hidden>Psychology <small>9990</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Sociology (9699)" data-teacher="Miss Tayyaba Yaseen" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="soc" data-x="1" hidden>Sociology <small>9699</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level English (9695)" data-teacher="Miss Tayyaba Yaseen" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="eng" data-x="1" hidden>English <small>9695</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Urdu (9686)" data-teacher="Miss Asmat Zafar" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="urdu" data-x="1" hidden>Urdu <small>9686</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="AS Level Law (9084)" data-teacher="" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="law" data-x="1" hidden>Law <small>9084</small></button>
+            <button type="button" class="sjh-chip sjh-chip-more" data-more="1">+ 6 more subjects</button>
+          </div>
+          <div class="sjh-chips" data-level="a2" data-gid="1559855613">
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Maths (9709)" data-teacher="Sir Salman Junaid" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" data-url="/a-level-maths-tuition/" data-own="1" data-key="math">Maths <small>9709</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Physics (9702)" data-teacher="Sir Salman Junaid" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" data-url="/a-level-physics-tuition/" data-own="1" data-key="phys">Physics <small>9702</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Chemistry (9701)" data-teacher="Sir Abdullah Zaman" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/12/Zaman-chemistry-768x569.jpeg" data-url="/a-level-chemistry/" data-own="1" data-key="chem">Chemistry <small>9701</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Biology (9700)" data-teacher="Sir Umair" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/11/Umair-Pic-1.jpg" data-url="/a-level-biology-tuition/" data-own="1" data-key="bio">Biology <small>9700</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Business (9609)" data-teacher="Sir Sunyyan Junaid" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/07/296167730_10159330125240939_9121453372746153911_n-min-768x521.jpg" data-url="/a-level-business-tuition/" data-own="1" data-key="bus">Business <small>9609</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Economics (9708)" data-teacher="Sir Khawar Shuaib" data-img="https://www.sjacademy.pk/wp-content/uploads/2026/06/Khawar-2-768x615.jpeg" data-url="/a-level-economics-tuition/" data-own="1" data-key="eco">Economics <small>9708</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Computer Science (9618)" data-teacher="Sir Riza Walji" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/11/Sir-Riza-768x454.webp" data-url="/a-level-computer-science-tuition/" data-own="1" data-key="comp">Computer Science <small>9618</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Accounting (9706)" data-teacher="Sir Shaibaz Ali" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="acc" data-x="1" hidden>Accounting <small>9706</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Psychology (9990)" data-teacher="Miss Muzna Zaidi" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="psy" data-x="1" hidden>Psychology <small>9990</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Sociology (9699)" data-teacher="Miss Tayyaba Yaseen" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="soc" data-x="1" hidden>Sociology <small>9699</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level English (9695)" data-teacher="Miss Tayyaba Yaseen" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="eng" data-x="1" hidden>English <small>9695</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Urdu (9686)" data-teacher="Miss Asmat Zafar" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="urdu" data-x="1" hidden>Urdu <small>9686</small></button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="A2 Level Law (9084)" data-teacher="" data-img="" data-url="/a-level-tuition-center-karachi/" data-own="0" data-key="law" data-x="1" hidden>Law <small>9084</small></button>
+            <button type="button" class="sjh-chip sjh-chip-more" data-more="1">+ 6 more subjects</button>
+          </div>
+          <div class="sjh-chips" data-level="lab" data-gid="1270410396" hidden>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="Physics practicals" data-teacher="Sir Salman Junaid" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" data-url="/lab-practicals/" data-own="1" data-key="phys">Physics</button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="Chemistry practicals" data-teacher="Sir Abdullah Zaman" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/12/Zaman-chemistry-768x569.jpeg" data-url="/lab-practicals/" data-own="1" data-key="chem">Chemistry</button>
+            <button type="button" class="sjh-chip" aria-pressed="false" data-title="Biology practicals" data-teacher="Sir Umair" data-img="https://www.sjacademy.pk/wp-content/uploads/2025/11/Umair-Pic-1.jpg" data-url="/lab-practicals/" data-own="1" data-key="bio">Biology</button>
+          </div>
+        </div>
+        <div class="sjh-empty" id="sjh-empty">Pick a subject to see the teacher, days, timing and fee.</div>
+        <div class="sjh-result" id="sjh-result" hidden aria-live="polite">
+          <div class="sjh-trow"><span class="sjh-av" id="sjh-av" aria-hidden="true"></span><div><b id="sjh-title"></b><span class="sjh-muted" id="sjh-teacher"></span></div></div>
+          <dl class="sjh-facts">
+            <dt>Days</dt><dd id="sjh-days"></dd>
+            <dt id="sjh-timel">Time</dt><dd id="sjh-time"></dd>
+            <dt>Mode</dt><dd>In class or live online</dd>
+            <dt>Fee</dt><dd id="sjh-fee"></dd>
+          </dl>
+          <a class="sjh-btn sjh-btn-wa" id="sjh-demo" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20your%20classes.%0A(Ref%3A%20HOME-Q)%0AMy%20name%20is%20" target="_blank" rel="noopener" data-sjh-wa="finder"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.4-4.2A8.5 8.5 0 1 1 8.4 18.7z"/></svg><span id="sjh-demolabel">Book a free demo on WhatsApp</span></a>
+          <p class="sjh-note" id="sjh-note">One class free, then decide.</p>
+          <div class="sjh-fmeta"><a class="sjh-arrow" id="sjh-sublink" href="https://www.sjacademy.pk/classes-schedule/">View subject page</a><a class="sjh-reg" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">Already sure? Register for a class</a></div>
+        </div>
+      </div>
+
+      <div class="sjh-proof">
+        <a href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener"><svg class="sjh-circle" viewBox="0 0 120 70" preserveAspectRatio="none" aria-hidden="true"><path d="M14 38C10 18 40 6 68 7c27 1 44 13 42 30-2 16-30 24-56 23C28 59 8 50 13 30" fill="none" stroke="#FE6100" stroke-width="2.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><b>5.0</b>Google rating from 226 reviews</a>
+        <span><b>4,500+</b>students taught at SJ Academy</span>
+        <span><b>950+</b>A*s achieved at SJ Academy</span>
+      </div>
+
+      <div class="sjh-photo">
+        <div class="sjh-polaroid"><span class="sjh-tape"></span><img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1632-1024x560.jpg" srcset="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1632-768x420.jpg 768w, https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1632-1024x560.jpg 1024w" sizes="(min-width:900px) 520px, 92vw" alt="Students working through past papers in a class at SJ Academy, DHA Phase 7, Karachi" width="1024" height="560" fetchpriority="high" decoding="async"><span class="sjh-hand">a class at DHA Phase 7</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THE PROBLEM -->
+  <section class="sjh-sec sjh-white">
+    <div class="sjh-wrap">
+      <div class="sjh-head"><div class="sjh-eyebrow">The problem</div><h2>Knowing the content is <span class="sjh-hl">not enough</span></h2><p class="sjh-lead">Cambridge gives marks for specific things: the working, the application, the explanation that links back to the question. Students who study hard but write loosely lose those marks and do not see where they went.</p></div>
+      <div class="sjh-who sjh-who3">
+        <div class="sjh-w sjh-ws"><span class="sjh-hand">01</span><h3>Right answer, marks missing</h3><p>You reach the answer, but the mark scheme also wanted the working, the application or the link back to the question.</p></div>
+        <div class="sjh-w sjh-ws"><span class="sjh-hand">02</span><h3>Papers done, never marked</h3><p>You practise past papers without a mark scheme in hand, so you cannot see which line lost the mark.</p></div>
+        <div class="sjh-w sjh-ws"><span class="sjh-hand">03</span><h3>The question left unasked</h3><p>The basic question that felt too small to ask in school stays unasked, and the gap grows.</p></div>
+      </div>
+      <p class="sjh-turn">All three are habits, not talent, and habits can be fixed.</p>
+    </div>
+  </section>
+
+  <!-- 3. METHOD -->
+  <section class="sjh-sec sjh-method">
+    <div class="sjh-wrap sjh-mgrid">
+      <div>
+        <div class="sjh-eyebrow">How we teach</div>
+        <h2>Same student. Same question. <em>A different mark.</em></h2>
+        <p class="sjh-lead">You learn the way Cambridge wants answers written, then practise it on past papers marked against the mark scheme.</p>
+        <span class="sjh-hand sjh-mhand">the mark scheme has opinions</span>
+        <ol class="sjh-steps">
+          <li><b>Learn what each mark is for</b><span>Before you write a word, the teacher shows you what the mark scheme rewards for that type of question.</span></li>
+          <li><b>Write it under time</b><span>Past-paper questions, timed, the way you will sit them in the exam hall.</span></li>
+          <li><b>Get it marked</b><span>It comes back marked the way a Cambridge examiner marks it.</span></li>
+          <li><b>Fix the gap</b><span>You see where each mark was lost and how to get it back.</span></li>
+        </ol>
+      </div>
+      <div class="sjh-sheet">
+        <div class="sjh-toggle" role="group" aria-label="Answer version">
+          <button type="button" id="sjh-before" aria-pressed="true">First attempt</button><button type="button" id="sjh-after" aria-pressed="false">After SJ method</button>
+        </div>
+        <!-- SAMPLE ANSWER: replace the question and both answers below with a real marked 9609 script -->
+        <div class="sjh-paper">
+          <div class="sjh-q"><small>Sample answer &#183; A Level Business 9609 &#183; Paper 1</small>Analyse two benefits to a hotel of using job enrichment for its employees. [8]</div>
+          <div class="sjh-ans" id="sjh-ans-before">Job enrichment is when workers get more interesting work. This is good because workers will be happy and work harder. The hotel will do better and make more profit. Workers will also not leave.</div>
+          <div class="sjh-ans" id="sjh-ans-after" hidden><span class="sjh-k">Job enrichment gives employees more challenging tasks and more responsibility.</span><span class="sjh-mk">K</span> <span class="sjh-ap">If the hotel lets reception staff resolve guest complaints themselves instead of calling a manager,</span><span class="sjh-mk">APP</span> <span class="sjh-an">they feel trusted, which meets Herzberg's motivators, so they put in more effort.</span><span class="sjh-mk">AN</span> <span class="sjh-an">Problems get solved faster, so guests are more likely to rebook, raising revenue.</span><span class="sjh-mk">AN</span> <span class="sjh-k">A second benefit is lower labour turnover.</span><span class="sjh-mk">K</span> <span class="sjh-ap">Hotels rely on trained front-desk and housekeeping staff who know regular guests.</span><span class="sjh-mk">APP</span> <span class="sjh-an">Enriched jobs make these employees less likely to leave, so the hotel spends less on recruiting and training replacements.</span><span class="sjh-mk">AN</span> <span class="sjh-an">Keeping experienced staff also keeps service quality consistent, which protects its reputation.</span><span class="sjh-mk">AN</span></div>
+          <div class="sjh-pfoot"><span class="sjh-hand" id="sjh-scorenote">Describes. No chain of reasoning.</span><span class="sjh-stamp" id="sjh-score">3/8</span></div>
+        </div>
+        <div class="sjh-legend" id="sjh-legend" hidden><span><span class="sjh-k">K</span>Knowledge, 1 mark per point</span><span><span class="sjh-ap">APP</span>Application, 1 mark per point</span><span><span class="sjh-an">AN</span>Analysis, 2 marks per point</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TEACHERS -->
+  <section class="sjh-sec sjh-white">
+    <div class="sjh-wrap">
+      <div class="sjh-head"><div class="sjh-eyebrow">Teachers</div><h2>Meet the people who <span class="sjh-hl">teach you</span></h2><p class="sjh-muted">Our tutors are subject specialists, and include teachers from LUMS, IBA and KGS. Here are six of them.</p></div>
+      <div class="sjh-tgrid">
+        <a class="sjh-t" href="https://www.sjacademy.pk/meet-the-teachers/"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" alt="Sir Salman Junaid, Maths, Physics teacher at SJ Academy" width="182" height="182" loading="lazy" decoding="async"><b>Sir Salman Junaid</b><i>Maths, Physics</i><span>Ex-KGS faculty &#183; 12+ years</span></a>
+        <a class="sjh-t" href="https://www.sjacademy.pk/meet-the-teachers/"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/07/Kashan-Ali-768x431.jpeg" alt="Sir Kashaan Ali, Islamiyat, Pak Studies teacher at SJ Academy" width="768" height="431" loading="lazy" decoding="async"><b>Sir Kashaan Ali</b><i>Islamiyat, Pak Studies</i><span>22 years</span></a>
+        <a class="sjh-t" href="https://www.sjacademy.pk/meet-the-teachers/"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/11/Sir-Riza-768x454.webp" alt="Sir Riza Walji, Computer Science teacher at SJ Academy" width="768" height="454" loading="lazy" decoding="async"><b>Sir Riza Walji</b><i>Computer Science</i><span>9+ years</span></a>
+        <a class="sjh-t" href="https://www.sjacademy.pk/meet-the-teachers/"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/11/Umair-Pic-1.jpg" alt="Sir Umair, Biology teacher at SJ Academy" width="588" height="426" loading="lazy" decoding="async"><b>Sir Umair</b><i>Biology</i><span>Ex-Beaconhouse &#183; 8+ years</span></a>
+        <a class="sjh-t" href="https://www.sjacademy.pk/meet-the-teachers/"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/07/296167730_10159330125240939_9121453372746153911_n-min-768x521.jpg" alt="Sir Sunyyan Junaid, Business teacher at SJ Academy" width="768" height="521" loading="lazy" decoding="async"><b>Sir Sunyyan Junaid</b><i>Business</i><span>8+ years in business</span></a>
+        <a class="sjh-t" href="https://www.sjacademy.pk/meet-the-teachers/"><img src="https://www.sjacademy.pk/wp-content/uploads/2026/06/Khawar-2-768x615.jpeg" alt="Sir Khawar Shuaib, Economics teacher at SJ Academy" width="768" height="615" loading="lazy" decoding="async"><b>Sir Khawar Shuaib</b><i>Economics</i><span>Teaching since 2014</span></a>
+      </div>
+      <div class="sjh-links"><a class="sjh-arrow" href="https://www.sjacademy.pk/meet-the-teachers/">Meet all teachers</a></div>
+    </div>
+  </section>
+
+  <!-- 5. WHO WE TEACH -->
+  <section class="sjh-sec sjh-alt">
+    <div class="sjh-wrap">
+      <div class="sjh-head"><div class="sjh-eyebrow">Who we teach</div><h2>Four kinds of students. <span class="sjh-hl">One method</span>.</h2></div>
+      <div class="sjh-who">
+        <a class="sjh-w" href="https://www.sjacademy.pk/o-level-tuition-center-karachi/"><span class="sjh-hand">01</span><h3>O Level students</h3><p>O Level tuition in Maths, the sciences, Pakistan Studies, Islamiyat and six more subjects, for school students and private candidates.</p><span class="sjh-arrow">O Level tutors in Karachi</span></a>
+        <a class="sjh-w" href="https://www.sjacademy.pk/a-level-tuition-center-karachi/"><span class="sjh-hand">02</span><h3>A Level students</h3><p>AS and A2 coaching across the sciences, business subjects and humanities, taught paper by paper with the mark scheme in hand.</p><span class="sjh-arrow">A Level tutors in Karachi</span></a>
+        <a class="sjh-w" href="https://www.sjacademy.pk/lab-practicals/"><span class="sjh-hand">03</span><h3>Private candidates</h3><p>No school lab? Prepare for your Physics, Chemistry and Biology practical papers in ours, with real apparatus and a teacher correcting your method.</p><span class="sjh-arrow">A Level lab practicals</span></a>
+        <a class="sjh-w" href="https://www.sjacademy.pk/classes-schedule/"><span class="sjh-hand">04</span><h3>Students outside Karachi</h3><p>Every class runs live online. Students join from across Pakistan and from abroad, and follow the same timetable as the DHA campus.</p><span class="sjh-arrow">Online class timetable</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FOR PARENTS -->
+  <section class="sjh-sec sjh-white" id="sjh-parents">
+    <div class="sjh-wrap">
+      <div class="sjh-head"><div class="sjh-eyebrow">For parents</div><h2>Know early, not on <span class="sjh-hl">results day</span></h2><p class="sjh-lead">The four things parents ask first, answered plainly.</p></div>
+      <div class="sjh-who">
+        <div class="sjh-w sjh-ws"><span class="sjh-hand">01</span><h3>What it costs</h3><p>From Rs. 8,500 a month per subject at O Level and Rs. 10,500 at AS and A2. You get 10% off when you pay 3 months upfront.</p><a class="sjh-arrow" href="https://www.sjacademy.pk/fee-structure/">See full fees</a></div>
+        <div class="sjh-w sjh-ws"><span class="sjh-hand">02</span><h3>How big the class is</h3><p>Classes are kept small. Students write answers in class, the answers are marked and mocks are scored, so each child gets feedback.</p></div>
+        <div class="sjh-w sjh-ws"><span class="sjh-hand">03</span><h3>If it starts to go wrong</h3><p>If your child starts falling behind, the teacher will tell you. You can ask for an update at any time.</p></div>
+        <div class="sjh-w sjh-ws"><span class="sjh-hand">04</span><h3>Who is responsible</h3><p>Every class has a named teacher, and the academy's WhatsApp number is your line to the centre.</p><a class="sjh-arrow" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20your%20classes.%0A(Ref%3A%20HOME-Q)%0AMy%20name%20is%20" target="_blank" rel="noopener" data-sjh-wa="parents">Message the academy</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. REVIEWS -->
+  <section class="sjh-sec">
+    <div class="sjh-wrap">
+      <div class="sjh-head"><div class="sjh-eyebrow">Reviews</div><h2>In their words, <span class="sjh-hl">not ours</span></h2><p class="sjh-muted">Real Google reviews, word for word. The rating covers the whole academy, not one subject.</p></div>
+      <div class="sjh-gsum"><span class="sjh-n">5.0</span><div><div class="sjh-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p><b>Rated 5.0 on Google from 226 reviews</b> &#183; academy-wide, 218 of them five-star</p></div></div>
+      <div class="sjh-revs">
+        <article class="sjh-rev sjh-rev-parent"><span class="sjh-hand">from a parent</span><div class="sjh-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"My daughters had an amazing experience at SJ academy. &#8230; Sir Salman is a very dedicated teacher who goes out of his way to support and guide students."</p><div class="sjh-rf"><b>Zahra</b> &#183; Parent, Maths &#183; Google review</div></article>
+        <article class="sjh-rev"><div class="sjh-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"&#8230; i went from a 50 to 72 in my past paper practices using his tips to solve questions quickly and easily. He focuses on each student&#x27;s progress closely &#8230;"</p><div class="sjh-rf"><b>Aiman</b> &#183; A Level Maths &#183; Google review</div></article>
+        <article class="sjh-rev"><div class="sjh-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"As a student studying online from abroad, I can say this academy has been amazing! &#8230; The classes are highly interactive and well organised! I never feel left out despite being behind a screen."</p><div class="sjh-rf"><b>Ghazifa</b> &#183; A Level Business, online &#183; Google review</div></article>
+      </div>
+      <div class="sjh-links"><a class="sjh-arrow" href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener">Read all 226 reviews on Google</a></div>
+    </div>
+  </section>
+
+  <!-- 8. FREE TOOLS -->
+  <section class="sjh-sec sjh-white">
+    <div class="sjh-wrap">
+      <div class="sjh-head"><div class="sjh-eyebrow">Free tools</div><h2>Useful even if you never <span class="sjh-hl">join</span></h2><p class="sjh-muted">Free for every O and A Level student in Pakistan, whether you study with us or not.</p></div>
+      <div class="sjh-tools">
+        <a class="sjh-feat" href="https://www.sjacademy.pk/ibcc-equivalence-calculator/">
+          <span class="sjh-hand">start here</span>
+          <h3>IBCC equivalence calculator</h3>
+          <p>Convert O and A Level grades to Pakistani marks in under a minute.</p>
+          <span class="sjh-tags"><span>O Level</span><span>A Level</span><span>SSC and HSSC</span></span>
+          <span class="sjh-go">Open the calculator &#8594;</span>
+        </a>
+        <a class="sjh-tool sjh-tool-wide" href="https://www.sjacademy.pk/past-papers/"><span class="sjh-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span><div><h3>Past papers</h3><p>Every O and A Level subject, by year and series.</p></div><span class="sjh-ar" aria-hidden="true">&#8594;</span></a>
+        <a class="sjh-tool" href="https://www.sjacademy.pk/a-level-grade-strategy-tool/"><span class="sjh-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><div><h3>A Level grade strategy tool</h3><p>Retake or carry forward?</p></div><span class="sjh-ar" aria-hidden="true">&#8594;</span></a>
+        <a class="sjh-tool" href="https://www.sjacademy.pk/a-level-subject-combinations-tool/"><span class="sjh-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><div><h3>Subject combination finder</h3><p>Match subjects to your career.</p></div><span class="sjh-ar" aria-hidden="true">&#8594;</span></a>
+        <a class="sjh-tool" href="https://www.sjacademy.pk/caie-zone-4-timetable/"><span class="sjh-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><div><h3>CAIE date sheet</h3><p>Your exam dates, next series.</p></div><span class="sjh-ar" aria-hidden="true">&#8594;</span></a>
+        <a class="sjh-tool" href="https://www.sjacademy.pk/university-admission-criteria-tool/"><span class="sjh-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10M19 21V10M9 21v-6h6v6M2 10l10-7 10 7"/></svg></span><div><h3>University admission criteria</h3><p>LUMS, IBA, NUST and more.</p></div><span class="sjh-ar" aria-hidden="true">&#8594;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. BLOG (the three cards below are replaced by your newest posts when the page loads) -->
+  <section class="sjh-sec">
+    <div class="sjh-wrap">
+      <div class="sjh-head"><div class="sjh-eyebrow">From the blog</div><h2>Latest guides for <span class="sjh-hl">CAIE students</span></h2><p class="sjh-muted">Exam guides, Cambridge news and study advice for O and A Level students.</p></div>
+      <div class="sjh-posts" id="sjh-posts">
+        <a class="sjh-post" href="https://www.sjacademy.pk/blog/caie-exam-day-guide/"><img src="https://www.sjacademy.pk/wp-content/uploads/elementor/thumbs/CAIE-Exam-Day-Guide-ru5p734701jwa72hgayisniyo176gxixauvxo8zpmw.jpeg" alt="" width="1200" height="628" loading="lazy" decoding="async"><div><small>A Level</small><h3>CAIE Oct/Nov 2026 exam day guide: what to bring, what&#x27;s banned and Zone 4 timings</h3><time>30 September 2026</time></div></a>
+        <a class="sjh-post" href="https://www.sjacademy.pk/blog/cambridge-modular-a-level-maths/"><img src="https://www.sjacademy.pk/wp-content/uploads/elementor/thumbs/Blog-Banners-rt6ztwueax6wpcx9k68qhziuslysbc9f6iitzf3h54.png" alt="" width="1200" height="628" loading="lazy" decoding="async"><div><small>A Level</small><h3>Big news from Cambridge: modular A Level Maths is coming</h3><time>10 September 2026</time></div></a>
+        <a class="sjh-post" href="https://www.sjacademy.pk/blog/apple-event-iphone-duo-a-level-business-lessons/"><img src="https://www.sjacademy.pk/wp-content/uploads/elementor/thumbs/Screenshot-2026-09-10-at-7.31.32-AM-rt6hjuzzpedap2s3486dejknajf0joudpgofuosn7s.jpg" alt="" width="1200" height="628" loading="lazy" decoding="async"><div><small>Guides</small><h3>Apple Event 2026: your A Level Business syllabus in real life</h3><time>10 September 2026</time></div></a>
+      </div>
+      <div class="sjh-links"><a class="sjh-arrow" href="https://www.sjacademy.pk/blog/">Browse all articles</a></div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ -->
+  <section class="sjh-sec sjh-white">
+    <div class="sjh-wrap sjh-faqgrid">
+      <div class="sjh-head"><div class="sjh-eyebrow">FAQ</div><h2>Questions <span class="sjh-hl">parents ask</span> us</h2>
+        <div class="sjh-ask"><p style="color:#151515">Still not sure?</p><p class="sjh-muted">Ask us directly.</p><a class="sjh-btn sjh-btn-wa" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20your%20classes.%0A(Ref%3A%20HOME-Q)%0AMy%20name%20is%20" target="_blank" rel="noopener" data-sjh-wa="faq"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.4-4.2A8.5 8.5 0 1 1 8.4 18.7z"/></svg>Ask on WhatsApp</a></div>
+      </div>
+      <div>
+        <details open><summary>How much does O and A Level tuition cost?</summary><p>From Rs. 8,500 a month per subject at O Level, and from Rs. 10,500 a month per subject at AS and A2. You get 10% off when you pay 3 months upfront, and new students pay a one-time admission fee. <a href="https://www.sjacademy.pk/fee-structure/">See full fees</a> for the admission fee, composite classes and lab practicals.</p></details>
+        <details><summary>When are the classes?</summary><p>Days and timings depend on the subject and level. Pick your subject in Find your class at the top of this page to see them, or open the <a href="https://www.sjacademy.pk/classes-schedule/">class timetable</a>.</p></details>
+        <details><summary>Is there an O &amp; A Level tuition academy or coaching centre near me in DHA or Clifton, Karachi?</summary><p>Yes. SJ Academy's campus is at Plot 29C, Lane 5, Seher Commercial Area, DHA Phase 7, Karachi, close to Clifton and the rest of DHA. If you live further away, or outside Karachi, every class also runs live online on the same timetable as the campus. Students join from across Pakistan and from abroad. <a href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener">Get directions</a>.</p></details>
+        <details><summary>Who are the tutors? Are they qualified for Cambridge O and A Levels?</summary><p>SJ Academy's O and A Level tutors include teachers from LUMS, IBA and KGS, each teaching the subject they specialise in. <a href="https://www.sjacademy.pk/meet-the-teachers/">Meet the teachers</a>, or see our <a href="https://www.sjacademy.pk/o-level-tuition-center-karachi/">O Level tutors in Karachi</a> and <a href="https://www.sjacademy.pk/a-level-tuition-center-karachi/">A Level tutors in Karachi</a>.</p></details>
+        <details><summary>What are the results?</summary><p>SJ Academy is rated 5.0 on Google from 226 reviews across the whole academy, and every review is on the live Google profile, so you can check us instead of taking our word. <a href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener">Read the reviews</a>. Our students have achieved 950+ A*s.</p></details>
+        <details><summary>How big are the classes?</summary><p>Classes are kept small, and attention is built into the routine: students write answers in class, the answers are marked, and mocks are scored. Message us on WhatsApp about the class you want to join. We do not offer one-on-one or home tuition. We teach in small batches, at the academy and live online.</p></details>
+        <details><summary>Will I hear if my child is falling behind?</summary><p>Yes. If your child starts falling behind, the teacher will tell you, and you can ask for an update at any time. You do not have to wait for results day.</p></details>
+        <details><summary>Can my child try a class before we pay?</summary><p>Yes. One class free, then decide. The first demo class is free for O Level and A Level classes: pick a subject at the top of this page and book it on WhatsApp in under a minute. Lab practicals have no demo class; students join directly.</p></details>
+        <details><summary>Is it too late to join?</summary><p>Usually not, but it depends on the subject and how far the class has got. Message us with your subject and we will tell you honestly whether you can catch up.</p></details>
+        <details><summary>Which subjects do you offer tuition for?</summary><p>O Level tuition covers Maths, Physics, Chemistry, Biology, Pakistan Studies, Islamiyat, English, Urdu, Accounting, Business, Economics and Computer Science. A Level tuition (AS and A2) covers Maths, Physics, Chemistry, Biology, Business, Economics, Computer Science, Accounting, Psychology, Sociology, English and Urdu. We also run A Level lab practicals for Physics, Chemistry and Biology, including for private candidates.</p></details>
+        <details><summary>How do I choose the best A Level coaching center or tuition academy in Karachi?</summary><p>Visit the academy, meet the teacher for your subject and sit in a demo class before you pay. Ask how past papers are marked, how attention works in the class and whether classes also run live online. At SJ Academy the first demo class is free, so your child can judge the teaching first.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. FINAL -->
+  <section class="sjh-final">
+    <div class="sjh-wrap">
+      <h2>Sit one class before you pay for any.</h2>
+      <p class="sjh-fsub">Not sure which subject or batch? <a href="#sjh-finder" id="sjh-finalcta">Pick your class</a> and try it free. Already know? Register below.</p>
+      <span class="sjh-hand">no payment to book a demo</span>
+      <div class="sjh-cta2"><a class="sjh-btn sjh-btn-primary" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">Register for a class</a></div>
+      <p class="sjh-orwa">or <a href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20your%20classes.%0A(Ref%3A%20HOME-Q)%0AMy%20name%20is%20" target="_blank" rel="noopener" data-sjh-wa="final">WhatsApp us</a></p>
+      <address>SJ Academy, O &amp; A Level coaching center &#183; Plot 29C, Lane 5, Seher Commercial Area, DHA Phase 7, Karachi &#183; <a href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener">Get directions</a></address>
+    </div>
+  </section>
+
+  <div class="sjh-sticky" id="sjh-sticky">
+    <a class="sjh-btn sjh-btn-primary" href="#sjh-finder" id="sjh-stickycta">Book a free demo</a>
+    <a class="sjh-btn sjh-btn-wa" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20have%20a%20question%20about%20your%20classes.%0A(Ref%3A%20HOME-Q)%0AMy%20name%20is%20" target="_blank" rel="noopener" data-sjh-wa="sticky"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.4-4.2A8.5 8.5 0 1 1 8.4 18.7z"/></svg>WhatsApp us</a>
+  </div>
+</div>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does O and A Level tuition cost?", "acceptedAnswer": {"@type": "Answer", "text": "From Rs. 8,500 a month per subject at O Level, and from Rs. 10,500 a month per subject at AS and A2. You get 10% off when you pay 3 months upfront, and new students pay a one-time admission fee. See full fees for the admission fee, composite classes and lab practicals."}}, {"@type": "Question", "name": "When are the classes?", "acceptedAnswer": {"@type": "Answer", "text": "Days and timings depend on the subject and level. Pick your subject in Find your class at the top of this page to see them, or open the class timetable."}}, {"@type": "Question", "name": "Is there an O & A Level tuition academy or coaching centre near me in DHA or Clifton, Karachi?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. SJ Academy's campus is at Plot 29C, Lane 5, Seher Commercial Area, DHA Phase 7, Karachi, close to Clifton and the rest of DHA. If you live further away, or outside Karachi, every class also runs live online on the same timetable as the campus. Students join from across Pakistan and from abroad. Get directions."}}, {"@type": "Question", "name": "Who are the tutors? Are they qualified for Cambridge O and A Levels?", "acceptedAnswer": {"@type": "Answer", "text": "SJ Academy's O and A Level tutors include teachers from LUMS, IBA and KGS, each teaching the subject they specialise in. Meet the teachers, or see our O Level tutors in Karachi and A Level tutors in Karachi."}}, {"@type": "Question", "name": "What are the results?", "acceptedAnswer": {"@type": "Answer", "text": "SJ Academy is rated 5.0 on Google from 226 reviews across the whole academy, and every review is on the live Google profile, so you can check us instead of taking our word. Read the reviews. Our students have achieved 950+ A*s."}}, {"@type": "Question", "name": "How big are the classes?", "acceptedAnswer": {"@type": "Answer", "text": "Classes are kept small, and attention is built into the routine: students write answers in class, the answers are marked, and mocks are scored. Message us on WhatsApp about the class you want to join. We do not offer one-on-one or home tuition. We teach in small batches, at the academy and live online."}}, {"@type": "Question", "name": "Will I hear if my child is falling behind?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If your child starts falling behind, the teacher will tell you, and you can ask for an update at any time. You do not have to wait for results day."}}, {"@type": "Question", "name": "Can my child try a class before we pay?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. One class free, then decide. The first demo class is free for O Level and A Level classes: pick a subject at the top of this page and book it on WhatsApp in under a minute. Lab practicals have no demo class; students join directly."}}, {"@type": "Question", "name": "Is it too late to join?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not, but it depends on the subject and how far the class has got. Message us with your subject and we will tell you honestly whether you can catch up."}}, {"@type": "Question", "name": "Which subjects do you offer tuition for?", "acceptedAnswer": {"@type": "Answer", "text": "O Level tuition covers Maths, Physics, Chemistry, Biology, Pakistan Studies, Islamiyat, English, Urdu, Accounting, Business, Economics and Computer Science. A Level tuition (AS and A2) covers Maths, Physics, Chemistry, Biology, Business, Economics, Computer Science, Accounting, Psychology, Sociology, English and Urdu. We also run A Level lab practicals for Physics, Chemistry and Biology, including for private candidates."}}, {"@type": "Question", "name": "How do I choose the best A Level coaching center or tuition academy in Karachi?", "acceptedAnswer": {"@type": "Answer", "text": "Visit the academy, meet the teacher for your subject and sit in a demo class before you pay. Ask how past papers are marked, how attention works in the class and whether classes also run live online. At SJ Academy the first demo class is free, so your child can judge the teaching first."}}]}</script>
+
+<script>
+(function(){
+  var root=document.getElementById('sjh'); if(!root) return;
+  var $=function(id){return document.getElementById(id)};
+  var WA='https://wa.me/923362144454?text=';
+  var SHEET='https://docs.google.com/spreadsheets/d/e/2PACX-1vRNaIRWzVbWjAz6uXXzEngSykiYmSrY_jeeRCjLgMXf1aF8Zo39EqRCM7s8VuE4RWzf0edXe7UhTCf8/pub?single=true&output=tsv&gid=';
+  var TT='https://www.sjacademy.pk/classes-schedule/';
+
+  /* ---- before / after answer ---- */
+  function setAnswer(before){
+    $('sjh-before').setAttribute('aria-pressed',before);$('sjh-after').setAttribute('aria-pressed',!before);
+    $('sjh-ans-before').hidden=!before;$('sjh-ans-after').hidden=before;$('sjh-legend').hidden=before;
+    $('sjh-score').textContent=before?'3/8':'8/8';
+    $('sjh-scorenote').textContent=before?'Describes. No chain of reasoning.':'Two points, each applied and analysed.';
+  }
+  $('sjh-before').addEventListener('click',function(){setAnswer(true)});
+  $('sjh-after').addEventListener('click',function(){setAnswer(false)});
+
+  /* ---- timetable from the Google Sheet ---- */
+  var sheets={};
+  function parseTsv(text){
+    var rows=[],row=[],f='',q=false;
+    for(var i=0;i<text.length;i++){var c=text[i],n=text[i+1];
+      if(c==='"'&&q&&n==='"'){f+='"';i++;continue}
+      if(c==='"'){q=!q;continue}
+      if(c==='\t'&&!q){row.push(f);f='';continue}
+      if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;row.push(f);rows.push(row);row=[];f='';continue}
+      f+=c}
+    row.push(f);rows.push(row);
+    rows=rows.filter(function(r){return r.some(function(v){return String(v||'').trim()!==''})});
+    if(rows.length<2) return null;
+    var days=rows[0].slice(1).map(function(d){return String(d||'').trim()});
+    return {days:days,rows:rows.slice(1).map(function(r){return {time:String(r[0]||'').trim(),cells:r.slice(1,days.length+1)}}).filter(function(r){return r.time})};
+  }
+  function loadSheet(gid,cb){
+    if(sheets[gid]!==undefined) return cb(sheets[gid]);
+    try{var s=sessionStorage.getItem('sjh-tt-'+gid);if(s){sheets[gid]=JSON.parse(s);return cb(sheets[gid])}}catch(e){}
+    if(!window.fetch) return cb(null);
+    fetch(SHEET+gid).then(function(r){if(!r.ok)throw 0;return r.text()}).then(function(t){
+      var d=parseTsv(t);sheets[gid]=d;try{if(d)sessionStorage.setItem('sjh-tt-'+gid,JSON.stringify(d))}catch(e){}cb(d);
+    }).catch(function(){sheets[gid]=null;cb(null)});
+  }
+  var MATCH={math:function(t){return /math/.test(t)&&!/add/.test(t)},comp:function(t){return /comp|\bcs\b/.test(t)},
+    pak:function(t){return /pak|p\.?\s?st/.test(t)},bus:function(t){return /bus/.test(t)},eco:function(t){return /eco/.test(t)}};
+  function slots(d,key){
+    var m=MATCH[key]||function(t){return t.indexOf(key)>-1},out=[];
+    d.rows.forEach(function(r){r.cells.forEach(function(c,i){
+      var t=String(c||'').split('||')[0].toLowerCase();
+      if(t&&m(t)) out.push({day:d.days[i],di:i,time:r.time});
+    })});
+    return out.sort(function(a,b){return a.di-b.di});
+  }
+  function uniq(a){return a.filter(function(v,i){return a.indexOf(v)===i})}
+  function short(d){return String(d||'').slice(0,3)}
+  function link(){return '<a href="'+TT+'">See the timetable</a>'}
+  function showTimes(gid,key,token){
+    $('sjh-days').textContent='Checking the timetable\u2026';$('sjh-time').textContent='';$('sjh-time').hidden=true;$('sjh-timel').hidden=true;
+    loadSheet(gid,function(d){
+      if(token!==current) return;
+      var s=d?slots(d,key):[];
+      if(!s.length){$('sjh-days').innerHTML=link();return}
+      $('sjh-days').textContent=uniq(s.map(function(x){return short(x.day)})).join(', ');
+      var times=uniq(s.map(function(x){return x.time}));
+      $('sjh-time').textContent=times.length===1?times[0]:s.slice(0,4).map(function(x){return short(x.day)+' '+x.time}).join(', ');
+      $('sjh-time').hidden=false;$('sjh-timel').hidden=false;
+    });
+  }
+
+  /* ---- class finder ---- */
+  var current=0;
+  var panels=root.querySelectorAll('#sjh-panels .sjh-chips');
+  function initials(n){return n.split(' ').slice(1).map(function(w){return w[0]}).join('').slice(0,2)}
+  function selectLevel(level){
+    [].forEach.call($('sjh-levels').children,function(b){b.setAttribute('aria-pressed',b.getAttribute('data-level')===level)});
+    [].forEach.call(panels,function(p){p.hidden=p.getAttribute('data-level')!==level;
+      [].forEach.call(p.querySelectorAll('.sjh-chip[aria-pressed]'),function(c){c.setAttribute('aria-pressed','false')})});
+    $('sjh-result').hidden=true;$('sjh-empty').hidden=false;current++;
+  }
+  function selectSubject(chip){
+    var panel=chip.parentNode;
+    [].forEach.call(panel.querySelectorAll('.sjh-chip[aria-pressed]'),function(c){c.setAttribute('aria-pressed',c===chip)});
+    var title=chip.getAttribute('data-title'),teacher=chip.getAttribute('data-teacher'),img=chip.getAttribute('data-img');
+    $('sjh-title').textContent=title;
+    $('sjh-teacher').textContent=teacher?'with '+teacher:'';
+    var av=$('sjh-av');av.hidden=!teacher;av.style.backgroundImage=img?'url("'+img+'")':'none';av.textContent=img||!teacher?'':initials(teacher);
+    var sl=$('sjh-sublink');sl.href=chip.getAttribute('data-url');sl.textContent=chip.getAttribute('data-own')==='1'?'View subject page':'View all classes';
+    var lab=panel.getAttribute('data-level')==='lab';
+    var lv=panel.getAttribute('data-level'),subj=title.replace(/^(O Level|AS Level|A2 Level) /,'').replace(/ practicals$/,'');
+    var LV={o:'O Level',as:'AS',a2:'A2'};
+    $('sjh-demolabel').textContent=lab?'Ask about the next batch on WhatsApp':'Book a free demo on WhatsApp';
+    $('sjh-note').textContent=lab?'Practicals have no demo class. Students join directly.':'One class free, then decide.';
+    var msg=lab?"Hi SJ Academy, I'd like to ask about the next practical batch.\nSubject: "+subj+"\nMode (in class or online): \n(Ref: HOME-PRAC)\nMy name is ":"Hi SJ Academy, I'd like to book a free demo class.\nLevel: "+LV[lv]+"\nSubject: "+subj+"\nSession: May/June 2027\nMode (in class or online): \n(Ref: HOME-"+lv.toUpperCase()+")\nMy name is ";
+    $('sjh-demo').href=WA+encodeURIComponent(msg);
+    $('sjh-fee').innerHTML=(lab?'Rs. 25,500, one time':(lv==='o'?'From Rs. 8,500 a month per subject':'From Rs. 10,500 a month per subject'))+' &middot; <a href="https://www.sjacademy.pk/fee-structure/">See full fees</a>';
+    $('sjh-demo').setAttribute('data-sjh-subject',title);
+    $('sjh-empty').hidden=true;$('sjh-result').hidden=false;
+    showTimes(panel.getAttribute('data-gid'),chip.getAttribute('data-key'),++current);
+  }
+  $('sjh-levels').addEventListener('click',function(e){var b=e.target.closest('button');if(b)selectLevel(b.getAttribute('data-level'))});
+  $('sjh-panels').addEventListener('click',function(e){
+    var c=e.target.closest('.sjh-chip');if(!c)return;
+    if(c.getAttribute('data-more')){[].forEach.call(c.parentNode.querySelectorAll('[data-x]'),function(x){x.hidden=false});c.hidden=true;return}
+    selectSubject(c);
+  });
+
+  /* ---- "Book a free demo" buttons scroll to the finder ---- */
+  function toFinder(e){e.preventDefault();var f=$('sjh-finder');f.scrollIntoView({behavior:'smooth',block:'center'});f.classList.remove('sjh-pulse');void f.offsetWidth;f.classList.add('sjh-pulse')}
+  $('sjh-herocta').addEventListener('click',toFinder);$('sjh-stickycta').addEventListener('click',toFinder);$('sjh-finalcta').addEventListener('click',toFinder);
+
+  /* ---- phone bottom bar appears once the finder has scrolled away ---- */
+  var bar=$('sjh-sticky'),ticking=false;
+  function check(){ticking=false;bar.classList.toggle('sjh-on',$('sjh-finder').getBoundingClientRect().bottom<0)}
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(check)}},{passive:true});check();
+
+  /* ---- count WhatsApp taps in Google Analytics, if it is on the page ---- */
+  root.addEventListener('click',function(e){
+    var a=e.target.closest('[data-sjh-wa]'),g=window['gt'+'ag'];if(!a||typeof g!=='function')return;
+    g('event','whatsapp_click',{link_location:'homepage_'+a.getAttribute('data-sjh-wa'),subject:a.getAttribute('data-sjh-subject')||''});
+  });
+
+  /* ---- newest three blog posts ---- */
+  function loadPosts(){
+    fetch('/wp-json/wp/v2/posts?per_page=3&_embed=wp:featuredmedia,wp:term&_fields=link,date,title,_links,_embedded').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(list){
+      if(!list||list.length<3)return;
+      var tmp=document.createElement('div'),box=$('sjh-posts'),frag=document.createDocumentFragment();
+      function plain(h){tmp.innerHTML=h;return tmp.textContent}
+      list.forEach(function(p){
+        var em=p._embedded||{},m=(em['wp:featuredmedia']||[])[0],terms=(em['wp:term']||[])[0]||[];
+        var src=m&&((m.media_details&&m.media_details.sizes&&(m.media_details.sizes.medium_large||m.media_details.sizes.large||{}).source_url)||m.source_url);
+        var a=document.createElement('a');a.className='sjh-post';a.href=p.link;
+        if(src){var im=document.createElement('img');im.src=src;im.alt='';im.loading='lazy';im.width=768;im.height=402;a.appendChild(im)}else{a.className+=' sjh-post-noimg'}
+        var s=document.createElement('div');
+        if(terms[0]){var c=document.createElement('small');c.textContent=plain(terms[0].name);s.appendChild(c)}
+        var h=document.createElement('h3');h.textContent=plain(p.title.rendered);s.appendChild(h);
+        var t=document.createElement('time');t.textContent=new Date(p.date).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});s.appendChild(t);
+        a.appendChild(s);frag.appendChild(a);
+      });
+      box.innerHTML='';box.appendChild(frag);
+    }).catch(function(){});
+  }
+  if(window.fetch&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){if(en[0].isIntersecting){io.disconnect();loadPosts()}},{rootMargin:'600px'});
+    io.observe($('sjh-posts'));
+  }
+})();
+</script>

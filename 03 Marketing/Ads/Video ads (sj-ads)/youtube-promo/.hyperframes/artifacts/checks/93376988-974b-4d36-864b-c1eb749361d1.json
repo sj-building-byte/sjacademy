@@ -1,0 +1,1854 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 11,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 7 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "negative_z_index",
+        "severity": "warning",
+        "message": "`z-index: -1` paints the element behind its nearest stacking context's own content. With no stacking-context ancestor that context is the composition root itself, so an opaque background there hides it entirely: in the DOM, laid out, and absent from the picture. A transparent root leaves it visible. Siblings at `z-index: 0` or above are unaffected.",
+        "selector": ".mk",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Give the element's parent a stacking context - `isolation: isolate` is the cheapest, and `transform`, `filter`, `opacity` below 1, `contain: paint` and `will-change` all work too. The negative-z child then paints above that parent's background and renders normally. Or express paint order through DOM order - an earlier sibling paints behind a later one - and raise the elements that should sit in front rather than lowering this one."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s1\"> is a timeline element that contains nested <div id=\"wall\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s3\"> is a timeline element that contains nested <div id=\"s3-words\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s3",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s4\"> is a timeline element that contains nested <div id=\"s4-head\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s4",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s4\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"phone\"> is a timeline element that contains nested <div id=\"device\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#phone",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"phone\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s5\"> is a timeline element that contains nested <div id=\"s5-card\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s5",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s5\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s6\"> is a timeline element that contains nested <div id=\"s6-thumb\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s6",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s6\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s7\"> is a timeline element that contains nested <div id=\"s7-words\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s7",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s7\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s8\"> is a timeline element that contains nested <div id=\"s8-logo\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s8",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s8\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 2,
+    "warningCount": 1,
+    "infoCount": 34,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 16.75,
+        "selector": "#chip2",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 590.56,
+          "top": 1133.22,
+          "right": 911.92,
+          "bottom": 1208.79,
+          "width": 321.36,
+          "height": 75.57
+        },
+        "containerSelector": "#rows > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "text": "P3 · PURE MATHS 3",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 590.56,
+          "y": 1133.22,
+          "width": 321.36,
+          "height": 75.57
+        },
+        "firstSeen": 14,
+        "lastSeen": 17.25,
+        "occurrences": 19,
+        "heldMs": 3250,
+        "times": [
+          14,
+          14.125,
+          14.625,
+          14.75,
+          14.875,
+          15.125,
+          15.25,
+          15.875,
+          16,
+          16.125,
+          16.25,
+          16.375,
+          16.5,
+          16.625,
+          16.75,
+          16.875,
+          17,
+          17.125,
+          17.25
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 16.75,
+        "selector": "span.on",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 579.73,
+          "top": 789,
+          "right": 665.56,
+          "bottom": 818,
+          "width": 85.83,
+          "height": 29
+        },
+        "containerSelector": "#rows > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "text": "Playlists",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 579.73,
+          "y": 789,
+          "width": 85.83,
+          "height": 29
+        },
+        "firstSeen": 14,
+        "lastSeen": 17.25,
+        "occurrences": 15,
+        "heldMs": 3250,
+        "times": [
+          14,
+          14.125,
+          14.25,
+          14.5,
+          14.875,
+          15.25,
+          15.375,
+          16.375,
+          16.5,
+          16.625,
+          16.75,
+          16.875,
+          17,
+          17.125,
+          17.25
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 13.028,
+        "selector": "#scr-home",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -300,
+          "top": 654,
+          "right": 260,
+          "bottom": 1869.19,
+          "width": 560,
+          "height": 1215.19
+        },
+        "containerSelector": "#screen",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 260,
+          "top": 654,
+          "right": 820,
+          "bottom": 1869,
+          "width": 560,
+          "height": 1215
+        },
+        "overflow": {
+          "left": 560
+        },
+        "dataAttributes": {
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -300,
+          "y": 654,
+          "width": 560,
+          "height": 1215.19
+        },
+        "firstSeen": 13.028,
+        "lastSeen": 16.75,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          13.028,
+          16.75
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 1.861,
+        "selector": "#wall",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -297,
+          "top": -528,
+          "right": 1377,
+          "bottom": 2448,
+          "width": 1674,
+          "height": 2976
+        },
+        "containerSelector": "#s1",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 297,
+          "right": 297,
+          "top": 528,
+          "bottom": 528
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -297,
+          "y": -528,
+          "width": 1674,
+          "height": 2976
+        },
+        "firstSeen": 1.861,
+        "lastSeen": 5.583,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          1.861,
+          5.583
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 5.583,
+        "selector": "#w-zohaib > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 824.01,
+          "top": 80.05,
+          "right": 1141.23,
+          "bottom": 130.83,
+          "width": 317.22,
+          "height": 50.78
+        },
+        "containerSelector": "#root",
+        "text": "@zohaibhashmi7g875",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 61.23
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 824.01,
+          "y": 80.05,
+          "width": 317.22,
+          "height": 50.78
+        },
+        "firstSeen": 5.583,
+        "lastSeen": 5.583,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.583
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 5.583,
+        "selector": "#w-zohaib",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 654.23,
+          "top": 37.49,
+          "right": 1191.79,
+          "bottom": 272.69,
+          "width": 537.56,
+          "height": 235.2
+        },
+        "containerSelector": "#root",
+        "text": "@zohaibhashmi7g875 This guys so goated",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 111.79
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 654.23,
+          "y": 37.49,
+          "width": 537.56,
+          "height": 235.2
+        },
+        "firstSeen": 5.583,
+        "lastSeen": 5.583,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.583
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 5.583,
+        "selector": "#w-sharjeel",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": -110.35,
+          "top": 1231.3,
+          "right": 718.95,
+          "bottom": 1465.36,
+          "width": 829.3,
+          "height": 234.06
+        },
+        "containerSelector": "#root",
+        "text": "@sharjeel-v5z Sir your videos are really very he",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 110.35
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -110.35,
+          "y": 1231.3,
+          "width": 829.3,
+          "height": 234.06
+        },
+        "firstSeen": 5.583,
+        "lastSeen": 5.583,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          5.583
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "div.bar",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 908,
+          "top": 2047,
+          "right": 1086.11,
+          "bottom": 2086,
+          "width": 178.11,
+          "height": 39
+        },
+        "containerSelector": "#root",
+        "text": "SJ Academy",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 6.11,
+          "bottom": 166
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 908,
+          "y": 2047,
+          "width": 178.11,
+          "height": 39
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "div.tabs > span:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 848,
+          "top": 2109,
+          "right": 910.98,
+          "bottom": 2138,
+          "width": 62.98,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "Home",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 848,
+          "y": 2109,
+          "width": 62.98,
+          "height": 29
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "div.tabs > span:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 940.98,
+          "top": 2109,
+          "right": 1012.92,
+          "bottom": 2138,
+          "width": 71.94,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "Videos",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 940.98,
+          "y": 2109,
+          "width": 71.94,
+          "height": 29
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "div.tabs > span:nth-of-type(3)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1042.92,
+          "top": 2109,
+          "right": 1109.73,
+          "bottom": 2138,
+          "width": 66.81,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "Shorts",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 29.73,
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1042.92,
+          "y": 2109,
+          "width": 66.81,
+          "height": 29
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "span.on",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1139.73,
+          "top": 2109,
+          "right": 1225.56,
+          "bottom": 2138,
+          "width": 85.83,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "Playlists",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 145.56,
+          "bottom": 218
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1139.73,
+          "y": 2109,
+          "width": 85.83,
+          "height": 29
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2173,
+          "right": 1323.78,
+          "bottom": 2229.3,
+          "width": 227.78,
+          "height": 56.3
+        },
+        "containerSelector": "#root",
+        "text": "A level P1 Past papers (9709)",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 243.78,
+          "bottom": 309.3
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2173,
+          "width": 227.78,
+          "height": 56.3
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2235.59,
+          "right": 1277.53,
+          "bottom": 2259.59,
+          "width": 181.53,
+          "height": 24
+        },
+        "containerSelector": "#root",
+        "text": "SJ Academy · Course",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 197.53,
+          "bottom": 339.59
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2235.59,
+          "width": 181.53,
+          "height": 24
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2335,
+          "right": 1297.81,
+          "bottom": 2364,
+          "width": 201.81,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "A level P1 | Topicals",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 217.81,
+          "bottom": 444
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2335,
+          "width": 201.81,
+          "height": 29
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2370.3,
+          "right": 1276.81,
+          "bottom": 2394.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#root",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 196.81,
+          "bottom": 474.3
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2370.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2497,
+          "right": 1331.08,
+          "bottom": 2526,
+          "width": 235.08,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "A Level P3 Past Papers",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 251.08,
+          "bottom": 606
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2497,
+          "width": 235.08,
+          "height": 29
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2532.3,
+          "right": 1276.81,
+          "bottom": 2556.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#root",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 196.81,
+          "bottom": 636.3
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2532.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2659,
+          "right": 1317.47,
+          "bottom": 2715.3,
+          "width": 221.47,
+          "height": 56.3
+        },
+        "containerSelector": "#root",
+        "text": "A'Level Math (9709) | Paper 3 | Topicals",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 237.47,
+          "bottom": 795.3
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2659,
+          "width": 221.47,
+          "height": 56.3
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2721.59,
+          "right": 1276.81,
+          "bottom": 2745.59,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#root",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 196.81,
+          "bottom": 825.59
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2721.59,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2821,
+          "right": 1248.59,
+          "bottom": 2850,
+          "width": 152.59,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "S1 Past papers",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 168.59,
+          "bottom": 930
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2821,
+          "width": 152.59,
+          "height": 29
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2856.3,
+          "right": 1276.81,
+          "bottom": 2880.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#root",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 196.81,
+          "bottom": 960.3
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2856.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 2983,
+          "right": 1276.45,
+          "bottom": 3039.3,
+          "width": 180.45,
+          "height": 56.3
+        },
+        "containerSelector": "#root",
+        "text": "S1 A levels (Topic Explanations)",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 196.45,
+          "bottom": 1119.3
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 2983,
+          "width": 180.45,
+          "height": 56.3
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 3045.59,
+          "right": 1276.81,
+          "bottom": 3069.59,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#root",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 196.81,
+          "bottom": 1149.59
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 3045.59,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 3145,
+          "right": 1339.86,
+          "bottom": 3174,
+          "width": 243.86,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "A levels M1 Past Papers",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 259.86,
+          "bottom": 1254
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 3145,
+          "width": 243.86,
+          "height": 29
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#rows > div:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1096,
+          "top": 3180.3,
+          "right": 1276.81,
+          "bottom": 3204.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#root",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 196.81,
+          "bottom": 1284.3
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1096,
+          "y": 3180.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#w3",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 0,
+          "top": 763.97,
+          "right": 1080,
+          "bottom": 896.12,
+          "width": 1080,
+          "height": 132.16
+        },
+        "containerSelector": "div.mask.l3",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 618.59,
+          "right": 1080,
+          "bottom": 760.19,
+          "width": 1080,
+          "height": 141.59
+        },
+        "overflow": {
+          "bottom": 135.93
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 763.97,
+          "width": 1080,
+          "height": 132.16
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#device",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 246,
+          "top": 1960,
+          "right": 834,
+          "bottom": 3203,
+          "width": 588,
+          "height": 1243
+        },
+        "containerSelector": "#phone",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "bottom": 1283
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 246,
+          "y": 1960,
+          "width": 588,
+          "height": 1243
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 9.306,
+        "selector": "#scr-list",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 820,
+          "top": 1974,
+          "right": 1380,
+          "bottom": 3189,
+          "width": 560,
+          "height": 1215
+        },
+        "containerSelector": "#screen",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 260,
+          "top": 1974,
+          "right": 820,
+          "bottom": 3189,
+          "width": 560,
+          "height": 1215
+        },
+        "overflow": {
+          "right": 560
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 820,
+          "y": 1974,
+          "width": 560,
+          "height": 1215
+        },
+        "firstSeen": 9.306,
+        "lastSeen": 9.306,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.306
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 13.028,
+        "selector": "#rows > div:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 536,
+          "top": 1860.13,
+          "right": 716.81,
+          "bottom": 1884.13,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#screen",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Text is 181px x 24px inside 560px x 1215px and overflows by up to 15px; increase the container height to at least ~1230px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 260,
+          "top": 654,
+          "right": 820,
+          "bottom": 1869,
+          "width": 560,
+          "height": 1215
+        },
+        "overflow": {
+          "bottom": 15.13
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 1860.13,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 13.028,
+        "lastSeen": 13.028,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          13.028
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 16.75,
+        "selector": "#rows > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 536,
+          "top": 638.56,
+          "right": 771.08,
+          "bottom": 665.86,
+          "width": 235.08,
+          "height": 27.3
+        },
+        "containerSelector": "#screen",
+        "text": "A Level P3 Past Papers",
+        "fixHint": "Text is 235px x 27px inside 560px x 1215px and overflows by up to 15px; increase the container height to at least ~1230px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 260,
+          "top": 654,
+          "right": 820,
+          "bottom": 1869,
+          "width": 560,
+          "height": 1215
+        },
+        "overflow": {
+          "top": 15.44
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 638.56,
+          "width": 235.08,
+          "height": 27.3
+        },
+        "firstSeen": 16.75,
+        "lastSeen": 16.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.75
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.75,
+        "selector": "#rows > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 637.71,
+          "right": 771.08,
+          "bottom": 666.71,
+          "width": 235.08,
+          "height": 29
+        },
+        "containerSelector": "#list-head",
+        "text": "A Level P3 Past Papers",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.33,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 637.71,
+          "width": 235.08,
+          "height": 29
+        },
+        "firstSeen": 16.75,
+        "lastSeen": 16.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.75
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.75,
+        "selector": "#rows > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 673,
+          "right": 716.81,
+          "bottom": 697,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#list-head",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 673,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 16.75,
+        "lastSeen": 16.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.75
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.75,
+        "selector": "#rows > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 799.71,
+          "right": 757.47,
+          "bottom": 856,
+          "width": 221.47,
+          "height": 56.3
+        },
+        "containerSelector": "#list-head",
+        "text": "A'Level Math (9709) | Paper 3 | Topicals",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.5,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 799.71,
+          "width": 221.47,
+          "height": 56.3
+        },
+        "firstSeen": 16.75,
+        "lastSeen": 16.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.75
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.75,
+        "selector": "#rows > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 1123.71,
+          "right": 716.45,
+          "bottom": 1180,
+          "width": 180.45,
+          "height": 56.3
+        },
+        "containerSelector": "#chip2",
+        "text": "S1 A levels (Topic Explanations)",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.78,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 1123.71,
+          "width": 180.45,
+          "height": 56.3
+        },
+        "firstSeen": 16.75,
+        "lastSeen": 16.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.75
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.75,
+        "selector": "#rows > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 1186.3,
+          "right": 716.81,
+          "bottom": 1210.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#chip2",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.59,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 1186.3,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 16.75,
+        "lastSeen": 16.75,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.75
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 27.917,
+        "selector": "#btn-a",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 409.81,
+          "top": 1093.4,
+          "right": 670.17,
+          "bottom": 1165.65,
+          "width": 260.36,
+          "height": 72.25
+        },
+        "containerSelector": "#btn-b",
+        "text": "Subscribe",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 409.81,
+          "y": 1093.4,
+          "width": 260.36,
+          "height": 72.25
+        },
+        "firstSeen": 27.917,
+        "lastSeen": 27.917,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          27.917
+        ]
+      }
+    ],
+    "duration": 33.5,
+    "samples": [
+      1.861,
+      5.583,
+      9.306,
+      13.028,
+      16.75,
+      20.472,
+      24.194,
+      27.917,
+      31.639
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 37,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.861,
+      9.306,
+      16.75,
+      24.194,
+      31.639
+    ],
+    "checked": 42,
+    "passed": 42
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

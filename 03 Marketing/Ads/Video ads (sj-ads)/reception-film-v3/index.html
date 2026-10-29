@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Reception film v3 motion test</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>@font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+@font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+@font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+@font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-ExtraBold.ttf") format("truetype"); font-weight: 800; }
+@font-face { font-family: "Caveat"; src: url("assets/brand/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+/* video tokens, from the Video and motion playbook (section 11) */
+:root { --yellow: #FCE004; --ink: #151515; --canvas: #F7F5EF; --brown: #453516; --pen: #D63A2F; --mute: #A9A49A; --ink2: #5E5A52; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--ink); }
+#root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: #fff; background: var(--ink); }
+.clip { position: absolute; inset: 0; overflow: hidden; }
+.abs { position: absolute; }
+.vw { position: absolute; overflow: hidden; }
+.vw video { width: 100%; height: 100%; object-fit: cover; }
+.layer { pointer-events: none; }
+
+.ink { position: absolute; inset: 0; background: var(--ink); }
+.paper { position: absolute; inset: 0; background: var(--canvas); }
+.scrim { position: absolute; inset: 0; background: var(--ink); opacity: 0.2; }
+/* photo scrims: the only gradients allowed */
+.shade-l { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(21,21,21,0.82) 0%, rgba(21,21,21,0.55) 42%, rgba(21,21,21,0) 75%); }
+.shade-b { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(21,21,21,0) 40%, rgba(21,21,21,0.62) 70%, rgba(21,21,21,0.9) 100%); }
+.shade-t { position: absolute; left: 0; right: 0; top: 0; height: 300px; background: linear-gradient(rgba(21,21,21,0.7), rgba(21,21,21,0)); }
+
+/* type */
+.m { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.02em 0.04em 0.1em; margin: -0.02em -0.04em -0.1em; }
+.w { display: inline-block; }
+.kick { display: inline-block; background: var(--yellow); color: var(--ink); border-radius: 999px; padding: 8px 24px 9px; font-size: 26px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.mega { font-size: 150px; font-weight: 800; letter-spacing: -0.045em; line-height: 1.02; }
+.h1 { font-size: 96px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+.h2 { font-size: 72px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.1; }
+.h3 { font-size: 56px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; }
+.sub { font-size: 36px; font-weight: 500; color: rgba(255,255,255,0.86); line-height: 1.3; letter-spacing: -0.01em; }
+.on-paper { color: var(--ink); }
+.on-paper .sub { color: var(--ink2); }
+/* highlighter: a yellow block swipes left to right behind the key words */
+.hl { background-image: linear-gradient(var(--yellow), var(--yellow)); background-repeat: no-repeat; background-size: 0% 100%; border-radius: 10px; padding: 0 0.12em; margin: 0 -0.06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+/* the lower-half highlighter for words inside running text */
+.mark { background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%); padding: 0 0.08em; }
+.note { font-family: "Caveat", cursive; font-weight: 600; font-size: 64px; color: var(--yellow); line-height: 1; }
+
+/* ---- v3 motion test additions */
+.kick-t { font-size: 40px; font-weight: 600; color: var(--yellow); letter-spacing: -0.01em; }
+.hlw { background-image: linear-gradient(var(--yellow), var(--yellow)); background-repeat: no-repeat; background-size: 0% 100%; border-radius: 12px; padding: 0 0.1em; margin: 0 -0.05em; }
+#sheet { position: absolute; inset: 0; background: var(--canvas); box-shadow: 0 -30px 80px rgba(0,0,0,0.35); will-change: transform; }
+.ttl { position: absolute; font-size: 76px; font-weight: 800; letter-spacing: -0.04em; color: var(--ink); }
+.hand { position: absolute; font-family: "Caveat", cursive; font-weight: 600; font-size: 50px; color: #B54200; transform: rotate(-5deg); }
+.ln { position: absolute; left: 560px; height: 52px; display: flex; align-items: center; gap: 30px; }
+.bx { flex: none; width: 52px; height: 52px; border: 3px solid rgba(21,21,21,0.22); border-radius: 10px; }
+.lt { font-size: 44px; font-weight: 600; letter-spacing: -0.02em; color: rgba(21,21,21,0.4); white-space: nowrap; }
+.tk { position: absolute; left: -8px; top: -34px; width: 86px; height: 86px; overflow: visible; }
+.tk path { fill: none; stroke: var(--pen); stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+#yb { position: absolute; background: var(--yellow); border-radius: 10px; opacity: 0; }
+.qt { font-size: 86px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; color: var(--ink); }
+.qa { font-size: 38px; font-weight: 600; color: var(--brown); }
+.fdim { position: absolute; left: 656px; top: 0; width: 608px; height: 1080px; background: rgba(21,21,21,0.5); opacity: 0; }
+.fname { position: absolute; left: 0; right: 0; top: 330px; text-align: center; color: var(--yellow); font-size: 300px; font-weight: 800; line-height: 1; letter-spacing: -0.045em; white-space: nowrap; opacity: 0; }
+.ftag { position: absolute; left: 120px; top: 812px; }
+.ftag .who { font-size: 76px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.08; white-space: nowrap; }
+.ftag .what { font-size: 40px; font-weight: 500; color: #D9D4C7; white-space: nowrap; }
+.tile { position: absolute; border-radius: 20px; overflow: hidden; opacity: 0; background: #222; }
+.tile .tface { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tile .mono { position: absolute; inset: 0; background: var(--brown); display: flex; align-items: center; justify-content: center; padding-bottom: 70px; font-size: 88px; font-weight: 800; color: var(--yellow); letter-spacing: -0.03em; }
+.tile .tgrad { position: absolute; left: 0; right: 0; bottom: 0; height: 150px; background: linear-gradient(to bottom, rgba(21,21,21,0), rgba(21,21,21,0.9)); }
+.tile .tname { position: absolute; left: 16px; right: 10px; bottom: 42px; font-size: 27px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; white-space: nowrap; }
+.tile .tsub { position: absolute; left: 16px; right: 6px; bottom: 16px; white-space: nowrap; font-size: 18px; font-weight: 600; color: var(--yellow); }
+.tile .ring { position: absolute; inset: 0; border: 6px solid var(--yellow); border-radius: 20px; opacity: 0; }
+.tile .circ { position: absolute; left: 50%; top: 34px; width: 170px; height: 170px; margin-left: -85px; border-radius: 50%; overflow: hidden; border: 5px solid var(--yellow); background: #fff; }
+.tile .circ img { width: 100%; height: 100%; object-fit: cover; }
+</style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24.5" data-width="1920" data-height="1080">
+      <audio id="music" src="assets/audio/music.wav" data-start="0" data-duration="24.5" data-track-index="1" data-volume="1"></audio>
+      <div class="vw" id="v-open" style="left:0;top:0;width:1920px;height:1080px;z-index:2"><video id="v-open-v" class="clip" src="assets/clips/open.mp4" muted playsinline style="" data-start="0.00" data-duration="4.50" data-track-index="2" ></video></div><div class="vw" id="tv0" style="left:80px;top:300px;width:236px;height:318px;z-index:12;border-radius:20px;opacity:0"><video id="tv0-v" class="clip" src="assets/clips/salman.mp4" muted playsinline style="object-position:38% 58%;transform:scale(1.9);transform-origin:38% 58%" data-start="10.20" data-duration="3.65" data-track-index="6" ></video></div><div class="vw" id="tv1" style="left:656px;top:0;width:608px;height:1080px;z-index:14;opacity:0;transform-origin:0 0"><video id="tv1-v" class="clip" src="assets/clips/sunyyan-lead.mp4" muted playsinline style="transform:scale(1.6);transform-origin:50% 32%" data-start="10.20" data-duration="3.75" data-track-index="7" ></video></div><div class="vw" id="tv2" style="left:588px;top:300px;width:236px;height:318px;z-index:12;border-radius:20px;opacity:0"><video id="tv2-v" class="clip" src="assets/clips/riza.mp4" muted playsinline style="object-position:0% 40%;transform:scale(1.35);transform-origin:0% 40%" data-start="10.20" data-duration="3.65" data-track-index="8" ></video></div><div class="vw" id="tv3" style="left:842px;top:300px;width:236px;height:318px;z-index:12;border-radius:20px;opacity:0"><video id="tv3-v" class="clip" src="assets/clips/kashaan.mp4" muted playsinline style="object-position:50% 14%;transform:scale(1.5);transform-origin:50% 14%" data-start="10.20" data-duration="3.65" data-track-index="9" ></video></div><div class="vw" id="tv4" style="left:1096px;top:300px;width:236px;height:318px;z-index:12;border-radius:20px;opacity:0"><video id="tv4-v" class="clip" src="assets/clips/tayyaba.mp4" muted playsinline style="object-position:30% 30%;transform:scale(1.6);transform-origin:30% 30%" data-start="10.20" data-duration="3.65" data-track-index="10" data-playback-rate="0.5"></video></div><div class="vw" id="tv5" style="left:1350px;top:300px;width:236px;height:318px;z-index:12;border-radius:20px;opacity:0"><video id="tv5-v" class="clip" src="assets/clips/khawar.mp4" muted playsinline style="object-position:66% 20%;transform:scale(1.5);transform-origin:66% 20%" data-start="10.20" data-duration="3.65" data-track-index="11" ></video></div><div class="vw" id="tv6" style="left:1604px;top:300px;width:236px;height:318px;z-index:12;border-radius:20px;opacity:0"><video id="tv6-v" class="clip" src="assets/clips/abdullah.mp4" muted playsinline style="object-position:44% 30%;transform:scale(1.4);transform-origin:44% 30%" data-start="10.20" data-duration="3.65" data-track-index="12" ></video></div><div class="vw" id="tv7" style="left:80px;top:636px;width:236px;height:318px;z-index:12;border-radius:20px;opacity:0"><video id="tv7-v" class="clip" src="assets/clips/saif.mp4" muted playsinline style="object-position:26% 22%;transform:scale(1.6);transform-origin:26% 22%" data-start="10.20" data-duration="3.65" data-track-index="13" ></video></div><div class="vw" id="fv0" style="left:656px;top:0;width:608px;height:1080px;z-index:16"><video id="fv0-v" class="clip" src="assets/clips/feat-sunyyan.mp4" muted playsinline style="" data-start="13.85" data-duration="2.35" data-track-index="16" ></video></div><div class="vw" id="fc0" style="left:656px;top:0;width:608px;height:1080px;z-index:19"><video id="fc0-v" class="clip" src="assets/cutouts/sunyyan.webm" muted playsinline style="" data-start="13.85" data-duration="2.35" data-track-index="17" ></video></div><div class="vw" id="fv1" style="left:656px;top:0;width:608px;height:1080px;z-index:16"><video id="fv1-v" class="clip" src="assets/clips/feat-salman.mp4" muted playsinline style="" data-start="16.20" data-duration="3.00" data-track-index="20" ></video></div><div class="vw" id="fc1" style="left:656px;top:0;width:608px;height:1080px;z-index:19"><video id="fc1-v" class="clip" src="assets/cutouts/salman.webm" muted playsinline style="" data-start="16.20" data-duration="3.00" data-track-index="21" ></video></div><div class="vw" id="v-lab" style="left:0;top:0;width:1920px;height:1080px;z-index:2"><video id="v-lab-v" class="clip" src="assets/clips/lab.mp4" muted playsinline style="" data-start="20.40" data-duration="4.10" data-track-index="24" ></video></div>
+      <section id="s-open" class="clip layer" style="z-index:20" data-start="0.00" data-duration="4.50" data-track-index="3"><div class="shade-l"></div><img id="o-logo" class="abs" src="assets/brand/sj-academy-logo-horizontal-on-brown.svg" style="left:96px;top:72px;width:280px" alt="SJ Academy"><div class="kick-t" id="o-k" style="position:absolute;left:96px;top:430px"><span class="m"><span class="w">Choosing</span></span> <span class="m"><span class="w">an</span></span> <span class="m"><span class="w">academy?</span></span></div><div class="h1" id="o-h" style="position:absolute;left:96px;top:496px"><span class="m"><span class="w">Here's</span></span> <span class="m"><span class="w">what</span></span> <span class="m"><span class="w">to</span></span> <span class="m"><span class="w hlw">check.</span></span></div></section><section id="s-paper" class="clip layer" style="z-index:30" data-start="3.70" data-duration="16.70" data-track-index="4"><div id="sheet"><img class="abs" src="assets/brand/sj-academy-logo-horizontal-on-light.svg" style="right:96px;top:72px;width:240px" alt="SJ Academy"><div class="ttl" id="ttl" style="left:560px;top:150px">Before you enrol, check:</div><div class="hand" id="hand" style="left:1260px;top:236px">a parent's list</div><div class="ln" id="ln0" style="top:318px"><div class="bx" id="bx0"></div><span class="lt">Teachers you can name</span><svg class="tk" id="tk0" viewBox="0 0 90 90"><path d="M12 44 Q 22 54 33 66 Q 52 30 84 4"/></svg></div><div class="ln" id="ln1" style="top:394px"><div class="bx" id="bx1"></div><span class="lt">A real lab</span><svg class="tk" id="tk1" viewBox="0 0 90 90"><path d="M12 44 Q 22 54 33 66 Q 52 30 84 4"/></svg></div><div class="ln" id="ln2" style="top:470px"><div class="bx" id="bx2"></div><span class="lt">Taught to the mark scheme</span><svg class="tk" id="tk2" viewBox="0 0 90 90"><path d="M12 44 Q 22 54 33 66 Q 52 30 84 4"/></svg></div><div class="ln" id="ln3" style="top:546px"><div class="bx" id="bx3"></div><span class="lt">Results students talk about</span><svg class="tk" id="tk3" viewBox="0 0 90 90"><path d="M12 44 Q 22 54 33 66 Q 52 30 84 4"/></svg></div><div class="ln" id="ln4" style="top:622px"><div class="bx" id="bx4"></div><span class="lt">Study online, too</span><svg class="tk" id="tk4" viewBox="0 0 90 90"><path d="M12 44 Q 22 54 33 66 Q 52 30 84 4"/></svg></div><div class="ln" id="ln5" style="top:698px"><div class="bx" id="bx5"></div><span class="lt">Not all work</span><svg class="tk" id="tk5" viewBox="0 0 90 90"><path d="M12 44 Q 22 54 33 66 Q 52 30 84 4"/></svg></div><div class="ln" id="ln6" style="top:774px"><div class="bx" id="bx6"></div><span class="lt">A class that fits your week</span><svg class="tk" id="tk6" viewBox="0 0 90 90"><path d="M12 44 Q 22 54 33 66 Q 52 30 84 4"/></svg></div><div class="ln" id="ln7" style="top:850px"><div class="bx" id="bx7"></div><span class="lt">A free first class</span><svg class="tk" id="tk7" viewBox="0 0 90 90"><path d="M12 44 Q 22 54 33 66 Q 52 30 84 4"/></svg></div></div></section><section id="s-yellow" class="clip layer" style="z-index:40" data-start="5.90" data-duration="5.05" data-track-index="5"><div id="yb" style="left:0;top:0;width:1920px;height:1080px"></div><div id="q" class="abs" style="left:210px;right:210px;top:330px;text-align:center"><div class="qt" id="q1" style=""><span class="m"><span class="w">“He</span></span> <span class="m"><span class="w">makes</span></span> <span class="m"><span class="w">complex</span></span> <span class="m"><span class="w">topics</span></span> <span class="m"><span class="w">much</span></span> <span class="m"><span class="w">easier</span></span> <span class="m"><span class="w">to</span></span> <span class="m"><span class="w">learn.”</span></span></div><div class="qa" id="q2" style="margin-top:34px"><span class="m"><span class="w">Ghazifa,</span></span> <span class="m"><span class="w">on</span></span> <span class="m"><span class="w">Sir</span></span> <span class="m"><span class="w">Sunyyan’s</span></span> <span class="m"><span class="w">Business</span></span> <span class="m"><span class="w">class</span></span></div></div></section><section id="s-wallbg" class="clip layer" style="z-index:5" data-start="10.20" data-duration="9.00" data-track-index="14"><div class="ink"></div></section><section id="s-wall" class="clip layer" style="z-index:13" data-start="10.20" data-duration="3.85" data-track-index="15"><div class="h2" id="wa-h" style="position:absolute;left:0;right:0;top:118px;text-align:center"><span class="m"><span class="w">Teachers</span></span> <span class="m"><span class="w">from</span></span> <span class="m"><span class="w hlw">LUMS,</span></span> <span class="m"><span class="w hlw">IBA,</span></span> <span class="m"><span class="w">and</span></span> <span class="m"><span class="w hlw">ex-KGS.</span></span></div><div class="tile" id="tl0" style="left:80px;top:300px;width:236px;height:318px;z-index:13;background:transparent"><div class="tgrad"></div><div class="tname">Sir Salman</div><div class="tsub">Maths · Physics</div><div class="ring"></div></div><div class="tile" id="tl1" style="left:334px;top:300px;width:236px;height:318px;z-index:15;background:transparent"><div class="tgrad"></div><div class="tname">Sir Sunyyan</div><div class="tsub">Business</div><div class="ring"></div></div><div class="tile" id="tl2" style="left:588px;top:300px;width:236px;height:318px;z-index:13;background:transparent"><div class="tgrad"></div><div class="tname">Sir Riza</div><div class="tsub">Computer Science</div><div class="ring"></div></div><div class="tile" id="tl3" style="left:842px;top:300px;width:236px;height:318px;z-index:13;background:transparent"><div class="tgrad"></div><div class="tname">Sir Kashaan</div><div class="tsub">Islamiat · Pak Studies</div><div class="ring"></div></div><div class="tile" id="tl4" style="left:1096px;top:300px;width:236px;height:318px;z-index:13;background:transparent"><div class="tgrad"></div><div class="tname">Miss Tayyaba</div><div class="tsub">English · Sociology</div><div class="ring"></div></div><div class="tile" id="tl5" style="left:1350px;top:300px;width:236px;height:318px;z-index:13;background:transparent"><div class="tgrad"></div><div class="tname">Sir Khawar</div><div class="tsub">Economics</div><div class="ring"></div></div><div class="tile" id="tl6" style="left:1604px;top:300px;width:236px;height:318px;z-index:13;background:transparent"><div class="tgrad"></div><div class="tname">Sir Abdullah</div><div class="tsub">Chemistry</div><div class="ring"></div></div><div class="tile" id="tl7" style="left:80px;top:636px;width:236px;height:318px;z-index:13;background:transparent"><div class="tgrad"></div><div class="tname">Sir Saifullah</div><div class="tsub">Accounts</div><div class="ring"></div></div><div class="tile" id="tl8" style="left:334px;top:636px;width:236px;height:318px;z-index:13;"><img src="assets/img/umair.jpg" class="tface" style="object-position:50% 20%" alt=""><div class="tgrad"></div><div class="tname">Sir Umair</div><div class="tsub">Biology</div><div class="ring"></div></div><div class="tile" id="tl9" style="left:588px;top:636px;width:236px;height:318px;z-index:13;"><div class="mono"></div><div class="circ"><img src="assets/img/aaliyan.jpg" style="transform:scale(2.1)" alt=""></div><div class="tgrad"></div><div class="tname">Sir Aaliyan</div><div class="tsub">Business · Economics</div><div class="ring"></div></div><div class="tile" id="tl10" style="left:842px;top:636px;width:236px;height:318px;z-index:13;"><div class="mono">SA</div><div class="tgrad"></div><div class="tname">Sir Shaibaz</div><div class="tsub">Accounts</div><div class="ring"></div></div><div class="tile" id="tl11" style="left:1096px;top:636px;width:236px;height:318px;z-index:13;"><div class="mono">SB</div><div class="tgrad"></div><div class="tname">Sir Basharat</div><div class="tsub">Chemistry · Physics</div><div class="ring"></div></div><div class="tile" id="tl12" style="left:1350px;top:636px;width:236px;height:318px;z-index:13;"><div class="mono">AZ</div><div class="tgrad"></div><div class="tname">Miss Asmat</div><div class="tsub">Urdu</div><div class="ring"></div></div><div class="tile" id="tl13" style="left:1604px;top:636px;width:236px;height:318px;z-index:13;"><div class="mono">MZ</div><div class="tgrad"></div><div class="tname">Miss Muzna</div><div class="tsub">Psychology</div><div class="ring"></div></div></section><section id="s-f0" class="clip layer" style="z-index:18" data-start="13.85" data-duration="2.35" data-track-index="18"><div class="fdim" id="fd0"></div><div class="fname" id="fn0">Sunyyan</div></section><section id="s-ft0" class="clip layer" style="z-index:20" data-start="13.85" data-duration="2.35" data-track-index="19"><div class="shade-b"></div><div class="ftag" id="ft0"><span class="m"><span class="w who">Sir Sunyyan</span></span><br><span class="m"><span class="w what">Business</span></span></div></section><section id="s-f1" class="clip layer" style="z-index:18" data-start="16.20" data-duration="3.00" data-track-index="22"><div class="fdim" id="fd1"></div><div class="fname" id="fn1">Salman</div></section><section id="s-ft1" class="clip layer" style="z-index:20" data-start="16.20" data-duration="3.00" data-track-index="23"><div class="shade-b"></div><div class="ftag" id="ft1"><span class="m"><span class="w who">Sir Salman</span></span><br><span class="m"><span class="w what">Maths · Physics</span></span></div></section><section id="s-lab" class="clip layer" style="z-index:20" data-start="20.40" data-duration="4.10" data-track-index="25"><div class="shade-b"></div><div class="h3" id="lb-q" style="position:absolute;left:96px;bottom:200px;width:1300px"><span class="m"><span class="w">“Took</span></span> <span class="m"><span class="w">Bio,</span></span> <span class="m"><span class="w">Chem</span></span> <span class="m"><span class="w">and</span></span> <span class="m"><span class="w">Physics</span></span> <span class="m"><span class="w">practicals</span></span> <span class="m"><span class="w">here…</span></span> <span class="m"><span class="w">Made</span></span> <span class="m"><span class="w">practicals</span></span> <span class="m"><span class="w">much</span></span> <span class="m"><span class="w">easier.”</span></span></div><div class="sub" id="lb-a" style="position:absolute;left:96px;bottom:140px"><span class="m"><span class="w">Abdullah,</span></span> <span class="m"><span class="w">A</span></span> <span class="m"><span class="w">Level</span></span> <span class="m"><span class="w">practicals</span></span></div><div class="abs" id="blk" style="inset:0;background:#151515;opacity:0"></div></section>
+    </div>
+    <script>
+      const CFG = {"T": {"paper": 3.7, "tick1": 5.9, "grow": 6.55, "quote": 7.55, "wipe": 10.35, "wall": 10.2, "pick": 12.7, "land": 13.85, "salman": 16.2, "paper2": 18.4, "tick2": 19.25, "push": 19.85, "lab": 20.4, "end": 24.5}, "DUR": 24.5, "LX": 560, "LY0": 318, "LH": 76, "BOX": 52, "NT": 14, "LEAD": 1, "TX0": 80, "TW": 236, "TH": 318, "TG": 18, "TY0": 300, "LEAD_XY": [334, 300]};
+      // v3 motion test: one continuous move from scene to scene. Times are in seconds on the film's clock.
+      const tl = gsap.timeline({ paused: true });
+      const T = CFG.T, IN = "expo.out", OUT = "expo.in", MOVE = "power3.inOut";
+      const INK = "#151515", YEL = "#FCE004";
+      const ws = (sel) => sel.split(",").map((x) => `${x.trim()} .w`).join(",");
+      const words = (sel, t, st = 0.07) => tl.fromTo(ws(sel), { yPercent: 115 }, { yPercent: 0, duration: 0.7, ease: IN, stagger: st }, t);
+      const wordsOut = (sel, t) => tl.to(ws(sel), { yPercent: -115, duration: 0.3, ease: OUT, stagger: 0.015 }, t);
+      // every tick starts undrawn
+      document.querySelectorAll(".tk path").forEach((p) => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
+      const swipe = (sel, t) => tl.fromTo(sel, { backgroundSize: "0% 100%", color: "#ffffff" }, { backgroundSize: "100% 100%", color: INK, duration: 0.4, ease: "power2.inOut" }, t);
+      const draw = (sel, t, d) => { document.querySelectorAll(sel).forEach((p) => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; }); tl.to(sel, { strokeDashoffset: 0, duration: d, ease: "power1.inOut" }, t); };
+      const boxOf = (i) => `${CFG.LX + 26}px ${CFG.LY0 + i * CFG.LH + 26}px`;
+      // a checklist line comes alive, gets its tick, and its box fills yellow
+      const check = (i, t) => {
+        tl.to(`#ln${i} .lt`, { color: INK, duration: 0.35, ease: "none" }, t - 0.45);
+        tl.to(`#bx${i}`, { borderColor: INK, duration: 0.35, ease: "none" }, t - 0.45);
+        draw(`#tk${i} path`, t, 0.3);
+        tl.to(`#bx${i}`, { backgroundColor: YEL, borderColor: YEL, duration: 0.2, ease: "none" }, t + 0.22);
+      };
+      CFG.T.lead = 0;
+
+      // ---------- 0: the hook, on footage
+      tl.fromTo("#v-open", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "none" }, 0);
+      tl.fromTo("#v-open", { scale: 1 }, { scale: 1.06, duration: T.paper, ease: "none" }, 0);
+      tl.fromTo("#o-logo", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "none" }, 0.3);
+      words("#o-k", 0.5, 0.06);
+      words("#o-h", 0.95);
+      swipe("#o-h .hlw", 1.95);
+      wordsOut("#o-k, #o-h", T.paper - 0.3);
+      tl.to("#o-logo", { opacity: 0, duration: 0.25, ease: "none" }, T.paper - 0.2);
+
+      // ---------- the paper slides up over the footage; the footage lifts away behind it
+      tl.to("#v-open", { y: -160, scale: 1.1, duration: 0.95, ease: IN }, T.paper);
+      tl.fromTo("#sheet", { y: 1180, rotation: 2.5 }, { y: 0, rotation: 0, duration: 0.95, ease: IN }, T.paper);
+      tl.fromTo("#ttl", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: IN }, T.paper + 0.35);
+      tl.fromTo(".ln", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.6, ease: IN, stagger: 0.05 }, T.paper + 0.5);
+      tl.fromTo("#hand", { opacity: 0, rotation: -12, scale: 1.15 }, { opacity: 1, rotation: -5, scale: 1, duration: 0.3, ease: "back.out(1.7)" }, T.paper + 1.2);
+      // a slow drift keeps the paper alive while it is read
+      tl.fromTo("#sheet", { scale: 1 }, { scale: 1.04, transformOrigin: boxOf(0), duration: T.grow - T.paper - 0.95, ease: "none" }, T.paper + 0.95);
+
+      // ---------- tick 1, and the yellow box grows to fill the screen
+      check(0, T.tick1);
+      // the yellow box is a full-screen sheet clipped down to the checkbox; the clip opens out to the frame
+      const r = (v) => Math.round(v * 100) / 100;
+      const boxClip = `inset(${CFG.LY0}px ${1920 - CFG.LX - CFG.BOX}px ${1080 - CFG.LY0 - CFG.BOX}px ${CFG.LX}px round 10px)`;
+      tl.set("#yb", { opacity: 1, clipPath: boxClip }, T.grow);
+      tl.to("#yb", { clipPath: "inset(0px 0px 0px 0px round 0px)", duration: 0.9, ease: MOVE }, T.grow);
+      tl.to("#sheet", { scale: 1.5, duration: 0.9, ease: "power3.in" }, T.grow);
+      tl.set("#sheet", { opacity: 0, scale: 1 }, T.quote - 0.05);
+
+      // ---------- the review, on the yellow
+      words("#q1", T.quote, 0.06);
+      words("#q2", T.quote + 0.8, 0.04);
+      wordsOut("#q1, #q2", T.wipe - 0.35);
+      // the yellow leaves like a highlighter lifting off, revealing the wall already rising
+      tl.set("#yb", { transformOrigin: "100% 50%" }, T.wipe);
+      tl.to("#yb", { scaleX: 0, duration: 0.6, ease: MOVE }, T.wipe);
+
+      // ---------- the faculty wall
+      words("#wa-h", T.wipe + 0.3, 0.06);
+      swipe("#wa-h .hlw", T.wipe + 1.0);
+      // the lead tile is the full intro panel, scaled and clipped down to tile size (a FLIP done with transforms)
+      const S0 = CFG.TW / 608, H0 = 608 * CFG.TH / CFG.TW, INS = (1080 - H0) / 2;
+      const [LXT, LYT] = CFG.LEAD_XY, TX = LXT - 656, TY = LYT - INS * S0;
+      const tileClip = `inset(${INS}px 0px ${INS}px 0px round ${20 / S0}px)`;
+      tl.set("#tv1", { x: TX, y: TY, scale: S0, clipPath: tileClip }, 0);
+      for (let i = 0; i < CFG.NT; i++) {
+        const t0 = T.wipe + 0.05 + i * 0.04;
+        if (i === 1) {
+          tl.fromTo("#tl1", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.9, ease: IN }, t0);
+          tl.fromTo("#tv1", { opacity: 0, y: TY + 70 }, { opacity: 1, y: TY, duration: 0.9, ease: IN }, t0);
+          continue;
+        }
+        const sel = `#tl${i}` + (document.getElementById(`tv${i}`) ? `,#tv${i}` : "");
+        tl.fromTo(sel, { opacity: 0, y: 70, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: IN }, t0);
+      }
+      // the spotlight lands on one teacher...
+      tl.to("#tl1 .ring", { opacity: 1, duration: 0.2, ease: "none" }, T.pick);
+
+      // ...and that tile grows into the full-screen intro while the rest fall back
+      const L = T.land - 0.9;
+      const others = [];
+      for (let i = 0; i < CFG.NT; i++) if (i !== 1) { others.push(`#tl${i}`); if (document.getElementById(`tv${i}`)) others.push(`#tv${i}`); }
+      tl.to(others.join(","), { opacity: 0, scale: 0.92, duration: 0.55, ease: "power2.in", stagger: 0.012 }, L);
+      tl.to("#wa-h .w", { yPercent: -115, duration: 0.3, ease: OUT, stagger: 0.015 }, L);
+      tl.to("#tl1 .tname, #tl1 .tsub, #tl1 .tgrad, #tl1 .ring", { opacity: 0, duration: 0.25, ease: "none" }, L);
+      tl.to("#tv1", { x: 0, y: 0, scale: 1, clipPath: "inset(0px 0px 0px 0px round 0px)", duration: 0.9, ease: MOVE }, L);
+      tl.to("#tv1-v", { scale: 1, duration: 0.9, ease: MOVE }, L);
+
+      // ---------- teacher intros: the name rises behind the teacher
+      [[0, T.land, T.salman], [1, T.salman, T.paper2 + 0.8]].forEach(([k, a, b]) => {
+        tl.fromTo([`#fv${k}`, `#fc${k}`], { scale: 1 }, { scale: 1.05, duration: b - a, ease: "none" }, a);
+        tl.fromTo(`#fd${k}`, { opacity: k ? 1 : 0 }, { opacity: 1, duration: 0.4, ease: "none" }, a);
+        tl.fromTo(`#fn${k}`, { opacity: 0, yPercent: 25 }, { opacity: 1, yPercent: 0, duration: 0.6, ease: IN }, a + 0.1);
+        words(`#ft${k}`, a + 0.3, 0.1);
+      });
+      tl.to("#fn0", { opacity: 0, duration: 0.2, ease: OUT }, T.salman - 0.2);
+      wordsOut("#ft0", T.salman - 0.3);
+      wordsOut("#ft1", T.paper2 - 0.1);
+
+      // ---------- the paper comes back over the teacher, line 1 already ticked
+      tl.set("#sheet", { opacity: 1 }, T.paper2);
+      tl.fromTo("#sheet", { y: 1180, rotation: 2.5 }, { y: 0, rotation: 0, duration: 0.95, ease: IN, immediateRender: false }, T.paper2);
+      tl.to(["#fv1", "#fc1", "#fn1", "#fd1"], { y: -160, duration: 0.95, ease: IN }, T.paper2);
+      check(1, T.tick2);
+      // a fast push into the line, then a hard cut to the lab on the peak
+      tl.to("#sheet", { scale: 3.2, transformOrigin: `${CFG.LX + 260}px ${CFG.LY0 + CFG.LH + 26}px`, duration: T.lab - T.push, ease: "expo.in" }, T.push);
+      tl.fromTo("#v-lab", { scale: 1.2 }, { scale: 1.0, duration: 1.1, ease: IN }, T.lab);
+      tl.to("#v-lab", { scale: 1.04, duration: CFG.DUR - T.lab - 1.1, ease: "none" }, T.lab + 1.1);
+      words("#lb-q", T.lab + 0.7, 0.05);
+      words("#lb-a", T.lab + 1.6, 0.04);
+      tl.fromTo("#blk", { opacity: 0 }, { opacity: 1, duration: 0.7, ease: "none" }, CFG.DUR - 0.7);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+
+    </script>
+  </body>
+</html>

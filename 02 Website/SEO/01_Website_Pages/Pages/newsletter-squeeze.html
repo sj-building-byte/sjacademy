@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SJ Academy - Free CAIE Resources & Newsletter</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-yellow: #FCE004;
+      --orange: #FE6100;
+      --black: #111111;
+      --white: #FFFFFF;
+      --surface: #FAF8F3;
+      --border: #E8E2D8;
+      --text-muted: #5A5245;
+      --green: #25D366;
+      --shadow-sm: 0 10px 30px rgba(0,0,0,0.03);
+      --shadow-md: 0 20px 40px rgba(0,0,0,0.08);
+      --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--surface);
+      color: var(--black);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    * { box-sizing: border-box; }
+    h1, h2, h3, h4 { font-weight: 700; margin: 0; color: var(--black); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Main Container (Above the Fold) */
+    .squeeze-container {
+      max-width: 1100px;
+      margin: 60px auto 80px; 
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* Left Side: Value Prop */
+    .value-prop {
+      padding-right: 20px;
+    }
+    
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+    .pulse-dot {
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .value-prop h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .highlight {
+      background: var(--primary-yellow);
+      padding: 2px 10px;
+      border-radius: 8px;
+      display: inline-block;
+      transform: rotate(-1deg);
+    }
+    
+    .value-prop > p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 35px;
+      max-width: 450px;
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px 0;
+      display: grid;
+      gap: 20px;
+    }
+    .features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+    .feature-icon {
+      width: 40px; height: 40px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      font-size: 16px;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .features-list li div p {
+      margin: 3px 0 0 0;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Right Side: Form Card */
+    .form-card {
+      background: var(--white);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: -15px; left: -15px; right: 15px; bottom: 15px;
+      background: var(--primary-yellow);
+      border-radius: 30px;
+      z-index: -1;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .form-header h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .form-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* --- WPFORMS CUSTOM STYLING OVERRIDES (MOBILE OPTIMIZED) --- */
+    .form-card .wpforms-container { margin: 0 !important; }
+    .form-card .wpforms-title, .form-card .wpforms-description { display: none !important; }
+    
+    .form-card .wpforms-field-label { 
+      display: block !important; 
+      font-size: 14px !important; 
+      font-weight: 600 !important; 
+      margin-bottom: 8px !important; 
+      color: var(--black) !important; 
+    }
+    .form-card .wpforms-field-sublabel { 
+      font-size: 11px !important; 
+      color: var(--text-muted) !important; 
+      margin-top: 6px !important; 
+      display: block !important; 
+    }
+    
+    /* Input Fields full width fix */
+    .form-card .wpforms-form input[type=text], 
+    .form-card .wpforms-form input[type=email], 
+    .form-card .wpforms-form input[type=tel],
+    .form-card .wpforms-form input[type=number] {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 14px 20px !important;
+      border: 2px solid var(--border) !important;
+      border-radius: 12px !important;
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 15px !important;
+      transition: all 0.3s var(--ease) !important;
+      background: var(--surface) !important;
+      box-sizing: border-box !important;
+      display: block !important;
+      height: auto !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+    .form-card .wpforms-form input:focus {
+      outline: none !important;
+      border-color: var(--black) !important;
+      background: var(--white) !important;
+    }
+    .form-card .wpforms-form .wpforms-field { 
+      margin-bottom: 20px !important; 
+      padding: 0 !important; 
+      clear: both !important; 
+    }
+    
+    /* Handle WPForms Two-Column Name Field (Squish Fix) */
+    .form-card .wpforms-field-name .wpforms-field-row { 
+      display: flex !important; 
+      flex-wrap: wrap !important; 
+      gap: 15px !important; 
+      width: 100% !important; 
+      margin: 0 !important;
+    }
+    .form-card .wpforms-field-name .wpforms-field-row-block { 
+      flex: 1 1 calc(50% - 15px) !important; 
+      min-width: 100px !important;
+      margin: 0 !important; 
+      padding: 0 !important;
+    }
+
+    /* Submit Button (Cut-in-half Fix) */
+    .form-card .wpforms-submit-container {
+      clear: both !important;
+      padding-top: 10px !important;
+    }
+    .form-card .wpforms-form button[type=submit] {
+      width: 100% !important;
+      display: block !important;
+      background: var(--black) !important;
+      color: var(--primary-yellow) !important;
+      border: none !important;
+      padding: 18px 24px !important;
+      border-radius: 16px !important;
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      font-family: 'Poppins', sans-serif !important;
+      cursor: pointer !important;
+      transition: all 0.3s var(--ease) !important;
+      margin: 10px 0 0 0 !important;
+      height: auto !important;
+      min-height: 56px !important;
+      line-height: 1.3 !important;
+      box-sizing: border-box !important;
+      -webkit-appearance: none !important;
+    }
+    .form-card .wpforms-form button[type=submit]:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    
+    .form-footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    /* Trust Avatars in Form */
+    .trust-avatars {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .avatar-group { display: flex; }
+    .avatar-group img {
+      width: 35px; height: 35px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      object-fit: cover;
+      margin-left: -10px;
+    }
+    .avatar-group img:first-child { margin-left: 0; }
+    .trust-avatars span {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* Below the Fold Resources Grid */
+    .resources-section {
+      background: var(--white);
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-header { text-align: center; margin-bottom: 50px; padding: 0 24px; }
+    .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; }
+    .section-header p { color: var(--text-muted); font-size: 1.1rem; }
+    
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .resource-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 30px;
+      text-decoration: none;
+      color: var(--black);
+      border: 1px solid var(--border);
+      transition: all 0.3s var(--ease);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .resource-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--black);
+      box-shadow: var(--shadow-md);
+      background: var(--white);
+    }
+    .rc-icon {
+      width: 50px; height: 50px;
+      background: var(--white);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--orange);
+      font-size: 20px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+    .resource-card:hover .rc-icon { background: var(--primary-yellow); color: var(--black); }
+    .resource-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .resource-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px; flex-grow: 1; }
+    .resource-card span { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+
+    /* --- MOBILE OPTIMIZATION OVERRIDES --- */
+    @media (max-width: 900px) {
+      .squeeze-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .value-prop {
+        text-align: center;
+        padding-right: 0;
+      }
+      .value-prop > p {
+        margin: 0 auto 35px;
+      }
+      .features-list li {
+        text-align: left;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      /* Fix bleed issue on small screens */
+      .squeeze-container { 
+        padding: 0 16px; 
+        margin: 40px auto 60px; 
+        overflow-x: hidden;
+      }
+      
+      .form-card { 
+        padding: 24px; 
+        margin-left: 10px; 
+        margin-right: 10px; 
+      }
+      .form-card::before { 
+        top: -8px; left: -10px; right: 10px; bottom: 8px; 
+      }
+      
+      /* Stack Name fields vertically on mobile */
+      .form-card .wpforms-field-name .wpforms-field-row { 
+        flex-direction: column !important; 
+        gap: 12px !important; 
+      }
+      .form-card .wpforms-field-name .wpforms-field-row-block { 
+        width: 100% !important; 
+        flex: 1 1 100% !important; 
+      }
+      
+      /* Adjust typography for mobile */
+      .value-prop h1 { font-size: 2rem; }
+      .features-list li { font-size: 0.95rem; }
+      .section-header h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MAIN SQUEEZE SECTION -->
+  <main class="squeeze-container">
+    
+    <!-- LEFT: Copy & Value Proposition -->
+    <div class="value-prop">
+      <div class="live-badge">
+        <span class="pulse-dot"></span> 100% Free for O & A Level Students
+      </div>
+      
+      <h1>Your Ultimate CAIE Toolkit.<br><span class="highlight">Delivered Free.</span></h1>
+      <p>Join our exclusive community and get everything you need to secure top grades and university admissions, sent straight to your phone and inbox.</p>
+      
+      <ul class="features-list">
+        <li>
+          <div class="feature-icon"><i class="fa-solid fa-file-pdf"></i></div>
+          <div>
+            <strong>Free Resources & Past Papers</strong>
+            <p>Direct links to downloaded past papers, marking schemes, and examiner reports.</p>
+          </div>
+        </li>
+        <li>
+          <div class="feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <div>
+            <strong>Daily Study Tips & Hacks</strong>
+            <p>Bite-sized secrets on how to crack the Cambridge marking scheme.</p>
+          </div>
+        </li>
+        <li>
+          <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div>
+            <strong>University Guidance</strong>
+            <p>Admission criteria, grade strategy tools, and career counseling updates.</p>
+          </div>
+        </li>
+        <li>
+          <div class="feature-icon"><i class="fa-solid fa-gift"></i></div>
+          <div>
+            <strong>Exclusive Notes & Freebies</strong>
+            <p>Get access to premium summary notes before anyone else.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: Form Card -->
+    <div class="form-card">
+      <div class="form-header">
+        <h2>Join the Inner Circle</h2>
+        <p>Enter your details to get instant access.</p>
+      </div>
+
+      <!-- WORDPRESS SHORTCODE TARGET -->
+      <div id="wpform-wrapper">
+         [wpforms id="10338"]
+      </div>
+
+      <div class="form-footer">
+        <i class="fa-solid fa-lock"></i> We hate spam. Unsubscribe anytime.
+      </div>
+
+      <div class="trust-avatars">
+        <div class="avatar-group">
+          <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1634.jpg" alt="Student">
+          <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1637.jpg" alt="Student">
+          <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1632.jpg" alt="Student">
+        </div>
+        <span>Join <strong>5,000+</strong> students preparing<br>smarter for their CAIEs.</span>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BELOW THE FOLD: CAIE RESOURCES -->
+  <section class="resources-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore More Free Resources</h2>
+        <p>While you wait for your first newsletter, dive into our comprehensive tools.</p>
+      </div>
+      
+      <div class="resources-grid">
+        <a href="https://www.sjacademy.pk/o-level-past-papers/" class="resource-card">
+          <div class="rc-icon"><i class="fa-solid fa-book"></i></div>
+          <h3>O-Level Past Papers</h3>
+          <p>Download the latest CAIE O-Level past papers, marking schemes, and examiner reports.</p>
+          <span>Access Hub <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        
+        <a href="https://www.sjacademy.pk/a-level-past-papers/" class="resource-card">
+          <div class="rc-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h3>A-Level Past Papers</h3>
+          <p>Get AS and A2 past papers organized by subject and year to aid your revision.</p>
+          <span>Access Hub <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+        
+        <a href="https://www.sjacademy.pk/a-level-grade-strategy-tool/" class="resource-card">
+          <div class="rc-icon"><i class="fa-solid fa-calculator"></i></div>
+          <h3>Grade Strategy Tool</h3>
+          <p>Calculate exactly what marks you need in A2 based on your AS results to secure your dream grade.</p>
+          <span>Use Tool <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="https://www.sjacademy.pk/university-admission-criteria-tool/" class="resource-card">
+          <div class="rc-icon"><i class="fa-solid fa-university"></i></div>
+          <h3>University Criteria Tool</h3>
+          <p>Check the exact A-Level requirements for top universities in Pakistan and abroad.</p>
+          <span>Use Tool <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

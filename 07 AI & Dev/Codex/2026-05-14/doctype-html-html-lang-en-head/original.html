@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJ Academy — A Level Business Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --sja-yellow: #FCE004;
+            --sja-brown: #453516;
+            --sja-black: #000000;
+            --sja-orange: #FE6100;
+            --sja-white: #ffffff;
+            --sja-whatsapp: #25D366;
+            --sja-grey: #555;
+            --sja-dark-grey: #222;
+            --sja-light-bg: #fafafa;
+            --sja-light-yellow: #FFF9CC;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--sja-black);
+            line-height: 1.6;
+            background-color: var(--sja-white);
+            width: 100%;
+        }
+
+        #sja-quiz-tool {
+            font-family: 'Poppins', sans-serif;
+            color: var(--sja-black);
+            line-height: 1.6;
+            background-color: var(--sja-white);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #sja-quiz-tool .sja-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #sja-quiz-tool .sja-header {
+            background: #fff;
+            padding: 60px 0 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        #sja-quiz-tool .sja-badge {
+            display: inline-block;
+            background-color: #fff;
+            border: 2px solid var(--sja-black);
+            border-radius: 50px;
+            padding: 5px;
+            margin-bottom: 25px;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+        }
+
+        #sja-quiz-tool .sja-mode-pill {
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1;
+        }
+
+        #sja-quiz-tool .sja-mode-tool {
+            background-color: var(--sja-yellow);
+            color: var(--sja-black);
+        }
+
+        #sja-quiz-tool .sja-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--sja-black);
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+
+        #sja-quiz-tool .sja-subtitle {
+            font-size: 1.1rem;
+            color: var(--sja-dark-grey);
+            margin: 0 auto 30px;
+            max-width: 700px;
+        }
+
+        .sja-highlight {
+            background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 35%;
+            background-position: 0 85%;
+            display: inline;
+            color: var(--sja-black);
+            padding: 0 3px;
+        }
+
+        .sja-screen { display: none; animation: sjaFadeUp 0.4s ease; }
+        .sja-screen.active { display: block; }
+        @keyframes sjaFadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #sja-quiz-tool .sja-controls {
+            background: var(--sja-light-bg);
+            padding: 50px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        #sja-quiz-tool .sja-controls-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            #sja-quiz-tool .sja-controls-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        #sja-quiz-tool .sja-unit-label {
+            grid-column: 1 / -1;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--sja-brown);
+            margin-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--sja-yellow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #sja-quiz-tool .sja-unit-label:first-child { margin-top: 0; }
+
+        #sja-quiz-tool .sja-chapter-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            grid-column: 1 / -1;
+        }
+
+        @media (min-width: 768px) {
+            #sja-quiz-tool .sja-chapter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            #sja-quiz-tool .sja-chapter-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        #sja-quiz-tool .sja-chapter-card {
+            background: #fff;
+            padding: 30px;
+            border-top: 6px solid var(--sja-brown);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        #sja-quiz-tool .sja-chapter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-top-color: var(--sja-orange);
+        }
+
+        #sja-quiz-tool .sja-chapter-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--sja-yellow);
+            line-height: 1;
+            -webkit-text-stroke: 1px var(--sja-brown);
+        }
+
+        #sja-quiz-tool .sja-chapter-card h3 {
+            color: var(--sja-black);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        #sja-quiz-tool .sja-chapter-meta {
+            font-size: 13px;
+            color: var(--sja-grey);
+            margin-top: auto;
+        }
+
+        #sja-quiz-tool .sja-level-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 10px;
+            border-radius: 3px;
+            background: var(--sja-light-yellow);
+            color: var(--sja-brown);
+        }
+
+        #sja-quiz-tool .sja-quiz-section {
+            padding: 50px 0;
+            background: #fff;
+        }
+
+        #sja-quiz-tool .sja-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--sja-grey);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+            margin-bottom: 25px;
+            transition: color 0.2s ease;
+        }
+
+        #sja-quiz-tool .sja-back-link:hover {
+            color: var(--sja-orange);
+            text-decoration: underline;
+        }
+
+        #sja-quiz-tool .sja-quiz-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        #sja-quiz-tool .sja-quiz-chapter-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--sja-black);
+        }
+
+        #sja-quiz-tool .sja-quiz-chapter-name span {
+            color: var(--sja-orange);
+        }
+
+        #sja-quiz-tool .sja-timer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--sja-white);
+            border: 2px solid #e5e5e5;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--sja-black);
+            font-variant-numeric: tabular-nums;
+            transition: all 0.3s ease;
+        }
+
+        #sja-quiz-tool .sja-timer-badge svg { color: var(--sja-orange); }
+
+        #sja-quiz-tool .sja-timer-badge.warning {
+            border-color: var(--sja-orange);
+            color: var(--sja-orange);
+        }
+
+        #sja-quiz-tool .sja-timer-badge.danger {
+            border-color: #e74c3c;
+            color: #e74c3c;
+            animation: sjaPulse 1s infinite;
+        }
+
+        @keyframes sjaPulse { 50% { opacity: 0.6; } }
+
+        #sja-quiz-tool .sja-progress-wrap { margin-bottom: 30px; }
+
+        #sja-quiz-tool .sja-progress-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--sja-grey);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        #sja-quiz-tool .sja-progress-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        #sja-quiz-tool .sja-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--sja-yellow), var(--sja-orange));
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        #sja-quiz-tool .sja-question-card {
+            background: #fff;
+            padding: 35px;
+            border-top: 6px solid var(--sja-brown);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        #sja-quiz-tool .sja-q-number {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--sja-orange);
+            margin-bottom: 14px;
+        }
+
+        #sja-quiz-tool .sja-q-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--sja-black);
+            line-height: 1.4;
+            margin-bottom: 28px;
+        }
+
+        #sja-quiz-tool .sja-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #sja-quiz-tool .sja-option-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            background: var(--sja-light-bg);
+            border: 2px solid #e5e5e5;
+            border-radius: 5px;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-align: left;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--sja-black);
+        }
+
+        #sja-quiz-tool .sja-option-btn:hover:not(.disabled) {
+            border-color: var(--sja-orange);
+            background: var(--sja-white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(254, 97, 0, 0.15);
+        }
+
+        #sja-quiz-tool .sja-option-btn.disabled { cursor: default; }
+
+        #sja-quiz-tool .sja-option-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 5px;
+            background: #e5e5e5;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--sja-grey);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        #sja-quiz-tool .sja-option-btn.selected {
+            border-color: var(--sja-yellow);
+            background: var(--sja-light-yellow);
+            box-shadow: 0 0 0 3px rgba(252, 224, 4, 0.2);
+        }
+
+        #sja-quiz-tool .sja-option-btn.selected .sja-option-letter {
+            background: var(--sja-yellow);
+            color: var(--sja-black);
+        }
+
+        #sja-quiz-tool .sja-option-btn.correct {
+            border-color: #2ecc71 !important;
+            background: #eafaf1 !important;
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2) !important;
+        }
+
+        #sja-quiz-tool .sja-option-btn.correct .sja-option-letter {
+            background: #2ecc71;
+            color: #fff;
+        }
+
+        #sja-quiz-tool .sja-option-btn.wrong {
+            border-color: #e74c3c !important;
+            background: #fdedec !important;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2) !important;
+        }
+
+        #sja-quiz-tool .sja-option-btn.wrong .sja-option-letter {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        #sja-quiz-tool .sja-explanation {
+            margin-top: 20px;
+            padding: 18px 22px;
+            background: var(--sja-light-yellow);
+            border-left: 4px solid var(--sja-yellow);
+            border-radius: 0 5px 5px 0;
+            font-size: 14px;
+            color: var(--sja-dark-grey);
+            line-height: 1.6;
+            animation: sjaFadeUp 0.3s ease;
+        }
+
+        #sja-quiz-tool .sja-explanation strong {
+            color: var(--sja-black);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        #sja-quiz-tool .sja-btn-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        #sja-quiz-tool .sja-btn {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            padding: 16px 35px;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        #sja-quiz-tool .sja-btn-primary {
+            background-color: var(--sja-orange);
+            color: var(--sja-white);
+            border-color: var(--sja-orange);
+            box-shadow: 0 4px 10px rgba(254, 97, 0, 0.3);
+        }
+
+        #sja-quiz-tool .sja-btn-primary:hover {
+            background-color: #e55800;
+            border-color: #e55800;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(254, 97, 0, 0.4);
+        }
+
+        #sja-quiz-tool .sja-btn-secondary {
+            background-color: var(--sja-white);
+            color: var(--sja-black);
+            border-color: #e5e5e5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        #sja-quiz-tool .sja-btn-secondary:hover {
+            border-color: var(--sja-grey);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        #sja-quiz-tool .sja-btn-yellow {
+            background-color: var(--sja-yellow);
+            color: var(--sja-black);
+            border-color: var(--sja-yellow);
+            box-shadow: 0 4px 10px rgba(252, 224, 4, 0.3);
+        }
+
+        #sja-quiz-tool .sja-btn-yellow:hover {
+            background-color: #e5c900;
+            border-color: #e5c900;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(252, 224, 4, 0.4);
+        }
+
+        #sja-quiz-tool .sja-btn:disabled,
+        #sja-quiz-tool .sja-btn:disabled:hover {
+            background-color: #ccc;
+            color: #666;
+            border-color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #sja-quiz-tool .sja-results-section {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        #sja-quiz-tool .sja-results-card {
+            background: #fff;
+            padding: 50px 40px;
+            border-top: 6px solid var(--sja-brown);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #sja-quiz-tool .sja-results-ring {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        #sja-quiz-tool .sja-results-ring svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        #sja-quiz-tool .sja-results-ring circle {
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+
+        #sja-quiz-tool .sja-ring-bg { stroke: #eee; }
+
+        #sja-quiz-tool .sja-ring-fill {
+            stroke: var(--sja-orange);
+            transition: stroke-dashoffset 1.2s ease;
+        }
+
+        #sja-quiz-tool .sja-ring-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #sja-quiz-tool .sja-ring-pct {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--sja-black);
+            line-height: 1;
+        }
+
+        #sja-quiz-tool .sja-ring-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--sja-grey);
+            margin-top: 4px;
+        }
+
+        #sja-quiz-tool .sja-results-grade {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        #sja-quiz-tool .sja-results-detail {
+            color: var(--sja-grey);
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        #sja-quiz-tool .sja-results-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        #sja-quiz-tool .sja-stat-item { text-align: center; }
+
+        #sja-quiz-tool .sja-stat-val {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        #sja-quiz-tool .sja-stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--sja-grey);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        #sja-quiz-tool .sja-results-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        #sja-quiz-tool .sja-review-section {
+            padding: 50px 0;
+            background: #fff;
+        }
+
+        #sja-quiz-tool .sja-review-item {
+            background: #fff;
+            padding: 28px 30px;
+            border-top: 6px solid var(--sja-brown);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #sja-quiz-tool .sja-review-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+        }
+
+        #sja-quiz-tool .sja-review-item.sja-correct-item { border-top-color: #2ecc71; }
+        #sja-quiz-tool .sja-review-item.sja-wrong-item { border-top-color: #e74c3c; }
+
+        #sja-quiz-tool .sja-review-status {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 5px;
+            margin-bottom: 14px;
+        }
+
+        #sja-quiz-tool .sja-review-status.sja-correct {
+            background: #eafaf1;
+            color: #2ecc71;
+        }
+
+        #sja-quiz-tool .sja-review-status.sja-wrong {
+            background: #fdedec;
+            color: #e74c3c;
+        }
+
+        #sja-quiz-tool .sja-review-q {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--sja-black);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        #sja-quiz-tool .sja-review-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        #sja-quiz-tool .sja-review-opt {
+            padding: 10px 16px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--sja-grey);
+            background: var(--sja-light-bg);
+            border: 1px solid #eee;
+        }
+
+        #sja-quiz-tool .sja-review-opt.sja-user-correct {
+            background: #eafaf1;
+            color: #27ae60;
+            font-weight: 700;
+            border-color: #2ecc71;
+        }
+
+        #sja-quiz-tool .sja-review-opt.sja-user-wrong {
+            background: #fdedec;
+            color: #c0392b;
+            text-decoration: line-through;
+            border-color: #e74c3c;
+        }
+
+        #sja-quiz-tool .sja-review-opt.sja-is-correct {
+            background: #eafaf1;
+            color: #27ae60;
+            font-weight: 700;
+            border-color: #2ecc71;
+        }
+
+        @media (max-width: 767px) {
+            #sja-quiz-tool .sja-title { font-size: 2.2rem; }
+            #sja-quiz-tool .sja-header { padding: 40px 0 30px; }
+            #sja-quiz-tool .sja-controls { padding: 40px 0; }
+            #sja-quiz-tool .sja-quiz-section { padding: 40px 0; }
+            #sja-quiz-tool .sja-results-section { padding: 40px 0; }
+            #sja-quiz-tool .sja-question-card { padding: 25px; }
+            #sja-quiz-tool .sja-results-card { padding: 35px 25px; }
+            #sja-quiz-tool .sja-btn { width: 100%; text-align: center; }
+            #sja-quiz-tool .sja-btn-row { flex-direction: column; }
+            #sja-quiz-tool .sja-chapter-grid { grid-template-columns: 1fr; }
+            #sja-quiz-tool .sja-results-stats { gap: 20px; }
+        }
+
+        @media (min-width: 992px) {
+            #sja-quiz-tool .sja-title { font-size: 3.8rem; }
+        }
+
+        #sja-quiz-tool .sja-btn:focus,
+        #sja-quiz-tool .sja-option-btn:focus,
+        #sja-quiz-tool .sja-chapter-card:focus {
+            outline: 3px solid var(--sja-orange);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="sja-quiz-tool">
+    <div class="sja-container">
+        <div class="sja-header">
+            <div class="sja-badge">
+                <div class="sja-mode-pill sja-mode-tool">
+                      <span>📝 SJ Academy QUIZ TOOL</span>
+                </div>
+            </div>
+            <h1><span class="sja-highlight">A Level Business (9609) Quizzes</span></h1>
+            <p class="sja-subtitle">
+                 Select a chapter, answer multiple-choice questions, and track your progress with our free quiz tool.
+            </p>
+        </div>
+
+        <div id="sja-screen-select" class="sja-screen active">
+            <div class="sja-controls">
+                <div class="sja-controls-grid" id="sja-chapter-container"></div>
+            </div>
+        </div>
+
+        <div id="sja-screen-quiz" class="sja-screen">
+            <div class="sja-quiz-section">
+                <div class="sja-container">
+                    <div id="sja-quiz-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sja-screen-results" class="sja-screen">
+            <div class="sja-results-section">
+                <div class="sja-container">
+                    <div id="sja-results-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sja-screen-review" class="sja-screen">
+            <div class="sja-review-section">
+                <div class="sja-container">
+                    <div id="sja-review-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){
+    const chapters = {
+        /* ===================== UNIT 1 ===================== */
+        1: {
+            title: "Enterprise",
+            unit: 1,
+            level: "AS",
+            questions: [
+                { q: "What is meant by 'adding value'?", opts: ["The total revenue earned by a business","The difference between selling price and cost of bought-in materials","The profit after all expenses are paid","The increase in a company's share price"], ans: 1, explain: "Adding value is the difference between the selling price of products and the cost of materials bought in." },
+                { q: "What is the opportunity cost of an entrepreneur investing $50,000 of personal savings into a new business?", opts: ["The interest paid on a bank loan","The next best alternative use of that $50,000","The total profit the business will earn","The cost of the business premises"], ans: 1, explain: "Opportunity cost is the next most desired alternative that is given up when a choice is made." },
+                { q: "Which of the following is NOT a characteristic of successful entrepreneurs?", opts: ["Innovation and creativity","Risk-taking","Guaranteed success in all ventures","Self-motivation and commitment"], ans: 2, explain: "No entrepreneur can guarantee success. The dynamic business environment means all ventures involve risk." },
+                { q: "What is the main purpose of a business plan?", opts: ["To guarantee business success","To obtain finance from investors or lenders","To eliminate all business risks","To set employee wages"], ans: 1, explain: "The main purpose of a business plan is to obtain finance by providing evidence to potential investors." },
+                { q: "An intrapreneur differs from an entrepreneur because the intrapreneur:", opts: ["Takes personal financial risk","Works within an existing business to develop new ideas","Always earns more than an entrepreneur","Has no need for creative skills"], ans: 1, explain: "An intrapreneur develops innovative products within an existing business; the business bears the risk." },
+                { q: "Which of the following is a factor of production?", opts: ["Profit","Revenue","Capital","Market share"], ans: 2, explain: "The four factors of production are land, labour, capital, and enterprise." },
+                { q: "A key barrier to entrepreneurship is obtaining sufficient capital. Which best explains why?", opts: ["Entrepreneurs always have enough personal savings","Banks always refuse to lend to new businesses","Many entrepreneurs have limited savings and no trading record to present to lenders","Government regulations prevent all new business financing"], ans: 2, explain: "Lack of finance is due to insufficient savings, no trading record, and poor business plans." },
+                { q: "Which best explains why some businesses fail?", opts: ["They have too many customers","They have accurate record-keeping","They run short of cash for day-to-day operations","They invest too much in marketing"], ans: 2, explain: "Running short of cash is the most significant reason for business failure." },
+                { q: "Business uncertainty differs from business risk because uncertainty:", opts: ["Can always be calculated using past data","Cannot be foreseen, measured or calculated","Only affects large multinational companies","Is eliminated by having a business plan"], ans: 1, explain: "Uncertainty cannot be foreseen, measured or calculated, unlike risk." },
+                { q: "Which is a benefit of entrepreneurship to a country's economy?", opts: ["It always reduces competition","It creates employment and contributes to economic growth","It eliminates the need for imports","It guarantees higher wages for all workers"], ans: 1, explain: "Entrepreneurship benefits the economy through employment creation and economic growth." },
+                { q: "How can entrepreneurs add value to a jewellery product?", opts: ["By reducing the quality of packaging","By using a well-designed shop display and attractive packaging","By lowering prices below cost","By avoiding advertising"], ans: 1, explain: "Well-designed displays, knowledgeable staff, and beautiful packaging can increase prices beyond extra costs." },
+                { q: "What is one limitation of a business plan?", opts: ["It helps secure finance from investors","It provides a clear plan of action","It may create a false sense of certainty and lead to inflexibility","It forces owners to think seriously about the proposal"], ans: 2, explain: "Business plans can create false certainty and lead entrepreneurs to reject new opportunities." }
+            ]
+        },
+        2: {
+            title: "Business Structure",
+            unit: 1,
+            level: "AS",
+            questions: [
+                { q: "Which economic sector involves the extraction of natural resources?", opts: ["Secondary","Tertiary","Primary","Quaternary"], ans: 2, explain: "The primary sector involves extraction of natural resources such as farming, fishing, and mining." },
+                { q: "What is deindustrialisation?", opts: ["The growth of primary sector industries","The decline in relative importance of secondary sector activity","The increase in agricultural employment","The growth of quaternary sector research"], ans: 1, explain: "Deindustrialisation is the decline of secondary sector activity in developed economies." },
+                { q: "A key feature of a sole trader is:", opts: ["Limited liability","Separate legal personality","Unlimited liability","Continuity after owner's death"], ans: 2, explain: "Sole traders have unlimited liability — personal possessions can be taken to pay business debts." },
+                { q: "What is the main advantage of forming a limited company over a partnership?", opts: ["No legal formalities required","Profits are not shared","Limited liability for shareholders","Complete privacy of accounts"], ans: 2, explain: "Limited liability means shareholders cannot lose more than they invested." },
+                { q: "A public limited company (plc) can raise capital by:", opts: ["Selling shares only to family and friends","Borrowing only from a single bank","Advertising shares for sale to the general public on the stock exchange","Receiving government subsidies only"], ans: 2, explain: "A plc can advertise shares for sale to the general public on the stock exchange." },
+                { q: "What is meant by 'separate legal personality' of a company?", opts: ["The owners are personally liable for debts","The company has a legal identity separate from its owners","The company cannot be taken to court","Only the directors can make decisions"], ans: 1, explain: "A company can sue and be sued in its own name, separate from its owners." },
+                { q: "Street lighting is an example of a:", opts: ["Private good","Consumer good","Public good","Capital good"], ans: 2, explain: "Street lighting is a public good — impossible to exclude people from benefiting." },
+                { q: "Why might a private limited company convert to a plc?", opts: ["To reduce the amount of capital available","To raise substantial capital from public share issues","To avoid legal formalities","To maintain family control"], ans: 1, explain: "Converting to plc status allows raising large sums from public share issues." },
+                { q: "Which document outlines a company's maximum share capital and aims?", opts: ["Business plan","Deed of Partnership","Memorandum of Association","Annual report"], ans: 2, explain: "The Memorandum of Association contains the company's maximum share capital and aims." },
+                { q: "A disadvantage of a partnership compared to a sole trader is:", opts: ["Less capital available","Profits are shared between partners","No written agreement is possible","Partners cannot specialise"], ans: 1, explain: "In a partnership, profits must be shared between all partners." },
+                { q: "What is the main reason public corporations may become inefficient?", opts: ["They have too many profit targets","Lack of strict profit targets and government subsidies","They operate in competitive markets","They have limited liability"], ans: 1, explain: "Public corporations can tend towards inefficiency due to lack of strict profit targets." },
+                { q: "Which sector has grown most in developed economies?", opts: ["Primary","Secondary","Tertiary and quaternary","Agricultural"], ans: 2, explain: "In developed economies, tertiary and quaternary sectors have grown as incomes rise." }
+            ]
+        },
+        3: {
+            title: "Size of Business",
+            unit: 1,
+            level: "AS",
+            questions: [
+                { q: "Which measure of business size counts the total number of people employed?", opts: ["Capital employed","Market share","Number of employees","Output per period"], ans: 2, explain: "Number of employees is a common measure, though it may be misleading if automation levels differ." },
+                { q: "A growth in business size by merging with a competitor is called:", opts: ["Organic growth","Horizontal integration","Backward vertical integration","Forward vertical integration"], ans: 1, explain: "Horizontal integration is merging with a business at the same stage in the same industry." },
+                { q: "Which is an advantage of a small business over a large one?", opts: ["Greater access to finance","Economies of scale","Closer relationships with customers and flexibility","More specialist managers"], ans: 2, explain: "Small businesses can offer personal service, flexibility, and quick adaptation." },
+                { q: "Economies of scale refer to:", opts: ["Higher unit costs as output increases","Lower unit costs as output increases","The total revenue of a business","The number of products a business sells"], ans: 1, explain: "Economies of scale are reductions in unit cost as the scale of output increases." },
+                { q: "A diseconomy of scale occurs when:", opts: ["A business becomes more efficient","Unit costs fall as output rises","Unit costs rise as a business grows too large","A business reduces its workforce"], ans: 2, explain: "Diseconomies of scale occur when a business grows so large that unit costs begin to rise." },
+                { q: "Which is an example of a purchasing economy of scale?", opts: ["Bulk purchasing of raw materials","Financial economies from lower interest rates","Technical economies from using larger machinery","Managerial economies from hiring specialists"], ans: 0, explain: "Purchasing economies come from buying raw materials in bulk at lower per-unit prices." },
+                { q: "Market share is calculated as:", opts: ["Total sales ÷ number of employees","A firm's sales ÷ total market sales × 100","Profit ÷ revenue × 100","Revenue – total costs"], ans: 1, explain: "Market share is a firm's sales as a percentage of total market sales." },
+                { q: "Why might growth be a key objective for a business?", opts: ["It always leads to higher profits","It can lead to economies of scale and greater market power","It reduces the need for innovation","It eliminates all competition"], ans: 1, explain: "Growth can lead to economies of scale, increased market share, and greater market power." },
+                { q: "Internal (organic) growth is:", opts: ["Growth through mergers and acquisitions","Growth financed by selling shares on the stock exchange","Growth using a business's own resources, e.g. reinvesting profits","Growth through franchising"], ans: 2, explain: "Internal growth expands using the business's own resources such as reinvested profits." },
+                { q: "A disadvantage of rapid business growth is:", opts: ["Increased economies of scale","Higher market share","Overtrading and cash flow problems","Lower unit costs"], ans: 2, explain: "Rapid growth can lead to overtrading where expansion outpaces cash flow." }
+            ]
+        },
+        4: {
+            title: "Business Objectives",
+            unit: 1,
+            level: "AS",
+            questions: [
+                { q: "Profit satisficing means:", opts: ["Maximising profit at all costs","Earning just enough profit to keep stakeholders satisfied","Eliminating all profit","Ignoring profit objectives"], ans: 1, explain: "Profit satisficing means achieving sufficient profit to satisfy stakeholders rather than maximising." },
+                { q: "Which is an example of a social objective?", opts: ["Maximising shareholder dividends","Reducing environmental impact of operations","Increasing market share by 10%","Minimising production costs"], ans: 1, explain: "Social objectives focus on societal interests such as environmental impact and ethical practices." },
+                { q: "Conflicts may arise between stakeholders because:", opts: ["All stakeholders want the same thing","Different stakeholders have different interests, e.g. higher wages vs. higher profits","Stakeholders never communicate","Businesses only have one objective"], ans: 1, explain: "Stakeholders have different and sometimes conflicting interests." },
+                { q: "A business switching from profit maximisation to growth might do so because:", opts: ["Growth always leads to higher short-term profits","Increased size can lead to greater market power and economies of scale","Growth requires no investment","Profit is no longer important"], ans: 1, explain: "Growth can lead to economies of scale, increased market share, and greater market power." },
+                { q: "Which is NOT typically a business objective?", opts: ["Increasing market share","Survival in the short term","Maximising the number of competitors","Growth in revenue"], ans: 2, explain: "Maximising competitors is not a business objective." },
+                { q: "In the short term, a new business is most likely to focus on:", opts: ["Maximising profit","Survival","Social responsibility","International expansion"], ans: 1, explain: "New businesses often focus on survival — generating enough revenue to cover costs." },
+                { q: "Revenue maximisation involves:", opts: ["Selling as many products as possible regardless of price","Setting output where total revenue is at its highest level","Reducing costs to zero","Eliminating all marketing expenditure"], ans: 1, explain: "Revenue maximisation sets output at the level where total revenue is highest." },
+                { q: "Why might managers' objectives differ from shareholders' objectives?", opts: ["Managers always own the majority of shares","Managers may prioritise growth and status while shareholders prefer short-term profits","Shareholders are not interested in returns","There is never any conflict"], ans: 1, explain: "Separation of ownership and control means managers may pursue growth while shareholders prefer profits." },
+                { q: "Corporate social responsibility (CSR) refers to:", opts: ["A business's legal obligation to maximise profit","A business taking actions that benefit society beyond legal requirements","Government regulations on business","Reducing employee numbers"], ans: 1, explain: "CSR involves taking responsibility for societal and environmental impact beyond legal requirements." },
+                { q: "An example of an ethical objective is:", opts: ["Using the cheapest possible suppliers regardless of conditions","Paying the minimum wage only","Ensuring fair trade sourcing of raw materials","Maximising advertising spend"], ans: 2, explain: "Ethical objectives involve doing what is morally right, such as fair trade sourcing." }
+            ]
+        },
+        5: {
+            title: "Stakeholders in a Business",
+            unit: 1,
+            level: "AS",
+            questions: [
+                { q: "Who are the internal stakeholders of a business?", opts: ["Government and local community","Employees, managers and owners","Customers and suppliers","Competitors and trade unions"], ans: 1, explain: "Internal stakeholders are those within the business — employees, managers, and owners." },
+                { q: "Which stakeholder group is most likely to prioritise job security?", opts: ["Shareholders","Employees","Government","Suppliers"], ans: 1, explain: "Employees prioritise job security, fair wages, and good working conditions." },
+                { q: "A conflict between stakeholders might arise when:", opts: ["Owners want higher dividends and workers want higher wages","All stakeholders agree on every decision","The business makes a large profit","The business is growing"], ans: 0, explain: "Conflicts arise because different stakeholders have different interests." },
+                { q: "The government is a stakeholder because:", opts: ["It owns shares in all businesses","It collects taxes and enforces regulations","It manages the business day-to-day","It provides free labour"], ans: 1, explain: "The government benefits from tax revenues and has an interest in regulatory compliance." },
+                { q: "Which stakeholder is most interested in reliable payments from a business?", opts: ["Customers","Employees","Suppliers","Local community"], ans: 2, explain: "Suppliers want prompt and reliable payment for goods and services provided." },
+                { q: "Why might the local community be considered a stakeholder?", opts: ["They always own shares","Business activity affects local employment, environment and services","They manage the business","They supply raw materials"], ans: 1, explain: "The local community is affected through employment, environmental impact, and services." },
+                { q: "Pressure groups influence businesses by:", opts: ["Investing in shares","Providing finance","Campaigning on issues such as environmental protection or workers' rights","Managing the business"], ans: 2, explain: "Pressure groups campaign and lobby to influence business behaviour." },
+                { q: "Which stakeholder group would be most concerned about dividend payments?", opts: ["Employees","Customers","Shareholders/owners","Trade unions"], ans: 2, explain: "Shareholders are most concerned about returns through dividends and share price growth." },
+                { q: "Stakeholder mapping helps a business to:", opts: ["Increase its profits immediately","Identify and prioritise the interests of different stakeholder groups","Eliminate all stakeholder conflicts","Reduce its number of stakeholders"], ans: 1, explain: "Stakeholder mapping helps understand the power and interest of each group." },
+                { q: "Customers are external stakeholders who primarily want:", opts: ["Higher dividends","Good quality products at fair prices","Lower taxes","More employment"], ans: 1, explain: "Customers want good quality, fair prices, and reliable service." }
+            ]
+        },
+        6: {
+            title: "External Influences on Business Activity",
+            unit: 1,
+            level: "A",
+            questions: [
+                { q: "A PESTLE analysis examines:", opts: ["Internal strengths and weaknesses only","Political, Economic, Social, Technological, Legal and Environmental factors","Product, Employee, Sales, Technology, Logistics and Efficiency","Profit, Efficiency, Strategy, Team, Leadership and Enterprise"], ans: 1, explain: "PESTLE examines the external environment across six factor categories." },
+                { q: "A change in government policy on import tariffs is an example of which external influence?", opts: ["Social","Technological","Political","Environmental"], ans: 2, explain: "Government policies on tariffs and regulation are political factors." },
+                { q: "Which external factor has the most direct impact on customer spending patterns?", opts: ["Legal regulations","Technological change","Economic conditions such as recession or growth","Environmental factors"], ans: 2, explain: "Economic conditions directly affect consumer income and confidence." },
+                { q: "New technology can affect a business by:", opts: ["Only increasing costs","Making existing products or processes outdated, creating both threats and opportunities","Having no impact on competition","Only benefiting large businesses"], ans: 1, explain: "Technological change creates both threats and opportunities." },
+                { q: "Environmental factors affecting businesses include:", opts: ["Interest rates and exchange rates","Consumer protection laws","Climate change and sustainability pressures","Population growth and demographics"], ans: 2, explain: "Environmental factors include climate change, sustainability pressures, and waste management." },
+                { q: "Legal changes such as new health and safety regulations might:", opts: ["Always reduce business costs","Increase compliance costs but protect workers","Have no effect on businesses","Only affect international businesses"], ans: 1, explain: "Legal changes increase compliance costs but serve important protective purposes." },
+                { q: "Social factors that influence businesses include:", opts: ["Interest rates","Exchange rates","Changes in population demographics, lifestyles and cultural trends","Import tariffs"], ans: 2, explain: "Social factors include demographic changes, lifestyle trends, and cultural shifts." },
+                { q: "Why is the business environment described as 'dynamic'?", opts: ["It never changes","It is constantly changing, creating both risks and opportunities","Only large businesses are affected","Changes can always be predicted"], ans: 1, explain: "The business environment is constantly changing due to PESTLE factors." }
+            ]
+        },
+        7: {
+            title: "External Economic Influences",
+            unit: 1,
+            level: "A",
+            questions: [
+                { q: "During a recession, businesses are most likely to experience:", opts: ["Rising consumer demand","Falling sales and increased price competition","Rising prices with no change in demand","Stable economic conditions"], ans: 1, explain: "During a recession, GDP falls and consumer spending decreases." },
+                { q: "A depreciation (weakening) of the domestic currency will:", opts: ["Make exports cheaper and imports more expensive","Make imports cheaper and exports more expensive","Have no effect on trade","Reduce the cost of imported raw materials"], ans: 0, explain: "A weaker currency makes exports cheaper but imports more expensive." },
+                { q: "Rising interest rates are most likely to:", opts: ["Encourage consumer borrowing","Reduce consumer spending and increase business borrowing costs","Have no effect on businesses","Lower the cost of mortgages"], ans: 1, explain: "Higher interest rates increase borrowing costs and reduce disposable income." },
+                { q: "Inflation refers to:", opts: ["A fall in the general price level","A sustained rise in the general price level","An increase in the quantity of goods produced","A decrease in unemployment"], ans: 1, explain: "Inflation is a sustained increase in the general price level." },
+                { q: "How might fiscal policy affect businesses?", opts: ["Changes in government spending and taxation affect demand in the economy","Fiscal policy only affects government employees","Fiscal policy has no impact on private businesses","Fiscal policy only controls the money supply"], ans: 0, explain: "Fiscal policy involves government spending and taxation that affect aggregate demand." },
+                { q: "Exchange rate fluctuations affect businesses that:", opts: ["Only operate domestically","Import raw materials or export products","Only operate in the service sector","Have no international connections"], ans: 1, explain: "Businesses in international trade are directly affected by exchange rate changes." },
+                { q: "A period of economic growth is most likely to lead to:", opts: ["Lower consumer spending","Higher demand for goods and services and increased business opportunities","Rising unemployment","Falling business investment"], ans: 1, explain: "During growth, GDP rises, confidence increases, and spending grows." },
+                { q: "Monetary policy is controlled by:", opts: ["The government's finance ministry","The central bank, which adjusts interest rates and money supply","Individual businesses","Local authorities"], ans: 1, explain: "Monetary policy is conducted by the central bank using interest rates and money supply." }
+            ]
+        },
+        8: {
+            title: "Business Strategy",
+            unit: 1,
+            level: "A",
+            questions: [
+                { q: "Competitive advantage means:", opts: ["Being the largest business in the market","Having an edge over rivals that allows generating more sales or higher margins","Charging the lowest price always","Having the most employees"], ans: 1, explain: "Competitive advantage is what makes a business more attractive than competitors." },
+                { q: "Ansoff's Matrix is used to:", opts: ["Analyse financial performance","Identify growth strategies based on products and markets","Assess employee motivation","Calculate break-even output"], ans: 1, explain: "Ansoff's Matrix identifies four growth strategies: market penetration, market development, product development, and diversification." },
+                { q: "Market penetration involves:", opts: ["Entering new markets with existing products","Selling more of existing products in existing markets","Developing new products for new markets","Reducing the product range"], ans: 1, explain: "Market penetration increases sales of existing products in existing markets." },
+                { q: "A SWOT analysis examines:", opts: ["Only external factors","Only internal factors","Strengths, Weaknesses (internal) and Opportunities, Threats (external)","Suppliers, Workers, Owners and Technology"], ans: 2, explain: "SWOT examines internal strengths/weaknesses and external opportunities/threats." },
+                { q: "Diversification is the riskiest strategy in Ansoff's Matrix because:", opts: ["It involves new products AND new markets simultaneously","It only involves existing products","It has the lowest growth potential","It requires no investment"], ans: 0, explain: "Diversification means new products for new markets — no experience in either." },
+                { q: "Cost leadership strategy means:", opts: ["Being the most expensive in the market","Being the lowest-cost producer in the industry","Having no costs at all","Focusing on a niche market"], ans: 1, explain: "Cost leadership achieves the lowest cost of production in the industry." },
+                { q: "Differentiation strategy involves:", opts: ["Copying competitors' products exactly","Making a product or service unique and valued by customers","Reducing product quality to lower costs","Ignoring customer preferences"], ans: 1, explain: "Differentiation creates a product perceived as unique, allowing premium pricing." },
+                { q: "Porter's Five Forces model analyses:", opts: ["Five internal business functions","The competitive forces in an industry: rivalry, new entrants, substitutes, buyer power, supplier power","Five types of business strategy","The five stages of product development"], ans: 1, explain: "Porter's Five Forces examines competitive intensity in an industry." }
+            ]
+        },
+        9: {
+            title: "Corporate Planning and Implementation",
+            unit: 1,
+            level: "A",
+            questions: [
+                { q: "What is corporate planning?", opts: ["Daily operational decision-making","The process of setting long-term goals and determining strategies to achieve them","Hiring new employees","Designing new products"], ans: 1, explain: "Corporate planning sets long-term direction, objectives, and strategies." },
+                { q: "The main purpose of setting strategic objectives is to:", opts: ["Provide day-to-day operational targets","Give direction to the organisation and measure long-term progress","Set daily production quotas","Determine employee wages"], ans: 1, explain: "Strategic objectives provide long-term direction and benchmarks for progress." },
+                { q: "Implementation of a business strategy involves:", opts: ["Only planning on paper","Allocating resources, setting timelines and monitoring progress","Ignoring the business plan","Reducing all expenditure"], ans: 1, explain: "Implementation requires allocating resources, timelines, delegating, and monitoring." },
+                { q: "A key barrier to successful strategy implementation is:", opts: ["Having too many resources","Resistance to change from employees","Too much communication","Excessive planning"], ans: 1, explain: "Employee resistance to change is a major barrier to implementation." },
+                { q: "Why is monitoring and review important in strategic planning?", opts: ["It is not important once the plan is made","It allows the business to assess progress and make adjustments","It replaces the need for planning","It increases costs unnecessarily"], ans: 1, explain: "Regular monitoring allows comparison against targets and necessary adjustments." },
+                { q: "Which tool helps a business decide which strategic option to pursue?", opts: ["Cash flow forecast only","Decision tree analysis or cost-benefit analysis","Break-even chart only","Organisational chart"], ans: 1, explain: "Decision trees and cost-benefit analysis help evaluate strategic options." },
+                { q: "Tactical planning is:", opts: ["Long-term planning for the whole organisation","Medium-term planning that translates strategic plans into departmental actions","Day-to-day operational planning","Planning that has no connection to strategy"], ans: 1, explain: "Tactical planning breaks down strategic objectives into specific departmental actions." },
+                { q: "A mission statement:", opts: ["Sets specific numerical targets","Defines the fundamental purpose and values of the organisation","Is the same as a cash flow forecast","Only applies to non-profit organisations"], ans: 1, explain: "A mission statement defines the core purpose and values of the business." }
+            ]
+        },
+
+        /* ===================== UNIT 2 ===================== */
+        10: {
+            title: "Human Resource Management",
+            unit: 2,
+            level: "AS",
+            questions: [
+                { q: "What is the main purpose of Human Resource Management (HRM)?", opts: ["To maximise production output only","To manage the recruitment, development and welfare of employees effectively","To minimise the number of employees","To handle financial accounts"], ans: 1, explain: "HRM manages people effectively from recruitment through to development and welfare." },
+                { q: "A job description outlines:", opts: ["The personal qualities needed for a role","The tasks, duties and responsibilities of a job","The salary and benefits package","The company's mission statement"], ans: 1, explain: "A job description details tasks and responsibilities; a person specification outlines qualities required." },
+                { q: "Internal recruitment means:", opts: ["Hiring someone from outside the business","Promoting or transferring an existing employee to fill a vacancy","Using an employment agency","Recruiting from overseas"], ans: 1, explain: "Internal recruitment fills vacancies with existing employees through promotion or transfer." },
+                { q: "Which is an advantage of external recruitment?", opts: ["It is always cheaper","It brings new ideas, skills and experience from outside the business","It motivates existing employees more","It requires no induction training"], ans: 1, explain: "External recruitment brings fresh perspectives and new skills." },
+                { q: "An induction programme helps because it:", opts: ["Replaces the need for training","Helps new employees settle in and understand their role","Is only needed for senior managers","Increases employee turnover"], ans: 1, explain: "Induction helps employees understand their role, meet colleagues, and learn procedures." },
+                { q: "On-the-job training takes place:", opts: ["At an external college","In the actual workplace while the employee carries out their role","Only during evenings and weekends","Exclusively online"], ans: 1, explain: "On-the-job training includes coaching, mentoring, job rotation, and shadowing." },
+                { q: "Off-the-job training has the advantage of:", opts: ["Being free of cost","Allowing employees to learn without the pressure of normal work","Always being more effective","Not requiring any planning"], ans: 1, explain: "Off-the-job training allows focus on learning away from workplace distractions." },
+                { q: "The difference between training and development is:", opts: ["There is no difference","Training focuses on current job skills; development prepares for future roles","Development is always more expensive","Training is only for new employees"], ans: 1, explain: "Training improves current job skills; development prepares for future responsibilities." },
+                { q: "What is the purpose of a person specification?", opts: ["To describe the tasks of a job","To outline the ideal qualities, qualifications and experience needed","To set the salary for a role","To describe the company culture"], ans: 1, explain: "A person specification outlines essential and desirable qualities for a role." },
+                { q: "A disadvantage of internal recruitment is:", opts: ["It is always slower","It limits the choice of candidates and may cause resentment","It brings in too many new ideas","It requires no training"], ans: 1, explain: "Internal recruitment limits the candidate pool and can cause disappointment." }
+            ]
+        },
+        11: {
+            title: "Motivation",
+            unit: 2,
+            level: "AS",
+            questions: [
+                { q: "The Hawthorne experiments discovered that:", opts: ["Workers are only motivated by money","Workers perform better when they feel observed and valued","Physical working conditions are irrelevant","Productivity only depends on wages"], ans: 1, explain: "The Hawthorne studies found social factors and being valued significantly affected productivity." },
+                { q: "According to Maslow's hierarchy, which need must be satisfied first?", opts: ["Esteem needs","Self-actualisation","Physiological needs","Social needs"], ans: 2, explain: "Maslow's hierarchy starts with physiological needs as the foundation." },
+                { q: "According to Herzberg, which is a 'motivator' factor?", opts: ["Salary","Working conditions","Achievement and recognition","Company policy"], ans: 2, explain: "Herzberg classified achievement and recognition as motivators; salary is a hygiene factor." },
+                { q: "Taylor's scientific management suggested workers are primarily motivated by:", opts: ["Social needs","Recognition and achievement","Financial rewards","Job satisfaction"], ans: 2, explain: "Taylor believed workers were economically motivated and should be paid based on output." },
+                { q: "According to Maslow, once physiological needs are met, workers next seek:", opts: ["Self-actualisation","Esteem needs","Safety and security needs","No further needs"], ans: 2, explain: "After physiological needs, safety and security needs come next in Maslow's hierarchy." },
+                { q: "Financial methods of motivation include:", opts: ["Job enrichment and empowerment","Performance-related pay, commission and profit sharing","Team building and praise","Flexible working arrangements"], ans: 1, explain: "Financial methods include PRP, commission, bonuses, profit sharing, and piece rates." },
+                { q: "Non-financial methods of motivation include:", opts: ["Salary increases and bonuses","Overtime pay and commission","Job rotation, empowerment and team working","Share options and profit sharing"], ans: 2, explain: "Non-financial methods include job rotation, empowerment, delegation, and team working." },
+                { q: "Empowerment means:", opts: ["Increasing management control","Giving workers more authority and responsibility to make decisions","Reducing worker wages","Eliminating supervision entirely"], ans: 1, explain: "Empowerment delegates authority to workers, increasing motivation and job satisfaction." },
+                { q: "Herzberg's 'hygiene factors' include:", opts: ["Achievement and recognition","Salary, working conditions and company policy","Responsibility and advancement","The work itself"], ans: 1, explain: "Hygiene factors include salary, conditions, and policy — their absence causes dissatisfaction." }
+            ]
+        },
+        12: {
+            title: "Management",
+            unit: 2,
+            level: "AS",
+            questions: [
+                { q: "The role of management includes all the following EXCEPT:", opts: ["Planning and organising","Leading and controlling","Setting personal investment portfolios","Coordinating resources to achieve objectives"], ans: 2, explain: "Management functions include planning, organising, leading, and controlling." },
+                { q: "Fayol identified five functions of management. Which is NOT one?", opts: ["Planning","Organising","Motivating (as a separate function)","Controlling"], ans: 2, explain: "Fayol's five functions are planning, organising, commanding, coordinating, and controlling." },
+                { q: "Scientific management (Taylor) focused on:", opts: ["Worker satisfaction above all","Finding the 'one best way' to perform each task","Empowering workers to make decisions","Building team relationships"], ans: 1, explain: "Taylor aimed to find the most efficient way to perform tasks through time and motion studies." },
+                { q: "A manager resolving conflicts between employees is performing which role?", opts: ["Planning","Organising","Interpersonal/leadership role","Monitoring"], ans: 2, explain: "Resolving conflicts is part of the interpersonal or leadership role." },
+                { q: "The main difference between management and leadership is:", opts: ["There is no difference","Managers administer systems; leaders inspire and create vision","Leaders only work in large companies","Managers are always more important"], ans: 1, explain: "Management focuses on processes; leadership focuses on inspiring and creating vision." },
+                { q: "Span of control refers to:", opts: ["The number of levels in a hierarchy","The number of employees directly supervised by one manager","The total number of employees","The geographical area covered"], ans: 1, explain: "Span of control is the number of subordinates directly reporting to one manager." },
+                { q: "According to Mayo, workers are motivated primarily by:", opts: ["Financial rewards alone","Recognition, belonging to a group, and good social relationships","Strict management control","Individual piece-rate pay"], ans: 1, explain: "Mayo found social factors were more important motivators than financial incentives." }
+            ]
+        },
+        13: {
+            title: "Organisational Structure",
+            unit: 2,
+            level: "A",
+            questions: [
+                { q: "A tall organisational structure is characterised by:", opts: ["Many layers of hierarchy and narrow spans of control","Few layers and wide spans of control","No management structure","Only one layer of management"], ans: 0, explain: "Tall structures have many hierarchy levels with narrow spans of control." },
+                { q: "A flat organisational structure has:", opts: ["Many levels of hierarchy","Few layers of management with wide spans of control","No managers","A very long chain of command"], ans: 1, explain: "Flat structures have fewer levels with wider spans, enabling faster communication." },
+                { q: "Delayering means:", opts: ["Adding more management levels","Removing layers of management to create a flatter structure","Increasing the workforce","Expanding the product range"], ans: 1, explain: "Delayering removes middle management to reduce costs and speed up decisions." },
+                { q: "Organising by function means:", opts: ["Dividing by geographical area","Grouping employees by specialist role, e.g. marketing, finance","Organising by product type","Organising by customer group"], ans: 1, explain: "Functional structure groups employees by specialist area." },
+                { q: "A matrix structure involves:", opts: ["Employees reporting to only one manager","Employees reporting to both a functional and project manager","No formal structure","Only senior managers having authority"], ans: 1, explain: "Matrix structures enable cross-functional collaboration through dual reporting." },
+                { q: "Delegation means:", opts: ["Doing all tasks personally","Assigning tasks and authority to subordinates while retaining overall responsibility","Removing employees","Transferring ownership"], ans: 1, explain: "Delegation entrusts tasks and authority while the manager retains responsibility." },
+                { q: "Centralisation means:", opts: ["Decision-making spread throughout the organisation","Decision-making concentrated at the top","The business operates from one location only","All employees make their own decisions"], ans: 1, explain: "Centralised structures have key decisions made by senior management." },
+                { q: "Decentralisation has the advantage of:", opts: ["Ensuring complete consistency","Slowing down decision-making","Allowing faster, local decision-making and motivating managers","Reducing the number of managers"], ans: 2, explain: "Decentralisation enables faster responses and motivates managers with responsibility." }
+            ]
+        },
+        14: {
+            title: "Business Communication",
+            unit: 2,
+            level: "A",
+            questions: [
+                { q: "Formal communication in a business follows:", opts: ["The grapevine","The official chain of command or established channels","Informal social networks only","Personal email accounts"], ans: 1, explain: "Formal communication follows official channels — memos, reports, and meetings." },
+                { q: "The grapevine refers to:", opts: ["The official company newsletter","The formal chain of command","Informal communication spreading through workplace social networks","The company's IT system"], ans: 2, explain: "The grapevine is the informal network where information spreads through casual conversations." },
+                { q: "Barriers to effective communication include:", opts: ["Clear and concise messaging","Using appropriate channels","Information overload, jargon, and language differences","Regular feedback"], ans: 2, explain: "Barriers include overload, jargon, language differences, and lack of feedback." },
+                { q: "Downward communication flows from:", opts: ["Employees to management","Senior management to subordinates","One employee to another at the same level","External stakeholders to the business"], ans: 1, explain: "Downward communication includes instructions, policies, and objectives from senior management." },
+                { q: "Upward communication is important because:", opts: ["It allows managers to issue orders","It provides feedback from employees to management","It replaces the need for meetings","It only flows between senior managers"], ans: 1, explain: "Upward communication lets employees report progress, raise concerns, and share ideas." },
+                { q: "An advantage of written communication is:", opts: ["It is always faster than verbal","It provides a permanent record that can be referred to later","It allows immediate feedback","It is always more personal"], ans: 1, explain: "Written communication creates a permanent record and ensures clarity." },
+                { q: "IT has improved business communication by:", opts: ["Making all communication slower","Enabling instant, global communication through email, video conferencing and messaging","Eliminating all face-to-face contact","Reducing the amount of information shared"], ans: 1, explain: "IT tools enable faster, cheaper, and more efficient global communication." }
+            ]
+        },
+        15: {
+            title: "Leadership",
+            unit: 2,
+            level: "A",
+            questions: [
+                { q: "An autocratic leadership style is characterised by:", opts: ["Sharing decisions with the team","The leader making decisions without consulting others","Complete absence of leadership","Allowing the team to make all decisions"], ans: 1, explain: "Autocratic leaders make decisions unilaterally — fast but may demotivate workers." },
+                { q: "A democratic leadership style involves:", opts: ["The leader making all decisions alone","Consulting employees and involving them in decision-making","Having no leader at all","Allowing complete freedom"], ans: 1, explain: "Democratic leaders consult employees, improving motivation and decision quality." },
+                { q: "A laissez-faire leadership style means:", opts: ["The leader controls everything closely","The leader sets clear targets daily","The leader provides little direction and allows the team to decide","The leader uses threats to motivate"], ans: 2, explain: "Laissez-faire works with highly skilled, self-motivated teams." },
+                { q: "Which style is most appropriate in a crisis?", opts: ["Democratic","Laissez-faire","Autocratic","Paternalistic"], ans: 2, explain: "Autocratic leadership is effective when fast, decisive action is needed." },
+                { q: "Situational leadership theory suggests:", opts: ["One style is always best","Leaders should adapt their style based on task, followers and situation","Leaders are born, not made","Leadership style never needs to change"], ans: 1, explain: "Situational leadership argues effective leaders adjust their style to circumstances." },
+                { q: "A transformational leader:", opts: ["Focuses only on day-to-day operations","Inspires followers to achieve extraordinary outcomes through vision","Avoids making changes","Manages through strict rules"], ans: 1, explain: "Transformational leaders inspire with a compelling vision and encourage innovation." },
+                { q: "A transactional leader focuses on:", opts: ["Inspiring a shared vision","Exchange relationships — rewarding performance and correcting deviations","Empowering employees to innovate","Building organisational culture"], ans: 1, explain: "Transactional leaders manage through rewards and punishments." }
+            ]
+        },
+        16: {
+            title: "Human Resource Management Strategy",
+            unit: 2,
+            level: "A",
+            questions: [
+                { q: "Hard HRM approaches treat employees as:", opts: ["Valuable assets to be developed","A resource to be managed efficiently","Equal partners in decision-making","Volunteers who should not be paid"], ans: 1, explain: "Hard HRM treats employees as a resource to be managed with emphasis on cost control." },
+                { q: "Soft HRM approaches treat employees as:", opts: ["A cost to be minimised","Valuable assets whose commitment and development are essential","Interchangeable parts of production","Irrelevant to business success"], ans: 1, explain: "Soft HRM invests in employee development, empowerment, and well-being." },
+                { q: "Performance-related pay (PRP) links:", opts: ["Salaries to length of service only","Employee pay directly to their individual or team performance","Pay to hours worked","Pay to the company's share price"], ans: 1, explain: "PRP links pay to measured performance against targets." },
+                { q: "An appraisal system is used to:", opts: ["Recruit new employees","Assess employee performance, set targets and identify development needs","Determine marketing strategy","Calculate break-even"], ans: 1, explain: "Appraisals review performance, provide feedback, and identify training needs." },
+                { q: "Employee retention strategies might include:", opts: ["Reducing wages","Offering competitive pay, career development, and good working conditions","Increasing workload","Limiting promotion opportunities"], ans: 1, explain: "Retention strategies keep good employees through competitive packages and career growth." },
+                { q: "The recruitment process typically begins with:", opts: ["Interviewing candidates","Advertising the vacancy","Identifying the need for a new employee through job analysis","Making a job offer"], ans: 2, explain: "Recruitment starts with identifying a vacancy and conducting a job analysis." },
+                { q: "Why might a business use flexible working arrangements?", opts: ["To increase office costs","To attract and retain employees and respond to changing needs","To reduce quality","To avoid paying wages"], ans: 1, explain: "Flexible working improves work-life balance and attracts diverse talent." },
+                { q: "Dismissal should follow:", opts: ["No particular process","A fair documented procedure following employment law","The personal preference of one manager","Informal verbal warnings only"], ans: 1, explain: "Fair dismissal requires proper procedures in line with employment law." }
+            ]
+        },
+
+        /* ===================== UNIT 3 ===================== */
+        17: {
+            title: "The Nature of Marketing",
+            unit: 3,
+            level: "AS",
+            questions: [
+                { q: "Marketing is best defined as:", opts: ["Selling as many products as possible","The management process of identifying, anticipating and satisfying customer needs profitably","Advertising products on television","Reducing prices to beat competitors"], ans: 1, explain: "Marketing is the management process of identifying, anticipating and satisfying customer requirements profitably." },
+                { q: "The difference between a 'need' and a 'want' is:", opts: ["There is no difference","A need is essential for survival; a want is a desire shaped by culture and personality","A want is more important than a need","Needs are always more expensive than wants"], ans: 1, explain: "Needs are essentials for survival (food, shelter), while wants are shaped by culture, personality, and marketing." },
+                { q: "Mass marketing involves:", opts: ["Targeting a specific small group","Marketing to the whole market with one undifferentiated offer","Only marketing luxury products","Marketing through social media only"], ans: 1, explain: "Mass marketing targets the entire market with a single marketing mix, ignoring segment differences." },
+                { q: "Niche marketing involves:", opts: ["Selling to everyone at low prices","Targeting a small, specific segment of the market with a tailored product","Using mass advertising campaigns","Ignoring customer preferences"], ans: 1, explain: "Niche marketing targets a small, well-defined segment with specialised products, often allowing premium pricing." },
+                { q: "Which is a key purpose of marketing?", opts: ["To increase production costs","To match products to customer needs and generate sales","To reduce the number of products offered","To eliminate all competition"], ans: 1, explain: "Marketing aims to match products to customer needs, generate sales, and build brand loyalty." },
+                { q: "The marketing concept focuses on:", opts: ["Producing as much as possible regardless of demand","Identifying and satisfying customer needs better than competitors","Reducing product quality to lower costs","Ignoring customer feedback"], ans: 1, explain: "The marketing concept puts customer needs at the centre of all business decisions." },
+                { q: "A product-oriented business:", opts: ["Focuses on customer needs first","Focuses on making products and then trying to sell them","Always outperforms market-oriented businesses","Has no need for market research"], ans: 1, explain: "Product-oriented businesses focus on what they can make rather than what customers want." },
+                { q: "Adding value through marketing can be achieved by:", opts: ["Reducing product quality","Building brand image, improving packaging, and effective promotion","Eliminating after-sales service","Ignoring customer preferences"], ans: 1, explain: "Marketing adds value through branding, packaging, promotion, and creating customer perceptions of quality." },
+                { q: "Customer loyalty is important because:", opts: ["It has no impact on profits","Loyal customers buy repeatedly and may recommend the business to others","It eliminates the need for marketing","It always leads to lower prices"], ans: 1, explain: "Loyal customers provide repeat business and word-of-mouth recommendations, reducing acquisition costs." },
+                { q: "Which best describes the role of marketing in a business?", opts: ["It is only concerned with advertising","It coordinates all activities that identify and satisfy customer needs","It only operates in large companies","It replaces the need for a good product"], ans: 1, explain: "Marketing coordinates product development, pricing, promotion, and distribution to satisfy customers." }
+            ]
+        },
+        18: {
+            title: "Market Research",
+            unit: 3,
+            level: "AS",
+            questions: [
+                { q: "Primary market research is:", opts: ["Research that already exists, collected for another purpose","Research collected first-hand for a specific purpose","Research found on the internet only","Research conducted by competitors"], ans: 1, explain: "Primary research is original data collected first-hand for a specific research purpose." },
+                { q: "Secondary market research is:", opts: ["New research conducted by surveys","Using data that has already been collected for another purpose","Research that is always more accurate than primary research","Research conducted only by large companies"], ans: 1, explain: "Secondary research uses existing data such as government statistics, published reports, and company records." },
+                { q: "An advantage of primary research is:", opts: ["It is always cheaper than secondary research","It is up-to-date and specific to the research question","It is always more accurate","It takes no time to collect"], ans: 1, explain: "Primary research provides current, targeted data specific to the business's needs." },
+                { q: "A disadvantage of primary research is:", opts: ["It is always inaccurate","It can be time-consuming and expensive to collect","It is always out of date","It cannot be tailored to specific needs"], ans: 1, explain: "Primary research can be costly and time-consuming compared to secondary research." },
+                { q: "Quantitative research involves:", opts: ["Collecting opinions and feelings in depth","Collecting numerical data that can be statistically analysed","Only using focus groups","Studying one individual in detail"], ans: 1, explain: "Quantitative research collects numerical data (e.g. surveys with closed questions) for statistical analysis." },
+                { q: "Qualitative research involves:", opts: ["Collecting large amounts of numerical data","Collecting detailed opinions, attitudes and feelings","Only using questionnaires","Analysing sales figures"], ans: 1, explain: "Qualitative research explores opinions and motivations through methods like interviews and focus groups." },
+                { q: "A representative sample is:", opts: ["A sample that includes only friends and family","A sample that accurately reflects the characteristics of the target population","A sample of only 10 people","A sample chosen randomly regardless of demographics"], ans: 1, explain: "A representative sample mirrors the target population's characteristics to ensure findings are applicable." },
+                { q: "Random sampling means:", opts: ["Selecting people who are easiest to reach","Every member of the population has an equal chance of being selected","Selecting every nth person from a list","Choosing people based on specific characteristics"], ans: 1, explain: "Random sampling gives every member of the population an equal chance of selection, reducing bias." },
+                { q: "A focus group is:", opts: ["A large-scale survey","A small group of target customers who discuss a product or topic in depth","A one-to-one interview","An analysis of published statistics"], ans: 1, explain: "Focus groups gather in-depth qualitative data through guided group discussions." },
+                { q: "Market research helps businesses to:", opts: ["Eliminate all risk","Reduce uncertainty and make more informed decisions","Guarantee product success","Avoid all competition"], ans: 1, explain: "Market research reduces uncertainty by providing data to support decision-making." }
+            ]
+        },
+        19: {
+            title: "The Marketing Mix – Product and Price",
+            unit: 3,
+            level: "AS",
+            questions: [
+                { q: "The product life cycle shows:", opts: ["The cost of producing a product over time","The stages a product goes through from launch to withdrawal from the market","The amount of profit a product makes each year","How many employees are needed to produce a product"], ans: 1, explain: "The product life cycle shows stages: introduction, growth, maturity, and decline." },
+                { q: "During the growth stage of the product life cycle:", opts: ["Sales are low and costs are high","Sales rise rapidly, profits increase, and competitors may enter the market","Sales decline and the product is withdrawn","The product is being developed"], ans: 1, explain: "Growth sees rising sales, increasing profits, economies of scale, and possible new competitors." },
+                { q: "Price skimming involves:", opts: ["Setting a low price to gain market share quickly","Setting a high initial price and lowering it over time","Setting a price that matches competitors","Setting prices based on production cost only"], ans: 1, explain: "Price skimming sets a high launch price to maximise revenue from early adopters before reducing the price." },
+                { q: "Penetration pricing involves:", opts: ["Setting a high price to maximise early revenue","Setting a low price to gain market share quickly","Keeping the price constant throughout the product life cycle","Setting prices based on competitor prices only"], ans: 1, explain: "Penetration pricing sets a low entry price to attract customers and gain market share rapidly." },
+                { q: "Cost-plus pricing means:", opts: ["Setting the price based on what competitors charge","Adding a percentage markup to the cost of production","Setting the price based on customer demand","Using the price that gives the highest market share"], ans: 1, explain: "Cost-plus pricing adds a fixed percentage or amount to the unit cost to determine the selling price." },
+                { q: "A brand is important because it:", opts: ["Has no effect on customer choice","Creates customer loyalty, allows premium pricing, and differentiates from competitors","Only matters for luxury products","Increases production costs without benefit"], ans: 1, explain: "Brands create recognition, loyalty, differentiation, and allow businesses to charge premium prices." },
+                { q: "Product differentiation means:", opts: ["Making all products identical","Making a product distinct from competitors' products through features, quality, or branding","Copying competitors' products exactly","Reducing the number of product variations"], ans: 1, explain: "Differentiation makes products distinct through unique features, quality, design, or branding." },
+                { q: "During the maturity stage of the product life cycle:", opts: ["Sales grow rapidly","Sales reach their peak and then begin to plateau; competition is intense","The product is just being launched","Sales are very low"], ans: 1, explain: "Maturity features peak sales, intense competition, and businesses may modify or rebrand to extend the stage." },
+                { q: "During the decline stage, a business might:", opts: ["Invest heavily in advertising","Withdraw the product, harvest remaining profits, or reposition it","Launch new variants to extend the life cycle","Increase the price significantly"], ans: 1, explain: "In decline, businesses can withdraw the product, harvest profits, or attempt to rejuvenate it." },
+                { q: "Elasticity of demand measures:", opts: ["The total revenue of a business","How responsive demand is to a change in price","The cost of producing a product","The number of competitors in a market"], ans: 1, explain: "Price elasticity of demand measures how much quantity demanded changes when price changes." }
+            ]
+        },
+        20: {
+            title: "The Marketing Mix – Promotion and Place",
+            unit: 3,
+            level: "AS",
+            questions: [
+                { q: "Above-the-line promotion uses:", opts: ["Free media coverage and public relations","Paid-for media such as TV, radio, newspapers and online advertising","Personal selling and direct contact","Trade discounts and point-of-sale displays"], ans: 1, explain: "Above-the-line promotion uses paid media channels to reach a mass audience." },
+                { q: "Below-the-line promotion includes:", opts: ["Television advertising","Sponsorship, public relations, sales promotions and direct marketing","National newspaper advertisements","Billboard advertising"], ans: 1, explain: "Below-the-line promotion includes PR, sponsorship, sales promotions, and direct marketing." },
+                { q: "The main purpose of promotion is to:", opts: ["Reduce production costs","Inform, persuade and remind customers about a product","Increase the number of employees","Improve product quality"], ans: 1, explain: "Promotion aims to inform customers, persuade them to buy, and remind them of the product." },
+                { q: "Direct selling involves:", opts: ["Selling through retail shops","Selling products directly to consumers without intermediaries, e.g. door-to-door or online","Using wholesalers to distribute products","Selling only to businesses"], ans: 1, explain: "Direct selling reaches consumers without traditional retail intermediaries." },
+                { q: "A distribution channel describes:", opts: ["The route a product takes from producer to final consumer","The advertising campaign for a product","The price strategy of a business","The product design process"], ans: 1, explain: "Distribution channels are the paths products take from producer through intermediaries to consumer." },
+                { q: "Intensive distribution means:", opts: ["Selling through only one outlet in each area","Selling through as many outlets as possible","Selling exclusively online","Selling only through the manufacturer's own shops"], ans: 1, explain: "Intensive distribution places products in as many outlets as possible (e.g. confectionery, soft drinks)." },
+                { q: "Exclusive distribution means:", opts: ["Selling through every possible outlet","Limiting sales to one or very few outlets in a particular area","Selling only at discount prices","Distributing through online marketplaces only"], ans: 1, explain: "Exclusive distribution gives one retailer sole rights in an area, creating an exclusive image." },
+                { q: "Public relations (PR) aims to:", opts: ["Directly sell products to customers","Create a favourable image and positive relationships with stakeholders","Reduce the price of products","Increase the number of retail outlets"], ans: 1, explain: "PR manages the business's reputation and builds positive relationships with stakeholders." },
+                { q: "Sales promotions include:", opts: ["Long-term brand building activities","Short-term incentives such as buy-one-get-one-free, coupons, and competitions","Annual reports to shareholders","Employee training programmes"], ans: 1, explain: "Sales promotions are short-term incentives designed to stimulate immediate sales." },
+                { q: "E-commerce has changed distribution by:", opts: ["Eliminating the need for any physical products","Allowing businesses to sell directly to consumers online, reducing the need for intermediaries","Making all products more expensive","Reducing the importance of customer service"], ans: 1, explain: "E-commerce enables direct online sales, bypassing traditional intermediaries and reaching global markets." }
+            ]
+        },
+        21: {
+            title: "Marketing Analysis",
+            unit: 3,
+            level: "A",
+            questions: [
+                { q: "Sales forecasting is important because it:", opts: ["Guarantees future sales","Helps businesses plan production, budgeting and resource allocation","Eliminates all business risk","Is only useful for large companies"], ans: 1, explain: "Sales forecasting helps plan production, manage cash flow, and allocate resources effectively." },
+                { q: "Price elasticity of demand (PED) measures:", opts: ["The total revenue from sales","How responsive quantity demanded is to a change in price","The cost of producing one extra unit","The level of competition in a market"], ans: 1, explain: "PED = % change in quantity demanded ÷ % change in price. It measures demand sensitivity to price changes." },
+                { q: "If PED is elastic (PED > 1), then:", opts: ["A price increase will increase total revenue","A price decrease will increase total revenue because the quantity increase more than offsets the lower price","Price changes have no effect on total revenue","Demand is completely unresponsive to price"], ans: 1, explain: "With elastic demand, lowering the price increases total revenue because the proportional increase in quantity is greater." },
+                { q: "If PED is inelastic (PED < 1), then:", opts: ["A price decrease will increase total revenue","A price increase will increase total revenue because the quantity decrease is proportionally smaller","Price changes have no effect on demand","Demand is infinitely responsive to price"], ans: 1, explain: "With inelastic demand, raising the price increases total revenue because quantity falls proportionally less." },
+                { q: "Income elasticity of demand (YED) measures:", opts: ["How demand responds to price changes","How demand responds to changes in consumer income","How demand responds to competitor pricing","How demand changes over the product life cycle"], ans: 1, explain: "YED measures how quantity demanded changes when consumer income changes." },
+                { q: "A product with positive YED is called:", opts: ["An inferior good","A normal good (or luxury good if YED > 1)","A complementary good","A substitute good"], ans: 1, explain: "Positive YED means it is a normal good — demand rises as income rises. If YED > 1 it is a luxury good." },
+                { q: "A product with negative YED is called:", opts: ["A normal good","A luxury good","An inferior good","A substitute good"], ans: 2, explain: "Negative YED means it is an inferior good — demand falls as income rises (e.g. budget food products)." },
+                { q: "Market mapping involves:", opts: ["Drawing a map of where shops are located","Plotting products on a graph based on two key variables to identify gaps in the market","Calculating total market size","Analysing employee satisfaction"], ans: 1, explain: "Market mapping plots products on two axes (e.g. price vs. quality) to identify positioning and gaps." },
+                { q: "Interpreting marketing data helps businesses to:", opts: ["Make decisions without any analysis","Identify trends, evaluate performance, and make informed marketing decisions","Avoid all marketing expenditure","Guarantee product success"], ans: 1, explain: "Analysing marketing data enables evidence-based decision-making and strategy adjustment." },
+                { q: "Moving averages are used in sales forecasting to:", opts: ["Calculate the exact future sales figure","Smooth out fluctuations in data to identify underlying trends","Determine the break-even point","Measure brand awareness"], ans: 1, explain: "Moving averages smooth seasonal and random variations to reveal the underlying trend in sales data." }
+            ]
+        },
+        22: {
+            title: "Marketing Strategy",
+            unit: 3,
+            level: "A",
+            questions: [
+                { q: "Market segmentation is:", opts: ["Selling the same product to everyone","Dividing a market into distinct groups of consumers with similar needs or characteristics","Reducing the product range","Setting one price for all products"], ans: 1, explain: "Segmentation divides the market into groups (by demographics, geography, behaviour, etc.) for targeted marketing." },
+                { q: "Targeting involves:", opts: ["Aiming at all consumers equally","Selecting one or more market segments to focus marketing efforts on","Ignoring customer differences","Producing only one product"], ans: 1, explain: "Targeting selects specific segments to focus the marketing mix on their particular needs." },
+                { q: "Positioning refers to:", opts: ["The physical location of a business","Creating a distinct image and identity for a product in the minds of target consumers","The price of a product","The number of employees in the marketing department"], ans: 1, explain: "Positioning shapes how consumers perceive a product relative to competitors." },
+                { q: "A competitive pricing strategy might involve:", opts: ["Ignoring competitor prices entirely","Setting prices based on what competitors charge for similar products","Always charging the highest price","Never changing prices"], ans: 1, explain: "Competitive pricing matches or undercuts competitor prices to remain attractive in the market." },
+                { q: "Extension strategies for the product life cycle aim to:", opts: ["Shorten the product life cycle","Prolong the maturity stage or delay the decline stage","Introduce the product to a new market immediately","Reduce the product's features"], ans: 1, explain: "Extension strategies (new packaging, new markets, modifications) delay the decline stage." },
+                { q: "International marketing may require businesses to:", opts: ["Use exactly the same marketing mix in every country","Adapt products, prices, promotion and distribution to suit different cultural and economic conditions","Only export to neighbouring countries","Ignore local customs and preferences"], ans: 1, explain: "International marketing often requires adaptation (localisation) to suit different cultural, legal, and economic environments." },
+                { q: "The marketing budget determines:", opts: ["The number of employees in the business","How much money is allocated to marketing activities","The price of the product","The product design"], ans: 1, explain: "The marketing budget allocates funds across promotion, research, distribution, and other marketing activities." },
+                { q: "Measuring marketing effectiveness involves:", opts: ["Ignoring all data","Tracking KPIs such as sales growth, market share, brand awareness and return on investment","Only counting the number of advertisements placed","Relying solely on customer compliments"], ans: 1, explain: "Effectiveness is measured through KPIs including sales data, market share, ROI, and brand awareness metrics." }
+            ]
+        },
+
+        /* ===================== UNIT 4 ===================== */
+        23: {
+            title: "The Nature of Operations",
+            unit: 4,
+            level: "AS",
+            questions: [
+                { q: "Operations management is concerned with:", opts: ["Only marketing products","The management of resources and processes that transform inputs into outputs (goods and services)","Only managing employee wages","Only designing new products"], ans: 1, explain: "Operations management transforms inputs (resources) into outputs (goods/services) efficiently." },
+                { q: "Inputs in the production process include:", opts: ["Only finished products","Raw materials, labour, capital, and information","Only customer feedback","Only financial data"], ans: 1, explain: "Inputs include raw materials, components, labour, capital equipment, energy, and information." },
+                { q: "The transformation process converts:", opts: ["Customers into employees","Inputs into outputs (goods or services)","Profits into losses","Marketing strategies into products"], ans: 1, explain: "The transformation process adds value by converting inputs into finished goods or services." },
+                { q: "Batch production means:", opts: ["Making one product at a time to customer specification","Making a set number of identical products at one time","Producing large quantities of one product continuously","Producing products only when ordered"], ans: 1, explain: "Batch production produces a specific quantity of identical items before changing to another batch." },
+                { q: "Flow (mass/continuous) production means:", opts: ["Making one unique product","Producing large volumes of identical products through a continuous process","Making small quantities of customised goods","Producing only during peak seasons"], ans: 1, explain: "Flow production continuously manufactures large volumes of standardised products (e.g. cars, soft drinks)." },
+                { q: "One-off (job) production means:", opts: ["Producing thousands of identical items","Making a single, unique product to a customer's specific requirements","Continuous manufacturing","Batch processing"], ans: 1, explain: "Job production creates unique products tailored to individual customer needs (e.g. custom furniture, buildings)." },
+                { q: "Which is an advantage of job production?", opts: ["Low unit costs","Each product is unique and high quality, meeting specific customer needs","High output speed","Standardised products"], ans: 1, explain: "Job production allows high customisation and quality but at higher unit cost." },
+                { q: "Which is a disadvantage of flow production?", opts: ["High unit costs","Low output volume","Lack of flexibility — difficult to change the product once the process is set up","Highly skilled workers needed"], ans: 1, explain: "Flow production is inflexible and requires very high initial capital investment." },
+                { q: "Technology has improved operations by:", opts: ["Making all processes slower","Enabling automation, CAD/CAM, robotics, and improved quality control","Eliminating the need for any workers","Reducing product quality"], ans: 1, explain: "Technology enables automation, precision, speed, and consistency in operations." },
+                { q: "The choice of production method depends on:", opts: ["Only the size of the business","The type of product, volume demanded, level of customisation, and available resources","Only the price of raw materials","Only the number of employees"], ans: 1, explain: "The method depends on product type, demand volume, customisation needs, and resources." }
+            ]
+        },
+        24: {
+            title: "Inventory Management",
+            unit: 4,
+            level: "AS",
+            questions: [
+                { q: "Inventory (stock) refers to:", opts: ["The number of employees","The raw materials, work-in-progress, and finished goods held by a business","The total revenue of a business","The value of fixed assets"], ans: 1, explain: "Inventory includes raw materials, work-in-progress (WIP), and finished goods." },
+                { q: "Why do businesses hold inventory?", opts: ["To waste money","To meet customer demand, take advantage of bulk discounts, and protect against supply disruptions","To increase production costs","To reduce warehouse space"], ans: 1, explain: "Holding inventory ensures products are available, enables bulk buying, and buffers against supply problems." },
+                { q: "A disadvantage of holding too much inventory is:", opts: ["Customers will always be satisfied","It ties up working capital and increases storage costs","It eliminates stock-outs","It improves cash flow"], ans: 1, explain: "Excess inventory ties up cash, increases storage costs, and risks obsolescence or spoilage." },
+                { q: "A disadvantage of holding too little inventory is:", opts: ["Storage costs are too high","Stock-outs may occur, leading to lost sales and customer dissatisfaction","Too much working capital is tied up","There is no disadvantage"], ans: 1, explain: "Too little inventory risks stock-outs, lost sales, production stoppages, and unhappy customers." },
+                { q: "Just-in-time (JIT) inventory management means:", opts: ["Holding large amounts of stock","Receiving goods only as they are needed in the production process","Ordering stock once a year","Keeping stock for emergency use only"], ans: 1, explain: "JIT minimises inventory by receiving materials exactly when needed, reducing storage costs." },
+                { q: "An advantage of JIT is:", opts: ["It requires large warehouses","It reduces storage costs and waste from obsolete stock","It eliminates all production problems","It is easy to implement in all businesses"], ans: 1, explain: "JIT reduces storage costs, waste, and working capital tied up in inventory." },
+                { q: "A disadvantage of JIT is:", opts: ["It always increases costs","It leaves the business vulnerable to supply chain disruptions","It requires large storage facilities","It eliminates the need for suppliers"], ans: 1, explain: "JIT depends on reliable suppliers — any disruption can halt production immediately." },
+                { q: "The Economic Order Quantity (EOQ) is:", opts: ["The maximum amount of stock a business can hold","The optimal order quantity that minimises total inventory costs (ordering + holding costs)","The minimum order a supplier will accept","The amount of stock sold each day"], ans: 1, explain: "EOQ balances ordering costs against holding costs to find the most cost-effective order size." },
+                { q: "Buffer (safety) stock is:", opts: ["Stock that has passed its expiry date","Extra inventory held to protect against unexpected demand or supply delays","Stock that is immediately ready for sale","Stock ordered in bulk for discounts"], ans: 1, explain: "Safety stock acts as a buffer against uncertainty in demand or supply." },
+                { q: "Stock rotation means:", opts: ["Moving stock between different warehouses","Selling or using the oldest stock first (FIFO) to prevent obsolescence","Ordering new stock every day","Keeping all stock in one location"], ans: 1, explain: "Stock rotation ensures older items are used first, reducing waste from expired or obsolete stock." }
+            ]
+        },
+        25: {
+            title: "Capacity Utilisation and Outsourcing",
+            unit: 4,
+            level: "AS",
+            questions: [
+                { q: "Capacity utilisation is calculated as:", opts: ["Total costs ÷ total revenue","Actual output ÷ maximum possible output × 100","Revenue per employee × number of employees","Fixed costs ÷ variable costs"], ans: 1, explain: "Capacity utilisation measures how much of the available production capacity is being used." },
+                { q: "Operating below full capacity means:", opts: ["The business is producing more than it can","The business is not using all of its available production resources","The business has no customers","The business is making a loss"], ans: 1, explain: "Operating below full capacity means some resources are idle, increasing unit costs." },
+                { q: "An advantage of high capacity utilisation is:", opts: ["Higher unit costs","Lower unit costs as fixed costs are spread over more units","More flexibility to respond to demand changes","Reduced risk of equipment breakdown"], ans: 1, explain: "Higher utilisation spreads fixed costs over more units, reducing average cost." },
+                { q: "A disadvantage of high capacity utilisation is:", opts: ["Lower unit costs","Less flexibility, increased stress on machinery, and potential quality issues","More time for maintenance","Reduced output"], ans: 1, explain: "Running at very high capacity reduces flexibility, increases breakdown risk, and may affect quality." },
+                { q: "Outsourcing means:", opts: ["Hiring more permanent employees","Contracting out business activities to external providers","Expanding production facilities","Increasing the product range"], ans: 1, explain: "Outsourcing contracts non-core activities to specialist external providers." },
+                { q: "An advantage of outsourcing is:", opts: ["Full control over all processes","Access to specialist expertise and potentially lower costs","Always better quality","Eliminating all management responsibility"], ans: 1, explain: "Outsourcing can reduce costs and provide access to specialist skills and technology." },
+                { q: "A disadvantage of outsourcing is:", opts: ["It always saves money","Loss of control over quality and potential dependency on external providers","It increases the workforce","It simplifies management"], ans: 1, explain: "Outsourcing reduces direct control and can create dependency on suppliers." },
+                { q: "Sub-contracting is similar to outsourcing because:", opts: ["Both involve hiring permanent staff","Both involve using external providers to carry out work","Both increase the business's workforce","Both are only used by large companies"], ans: 1, explain: "Both use external providers, though sub-contracting is often for specific projects rather than ongoing functions." }
+            ]
+        },
+        26: {
+            title: "Location and Scale",
+            unit: 4,
+            level: "A",
+            questions: [
+                { q: "Factors influencing business location include:", opts: ["Only the personal preference of the owner","Proximity to markets, raw materials, labour supply, transport links, and costs","Only the cost of land","Only government regulations"], ans: 1, explain: "Location decisions consider multiple factors including markets, materials, labour, costs, and infrastructure." },
+                { q: "A business producing perishable goods should locate near:", opts: ["Raw materials","Markets to minimise transport time","Cheap land","Areas with low labour costs"], ans: 1, explain: "Perishable goods need to reach customers quickly, so proximity to markets is crucial." },
+                { q: "A bulk-reducing industry should locate near:", opts: ["Markets","Raw materials to reduce transport costs of heavy inputs","Areas with high wages","City centres"], ans: 1, explain: "Bulk-reducing industries (e.g. copper smelting) locate near raw materials because the finished product weighs less." },
+                { q: "Government incentives for business location include:", opts: ["Higher taxes in certain areas","Grants, tax breaks, and development zones to attract businesses to specific areas","Forcing businesses to locate in city centres","Banning businesses from rural areas"], ans: 1, explain: "Governments offer grants, tax incentives, and enterprise zones to encourage investment in specific areas." },
+                { q: "The break-even level of output is:", opts: ["The maximum output a business can produce","The level of output where total revenue equals total costs (zero profit)","The output that generates the highest profit","The minimum output for survival"], ans: 1, explain: "Break-even is where total revenue = total costs, so the business makes neither profit nor loss." },
+                { q: "Break-even output is calculated as:", opts: ["Total revenue ÷ selling price","Fixed costs ÷ contribution per unit","Variable costs × number of units","Total costs – total revenue"], ans: 1, explain: "Break-even = Fixed Costs ÷ (Selling Price – Variable Cost per Unit)." },
+                { q: "Contribution per unit is:", opts: ["Total revenue minus total costs","Selling price per unit minus variable cost per unit","Fixed costs divided by number of units","Total profit divided by number of units"], ans: 1, explain: "Contribution = Selling Price – Variable Cost per Unit. It contributes towards covering fixed costs and profit." },
+                { q: "Economies of scale in operations include:", opts: ["Higher unit costs as output increases","Technical economies from using larger, more efficient machinery","Increased waste","Higher per-unit transport costs"], ans: 1, explain: "Technical economies arise from using larger, more efficient equipment at higher output levels." },
+                { q: "A business might choose to locate near a skilled labour pool because:", opts: ["It reduces raw material costs","It ensures access to workers with the right skills for the business","It always reduces wage costs","It eliminates the need for training"], ans: 1, explain: "Proximity to skilled labour ensures the business can recruit qualified workers." }
+            ]
+        },
+        27: {
+            title: "Quality Management",
+            unit: 4,
+            level: "A",
+            questions: [
+                { q: "Quality control (QC) involves:", opts: ["Designing new products","Inspecting products at various stages to detect and reject faulty items","Training employees in customer service","Setting the price of products"], ans: 1, explain: "Quality control inspects products during and after production to identify defects." },
+                { q: "Quality assurance (QA) involves:", opts: ["Only checking finished products","Setting standards and procedures throughout the production process to prevent defects","Reducing the number of products made","Eliminating all employees from the process"], ans: 1, explain: "Quality assurance focuses on preventing defects by setting standards at every stage of production." },
+                { q: "Total quality management (TQM) is:", opts: ["Checking products only at the end of production","A philosophy where quality is the responsibility of every employee at every stage","A method of reducing costs only","A type of financial audit"], ans: 1, explain: "TQM involves every employee in continuous improvement of quality at all stages." },
+                { q: "An advantage of TQM is:", opts: ["It reduces the need for employees","It creates a culture of continuous improvement, leading to higher quality and customer satisfaction","It is always cheaper than QC","It eliminates all defects immediately"], ans: 1, explain: "TQM builds a quality culture that improves products, reduces waste, and increases customer satisfaction." },
+                { q: "A disadvantage of TQM is:", opts: ["It has no costs","It requires significant time, training, and cultural change to implement effectively","It reduces product quality","It only works in manufacturing"], ans: 1, explain: "TQM implementation is costly and time-consuming, requiring training and cultural change." },
+                { q: "Quality standards such as ISO 9001:", opts: ["Are legal requirements in all countries","Provide a framework for quality management systems that businesses can be certified against","Only apply to large multinational companies","Have no impact on customer confidence"], ans: 1, explain: "ISO 9001 is an international standard for quality management systems, demonstrating commitment to quality." },
+                { q: "Kaizen (continuous improvement) means:", opts: ["Making dramatic one-off changes","Making small, incremental improvements to processes on an ongoing basis","Ignoring quality issues","Reducing the workforce to cut costs"], ans: 1, explain: "Kaizen involves all employees in making small, continuous improvements to processes and quality." },
+                { q: "Quality is important to businesses because it:", opts: ["Has no effect on customer satisfaction","Reduces waste, increases customer satisfaction, builds reputation, and can reduce costs","Always increases production costs","Only matters in manufacturing"], ans: 1, explain: "Quality reduces rework and waste, satisfies customers, builds reputation, and can lower long-term costs." }
+            ]
+        },
+        28: {
+            title: "Operations Strategy",
+            unit: 4,
+            level: "A",
+            questions: [
+                { q: "Operations strategy links to corporate strategy by:", opts: ["Having no connection to overall business goals","Aligning production capabilities and resources with the business's overall objectives","Only focusing on reducing costs","Ignoring customer needs"], ans: 1, explain: "Operations strategy ensures production capabilities support the business's competitive objectives." },
+                { q: "Lean production aims to:", opts: ["Increase waste in the production process","Minimise waste while maximising productivity and value for the customer","Employ as many workers as possible","Hold as much inventory as possible"], ans: 1, explain: "Lean production eliminates waste (muda) in all forms — overproduction, waiting, transport, defects, etc." },
+                { q: "Methods of lean production include:", opts: ["Holding large inventories","JIT, Kaizen, TQM, cell production, and empowerment","Increasing batch sizes","Reducing employee training"], ans: 1, explain: "Lean methods include JIT, Kaizen, TQM, cell production, and empowerment to eliminate waste." },
+                { q: "Cell production involves:", opts: ["One worker doing all tasks","Organising workers into small teams (cells) that are responsible for a complete unit of work","Using only automated machinery","Producing only in large batches"], ans: 1, explain: "Cell production organises teams to complete whole products or components, improving motivation and flexibility." },
+                { q: "Research and development (R&D) in operations:", opts: ["Has no impact on competitiveness","Enables innovation in products and processes, creating competitive advantage","Only applies to technology companies","Increases costs without any benefit"], ans: 1, explain: "R&D drives product and process innovation, helping businesses stay competitive." },
+                { q: "Capacity planning involves:", opts: ["Ignoring customer demand","Matching production capacity to current and future demand levels","Producing as much as possible regardless of demand","Reducing capacity permanently"], ans: 1, explain: "Capacity planning ensures the business can meet demand without excessive idle capacity or bottlenecks." },
+                { q: "An operations strategy focused on flexibility might:", opts: ["Use only flow production","Use job or batch production and employ multi-skilled workers to respond to changing demand","Reduce the product range permanently","Automate all processes"], ans: 1, explain: "Flexible operations use adaptable methods and multi-skilled workers to respond to market changes." },
+                { q: "Supply chain management is important because:", opts: ["It has no effect on costs or quality","Effective management of suppliers, production, and distribution reduces costs and improves efficiency","It only concerns large businesses","It eliminates the need for inventory"], ans: 1, explain: "Supply chain management coordinates the flow of materials and information to reduce costs and improve efficiency." }
+            ]
+        },
+
+        /* ===================== UNIT 5 ===================== */
+        29: {
+            title: "Business Finance",
+            unit: 5,
+            level: "AS",
+            questions: [
+                { q: "Short-term sources of finance include:", opts: ["Issuing shares on the stock exchange","Bank overdrafts and trade credit","Mortgages and debentures","Retained profits only"], ans: 1, explain: "Short-term sources (less than one year) include overdrafts and trade credit." },
+                { q: "Long-term sources of finance include:", opts: ["Bank overdrafts","Share issues, loans, mortgages and retained profit","Trade credit","Invoice discounting"], ans: 1, explain: "Long-term sources (more than one year) include shares, loans, mortgages, and retained profit." },
+                { q: "Retained profit is:", opts: ["Money borrowed from a bank","Profit kept in the business after tax and dividends have been paid","Revenue from selling shares","A government grant"], ans: 1, explain: "Retained profit is the portion of net profit reinvested in the business rather than distributed." },
+                { q: "An advantage of equity finance (shares) is:", opts: ["It must be repaid by a fixed date","The business does not have to repay the capital or pay interest","It always dilutes control","It is always easy to obtain"], ans: 1, explain: "Share capital does not require repayment or interest payments, reducing financial pressure." },
+                { q: "A disadvantage of debt finance (loans) is:", opts: ["The lender gains ownership of the business","Interest must be paid and the capital must be repaid, regardless of business performance","There are no legal obligations","It is always cheaper than equity"], ans: 1, explain: "Loans require regular interest payments and capital repayment, creating financial obligations." },
+                { q: "A bank overdraft allows a business to:", opts: ["Borrow a fixed amount for a set period","Withdraw more money than is in the account up to an agreed limit","Issue shares to the public","Avoid paying any interest"], ans: 1, explain: "An overdraft allows spending beyond the account balance up to an agreed limit, with interest on the overdrawn amount." },
+                { q: "Venture capital is:", opts: ["Government grants for small businesses","Finance provided by investors to high-potential start-ups in exchange for equity","Bank loans with low interest","Money from family and friends only"], ans: 1, explain: "Venture capitalists invest in promising start-ups in exchange for equity and often a say in management." },
+                { q: "The most appropriate source of finance depends on:", opts: ["Only the size of the business","The amount needed, purpose, repayment ability, cost, and business structure","Only the interest rate available","Only the owner's preference"], ans: 1, explain: "The choice depends on the amount, purpose, time period, cost, and the business's legal structure." },
+                { q: "Internal sources of finance include:", opts: ["Bank loans and share issues","Retained profit, sale of assets, and improved cash management","Government grants and subsidies","Venture capital and trade credit"], ans: 1, explain: "Internal sources come from within the business — retained profit, asset sales, and better cash management." },
+                { q: "Trade credit is:", opts: ["A long-term loan from a bank","When a supplier allows the business to pay for goods after receiving them","A government subsidy","Revenue from selling shares"], ans: 1, explain: "Trade credit is a short-term source where suppliers allow delayed payment, effectively providing free finance." }
+            ]
+        },
+        30: {
+            title: "Forecasting and Managing Cash Flows",
+            unit: 5,
+            level: "AS",
+            questions: [
+                { q: "A cash flow forecast shows:", opts: ["The total profit of a business","The expected inflows and outflows of cash over a future period","The total revenue for the year","The value of the business's assets"], ans: 1, explain: "A cash flow forecast predicts when cash will come in and go out of the business." },
+                { q: "Cash inflows include:", opts: ["Paying wages and rent","Receipts from sales, loans received, and investment income","Purchasing stock and equipment","Paying tax and dividends"], ans: 1, explain: "Cash inflows are all money received — sales revenue, loans, grants, and investment returns." },
+                { q: "Cash outflows include:", opts: ["Revenue from customer payments","Payments for wages, rent, stock, equipment, and tax","Receipts from loans","Interest received"], ans: 1, explain: "Cash outflows are all payments made — wages, rent, materials, equipment, interest, and tax." },
+                { q: "Net cash flow is calculated as:", opts: ["Total revenue – total costs","Total cash inflows – total cash outflows","Opening balance + closing balance","Fixed costs + variable costs"], ans: 1, explain: "Net cash flow = Total Cash Inflows – Total Cash Outflows for a given period." },
+                { q: "A cash flow problem occurs when:", opts: ["The business makes a large profit","Cash outflows exceed cash inflows, leaving insufficient cash for obligations","Revenue increases","The business has too many customers"], ans: 1, explain: "Cash flow problems arise when the business cannot meet its payment obligations due to insufficient cash." },
+                { q: "A profitable business can still have cash flow problems because:", opts: ["Profit and cash flow are the same thing","Profit includes credit sales not yet received in cash, and cash is tied up in inventory","Profits are always paid immediately","Cash flow has no connection to profit"], ans: 1, explain: "Profit includes credit sales (not yet received) and non-cash items, while cash flow tracks actual money movements." },
+                { q: "Ways to improve cash flow include:", opts: ["Increasing credit terms for customers","Offering early payment discounts, reducing inventory, negotiating better supplier terms, and controlling expenses","Delaying all payments indefinitely","Increasing credit purchases"], ans: 1, explain: "Improving cash flow involves managing receivables, payables, inventory, and expenses more effectively." },
+                { q: "The opening cash balance for one month becomes:", opts: ["The total inflows for that month","The closing cash balance of the previous month","The net cash flow for that month","Zero at the start of each month"], ans: 1, explain: "Each month's opening balance equals the previous month's closing balance." },
+                { q: "Closing cash balance is calculated as:", opts: ["Total inflows only","Opening balance + net cash flow","Total outflows only","Revenue – costs"], ans: 1, explain: "Closing Balance = Opening Balance + Net Cash Flow (Inflows – Outflows)." },
+                { q: "Why is cash flow forecasting important?", opts: ["It guarantees future profits","It helps identify potential cash shortages in advance so the business can plan accordingly","It replaces the need for budgeting","It is only useful for new businesses"], ans: 1, explain: "Forecasting identifies future cash shortfalls, enabling the business to arrange finance or adjust spending." }
+            ]
+        },
+        31: {
+            title: "Costs",
+            unit: 5,
+            level: "AS",
+            questions: [
+                { q: "Fixed costs are:", opts: ["Costs that change with the level of output","Costs that remain constant regardless of the level of output","Costs that are always higher than variable costs","Costs that only apply to large businesses"], ans: 1, explain: "Fixed costs stay the same regardless of output — e.g. rent, insurance, salaries." },
+                { q: "Variable costs are:", opts: ["Costs that remain the same regardless of output","Costs that change directly with the level of output","Costs that are always lower than fixed costs","Costs that only occur once"], ans: 1, explain: "Variable costs change in proportion to output — e.g. raw materials, packaging, hourly wages." },
+                { q: "Total costs are calculated as:", opts: ["Fixed costs × variable costs","Fixed costs + variable costs","Revenue – profit","Selling price × quantity"], ans: 1, explain: "Total Costs = Fixed Costs + Total Variable Costs." },
+                { q: "Average (unit) cost is calculated as:", opts: ["Total revenue ÷ number of units","Total costs ÷ number of units produced","Fixed costs ÷ variable costs","Selling price – variable cost"], ans: 1, explain: "Average Cost = Total Costs ÷ Number of Units. It typically falls as output increases (economies of scale)." },
+                { q: "Direct costs are:", opts: ["Costs that cannot be traced to a specific product","Costs that can be directly attributed to producing a specific product","Costs that remain constant","Costs that are always indirect"], ans: 1, explain: "Direct costs can be directly traced to a product — e.g. raw materials and direct labour." },
+                { q: "Indirect costs (overheads) are:", opts: ["Costs directly linked to production","Costs that cannot be directly attributed to a specific product, e.g. rent and admin","Costs that always vary with output","Costs that only apply to manufacturing"], ans: 1, explain: "Indirect costs support the business as a whole — e.g. rent, utilities, administration." },
+                { q: "As output increases, average fixed cost:", opts: ["Increases","Decreases because the fixed cost is spread over more units","Remains the same","Becomes variable"], ans: 1, explain: "Average fixed cost falls as output rises because the same fixed cost is divided by more units." },
+                { q: "Semi-variable costs:", opts: ["Are entirely fixed","Contain both a fixed and a variable element, e.g. telephone bills","Change in direct proportion to output","Are always higher than fixed costs"], ans: 1, explain: "Semi-variable costs have a fixed base charge plus a variable element based on usage." },
+                { q: "Marginal cost is:", opts: ["The total cost of production","The cost of producing one additional unit of output","The average cost of all units","The fixed cost per unit"], ans: 1, explain: "Marginal cost is the extra cost incurred by producing one more unit." },
+                { q: "Why is understanding costs important for pricing?", opts: ["It has no effect on pricing decisions","Knowing costs ensures prices cover expenses and generate profit","Costs only matter for large businesses","Prices should always be set below cost"], ans: 1, explain: "Understanding costs ensures prices are set above costs to achieve profitability." }
+            ]
+        },
+        32: {
+            title: "Budgets",
+            unit: 5,
+            level: "AS",
+            questions: [
+                { q: "A budget is:", opts: ["An actual financial record of past performance","A financial plan setting expected income and expenditure for a future period","A balance sheet showing assets and liabilities","A cash flow statement"], ans: 1, explain: "A budget is a financial plan for a future period, setting targets for income and spending." },
+                { q: "The main purpose of budgets is to:", opts: ["Record past financial transactions","Plan, coordinate, and control financial resources","Calculate the tax owed","Determine the share price"], ans: 1, explain: "Budgets help plan future spending, coordinate departments, and control actual performance against targets." },
+                { q: "A budget variance is:", opts: ["The total budget set for a department","The difference between the budgeted figure and the actual figure","The profit margin of a business","The interest rate on a loan"], ans: 1, explain: "Variance = Actual – Budget. A favourable variance is positive for profit; adverse is negative." },
+                { q: "A favourable variance on costs means:", opts: ["Actual costs were higher than budgeted","Actual costs were lower than budgeted","The budget was set incorrectly","There is no difference from budget"], ans: 1, explain: "A favourable cost variance means actual spending was less than budgeted, improving profit." },
+                { q: "An adverse variance on revenue means:", opts: ["Actual revenue was higher than budgeted","Actual revenue was lower than budgeted","The budget was too conservative","Revenue met the target"], ans: 1, explain: "An adverse revenue variance means actual sales were below budget, reducing expected profit." },
+                { q: "Zero-based budgeting means:", opts: ["Using last year's budget with no changes","Starting each budget period from scratch, justifying all expenditure from zero","Setting budgets at zero for all departments","Ignoring budgets entirely"], ans: 1, explain: "Zero-based budgeting requires all expenses to be justified from scratch each period, not just incremental changes." },
+                { q: "Budgets can be used to motivate employees by:", opts: ["Setting unachievable targets","Involving employees in setting realistic targets and rewarding achievement","Keeping budget information secret","Setting no targets at all"], ans: 1, explain: "Participative budgeting involves employees in target-setting, increasing motivation and commitment." },
+                { q: "A limitation of budgets is:", opts: ["They always improve performance","They can be inflexible, may encourage dysfunctional behaviour, and are based on estimates","They are always accurate","They eliminate all financial risk"], ans: 1, explain: "Budgets can be rigid, based on assumptions that may change, and may encourage budget padding." }
+            ]
+        },
+        33: {
+            title: "Financial Statements",
+            unit: 5,
+            level: "A",
+            questions: [
+                { q: "The income statement (profit and loss account) shows:", opts: ["The assets and liabilities of a business","The revenue, costs and profit of a business over a period of time","The cash inflows and outflows","The number of employees"], ans: 1, explain: "The income statement shows revenue, costs, and profit/loss for a specific trading period." },
+                { q: "Gross profit is calculated as:", opts: ["Revenue – all costs","Revenue – cost of sales (cost of goods sold)","Net profit – tax","Revenue – fixed costs only"], ans: 1, explain: "Gross Profit = Revenue – Cost of Sales. It shows profit before deducting operating expenses." },
+                { q: "Net profit is calculated as:", opts: ["Revenue – cost of sales only","Gross profit – all operating expenses","Revenue – fixed costs","Total revenue only"], ans: 1, explain: "Net Profit = Gross Profit – Operating Expenses (and interest/tax). It is the 'bottom line' profit." },
+                { q: "The statement of financial position (balance sheet) shows:", opts: ["The profit for a period","The assets, liabilities and equity of a business at a specific point in time","The cash flow for a year","The budget variances"], ans: 1, explain: "The balance sheet shows what the business owns (assets), owes (liabilities), and the owners' equity at a specific date." },
+                { q: "Non-current assets are:", opts: ["Cash and inventory","Assets held for more than one year, such as buildings, machinery, and vehicles","Assets that will be sold within the year","Short-term investments"], ans: 1, explain: "Non-current assets are long-term resources used in operations (e.g. property, equipment)." },
+                { q: "Current assets are:", opts: ["Assets held for more than five years","Assets expected to be converted into cash within one year, such as inventory and receivables","Fixed assets only","Long-term investments"], ans: 1, explain: "Current assets include cash, inventory, and receivables — expected to be used within one year." },
+                { q: "Current liabilities are:", opts: ["Long-term loans","Debts due within one year, such as trade payables and short-term loans","Share capital","Retained profits"], ans: 1, explain: "Current liabilities are obligations due within one year." },
+                { q: "Working capital is calculated as:", opts: ["Total assets – total liabilities","Current assets – current liabilities","Non-current assets – non-current liabilities","Revenue – costs"], ans: 1, explain: "Working capital (net current assets) = Current Assets – Current Liabilities. It measures short-term financial health." },
+                { q: "The accounting equation is:", opts: ["Revenue = Costs + Profit","Assets = Liabilities + Equity","Cash In = Cash Out","Sales = Volume × Price"], ans: 1, explain: "Assets = Liabilities + Equity. This is the fundamental accounting equation underlying the balance sheet." },
+                { q: "Depreciation is:", opts: ["An increase in asset value over time","The allocation of the cost of a non-current asset over its useful life","A cash payment made annually","Revenue from selling assets"], ans: 1, explain: "Depreciation spreads the cost of a non-current asset over its expected useful life, reflecting wear and tear." }
+            ]
+        },
+        34: {
+            title: "Analysis of Published Accounts",
+            unit: 5,
+            level: "A",
+            questions: [
+                { q: "Profitability ratios measure:", opts: ["How quickly a business pays its debts","How effectively a business generates profit relative to sales, assets, or capital","The liquidity of a business","The gearing level of a business"], ans: 1, explain: "Profitability ratios (gross profit margin, net profit margin, ROCE) measure how well a business generates profit." },
+                { q: "Gross profit margin is calculated as:", opts: ["Net profit ÷ revenue × 100","Gross profit ÷ revenue × 100","Revenue ÷ gross profit × 100","Gross profit ÷ net profit × 100"], ans: 1, explain: "Gross Profit Margin = (Gross Profit ÷ Revenue) × 100. It shows the percentage of revenue remaining after cost of sales." },
+                { q: "Net profit margin is calculated as:", opts: ["Gross profit ÷ revenue × 100","Net profit ÷ revenue × 100","Revenue ÷ net profit × 100","Net profit ÷ gross profit × 100"], ans: 1, explain: "Net Profit Margin = (Net Profit ÷ Revenue) × 100. It shows the percentage of revenue remaining as profit after all expenses." },
+                { q: "Return on capital employed (ROCE) is calculated as:", opts: ["Net profit ÷ revenue × 100","Operating profit ÷ capital employed × 100","Revenue ÷ total assets × 100","Gross profit ÷ total assets × 100"], ans: 1, explain: "ROCE = (Operating Profit ÷ Capital Employed) × 100. It measures how effectively capital is used to generate profit." },
+                { q: "Liquidity ratios measure:", opts: ["Long-term profitability","A business's ability to meet its short-term debts","The efficiency of asset use","The level of debt financing"], ans: 1, explain: "Liquidity ratios (current ratio, acid test) assess whether a business can pay its short-term obligations." },
+                { q: "The current ratio is calculated as:", opts: ["Current liabilities ÷ current assets","Current assets ÷ current liabilities","Fixed assets ÷ current liabilities","Cash ÷ current liabilities"], ans: 1, explain: "Current Ratio = Current Assets ÷ Current Liabilities. A ratio of 1.5–2.0 is generally considered healthy." },
+                { q: "The acid test (quick) ratio is calculated as:", opts: ["Current assets ÷ current liabilities","(Current assets – inventory) ÷ current liabilities","Cash ÷ total liabilities","Revenue ÷ current liabilities"], ans: 1, explain: "Acid Test = (Current Assets – Inventory) ÷ Current Liabilities. It excludes inventory which may be hard to convert to cash quickly." },
+                { q: "Gearing ratio measures:", opts: ["Profitability","The proportion of long-term debt to total capital employed","Liquidity","Efficiency"], ans: 1, explain: "Gearing = (Long-term Debt ÷ Capital Employed) × 100. It measures the reliance on debt financing." },
+                { q: "A high gearing ratio means:", opts: ["The business has low debt","The business relies heavily on debt financing, increasing financial risk","The business is very profitable","The business has strong liquidity"], ans: 1, explain: "High gearing means more debt relative to equity, increasing risk as interest must be paid regardless of profits." },
+                { q: "Efficiency ratios include:", opts: ["Only profitability measures","Inventory turnover, receivables collection period, and payables payment period","Only liquidity measures","Only gearing measures"], ans: 1, explain: "Efficiency ratios measure how effectively a business manages its assets and liabilities." }
+            ]
+        },
+        35: {
+            title: "Investment Appraisal",
+            unit: 5,
+            level: "A",
+            questions: [
+                { q: "Investment appraisal is used to:", opts: ["Calculate annual profits","Assess whether a proposed investment or project is financially worthwhile","Determine the share price","Set the marketing budget"], ans: 1, explain: "Investment appraisal evaluates whether expected returns from an investment justify the cost." },
+                { q: "Payback period measures:", opts: ["The total profit from a project","How long it takes for a project to recoup its initial investment","The average annual return","The net present value"], ans: 1, explain: "Payback is the time taken for cumulative cash inflows to equal the initial investment." },
+                { q: "An advantage of the payback method is:", opts: ["It considers all cash flows","It is simple to calculate and focuses on liquidity risk","It accounts for the time value of money","It measures profitability"], ans: 1, explain: "Payback is simple and highlights how quickly the investment is recovered, reducing risk." },
+                { q: "A disadvantage of the payback method is:", opts: ["It is too complicated","It ignores cash flows after the payback period and does not measure profitability","It always gives the correct decision","It requires complex calculations"], ans: 1, explain: "Payback ignores returns after payback and does not measure overall profitability." },
+                { q: "Average rate of return (ARR) is calculated as:", opts: ["Total cash inflows ÷ number of years","Average annual profit ÷ initial investment × 100","Initial investment ÷ annual cash flow","Net cash flow ÷ number of years"], ans: 1, explain: "ARR = (Average Annual Profit ÷ Initial Investment) × 100. It measures average profitability." },
+                { q: "An advantage of ARR is:", opts: ["It considers the time value of money","It considers all cash flows and measures profitability as a percentage","It is the simplest method","It focuses on liquidity"], ans: 1, explain: "ARR considers all cash flows and expresses return as a percentage, making comparison easy." },
+                { q: "Net present value (NPV) is:", opts: ["The total undiscounted cash flows","The sum of discounted future cash flows minus the initial investment","The payback period in years","The average annual return"], ans: 1, explain: "NPV discounts future cash flows to present value and subtracts the initial investment. A positive NPV means the project adds value." },
+                { q: "NPV accounts for the time value of money, which means:", opts: ["Money earned today is worth the same as money earned in the future","Money received today is worth more than the same amount received in the future due to inflation and opportunity cost","Future cash flows are always more valuable","Interest rates have no effect on investment decisions"], ans: 1, explain: "The time value of money recognises that £1 today is worth more than £1 in the future." },
+                { q: "A positive NPV means:", opts: ["The project should be rejected","The project is expected to add value and should be accepted","The project will break even","The payback period is too long"], ans: 1, explain: "A positive NPV indicates the investment returns exceed the cost of capital, adding value." },
+                { q: "Limitations of investment appraisal include:", opts: ["It always gives the correct answer","Forecasts are uncertain, methods may conflict, and qualitative factors are ignored","It considers all aspects of a project","It is only useful for small investments"], ans: 1, explain: "All methods rely on forecasts, may give conflicting results, and ignore qualitative factors like environmental impact." }
+            ]
+        },
+        36: {
+            title: "Finance and Accounting Strategy",
+            unit: 5,
+            level: "A",
+            questions: [
+                { q: "Financial strategy involves:", opts: ["Day-to-day cash handling","Long-term planning of financial resources to support the overall business strategy","Recording daily transactions","Preparing tax returns only"], ans: 1, explain: "Financial strategy plans long-term funding, investment, and financial management to achieve business objectives." },
+                { q: "The optimal capital structure is:", opts: ["100% debt financing","The mix of debt and equity that minimises the cost of capital and maximises shareholder value","100% equity financing","The structure with the highest gearing"], ans: 1, explain: "The optimal capital structure balances debt and equity to minimise WACC and maximise firm value." },
+                { q: "A business might choose equity finance over debt finance because:", opts: ["It always has lower costs","It does not require repayment or interest, reducing financial risk during uncertain times","It is always easier to obtain","It has no disadvantages"], ans: 1, explain: "Equity finance reduces financial risk as there is no obligation to repay or pay interest." },
+                { q: "A business might choose debt finance over equity finance because:", opts: ["It always reduces risk","It allows owners to retain control and interest payments are tax-deductible","It dilutes ownership","It is always cheaper"], ans: 1, explain: "Debt finance retains ownership control and interest is tax-deductible, potentially lowering the effective cost." },
+                { q: "Working capital management involves:", opts: ["Only managing long-term assets","Managing current assets and current liabilities to ensure the business can meet short-term obligations","Setting long-term financial strategy","Deciding on dividend policy only"], ans: 1, explain: "Working capital management ensures sufficient liquidity to operate day-to-day while minimising idle resources." },
+                { q: "Dividend policy decisions involve:", opts: ["Only the amount of tax paid","Deciding how much profit to distribute to shareholders versus retain in the business","Setting the price of shares","Determining the number of employees"], ans: 1, explain: "Dividend policy balances rewarding shareholders with retaining profit for reinvestment and growth." },
+                { q: "Financial planning helps a business to:", opts: ["Eliminate all financial risk","Anticipate future financial needs, secure appropriate funding, and monitor performance against targets","Guarantee profitability","Avoid the need for budgets"], ans: 1, explain: "Financial planning anticipates needs, secures funding, sets targets, and enables performance monitoring." },
+                { q: "The role of the finance function includes:", opts: ["Only paying wages","Managing financial records, budgets, investment decisions, funding, and financial reporting to stakeholders","Only preparing tax returns","Only issuing invoices"], ans: 1, explain: "The finance function manages records, budgets, investment appraisal, funding strategy, and reporting." }
+            ]
+        }
+    };
+
+    const state = {
+        chapterId: null,
+        questions: [],
+        currentQ: 0,
+        answers: [],
+        timer: 0,
+        timerInterval: null,
+        answered: false,
+        selected: null,
+    };
+
+    const letters = ['A','B','C','D'];
+    const timePerQ = 45;
+
+    function shuffleArray(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    function escapeHtml(str) {
+        return String(str ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+    }
+
+    function showScreen(id) {
+        document.querySelectorAll('.sja-screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderChapterSelect() {
+        const container = document.getElementById('sja-chapter-container');
+        const units = {};
+        for (const [id, ch] of Object.entries(chapters)) {
+            if (!units[ch.unit]) units[ch.unit] = [];
+            units[ch.unit].push({ id: parseInt(id), ...ch });
+        }
+
+        let html = '';
+        for (const [unit, chs] of Object.entries(units)) {
+            const unitNames = {1:'Business and its Environment',2:'Human Resource Management',3:'Marketing',4:'Operations Management',5:'Finance and Accounting'};
+            html += `<div class="sja-unit-label">Unit ${unit}: ${unitNames[unit] || ''}</div>`;
+            html += '<div class="sja-chapter-grid">';
+            for (const ch of chs) {
+                const qCount = ch.questions.length;
+                const estTime = Math.ceil(qCount * timePerQ / 60);
+                html += `
+                    <div class="sja-chapter-card" tabindex="0" onclick="window.sjaQuiz.start(${ch.id})"
+                         onkeydown="if(event.key==='Enter')window.sjaQuiz.start(${ch.id})">
+                        <div style="display:flex;align-items:center;gap:12px;width:100%">
+                            <div class="sja-chapter-num">${ch.id}</div>
+                            <span class="sja-level-tag">${ch.level} Level</span>
+                        </div>
+                        <h3>${escapeHtml(ch.title)}</h3>
+                        <div class="sja-chapter-meta">${qCount} questions &middot; ~${estTime} min</div>
+                    </div>`;
+            }
+            html += '</div>';
+        }
+        container.innerHTML = html;
+    }
+
+    function startQuiz(chId) {
+        const ch = chapters[chId];
+        state.chapterId = chId;
+        state.questions = shuffleArray(ch.questions).slice(0, Math.min(10, ch.questions.length));
+        state.currentQ = 0;
+        state.answers = new Array(state.questions.length).fill(null);
+        state.answered = false;
+        state.selected = null;
+        state.timer = state.questions.length * timePerQ;
+
+        showScreen('sja-screen-quiz');
+        renderQuiz();
+        startTimer();
+    }
+
+    function startTimer() {
+        clearInterval(state.timerInterval);
+        state.timerInterval = setInterval(() => {
+            state.timer--;
+            updateTimerDisplay();
+            if (state.timer <= 0) {
+                clearInterval(state.timerInterval);
+                finishQuiz();
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const el = document.getElementById('sja-timer-display');
+        if (!el) return;
+        const m = Math.floor(state.timer / 60);
+        const s = state.timer % 60;
+        el.textContent = `${m}:${s.toString().padStart(2,'0')}`;
+        const badge = el.closest('.sja-timer-badge');
+        badge.classList.remove('warning','danger');
+        if (state.timer <= 30) badge.classList.add('danger');
+        else if (state.timer <= state.questions.length * timePerQ * 0.2) badge.classList.add('warning');
+    }
+
+    function renderQuiz() {
+        const content = document.getElementById('sja-quiz-content');
+        const ch = chapters[state.chapterId];
+        const qi = state.currentQ;
+        const q = state.questions[qi];
+        const total = state.questions.length;
+        const progress = ((qi + (state.answered ? 1 : 0)) / total) * 100;
+        const answeredCount = state.answers.filter(a => a !== null).length;
+
+        content.innerHTML = `
+            <button class="sja-back-link" onclick="window.sjaQuiz.confirmQuit()">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Back to chapters
+            </button>
+            <div class="sja-quiz-top">
+                <div class="sja-quiz-chapter-name"><span>Ch ${state.chapterId}:</span> ${escapeHtml(ch.title)}</div>
+                <div class="sja-timer-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span id="sja-timer-display">${Math.floor(state.timer/60)}:${(state.timer%60).toString().padStart(2,'0')}</span>
+                </div>
+            </div>
+            <div class="sja-progress-wrap">
+                <div class="sja-progress-meta">
+                    <span>Question ${qi + 1} of ${total}</span>
+                    <span>${answeredCount} answered</span>
+                </div>
+                <div class="sja-progress-bar"><div class="sja-progress-fill" style="width:${progress}%"></div></div>
+            </div>
+            <div class="sja-question-card">
+                <div class="sja-q-number">Question ${qi + 1}</div>
+                <div class="sja-q-text">${escapeHtml(q.q)}</div>
+                <div class="sja-options">
+                    ${q.opts.map((opt, i) => {
+                        let cls = 'sja-option-btn';
+                        if (state.answered) {
+                            cls += ' disabled';
+                            if (i === q.ans) cls += ' correct';
+                            else if (i === state.selected && i !== q.ans) cls += ' wrong';
+                        } else if (state.selected === i) {
+                            cls += ' selected';
+                        }
+                        return `<button class="${cls}" onclick="window.sjaQuiz.selectOption(${i})">
+                            <span class="sja-option-letter">${letters[i]}</span>
+                            <span>${escapeHtml(opt)}</span>
+                        </button>`;
+                    }).join('')}
+                </div>
+                ${state.answered ? `
+                    <div class="sja-explanation">
+                        <strong>${state.selected === q.ans ? '✓ Correct!' : '✗ Incorrect.'}</strong>
+                        ${escapeHtml(q.explain)}
+                    </div>` : ''}
+            </div>
+            <div class="sja-btn-row">
+                ${!state.answered
+                    ? `<button class="sja-btn sja-btn-primary" id="sja-btn-confirm" onclick="window.sjaQuiz.confirmAnswer()" ${state.selected === null ? 'disabled' : ''}>Confirm Answer</button>`
+                    : `<button class="sja-btn sja-btn-secondary" onclick="window.sjaQuiz.prevQuestion()" ${qi === 0 ? 'disabled' : ''}>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Previous
+                      </button>
+                      <button class="sja-btn sja-btn-primary" onclick="window.sjaQuiz.nextQuestion()">
+                        ${qi === total - 1 ? 'See Results' : 'Next Question'}
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </button>`
+                }
+            </div>
+        `;
+        updateTimerDisplay();
+    }
+
+    function selectOption(i) {
+        if (state.answered) return;
+        state.selected = i;
+        const btn = document.getElementById('sja-btn-confirm');
+        if (btn) btn.disabled = false;
+        document.querySelectorAll('.sja-option-btn').forEach((el, idx) => {
+            el.classList.toggle('selected', idx === i);
+        });
+    }
+
+    function confirmAnswer() {
+        if (state.selected === null) return;
+        state.answered = true;
+        state.answers[state.currentQ] = state.selected;
+        renderQuiz();
+    }
+
+    function nextQuestion() {
+        if (state.currentQ >= state.questions.length - 1) { finishQuiz(); return; }
+        state.currentQ++;
+        state.answered = state.answers[state.currentQ] !== null;
+        state.selected = state.answers[state.currentQ];
+        renderQuiz();
+    }
+
+    function prevQuestion() {
+        if (state.currentQ <= 0) return;
+        state.currentQ--;
+        state.answered = state.answers[state.currentQ] !== null;
+        state.selected = state.answers[state.currentQ];
+        renderQuiz();
+    }
+
+    function confirmQuit() {
+        if (state.answers.some(a => a !== null)) {
+            if (!confirm('Are you sure you want to quit? Your progress will be lost.')) return;
+        }
+        clearInterval(state.timerInterval);
+        showScreen('sja-screen-select');
+    }
+
+    function finishQuiz() {
+        clearInterval(state.timerInterval);
+        const total = state.questions.length;
+        const correct = state.questions.filter((q, i) => state.answers[i] === q.ans).length;
+        const pct = Math.round((correct / total) * 100);
+        const circumference = 2 * Math.PI * 68;
+        const offset = circumference - (pct / 100) * circumference;
+        const timeUsed = (state.questions.length * timePerQ) - state.timer;
+        const m = Math.floor(timeUsed / 60);
+        const s = timeUsed % 60;
+        const wrong = total - correct;
+
+        let grade, gradeColor;
+        if (pct >= 80) { grade = 'Excellent!'; gradeColor = '#2ecc71'; }
+        else if (pct >= 60) { grade = 'Good Work!'; gradeColor = 'var(--sja-orange)'; }
+        else if (pct >= 40) { grade = 'Keep Practising'; gradeColor = 'var(--sja-yellow)'; }
+        else { grade = 'Needs More Study'; gradeColor = '#e74c3c'; }
+
+        document.getElementById('sja-results-content').innerHTML = `
+            <div class="sja-results-card">
+                <div class="sja-results-ring">
+                    <svg viewBox="0 0 160 160">
+                        <circle class="sja-ring-bg" cx="80" cy="80" r="68"/>
+                        <circle class="sja-ring-fill" cx="80" cy="80" r="68"
+                            stroke="${gradeColor}"
+                            stroke-dasharray="${circumference}"
+                            stroke-dashoffset="${offset}"/>
+                    </svg>
+                    <div class="sja-ring-text">
+                        <div class="sja-ring-pct">${pct}%</div>
+                        <div class="sja-ring-label">${correct}/${total}</div>
+                    </div>
+                </div>
+                <div class="sja-results-grade" style="color:${gradeColor}">${grade}</div>
+                <div class="sja-results-detail">Chapter ${state.chapterId}: ${chapters[state.chapterId].title}</div>
+                <div class="sja-results-stats">
+                    <div class="sja-stat-item"><div class="sja-stat-val" style="color:#2ecc71">${correct}</div><div class="sja-stat-label">Correct</div></div>
+                    <div class="sja-stat-item"><div class="sja-stat-val" style="color:#e74c3c">${wrong}</div><div class="sja-stat-label">Wrong</div></div>
+                    <div class="sja-stat-item"><div class="sja-stat-val" style="color:var(--sja-grey)">${m}:${s.toString().padStart(2,'0')}</div><div class="sja-stat-label">Time Used</div></div>
+                </div>
+            </div>
+            <div class="sja-results-actions">
+                <button class="sja-btn sja-btn-secondary" onclick="window.sjaQuiz.review()">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 3h12M2 8h12M2 13h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Review Answers
+                </button>
+                <button class="sja-btn sja-btn-yellow" onclick="window.sjaQuiz.start(${state.chapterId})">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13.65 2.35C12.2.9 10.2 0 8 0C3.58 0 0 3.58 0 8s3.58 8 8 8c4.42 0 8-3.58 8-8h-2c0 3.31-2.69 6-6 6s-6-2.69-6-6 2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L9 7h7V0l-2.35 2.35z" fill="currentColor"/></svg>
+                    Retry Chapter
+                </button>
+                <button class="sja-btn sja-btn-primary" onclick="window.sjaQuiz.home()">All Chapters</button>
+            </div>
+        `;
+        showScreen('sja-screen-results');
+    }
+
+    function review() {
+        let html = `
+            <button class="sja-back-link" onclick="window.sjaQuiz.showResults()">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Back to results
+            </button>
+            <div class="sja-quiz-chapter-name" style="margin-bottom:25px"><span>Review:</span> Chapter ${state.chapterId} — ${chapters[state.chapterId].title}</div>
+        `;
+
+        state.questions.forEach((q, i) => {
+            const userAns = state.answers[i];
+            const isCorrect = userAns === q.ans;
+            html += `
+                <div class="sja-review-item ${isCorrect ? 'sja-correct-item' : 'sja-wrong-item'}">
+                    <div class="sja-review-status ${isCorrect ? 'sja-correct' : 'sja-wrong'}">${isCorrect ? '✓ Correct' : '✗ Incorrect'}</div>
+                    <div class="sja-review-q">${i+1}. ${escapeHtml(q.q)}</div>
+                    <div class="sja-review-answers">
+                        ${q.opts.map((opt, oi) => {
+                            let cls = 'sja-review-opt';
+                            if (oi === q.ans) cls += ' sja-is-correct';
+                            if (oi === userAns && !isCorrect) cls += ' sja-user-wrong';
+                            if (oi === userAns && isCorrect) cls += ' sja-user-correct';
+                            return `<div class="${cls}">${letters[oi]}. ${escapeHtml(opt)}</div>`;
+                        }).join('')}
+                    </div>
+                </div>`;
+        });
+
+        html += `
+            <div class="sja-results-actions" style="margin-top:30px">
+                <button class="sja-btn sja-btn-yellow" onclick="window.sjaQuiz.start(${state.chapterId})">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13.65 2.35C12.2.9 10.2 0 8 0C3.58 0 0 3.58 0 8s3.58 8 8 8c4.42 0 8-3.58 8-8h-2c0 3.31-2.69 6-6 6s-6-2.69-6-6 2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L9 7h7V0l-2.35 2.35z" fill="currentColor"/></svg>
+                    Retry Chapter
+                </button>
+                <button class="sja-btn sja-btn-primary" onclick="window.sjaQuiz.home()">All Chapters</button>
+            </div>
+        `;
+
+        document.getElementById('sja-review-content').innerHTML = html;
+        showScreen('sja-screen-review');
+    }
+
+    window.sjaQuiz = {
+        start: startQuiz,
+        selectOption,
+        confirmAnswer,
+        nextQuestion,
+        prevQuestion,
+        confirmQuit,
+        review,
+        showResults: () => showScreen('sja-screen-results'),
+        home: () => { clearInterval(state.timerInterval); showScreen('sja-screen-select'); },
+    };
+
+    renderChapterSelect();
+})();
+</script>
+</body>
+</html>

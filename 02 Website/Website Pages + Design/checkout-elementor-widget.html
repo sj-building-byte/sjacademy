@@ -1,0 +1,155 @@
+<!-- SJ Academy checkout page, Elementor HTML widget. Version 1.0, October 2026.
+     Page: the page set in WooCommerce > Settings > Advanced > Checkout page (address /checkout/).
+     Family: Info (web playbook 3.3). Needs the shared stylesheet sj-brand.css 3.1.1 in Additional CSS.
+     Build: Elementor Full Width, Hide Title = Yes. Delete the default Checkout block, then paste this whole file into one HTML widget.
+     The widget carries the [woocommerce_checkout] shortcode, so it is the checkout and the order-received page.
+     Page-only CSS is longer than 40 lines because it restyles WooCommerce markup that cannot take sj classes. Every rule starts with #sj.sj-p-checkout. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet"></noscript>
+
+<div id="sj" class="sj-p-checkout" data-family="info">
+
+  <!-- 1. HERO -->
+  <section class="sj-section sj-bg-canvas" data-sj-hero style="padding-bottom:var(--sj-s6)">
+    <div class="sj-wrap">
+      <div class="sj-ck-only sj-stack">
+        <div class="sj-pill"><span>Secure checkout</span></div>
+        <h1 class="sj-h1">Complete your <span class="sj-hl">order</span></h1>
+        <p class="sj-lead sj-measure">You are one payment away from your ebook. Fill in your details, then pay through PayFast.</p>
+      </div>
+      <div class="sj-ck-thanks sj-stack">
+        <div class="sj-pill"><span>Order received</span></div>
+        <h1 class="sj-h1">Thank you for <span class="sj-hl">your order</span></h1>
+        <p class="sj-lead sj-measure">Your order details and download link are below. If your download does not appear, WhatsApp us and we will sort it out.</p>
+      </div>
+      <ul class="sj-ticks sj-ck-only" style="margin-top:var(--sj-s5)">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Pay securely through PayFast</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>Your PDF is ready to download once your payment goes through</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5"/></svg><span>One-time payment, no subscription</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. CHECKOUT -->
+  <section class="sj-section sj-bg-white" style="padding-top:var(--sj-s7)">
+    <div class="sj-wrap">
+      <div class="sj-ck-form">
+[woocommerce_checkout]
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. HELP -->
+  <section class="sj-section sj-bg-canvas">
+    <div class="sj-wrap sj-stack">
+      <h2 class="sj-h2">Stuck at <span class="sj-hl">checkout</span>?</h2>
+      <p class="sj-measure">Message us on WhatsApp and we will help you finish your order.</p>
+      <div class="sj-row">
+        <a class="sj-btn sj-btn-wa" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20need%20help%20with%20checkout.%20My%20name%20is%20" target="_blank" rel="noopener" data-loc="checkout_help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.4-4.2A8.5 8.5 0 1 1 8.4 18.7z"/></svg>WhatsApp us</a>
+        <a class="sj-link sj-link-go" href="https://www.sjacademy.pk/refund-policy/">Read the refund policy</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+/* Hero states: the checkout hero shows by default, the thank-you hero on the order-received page */
+#sj.sj-p-checkout .sj-ck-thanks{display:none}
+body.woocommerce-order-received #sj.sj-p-checkout .sj-ck-thanks{display:block}
+body.woocommerce-order-received #sj.sj-p-checkout .sj-ck-only{display:none}
+
+/* Base and links */
+#sj.sj-p-checkout .woocommerce{font-size:16px;color:var(--sj-text)}
+#sj.sj-p-checkout .woocommerce a:not(.button){color:var(--sj-ink);font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;box-shadow:inset 0 -.42em 0 var(--sj-yellow)}
+#sj.sj-p-checkout .woocommerce h2,#sj.sj-p-checkout .woocommerce h3,#sj.sj-p-checkout #order_review_heading{font-size:clamp(18px,calc(17px + .3vw),21px);font-weight:500;line-height:1.3;color:var(--sj-ink);margin:0 0 var(--sj-s4);padding:0}
+
+/* Notices */
+#sj.sj-p-checkout .woocommerce-info,#sj.sj-p-checkout .woocommerce-message,#sj.sj-p-checkout .woocommerce-error{display:block;margin:0 0 var(--sj-s4);padding:14px 16px;border:1.5px solid var(--sj-ink);border-left-width:7px;border-radius:var(--sj-r-md);background:#fff;color:var(--sj-ink);font-size:15px;line-height:1.5;list-style:none;width:auto}
+#sj.sj-p-checkout .woocommerce-info::before,#sj.sj-p-checkout .woocommerce-message::before,#sj.sj-p-checkout .woocommerce-error::before{display:none}
+#sj.sj-p-checkout .woocommerce-error{border-color:var(--sj-err);background:var(--sj-err-bg)}
+#sj.sj-p-checkout .woocommerce-message{border-color:var(--sj-ok);background:var(--sj-ok-bg)}
+
+/* Two-column layout: details left, order summary right */
+#sj.sj-p-checkout form.checkout{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sj-s5)}
+#sj.sj-p-checkout form.checkout>*{min-width:0}
+#sj.sj-p-checkout .col2-set{float:none;width:100%}
+#sj.sj-p-checkout .col2-set .col-1,#sj.sj-p-checkout .col2-set .col-2{float:none;width:100%;max-width:100%}
+#sj.sj-p-checkout .woocommerce-billing-fields__field-wrapper,#sj.sj-p-checkout .woocommerce-shipping-fields__field-wrapper{display:grid;grid-template-columns:minmax(0,1fr);gap:0 var(--sj-s4)}
+@media (min-width:600px){
+  #sj.sj-p-checkout .woocommerce-billing-fields__field-wrapper,#sj.sj-p-checkout .woocommerce-shipping-fields__field-wrapper{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #sj.sj-p-checkout .form-row-wide{grid-column:1/-1}
+}
+@media (min-width:900px){
+  #sj.sj-p-checkout form.checkout{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:0 var(--sj-s7);align-items:start}
+  #sj.sj-p-checkout form.checkout .woocommerce-NoticeGroup{grid-column:1/-1}
+  #sj.sj-p-checkout form.checkout #customer_details{grid-column:1;grid-row:2/span 2}
+  #sj.sj-p-checkout form.checkout #order_review_heading{grid-column:2;grid-row:2}
+  #sj.sj-p-checkout form.checkout #order_review{grid-column:2;grid-row:3}
+}
+
+/* Fields */
+#sj.sj-p-checkout .form-row{display:grid;gap:6px;margin:0 0 var(--sj-s4);padding:0;float:none;width:100%}
+#sj.sj-p-checkout .form-row label{margin:0;font-size:15px;font-weight:500;line-height:1.4;color:var(--sj-ink)}
+#sj.sj-p-checkout .form-row .required{visibility:visible;color:var(--sj-err);text-decoration:none;border:0}
+#sj.sj-p-checkout .form-row .optional{font-weight:400;color:var(--sj-muted)}
+#sj.sj-p-checkout .input-text,#sj.sj-p-checkout select,#sj.sj-p-checkout textarea{display:block;width:100%;min-height:52px;padding:12px 14px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);background-color:#fff;color:var(--sj-ink);font-size:16px;line-height:1.4;box-shadow:none;-webkit-appearance:none;appearance:none}
+#sj.sj-p-checkout textarea{min-height:120px;resize:vertical}
+#sj.sj-p-checkout select{padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23151515' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:20px}
+#sj.sj-p-checkout .input-text:focus,#sj.sj-p-checkout select:focus,#sj.sj-p-checkout textarea:focus{outline:3px solid var(--sj-ink);outline-offset:2px;box-shadow:4px 4px 0 var(--sj-yellow)}
+#sj.sj-p-checkout .woocommerce-invalid .input-text,#sj.sj-p-checkout .woocommerce-invalid select{border-color:var(--sj-err);border-width:2px;background-color:var(--sj-err-bg)}
+#sj.sj-p-checkout .select2-container{width:100%!important}
+#sj.sj-p-checkout .select2-container .select2-selection--single{display:flex;align-items:center;height:52px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);background:#fff}
+#sj.sj-p-checkout .select2-container--default .select2-selection--single .select2-selection__rendered{padding:0 44px 0 14px;font-size:16px;line-height:1.4;color:var(--sj-ink)}
+#sj.sj-p-checkout .select2-container--default .select2-selection--single .select2-selection__arrow{height:50px;right:10px}
+#sj.sj-p-checkout input[type=checkbox],#sj.sj-p-checkout input[type=radio]{accent-color:var(--sj-ink)}
+#sj.sj-p-checkout .woocommerce-form__label-for-checkbox{display:flex;align-items:flex-start;gap:10px;font-weight:400}
+#sj.sj-p-checkout .woocommerce-form__input-checkbox{flex:none;width:22px;height:22px;margin:2px 0 0}
+#sj.sj-p-checkout form.checkout_coupon{padding:16px;margin:0 0 var(--sj-s5);border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);background:#fff}
+#sj.sj-p-checkout form.checkout_coupon .form-row{float:none;width:100%}
+
+/* Order summary: the offset card of the page */
+#sj.sj-p-checkout #order_review{padding:var(--sj-s4);margin:0 9px 9px 0;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-lg);background:#fff;box-shadow:var(--sj-sh-offset)}
+@media (min-width:600px){#sj.sj-p-checkout #order_review{padding:var(--sj-s5)}}
+#sj.sj-p-checkout .shop_table{width:100%;margin:0 0 var(--sj-s4);border:0}
+#sj.sj-p-checkout .shop_table th,#sj.sj-p-checkout .shop_table td{padding:12px 0;border:0;border-top:1px solid var(--sj-line);background:none;font-size:15px;line-height:1.45;color:var(--sj-ink);vertical-align:top}
+#sj.sj-p-checkout .shop_table thead th{padding-top:0;border-top:0;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--sj-muted)}
+#sj.sj-p-checkout .shop_table th:last-child,#sj.sj-p-checkout .shop_table td:last-child{text-align:right;white-space:nowrap}
+#sj.sj-p-checkout .shop_table .product-quantity{font-weight:400;color:var(--sj-muted)}
+#sj.sj-p-checkout .shop_table .order-total th,#sj.sj-p-checkout .shop_table .order-total td{border-top:1.5px solid var(--sj-ink);font-size:18px;font-weight:500}
+#sj.sj-p-checkout .shop_table .order-total .amount{font-size:24px;letter-spacing:-.03em}
+
+/* Payment */
+#sj.sj-p-checkout #payment{background:none;border-radius:0}
+#sj.sj-p-checkout #payment ul.payment_methods{display:grid;gap:10px;margin:0 0 var(--sj-s4);padding:0;border:0}
+#sj.sj-p-checkout #payment ul.payment_methods li{margin:0;padding:12px 14px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);background:#fff;list-style:none}
+#sj.sj-p-checkout #payment ul.payment_methods li:has(input:checked){background:var(--sj-yellow-light)}
+#sj.sj-p-checkout #payment ul.payment_methods li label{display:inline;font-weight:500;color:var(--sj-ink);cursor:pointer}
+#sj.sj-p-checkout #payment ul.payment_methods li input{width:18px;height:18px;margin:0 8px 0 0;vertical-align:-3px}
+#sj.sj-p-checkout #payment ul.payment_methods li img{display:inline-block;width:auto;max-height:24px;margin-left:8px;vertical-align:middle}
+#sj.sj-p-checkout #payment div.payment_box{margin:10px 0 0;padding:12px 14px;border-radius:var(--sj-r-sm);background:var(--sj-canvas);font-size:14px;line-height:1.5;color:var(--sj-text)}
+#sj.sj-p-checkout #payment div.payment_box::before{display:none}
+#sj.sj-p-checkout #payment .form-row{margin:0;padding:0}
+#sj.sj-p-checkout .woocommerce-terms-and-conditions-wrapper,#sj.sj-p-checkout .woocommerce-privacy-policy-text{margin:0 0 var(--sj-s4);font-size:14px;line-height:1.5;color:var(--sj-muted)}
+
+/* Buttons: place order and downloads are primary, the rest are ghost */
+#sj.sj-p-checkout .button{display:inline-flex;align-items:center;justify-content:center;min-height:var(--sj-tap);padding:10px 18px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);background:#fff;color:var(--sj-ink);font-size:15px;font-weight:500;line-height:1.3;text-align:center;cursor:pointer;box-shadow:none}
+#sj.sj-p-checkout .button.alt,#sj.sj-p-checkout #place_order{min-height:52px;padding:12px 22px;background:var(--sj-cta);color:#fff;font-size:16px;box-shadow:4px 4px 0 var(--sj-ink);margin:0 4px 4px 0;float:none}
+#sj.sj-p-checkout #place_order{display:flex;width:calc(100% - 4px);min-height:56px;font-size:17px}
+@media (hover:hover){
+  #sj.sj-p-checkout .button:hover{background:var(--sj-yellow-light)}
+  #sj.sj-p-checkout .button.alt:hover,#sj.sj-p-checkout #place_order:hover{background:var(--sj-cta-dark);color:#fff;transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--sj-ink)}
+}
+#sj.sj-p-checkout .button.alt:active,#sj.sj-p-checkout #place_order:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--sj-ink)}
+#sj.sj-p-checkout .button[disabled]{background:var(--sj-line);color:var(--sj-muted);border-color:#A8A396;box-shadow:none;cursor:not-allowed}
+
+/* Order received */
+#sj.sj-p-checkout .woocommerce-order{display:grid;gap:var(--sj-s5)}
+#sj.sj-p-checkout .woocommerce-thankyou-order-received{margin:0;padding:14px 16px;border:1.5px solid var(--sj-ok);border-left-width:7px;border-radius:var(--sj-r-md);background:var(--sj-ok-bg);font-size:18px;font-weight:500;color:var(--sj-ink)}
+#sj.sj-p-checkout ul.order_details{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:0 9px 9px 0;padding:var(--sj-s4);border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-lg);background:#fff;box-shadow:var(--sj-sh-offset);list-style:none}
+#sj.sj-p-checkout ul.order_details li{float:none;margin:0;padding:0;border:0;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--sj-muted)}
+#sj.sj-p-checkout ul.order_details li strong{display:block;margin-top:4px;font-size:16px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--sj-ink)}
+#sj.sj-p-checkout .woocommerce-order-details,#sj.sj-p-checkout .woocommerce-order-downloads,#sj.sj-p-checkout .woocommerce-customer-details{padding:var(--sj-s4);border:1px solid var(--sj-line);border-radius:var(--sj-r-lg);background:#fff}
+#sj.sj-p-checkout address{font-style:normal;line-height:1.6}
+</style>

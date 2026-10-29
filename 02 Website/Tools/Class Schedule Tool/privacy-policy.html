@@ -1,0 +1,264 @@
+<style>
+  #sja-privacy-policy {
+    --sja-yellow: #FCE004;
+    --sja-brown: #453516;
+    --sja-black: #000000;
+    --sja-orange: #FE6100;
+    --sja-white: #FFFFFF;
+    --sja-grey: #555555;
+    --sja-dark-grey: #222222;
+    --sja-light-bg: #FAFAFA;
+    --sja-light-yellow: #fff9cc;
+    --sja-border-light: #e5e5e5;
+    --sja-transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    font-family: 'Poppins', sans-serif;
+    color: var(--sja-dark-grey);
+    line-height: 1.6;
+    background: var(--sja-light-bg);
+    padding-bottom: 60px;
+  }
+
+  #sja-privacy-policy * {
+    box-sizing: border-box;
+  }
+
+  #sja-privacy-policy .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #sja-privacy-policy header {
+    text-align: center;
+    padding: 60px 0 40px;
+  }
+
+  #sja-privacy-policy .sja-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--sja-black);
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+  }
+
+  #sja-privacy-policy .sja-highlight {
+    background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 35%;
+    background-position: 0 85%;
+    display: inline;
+    padding: 0 5px;
+  }
+
+  #sja-privacy-policy .effective-date {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--sja-grey);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  #sja-privacy-policy .policy-content {
+    background: var(--sja-white);
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--sja-border-light);
+  }
+
+  #sja-privacy-policy .intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--sja-dark-grey);
+  }
+
+  #sja-privacy-policy .policy-section {
+    margin-bottom: 35px;
+    padding-bottom: 30px;
+    border-bottom: 1px dashed var(--sja-border-light);
+  }
+
+  #sja-privacy-policy .policy-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #sja-privacy-policy .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--sja-black);
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #sja-privacy-policy .section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--sja-yellow);
+    color: var(--sja-black);
+    border-radius: 50%;
+    font-size: 0.9rem;
+    font-weight: 800;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+  }
+
+  #sja-privacy-policy .policy-section p {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  #sja-privacy-policy .policy-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  #sja-privacy-policy .policy-section ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style-type: none;
+  }
+
+  #sja-privacy-policy .policy-section li {
+    position: relative;
+    margin-bottom: 12px;
+    padding-left: 25px;
+  }
+
+  #sja-privacy-policy .policy-section li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--sja-orange);
+    border-radius: 50%;
+  }
+
+  #sja-privacy-policy .policy-section li strong {
+    color: var(--sja-black);
+    font-weight: 600;
+  }
+
+  #sja-privacy-policy .contact-box {
+    background-color: var(--sja-light-yellow);
+    border-left: 4px solid var(--sja-yellow);
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 20px;
+  }
+
+  #sja-privacy-policy .contact-box p {
+    margin: 5px 0;
+    font-weight: 500;
+  }
+
+  #sja-privacy-policy .contact-box a {
+    color: var(--sja-orange);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  #sja-privacy-policy .contact-box a:hover {
+    color: var(--sja-brown);
+  }
+
+  @media (max-width: 600px) {
+    #sja-privacy-policy .policy-content {
+      padding: 30px 20px;
+    }
+    #sja-privacy-policy .sja-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<div id="sja-privacy-policy">
+  <div class="container">
+    <header>
+      <h1 class="sja-title">Privacy <span class="sja-highlight">Policy</span></h1>
+      <div class="effective-date">Effective Date: August 4, 2026</div>
+    </header>
+
+    <div class="policy-content">
+      <p class="intro-text">
+        Welcome to the website of SJ Academy ("we," "our," or "us"). We are committed to protecting the privacy and personal information of our students, parents, and website visitors. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with our digital platforms.
+      </p>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">1</span> Information We Collect</h2>
+        <p>We collect information that you voluntarily provide to us, as well as data gathered automatically when you interact with our site.</p>
+        <ul>
+          <li><strong>Personal Information:</strong> When you inquire about admissions, register for O Level, IGCSE, or A Level courses, or participate in our referral program, we may collect your name, email address, phone number, academic background, and payment-related information.</li>
+          <li><strong>Automated Data & Analytics:</strong> We automatically collect standard usage data when you access our site, including your IP address, browser type, operating system, pages viewed, and session duration.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">2</span> How We Collect Your Data</h2>
+        <p>We gather information through the following channels:</p>
+        <ul>
+          <li><strong>Direct Submissions:</strong> When you fill out contact forms, enrollment applications, or lead capture forms on our website.</li>
+          <li><strong>Interactive Tools:</strong> Through your interactions with our automated chat support features.</li>
+          <li><strong>Tracking Technologies:</strong> Via custom referral links, UTM parameters, and cookies used to track digital campaign performance.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">3</span> How We Use Your Information</h2>
+        <p>The information we collect is strictly used to operate and improve SJ Academy. Specific uses include:</p>
+        <ul>
+          <li>Processing student admissions, updating cohort matrices, and managing academic schedules.</li>
+          <li>Operating and accurately calculating rewards for our multi-tier student referral program.</li>
+          <li>Delivering targeted educational content, promotional updates, and early-enrollment fee incentives.</li>
+          <li>Analyzing website traffic and monitoring digital discoverability to improve our online presence.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">4</span> Third-Party Service Providers</h2>
+        <p>We do not sell, rent, or trade your personal information to outside parties. We only share necessary data with trusted third-party service providers that facilitate our operations, subject to strict confidentiality agreements. These include:</p>
+        <ul>
+          <li><strong>Data Management & Automation:</strong> Cloud-based spreadsheets and database workspaces used to manage our sales pipeline and student records.</li>
+          <li><strong>Marketing & Communication:</strong> Digital advertising platforms and automated messaging systems utilized to communicate with prospective students and parents.</li>
+          <li><strong>Analytics Tools:</strong> Search and web analytics services that help us monitor our site's performance.</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">5</span> Cookies and Tracking Technologies</h2>
+        <p>Our website utilizes cookies to enhance the user experience, maintain the functionality of our referral tracking, and gather analytics. You can set your browser to refuse all or some browser cookies, but this may affect how certain parts of the website function.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">6</span> Data Security</h2>
+        <p>We implement appropriate technical and organizational measures to secure your personal information against unauthorized access, alteration, disclosure, or destruction. However, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">7</span> Your Data Protection Rights</h2>
+        <p>You have the right to request access to the personal data we hold about you. You may also request that we correct any inaccurate information, update incomplete data, or completely delete your personal information from our digital records. To exercise these rights, please contact us using the details below.</p>
+      </div>
+
+      <div class="policy-section">
+        <h2 class="section-title"><span class="section-number">8</span> Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+        <div class="contact-box">
+          <p><strong>SJ Academy</strong></p>
+          <p>📧 Email: <a href="mailto:contact@sjacademy.pk">contact@sjacademy.pk</a></p>
+          <p>📞 Phone: <a href="tel:+923362144454">+923362144454</a></p>
+          <p>📍 Location: Karachi, Pakistan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

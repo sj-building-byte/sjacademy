@@ -1,0 +1,69 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#FFF6DC;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;color:#FE6100;line-height:1.2;z-index:2;}
+.box{position:absolute;background:#FCE004;border-radius:10px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#FFF6DC;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+
+#h06-stage{position:absolute;inset:0;}
+#h06-title{position:absolute;left:390px;top:426px;width:600px;font-size:76px;font-weight:700;line-height:1.1;letter-spacing:-0.01em;}
+#h06-title .w{display:inline-block;}
+#h06-rule{position:absolute;left:90px;top:590px;width:880px;font-size:42px;font-weight:500;line-height:1.38;color:rgba(255,246,220,0.86);}
+#h06-rule .hl{background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;
+  padding:0 6px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone;font-weight:600;}
+  </style>
+  <div id="root" data-composition-id="h06" data-width="1080" data-height="1920">
+    <div id="h06-stage" data-layout-allow-overlap>
+      <div class="title" id="h06-title"><span class="w" id="h06-tw0">Either</span> <span class="w" id="h06-tw1">side</span></div>
+      <div class="rule" id="h06-rule"><span class="" id="h06-r0">Square the middle, then </span><span class="hl" id="h06-r1">take away the gap squared</span></div>
+      <div class="tk" id="h06-a49" style="left:90.0px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">49</div>
+      <div class="tk" id="h06-ax" style="left:234.7px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC"> × </div>
+      <div class="tk" id="h06-a51" style="left:353.5px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">51</div>
+      <div class="tk" id="h06-b50" style="left:90.0px;top:853.0px;font-size:120px;font-weight:700;color:#FFF6DC">50²</div>
+      <div class="tk" id="h06-bm" style="left:292.2px;top:853.0px;font-size:120px;font-weight:700;color:#FFF6DC"> − </div>
+      <div class="tk" id="h06-b1" style="left:408.2px;top:853.0px;font-size:120px;font-weight:700;color:#FFF6DC">1²</div>
+      <div class="tk" id="h06-ce" style="left:90.0px;top:988.0px;font-size:120px;font-weight:700;color:#FFF6DC">= </div>
+      <div class="tk" id="h06-cr" style="left:199.0px;top:988.0px;font-size:120px;font-weight:700;color:#FFF6DC">2499</div>
+      <div class="note" id="h06-ng" style="left:518.4px;top:756.5px;font-size:54px">50 − 1 and 50 + 1</div>
+      <div class="box" id="h06-box0" style="left:181.0px;top:983.6px;width:333.4px;height:144.4px"></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#h06-title .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out',stagger:0.07},0.12);
+    tl.fromTo('#h06-rule',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.22,ease:'power4.out'},0.28);
+    tl.set('#h06-a49',{opacity:0},0);
+    tl.set('#h06-ax',{opacity:0},0);
+    tl.set('#h06-a51',{opacity:0},0);
+    tl.set('#h06-b50',{opacity:0},0);
+    tl.set('#h06-bm',{opacity:0},0);
+    tl.set('#h06-b1',{opacity:0},0);
+    tl.set('#h06-ce',{opacity:0},0);
+    tl.set('#h06-cr',{opacity:0},0);
+    tl.set('#h06-ng',{opacity:0},0);
+    tl.fromTo('#h06-a49',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.35);
+    tl.fromTo('#h06-ax',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.42);
+    tl.fromTo('#h06-a51',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.49);
+    tl.fromTo('#h06-ng',{opacity:1,clipPath:'inset(0% 100% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:0.4,ease:'sine.inOut'},1.046);
+    tl.fromTo('#h06-rule .hl',{backgroundSize:'0% 100%',color:'#FFF6DC'},{backgroundSize:'100% 100%',color:'#453516',duration:0.3,ease:'power2.out'},1.841);
+    tl.fromTo('#h06-b50',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},2.437);
+    tl.fromTo('#h06-bm',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},3.63);
+    tl.fromTo('#h06-b1',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},3.7);
+    tl.fromTo('#h06-ce',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},6.011);
+    tl.set('#h06-box0',{opacity:0},0);
+    tl.fromTo('#h06-box0',{opacity:0,scale:1.3,rotation:-7},{opacity:1,scale:1,rotation:-1.5,duration:0.14,ease:'back.out(1.7)'},7.074);
+    tl.fromTo('#h06-box0',{x:2},{x:0,duration:0.13,ease:'steps(4)'},7.214);
+    tl.fromTo('#h06-cr',{opacity:0.0},{opacity:1,duration:0.08},7.074);
+    tl.fromTo('#h06-cr',{color:'#FFF6DC'},{color:'#453516',duration:0.05},7.114);
+    tl.fromTo('#h06-stage',{opacity:1,filter:'blur(0px)',y:0},{opacity:0,filter:'blur(10px)',y:-60,duration:0.22,ease:'expo.in'},8.241);
+    window.__timelines["h06"] = tl;
+  </script>
+</template>

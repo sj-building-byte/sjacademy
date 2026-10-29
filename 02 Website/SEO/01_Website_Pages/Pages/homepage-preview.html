@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SJ Academy - Premier CAIE O & A Level Coaching</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-yellow: #FCE004;
+      --brown: #453516;
+      --orange: #FE6100;
+      --black: #111111;
+      --white: #FFFFFF;
+      --surface: #FAF8F3;
+      --border: #E8E2D8;
+      --text-muted: #5A5245;
+      --green: #25D366;
+      --shadow-sm: 0 10px 30px rgba(0,0,0,0.03);
+      --shadow-md: 0 20px 40px rgba(0,0,0,0.08);
+      --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Reset & Typography */
+    #sj-homepage { font-family: 'Poppins', sans-serif; background: var(--white); color: var(--black); line-height: 1.7; font-weight: 400; overflow-x: hidden; }
+    #sj-homepage * { box-sizing: border-box; }
+    #sj-homepage .container { max-width: 1250px; margin: 0 auto; padding: 0 24px; }
+    #sj-homepage h1, #sj-homepage h2, #sj-homepage h3, #sj-homepage h4 { font-weight: 600; color: var(--black); margin: 0; }
+    
+    /* -------------------------------------------
+       NEO-MODERN HERO SECTION (The Personality Fold)
+       ------------------------------------------- */
+    #sj-homepage .hero-neo { 
+        padding: 80px 0 120px; 
+        background: radial-gradient(circle at top left, #FFFFFF 0%, #FAF8F3 100%); 
+        overflow: visible;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    #sj-homepage .hero-grid-neo {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    /* Hero Text Elements */
+    #sj-homepage .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        padding: 8px 24px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--black);
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 35px;
+    }
+    
+    #sj-homepage .pulse-dot {
+        width: 10px; height: 10px;
+        background: var(--green);
+        border-radius: 50%;
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    #sj-homepage .hero-neo h1 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 1.1;
+        letter-spacing: -2px;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
+    
+    #sj-homepage .highlight-marker {
+        background: var(--primary-yellow);
+        padding: 4px 24px;
+        border-radius: 100px;
+        display: inline-block;
+        transform: rotate(-2deg);
+        box-shadow: 4px 4px 0px var(--black);
+        border: 2px solid var(--black);
+        margin-top: 10px;
+    }
+
+    #sj-homepage .hero-neo p {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        max-width: 550px;
+        margin-bottom: 40px;
+    }
+
+    /* Hero Actions & Trust */
+    #sj-homepage .hero-action-row {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    #sj-homepage .btn-neo {
+        background: var(--black);
+        color: var(--primary-yellow);
+        padding: 18px 40px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s var(--ease);
+        border: 2px solid var(--black);
+    }
+    #sj-homepage .btn-neo:hover {
+        background: var(--primary-yellow);
+        color: var(--black);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    #sj-homepage .trust-avatars {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    #sj-homepage .avatar-group {
+        display: flex;
+    }
+    #sj-homepage .avatar-group img {
+        width: 45px; height: 45px;
+        border-radius: 50%;
+        border: 3px solid var(--surface);
+        object-fit: cover;
+        margin-left: -15px;
+    }
+    #sj-homepage .avatar-group img:first-child { margin-left: 0; }
+    #sj-homepage .trust-avatars span {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.3;
+    }
+
+    /* Hero Visuals (Dynamic Collage) */
+    #sj-homepage .hero-visuals {
+        position: relative;
+        width: 100%;
+        height: 550px;
+    }
+    #sj-homepage .img-main {
+        position: absolute;
+        top: 0; right: 0;
+        width: 85%; height: 85%;
+        border-radius: 40px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+    }
+    #sj-homepage .img-main img { width: 100%; height: 100%; object-fit: cover; }
+    
+    #sj-homepage .img-overlap {
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 55%; height: 55%;
+        border-radius: 30px;
+        overflow: hidden;
+        border: 10px solid var(--surface);
+        box-shadow: var(--shadow-md);
+        z-index: 2;
+        transition: transform 0.5s var(--ease);
+    }
+    #sj-homepage .img-overlap img { width: 100%; height: 100%; object-fit: cover; }
+    #sj-homepage .hero-visuals:hover .img-overlap { transform: scale(1.05) rotate(-2deg); }
+
+    #sj-homepage .floating-card-neo {
+        position: absolute;
+        top: 40px; left: -20px;
+        background: var(--white);
+        padding: 16px 24px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: var(--shadow-md);
+        z-index: 3;
+        border: 1px solid var(--border);
+        animation: float 6s ease-in-out infinite;
+    }
+    #sj-homepage .floating-card-neo i { color: var(--orange); font-size: 18px; }
+    
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0px); }
+    }
+
+
+    /* -------------------------------------------
+       REST OF THE PAGE (Kept sleek & modern)
+       ------------------------------------------- */
+
+    /* Stats Ribbon */
+    #sj-homepage .stats-section { padding: 40px 0; background: var(--white); border-bottom: 1px solid var(--border); }
+    #sj-homepage .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+    #sj-homepage .stat-item h3 { font-size: 2rem; font-weight: 700; color: var(--orange); margin-bottom: 5px; }
+    #sj-homepage .stat-item p { font-size: 14px; font-weight: 500; color: var(--black); text-transform: uppercase; margin: 0; }
+
+    /* Classes / Subjects Section */
+    #sj-homepage .classes-section { padding: 80px 0; background: var(--surface); }
+    #sj-homepage .section-header { text-align: center; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    #sj-homepage .section-header h2 { font-size: 2.5rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; }
+    #sj-homepage .section-header p { font-size: 1.05rem; color: var(--text-muted); }
+    
+    #sj-homepage .subjects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+    #sj-homepage .subject-card { background: var(--white); border-radius: 16px; padding: 24px; text-align: left; border: 1px solid var(--border); transition: all 0.3s var(--ease); display: flex; align-items: flex-start; gap: 16px; box-shadow: var(--shadow-sm); text-decoration: none; color: inherit; }
+    #sj-homepage .subject-card:hover { transform: translateY(-3px); border-color: var(--primary-yellow); box-shadow: var(--shadow-md); }
+    #sj-homepage .subject-icon { width: 50px; height: 50px; background: var(--surface); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--brown); flex-shrink: 0; }
+    #sj-homepage .subject-card:hover .subject-icon { background: var(--primary-yellow); color: var(--black); }
+    #sj-homepage .subject-info h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 5px 0; }
+    #sj-homepage .subject-info p { font-size: 12px; color: var(--text-muted); margin: 0; font-weight: 500; background: var(--surface); padding: 3px 8px; border-radius: 4px; display: inline-block; }
+
+    /* Photo Gallery (Life at SJ Academy) */
+    #sj-homepage .gallery-section { padding: 80px 0; background: var(--white); border-bottom: 1px solid var(--border); }
+    #sj-homepage .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    #sj-homepage .gallery-img { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; box-shadow: var(--shadow-sm); }
+    #sj-homepage .gallery-img-large { grid-row: span 2; height: 100%; min-height: 400px; }
+    #sj-homepage .gallery-col-2 { display: flex; flex-direction: column; gap: 20px; }
+    #sj-homepage .gallery-col-2 img { height: 50%; min-height: 190px; }
+
+    /* Faculty Section */
+    #sj-homepage .faculty-section { padding: 80px 0; background: var(--surface); }
+    #sj-homepage .faculty-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; margin-top: 40px; }
+    #sj-homepage .faculty-card { text-align: center; background: var(--white); padding: 30px 20px; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); transition: all 0.3s var(--ease); }
+    #sj-homepage .faculty-card:hover { transform: translateY(-5px); border-color: var(--primary-yellow); }
+    #sj-homepage .faculty-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px; border: 3px solid var(--primary-yellow); }
+    #sj-homepage .faculty-card h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
+    #sj-homepage .faculty-card p { font-size: 12px; color: var(--text-muted); font-weight: 500; margin: 0; }
+
+    /* Latest Blogs Section */
+    #sj-homepage .blogs-section { padding: 80px 0; background: var(--white); }
+    #sj-homepage .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+    #sj-homepage .blog-card { border: 1px solid var(--border); border-radius: 24px; overflow: hidden; text-decoration: none; color: inherit; transition: all 0.3s var(--ease); display: flex; flex-direction: column; }
+    #sj-homepage .blog-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: var(--primary-yellow); }
+    #sj-homepage .blog-img-wrap { height: 220px; background: var(--surface); width: 100%; overflow: hidden; position: relative; }
+    #sj-homepage .blog-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+    #sj-homepage .blog-card:hover .blog-img-wrap img { transform: scale(1.05); }
+    #sj-homepage .blog-content { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    #sj-homepage .blog-date { font-size: 12px; color: var(--orange); font-weight: 600; margin-bottom: 10px; text-transform: uppercase; }
+    #sj-homepage .blog-title { font-size: 1.1rem; font-weight: 600; margin: 0 0 15px 0; line-height: 1.4; }
+    #sj-homepage .read-more { font-size: 13px; font-weight: 500; color: var(--black); margin-top: auto; display: flex; align-items: center; gap: 8px; }
+    #sj-homepage .blog-card:hover .read-more { color: var(--orange); }
+
+    /* Reviews Section */
+    #sj-homepage .testimonials-section { padding: 80px 0; background: var(--surface); overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    #sj-homepage .scrolling-reviews-container { width: 100%; overflow: hidden; position: relative; padding: 20px 0; }
+    #sj-homepage .scrolling-reviews-container::before, #sj-homepage .scrolling-reviews-container::after { content: ''; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; pointer-events: none; }
+    #sj-homepage .scrolling-reviews-container::before { left: 0; background: linear-gradient(to right, var(--surface), transparent); }
+    #sj-homepage .scrolling-reviews-container::after { right: 0; background: linear-gradient(to left, var(--surface), transparent); }
+    #sj-homepage .scrolling-reviews-track { display: flex; gap: 24px; width: max-content; animation: scrollReviews 40s linear infinite; }
+    #sj-homepage .scrolling-reviews-track:hover { animation-play-state: paused; }
+    @keyframes scrollReviews { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 12px)); } }
+    #sj-homepage .testimonial-card { background: var(--white); border-radius: 16px; padding: 24px; width: 350px; flex-shrink: 0; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+    #sj-homepage .testimonial-text { font-size: 14px; line-height: 1.7; color: var(--text-muted); margin-bottom: 20px; }
+    #sj-homepage .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    #sj-homepage .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--primary-yellow); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 15px; color: var(--black); }
+    #sj-homepage .author-info h4 { font-size: 13px; font-weight: 600; margin: 0; }
+    #sj-homepage .stars { color: var(--orange); font-size: 10px; margin-top: 4px; display: flex; gap: 3px; }
+
+    /* Responsiveness */
+    @media (max-width: 990px) {
+      #sj-homepage .hero-grid-neo { grid-template-columns: 1fr; gap: 50px; }
+      #sj-homepage .hero-visuals { height: 450px; }
+      #sj-homepage .gallery-grid { grid-template-columns: 1fr; }
+      #sj-homepage .gallery-img-large, #sj-homepage .gallery-col-2 img { min-height: 250px; }
+    }
+    @media (max-width: 600px) {
+      #sj-homepage .hero-neo h1 { font-size: 2.5rem; }
+      #sj-homepage .hero-visuals { height: 350px; }
+      #sj-homepage .floating-card-neo { display: none; } /* Hide floating badge on small mobile to save space */
+    }
+  </style>
+</head>
+<body>
+
+<div id="sj-homepage">
+
+  <!-- NEO-MODERN HERO SECTION -->
+  <section class="hero-neo">
+    <div class="container hero-grid-neo">
+      
+      <!-- Left Content -->
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span class="pulse-dot"></span> Karachi's Premier CAIE Academy
+        </div>
+        
+        <h1>
+          Master O & A Level<br>
+          With <span class="highlight-marker">The Experts.</span>
+        </h1>
+        
+        <p>We move past rote memorization. Master the exact Cambridge syllabus, marking schemes, and lab practicals you need for top university placements.</p>
+        
+        <div class="hero-action-row">
+          <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn-neo">
+            Book a Free Demo <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          
+          <div class="trust-avatars">
+             <div class="avatar-group">
+               <img src="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" alt="Teacher">
+               <img src="https://www.sjacademy.pk/wp-content/uploads/2025/12/Zaman-chemistry.jpeg" alt="Teacher">
+               <img src="https://www.sjacademy.pk/wp-content/uploads/2025/11/Umair-Pic-1.jpg" alt="Teacher">
+             </div>
+             <span><strong>15+</strong> CAIE<br>Specialists</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visuals (Dynamic Collage) -->
+      <div class="hero-visuals">
+        <!-- Floating Badge -->
+        <div class="floating-card-neo">
+          <i class="fa-solid fa-flask"></i> AS & A2 Lab Practicals
+        </div>
+        
+        <!-- Large Back Image -->
+        <div class="img-main">
+          <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1632.jpg" alt="SJ Academy Classroom">
+        </div>
+        
+        <!-- Overlapping Front Image -->
+        <div class="img-overlap">
+          <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1633-e1787358217316.jpg" alt="SJ Academy Faculty">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRUST STATS -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <h3>220+</h3>
+        <p>5-Star Reviews</p>
+      </div>
+      <div class="stat-item">
+        <h3>15+</h3>
+        <p>CAIE Specialists</p>
+      </div>
+      <div class="stat-item">
+        <h3>Labs</h3>
+        <p>AS & A2 Practicals</p>
+      </div>
+      <div class="stat-item">
+        <h3>DHA</h3>
+        <p>Karachi Campus</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSES / SUBJECTS GRID -->
+  <section class="classes-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>CAIE Subjects We Offer</h2>
+        <p>Comprehensive preparation for both O Level and A Level students, focusing entirely on Cambridge marking schemes.</p>
+      </div>
+      
+      <div class="subjects-grid" id="home-subjects-grid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFE AT SJ ACADEMY (GALLERY) -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Life at SJ Academy</h2>
+        <p>A focused, interactive, and highly supportive physical environment for our students in Karachi.</p>
+      </div>
+      <div class="gallery-grid">
+        <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1637.jpg" alt="SJ Academy Classroom" class="gallery-img gallery-img-large">
+        <div class="gallery-col-2">
+          <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1634.jpg" alt="Students focusing in class" class="gallery-img">
+          <img src="https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1632.jpg" alt="Academy Environment" class="gallery-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACULTY PREVIEW -->
+  <section class="faculty-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Learn from CAIE Experts</h2>
+        <p>Our subject specialists understand exactly how to turn a B grade into an A*.</p>
+      </div>
+      <div class="faculty-grid" id="home-faculty-grid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS MARQUEE -->
+  <section class="testimonials-section">
+    <div class="container">
+        <div class="section-header" style="margin-bottom: 30px;">
+            <h2>What Parents & Students Say</h2>
+        </div>
+        <div class="scrolling-reviews-container">
+            <div class="scrolling-reviews-track" id="home-reviews-grid">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- LATEST CAIE BLOGS -->
+  <section class="blogs-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Latest CAIE Insights</h2>
+        <p>Stay updated with our latest guides on O and A level schools, past papers, and university admissions.</p>
+      </div>
+      <div class="blogs-grid" id="home-blogs-grid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- DATA & RENDER SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // CAIE Subjects
+    const subjects = [
+      { name: "Mathematics", code: "4024 / 9709", levels: "O & A Level", icon: "fa-calculator", link: "/o-a-level-classes/" },
+      { name: "Physics", code: "5054 / 9702", levels: "O & A Level", icon: "fa-atom", link: "/o-a-level-classes/" },
+      { name: "Chemistry", code: "5070 / 9701", levels: "O & A Level", icon: "fa-flask", link: "/o-a-level-classes/" },
+      { name: "Biology", code: "5090 / 9700", levels: "O & A Level", icon: "fa-dna", link: "/o-a-level-classes/" },
+      { name: "Computer Science", code: "2210 / 9618", levels: "O & A Level", icon: "fa-laptop-code", link: "/o-a-level-classes/" },
+      { name: "Business", code: "7115 / 9609", levels: "O & A Level", icon: "fa-briefcase", link: "/o-a-level-classes/" },
+      { name: "Accounting", code: "7707 / 9706", levels: "O & A Level", icon: "fa-file-invoice-dollar", link: "/o-a-level-classes/" },
+      { name: "Economics", code: "2281 / 9708", levels: "O & A Level", icon: "fa-chart-line", link: "/o-a-level-classes/" }
+    ];
+
+    const subjGrid = document.getElementById('home-subjects-grid');
+    if (subjGrid) {
+        subjGrid.innerHTML = subjects.map(s => `
+            <a href="${s.link}" class="subject-card">
+                <div class="subject-icon"><i class="fa-solid ${s.icon}"></i></div>
+                <div class="subject-info">
+                    <h3>${s.name}</h3>
+                    <p>${s.levels} (${s.code})</p>
+                </div>
+            </a>
+        `).join('');
+    }
+
+    // Top Faculty Preview
+    const topFaculty = [
+        { name: "Sir Salman Junaid", subjects: "Math & Physics", image: "https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" },
+        { name: "Sir Sunyyan Junaid", subjects: "Business", image: "https://www.sjacademy.pk/wp-content/uploads/2025/07/296167730_10159330125240939_9121453372746153911_n-min.jpg" },
+        { name: "Sir Abdullah Zaman", subjects: "Chemistry", image: "https://www.sjacademy.pk/wp-content/uploads/2025/12/Zaman-chemistry.jpeg" },
+        { name: "Sir Umair", subjects: "Biology", image: "https://www.sjacademy.pk/wp-content/uploads/2025/11/Umair-Pic-1.jpg" },
+        { name: "Sir Riza Walji", subjects: "Computer Science", image: "https://www.sjacademy.pk/wp-content/uploads/2025/11/Sir-Riza.webp" }
+    ];
+
+    const facGrid = document.getElementById('home-faculty-grid');
+    if (facGrid) {
+        facGrid.innerHTML = topFaculty.map(t => `
+            <div class="faculty-card">
+                <img src="${t.image}" alt="${t.name}" class="faculty-img" loading="lazy">
+                <h4>${t.name}</h4>
+                <p>${t.subjects}</p>
+            </div>
+        `).join('');
+    }
+
+    // Latest Blogs
+    const latestBlogs = [
+      { title: "Top 10 O-Level Schools in Karachi (2026 Guide)", date: "Latest Guide", img: "https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1632.jpg", link: "/top-10-o-level-schools-in-karachi/" },
+      { title: "Top 10 A-Level Colleges in Karachi", date: "Latest Guide", img: "https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1634.jpg", link: "/top-10-a-level-schools-in-karachi/" },
+      { title: "Free CAIE O & A Level Past Papers Downloader", date: "Free Tool", img: "https://www.sjacademy.pk/wp-content/uploads/2026/08/IMG_1637.jpg", link: "/o-level-past-papers/" }
+    ];
+
+    const blogGrid = document.getElementById('home-blogs-grid');
+    if (blogGrid) {
+        blogGrid.innerHTML = latestBlogs.map(b => `
+            <a href="${b.link}" class="blog-card">
+                <div class="blog-img-wrap"><img src="${b.img}" alt="${b.title}" loading="lazy"></div>
+                <div class="blog-content">
+                    <div>
+                        <div class="blog-date">${b.date}</div>
+                        <h3 class="blog-title">${b.title}</h3>
+                    </div>
+                    <div class="read-more">Read Full Guide <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+        `).join('');
+    }
+
+    // Reviews Data
+    const reviews = [
+        { name: "Ayesha", text: "Sir Salman and the people of SJ Academy were truly the best in preparing me for my AS physics practical. Genuinely could not have done it without them." },
+        { name: "Eshal Bawaney", text: "Sir Salman genuinely helped me feel fully prepared for my CIE practical exam. The practice we did in class came in handy so much during the actual paper." },
+        { name: "Syed Muhammad Abdullah", text: "Took Bio, Chem and Physics practicals here. Honestly one of the best decisions. Very helpful teachers, proper practice, and great exam preparation." },
+        { name: "Laiba Baksh", text: "Sir Salman is hands down the BEST chemistry teacher in town! He's always available to help, going above and beyond to ensure his students understand." }
+    ];
+
+    const revGrid = document.getElementById('home-reviews-grid');
+    if (revGrid) {
+        const doubledReviews = [...reviews, ...reviews];
+        revGrid.innerHTML = doubledReviews.map(r => {
+            const initial = r.name.charAt(0).toUpperCase();
+            return `
+            <div class="testimonial-card">
+                <p class="testimonial-text">"${r.text}"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">${initial}</div>
+                    <div class="author-info">
+                        <h4>${r.name}</h4>
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBCC Equivalence Calculator (2026 Verified)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        #sj-ibcc-widget {
+            /* Brand Colors & Variables */
+            --primary-yellow: #FCE004;
+            --orange-accessible: #D95000; /* Darkened for WCAG AA contrast with white text */
+            --orange-dark: #b34200;
+            --bg-body: transparent;
+            --bg-card: #FFFFFF;
+            --bg-results: #FFF9CC;
+            --text-main: #000000;
+            --text-sec: #222222;
+            --text-muted: #555555;
+            --border-color: #e5e5e5;
+            --border-heavy: #453516;
+            --shadow: 0 10px 25px rgba(0,0,0,0.05);
+            --select-bg: #FFFFFF;
+            --badge-text: #000000;
+            
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-body) !important;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 15px;
+            box-sizing: border-box;
+        }
+
+        #sj-ibcc-widget * {
+            box-sizing: border-box;
+        }
+
+        /* Screen Reader Only - A11y Fix */
+        #sj-ibcc-widget .sr-only {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        /* Top Header Area */
+        #sj-ibcc-widget header { text-align: center; margin-bottom: 30px; padding-top: 20px; }
+        
+        #sj-ibcc-widget .mode-badge-wrap {
+            display: inline-block;
+            border: 2px solid var(--text-main) !important;
+            border-radius: 50px !important;
+            padding: 4px 6px !important;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.15) !important;
+            margin-bottom: 16px !important;
+        }
+        
+        #sj-ibcc-widget .mode-badge {
+            background: var(--primary-yellow) !important; color: var(--badge-text) !important;
+            font-size: 0.75rem !important; font-weight: 700 !important; text-transform: uppercase !important;
+            letter-spacing: 0.5px !important; padding: 6px 14px !important; border-radius: 40px !important;
+            display: inline-flex !important; align-items: center !important; gap: 6px !important; margin: 0 !important;
+        }
+        
+        #sj-ibcc-widget h1 {
+            font-size: 2.2rem !important; font-weight: 800 !important; line-height: 1.2 !important;
+            color: var(--text-main) !important; margin-bottom: 12px !important; margin-top: 0 !important; border: none !important;
+        }
+        
+        #sj-ibcc-widget h1 .highlight {
+            background: linear-gradient(120deg, var(--primary-yellow) 0%, var(--primary-yellow) 100%) !important;
+            background-repeat: no-repeat !important; background-size: 100% 35% !important; background-position: 0 85% !important;
+            display: inline !important; padding: 0 3px !important;
+        }
+        
+        #sj-ibcc-widget .subtitle {
+            font-size: 0.95rem !important; font-weight: 500 !important; color: var(--text-sec) !important;
+            margin: 0 auto !important; line-height: 1.5 !important; max-width: 600px !important;
+        }
+
+        /* Calculator Wrapper */
+        #sj-ibcc-widget .calc-wrapper {
+            background: var(--bg-card) !important;
+            border-top: 6px solid var(--border-heavy) !important;
+            border-radius: 12px !important;
+            box-shadow: var(--shadow) !important;
+            padding: 20px !important;
+        }
+
+        /* Config Toggles */
+        #sj-ibcc-widget .config-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px; 
+            margin-bottom: 35px;
+            background: rgba(0,0,0,0.02); 
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        #sj-ibcc-widget .type-toggle-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        #sj-ibcc-widget .type-toggle-header {
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        #sj-ibcc-widget .type-toggle {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            gap: 12px !important;
+        }
+
+        #sj-ibcc-widget .type-toggle > div {
+            flex: 1 1 auto;
+            min-width: 140px;
+        }
+
+        #sj-ibcc-widget .type-toggle label {
+            cursor: pointer !important;
+            font-weight: 700 !important;
+            font-size: 13px !important;
+            padding: 14px 20px !important;
+            border-radius: 40px !important; 
+            border: 2px solid var(--border-color) !important;
+            color: var(--text-muted) !important;
+            background: var(--bg-card) !important;
+            transition: all 0.2s ease !important;
+            text-align: center !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 !important;
+            height: 100%;
+        }
+        
+        /* A11y Focus State */
+        #sj-ibcc-widget .type-toggle input:focus-visible + label {
+            outline: 3px solid var(--text-main) !important;
+            outline-offset: 2px !important;
+        }
+        
+        #sj-ibcc-widget .type-toggle input:checked + label {
+            background: var(--primary-yellow) !important;
+            border-color: var(--border-heavy) !important;
+            color: var(--text-main) !important;
+            box-shadow: 0 4px 10px rgba(252, 224, 4, 0.2) !important;
+        }
+
+        #sj-ibcc-widget .type-toggle label:hover {
+            border-color: var(--text-muted) !important;
+        }
+
+        /* Subject Grid */
+        #sj-ibcc-widget .subject-row {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 10px !important;
+            margin-bottom: 20px !important;
+            padding-bottom: 20px !important;
+            border-bottom: 1px dashed var(--border-color) !important;
+        }
+        
+        #sj-ibcc-widget .subject-row .subject-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        #sj-ibcc-widget .subject-row label {
+            font-size: 13px !important; font-weight: 800 !important; text-transform: uppercase !important;
+            letter-spacing: 0.5px !important; color: var(--text-main) !important; margin: 0 !important;
+        }
+        
+        #sj-ibcc-widget .badge {
+            display: inline-block;
+            background: #e2e8f0;
+            color: var(--text-sec);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            align-self: flex-start;
+        }
+        
+        #sj-ibcc-widget .badge.badge-compulsory {
+            background: var(--primary-yellow);
+            color: var(--text-main);
+        }
+        
+        #sj-ibcc-widget .badge.badge-excluded {
+            background: #cbd5e1;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        #sj-ibcc-widget select {
+            width: 100% !important; padding: 12px 16px !important;
+            border: 2px solid var(--border-color) !important; border-radius: 8px !important;
+            font-family: 'Poppins', sans-serif !important; font-size: 14px !important; font-weight: 700 !important;
+            color: var(--text-main) !important; background-color: var(--select-bg) !important;
+            -webkit-appearance: none !important; -moz-appearance: none !important; appearance: none !important;
+            cursor: pointer !important; transition: all 0.2s ease !important;
+            background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%) !important;
+            background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px) !important;
+            background-size: 5px 5px, 5px 5px !important; background-repeat: no-repeat !important;
+        }
+        #sj-ibcc-widget select:focus { outline: none !important; border-color: var(--primary-yellow) !important; }
+        
+        /* Specific override for subject name dropdowns */
+        #sj-ibcc-widget select.subject-name-select {
+            margin-bottom: 8px !important;
+            font-weight: 500 !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        #sj-ibcc-widget .btn-calc {
+            background: var(--text-main) !important; color: var(--bg-card) !important;
+            border: none !important; border-radius: 8px !important; padding: 16px 24px !important;
+            font-family: 'Poppins', sans-serif !important; font-size: 14px !important; font-weight: 800 !important;
+            text-transform: uppercase !important; cursor: pointer !important; width: 100% !important;
+            margin-top: 10px !important; transition: 0.2s !important; letter-spacing: 1px !important;
+        }
+        #sj-ibcc-widget .btn-calc:hover { background: var(--orange-accessible) !important; color: #fff !important; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(217, 80, 0, 0.2); }
+
+        /* Results Panel */
+        #sj-ibcc-widget .results-panel {
+            grid-column: 1 / -1 !important; margin-top: 25px !important;
+            background: var(--bg-results) !important; border: 2px solid var(--primary-yellow) !important;
+            border-radius: 12px !important; padding: 30px 20px !important; text-align: center !important;
+            display: none;
+        }
+        #sj-ibcc-widget .results-panel.show { display: block; animation: fadeUp 0.4s ease forwards; }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #sj-ibcc-widget .results-panel.error-state {
+            background: rgba(239, 68, 68, 0.05) !important;
+            border-color: #ef4444 !important;
+        }
+
+        #sj-ibcc-widget .results-panel p.label {
+            font-size: 12px !important; font-weight: 800 !important; text-transform: uppercase !important;
+            letter-spacing: 1px !important; color: var(--text-muted) !important; margin-bottom: 5px !important; margin-top: 0 !important;
+        }
+
+        #sj-ibcc-widget .total-score {
+            font-size: 3.5rem !important; font-weight: 800 !important; color: var(--text-main) !important; line-height: 1.1 !important; margin: 10px 0 !important;
+        }
+        #sj-ibcc-widget .results-panel.error-state .total-score { color: #ef4444 !important; font-size: 1.8rem !important; }
+        #sj-ibcc-widget .total-score span { color: var(--orange-accessible) !important; }
+
+        #sj-ibcc-widget .algorithm-note {
+            display: inline-flex !important; align-items: center !important; gap: 6px !important;
+            background: var(--primary-yellow) !important; padding: 8px 12px !important; border-radius: 6px !important;
+            font-size: 11px !important; font-weight: 800 !important; color: var(--badge-text) !important; margin-bottom: 20px !important;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        #sj-ibcc-widget .disclaimer {
+            font-size: 11px !important; color: var(--text-muted) !important; font-style: italic !important;
+            line-height: 1.6 !important; max-width: 650px !important; margin: 20px auto 0 !important; text-align: left;
+            background: #fff; padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);
+        }
+
+        /* SEO CTA */
+        #sj-ibcc-widget .seo-cta {
+            grid-column: 1 / -1 !important; margin-top: 30px !important; background: #111822 !important; 
+            border-top: 6px solid var(--orange-accessible) !important; border-radius: 12px !important; padding: 40px 30px !important;
+            text-align: center !important; box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+        }
+        #sj-ibcc-widget .seo-cta h4 {
+            color: var(--primary-yellow) !important; font-weight: 800 !important; font-size: 1.5rem !important;
+            margin-bottom: 15px !important; margin-top: 0 !important; border: none !important;
+        }
+        #sj-ibcc-widget .seo-cta p {
+            font-size: 14px !important; font-weight: 400 !important; color: #F8FAFC !important; 
+            margin-bottom: 25px !important; max-width: 700px !important; margin-left: auto !important; margin-right: auto !important; line-height: 1.6 !important;
+        }
+        #sj-ibcc-widget .btn-cta {
+            display: inline-flex !important; align-items: center !important; justify-content: center !important;
+            background: var(--orange-accessible) !important; color: #FFFFFF !important; border: none !important; border-radius: 8px !important;
+            padding: 16px 30px !important; font-family: 'Poppins', sans-serif !important; font-size: 14px !important; font-weight: 800 !important;
+            text-transform: uppercase !important; text-decoration: none !important; transition: all 0.3s ease !important; width: 100% !important;
+            letter-spacing: 1px !important;
+        }
+        #sj-ibcc-widget .btn-cta:hover { background: var(--orange-dark) !important; transform: translateY(-2px) !important; }
+
+        #sj-ibcc-widget .warning-block {
+            background: #fff3cd; color: #856404; padding: 20px; border-radius: 8px; border-left: 5px solid #ffeeba;
+            font-size: 13px; font-weight: 500; text-align: center; margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            #sj-ibcc-widget { padding: 40px 30px; }
+            #sj-ibcc-widget h1 { font-size: 3rem !important; }
+            #sj-ibcc-widget .calc-wrapper { padding: 40px !important; }
+            #sj-ibcc-widget .config-section { grid-template-columns: 1fr 1fr; gap: 30px; padding: 30px; }
+            #sj-ibcc-widget .type-toggle label { font-size: 13px !important; }
+            #sj-ibcc-widget .subject-row { flex-direction: row !important; align-items: flex-end !important; }
+            #sj-ibcc-widget .subject-row .subject-info { flex: 1; margin-right: 20px; }
+            #sj-ibcc-widget select { width: 160px !important; font-size: 15px !important; }
+            #sj-ibcc-widget .results-panel { padding: 40px !important; }
+            #sj-ibcc-widget .total-score { font-size: 4rem !important; }
+            #sj-ibcc-widget .btn-cta { width: auto !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="sj-ibcc-widget">
+
+    <header>
+        <div class="mode-badge-wrap">
+            <div class="mode-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z" fill="currentColor"/></svg>
+                Calculator Tool
+            </div>
+        </div>
+        
+        <h1>IBCC <span class="highlight">Equivalence</span></h1>
+        <p class="subtitle">Estimate your O or A-Level equivalence. Eligibility combinations are strictly enforced based on IBCC policies.</p>
+    </header>
+
+    <div class="calc-wrapper">
+        <form id="ibcc-form" onsubmit="event.preventDefault(); calculateResult();">
+            
+            <div class="config-section">
+                <!-- Target Qualification -->
+                <div class="type-toggle-group">
+                    <div class="type-toggle-header">Qualification Target</div>
+                    <div class="type-toggle">
+                        <div>
+                            <input type="radio" id="lvl-ssc" name="target" value="SSC" class="sr-only" checked onchange="updateState()">
+                            <label for="lvl-ssc">SSC (O-Level Only)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="lvl-hssc" name="target" value="HSSC" class="sr-only" onchange="updateState()">
+                            <label for="lvl-hssc">HSSC (O & A-Levels)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="type-toggle-group">
+                    <div class="type-toggle-header">Examination Location</div>
+                    <div class="type-toggle">
+                        <div>
+                            <input type="radio" id="loc-local" name="location" value="local" class="sr-only" checked onchange="updateState()">
+                            <label for="loc-local">Local Pakistani</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="loc-overseas" name="location" value="overseas" class="sr-only" onchange="updateState()">
+                            <label for="loc-overseas">Overseas</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exemption Status -->
+                <div class="type-toggle-group">
+                    <div class="type-toggle-header">Compulsory Exemptions</div>
+                    <div class="type-toggle">
+                        <div>
+                            <input type="radio" id="ex-none" name="exempted" value="false" class="sr-only" checked onchange="updateState()">
+                            <label for="ex-none">Standard (None)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="ex-yes" name="exempted" value="true" class="sr-only" onchange="updateState()">
+                            <label for="ex-yes">Exempted (Urdu/Isl/Pak)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group (HSSC Only) -->
+                <div class="type-toggle-group" id="group-wrapper" style="display:none;">
+                    <div class="type-toggle-header">HSSC Equivalence Group</div>
+                    <div class="type-toggle">
+                        <div>
+                            <input type="radio" id="grp-med" name="group" value="Pre-Medical" class="sr-only" checked onchange="updateState()">
+                            <label for="grp-med">Pre-Medical</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="grp-eng" name="group" value="Pre-Engineering" class="sr-only" onchange="updateState()">
+                            <label for="grp-eng">Pre-Engineering</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="grp-cs" name="group" value="Computer Science" class="sr-only" onchange="updateState()">
+                            <label for="grp-cs">Computer Sci.</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="grp-hum" name="group" value="Humanities" class="sr-only" onchange="updateState()">
+                            <label for="grp-hum">Commerce / Humanities</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- O-Level Year -->
+                <div class="type-toggle-group">
+                    <div class="type-toggle-header">O-Level Completion Year</div>
+                    <div class="type-toggle">
+                        <div>
+                            <input type="radio" id="oyr-2026" name="oYear" value="2026" class="sr-only" checked onchange="updateState()">
+                            <label for="oyr-2026">2026 (Verified)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="oyr-2027" name="oYear" value="2027+" class="sr-only" onchange="updateState()">
+                            <label for="oyr-2027">2027+ (Needs Review)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A-Level Year -->
+                <div class="type-toggle-group" id="ayear-wrapper" style="display:none;">
+                    <div class="type-toggle-header">A-Level Completion Year</div>
+                    <div class="type-toggle">
+                        <div>
+                            <input type="radio" id="ayr-2026" name="aYear" value="2026" class="sr-only" checked onchange="updateState()">
+                            <label for="ayr-2026">2026 (Verified)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="ayr-2027" name="aYear" value="2027+" class="sr-only" onchange="updateState()">
+                            <label for="ayr-2027">2027+ (Needs Review)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="warning-container"></div>
+            <div id="subjects-container"></div>
+            
+            <button type="submit" class="btn-calc" id="calc-btn">Verify Eligibility & Calculate</button>
+        </form>
+
+        <!-- A11y ARIA Live Region -->
+        <div class="results-panel" id="results-panel" aria-live="polite">
+            <div class="algorithm-note" id="algo-note">
+                <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/></svg>
+                <span id="result-status">Calculation Complete</span>
+            </div>
+            <p class="label">Estimated Raw Subtotal</p>
+            <div class="total-score"><span id="result-score">--</span></div>
+            <div class="disclaimer" id="result-breakdown"></div>
+            <p style="font-size: 11px; color: var(--text-muted); margin-top:15px; font-style:italic;">*Note: This is an estimated raw subtotal. Official certificate marks scaling is subject to IBCC verification. SJ Academy does not certify these results.</p>
+        </div>
+
+        <div class="seo-cta">
+            <h4>Planning your next exam attempt?</h4>
+            <p>Get exam-focused O and A Level support at SJ Academy, with physical classes in DHA Phase 7, Karachi, and live online classes.</p>
+            <a href="https://www.sjacademy.pk/demo-class-registration/" class="btn-cta">Book a Free Demo</a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // --- Data & Constants ---
+    const stdGrades = { "A": 85, "B": 75, "C": 65, "D": 55, "E": 45, "U": 0 };
+    
+    // Fallback/Standard table. For non-science, A* is generally 94.
+    const aStar2026 = {
+        "SSC": {
+            "Physics": 94, "Chemistry": 94, "Biology": 94, "Computer Science": 94,
+            "Mathematics": 94, "English": 93, "Urdu": 93, "Pakistan Studies": 94,
+            "Islamiyat": 94, "Other": 94
+        },
+        "HSSC": {
+            "Physics": 95, "Chemistry": 94, "Biology": 94,
+            "Computer Science": 93, "Mathematics": 94, "Other": 94
+        }
+    };
+
+    const curatedOLevelSubjects = [
+        "Accounting", "Business Studies", "Economics", "Sociology", "Psychology", 
+        "Law", "Environmental Management", "Additional Mathematics", "Literature in English",
+        "Art & Design", "History", "Geography", "Other Approved Subject"
+    ];
+
+    const curatedALevelSubjects = [
+        "Accounting", "Business", "Economics", "Sociology", "Psychology", 
+        "Law", "Further Mathematics", "Literature in English",
+        "Art & Design", "History", "Geography", "Media Studies", "Other Approved Subject"
+    ];
+
+    // --- State Management ---
+    const appState = {
+        target: 'SSC',
+        location: 'local',
+        exempted: false,
+        group: 'Pre-Medical',
+        oYear: '2026',
+        aYear: '2026',
+        grades: {},
+        names: {} // To store dynamic subject names selected in dropdowns
+    };
+
+    let activeSlots = []; // Array to hold the currently required slots
+
+    const DOM = {
+        container: document.getElementById('subjects-container'),
+        warningContainer: document.getElementById('warning-container'),
+        wrapperGroup: document.getElementById('group-wrapper'),
+        wrapperAYear: document.getElementById('ayear-wrapper'),
+        resultsPanel: document.getElementById('results-panel'),
+        resultScore: document.getElementById('result-score'),
+        resultBreakdown: document.getElementById('result-breakdown'),
+        resultStatus: document.getElementById('result-status'),
+        calcBtn: document.getElementById('calc-btn')
+    };
+
+    function updateState() {
+        appState.target = document.querySelector('input[name="target"]:checked').value;
+        appState.location = document.querySelector('input[name="location"]:checked').value;
+        appState.exempted = document.querySelector('input[name="exempted"]:checked').value === 'true';
+        appState.group = document.querySelector('input[name="group"]:checked').value;
+        appState.oYear = document.querySelector('input[name="oYear"]:checked').value;
+        appState.aYear = document.querySelector('input[name="aYear"]:checked').value;
+        
+        DOM.resultsPanel.classList.remove('show');
+        renderApp();
+    }
+
+    function saveGrade(slotId, grade) {
+        appState.grades[slotId] = grade;
+    }
+    
+    function saveName(slotId, name) {
+        appState.names[slotId] = name;
+    }
+
+    // --- Logic Engine ---
+    function buildSlots() {
+        activeSlots = [];
+        
+        // 1. Compulsory O-Levels
+        const needsLocalCompulsory = appState.location === 'local' && !appState.exempted;
+        
+        const addSlot = (level, defaultName, badgeType, countsForScore, isDropdown = false) => {
+            const slotId = `${level.toLowerCase()}-${defaultName.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${activeSlots.length}`;
+            activeSlots.push({ id: slotId, level, defaultName, badgeType, countsForScore, isDropdown });
+        };
+
+        addSlot('O-Level', 'English', 'badge-compulsory', true);
+        addSlot('O-Level', 'Mathematics', 'badge-compulsory', true);
+        
+        if (needsLocalCompulsory) {
+            addSlot('O-Level', 'Urdu', 'badge-compulsory', true);
+            addSlot('O-Level', 'Islamiyat', 'badge-compulsory', true);
+            addSlot('O-Level', 'Pakistan Studies', 'badge-compulsory', true);
+        }
+
+        // 2. SSC Target logic
+        if (appState.target === 'SSC') {
+            addSlot('O-Level', 'Elective 1', '', true, true);
+            addSlot('O-Level', 'Elective 2', '', true, true);
+            addSlot('O-Level', 'Elective 3', '', true, true);
+            return; // Done building slots for SSC
+        }
+
+        // 3. HSSC Target Logic (O-Level Sciences vs Electives)
+        const isScience = appState.group !== 'Humanities';
+        
+        if (isScience) {
+            // Science HSSC: Need specific O-Level sciences for ELIGIBILITY.
+            const s3 = appState.group === 'Computer Science' ? 'Computer Science' : 'Biology';
+            
+            // KEY POLICY RULE: The 2026 science rule drops these from the HSSC score ONLY for standard routes. 
+            // If they are an overseas/exempted student, they MUST count the sciences to reach the 800 minimum.
+            // A local student has 5 compulsory + 3 A-Levels = 8 subjects (800).
+            // An overseas student has 2 compulsory + 3 A-Levels = 5 subjects (500) -> MUST count the 3 O-Level sciences = 8 subjects (800).
+            const countsForScore = !needsLocalCompulsory; 
+            const badge = countsForScore ? '' : 'badge-excluded';
+            
+            addSlot('O-Level', 'Physics', badge, countsForScore);
+            addSlot('O-Level', 'Chemistry', badge, countsForScore);
+            addSlot('O-Level', s3, badge, countsForScore);
+        } else {
+            // Humanities always count their O-Level electives
+            addSlot('O-Level', 'Elective 1', '', true, true);
+            addSlot('O-Level', 'Elective 2', '', true, true);
+            addSlot('O-Level', 'Elective 3', '', true, true);
+        }
+
+        // 4. A-Levels for HSSC
+        if (isScience) {
+            const a3 = appState.group === 'Computer Science' ? 'Computer Science' : (appState.group === 'Pre-Medical' ? 'Biology' : 'Mathematics');
+            addSlot('A-Level', 'Physics', 'badge-compulsory', true);
+            
+            if(appState.group === 'Computer Science') {
+                addSlot('A-Level', 'Mathematics', 'badge-compulsory', true);
+                addSlot('A-Level', 'Computer Science', 'badge-compulsory', true);
+            } else {
+                addSlot('A-Level', 'Chemistry', 'badge-compulsory', true);
+                addSlot('A-Level', a3, 'badge-compulsory', true);
+            }
+        } else {
+            addSlot('A-Level', 'Elective 1', '', true, true);
+            addSlot('A-Level', 'Elective 2', '', true, true);
+            addSlot('A-Level', 'Elective 3', '', true, true);
+        }
+    }
+
+    function renderApp() {
+        // Toggle visibility of conditional config sections
+        DOM.wrapperGroup.style.display = (appState.target === 'HSSC') ? 'block' : 'none';
+        DOM.wrapperAYear.style.display = (appState.target === 'HSSC') ? 'block' : 'none';
+
+        // Check for unverified years
+        if (appState.oYear === '2027+' || (appState.target === 'HSSC' && appState.aYear === '2027+')) {
+            DOM.warningContainer.innerHTML = '<div class="warning-block">This calculator enforces the strictly verified 2026 IBCC cohort rules. Since A* values fluctuate annually, calculating a 2027+ result automatically is unsafe. Please request a manual review from IBCC.</div>';
+            DOM.container.innerHTML = '';
+            DOM.calcBtn.style.display = 'none';
+            return;
+        }
+
+        DOM.warningContainer.innerHTML = '';
+        DOM.calcBtn.style.display = 'block';
+
+        buildSlots();
+
+        let html = '';
+        activeSlots.forEach((slot) => {
+            let badgeText = '';
+            if (slot.badgeType === 'badge-compulsory') badgeText = 'Compulsory';
+            else if (slot.badgeType === 'badge-excluded') badgeText = 'Eligibility Only (Excluded from Marks)';
+            else badgeText = 'Required';
+
+            const badgeHtml = `<span class="badge ${slot.badgeType}">${badgeText}</span>`;
+            
+            // Generate Name Dropdown if elective, else static text
+            let nameHtml = '';
+            if (slot.isDropdown) {
+                const list = slot.level === 'SSC' ? curatedOLevelSubjects : curatedALevelSubjects;
+                const savedName = appState.names[slot.id] || '';
+                let options = `<option value="">-- Select Subject Name --</option>`;
+                list.forEach(subj => {
+                    options += `<option value="${subj}" ${savedName === subj ? 'selected' : ''}>${subj}</option>`;
+                });
+                nameHtml = `<select id="name-${slot.id}" class="subject-name-select" aria-label="Subject name for ${slot.level} ${slot.defaultName}" required onchange="saveName('${slot.id}', this.value)">${options}</select>`;
+            } else {
+                nameHtml = `<label for="grade-${slot.id}">${slot.level} ${slot.defaultName}</label>`;
+            }
+
+            const savedGrade = appState.grades[slot.id] || '';
+
+            html += `
+                <div class="subject-row">
+                    <div class="subject-info">
+                        ${slot.isDropdown ? `<label for="name-${slot.id}">${slot.level} ${slot.defaultName}</label>` : nameHtml}
+                        ${badgeHtml}
+                        ${slot.isDropdown ? nameHtml : ''}
+                    </div>
+                    <div class="grade-input" style="width: 140px; align-self: flex-end;">
+                        <select id="grade-${slot.id}" required aria-label="Grade for ${slot.defaultName}" onchange="saveGrade('${slot.id}', this.value)">
+                            <option value="">-- Grade --</option>
+                            <option value="A*" ${savedGrade === 'A*' ? 'selected' : ''}>A*</option>
+                            <option value="A" ${savedGrade === 'A' ? 'selected' : ''}>A</option>
+                            <option value="B" ${savedGrade === 'B' ? 'selected' : ''}>B</option>
+                            <option value="C" ${savedGrade === 'C' ? 'selected' : ''}>C</option>
+                            <option value="D" ${savedGrade === 'D' ? 'selected' : ''}>D</option>
+                            <option value="E" ${savedGrade === 'E' ? 'selected' : ''}>E</option>
+                            <option value="U" ${savedGrade === 'U' ? 'selected' : ''}>U (Fail)</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+        });
+        
+        DOM.container.innerHTML = html;
+    }
+
+    function calculateResult() {
+        DOM.resultsPanel.classList.remove('error-state');
+        let totalMarks = 0;
+        let countedSubjects = 0;
+        let hasError = false;
+        let errorMsg = '';
+        let breakdownText = '<strong>Verification & Marks Log:</strong><ul style="padding-left: 20px; margin-top: 10px;">';
+
+        for (const slot of activeSlots) {
+            const grade = appState.grades[slot.id];
+            const subjectName = slot.isDropdown ? appState.names[slot.id] : slot.defaultName;
+
+            if (!grade || (slot.isDropdown && !subjectName)) {
+                hasError = true;
+                errorMsg = `Missing information for ${slot.level} ${slot.defaultName}. All fields are required for eligibility.`;
+                break;
+            }
+            if (grade === 'U') {
+                hasError = true;
+                errorMsg = `Failed subject (${slot.level} ${subjectName}). Eligibility denied.`;
+                break;
+            }
+
+            let marks = 0;
+            if (grade === 'A*') {
+                // Determine logic level to lookup (SSC vs HSSC)
+                const lookupLevel = slot.level === 'O-Level' ? 'SSC' : 'HSSC';
+                marks = aStar2026[lookupLevel][subjectName];
+                if (!marks) marks = aStar2026[lookupLevel]["Other"]; // Fallback for business/humanities
+            } else {
+                marks = stdGrades[grade];
+            }
+
+            if (slot.countsForScore) {
+                totalMarks += marks;
+                countedSubjects++;
+                breakdownText += `<li>✓ ${slot.level} ${subjectName} (${grade}): <strong>${marks}</strong></li>`;
+            } else {
+                breakdownText += `<li><span style="color:var(--text-muted)">✓ ${slot.level} ${subjectName} (${grade}): Eligibility verified (0 marks added)</span></li>`;
+            }
+        }
+        
+        breakdownText += '</ul>';
+        DOM.resultsPanel.classList.add('show');
+
+        if (hasError) {
+            DOM.resultsPanel.classList.add('error-state');
+            DOM.resultStatus.innerText = "Eligibility Check Failed";
+            DOM.resultScore.innerText = "Error";
+            DOM.resultBreakdown.innerHTML = `<span style="color:#ef4444; font-weight:700;">${errorMsg}</span>`;
+            return;
+        }
+
+        const maxMarks = countedSubjects * 100;
+        const percentage = ((totalMarks / maxMarks) * 100).toFixed(2);
+        
+        DOM.resultStatus.innerText = "Eligibility Passed & Calculated";
+        DOM.resultScore.innerHTML = `${totalMarks} <span>/ ${maxMarks}</span>`;
+        DOM.resultBreakdown.innerHTML = `${breakdownText}<br/><strong>Raw Percentage:</strong> ${percentage}%`;
+        
+        DOM.resultsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Initialize
+    renderApp();
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Level Past Papers & Mark Schemes | SJ Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        #sj-directory-hub {
+            --primary-yellow: #FCE004;
+            --brown: #453516;
+            --orange: #FE6100;
+            --black: #000000;
+            --white: #FFFFFF;
+            --grey: #555555;
+            --light-bg: #FAFAFA;
+            --border-light: #e5e5e5;
+            
+            font-family: 'Poppins', sans-serif;
+            color: var(--black);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 15px;
+            line-height: 1.6;
+        }
+
+        #sj-directory-hub * { box-sizing: border-box; }
+
+        /* HERO SECTION */
+        .hub-hero { text-align: center; margin-bottom: 50px; }
+        .breadcrumb {
+            font-size: 11px; font-weight: 800; color: var(--grey); text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 15px; display: inline-block;
+            background: var(--light-bg); padding: 6px 16px; border-radius: 40px; border: 1.5px solid var(--border-light);
+        }
+        .directory-title { font-size: 2.8rem; font-weight: 800; margin: 0 0 15px 0; color: var(--black); }
+        .directory-title .highlight {
+            background: linear-gradient(120deg, var(--primary-yellow) 0%, var(--primary-yellow) 100%);
+            background-repeat: no-repeat; background-size: 100% 35%; background-position: 0 85%; padding: 0 5px;
+        }
+        .directory-subtitle { font-size: 16px; color: var(--grey); max-width: 750px; margin: 0 auto; }
+
+        /* GRID SECTION */
+        .subject-grid {
+            display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 60px;
+        }
+        @media (min-width: 600px) { .subject-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 900px) { .subject-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+        .subject-card {
+            background: var(--white); border: 2.5px solid var(--brown); border-radius: 12px;
+            padding: 24px; text-align: center; text-decoration: none; color: var(--black);
+            font-weight: 800; font-size: 16px; transition: all 0.2s ease; box-shadow: 4px 4px 0 var(--brown);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px;
+        }
+        .subject-card:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--brown); background: var(--primary-yellow); }
+        .subject-code { font-size: 12px; color: var(--brown); background: var(--white); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--brown); }
+        .subject-card:hover .subject-code { background: var(--white); }
+
+        /* CONTENT SECTIONS */
+        .seo-section { margin-bottom: 50px; }
+        .seo-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 20px; border-bottom: 3px solid var(--primary-yellow); display: inline-block; padding-bottom: 5px; }
+        .seo-section p { font-size: 15px; color: var(--grey); margin-bottom: 15px; }
+        
+        .info-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 30px; }
+        @media (min-width: 768px) { .info-grid { grid-template-columns: 1fr 1fr; } }
+        .info-card { background: var(--light-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border-light); }
+        .info-card h3 { font-size: 1.2rem; font-weight: 800; margin-top: 0; margin-bottom: 12px; color: var(--orange); }
+
+        /* FAQ SECTION */
+        .faq-box { margin-bottom: 20px; }
+        .faq-box h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; color: var(--black); }
+        .faq-box p { font-size: 14.5px; color: var(--grey); }
+
+        /* AD BANNER */
+        .ad-banner {
+            background: var(--light-bg); border: 2.5px solid var(--brown); border-radius: 16px;
+            padding: 40px 20px; text-align: center; margin: 60px 0; box-shadow: var(--shadow-hard);
+        }
+        .ad-banner h2 { font-size: 2rem; font-weight: 800; margin-bottom: 15px; }
+        .ad-banner p { font-size: 15px; max-width: 700px; margin: 0 auto 25px; color: var(--grey); }
+        .ad-banner a {
+            background: var(--orange); color: white; padding: 14px 32px; border-radius: 8px;
+            font-weight: 800; text-decoration: none; border: 2.5px solid var(--orange);
+            display: inline-block; font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="sj-directory-hub">
+    
+    <!-- 1. HERO SECTION -->
+    <div class="hub-hero">
+        <span class="breadcrumb">CAIE Resources</span>
+        <h1 class="directory-title"><span class="highlight">A Level</span> Past Papers</h1>
+        <p class="directory-subtitle">Access the most comprehensive database of Cambridge International AS and A Level past papers, mark schemes, and examiner reports. Updated for the 2024-2025 academic year.</p>
+    </div>
+
+    <!-- 2. SUBJECT GRID -->
+    <div class="subject-grid">
+        <a href="/a-level-past-papers/accounts-9706/" class="subject-card">Accounts <span class="subject-code">9706</span></a>
+        <a href="/a-level-past-papers/biology-9700/" class="subject-card">Biology <span class="subject-code">9700</span></a>
+        <a href="/a-level-past-papers/business-9609/" class="subject-card">Business <span class="subject-code">9609</span></a>
+        <a href="/a-level-past-papers/chemistry-9701/" class="subject-card">Chemistry <span class="subject-code">9701</span></a>
+        <a href="/a-level-past-papers/computer-science-9618/" class="subject-card">Computer Science <span class="subject-code">9618</span></a>
+        <a href="/a-level-past-papers/economics-9708/" class="subject-card">Economics <span class="subject-code">9708</span></a>
+        <a href="/a-level-past-papers/english-9695/" class="subject-card">English <span class="subject-code">9695</span></a>
+        <a href="/a-level-past-papers/law-9084/" class="subject-card">Law <span class="subject-code">9084</span></a>
+        <a href="/a-level-past-papers/mathematics-9709/" class="subject-card">Mathematics <span class="subject-code">9709</span></a>
+        <a href="/a-level-past-papers/physics-9702/" class="subject-card">Physics <span class="subject-code">9702</span></a>
+        <a href="/a-level-past-papers/psychology-9990/" class="subject-card">Psychology <span class="subject-code">9990</span></a>
+        <a href="/a-level-past-papers/sociology-9699/" class="subject-card">Sociology <span class="subject-code">9699</span></a>
+        <a href="/a-level-past-papers/urdu-9686/" class="subject-card">Urdu <span class="subject-code">9686</span></a>
+    </div>
+
+    <!-- 3. COMPREHENSIVE SEO CONTENT -->
+    <div class="seo-section">
+        <h2>Why Practice with CAIE A Level Past Papers?</h2>
+        <p>Success in Cambridge International Advanced Level (A Level) examinations requires more than just memorizing textbook concepts. The CAIE (Cambridge Assessment International Education) board is notorious for designing exams that test a student's ability to apply knowledge to unfamiliar scenarios.</p>
+        <p>By solving yearly past papers, students can familiarize themselves with the exam format, identify recurring question patterns, and understand exactly how examiners allocate points through the official Mark Schemes.</p>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Master the Marking Scheme</h3>
+                <p>Don't just solve the paper—study the Mark Scheme (MS). Cambridge examiners look for very specific keywords. Understanding what triggers a mark in subjects like Physics or Economics is the difference between a B and an A*.</p>
+            </div>
+            <div class="info-card">
+                <h3>Read Examiner Reports</h3>
+                <p>Examiner Reports (ER) are written by the people who grade the exams. They detail exactly where students lost marks globally in that specific session. Reading these ensures you don't repeat common mistakes.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. CONVERSION BANNER -->
+    <div class="ad-banner">
+        <h2>Still struggling to hit that A*?</h2>
+        <p>Past papers are great, but personalized guidance is better. Master the exact CAIE marking scheme with Karachi's elite faculty from IBA, LUMS, and KGS. Join hundreds of SJ Academy students who secured straight A*s last year.</p>
+        <a href="https://sjacademy.pk/o-a-level-classes/">Book a Free Demo Class</a>
+    </div>
+
+    <!-- 5. FREQUENTLY ASKED QUESTIONS (For Google PAA Snippets) -->
+    <div class="seo-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-box">
+            <h3>What is the difference between AS and A2 Level?</h3>
+            <p>The Cambridge A Level is typically a two-year course. The first year is the Advanced Subsidiary (AS) Level, representing the first half of the syllabus. The second year is the A2 Level, which covers more complex topics. Your final A Level grade is a combination of both AS and A2 exam scores.</p>
+        </div>
+
+        <div class="faq-box">
+            <h3>What do the Paper Variants (1, 2, 3) mean?</h3>
+            <p>Cambridge administers exams across different global administrative zones. To prevent cheating across time zones, they create different variants of the same paper (e.g., Paper 11, 12, and 13 are variants of Paper 1). The difficulty remains the same, but the questions differ slightly.</p>
+        </div>
+
+        <div class="faq-box">
+            <h3>How many years of past papers should I solve?</h3>
+            <p>At SJ Academy, we recommend solving at least 5 to 7 years of past papers. This provides enough exposure to different question formats while ensuring the content aligns closely with the most current Cambridge syllabus updates.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

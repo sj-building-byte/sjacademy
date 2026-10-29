@@ -1,0 +1,398 @@
+{
+  "version": 1,
+  "historyId": "cbd5ed99-4543-419f-989a-d4d1d8b8f320",
+  "currentRevision": "8b3619d2-a572-4e6f-b90f-f83d844e9b50",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "BRIEF.md": {
+      "hash": "6bf9a0d94d816a048eb1bdcd592ca6996aa2e02f9baa834df001f9f8b6be4da3",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/6b/6bf9a0d94d816a048eb1bdcd592ca6996aa2e02f9baa834df001f9f8b6be4da3"
+    },
+    "CAPTION.txt": {
+      "hash": "9559a6fc79b4c6c8ebd986109cd38cc830834b9c325c3ae06c2c52d7de33e525",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/95/9559a6fc79b4c6c8ebd986109cd38cc830834b9c325c3ae06c2c52d7de33e525"
+    },
+    "CLAUDE.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "assets/brand/Caveat-600.woff2": {
+      "hash": "1c591acdadd5ea398bad6aa21b36498dde59035ad366d1dbb05bbc0e537e7bc9",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/1c/1c591acdadd5ea398bad6aa21b36498dde59035ad366d1dbb05bbc0e537e7bc9"
+    },
+    "assets/brand/Poppins-Bold.ttf": {
+      "hash": "983676516167748b74de6f4771fb384c664fd913acb8b471122ecacf5da5ea6c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/98/983676516167748b74de6f4771fb384c664fd913acb8b471122ecacf5da5ea6c"
+    },
+    "assets/brand/Poppins-ExtraBold.ttf": {
+      "hash": "f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/f2/f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1"
+    },
+    "assets/brand/Poppins-Medium.ttf": {
+      "hash": "90373e7d838d32468438fc3e152dca0bdb12edcab99ea639f158790b1ba1fd05",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/90/90373e7d838d32468438fc3e152dca0bdb12edcab99ea639f158790b1ba1fd05"
+    },
+    "assets/brand/Poppins-SemiBold.ttf": {
+      "hash": "d3bf1bdaf0550e83da9ac0b1d1d9fe6db086835a83aa28578e609a394b9a0286",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/d3/d3bf1bdaf0550e83da9ac0b1d1d9fe6db086835a83aa28578e609a394b9a0286"
+    },
+    "assets/brand/sj-academy-icon-on-light.svg": {
+      "hash": "ec382fb1050b8244e874ba3089cec93e1c6eff5d1ce956ebd49fb51866c52948",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/ec/ec382fb1050b8244e874ba3089cec93e1c6eff5d1ce956ebd49fb51866c52948"
+    },
+    "assets/brand/sj-academy-icon-on-yellow.svg": {
+      "hash": "951100fff5d641b8d8fd88bce4da8f1943d6e0edfb0f68d1e56e8e90f98ca9dd",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/95/951100fff5d641b8d8fd88bce4da8f1943d6e0edfb0f68d1e56e8e90f98ca9dd"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-brown.svg": {
+      "hash": "52fb4a8cb35af4e8cb1d7f30936bbcf332977915b2ca2c2a5b893ef41388cf27",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/52/52fb4a8cb35af4e8cb1d7f30936bbcf332977915b2ca2c2a5b893ef41388cf27"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-light.svg": {
+      "hash": "aced0eac9c4c36ddf0e3919783c884125ce4c091ff7fe4f7a24890431ee2bc45",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/ac/aced0eac9c4c36ddf0e3919783c884125ce4c091ff7fe4f7a24890431ee2bc45"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-yellow.svg": {
+      "hash": "75de124bcf0fe73d2d7f7d9d2ee6914932902372f6a995cec95bb6b1a9f79695",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/75/75de124bcf0fe73d2d7f7d9d2ee6914932902372f6a995cec95bb6b1a9f79695"
+    },
+    "assets/brand/sj-academy-logo-stacked-on-yellow.svg": {
+      "hash": "550e9853a6114686e9e7c595c1280e63e58d5d143633b8ab4a3a24503f3fd196",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/55/550e9853a6114686e9e7c595c1280e63e58d5d143633b8ab4a3a24503f3fd196"
+    },
+    "assets/sfx/sj-sfx-highlighter-swipe.wav": {
+      "hash": "7fc0b9afcb3dce4c9de55ee5c1455eac619b6bcf84225b7e37d612b37f37712d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/7f/7fc0b9afcb3dce4c9de55ee5c1455eac619b6bcf84225b7e37d612b37f37712d"
+    },
+    "assets/sfx/sj-sfx-paper-slide.wav": {
+      "hash": "21e34aae928c6c844341da9e02f4af416067d604c7a0bfa8dced08661fea13b5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/21/21e34aae928c6c844341da9e02f4af416067d604c7a0bfa8dced08661fea13b5"
+    },
+    "assets/sfx/sj-sfx-pen-circle.wav": {
+      "hash": "6fe613e1dd69d092ad7f9b05bcb215e7177feb54e11ddd62e6759db23a40d086",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/6f/6fe613e1dd69d092ad7f9b05bcb215e7177feb54e11ddd62e6759db23a40d086"
+    },
+    "assets/sfx/sj-sfx-pen-tick.wav": {
+      "hash": "f41530e52a42c460b101d700eebb1e786df2f7ff52b49a9125ea61ca6d601fc7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/f4/f41530e52a42c460b101d700eebb1e786df2f7ff52b49a9125ea61ca6d601fc7"
+    },
+    "assets/sfx/sj-sfx-stamp.wav": {
+      "hash": "346a71e4d598d6ed2d845280b5b0006b4bc9156d45c79d0d89cd83735a7d2f42",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/34/346a71e4d598d6ed2d845280b5b0006b4bc9156d45c79d0d89cd83735a7d2f42"
+    },
+    "assets/sfx/sj-sonic-logo-short.wav": {
+      "hash": "ed330bf9db23e08abbebf5acd9822bec6b5a0699c488af7e4f88224f623d8af2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/ed/ed330bf9db23e08abbebf5acd9822bec6b5a0699c488af7e4f88224f623d8af2"
+    },
+    "hyperframes.json": {
+      "hash": "ad5dadeef78a520800a9e5cdd27a92ff5ac37f11b6a07f611b6b52b9f8c79a17",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/ad/ad5dadeef78a520800a9e5cdd27a92ff5ac37f11b6a07f611b6b52b9f8c79a17"
+    },
+    "index.html": {
+      "hash": "4ef43ffe0170f4a511db494a1a87f9e0471169596bbd30d51c905ba2de425d43",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/4e/4ef43ffe0170f4a511db494a1a87f9e0471169596bbd30d51c905ba2de425d43"
+    },
+    "meta.json": {
+      "hash": "fca5f731413765c875e876bc736e790b904d08463a8327b4e6ca09e86c24657a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/fc/fca5f731413765c875e876bc736e790b904d08463a8327b4e6ca09e86c24657a"
+    },
+    "package.json": {
+      "hash": "29318bf2189ff301c59dcdfe058cb0aa0a18ee73ad25f044a641b459c4990413",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/29/29318bf2189ff301c59dcdfe058cb0aa0a18ee73ad25f044a641b459c4990413"
+    }
+  },
+  "revisions": {
+    "6860dd94-ab70-4e43-a441-1dbe4dcfdabb": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792249669750,
+      "endedAt": 1792249669752,
+      "files": {
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/96/966c4ca53d2f0a552553cc2ad817d83ebb0e18bef5ccbe563de5e455f28c1b03",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/4e/4ef43ffe0170f4a511db494a1a87f9e0471169596bbd30d51c905ba2de425d43"
+        }
+      }
+    },
+    "8b3619d2-a572-4e6f-b90f-f83d844e9b50": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792249700949,
+      "endedAt": 1792249700949,
+      "files": {
+        "BRIEF.md": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/19/19b7f094d20e59ec8c9a31ec86fa8ca5fb3fa8f3e47521a1891aae396bf40d2a",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/cbd5ed99-4543-419f-989a-d4d1d8b8f320/blobs/6b/6bf9a0d94d816a048eb1bdcd592ca6996aa2e02f9baa834df001f9f8b6be4da3"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "8b3619d2-a572-4e6f-b90f-f83d844e9b50",
+      "id": "74b34888-50a4-4958-8762-2dd5bfc277d3"
+    },
+    "revisions": {
+      "6860dd94-ab70-4e43-a441-1dbe4dcfdabb": [
+        {
+          "id": "f574047b-9031-4d0e-b4a9-059e11e15f52",
+          "scope": "project",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792249675207,
+          "contentHash": "ae256d9d37a7987d9f57bdc5650d2899c5742d3347a7a22abeece9024d2ab27c",
+          "revision": "6860dd94-ab70-4e43-a441-1dbe4dcfdabb",
+          "inputFingerprint": "30e3d4a5ec0e728a9e6143bc618c51b0ddeb068d8f55b9ad328e49fcfeac6f83",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "9a0659be-7f14-4111-87e7-91f8228c4c33"
+        }
+      ],
+      "8b3619d2-a572-4e6f-b90f-f83d844e9b50": [
+        {
+          "id": "74b34888-50a4-4958-8762-2dd5bfc277d3",
+          "scope": "project",
+          "report": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/.hyperframes/artifacts/checks/74b34888-50a4-4958-8762-2dd5bfc277d3.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792249706369,
+          "contentHash": "ae256d9d37a7987d9f57bdc5650d2899c5742d3347a7a22abeece9024d2ab27c",
+          "revision": "8b3619d2-a572-4e6f-b90f-f83d844e9b50",
+          "inputFingerprint": "4139f05e3fcc8206a5fbe7dfeea254deab9c4ac51fcdf2babd9fbb2c9b7f56fd",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "9b4dbd80-3b7d-4353-8214-237f7e5a7d4c",
+        "scope": "project",
+        "report": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/.hyperframes/artifacts/checks/9b4dbd80-3b7d-4353-8214-237f7e5a7d4c.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792249617773,
+        "contentHash": "ae256d9d37a7987d9f57bdc5650d2899c5742d3347a7a22abeece9024d2ab27c",
+        "revision": null,
+        "inputFingerprint": "8cb5e4460f90302600d7eb9a1ae2e76da2eea66432b14927a603060336d9aeca",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "7e97215e-8234-457e-b24f-e6ec62d639e3-6"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "7e97215e-8234-457e-b24f-e6ec62d639e3-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/.hyperframes/artifacts/snapshots/9507a800-0ab5-47d8-8917-c4fe351651e2/frame-00-at-1.9s.png",
+        "time": 1.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792249622297,
+        "contentHash": "7ba6a3e60a95bae126db3d5dfd086a0477bdfd59a79393cbac85b48608b1c514",
+        "revision": null,
+        "inputFingerprint": "8cb5e4460f90302600d7eb9a1ae2e76da2eea66432b14927a603060336d9aeca",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7e97215e-8234-457e-b24f-e6ec62d639e3-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/.hyperframes/artifacts/snapshots/9507a800-0ab5-47d8-8917-c4fe351651e2/frame-01-at-7.5s.png",
+        "time": 7.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792249622297,
+        "contentHash": "79e8fb3cf7aa14321e77c401afc0ab9621407c0358471693e5a99e9584bbc02f",
+        "revision": null,
+        "inputFingerprint": "8cb5e4460f90302600d7eb9a1ae2e76da2eea66432b14927a603060336d9aeca",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7e97215e-8234-457e-b24f-e6ec62d639e3-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/.hyperframes/artifacts/snapshots/9507a800-0ab5-47d8-8917-c4fe351651e2/frame-02-at-13.7s.png",
+        "time": 13.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792249622297,
+        "contentHash": "dcb08286c544c0ef98cdf199530a25b67e51f5ca42bdc52333d64beedbf09b75",
+        "revision": null,
+        "inputFingerprint": "8cb5e4460f90302600d7eb9a1ae2e76da2eea66432b14927a603060336d9aeca",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7e97215e-8234-457e-b24f-e6ec62d639e3-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/.hyperframes/artifacts/snapshots/9507a800-0ab5-47d8-8917-c4fe351651e2/frame-03-at-15.5s.png",
+        "time": 15.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792249622297,
+        "contentHash": "57d44f514ebbc3548ac3ba4c90171d71d7004e4a6901a2d8d452dc7e06c14186",
+        "revision": null,
+        "inputFingerprint": "8cb5e4460f90302600d7eb9a1ae2e76da2eea66432b14927a603060336d9aeca",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7e97215e-8234-457e-b24f-e6ec62d639e3-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/.hyperframes/artifacts/snapshots/9507a800-0ab5-47d8-8917-c4fe351651e2/frame-04-at-16.6s.png",
+        "time": 16.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792249622297,
+        "contentHash": "eb3fa69d7fd22b4a2dff911891f9a32bb44bbb4598d82255ed11a138c3eca24d",
+        "revision": null,
+        "inputFingerprint": "8cb5e4460f90302600d7eb9a1ae2e76da2eea66432b14927a603060336d9aeca",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7e97215e-8234-457e-b24f-e6ec62d639e3-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/.hyperframes/artifacts/snapshots/9507a800-0ab5-47d8-8917-c4fe351651e2/frame-05-at-18.8s.png",
+        "time": 18.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792249622297,
+        "contentHash": "85c3a407e0f4c907cc0990260b34ff07e2238bafe70923982866a3e51f374787",
+        "revision": null,
+        "inputFingerprint": "8cb5e4460f90302600d7eb9a1ae2e76da2eea66432b14927a603060336d9aeca",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7e97215e-8234-457e-b24f-e6ec62d639e3-6",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/.hyperframes/artifacts/snapshots/9507a800-0ab5-47d8-8917-c4fe351651e2/frame-06-at-23s.png",
+        "time": 23,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792249622297,
+        "contentHash": "511db15cadb1312104b04caef42e4c86f94df9ce63a5e552789f29a0fa1a6196",
+        "revision": null,
+        "inputFingerprint": "8cb5e4460f90302600d7eb9a1ae2e76da2eea66432b14927a603060336d9aeca",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "9a0659be-7f14-4111-87e7-91f8228c4c33",
+      "completedAt": 1792249723707,
+      "output": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/mental-maths-ep05/renders/tmp.mp4",
+      "status": "completed",
+      "revision": "8b3619d2-a572-4e6f-b90f-f83d844e9b50"
+    },
+    "retainedRevisions": [
+      "8b3619d2-a572-4e6f-b90f-f83d844e9b50"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

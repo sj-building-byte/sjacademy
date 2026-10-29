@@ -1,0 +1,285 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "small",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 768,
+			"head": 12,
+			"layer": 12
+		},
+		"text": {
+			"ctx": 448,
+			"state": 768,
+			"head": 12,
+			"layer": 12
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/sunyyanjunaid/.cache/hyperframes/whisper/models/ggml-small.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:00,000"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 0
+			},
+			"text": ""
+		},
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:00,820"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 820
+			},
+			"text": " universities"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:00,820",
+				"to": "00:00:00,850"
+			},
+			"offsets": {
+				"from": 820,
+				"to": 850
+			},
+			"text": ","
+		},
+		{
+			"timestamps": {
+				"from": "00:00:00,850",
+				"to": "00:00:01,230"
+			},
+			"offsets": {
+				"from": 850,
+				"to": 1230
+			},
+			"text": " comment"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,230",
+				"to": "00:00:01,340"
+			},
+			"offsets": {
+				"from": 1230,
+				"to": 1340
+			},
+			"text": " un"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,340",
+				"to": "00:00:01,380"
+			},
+			"offsets": {
+				"from": 1340,
+				"to": 1380
+			},
+			"text": "i"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,380",
+				"to": "00:00:01,560"
+			},
+			"offsets": {
+				"from": 1380,
+				"to": 1560
+			},
+			"text": " and"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,560",
+				"to": "00:00:01,670"
+			},
+			"offsets": {
+				"from": 1560,
+				"to": 1670
+			},
+			"text": " we"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,670",
+				"to": "00:00:01,960"
+			},
+			"offsets": {
+				"from": 1670,
+				"to": 1960
+			},
+			"text": " will"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,960",
+				"to": "00:00:02,300"
+			},
+			"offsets": {
+				"from": 1960,
+				"to": 2300
+			},
+			"text": " eat"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:02,300",
+				"to": "00:00:02,880"
+			},
+			"offsets": {
+				"from": 2300,
+				"to": 2880
+			},
+			"text": " comment"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:02,880",
+				"to": "00:00:03,050"
+			},
+			"offsets": {
+				"from": 2880,
+				"to": 3050
+			},
+			"text": " un"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:03,050",
+				"to": "00:00:03,320"
+			},
+			"offsets": {
+				"from": 3050,
+				"to": 3320
+			},
+			"text": "i"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:03,320",
+				"to": "00:00:03,410"
+			},
+			"offsets": {
+				"from": 3320,
+				"to": 3410
+			},
+			"text": " and"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:03,410",
+				"to": "00:00:03,590"
+			},
+			"offsets": {
+				"from": 3410,
+				"to": 3590
+			},
+			"text": " we"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:03,590",
+				"to": "00:00:03,860"
+			},
+			"offsets": {
+				"from": 3590,
+				"to": 3860
+			},
+			"text": "'ll"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:03,860",
+				"to": "00:00:04,040"
+			},
+			"offsets": {
+				"from": 3860,
+				"to": 4040
+			},
+			"text": " DM"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:04,040",
+				"to": "00:00:04,310"
+			},
+			"offsets": {
+				"from": 4040,
+				"to": 4310
+			},
+			"text": " you"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:04,310",
+				"to": "00:00:04,580"
+			},
+			"offsets": {
+				"from": 4310,
+				"to": 4580
+			},
+			"text": " the"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:04,580",
+				"to": "00:00:04,990"
+			},
+			"offsets": {
+				"from": 4580,
+				"to": 4990
+			},
+			"text": " link"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:04,990",
+				"to": "00:00:05,360"
+			},
+			"offsets": {
+				"from": 4990,
+				"to": 5360
+			},
+			"text": " straight"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:05,360",
+				"to": "00:00:05,640"
+			},
+			"offsets": {
+				"from": 5360,
+				"to": 5640
+			},
+			"text": "away"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:05,640",
+				"to": "00:00:05,640"
+			},
+			"offsets": {
+				"from": 5640,
+				"to": 5640
+			},
+			"text": "."
+		}
+	]
+}

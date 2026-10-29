@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-ExtraBold.ttf") format("truetype"); font-weight: 800; }
+        #root { position: absolute; inset: 0; overflow: hidden; background: #151515; font-family: "Poppins", sans-serif; }
+        #s1-cam, #s1-zoom { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+        #s1-room { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+        #s1-zoom svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+        #s1-logo { position: absolute; left: 270px; top: 360px; width: 540px; height: auto; display: block; opacity: 0; }
+      </style>
+      <div data-hf-id="hf-uygd" id="root" data-composition-id="s1-intro" data-width="1080" data-height="1920" data-duration="4.9664">
+        <div data-hf-id="hf-d2kf" id="s1-cam">
+          <video data-hf-id="hf-36pc" data-hf-media-start-basis="local" id="s1-room" class="clip" src="assets/clips/room.mp4" data-start="0" data-duration="4.9664" data-track-index="1" muted playsinline></video>
+        </div>
+        <div data-hf-id="hf-qi07" id="s1-zoom">
+          <svg data-hf-id="hf-1v7l" viewBox="0 0 1080 1920" aria-label="May/June 2027 O &amp; A Level batches">
+            <defs data-hf-id="hf-mh0t">
+              <clippath data-hf-id="hf-ory4" id="s1-clip"><rect data-hf-id="hf-vc46" x="0" y="560" width="1080" height="720" /></clippath>
+              <mask data-hf-id="hf-jabs" id="s1-holes" maskUnits="userSpaceOnUse" x="-4000" y="-4000" width="9080" height="9920">
+                <rect data-hf-id="hf-q6za" x="-4000" y="-4000" width="9080" height="9920" fill="white" />
+                <g data-hf-id="hf-mc2c" clip-path="url(#s1-clip)">
+                  <text data-hf-id="hf-cxys" id="s1-word" text-anchor="middle" font-family="Poppins" font-weight="800" font-size="150" letter-spacing="-1" fill="black"><tspan x="540" y="700">May/June</tspan><tspan x="540" y="928" font-size="250" letter-spacing="-4">2027</tspan><tspan x="540" y="1078">O &amp; A Leve<tspan id="s1-i">l</tspan></tspan><tspan x="540" y="1228">batches</tspan></text>
+                </g>
+              </mask>
+            </defs>
+            <rect data-hf-id="hf-14o8" x="-4000" y="-4000" width="9080" height="9920" fill="#151515" mask="url(#s1-holes)" />
+            <g clip-path="url(#s1-clip)"><text id="s1-wordline" text-anchor="middle" font-family="Poppins" font-weight="800" font-size="150" letter-spacing="-1" fill="none" stroke="#F7F5EF" stroke-opacity="0.4" stroke-width="2.5"><tspan x="540" y="700">May/June</tspan><tspan x="540" y="928" font-size="250" letter-spacing="-4">2027</tspan><tspan x="540" y="1078">O &amp; A Level</tspan><tspan x="540" y="1228">batches</tspan></text></g>
+          </svg>
+          <img data-hf-id="hf-a3bf" id="s1-logo" src="assets/brand/sj-academy-logo-horizontal-on-brown.svg" alt="SJ Academy">
+        </div>
+      </div>
+      <script>
+        (function () {
+          const BAR = 2.483187;
+          document.fonts.ready.then(function () {
+            const tl = gsap.timeline({ paused: true });
+            // Measured once at setup: the stem of the "l" in "Level" is where the camera pushes through.
+            const b = document.getElementById("s1-i").getBBox();
+            gsap.set("#s1-zoom", { transformOrigin: (b.x + b.width / 2 + 16) + "px " + (b.y + b.height * 0.55) + "px" });
+
+            // Bar 1: the logo and the words rise together; the letters are windows onto the room.
+            tl.fromTo(["#s1-word", "#s1-wordline"], { y: 600 }, { y: 0, duration: 0.5, ease: "expo.out" }, 0.05);
+            // The logo sits above the text in the same layer, so the push takes it out with the words.
+            tl.fromTo("#s1-logo", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 0.15);
+            tl.fromTo("#s1-cam", { scale: 1.14 }, { scale: 1.0, duration: 2.4, ease: "power2.out" }, 0);
+            // brighter inside the letters, back to true colour as the camera goes through
+            tl.fromTo("#s1-room", { filter: "brightness(1.45) contrast(1.08)" }, { filter: "brightness(1) contrast(1)", duration: 0.5, ease: "power1.in" }, 1.95);
+            tl.fromTo("#s1-zoom", { scale: 1 }, { scale: 1.035, duration: 1.0, ease: "power1.inOut" }, 0.55);
+            // ...then the camera goes through the "l" into the room.
+            // the outline would thicken with the zoom, so it goes first
+            tl.to("#s1-wordline", { opacity: 0, duration: 0.2, ease: "power1.in" }, 1.45);
+            tl.to("#s1-zoom", { scale: 70, duration: 0.85, ease: "expo.in" }, 1.6);
+            tl.set("#s1-zoom", { autoAlpha: 0 }, 2.44);
+            tl.to("#s1-cam", { scale: 1.04, duration: BAR, ease: "none" }, BAR);
+
+
+            window.__timelines["s1-intro"] = tl;
+          });
+        })();
+      </script>
+    </template>
+  </body>
+</html>

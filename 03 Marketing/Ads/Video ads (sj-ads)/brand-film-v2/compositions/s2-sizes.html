@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+        #root { position: absolute; inset: 0; overflow: hidden; background: #F7F5EF; font-family: "Poppins", sans-serif; }
+        .s2-full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+        #s2-win { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; border-radius: 80px; }
+        #s2-ink { position: absolute; inset: 0; background: #151515; opacity: 0; }
+        .s2-scrimB { position: absolute; left: 0; bottom: 0; width: 1080px; height: 900px; background: linear-gradient(rgba(21, 21, 21, 0) 0%, rgba(21, 21, 21, 0.62) 50%, rgba(21, 21, 21, 0.86) 100%); opacity: 0; }
+        .s2-m { display: block; overflow: hidden; padding: 0 0.1em 0.06em; }
+        .s2-m > span { display: inline-block; }
+        #s2-hA { position: absolute; left: 100px; top: 300px; width: 880px; text-align: center; color: #151515; font-weight: 600; font-size: 104px; line-height: 1.05; letter-spacing: -0.045em; }
+        .s2-big { position: absolute; left: 100px; top: 1290px; width: 880px; color: #F7F5EF; font-weight: 600; font-size: 136px; line-height: 1.05; letter-spacing: -0.045em; }
+        .s2-sub { position: absolute; left: 100px; top: 1460px; width: 880px; color: #D9D4C7; font-weight: 500; font-size: 52px; line-height: 1.2; letter-spacing: -0.02em; }
+        #s2-hD { position: absolute; left: 100px; top: 300px; width: 880px; color: #F7F5EF; font-weight: 600; font-size: 88px; line-height: 1.08; letter-spacing: -0.045em; }
+        .s2-hlw { position: relative; display: inline-block; }
+        #s2-hl { position: absolute; left: -0.06em; right: -0.06em; top: 0.14em; bottom: 0.02em; background: #FCE004; border-radius: 10px; transform-origin: 0 50%; }
+        #s2-nr { position: relative; color: #F7F5EF; }
+        .s2-win0 { opacity: 0; }
+        .s2-cell { position: absolute; width: 428px; height: 520px; overflow: hidden; border-radius: 28px; background: #2B2B2B; opacity: 0; }
+        .s2-cell video { position: absolute; left: 0; width: 428px; height: 761px; object-fit: cover; }
+        .s2-cell .s2-fade { position: absolute; left: 0; bottom: 0; width: 428px; height: 200px; background: linear-gradient(rgba(21, 21, 21, 0), rgba(21, 21, 21, 0.8)); }
+        .s2-cell .s2-tag { position: absolute; left: 26px; bottom: 22px; color: #F7F5EF; font-weight: 600; font-size: 44px; line-height: 1.1; letter-spacing: -0.03em; white-space: nowrap; }
+      </style>
+      <div data-hf-id="hf-olop" id="root" data-composition-id="s2-sizes" data-width="1080" data-height="1920" data-duration="9.9327">
+        <!-- bar 5: the online class sits under the shrinking window -->
+        <video data-hf-id="hf-1ysv" data-hf-media-start-basis="local" id="s2-ab" class="clip s2-full" src="assets/clips/abdullah.mp4" data-start="4.9664" data-duration="2.4832" data-track-index="1" muted playsinline></video>
+        <!-- bars 3-5: the in-class shot as a window: small, full bleed, then onto the projector -->
+        <div data-hf-id="hf-jbdf" id="s2-win">
+          <video data-hf-id="hf-93zp" data-hf-media-start-basis="local" id="s2-desk" class="clip s2-full" src="assets/clips/desk.mp4" data-start="0" data-duration="6.25" data-track-index="2" muted playsinline></video>
+        </div>
+        <div data-hf-id="hf-tu0l" id="s2-hA" class="s2-win0">
+          <span data-hf-id="hf-oz6o" class="s2-m"><span data-hf-id="hf-1j2a" id="s2-a1">Two ways</span></span>
+          <span data-hf-id="hf-f1g8" class="s2-m"><span data-hf-id="hf-d4zh" id="s2-a2">to study.</span></span>
+        </div>
+        <div data-hf-id="hf-7q76" id="s2-scrimB" class="s2-scrimB"></div>
+        <div data-hf-id="hf-kb4w" id="s2-B" class="s2-big s2-win0"><span data-hf-id="hf-duj5" class="s2-m"><span data-hf-id="hf-woug" id="s2-b1">In class.</span></span></div>
+        <div data-hf-id="hf-xu6v" id="s2-Bs" class="s2-sub s2-win0"><span data-hf-id="hf-e8u6" class="s2-m"><span data-hf-id="hf-mg1k" id="s2-b2">DHA Phase 7, Karachi</span></span></div>
+        <div data-hf-id="hf-l2sp" id="s2-C" class="s2-big s2-win0"><span data-hf-id="hf-d1x3" class="s2-m"><span data-hf-id="hf-s7ec" id="s2-c1">Or online.</span></span></div>
+
+        <!-- bar 6: live online teachers, bento grid -->
+        <div data-hf-id="hf-80g5" id="s2-ink"></div>
+        <div data-hf-id="hf-7vyg" id="s2-hD" class="s2-win0">
+          <span data-hf-id="hf-dg84" class="s2-m"><span data-hf-id="hf-0php" id="s2-d1">Live classes.</span></span>
+          <span data-hf-id="hf-c9b1" class="s2-m"><span data-hf-id="hf-0ewg" id="s2-d2"><span data-hf-id="hf-j1c6" class="s2-hlw"><span data-hf-id="hf-scfu" id="s2-hl"></span><span data-hf-id="hf-4dlx" id="s2-nr">Not recordings.</span></span></span></span>
+        </div>
+        <div data-hf-id="hf-8uv1" id="s2-g1" class="s2-cell" style="left: 100px; top: 580px">
+          <video data-hf-id="hf-rap4" data-hf-media-start-basis="local" id="s2-v1" class="clip" src="assets/clips/abdullah2.mp4" data-start="7.4495" data-duration="2.4832" data-track-index="3" muted playsinline style="top: -60px"></video>
+          <div data-hf-id="hf-acta" class="s2-fade"></div><div data-hf-id="hf-4uv7" class="s2-tag">Sir Abdullah</div>
+        </div>
+        <div data-hf-id="hf-es8r" id="s2-g2" class="s2-cell" style="left: 552px; top: 580px">
+          <video data-hf-id="hf-insk" data-hf-media-start-basis="local" id="s2-v2" class="clip" src="assets/clips/khawar.mp4" data-start="7.4495" data-duration="2.4832" data-track-index="3" muted playsinline style="top: -20px"></video>
+          <div data-hf-id="hf-e0ci" class="s2-fade"></div><div data-hf-id="hf-4bry" class="s2-tag">Sir Khawar</div>
+        </div>
+        <div data-hf-id="hf-75ae" id="s2-g3" class="s2-cell" style="left: 100px; top: 1124px">
+          <video data-hf-id="hf-erl8" data-hf-media-start-basis="local" id="s2-v3" class="clip" src="assets/clips/umair.mp4" data-start="7.4495" data-duration="2.4832" data-track-index="3" muted playsinline style="top: -180px"></video>
+          <div data-hf-id="hf-eenj" class="s2-fade"></div><div data-hf-id="hf-v9g8" class="s2-tag">Sir Umair</div>
+        </div>
+        <div data-hf-id="hf-xu3k" id="s2-g4" class="s2-cell" style="left: 552px; top: 1124px">
+          <video data-hf-id="hf-0vin" data-hf-media-start-basis="local" id="s2-v4" class="clip" src="assets/clips/saif.mp4" data-start="7.4495" data-duration="2.4832" data-track-index="3" muted playsinline style="top: -40px"></video>
+          <div data-hf-id="hf-esyk" class="s2-fade"></div><div data-hf-id="hf-xnlt" class="s2-tag">Sir Saifullah</div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const BAR = 2.483187;
+          const tl = gsap.timeline({ paused: true });
+          const up = (sel, at) => tl.fromTo(sel, { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "expo.out" }, at);
+          const out = (sel, at) => tl.to(sel, { yPercent: -110, duration: 0.25, ease: "expo.in" }, at);
+
+          // Each text block is only visible in its own bar.
+          [["#s2-hA", 0, BAR], ["#s2-B", BAR, 2 * BAR], ["#s2-Bs", BAR, 2 * BAR], ["#s2-C", 2 * BAR, 3 * BAR], ["#s2-hD", 3 * BAR, 9.94]].forEach(([s, a, b]) => {
+            tl.set(s, { opacity: 1 }, a + 0.001);
+            if (b < 9.9) tl.set(s, { opacity: 0 }, b - 0.001);
+          });
+          // Bar 3: a small window on canvas. "Two ways to study."
+          tl.fromTo("#s2-win", { scale: 0.42, y: 200, opacity: 0, borderRadius: 96 }, { scale: 0.5, y: 190, opacity: 1, borderRadius: 80, duration: 0.6, ease: "expo.out" }, 0);
+          up("#s2-a1", 0.12); up("#s2-a2", 0.2);
+          out(["#s2-a1", "#s2-a2"], BAR - 0.3);
+
+          // Bar 4: the window opens to full bleed on the downbeat. "In class."
+          tl.to("#s2-win", { scale: 1, y: 0, borderRadius: 0, duration: 0.75, ease: "power3.inOut" }, BAR);
+          tl.to("#s2-scrimB", { opacity: 1, duration: 0.4, ease: "power1.out" }, BAR + 0.45);
+          up("#s2-b1", BAR + 0.55); up("#s2-b2", BAR + 0.68);
+          out(["#s2-b1", "#s2-b2"], 2 * BAR - 0.28);
+
+          // Bar 5: the window shrinks and flies onto the projector in Sir Abdullah's online class.
+          tl.to("#s2-win", { scale: 0.5, x: -220, y: -400, borderRadius: 48, duration: 0.9, ease: "power3.inOut" }, 2 * BAR);
+          tl.to("#s2-win", { opacity: 0, duration: 0.35, ease: "power1.in" }, 2 * BAR + 0.9);
+          up("#s2-c1", 2 * BAR + 0.95);
+          out("#s2-c1", 3 * BAR - 0.28);
+          tl.to("#s2-scrimB", { opacity: 0, duration: 0.25, ease: "power1.in" }, 3 * BAR - 0.28);
+
+          // Bar 6: ink ground, four live online teachers.
+          tl.set("#s2-ink", { opacity: 1 }, 3 * BAR);
+          up("#s2-d1", 3 * BAR + 0.05); up("#s2-d2", 3 * BAR + 0.13);
+          tl.fromTo("#s2-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out" }, 3 * BAR + 0.75);
+          tl.fromTo("#s2-nr", { color: "#F7F5EF" }, { color: "#151515", duration: 0.3, ease: "power2.out" }, 3 * BAR + 0.75);
+          ["#s2-g1", "#s2-g2", "#s2-g3", "#s2-g4"].forEach((c, i) => {
+            tl.fromTo(c, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, 3 * BAR + 0.1 + i * 0.07);
+          });
+
+          window.__timelines["s2-sizes"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

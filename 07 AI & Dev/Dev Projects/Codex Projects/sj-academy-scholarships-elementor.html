@@ -1,0 +1,1279 @@
+<section id="sja-scholarships">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+    #sja-scholarships,
+    #sja-scholarships * {
+      box-sizing: border-box;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    #sja-scholarships {
+      --yellow: #FCE004;
+      --brown: #453516;
+      --orange: #FE6100;
+      --orange-dark: #e55800;
+      --whatsapp: #25D366;
+      --ink: #111;
+      --muted: #5d5d5d;
+      --line: #e9e9e9;
+      --soft: #fafafa;
+      background: #fff;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    #sja-scholarships a { text-decoration: none; }
+    #sja-scholarships h1,
+    #sja-scholarships h2,
+    #sja-scholarships h3,
+    #sja-scholarships p { margin-top: 0; }
+
+    #sja-scholarships .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    #sja-scholarships .hero {
+      padding: 48px 0 34px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    #sja-scholarships .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    #sja-scholarships .kicker {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      max-width: 100%;
+      margin-bottom: 16px;
+      border: 2px solid #000;
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: var(--yellow);
+      color: #000;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1;
+      box-shadow: 4px 4px 0 rgba(0,0,0,.12);
+    }
+
+    #sja-scholarships h1 {
+      max-width: 780px;
+      margin-bottom: 14px;
+      color: #000;
+      font-size: clamp(2rem, 4.2vw, 3.55rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    #sja-scholarships .subtitle {
+      max-width: 760px;
+      margin-bottom: 22px;
+      color: #303030;
+      font-size: 16px;
+    }
+
+    #sja-scholarships .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    #sja-scholarships .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border: 2px solid #000;
+      border-radius: 6px;
+      padding: 13px 18px;
+      color: #000;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    #sja-scholarships .btn-primary {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+    }
+
+    #sja-scholarships .btn-primary:hover {
+      background: var(--orange-dark);
+      border-color: var(--orange-dark);
+      color: #fff;
+    }
+
+    #sja-scholarships .btn-ghost {
+      background: #fff;
+      color: #000;
+    }
+
+    #sja-scholarships .btn-ghost:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    #sja-scholarships .deadline-panel {
+      border: 2px solid #000;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 8px 8px 0 rgba(69,53,22,.16);
+      overflow: hidden;
+    }
+
+    #sja-scholarships .panel-top {
+      background: var(--brown);
+      color: #fff;
+      padding: 16px 18px;
+    }
+
+    #sja-scholarships .panel-top b {
+      display: block;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    #sja-scholarships .panel-top span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    #sja-scholarships .deadline-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #sja-scholarships .deadline-list li {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    #sja-scholarships .deadline-list li:last-child { border-bottom: 0; }
+
+    #sja-scholarships .date {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    #sja-scholarships .deadline-list strong {
+      display: block;
+      color: #000;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    #sja-scholarships .deadline-list span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    #sja-scholarships .trust {
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+
+    #sja-scholarships .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    #sja-scholarships .trust-item {
+      min-height: 86px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+    }
+
+    #sja-scholarships .trust-item b {
+      display: block;
+      color: #000;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    #sja-scholarships .trust-item span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    #sja-scholarships .nav-band {
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+    }
+
+    #sja-scholarships .nav-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    #sja-scholarships .nav-scroll a {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #222;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    #sja-scholarships .nav-scroll a:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    #sja-scholarships .section {
+      padding: 42px 0;
+      background: #fff;
+    }
+
+    #sja-scholarships .section.alt { background: var(--soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    #sja-scholarships .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(240px, .35fr);
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    #sja-scholarships h2 {
+      margin-bottom: 8px;
+      color: #000;
+      font-size: clamp(1.55rem, 3vw, 2.1rem);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    #sja-scholarships .section-head p {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    #sja-scholarships .source-note {
+      border-left: 5px solid var(--yellow);
+      background: #fff;
+      padding: 12px 14px;
+      color: #333;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    #sja-scholarships .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    #sja-scholarships .scholar-card {
+      display: grid;
+      grid-template-columns: 6px 1fr;
+      min-height: 230px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(0,0,0,.045);
+    }
+
+    #sja-scholarships .marker { background: var(--brown); }
+    #sja-scholarships .marker.open { background: #25D366; }
+    #sja-scholarships .marker.upcoming { background: var(--yellow); }
+    #sja-scholarships .marker.closed { background: #c9c9c9; }
+    #sja-scholarships .marker.paused { background: #777; }
+
+    #sja-scholarships .card-body {
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+    }
+
+    #sja-scholarships .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    #sja-scholarships .status {
+      display: inline-flex;
+      width: max-content;
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: 9px;
+      font-weight: 800;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    #sja-scholarships .status.open { background: #e6f8ed; color: #137a3b; }
+    #sja-scholarships .status.upcoming { background: #fff4c5; color: #7d5a00; }
+    #sja-scholarships .status.closed { background: #eee; color: #666; }
+    #sja-scholarships .status.paused { background: #efefef; color: #444; }
+
+    #sja-scholarships .region {
+      color: var(--brown);
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    #sja-scholarships .scholar-card h3 {
+      margin-bottom: 5px;
+      color: #000;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    #sja-scholarships .provider {
+      margin-bottom: 12px;
+      color: var(--brown);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    #sja-scholarships .facts {
+      display: grid;
+      gap: 7px;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+
+    #sja-scholarships .fact {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    #sja-scholarships .fact b {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    #sja-scholarships .fact span {
+      color: #343434;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    #sja-scholarships .card-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    #sja-scholarships .official {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 39px;
+      border: 2px solid var(--orange);
+      border-radius: 5px;
+      background: var(--orange);
+      color: #fff;
+      padding: 9px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    #sja-scholarships .official:hover {
+      background: var(--orange-dark);
+      border-color: var(--orange-dark);
+      color: #fff;
+    }
+
+    #sja-scholarships .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    #sja-scholarships .method {
+      border-top: 6px solid var(--brown);
+      border-radius: 8px;
+      background: #fff;
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(0,0,0,.045);
+    }
+
+    #sja-scholarships .method b {
+      display: block;
+      margin-bottom: 6px;
+      color: #000;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    #sja-scholarships .method p {
+      margin-bottom: 0;
+      color: #444;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    #sja-scholarships .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    #sja-scholarships .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 18px;
+    }
+
+    #sja-scholarships .faq-item h3 {
+      margin-bottom: 6px;
+      color: #000;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    #sja-scholarships .faq-item p {
+      margin-bottom: 0;
+      color: #444;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    #sja-scholarships .cta {
+      padding: 44px 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    #sja-scholarships .cta h2 {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #sja-scholarships .cta p {
+      max-width: 780px;
+      margin: 0 auto 20px;
+      color: #222;
+      font-size: 15px;
+    }
+
+    #sja-scholarships .whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      border: 2px solid var(--whatsapp);
+      border-radius: 6px;
+      background: var(--whatsapp);
+      color: #000;
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(37,211,102,.25);
+    }
+
+    #sja-scholarships .whatsapp:hover {
+      background: #1ebe5d;
+      border-color: #1ebe5d;
+      color: #000;
+    }
+
+    @media (max-width: 980px) {
+      #sja-scholarships .hero-grid,
+      #sja-scholarships .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      #sja-scholarships .trust-grid,
+      #sja-scholarships .method-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      #sja-scholarships .hero { padding: 38px 0 28px; }
+      #sja-scholarships .card-grid,
+      #sja-scholarships .trust-grid,
+      #sja-scholarships .method-grid,
+      #sja-scholarships .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #sja-scholarships .hero-actions,
+      #sja-scholarships .card-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      #sja-scholarships .btn,
+      #sja-scholarships .whatsapp {
+        width: 100%;
+      }
+
+      #sja-scholarships .deadline-list li {
+        grid-template-columns: 82px 1fr;
+      }
+
+      #sja-scholarships .fact {
+        grid-template-columns: 78px 1fr;
+      }
+
+    }
+  </style>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Scholarships checked on 9 June 2026</div>
+          <h1>Best scholarships for O Level and A Level students in Pakistan and abroad</h1>
+          <p class="subtitle">A researched shortlist of scholarships, financial aid routes, exchange programmes and fully funded undergraduate opportunities that matter for Pakistani students, international students, O Level students and A Level students.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#apply-now">See open deadlines</a>
+            <a class="btn btn-ghost" href="#how-to-use">How to shortlist</a>
+          </div>
+        </div>
+        <aside class="deadline-panel" aria-label="Important scholarship deadlines">
+          <div class="panel-top">
+            <b>Most urgent dates to check first</b>
+            <span>Dates change. Always confirm on the official page before applying.</span>
+          </div>
+          <ul class="deadline-list">
+            <li>
+              <span class="date">30 Jun 2026</span>
+              <div><strong>HKUST late application round</strong><span>International A Level applicants can still check the late round.</span></div>
+            </li>
+            <li>
+              <span class="date">1 Jul 2026</span>
+              <div><strong>Habib University Round 2</strong><span>June series students can submit admission, SAT and scholarship forms.</span></div>
+            </li>
+            <li>
+              <span class="date">Aug 2026</span>
+              <div><strong>UWC Pakistan next intake</strong><span>Best for O Level students who want an international IB scholarship route.</span></div>
+            </li>
+            <li>
+              <span class="date">Sep 2026</span>
+              <div><strong>GKS Korea and KAIST watchlist</strong><span>Both are high-value STEM routes to track early.</span></div>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item"><b>Official links only</b><span>Each opportunity links to the scholarship provider, university, embassy or HEC page.</span></div>
+        <div class="trust-item"><b>Dates are visible</b><span>Open, upcoming, closed and paused programmes are labelled clearly.</span></div>
+        <div class="trust-item"><b>A Level fit checked</b><span>We prioritised routes where Cambridge, high school or equivalent qualifications are relevant.</span></div>
+        <div class="trust-item"><b>No agent claims</b><span>Students should apply directly unless the official page requires school nomination.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-band">
+    <div class="wrap">
+      <div class="nav-scroll" aria-label="Scholarship sections">
+        <a href="#apply-now">Open now</a>
+        <a href="#prepare-early">Prepare early</a>
+        <a href="#pakistan">Pakistan scholarships</a>
+        <a href="#international">International scholarships</a>
+        <a href="#closed-important">Closed but important</a>
+        <a href="#how-to-use">How to use this list</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="apply-now">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Apply now or check immediately</h2>
+          <p>These are the highest-priority opportunities because the deadline is open, close, rolling or connected to the current admission cycle.</p>
+        </div>
+        <div class="source-note">Best action: open the official page first, then prepare transcripts, equivalence, recommendation letters and financial documents.</div>
+      </div>
+
+      <div class="card-grid">
+        <article class="scholar-card">
+          <div class="marker open"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status open">Apply now</span><span class="region">Hong Kong</span></div>
+            <h3>HKUST Undergraduate Admissions Scholarships</h3>
+            <p class="provider">Hong Kong University of Science and Technology</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Late round deadline shown as 30 June 2026 for 2026 entry.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International applicants, including GCE A Level and international A Level students.</span></div>
+              <div class="fact"><b>Coverage</b><span>Academic admission scholarships can include substantial tuition support.</span></div>
+              <div class="fact"><b>Best for</b><span>High-achieving STEM, engineering, business, economics and AI-focused A Level students.</span></div>
+            </div>
+            <a class="official" href="https://join.hkust.edu.hk/intlscholarships" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker open"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status open">Apply now</span><span class="region">Pakistan</span></div>
+            <h3>Habib University Scholarships and Financial Aid</h3>
+            <p class="provider">Habib University, Karachi</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Round 2 June series deadline: 1 July 2026 for admission, SAT scores and scholarship or financial aid submission.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International board applicants, including A Level students.</span></div>
+              <div class="fact"><b>Coverage</b><span>Merit scholarships, financial aid and special access routes depending on admission category.</span></div>
+              <div class="fact"><b>Best for</b><span>Students applying in Pakistan for CS, electrical engineering, social sciences, design and liberal arts.</span></div>
+            </div>
+            <a class="official" href="https://habib.edu.pk/admissions/international-examination-board/admission-schedule/" target="_blank" rel="noopener">Official schedule</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker open"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status open">With admission</span><span class="region">Pakistan</span></div>
+            <h3>NUST Need-Based Financial Aid</h3>
+            <p class="provider">National University of Sciences and Technology</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Apply immediately after submitting the online NUST undergraduate admission application.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Admitted undergraduate applicants who demonstrate financial need.</span></div>
+              <div class="fact"><b>Coverage</b><span>Need-based scholarships, interest-free loans and fee deferment options.</span></div>
+              <div class="fact"><b>Best for</b><span>A Level students applying to engineering, computing, business, medicine-adjacent and science programmes.</span></div>
+            </div>
+            <a class="official" href="https://nust.edu.pk/admissions/scholarships/need-based-financial-aid/" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker open"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status open">CSS deadline route</span><span class="region">UAE</span></div>
+            <h3>NYU Abu Dhabi Financial Aid</h3>
+            <p class="provider">NYU Abu Dhabi</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>CSS Profile deadlines: 10 November for ED I, 10 January for ED II and 1 February for Regular Decision.</span></div>
+              <div class="fact"><b>Eligibility</b><span>New undergraduate applicants from all citizenship backgrounds can apply for financial support.</span></div>
+              <div class="fact"><b>Coverage</b><span>Need-based institutional grants determined through the CSS Profile.</span></div>
+              <div class="fact"><b>Best for</b><span>High-achieving A Level students applying to a global liberal arts and sciences university.</span></div>
+            </div>
+            <a class="official" href="https://nyuad.nyu.edu/en/apply/undergraduate/scholarships-and-financial-aid.html" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="section alt" id="prepare-early">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Prepare early for the next cycle</h2>
+          <p>These scholarships are not all open today, but they are among the most important opportunities for O Level and A Level students to track months in advance.</p>
+        </div>
+        <div class="source-note">Most serious scholarships require essays, references, school nomination, equivalence documents or financial proof before the final deadline.</div>
+      </div>
+
+      <div class="card-grid">
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">August watch</span><span class="region">O Level route</span></div>
+            <h3>UWC Pakistan Scholarships</h3>
+            <p class="provider">United World Colleges Pakistan National Committee</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Applications are closed for this year. UWC Pakistan says to check back in August 2026 for the next intake.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Students on track to complete O Levels, Pre-IB, Matric or equivalent. O Level benchmark is mostly A and A* grades.</span></div>
+              <div class="fact"><b>Coverage</b><span>Need-based full or partial scholarships through the national committee route.</span></div>
+              <div class="fact"><b>Best for</b><span>O Level students who want an international IB pathway before university.</span></div>
+            </div>
+            <a class="official" href="https://pk.uwc.org/how-to-apply/" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">September watch</span><span class="region">South Korea</span></div>
+            <h3>Global Korea Scholarship Undergraduate</h3>
+            <p class="provider">Korean Government, Embassy Track</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Pakistan 2026 GKS-U embassy track ran from 15 September to 30 September 2025. Track September 2026 for the next cycle.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International high school graduates applying for Korean undergraduate degree routes.</span></div>
+              <div class="fact"><b>Coverage</b><span>Government scholarship route for Korean language training plus undergraduate study.</span></div>
+              <div class="fact"><b>Best for</b><span>Students open to Korean language study and STEM, business or social science degrees in Korea.</span></div>
+            </div>
+            <a class="official" href="https://www.mofa.go.kr/pk-en/brd/m_3150/view.do?seq=762144" target="_blank" rel="noopener">Official Pakistan notice</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Annual watch</span><span class="region">South Korea</span></div>
+            <h3>KAIST International Undergraduate Scholarship</h3>
+            <p class="provider">Korea Advanced Institute of Science and Technology</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>For 2026 admissions, early applications ran 19 September to 23 October 2025 and regular applications ran 6 November 2025 to 6 January 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International applicants who have completed or will complete high school before enrolment.</span></div>
+              <div class="fact"><b>Coverage</b><span>International students are considered for KAIST financial support after admission.</span></div>
+              <div class="fact"><b>Best for</b><span>Very strong maths, physics, computing, engineering and research-oriented A Level students.</span></div>
+            </div>
+            <a class="official" href="https://admission.kaist.ac.kr/intl-undergraduate/application/ApplicationGuide/" target="_blank" rel="noopener">Official calendar</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Annual watch</span><span class="region">Turkey</span></div>
+            <h3>Türkiye Scholarships</h3>
+            <p class="provider">Government of Turkiye</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>General application period: 10 January to 20 February each year.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International students applying for undergraduate, master's or doctoral study.</span></div>
+              <div class="fact"><b>Coverage</b><span>Fully funded government scholarship route with university placement.</span></div>
+              <div class="fact"><b>Best for</b><span>A Level graduates who want a structured fully funded route outside Pakistan.</span></div>
+            </div>
+            <a class="official" href="https://www.turkiyeburslari.gov.tr/calendar" target="_blank" rel="noopener">Official calendar</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="pakistan">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Important Pakistan scholarship routes</h2>
+          <p>These are practical scholarships, financial aid systems and talent routes for students applying to leading universities in Pakistan.</p>
+        </div>
+        <div class="source-note">For Pakistan universities, the scholarship form is usually tied to the admission application. Missing that step can cost students the aid opportunity.</div>
+      </div>
+
+      <div class="card-grid">
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Pakistan</span></div>
+            <h3>LUMS National Outreach Programme</h3>
+            <p class="provider">Lahore University of Management Sciences</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>2026 NOP document submission deadline was 13 March 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>High-achieving Pakistani students with financial need, usually best started before final university applications.</span></div>
+              <div class="fact"><b>Coverage</b><span>NOP scholars can receive full support including tuition, registration, lab, hostel, meals and stipend.</span></div>
+              <div class="fact"><b>Best for</b><span>Students outside elite fee-paying routes who want a serious path to LUMS.</span></div>
+            </div>
+            <a class="official" href="https://nop.lums.edu.pk/how-to-apply-nop" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Annual route</span><span class="region">Pakistan</span></div>
+            <h3>LUMS Merit Scholarships and Financial Aid</h3>
+            <p class="provider">Lahore University of Management Sciences</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Financial aid access depends on submitting the LUMS admission application and selecting financial aid by the admission deadline.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Undergraduate applicants, including A Level students, based on admission evaluation and financial need.</span></div>
+              <div class="fact"><b>Coverage</b><span>100 undergraduate merit scholarships plus need-based tuition fee waiver and loan support.</span></div>
+              <div class="fact"><b>Best for</b><span>Top academic profiles and students who can document financial need properly.</span></div>
+            </div>
+            <a class="official" href="https://financial-aid.lums.edu.pk/financial-aid-options-fa" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Pakistan</span></div>
+            <h3>IBA National Talent Hunt Program</h3>
+            <p class="provider">Institute of Business Administration, Karachi</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Stage 1 deadline for admission cycle 2027 was 11 March 2026. Stage 2 deadline was 30 April 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Financially deserving students with strong SSC-II results from boards in Pakistan.</span></div>
+              <div class="fact"><b>Coverage</b><span>Fully funded orientation and preparation route, with possible financial assistance after IBA admission.</span></div>
+              <div class="fact"><b>Best for</b><span>Students targeting business, economics, accounting, finance, social sciences or CS at IBA.</span></div>
+            </div>
+            <a class="official" href="https://nthp.iba.edu.pk/apply.php" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker open"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status open">With admission</span><span class="region">Pakistan</span></div>
+            <h3>IBA Financial Assistance</h3>
+            <p class="provider">Institute of Business Administration, Karachi</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Fresh students apply through IBA online admission credentials when the financial assistance form is available.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Fresh and existing IBA students who need financial support.</span></div>
+              <div class="fact"><b>Coverage</b><span>Need-based financial assistance determined by IBA's assessment process.</span></div>
+              <div class="fact"><b>Best for</b><span>A Level students applying directly to IBA who do not qualify through NTHP.</span></div>
+            </div>
+            <a class="official" href="https://ibaapps.iba.edu.pk/financialassistance/" target="_blank" rel="noopener">Official portal</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Pakistan</span></div>
+            <h3>Aga Khan University Financial Assistance</h3>
+            <p class="provider">The Aga Khan University</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>AKU MBBS 2026-2027 admission cycle closed on 13 May 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Students who secure AKU admission and are unable to pay the cost of education.</span></div>
+              <div class="fact"><b>Coverage</b><span>Need-sensitive support through grant-in-aid and student loan.</span></div>
+              <div class="fact"><b>Best for</b><span>A Level pre-med students applying to AKU MBBS or other eligible AKU programmes.</span></div>
+            </div>
+            <a class="official" href="https://www.aku.edu/admissions/fees-and-funding/Pages/financial-assistance-pk.aspx" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Annual route</span><span class="region">Pakistan</span></div>
+            <h3>Habib TOPS and Access Scholarships</h3>
+            <p class="provider">Habib University</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>National board TOPS has separate admission timing. International board students should use the international board schedule and financial aid deadline.</span></div>
+              <div class="fact"><b>Eligibility</b><span>TOPS is primarily structured for national examination board applicants. A Level students should verify the correct scholarship category.</span></div>
+              <div class="fact"><b>Coverage</b><span>TOPS can cover major university expenses for selected students under its route.</span></div>
+              <div class="fact"><b>Best for</b><span>Students comparing Habib admission routes and financial aid options early.</span></div>
+            </div>
+            <a class="official" href="https://habib.edu.pk/admissions/national-examination-boards/hutops/" target="_blank" rel="noopener">Official TOPS page</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="section alt" id="international">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>High-value international scholarships</h2>
+          <p>These are major fully funded, high-aid or high-prestige routes for Pakistani and international A Level students applying abroad.</p>
+        </div>
+        <div class="source-note">For international scholarships, start 6 to 12 months early. Many close before A2 final results are released.</div>
+      </div>
+
+      <div class="card-grid">
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Japan</span></div>
+            <h3>MEXT Undergraduate Scholarship</h3>
+            <p class="provider">Embassy of Japan in Pakistan</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>For MEXT Undergraduate Scholarship 2027, Pakistan deadline was 5 June 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Pakistani students applying for undergraduate study in Japan, with required school transcripts and documents.</span></div>
+              <div class="fact"><b>Coverage</b><span>Japanese government scholarship route, usually including tuition, stipend and travel support.</span></div>
+              <div class="fact"><b>Best for</b><span>Strong maths and science students willing to prepare for written exams and Japanese study.</span></div>
+            </div>
+            <a class="official" href="https://www.pk.emb-japan.go.jp/itpr_en/MEXT_Undergrad_Scholarship.html" target="_blank" rel="noopener">Official Pakistan page</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">China</span></div>
+            <h3>Chinese Government Scholarship Program</h3>
+            <p class="provider">HEC Pakistan and Chinese Scholarship Council</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>HEC scholarship portal deadline for 2026-27 was 5 January 2026 at 4:00 PM Pakistan Standard Time.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Pakistani students, with undergraduate seats available in the announced quota.</span></div>
+              <div class="fact"><b>Coverage</b><span>Government scholarship seats for bachelor's, master's and PhD study in China.</span></div>
+              <div class="fact"><b>Best for</b><span>A Level graduates considering China for engineering, science, medicine-adjacent or technical fields.</span></div>
+            </div>
+            <a class="official" href="https://www.hec.gov.pk/site/CGSP" target="_blank" rel="noopener">Official HEC page</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Hungary</span></div>
+            <h3>Stipendium Hungaricum</h3>
+            <p class="provider">Hungarian Government and HEC Pakistan</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>2026-27 documents were due by 15 January 2026 on the Hungary system. HEC routing is required for Pakistan.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Pakistani and AJ&amp;K nationals applying through HEC for eligible bachelor's and higher degree programmes.</span></div>
+              <div class="fact"><b>Coverage</b><span>Government-funded study route with programme-specific benefits and requirements.</span></div>
+              <div class="fact"><b>Best for</b><span>A Level graduates seeking Europe-based undergraduate study with HEC nomination.</span></div>
+            </div>
+            <a class="official" href="https://www.hec.gov.pk/english/scholarshipsgrants/lao/SHSP/Pages/Eligibility-Criteria.aspx" target="_blank" rel="noopener">Official HEC details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Brunei</span></div>
+            <h3>Government of Brunei Darussalam Scholarship</h3>
+            <p class="provider">Brunei Ministry of Foreign Affairs, advertised by HEC</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>2026-27 application deadline was 15 February 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Foreign students including Pakistan, for diploma, undergraduate degree and master's level study.</span></div>
+              <div class="fact"><b>Coverage</b><span>Government scholarship for selected Brunei institutions, with benefits listed on the official page.</span></div>
+              <div class="fact"><b>Best for</b><span>Students looking for a Muslim-majority destination and public university route.</span></div>
+            </div>
+            <a class="official" href="https://www.hec.gov.pk/english/HECAnnouncements/Pages/BDGS.aspx" target="_blank" rel="noopener">Official HEC page</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Qatar</span></div>
+            <h3>Qatar University International Students Scholarship</h3>
+            <p class="provider">Qatar University</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Fall 2026 international undergraduate scholarship application deadline was 25 March 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>New international undergraduate applicants applying from outside Qatar.</span></div>
+              <div class="fact"><b>Coverage</b><span>Competitive scholarship route connected to undergraduate admission.</span></div>
+              <div class="fact"><b>Best for</b><span>A Level students targeting the Gulf, Arabic-speaking region or Qatar-based university route.</span></div>
+            </div>
+            <a class="official" href="https://www.qu.edu.qa/en-us/students/admission/scholarships/scholarships-timeline" target="_blank" rel="noopener">Official timeline</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Singapore</span></div>
+            <h3>NUS Undergraduate Scholarships</h3>
+            <p class="provider">National University of Singapore</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>NUS scholarship application period for selected 2026 freshman scholarships was 1 February to 19 March 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Scholarship rules vary by nationality and qualification. International students should check the NUS international prospectus and current award rules.</span></div>
+              <div class="fact"><b>Coverage</b><span>Merit and award-specific support, including international-facing awards in selected areas.</span></div>
+              <div class="fact"><b>Best for</b><span>Exceptional A Level students targeting Singapore, computing, engineering, sciences or business.</span></div>
+            </div>
+            <a class="official" href="https://www.nus.edu.sg/oam/scholarships/important-dates-and-application" target="_blank" rel="noopener">Official dates</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Annual route</span><span class="region">Singapore</span></div>
+            <h3>NTU Singapore Undergraduate Scholarships</h3>
+            <p class="provider">Nanyang Technological University</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Scholarship timing follows NTU undergraduate admissions. Check the scholarship listing before each admission cycle.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International students are eligible for selected NTU undergraduate scholarships.</span></div>
+              <div class="fact"><b>Coverage</b><span>Scholarship-specific benefits, often competitive and merit-based.</span></div>
+              <div class="fact"><b>Best for</b><span>Strong A Level students targeting engineering, computing, business, science and design.</span></div>
+            </div>
+            <a class="official" href="https://www.ntu.edu.sg/admissions/undergraduate/scholarships/scholarship-listings" target="_blank" rel="noopener">Official listings</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Canada</span></div>
+            <h3>UBC International Scholars Program</h3>
+            <p class="provider">University of British Columbia</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>2026 International Scholars Program application deadline was 17 November 2025. UBC admission scholarship deadline was 1 December 2025.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International students with leadership, community contribution, strong academics and meaningful financial need.</span></div>
+              <div class="fact"><b>Coverage</b><span>Need-sensitive international scholar awards for selected students.</span></div>
+              <div class="fact"><b>Best for</b><span>A Level students with leadership, service and financial need who want Canada.</span></div>
+            </div>
+            <a class="official" href="https://undergraduatescholarships.ubc.ca/prog/2026_international_scholars_program_application/" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">Canada</span></div>
+            <h3>Lester B. Pearson International Scholarship</h3>
+            <p class="provider">University of Toronto</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>2026 school nomination deadline was 10 October 2025.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International students nominated by their school. Students already in post-secondary study are not eligible.</span></div>
+              <div class="fact"><b>Coverage</b><span>Major undergraduate scholarship for exceptional international students.</span></div>
+              <div class="fact"><b>Best for</b><span>Top A Level students with strong school nomination, leadership and community impact.</span></div>
+            </div>
+            <a class="official" href="https://future.utoronto.ca/pearson-scholarships" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Closed 2026</span><span class="region">UK</span></div>
+            <h3>Reach Oxford Scholarship</h3>
+            <p class="provider">University of Oxford</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>For 2026 entry, scholarship deadline was 4 February 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Students from eligible countries receiving official development assistance, after applying to Oxford.</span></div>
+              <div class="fact"><b>Coverage</b><span>Course fee and living cost support for selected undergraduate offer holders.</span></div>
+              <div class="fact"><b>Best for</b><span>Very high-achieving A Level students with an Oxford offer and strong case for return impact.</span></div>
+            </div>
+            <a class="official" href="https://www.ox.ac.uk/admissions/undergraduate/fees-and-funding/oxford-support/reach-oxford-scholarship" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Offer-holder route</span><span class="region">UK</span></div>
+            <h3>Cambridge Trust Undergraduate Scholarships</h3>
+            <p class="provider">Cambridge Commonwealth, European and International Trust</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Students must first apply to Cambridge by the relevant admissions deadline and receive a conditional offer.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International undergraduate offer holders, with scholarship eligibility depending on award rules.</span></div>
+              <div class="fact"><b>Coverage</b><span>Full-cost and part-cost scholarship opportunities, limited and highly competitive.</span></div>
+              <div class="fact"><b>Best for</b><span>Top A Level students applying to Cambridge who need international fee support.</span></div>
+            </div>
+            <a class="official" href="https://www.cambridgetrust.org/our-scholarships/about-our-undergraduate-scholarships" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Admission route</span><span class="region">USA</span></div>
+            <h3>MIT Need-Based Aid for International Students</h3>
+            <p class="provider">Massachusetts Institute of Technology</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Financial aid is tied to MIT's undergraduate admissions and CSS Profile process.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International undergraduate applicants can apply for financial aid.</span></div>
+              <div class="fact"><b>Coverage</b><span>MIT states it meets 100% of demonstrated need for international students.</span></div>
+              <div class="fact"><b>Best for</b><span>Exceptional STEM A Level students who can compete globally.</span></div>
+            </div>
+            <a class="official" href="https://sfs.mit.edu/undergraduate-students/apply-for-aid/international/" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Admission route</span><span class="region">USA</span></div>
+            <h3>Harvard College Financial Aid</h3>
+            <p class="provider">Harvard College</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Financial aid follows Harvard College admissions and aid application timetables.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International and domestic students follow essentially the same financial aid application process.</span></div>
+              <div class="fact"><b>Coverage</b><span>Need-based aid based on demonstrated family financial circumstances.</span></div>
+              <div class="fact"><b>Best for</b><span>Exceptional A Level students with outstanding academics, activities and recommendations.</span></div>
+            </div>
+            <a class="official" href="https://college.harvard.edu/financial-aid/apply-financial-aid" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Admission route</span><span class="region">USA</span></div>
+            <h3>Princeton Financial Aid for International Students</h3>
+            <p class="provider">Princeton University</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Financial aid follows Princeton admissions and financial aid application deadlines.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International applicants can apply for aid, and Princeton states there is no disadvantage in admission for aid applicants.</span></div>
+              <div class="fact"><b>Coverage</b><span>Financial aid is awarded as grant support rather than loan repayment.</span></div>
+              <div class="fact"><b>Best for</b><span>Top A Level applicants who need major aid and have a global-level application profile.</span></div>
+            </div>
+            <a class="official" href="https://admission.princeton.edu/apply/international-students" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker upcoming"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status upcoming">Admission route</span><span class="region">USA</span></div>
+            <h3>Yale Financial Aid for International Students</h3>
+            <p class="provider">Yale University</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Financial aid follows Yale undergraduate admissions and CSS Profile timelines.</span></div>
+              <div class="fact"><b>Eligibility</b><span>International undergraduate applicants can apply for need-based financial aid.</span></div>
+              <div class="fact"><b>Coverage</b><span>Yale says international aid offers include housing, meals and travel allowances where eligible.</span></div>
+              <div class="fact"><b>Best for</b><span>Elite A Level applicants with strong academics, writing, activities and teacher recommendations.</span></div>
+            </div>
+            <a class="official" href="https://admissions.yale.edu/international" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="closed-important">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Paused or closed, but still worth tracking</h2>
+          <p>These should stay on the page because students search for them, but the status must be honest.</p>
+        </div>
+        <div class="source-note">Closed does not mean useless. It means students should use the dates to plan for the next cycle instead of wasting time today.</div>
+      </div>
+
+      <div class="card-grid">
+        <article class="scholar-card">
+          <div class="marker paused"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status paused">Paused</span><span class="region">O Level exchange</span></div>
+            <h3>Kennedy-Lugar YES Program Pakistan</h3>
+            <p class="provider">YES Program Pakistan</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>Recruitment for academic year 2026-2027 has been paused.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Historically relevant for high school and O Level age students in Pakistan.</span></div>
+              <div class="fact"><b>Coverage</b><span>US high school exchange programme when active.</span></div>
+              <div class="fact"><b>Best for</b><span>Students interested in exchange, leadership and cultural exposure. Do not apply through unofficial pages.</span></div>
+            </div>
+            <a class="official" href="https://www.yesprogram.pk/media" target="_blank" rel="noopener">Official status</a>
+          </div>
+        </article>
+
+        <article class="scholar-card">
+          <div class="marker closed"></div>
+          <div class="card-body">
+            <div class="status-row"><span class="status closed">Check carefully</span><span class="region">Global</span></div>
+            <h3>Islamic Development Bank Scholarships</h3>
+            <p class="provider">IsDB Scholarship Programmes</p>
+            <div class="facts">
+              <div class="fact"><b>Deadline</b><span>The 2026-2027 call was open, with many official notices referencing 31 January 2026.</span></div>
+              <div class="fact"><b>Eligibility</b><span>Eligibility depends heavily on country, degree level and programme. Pakistan undergraduate eligibility should be verified carefully before adding to a student shortlist.</span></div>
+              <div class="fact"><b>Coverage</b><span>Programme-specific support across different IsDB scholarship categories.</span></div>
+              <div class="fact"><b>Best for</b><span>Students from eligible IsDB member countries or Muslim communities in non-member countries, after confirming level eligibility.</span></div>
+            </div>
+            <a class="official" href="https://beta.isdb.org/scholarships" target="_blank" rel="noopener">Official details</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="section alt" id="how-to-use">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>How students should shortlist scholarships</h2>
+          <p>A good scholarship list should help students make decisions, not just collect names. Use this method before applying.</p>
+        </div>
+      </div>
+
+      <div class="method-grid">
+        <div class="method"><b>1. Match the level</b><p>O Level students should prioritise UWC and exchange routes. A Level students should prioritise undergraduate scholarships and university financial aid.</p></div>
+        <div class="method"><b>2. Check the deadline</b><p>Many major scholarships close before final A2 results. Start essays, references and documents months earlier.</p></div>
+        <div class="method"><b>3. Confirm documents</b><p>Prepare passport, transcripts, O Level certificates, predicted grades, equivalence, recommendation letters and income documents.</p></div>
+        <div class="method"><b>4. Avoid weak certificates</b><p>Focus on credible scholarships, official university aid and real government programmes instead of generic paid listings.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="wrap">
+      <h2>Scholarship FAQ for O Level and A Level students</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Can O Level students apply for scholarships?</h3>
+          <p>Yes, but most university scholarships are for students near the end of A Levels or equivalent high school. O Level students should focus on UWC, exchange programmes, school scholarships and profile-building early.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can A Level students in Pakistan apply abroad with scholarships?</h3>
+          <p>Yes. A Level students can apply to universities and scholarship routes in Hong Kong, Singapore, Korea, Turkey, Canada, the UK, the USA, Qatar, Brunei and other countries. Each route has its own deadlines and document rules.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Are financial aid and scholarships the same?</h3>
+          <p>No. A merit scholarship is usually based on academic strength or achievement. Financial aid is usually based on family need. Some universities combine both in the final package.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What should Pakistani A Level students prepare first?</h3>
+          <p>Start with O Level certificates, AS results, predicted A Level grades, SAT or English tests where required, recommendation letters, passport, equivalence planning and family income documents.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Should students use scholarship agents?</h3>
+          <p>For the opportunities on this page, students should use official scholarship, university, HEC or embassy pages. Use school counselors for nomination-based awards. Avoid anyone promising guaranteed selection.</p>
+        </div>
+        <div class="faq-item">
+          <h3>When should A Level students start?</h3>
+          <p>Ideally in AS or early A2. The strongest international scholarship applications need grades, essays, activities, references and financial documents ready before final A Level results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="wrap">
+      <h2>Need help choosing the right scholarship path?</h2>
+      <p>SJ Academy can help O Level and A Level students understand which scholarships match their subjects, grades, university goals and application timeline.</p>
+      <a class="whatsapp" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20need%20help%20shortlisting%20scholarships%20for%20O%20Level%20or%20A%20Level." target="_blank" rel="noopener">WhatsApp SJ Academy</a>
+    </div>
+  </div>
+</section>

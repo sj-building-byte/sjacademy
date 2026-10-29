@@ -1,0 +1,352 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === SEO TEMPLATE STYLES === */
+        #sj-pastpaper-hub {
+            --primary-yellow: #FCE004;
+            --brown: #453516;
+            --orange: #FE6100;
+            --orange-dark: #e55800;
+            --black: #000000;
+            --white: #FFFFFF;
+            --grey: #555555;
+            --dark-grey: #222222;
+            --light-bg: #FAFAFA;
+            --light-yellow: #FFF9CC;
+            --border-light: #e5e5e5;
+            --shadow-hard: 6px 6px 0 var(--brown);
+            --shadow-button: 4px 4px 0 rgba(254,97,0,0.3);
+            
+            font-family: 'Poppins', sans-serif;
+            color: var(--black);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px 15px;
+            background: var(--white);
+        }
+
+        #sj-pastpaper-hub * { box-sizing: border-box; }
+
+        #sj-pastpaper-hub .hub-header { text-align: center; margin-bottom: 30px; padding: 20px 0; }
+
+        #sj-pastpaper-hub .breadcrumb {
+            font-size: 11px; font-weight: 800; color: var(--grey); text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 15px; display: inline-block;
+            background: var(--light-bg); padding: 6px 16px; border-radius: 40px; border: 1.5px solid var(--border-light);
+        }
+
+        #sj-pastpaper-hub .hub-title { font-size: 2.2rem; font-weight: 800; margin: 0 0 15px 0; color: var(--black); }
+        #sj-pastpaper-hub .hub-title .highlight {
+            background: linear-gradient(120deg, var(--primary-yellow) 0%, var(--primary-yellow) 100%);
+            background-repeat: no-repeat; background-size: 100% 35%; background-position: 0 85%; padding: 0 3px;
+        }
+
+        #sj-pastpaper-hub .hub-subtitle { font-size: 15px; color: var(--grey); max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+        /* QUICK JUMP PILLS */
+        #sj-pastpaper-hub .subject-pill {
+            font-size: 11px; font-weight: 800; padding: 8px 18px; border-radius: 40px;
+            border: 2px solid var(--brown); background: var(--white); color: var(--brown);
+            text-decoration: none; transition: all 0.2s ease;
+        }
+        #sj-pastpaper-hub .subject-pill:hover, #sj-pastpaper-hub .subject-pill.active {
+            background: var(--primary-yellow); box-shadow: 3px 3px 0 var(--brown); transform: translateY(-2px); color: var(--black);
+        }
+
+        /* === YOUR EXISTING TOOL STYLES (Adapted) === */
+        .controls-section { padding: 10px 0 16px; }
+        .filters-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+        @media (min-width: 768px) { .filters-grid { grid-template-columns: repeat(5, 1fr); gap: 14px; } }
+        
+        .filter-group label { display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--dark-grey); margin-bottom: 5px; }
+        .filter-group select {
+            width: 100%; padding: 12px 35px 12px 14px; border: 2.5px solid var(--brown); border-radius: 8px;
+            font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: var(--black); background: var(--white);
+            appearance: none; cursor: pointer;
+        }
+
+        .results-section { padding: 12px 0 40px; }
+        .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--border-light); }
+        .results-count { font-size: 13px; color: var(--grey); font-weight: 500; }
+        .results-count span { font-weight: 800; color: var(--orange); }
+
+        .papers-list { display: flex; flex-direction: column; gap: 16px; min-height: 200px; }
+        .paper-card {
+            background: var(--white); padding: 20px; border-top: 5px solid var(--brown); border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); display: grid; grid-template-columns: 1fr; gap: 16px;
+        }
+        @media (min-width: 768px) { .paper-card { grid-template-columns: 1fr auto; align-items: center; padding: 22px 28px; gap: 24px; } }
+        
+        .paper-subject { font-size: 1.2rem; font-weight: 800; color: var(--black); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .paper-code { font-size: 10px; font-weight: 800; background: var(--primary-yellow); color: var(--black); padding: 2px 8px; border-radius: 40px; border: 1.5px solid var(--brown); }
+        
+        .paper-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 10px; }
+        @media (min-width: 768px) { .paper-meta { grid-template-columns: repeat(5, auto); gap: 20px; } }
+        .paper-meta .kv { display: flex; flex-direction: column; }
+        .kv-label { font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--grey); margin-bottom: 2px; }
+        .kv-value { font-size: 13px; font-weight: 700; color: var(--dark-grey); }
+        
+        .kv-value.type-qp { color: var(--orange); } .kv-value.type-ms { color: #16a34a; }
+
+        .download-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--orange);
+            color: var(--white); border-radius: 8px; padding: 12px 24px; font-size: 13px; font-weight: 700;
+            text-transform: uppercase; text-decoration: none; box-shadow: var(--shadow-button);
+        }
+
+        .show-more-wrap { text-align: center; margin-top: 24px; }
+        .show-more-btn {
+            display: inline-flex; justify-content: center; background: var(--white); color: var(--brown);
+            border: 2px solid var(--brown); border-radius: 8px; padding: 14px 30px; font-weight: 700;
+            text-transform: uppercase; cursor: pointer;
+        }
+        
+        /* SEO FAQ */
+        #sj-pastpaper-hub .seo-faq {
+            margin-top: 50px; padding: 40px; background: var(--light-bg); border-radius: 16px;
+            border: 1.5px solid var(--border-light); text-align: center;
+        }
+        #sj-pastpaper-hub .seo-faq h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 20px; }
+        #sj-pastpaper-hub .seo-faq h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
+        #sj-pastpaper-hub .seo-faq p { font-size: 14px; color: var(--grey); line-height: 1.7; max-width: 800px; margin: 0 auto 25px; }
+    </style>
+<div id="sj-pastpaper-hub">
+    
+    <!-- 1. SEO HERO HEADER -->
+    <div class="hub-header">
+        <span class="breadcrumb">A Level Past Papers</span>
+        <h1 class="hub-title">A Level <span class="highlight">English (9695)</span> Past Papers &amp; Mark Schemes</h1>
+        <p class="hub-subtitle">Download all Cambridge AS & A Level English (9695) past papers instantly. Filter by year, session, variant, and type.</p>
+    </div>
+
+
+    <!-- QUICK JUMP NAVIGATION -->
+    <div style="text-align: center; margin-bottom: 40px;">
+        <p style="font-size: 11px; font-weight: 800; color: var(--grey); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Switch Subject:</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 900px; margin: 0 auto;">
+            <a href="/a-level-past-papers/accounts-9706/" class="subject-pill ">Accounts (9706)</a>
+            <a href="/a-level-past-papers/biology-9700/" class="subject-pill ">Biology (9700)</a>
+            <a href="/a-level-past-papers/business-9609/" class="subject-pill ">Business (9609)</a>
+            <a href="/a-level-past-papers/chemistry-9701/" class="subject-pill ">Chemistry (9701)</a>
+            <a href="/a-level-past-papers/computer-science-9618/" class="subject-pill ">Computer Science (9618)</a>
+            <a href="/a-level-past-papers/economics-9708/" class="subject-pill ">Economics (9708)</a>
+            <a href="/a-level-past-papers/english-9695/" class="subject-pill active">English (9695)</a>
+            <a href="/a-level-past-papers/law-9084/" class="subject-pill ">Law (9084)</a>
+            <a href="/a-level-past-papers/mathematics-9709/" class="subject-pill ">Mathematics (9709)</a>
+            <a href="/a-level-past-papers/physics-9702/" class="subject-pill ">Physics (9702)</a>
+            <a href="/a-level-past-papers/psychology-9990/" class="subject-pill ">Psychology (9990)</a>
+            <a href="/a-level-past-papers/sociology-9699/" class="subject-pill ">Sociology (9699)</a>
+            <a href="/a-level-past-papers/urdu-9686/" class="subject-pill ">Urdu (9686)</a>
+        </div>
+    </div>
+
+
+    <!-- 2. YOUR EXISTING BACKBLAZE TOOL (Modified to lock into English) -->
+    <section class="controls-section">
+        <div class="filters-grid">
+            <div class="filter-group">
+                <label>Year</label>
+                <select id="yearFilter"><option value="">All Years</option></select>
+            </div>
+            <div class="filter-group">
+                <label>Session</label>
+                <select id="sessionFilter"><option value="">All Sessions</option></select>
+            </div>
+            <div class="filter-group">
+                <label>Paper</label>
+                <select id="paperFilter"><option value="">All Papers</option></select>
+            </div>
+            <div class="filter-group">
+                <label>Variant</label>
+                <select id="variantFilter"><option value="">All Variants</option></select>
+            </div>
+            <div class="filter-group">
+                <label>Type</label>
+                <select id="typeFilter"><option value="">All Types</option></select>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="results-header">
+            <div class="results-count">Showing <span id="resultsCount">0</span></div>
+        </div>
+        <div class="papers-list" id="papersList">
+            <!-- JS populated results -->
+        </div>
+    </section>
+
+    <!-- 3. BOTTOM SEO FAQ -->
+    <div class="seo-faq">
+        <h2>About A Level English (9695) Past Papers</h2>
+        <h3>What is the A Level English 9695 Syllabus?</h3>
+        <p>The syllabus encourages appreciation of literature in English, covering classic and contemporary poetry, prose and drama.</p>
+
+        <h3>How do I read a 9695 past paper file name?</h3>
+        <p>Every file follows the Cambridge pattern <strong>9695_s25_qp_12</strong>. The letter is the session (s = May/June, w = Oct/Nov), the two digits are the year, qp is the question paper and ms is the mark scheme. The last two digits are the paper number followed by the variant, so 12 means Paper 1, Variant 2.</p>
+
+        <h3>Which variant should I practise?</h3>
+        <p>Cambridge sets different variants of the same paper for different time zones. They test the same syllabus to the same standard, so practise every variant from a session. It doubles your question bank for each topic.</p>
+
+        <h3>How should I use the mark schemes?</h3>
+        <p>Attempt the paper under timed conditions first, then mark it yourself against the mark scheme. Note where you lost marks for missing keywords or structure, not only for wrong answers. Our guide on <a href="https://www.sjacademy.pk/blog/how-to-use-mark-scheme/">how to use a Cambridge mark scheme</a> walks through the method, and our <a href="https://www.sjacademy.pk/blog/a-level-thresholds-guide/">A Level grade thresholds guide</a> explains how raw marks convert to grades.</p>
+
+        <h3>Want structured help for your A Levels?</h3>
+        <p>SJ Academy runs A Level classes in DHA Phase 7, Karachi, and live online across Pakistan. <a href="https://www.sjacademy.pk/a-level-tuition-center-karachi/">See which A Level subjects we currently teach</a> or book a free demo class.</p>
+    </div>
+
+</div>
+
+<!-- THE JAVASCRIPT ENGINE -->
+<script>
+(function() {
+  const BUCKET_BASE = "https://sjacademy.pk/file/Past-papers-storage";
+  const PAGE_SIZE = 25;
+  const CURRENT_PAGE_SUBJECT = "English"; // <--- HARDCODED FOR THIS SPECIFIC PAGE
+  
+  const subjectsData = [
+    { folderName: "English (9695)", displayName: "English", code: "9695", years: [2020, 2021, 2022, 2023, 2024, 2025], sessions: ["s", "w"], variants: [1, 2, 3], paperTypes: { 1: ["qp", "ms"], 2: ["qp", "ms"], 3: ["qp", "ms", "in"], 4: ["qp", "ms"] } }
+  ];
+
+  const typeLabels = { qp: "Question Paper", ms: "Mark Scheme", in: "Insert", er: "Examiner Report", ci: "Confidential Instructions" };
+  const sessionLabels = { s: "May/June", w: "Oct/Nov" };
+
+  let allPapers = [];
+  let currentFiltered = [];
+  let currentCount = PAGE_SIZE;
+
+  function buildUrl(subj, year, session, paper, type, variant) {
+    const shortYear = String(year).slice(-2);
+    const filename = `${subj.code}_${session}${shortYear}_${type}_${paper}${variant}`;
+    const sessionFolder = session === "s" ? `May+June+${year}` : `October+November+${year}`;
+    const folderPart = subj.folderName.replace(/\s/g, '+').replace(/\(/g, '%28').replace(/\)/g, '%29');
+    return `${BUCKET_BASE}/A+Level/${folderPart}/${sessionFolder}/${filename}.pdf`;
+  }
+
+  function init() {
+    subjectsData.forEach(subj => {
+      subj.years.forEach(year => {
+        subj.sessions.forEach(session => {
+          Object.keys(subj.paperTypes).forEach(paperNum => {
+            const types = subj.paperTypes[paperNum];
+            subj.variants.forEach(variant => {
+              types.forEach(type => {
+                allPapers.push({
+                  subject: subj.displayName, code: subj.code, year: year, session: sessionLabels[session],
+                  paper: parseInt(paperNum), variant: variant, type: typeLabels[type], typeCode: type, url: buildUrl(subj, year, session, paperNum, type, variant)
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+
+    const yrFilter = document.getElementById('yearFilter');
+    const sessFilter = document.getElementById('sessionFilter');
+    const pFilter = document.getElementById('paperFilter');
+    const vFilter = document.getElementById('variantFilter');
+    const tFilter = document.getElementById('typeFilter');
+
+    const years = [...new Set(allPapers.map(p => p.year))].sort((a,b) => b-a);
+    const sess = [...new Set(allPapers.map(p => p.session))];
+    const variants = [...new Set(allPapers.map(p => p.variant))].sort();
+    const types = [...new Set(allPapers.map(p => p.type))].sort();
+
+    years.forEach(y => yrFilter.add(new Option(y, y)));
+    sess.forEach(s => sessFilter.add(new Option(s, s)));
+    variants.forEach(v => vFilter.add(new Option(`Variant ${v}`, v)));
+    types.forEach(t => tFilter.add(new Option(t, t)));
+    [1,2,3,4,5,6].forEach(p => pFilter.add(new Option(`Paper ${p}`, p)));
+
+    [yrFilter, sessFilter, pFilter, vFilter, tFilter].forEach(el => {
+      el.addEventListener('change', () => { currentCount = PAGE_SIZE; render(); });
+    });
+
+    render();
+  }
+
+  function render() {
+    const year = document.getElementById('yearFilter').value;
+    const session = document.getElementById('sessionFilter').value;
+    const paper = document.getElementById('paperFilter').value;
+    const variant = document.getElementById('variantFilter').value;
+    const type = document.getElementById('typeFilter').value;
+
+    currentFiltered = allPapers.filter(p => {
+      if (year && p.year != year) return false;
+      if (session && p.session !== session) return false;
+      if (paper && p.paper != paper) return false;
+      if (variant && p.variant != variant) return false;
+      if (type && p.type !== type) return false;
+      return true;
+    }).sort((a,b) => b.year - a.year || a.paper - b.paper || a.variant - b.variant);
+
+    const container = document.getElementById('papersList');
+    const countEl = document.getElementById('resultsCount');
+    container.innerHTML = '';
+    const toShow = currentFiltered.slice(0, currentCount);
+    countEl.innerHTML = `<span>${toShow.length}</span> of <span>${currentFiltered.length}</span> papers`;
+
+    toShow.forEach((p, i) => {
+        
+        // --- INLINE CONVERSION BANNER (AT POSITION 4) ---
+        if (i === 3) {
+            const adCard = document.createElement('div');
+            adCard.className = 'paper-card';
+            adCard.style.backgroundColor = 'var(--light-yellow)';
+            adCard.style.borderTopColor = 'var(--orange)';
+            adCard.style.textAlign = 'center';
+            adCard.style.display = 'flex';
+            adCard.style.flexDirection = 'column';
+            adCard.style.justifyContent = 'center';
+            adCard.style.alignItems = 'center';
+            adCard.style.padding = '30px 20px';
+            
+            adCard.innerHTML = `
+                <h3 style="color: var(--orange); font-weight: 800; font-size: 1.4rem; margin-bottom: 8px;">Stuck on these past papers?</h3>
+                <p style="font-size: 13.5px; font-weight: 500; color: var(--dark-grey); margin-bottom: 20px; max-width: 750px; line-height: 1.6;">
+                    Don't lose marks on tricky questions. Master the exact CAIE marking scheme with Karachi's elite faculty from <strong>IBA, LUMS, and KGS</strong>. Join hundreds of SJ Academy (220+ 5-star reviews on Google) students who secured straight A*s last year. Join from anywhere online or physically in Karachi, DHA.
+                </p>
+                <div style="text-align: center;">
+                    <a href="https://www.sjacademy.pk/o-a-level-classes/" target="_blank" style="background: var(--orange); color: white; border-radius: 8px; padding: 12px 26px; font-size: 14px; font-weight: 700; text-decoration: none; display: inline-block; box-shadow: var(--shadow-button); transition: all 0.2s ease;">Join a Free Demo Class</a>
+                    <div style="font-size: 11px; font-weight: 800; color: var(--orange); margin-top: 8px; text-transform: uppercase;">In-class & Online</div>
+                </div>
+            `;
+            container.appendChild(adCard);
+        }
+
+        const card = document.createElement('div');
+        card.className = 'paper-card';
+        const typeClass = `type-${p.typeCode}`;
+        
+        card.innerHTML = `
+          <div class="paper-info">
+            <div class="paper-subject">${p.subject} <span class="paper-code">${p.code}</span></div>
+            <div class="paper-meta">
+              <div class="kv"><span class="kv-label">Year</span><span class="kv-value">${p.year}</span></div>
+              <div class="kv"><span class="kv-label">Session</span><span class="kv-value">${p.session}</span></div>
+              <div class="kv"><span class="kv-label">Paper</span><span class="kv-value">${p.paper}</span></div>
+              <div class="kv"><span class="kv-label">Variant</span><span class="kv-value">${p.variant}</span></div>
+              <div class="kv"><span class="kv-label">Type</span><span class="kv-value ${typeClass}">${p.type}</span></div>
+            </div>
+          </div>
+          <a href="${p.url}" class="download-btn" target="_blank" rel="noopener" download>
+            <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download
+          </a>
+        `;
+        container.appendChild(card);
+    });
+
+    if (currentCount < currentFiltered.length) {
+      const btnWrap = document.createElement('div');
+      btnWrap.className = 'show-more-wrap';
+      btnWrap.innerHTML = `<button class="show-more-btn" id="loadMoreALevel">Show More Results</button>`;
+      container.appendChild(btnWrap);
+      document.getElementById('loadMoreALevel').addEventListener('click', () => { currentCount += PAGE_SIZE; render(); });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+</script>

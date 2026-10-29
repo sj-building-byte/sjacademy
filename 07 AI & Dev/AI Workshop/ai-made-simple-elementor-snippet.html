@@ -1,0 +1,1438 @@
+<meta charset="UTF-8">
+
+<div class="ams-page">
+  <style>
+    .ams-page {
+      --yellow: #FCE004;
+      --brown: #453516;
+      --orange: #FE6100;
+      --dark-text: #1F1F1F;
+      --muted-text: #5F5F5F;
+      --border: #E7E2D5;
+      --bg-white: #FFFFFF;
+      --bg-soft: #FAF8F1;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: var(--font-sans);
+      color: var(--dark-text);
+      background-color: var(--bg-white);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .ams-page,
+    .ams-page *,
+    .ams-page *::before,
+    .ams-page *::after {
+      box-sizing: border-box;
+    }
+
+    .ams-page * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .ams-page a {
+      color: inherit;
+    }
+
+    .ams-page img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .ams-page .ams-top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--border);
+      background-color: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 2px 12px rgba(69, 53, 22, 0.04);
+      backdrop-filter: blur(12px);
+    }
+
+    .ams-page .ams-top-nav-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-width: 1456px;
+      margin: 0 auto;
+      padding: 14px 20px;
+    }
+
+    .ams-page .ams-top-brand {
+      display: grid;
+      gap: 2px;
+      color: var(--dark-text);
+      text-decoration: none;
+    }
+
+    .ams-page .ams-top-brand-title {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .ams-page .ams-top-brand-meta {
+      color: var(--dark-text);
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .ams-page .ams-top-stars {
+      color: #D9A928;
+      letter-spacing: 0.03em;
+    }
+
+    .ams-page .ams-top-links {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ams-page .ams-top-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .ams-page .ams-top-links a {
+      flex: 0 0 auto;
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--dark-text);
+      font-size: 14px;
+      font-weight: 650;
+      line-height: 1;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .ams-page .ams-top-links a:hover,
+    .ams-page .ams-top-links a:focus-visible {
+      background-color: var(--bg-soft);
+      outline: none;
+    }
+
+    .ams-page .ams-top-links .ams-top-cta {
+      background-color: var(--yellow);
+      color: var(--dark-text);
+    }
+
+    .ams-page .ams-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    .ams-page .ams-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .ams-page .ams-main-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ams-page .ams-section {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 48px;
+      margin-bottom: 48px;
+      scroll-margin-top: 112px;
+    }
+
+    .ams-page .ams-main-col .ams-section:last-child,
+    .ams-page .ams-bottom-content .ams-section:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .ams-page .ams-bottom-content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 48px;
+      border-top: 1px solid var(--border);
+      padding-top: 48px;
+    }
+
+    .ams-page h1,
+    .ams-page h2,
+    .ams-page h3,
+    .ams-page h4 {
+      color: var(--dark-text);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .ams-page .ams-section-title {
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+
+    .ams-page p {
+      margin-bottom: 16px;
+    }
+
+    .ams-page p:last-child {
+      margin-bottom: 0;
+    }
+
+    .ams-page .ams-breadcrumb,
+    .ams-page .ams-section-label,
+    .ams-page .ams-card-tag,
+    .ams-page .ams-instructor-label {
+      display: block;
+      color: var(--muted-text);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ams-page .ams-breadcrumb {
+      margin-bottom: 12px;
+    }
+
+    .ams-page .ams-section-label {
+      margin-bottom: 8px;
+    }
+
+    .ams-page .ams-title {
+      font-size: 32px;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .ams-page .ams-subtitle {
+      color: var(--muted-text);
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .ams-page .ams-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 10px;
+      color: var(--dark-text);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .ams-page .ams-meta-dot {
+      color: var(--border);
+      font-weight: 700;
+    }
+
+    .ams-page .ams-hero-desc {
+      max-width: 640px;
+      color: var(--muted-text);
+      font-size: 16px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .ams-page .ams-hero-instructor {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 580px;
+      margin-bottom: 28px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background-color: var(--bg-soft);
+    }
+
+    .ams-page .ams-avatar-small {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background-color: var(--yellow);
+      color: var(--dark-text);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .ams-page .ams-hero-instructor strong {
+      display: block;
+      color: var(--dark-text);
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .ams-page .ams-hero-instructor p {
+      color: var(--muted-text);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .ams-page .ams-hero-trust {
+      max-width: 580px;
+      margin-bottom: 28px;
+      padding-left: 12px;
+      border-left: 2px solid var(--yellow);
+      color: var(--muted-text);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .ams-page .ams-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .ams-page .ams-microcopy {
+      display: block;
+      color: var(--muted-text);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .ams-page .ams-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 13px 28px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .ams-page .ams-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .ams-page .ams-btn-primary {
+      background-color: var(--yellow);
+      color: var(--dark-text);
+    }
+
+    .ams-page .ams-btn-primary:hover {
+      background-color: #ebd103;
+    }
+
+    .ams-page .ams-btn-primary:focus-visible {
+      outline: 3px solid rgba(69, 53, 22, 0.35);
+      outline-offset: 2px;
+    }
+
+    .ams-page .ams-btn-secondary {
+      background-color: transparent;
+      color: var(--dark-text);
+      border-color: var(--border);
+    }
+
+    .ams-page .ams-btn-secondary:hover {
+      background-color: var(--bg-soft);
+      border-color: var(--dark-text);
+    }
+
+    .ams-page .ams-btn-secondary:focus-visible {
+      outline: 3px solid var(--border);
+      outline-offset: 2px;
+    }
+
+    .ams-page .ams-btn-block {
+      display: flex;
+      width: 100%;
+    }
+
+    .ams-page .ams-btn-sm {
+      min-height: 38px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .ams-page .ams-wa-mark {
+      margin-right: 6px;
+      color: #25D366;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .ams-page .ams-sidebar-col {
+      display: none;
+    }
+
+    .ams-page .ams-sticky-card {
+      position: sticky;
+      top: 40px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background-color: var(--bg-white);
+      box-shadow: 0 4px 24px rgba(69, 53, 22, 0.04);
+    }
+
+    .ams-page .ams-card-tag {
+      margin-bottom: 8px;
+    }
+
+    .ams-page .ams-card-title {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .ams-page .ams-card-price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .ams-page .ams-card-amount {
+      color: var(--dark-text);
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .ams-page .ams-card-price-label {
+      color: var(--muted-text);
+      font-size: 14px;
+    }
+
+    .ams-page .ams-card-divider {
+      border-top: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .ams-page .ams-card-details {
+      list-style: none;
+      margin: 0 0 24px;
+      padding: 0;
+    }
+
+    .ams-page .ams-card-details li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--dark-text);
+      font-size: 13.5px;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .ams-page .ams-card-details li:last-child {
+      margin-bottom: 0;
+    }
+
+    .ams-page .ams-detail-icon {
+      flex: 0 0 auto;
+      font-size: 15px;
+      margin-top: 1px;
+    }
+
+    .ams-page .ams-card-note {
+      display: block;
+      color: var(--muted-text);
+      font-size: 11px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .ams-page .ams-content-text {
+      color: var(--muted-text);
+      font-size: 15.5px;
+      line-height: 1.65;
+    }
+
+    .ams-page .ams-content-text p {
+      margin-bottom: 16px;
+    }
+
+    .ams-page .ams-honest-line {
+      margin-top: 24px !important;
+      padding-left: 14px;
+      border-left: 3px solid var(--orange);
+      color: var(--dark-text);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .ams-page .ams-audience-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ams-page .ams-audience-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ams-page .ams-audience-item:first-child {
+      padding-top: 0;
+    }
+
+    .ams-page .ams-audience-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .ams-page .ams-audience-num {
+      min-width: 28px;
+      color: var(--muted-text);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .ams-page .ams-audience-text {
+      color: var(--dark-text);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .ams-page .ams-prereq-list,
+    .ams-page .ams-syllabus-list,
+    .ams-page .ams-card-details,
+    .ams-page .ams-pricing-details {
+      list-style: none;
+    }
+
+    .ams-page .ams-prereq-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .ams-page .ams-prereq-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .ams-page .ams-learn-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .ams-page .ams-learn-header {
+      color: var(--dark-text);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .ams-page .ams-learn-text {
+      color: var(--muted-text);
+      font-size: 14.5px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .ams-page .ams-accordion-item {
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background-color: var(--bg-white);
+      transition: border-color 0.2s;
+    }
+
+    .ams-page .ams-accordion-item:hover {
+      border-color: var(--dark-text);
+    }
+
+    .ams-page .ams-accordion-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px;
+      border: 0;
+      background: transparent;
+      color: var(--dark-text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .ams-page .ams-accordion-trigger:focus-visible {
+      outline: 3px solid var(--yellow);
+      outline-offset: -3px;
+      background-color: var(--bg-soft);
+    }
+
+    .ams-page .ams-chevron {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      margin-left: 16px;
+      color: var(--muted-text);
+      transition: transform 0.2s;
+    }
+
+    .ams-page .ams-accordion-trigger[aria-expanded="true"] .ams-chevron {
+      transform: rotate(180deg);
+    }
+
+    .ams-page .ams-accordion-panel,
+    .ams-page .ams-faq-content {
+      display: none;
+      overflow: hidden;
+    }
+
+    .ams-page .ams-accordion-panel.ams-open,
+    .ams-page .ams-faq-content.ams-open {
+      display: block;
+    }
+
+    .ams-page .ams-accordion-inner {
+      min-height: 0;
+      padding: 0 20px 20px;
+    }
+
+    .ams-page .ams-syllabus-list {
+      margin: 0;
+      padding: 16px 0 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .ams-page .ams-syllabus-list li {
+      position: relative;
+      margin-bottom: 12px;
+      padding-left: 20px;
+      color: var(--muted-text);
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+
+    .ams-page .ams-syllabus-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: -1px;
+      color: var(--orange);
+      font-size: 18px;
+    }
+
+    .ams-page .ams-syllabus-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .ams-page .ams-included-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px 24px;
+    }
+
+    .ams-page .ams-included-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--dark-text);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+
+    .ams-page .ams-instructor-block {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background-color: var(--bg-soft);
+    }
+
+    .ams-page .ams-instructor-image {
+      flex: 0 0 auto;
+      align-self: center;
+      width: 120px;
+      height: 144px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .ams-page .ams-instructor-label {
+      margin-bottom: 4px;
+    }
+
+    .ams-page .ams-instructor-name {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .ams-page .ams-instructor-details p {
+      color: var(--muted-text);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .ams-page .ams-instructor-details p:last-child {
+      margin-bottom: 0;
+    }
+
+    .ams-page .ams-pricing-mobile {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 48px;
+      margin-bottom: 48px;
+    }
+
+    .ams-page .ams-pricing-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background-color: var(--bg-soft);
+    }
+
+    .ams-page .ams-pricing-title {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .ams-page .ams-pricing-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .ams-page .ams-price-label {
+      color: var(--muted-text);
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .ams-page .ams-pricing-details {
+      margin: 0 0 20px;
+      padding: 16px 0 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .ams-page .ams-pricing-details li {
+      color: var(--dark-text);
+      font-size: 13.5px;
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+
+    .ams-page .ams-pricing-details li:last-child {
+      margin-bottom: 0;
+    }
+
+    .ams-page .ams-pricing-note {
+      color: var(--muted-text);
+      font-size: 11px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .ams-page .ams-faq-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ams-page .ams-faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .ams-page .ams-faq-item:first-child {
+      padding-top: 0;
+    }
+
+    .ams-page .ams-faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .ams-page .ams-faq-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 0;
+      border: 0;
+      background: transparent;
+      color: var(--dark-text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .ams-page .ams-faq-trigger:focus-visible {
+      border-radius: 4px;
+      outline: 2px solid var(--yellow);
+      outline-offset: 2px;
+      background-color: var(--bg-soft);
+    }
+
+    .ams-page .ams-faq-icon {
+      flex: 0 0 auto;
+      margin-left: 16px;
+      color: var(--muted-text);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .ams-page .ams-faq-trigger[aria-expanded="true"] .ams-faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .ams-page .ams-faq-answer {
+      color: var(--muted-text);
+      font-size: 14.5px;
+      line-height: 1.6;
+      padding: 4px 0 16px;
+    }
+
+    .ams-page .ams-form-shell {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background-color: var(--bg-soft);
+      box-shadow: 0 4px 24px rgba(69, 53, 22, 0.04);
+    }
+
+    .ams-page .ams-form-intro {
+      margin-bottom: 28px;
+    }
+
+    .ams-page .ams-form-title {
+      color: var(--dark-text);
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .ams-page .ams-form-intro p {
+      max-width: 620px;
+      color: var(--muted-text);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .ams-page #wpforms-9547,
+    .ams-page .wpforms-container {
+      margin: 0;
+    }
+
+    .ams-page #wpforms-9547 .wpforms-field {
+      padding: 0 0 20px;
+    }
+
+    .ams-page #wpforms-9547 .wpforms-field-label {
+      color: var(--dark-text);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin: 0 0 8px;
+    }
+
+    .ams-page #wpforms-9547 .wpforms-required-label {
+      color: var(--orange);
+      font-weight: 800;
+    }
+
+    .ams-page #wpforms-9547 input[type="text"],
+    .ams-page #wpforms-9547 input[type="email"],
+    .ams-page #wpforms-9547 input[type="tel"],
+    .ams-page #wpforms-9547 input[type="url"],
+    .ams-page #wpforms-9547 input[type="number"],
+    .ams-page #wpforms-9547 select,
+    .ams-page #wpforms-9547 textarea {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #FFFFFF;
+      color: var(--dark-text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.4;
+      padding: 12px 14px;
+      box-shadow: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .ams-page #wpforms-9547 textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .ams-page #wpforms-9547 input[type="text"]:focus,
+    .ams-page #wpforms-9547 input[type="email"]:focus,
+    .ams-page #wpforms-9547 input[type="tel"]:focus,
+    .ams-page #wpforms-9547 input[type="url"]:focus,
+    .ams-page #wpforms-9547 input[type="number"]:focus,
+    .ams-page #wpforms-9547 select:focus,
+    .ams-page #wpforms-9547 textarea:focus {
+      border-color: var(--brown);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(252, 224, 4, 0.42);
+    }
+
+    .ams-page #wpforms-9547 input::placeholder,
+    .ams-page #wpforms-9547 textarea::placeholder {
+      color: #9B9B9B;
+    }
+
+    .ams-page #wpforms-9547 .wpforms-field-sublabel,
+    .ams-page #wpforms-9547 .wpforms-field-description {
+      color: var(--muted-text);
+      font-size: 12px;
+      line-height: 1.4;
+      margin-top: 5px;
+    }
+
+    .ams-page #wpforms-9547 .wpforms-field-row {
+      max-width: none;
+    }
+
+    .ams-page #wpforms-9547 .wpforms-field-row-block {
+      padding-right: 10px;
+    }
+
+    .ams-page #wpforms-9547 ul {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .ams-page #wpforms-9547 li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 0;
+      color: var(--dark-text);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+
+    .ams-page #wpforms-9547 input[type="radio"],
+    .ams-page #wpforms-9547 input[type="checkbox"] {
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      accent-color: var(--yellow);
+    }
+
+    .ams-page #wpforms-9547 .wpforms-submit-container {
+      padding: 4px 0 0;
+    }
+
+    .ams-page #wpforms-9547 button[type="submit"],
+    .ams-page #wpforms-9547 .wpforms-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 50px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--yellow);
+      color: var(--dark-text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: none;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .ams-page #wpforms-9547 button[type="submit"]:hover,
+    .ams-page #wpforms-9547 .wpforms-submit:hover {
+      background: #ebd103;
+      transform: translateY(-1px);
+    }
+
+    .ams-page #wpforms-9547 button[type="submit"]:focus-visible,
+    .ams-page #wpforms-9547 .wpforms-submit:focus-visible {
+      outline: 3px solid rgba(69, 53, 22, 0.35);
+      outline-offset: 2px;
+    }
+
+    .ams-page #wpforms-9547 .wpforms-error {
+      color: #B42318;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    .ams-page #wpforms-confirmation-9547 {
+      border: 1px solid rgba(47, 158, 68, 0.25);
+      border-radius: 12px;
+      background: #F0FFF4;
+      color: #155724;
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 18px;
+    }
+
+    .ams-page .ams-mobile-sticky-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 20px;
+      border-top: 1px solid var(--border);
+      background-color: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 -4px 12px rgba(69, 53, 22, 0.05);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(10px);
+    }
+
+    .ams-page .ams-mobile-sticky-bar.ams-visible {
+      transform: translateY(0);
+    }
+
+    .ams-page .ams-mobile-sticky-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .ams-page .ams-mobile-price {
+      color: var(--dark-text);
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .ams-page .ams-mobile-seats {
+      color: var(--muted-text);
+      font-size: 11px;
+    }
+
+    @media (min-width: 640px) {
+      .ams-page .ams-learn-grid,
+      .ams-page .ams-included-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ams-page .ams-form-shell {
+        padding: 36px;
+      }
+
+      .ams-page .ams-instructor-block {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 32px;
+        padding: 32px;
+      }
+
+      .ams-page .ams-instructor-image {
+        align-self: flex-start;
+        width: 140px;
+        height: 168px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .ams-page .ams-section-title {
+        font-size: 26px;
+      }
+
+      .ams-page .ams-title {
+        font-size: 42px;
+      }
+
+      .ams-page .ams-subtitle {
+        font-size: 24px;
+      }
+
+      .ams-page .ams-hero-desc {
+        font-size: 18px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .ams-page .ams-top-nav-inner {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+
+      .ams-page .ams-top-links {
+        justify-content: flex-end;
+        gap: 14px;
+      }
+
+      .ams-page .ams-container {
+        max-width: 1456px;
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+
+      .ams-page .ams-grid {
+        grid-template-columns: minmax(0, 860px) 430px;
+        gap: 96px;
+        justify-content: start;
+      }
+
+      .ams-page .ams-sidebar-col {
+        display: block;
+      }
+
+      .ams-page .ams-bottom-content {
+        max-width: 860px;
+      }
+
+      .ams-page .ams-pricing-mobile,
+      .ams-page .ams-mobile-sticky-bar {
+        display: none !important;
+      }
+    }
+  </style>
+
+  <nav class="ams-top-nav" aria-label="Workshop sections">
+    <div class="ams-top-nav-inner">
+      <a class="ams-top-brand" href="#ams-hero">
+        <span class="ams-top-brand-title">AI Made Simple</span>
+        <span class="ams-top-brand-meta"><span class="ams-top-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 2 days &middot; Rs. 7,500 &middot; 35 seats</span>
+      </a>
+      <div class="ams-top-links">
+        <a href="#overview">Overview</a>
+        <a href="#audience">Who it's for</a>
+        <a href="#learn">What you'll learn</a>
+        <a href="#syllabus">Syllabus</a>
+        <a href="#included">Included</a>
+        <a href="#instructor">Instructor</a>
+        <a href="#faqs">FAQs</a>
+        <a class="ams-top-cta" href="#register">Reserve</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="ams-container">
+    <div class="ams-grid">
+      <div class="ams-main-col">
+        <section class="ams-section ams-hero" id="ams-hero">
+          <span class="ams-breadcrumb">Artificial Intelligence &middot; Beginner Workshop</span>
+          <h1 class="ams-title">AI Made Simple</h1>
+          <h2 class="ams-subtitle">A 2-Day Practical Workshop</h2>
+
+          <div class="ams-hero-meta">
+            <span>&#11088; Beginner friendly</span>
+            <span class="ams-meta-dot">&middot;</span>
+            <span>2 days</span>
+            <span class="ams-meta-dot">&middot;</span>
+            <span>Physical + Online</span>
+            <span class="ams-meta-dot">&middot;</span>
+            <span>Rs. 7,500</span>
+          </div>
+
+          <p class="ams-hero-desc">Learn how to use AI confidently for work, study, business, content, communication, research, and daily productivity, even if you are a complete beginner.</p>
+
+          <div class="ams-hero-instructor">
+            <div class="ams-avatar-small">SJ</div>
+            <div>
+              <strong>Hosted by Sunyyan Junaid</strong>
+              <p>Co-founder of SJ Academy, educator, marketer, and practical AI user.</p>
+            </div>
+          </div>
+
+          <p class="ams-hero-trust">Built for professionals, freelancers, business owners, students, teachers, parents, and beginners in Pakistan.</p>
+
+          <div class="ams-cta-row">
+            <a href="#register" class="ams-btn ams-btn-primary">Reserve My Seat</a>
+            <a href="https://wa.me/923000000000" target="_blank" rel="noopener noreferrer" class="ams-btn ams-btn-secondary"><span class="ams-wa-mark" aria-hidden="true">&#9679;</span>Ask on WhatsApp</a>
+          </div>
+          <span class="ams-microcopy">No coding. No technical background. No confusing AI jargon.</span>
+        </section>
+
+        <section class="ams-section ams-overview" id="overview">
+          <span class="ams-section-label">Course overview</span>
+          <h3 class="ams-section-title">Take your first real step into AI</h3>
+          <div class="ams-content-text">
+            <p>You've probably heard about ChatGPT, Gemini, Claude, DeepSeek, Perplexity, and Canva AI. You may have even tried some of them. But if you still don't know what to ask, which tool to use, or how AI can help with your actual work, study, or business, this workshop is for you.</p>
+            <p>This is a hands-on beginner workshop where you'll learn what AI can do, how to write better prompts, how to avoid common mistakes, and how to use AI for practical daily tasks.</p>
+            <p class="ams-honest-line">You won't become an AI expert in 2 days. But you will stop feeling lost.</p>
+          </div>
+        </section>
+
+        <section class="ams-section ams-audience" id="audience">
+          <h3 class="ams-section-title">Who this workshop is for</h3>
+          <div class="ams-audience-list">
+            <div class="ams-audience-item"><div class="ams-audience-num">01</div><div class="ams-audience-text">Working professionals who want to use AI for emails, reports, meetings, presentations, research, and communication.</div></div>
+            <div class="ams-audience-item"><div class="ams-audience-num">02</div><div class="ams-audience-text">Freelancers who want to use AI for client replies, proposals, content ideas, research, and productivity.</div></div>
+            <div class="ams-audience-item"><div class="ams-audience-num">03</div><div class="ams-audience-text">Small business owners who want help with marketing, captions, customer replies, planning, product descriptions, and daily decisions.</div></div>
+            <div class="ams-audience-item"><div class="ams-audience-num">04</div><div class="ams-audience-text">Students who want to use AI to understand difficult topics, create study plans, practice questions, and improve learning.</div></div>
+            <div class="ams-audience-item"><div class="ams-audience-num">05</div><div class="ams-audience-text">Teachers who want to use AI for lesson planning, worksheets, examples, quizzes, and student support.</div></div>
+            <div class="ams-audience-item"><div class="ams-audience-num">06</div><div class="ams-audience-text">Parents and complete beginners who want to understand AI clearly and use it safely in daily life.</div></div>
+          </div>
+        </section>
+
+        <section class="ams-section ams-prereqs" id="prerequisites">
+          <h3 class="ams-section-title">Prerequisites</h3>
+          <ul class="ams-prereq-list">
+            <li>&#9989; No coding knowledge needed</li>
+            <li>&#9989; No technical background needed</li>
+            <li>&#9989; You can join even if you have never used ChatGPT properly</li>
+            <li>&#9989; Bring a laptop if attending physically, or use your own device if attending online</li>
+            <li>&#9989; Free AI tools are enough to start</li>
+          </ul>
+        </section>
+
+        <section class="ams-section ams-learn" id="learn">
+          <h3 class="ams-section-title">What you'll learn</h3>
+          <div class="ams-learn-grid">
+            <div class="ams-learn-item"><div class="ams-learn-header">&#129302; What AI is and why it matters</div><p class="ams-learn-text">Understand what AI can and cannot do, without confusing technical language.</p></div>
+            <div class="ams-learn-item"><div class="ams-learn-header">&#129520; The main AI tools beginners should know</div><p class="ams-learn-text">Get a simple overview of ChatGPT, Claude, Gemini, DeepSeek, Perplexity, and Canva AI.</p></div>
+            <div class="ams-learn-item"><div class="ams-learn-header">&#9997;&#65039; How to write better prompts</div><p class="ams-learn-text">Learn how to use context, examples, format, tone, and clear instructions to get better results.</p></div>
+            <div class="ams-learn-item"><div class="ams-learn-header">&#128188; AI for work and career</div><p class="ams-learn-text">Use AI for emails, reports, presentations, meetings, CVs, LinkedIn, interviews, and client communication.</p></div>
+            <div class="ams-learn-item"><div class="ams-learn-header">&#128227; AI for business and content</div><p class="ams-learn-text">Use AI for social media ideas, captions, marketing plans, customer replies, product descriptions, sales messages, and planning.</p></div>
+            <div class="ams-learn-item"><div class="ams-learn-header">&#128218; AI for learning and personal growth</div><p class="ams-learn-text">Use AI for studying, explaining difficult topics, creating quizzes, practicing English, building skills, and making learning plans.</p></div>
+            <div class="ams-learn-item"><div class="ams-learn-header">&#128272; AI safety and common mistakes</div><p class="ams-learn-text">Understand why AI can be wrong, what not to share, and how to check AI-generated answers.</p></div>
+            <div class="ams-learn-item"><div class="ams-learn-header">&#128451;&#65039; Build your personal AI system</div><p class="ams-learn-text">Choose your main tools, use cases, saved prompts, and weekly AI habit.</p></div>
+          </div>
+        </section>
+
+        <section class="ams-section ams-syllabus" id="syllabus">
+          <h3 class="ams-section-title">Workshop syllabus</h3>
+
+          <div class="ams-accordion-item">
+            <button type="button" class="ams-accordion-trigger" aria-expanded="false" aria-controls="syllabus-day1">
+              <span>Day 1: Understand AI and learn how to use it</span>
+              <span class="ams-chevron" aria-hidden="true">&#9662;</span>
+            </button>
+            <div id="syllabus-day1" class="ams-accordion-panel">
+              <div class="ams-accordion-inner">
+                <ul class="ams-syllabus-list">
+                  <li>What AI is and what it can actually do</li>
+                  <li>What AI cannot do and why judgement matters</li>
+                  <li>The main AI tools beginners should know</li>
+                  <li>How to write better prompts</li>
+                  <li>Hands-on practice for daily life, planning, writing, and learning</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="ams-accordion-item">
+            <button type="button" class="ams-accordion-trigger" aria-expanded="false" aria-controls="syllabus-day2">
+              <span>Day 2: Use AI for real work and growth</span>
+              <span class="ams-chevron" aria-hidden="true">&#9662;</span>
+            </button>
+            <div id="syllabus-day2" class="ams-accordion-panel">
+              <div class="ams-accordion-inner">
+                <ul class="ams-syllabus-list">
+                  <li>AI for work, emails, reports, meetings, presentations, CVs, and LinkedIn</li>
+                  <li>AI for business, marketing, captions, customer replies, and planning</li>
+                  <li>AI for learning, quizzes, English practice, and skill-building</li>
+                  <li>Free vs paid AI tools</li>
+                  <li>AI safety, wrong answers, privacy, and common mistakes</li>
+                  <li>Build your personal AI workflow</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ams-section ams-included" id="included">
+          <h3 class="ams-section-title">What's included</h3>
+          <div class="ams-included-grid">
+            <div class="ams-included-item">&#127909; 4 hours of live training</div>
+            <div class="ams-included-item">&#129514; Hands-on practice during both days</div>
+            <div class="ams-included-item">&#128205; Physical or online attendance option</div>
+            <div class="ams-included-item">&#128221; Beginner prompt bank</div>
+            <div class="ams-included-item">&#128202; AI tools comparison sheet</div>
+            <div class="ams-included-item">&#128451;&#65039; Personal AI system worksheet</div>
+            <div class="ams-included-item">&#127891; Certificate of participation</div>
+            <div class="ams-included-item">&#127873; Post-workshop resource pack</div>
+            <div class="ams-included-item">&#128172; Optional 7-day WhatsApp support after the workshop</div>
+          </div>
+        </section>
+
+        <section class="ams-section ams-why-us" id="instructor">
+          <h3 class="ams-section-title">Why learn with us?</h3>
+          <div class="ams-instructor-block">
+            <img src="https://via.placeholder.com/500x600?text=Sunyyan+Junaid" alt="Sunyyan Junaid" class="ams-instructor-image">
+            <div class="ams-instructor-details">
+              <span class="ams-instructor-label">Taught by</span>
+              <h4 class="ams-instructor-name">Sunyyan Junaid</h4>
+              <p>Sunyyan Junaid is the Co-founder of SJ Academy, a teacher, marketer, and education entrepreneur. He uses AI in teaching, content, research, planning, marketing, communication, and business workflows.</p>
+              <p>This workshop is designed for beginners, not tech experts. The goal is to make AI simple, practical, and useful for Pakistani work, study, and business contexts.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="ams-section ams-pricing-mobile">
+          <div class="ams-pricing-card">
+            <h3 class="ams-pricing-title">Join the next AI Made Simple workshop</h3>
+            <div class="ams-pricing-price">Rs. 7,500 <span class="ams-price-label">per person</span></div>
+            <ul class="ams-pricing-details">
+              <li>&#128205; Physical at SJ Academy, Karachi + Online via Zoom</li>
+              <li>&#9201;&#65039; 2 days &middot; Saturday and Sunday &middot; 2 hours per day</li>
+              <li>&#128101; Limited to 35 seats</li>
+            </ul>
+            <a href="#register" class="ams-btn ams-btn-primary ams-btn-block">Reserve My Seat</a>
+            <p class="ams-pricing-note">Payment details will be shared after registration. Your seat is confirmed after payment.</p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="ams-sidebar-col">
+        <div class="ams-sticky-card">
+          <span class="ams-card-tag">A 2-Day Practical Workshop</span>
+          <h3 class="ams-card-title">AI Made Simple</h3>
+          <div class="ams-card-price">
+            <span class="ams-card-amount">Rs. 7,500</span>
+            <span class="ams-card-price-label">per person</span>
+          </div>
+          <div class="ams-card-divider"></div>
+          <ul class="ams-card-details">
+            <li><span class="ams-detail-icon">&#128205;</span><span>Physical at <strong>SJ Academy, Karachi</strong></span></li>
+            <li><span class="ams-detail-icon">&#128187;</span><span>Online via <strong>Zoom/Google Meet</strong></span></li>
+            <li><span class="ams-detail-icon">&#9201;&#65039;</span><span><strong>2 days</strong>, 2 hours per day</span></li>
+            <li><span class="ams-detail-icon">&#128101;</span><span>Limited to <strong>35 attendees</strong></span></li>
+            <li><span class="ams-detail-icon">&#127873;</span><span>Includes prompt bank, comparison sheet, worksheet, resource pack and certificate</span></li>
+          </ul>
+          <a href="#register" class="ams-btn ams-btn-primary ams-btn-block">Reserve My Seat</a>
+          <span class="ams-card-note">Seat is confirmed after payment.</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="ams-bottom-content">
+      <section class="ams-section ams-faqs" id="faqs">
+        <h3 class="ams-section-title">Frequently Asked Questions</h3>
+        <div class="ams-faq-list">
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q1"><span>Is this workshop for complete beginners?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q1" class="ams-faq-content"><div class="ams-faq-answer">Yes. This workshop is built specifically for people who feel overwhelmed by AI and want a slow, simple, step-by-step introduction.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q2"><span>Do I need coding?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q2" class="ams-faq-content"><div class="ams-faq-answer">Not at all. We will focus purely on using existing AI tools like ChatGPT, Claude, and Gemini in daily life. No coding knowledge is required.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q3"><span>What if I have never used ChatGPT properly?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q3" class="ams-faq-content"><div class="ams-faq-answer">That is completely fine. We start from the absolute basics, including how to write your first useful prompt.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q4"><span>Is this only for professionals?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q4" class="ams-faq-content"><div class="ams-faq-answer">No. It is designed for professionals, freelancers, small business owners, students, teachers, parents, and anyone else who wants to learn.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q5"><span>Can students join?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q5" class="ams-faq-content"><div class="ams-faq-answer">Yes. Students are welcome. You will learn how to use AI as a study partner to understand topics and create learning plans.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q6"><span>Can parents or teachers join?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q6" class="ams-faq-content"><div class="ams-faq-answer">Absolutely. Teachers can use AI for lesson planning, examples, quizzes, and worksheets. Parents can understand how AI is being used and how to guide safer use.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q7"><span>Will I need paid AI tools?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q7" class="ams-faq-content"><div class="ams-faq-answer">No. Free tools are enough to start. We will also explain when paid tools are useful and when they are not necessary.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q8"><span>Will I get materials?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q8" class="ams-faq-content"><div class="ams-faq-answer">Yes. You will receive a beginner prompt bank, a tools comparison sheet, a personal AI system worksheet, and a post-workshop resource pack.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q9"><span>Will I get a certificate?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q9" class="ams-faq-content"><div class="ams-faq-answer">Yes, all participants who complete the 2-day workshop will receive a certificate of participation from SJ Academy.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q10"><span>Can I attend online?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q10" class="ams-faq-content"><div class="ams-faq-answer">Yes. The workshop is hybrid. You can join physically at SJ Academy in Karachi or attend live online via Zoom/Google Meet.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q11"><span>How do I pay?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q11" class="ams-faq-content"><div class="ams-faq-answer">After registering, payment details for direct bank transfer to Sunyyan's account or SJ Academy's account will be shared with you.</div></div></div>
+          <div class="ams-faq-item"><button type="button" class="ams-faq-trigger" aria-expanded="false" aria-controls="faq-q12"><span>Will this make me an AI expert?</span><span class="ams-faq-icon" aria-hidden="true">+</span></button><div id="faq-q12" class="ams-faq-content"><div class="ams-faq-answer">Honestly, no. You will not become an AI engineer or expert in 4 hours. But you will stop feeling lost, understand how the tools work, and build confidence to use them daily.</div></div></div>
+        </div>
+      </section>
+
+      <section class="ams-section ams-register-anchor" id="register">
+        <div class="ams-form-shell">
+          <div class="ams-form-intro">
+            <span class="ams-section-label">Registration</span>
+            <h3 class="ams-form-title">Reserve your seat</h3>
+            <p>Fill this short form. Payment details will be shared on WhatsApp. Your seat is confirmed after payment.</p>
+          </div>
+
+          [wpforms id="9547"]
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="ams-mobile-sticky-bar">
+    <div class="ams-mobile-sticky-info">
+      <span class="ams-mobile-price">Rs. 7,500</span>
+      <span class="ams-mobile-seats">35 seats only</span>
+    </div>
+    <a href="#register" class="ams-btn ams-btn-primary ams-btn-sm">Reserve My Seat</a>
+  </div>
+
+  <script>
+    (function () {
+      var page = document.querySelector(".ams-page");
+      if (!page) return;
+
+      var mobileStickyBar = page.querySelector(".ams-mobile-sticky-bar");
+      var register = page.querySelector("#register");
+
+      function setupAccordions(triggerSelector, openClass) {
+        page.querySelectorAll(triggerSelector).forEach(function (trigger) {
+          trigger.addEventListener("click", function () {
+            var isExpanded = trigger.getAttribute("aria-expanded") === "true";
+            var panelId = trigger.getAttribute("aria-controls");
+            var panel = panelId ? page.querySelector("#" + panelId) : null;
+
+            trigger.setAttribute("aria-expanded", String(!isExpanded));
+            if (panel) panel.classList.toggle(openClass, !isExpanded);
+          });
+        });
+      }
+
+      function syncStickyBar() {
+        if (!mobileStickyBar) return;
+
+        if (window.innerWidth >= 1024) {
+          mobileStickyBar.classList.remove("ams-visible");
+          return;
+        }
+
+        var registerTop = register ? register.getBoundingClientRect().top : Infinity;
+        var shouldShow = window.scrollY > 380 && registerTop > window.innerHeight * 0.72;
+        mobileStickyBar.classList.toggle("ams-visible", shouldShow);
+      }
+
+      setupAccordions(".ams-accordion-trigger", "ams-open");
+      setupAccordions(".ams-faq-trigger", "ams-open");
+
+      page.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          var targetId = link.getAttribute("href");
+          if (!targetId || targetId === "#") return;
+
+          var target = page.querySelector(targetId);
+          if (!target) return;
+
+          window.setTimeout(syncStickyBar, 400);
+          window.setTimeout(syncStickyBar, 900);
+        });
+      });
+
+      syncStickyBar();
+      window.addEventListener("scroll", syncStickyBar, { passive: true });
+      window.addEventListener("resize", syncStickyBar);
+    })();
+  </script>
+</div>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Reviews & Verified Feedback | 220+ 5-Star Reviews | SJ Academy</title>
+  <meta name="description" content="Read 100% authentic, verified student reviews and feedback for SJ Academy O & A Level coaching in Karachi across Business, Economics, Mathematics, Chemistry, CS, and more.">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       SJ ACADEMY AUTHENTIC DESIGN SYSTEM & BULLETPROOF STYLING
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, sans-serif;
+      background-color: #FFFFFF;
+      color: #000000;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #sj-reviews-wall-page {
+      --primary-yellow: #FCE004;
+      --light-yellow: #FFF9CC;
+      --brown: #453516;
+      --orange: #FE6100;
+      --orange-hover: #E55800;
+      --black: #000000;
+      --dark-grey: #222222;
+      --grey: #666666;
+      --light-bg: #F8F9FA;
+      --white: #FFFFFF;
+      --border-color: #EBEBEB;
+      --whatsapp-green: #25D366;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .sja-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .sja-hero {
+      text-align: center;
+      padding: 70px 0 35px;
+      background: var(--white);
+    }
+
+    .sja-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary-yellow);
+      border: 2px solid var(--black);
+      border-radius: 50px;
+      padding: 8px 24px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--black);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+      margin-bottom: 24px;
+    }
+
+    .sja-main-title {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      color: var(--black);
+      margin-bottom: 18px;
+    }
+
+    /* The signature highlighter pen bar */
+    .sja-highlight {
+      background: linear-gradient(120deg, var(--primary-yellow) 0%, var(--primary-yellow) 100%) no-repeat 0 85% / 100% 38%;
+      display: inline;
+      padding: 0 6px;
+    }
+
+    .sja-hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--grey);
+      max-width: 780px;
+      margin: 0 auto 35px;
+      line-height: 1.6;
+    }
+
+    /* ===== TRUST KPI STATS ROW ===== */
+    .sja-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      max-width: 960px;
+      margin: 0 auto 20px;
+    }
+
+    @media(min-width: 768px) {
+      .sja-stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+
+    .sja-stat-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-top: 5px solid var(--brown);
+      border-radius: 12px;
+      padding: 22px 16px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .sja-stat-card:hover {
+      transform: translateY(-4px);
+      border-top-color: var(--orange);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .sja-stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .sja-stat-number .star-icon {
+      color: var(--orange);
+      font-size: 1.6rem;
+    }
+
+    .sja-stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== SUBJECT-WISE FILTER SECTION ===== */
+    .sja-controls-section {
+      padding: 30px 0 20px;
+      background: var(--white);
+    }
+
+    .sja-filter-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-top: 5px solid var(--brown);
+      border-radius: 14px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .sja-search-box {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .sja-search-box i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999999;
+      font-size: 16px;
+    }
+
+    .sja-search-input {
+      width: 100%;
+      padding: 16px 20px 16px 52px;
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14.5px;
+      font-weight: 400;
+      color: var(--black);
+      background: var(--white);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .sja-search-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 4px rgba(254, 97, 0, 0.12);
+    }
+
+    /* Subject Pills */
+    .sja-pill-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .sja-pill-btn {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1px solid #E2E2E2;
+      background: var(--white);
+      color: var(--black);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .sja-pill-btn:hover {
+      background: var(--light-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .sja-pill-btn .sja-count {
+      background: #EFEFEF;
+      color: var(--grey);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    .sja-pill-btn.active {
+      background: var(--orange);
+      color: var(--white);
+      border-color: var(--orange);
+      box-shadow: 0 4px 12px rgba(254, 97, 0, 0.35);
+    }
+
+    .sja-pill-btn.active .sja-count {
+      background: rgba(255, 255, 255, 0.3);
+      color: var(--white);
+    }
+
+    .sja-filter-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1040px;
+      margin: 16px auto 0;
+      padding: 0 4px;
+      font-size: 13px;
+      color: var(--grey);
+      font-weight: 500;
+    }
+
+    .sja-clear-btn {
+      color: var(--orange);
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .sja-clear-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== REVIEWS GRID SECTION ===== */
+    .sja-results-section {
+      padding: 30px 0 70px;
+      background: var(--white);
+    }
+
+    .sja-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    @media(min-width: 768px) {
+      .sja-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media(min-width: 1024px) {
+      .sja-cards-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Review Card */
+    .sja-review-card {
+      background: var(--white);
+      border: 1px solid var(--border-color);
+      border-top: 5px solid var(--brown);
+      border-radius: 12px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .sja-review-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.09);
+      border-top-color: var(--orange);
+    }
+
+    .sja-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .sja-subject-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--light-yellow);
+      color: var(--brown);
+      border: 1px solid var(--primary-yellow);
+    }
+
+    .sja-stars {
+      color: var(--orange);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .sja-reviewer-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .sja-quote-text {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--dark-grey);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex-grow: 1;
+      font-style: italic;
+      padding-left: 12px;
+      border-left: 3px solid var(--primary-yellow);
+    }
+
+    .sja-card-footer {
+      border-top: 1px solid #F0F0F0;
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--grey);
+    }
+
+    .sja-teacher-tag {
+      font-weight: 700;
+      color: var(--brown);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sja-verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #4285F4;
+      font-weight: 600;
+    }
+
+    /* ===== IN-FEED CONVERSION CARD (POSITION 4) ===== */
+    .sja-infeed-ad {
+      background: linear-gradient(135deg, var(--light-yellow) 0%, #FFFDF5 100%);
+      border: 1.5px solid var(--primary-yellow);
+      border-top: 5px solid var(--orange);
+      text-align: center;
+      padding: 32px 24px;
+    }
+
+    .sja-ad-title {
+      color: var(--orange);
+      font-size: 1.45rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .sja-ad-rating {
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .sja-ad-text {
+      font-size: 13.5px;
+      color: var(--dark-grey);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Buttons */
+    .sja-primary-btn {
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(254, 97, 0, 0.35);
+      transition: all 0.25s ease;
+      width: 100%;
+    }
+
+    .sja-primary-btn:hover {
+      background: var(--orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(254, 97, 0, 0.45);
+    }
+
+    .sja-whatsapp-btn {
+      background: var(--whatsapp-green);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .sja-whatsapp-btn:hover {
+      background: #1ebc59;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.45);
+    }
+
+    /* ===== BOTTOM CONVERSION CTA ===== */
+    .sja-bottom-cta {
+      padding: 85px 24px;
+      background: var(--light-yellow);
+      border-top: 5px solid var(--primary-yellow);
+      text-align: center;
+    }
+
+    .sja-cta-heading {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: var(--black);
+      letter-spacing: -0.5px;
+    }
+
+    .sja-cta-sub {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--dark-grey);
+      max-width: 680px;
+      margin: 0 auto 35px;
+      line-height: 1.6;
+    }
+
+    .sja-cta-btns-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+<div id="sj-reviews-wall-page">
+
+  <!-- 1. HERO SECTION -->
+  <section class="sja-hero">
+    <div class="sja-container">
+      
+      <!-- Top Badge Pill -->
+      <div class="sja-badge-pill">
+        <i class="fa-brands fa-google" style="color:#000;"></i> VERIFIED STUDENT REVIEWS
+      </div>
+
+      <!-- Main Headline with Highlighter Bar -->
+      <h1 class="sja-main-title">
+        Real Student <span class="sja-highlight">Reviews & Feedback</span>
+      </h1>
+
+      <p class="sja-hero-subtitle">
+        Rated 5.0 / 5.0 across 220+ verified reviews. Explore authentic feedback from students across A Level Business, Economics, Mathematics, Chemistry, Computer Science, and Private Candidate coaching.
+      </p>
+
+      <!-- Trust KPI Stats Row -->
+      <div class="sja-stats-grid">
+        <div class="sja-stat-card">
+          <div class="sja-stat-number">5.0 <span class="star-icon">★</span></div>
+          <div class="sja-stat-label">Google Rating</div>
+        </div>
+        <div class="sja-stat-card">
+          <div class="sja-stat-number">220+</div>
+          <div class="sja-stat-label">Verified Reviews</div>
+        </div>
+        <div class="sja-stat-card">
+          <div class="sja-stat-number">100%</div>
+          <div class="sja-stat-label">Real Student Quotes</div>
+        </div>
+        <div class="sja-stat-card">
+          <div class="sja-stat-number">DHA 7</div>
+          <div class="sja-stat-label">Campus & Online</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. SUBJECT-WISE CONTROLS CARD -->
+  <section class="sja-controls-section">
+    <div class="sja-container">
+      <div class="sja-filter-card">
+        
+        <!-- Search Input -->
+        <div class="sja-search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" class="sja-search-input" placeholder="Search reviews by student name, teacher, subject, or keyword...">
+        </div>
+
+        <!-- Subject-Wise Pill Rail -->
+        <div class="sja-pill-buttons" id="subjectFilterRail">
+          <button class="sja-pill-btn active" data-subject="all">ALL REVIEWS <span class="sja-count" id="countAll">10</span></button>
+          <button class="sja-pill-btn" data-subject="business">A LEVEL BUSINESS <span class="sja-count">4</span></button>
+          <button class="sja-pill-btn" data-subject="math">MATHEMATICS <span class="sja-count">4</span></button>
+          <button class="sja-pill-btn" data-subject="economics">ECONOMICS <span class="sja-count">2</span></button>
+          <button class="sja-pill-btn" data-subject="sciences">CHEMISTRY & SCIENCES <span class="sja-count">1</span></button>
+          <button class="sja-pill-btn" data-subject="cs">COMPUTER SCIENCE <span class="sja-count">1</span></button>
+          <button class="sja-pill-btn" data-subject="private">PRIVATE CANDIDATES <span class="sja-count">1</span></button>
+        </div>
+
+      </div>
+
+      <div class="sja-filter-status">
+        <div>Showing <strong id="resultsCount" style="color:#000;">10</strong> authentic student reviews</div>
+        <a class="sja-clear-btn" id="clearBtn">Clear Filters</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. REVIEWS GRID -->
+  <section class="sja-results-section">
+    <div class="sja-container">
+      <div class="sja-cards-grid" id="reviewsGrid">
+        <!-- Injected Dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BOTTOM CONVERSION CTA SECTION -->
+  <section class="sja-bottom-cta">
+    <div class="sja-container">
+      <h2 class="sja-cta-heading">Experience the Teaching Quality Firsthand</h2>
+      <p class="sja-cta-sub">
+        Join hundreds of successful Cambridge students in Karachi. Book a free demo class with our senior faculty in DHA Phase 7 or online.
+      </p>
+      <div class="sja-cta-btns-wrap">
+        <a href="https://www.sjacademy.pk/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="sja-primary-btn" style="width:auto;min-width:250px;">
+          Book A Free Demo Class
+        </a>
+        <a href="https://wa.me/923362144454?text=Hi%20SJ%20Academy,%20I%20want%20to%20inquire%20about%20classes" class="sja-whatsapp-btn" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+(function(){
+  // 100% VERBATIM AUTHENTIC REVIEWS SOURCED FROM SJ ACADEMY'S GOOGLE PROFILE & COURSE PLATFORMS
+  const realReviewsData = [
+    {
+      id: 1,
+      studentName: "Ghazifa Batool",
+      subjectTag: "A Level Business",
+      subjectKey: "business",
+      teacher: "Sir Sunyyan Junaid",
+      quote: "As a student studying online from abroad, I can say this academy has been amazing! The overall teaching styles are excellent and the support has been consistent throughout. The classes are highly interactive and well organised! I never feel left out despite being behind a screen. Sir Sunyyan has been a wonderful business teacher and is definitely my favourite tutor ever! He makes complex topics much easier to learn and keeps every business class interesting. I highly recommend SJ Academy! 🌟"
+    },
+    {
+      id: 2,
+      studentName: "Hassan Raza",
+      subjectTag: "A Level Business",
+      subjectKey: "business",
+      teacher: "Sir Sunyyan Junaid",
+      quote: "The analysis chains taught by Sir Sunyyan helped me jump from a C in my mocks to an A* in the finals."
+    },
+    {
+      id: 3,
+      studentName: "Ayesha Khan",
+      subjectTag: "A Level Business",
+      subjectKey: "business",
+      teacher: "Sir Sunyyan Junaid",
+      quote: "His notes are gold. No fluff, just exactly what the examiner wants to see. Everything is exam-focused."
+    },
+    {
+      id: 4,
+      studentName: "Saad Ahmed",
+      subjectTag: "A Level Business",
+      subjectKey: "business",
+      teacher: "Sir Sunyyan Junaid",
+      quote: "The testing system at SJ Academy is rigorous. It forced me to manage my time better for longer evaluation questions."
+    },
+    {
+      id: 5,
+      studentName: "Verified Student",
+      subjectTag: "A Level Mathematics",
+      subjectKey: "math",
+      teacher: "Sir Salman Junaid",
+      quote: "Sir Salman has been so helpful throughout my A Level Math course. I've always been struggling with maths, but it's been so much more enjoyable for me because of his teaching style and commitment to the subject! He is so genuinely helpful."
+    },
+    {
+      id: 6,
+      studentName: "Verified Student",
+      subjectTag: "A Level Mathematics",
+      subjectKey: "math",
+      teacher: "Sir Salman Junaid",
+      quote: "A truly great math teacher, but above that, an even greater human being who deeply understands and cares for his students."
+    },
+    {
+      id: 7,
+      studentName: "Verified Student",
+      subjectTag: "A Level Mathematics",
+      subjectKey: "math",
+      teacher: "Sir Salman Junaid",
+      quote: "Sir Salman from SJ Academy is an outstanding math teacher! His ability to explain difficult concepts in a simple, understandable way is truly remarkable. He creates a supportive learning environment where students feel confident asking questions and exploring math."
+    },
+    {
+      id: 8,
+      studentName: "Verified Student",
+      subjectTag: "A Level Economics",
+      subjectKey: "economics",
+      teacher: "Sir Khawar Shuaib",
+      quote: "Honestly, this tuition academy has been a really great experience. The teachers are super helpful and explain things in a way that actually makes sense, even the topics that usually feel confusing. You can tell they genuinely care about how well their students do, which makes a big difference."
+    },
+    {
+      id: 9,
+      studentName: "Verified Student",
+      subjectTag: "A Level Economics",
+      subjectKey: "economics",
+      teacher: "Faculty Team",
+      quote: "SJ Academy just feels like a good place to learn. The teachers are approachable and always willing to help. They break things down in a way that actually makes sense, so you don't feel lost. It's easy to speak up or ask questions, and you can tell they actually want you to succeed."
+    },
+    {
+      id: 10,
+      studentName: "Private Candidate",
+      subjectTag: "Private Candidate Coaching",
+      subjectKey: "private",
+      teacher: "Sir Salman Junaid",
+      quote: "I am a private candidate, and studying on my own has been challenging. This academy has been extremely helpful. The classes are well-structured and scheduled properly. Sir Salman is always available to solve queries. To track progress, he conducts mocks and scores them. Overall, my experience has been excellent."
+    },
+    {
+      id: 11,
+      studentName: "Verified Student",
+      subjectTag: "Chemistry & Mathematics",
+      subjectKey: "sciences",
+      teacher: "Sir Basharat & Sir Salman",
+      quote: "I had a great experience studying at SJ Academy over the past 8 months. I took Chemistry with Sir Basharat and Math with Sir Salman - both were exceptional teachers who made complex concepts easy to understand."
+    },
+    {
+      id: 12,
+      studentName: "Verified Student",
+      subjectTag: "Computer Science & Math",
+      subjectKey: "cs",
+      teacher: "Sir Salman & Sir Riza",
+      quote: "I'm incredibly grateful to the teachers at SJ Academy; especially Sir Salman and Sir Riza. Their dedication, support, and clear guidance made a huge difference in my journey. Highly recommended to anyone serious about their studies."
+    }
+  ];
+
+  let currentSubject = 'all';
+  let searchQuery = '';
+
+  const grid = document.getElementById('reviewsGrid');
+  const countEl = document.getElementById('resultsCount');
+  const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearBtn');
+
+  function render(){
+    grid.innerHTML = '';
+
+    const filtered = realReviewsData.filter(r => {
+      const matchSubject = currentSubject === 'all' || 
+        r.subjectKey === currentSubject || 
+        r.subjectTag.toLowerCase().includes(currentSubject);
+
+      const q = searchQuery.toLowerCase().trim();
+      const matchQuery = !q || 
+        r.quote.toLowerCase().includes(q) || 
+        r.teacher.toLowerCase().includes(q) || 
+        r.studentName.toLowerCase().includes(q) ||
+        r.subjectTag.toLowerCase().includes(q);
+
+      return matchSubject && matchQuery;
+    });
+
+    countEl.textContent = filtered.length;
+
+    if(filtered.length === 0){
+      grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#777;font-size:15px;">No reviews match your search. Try selecting another subject.</div>';
+      return;
+    }
+
+    filtered.forEach((r, index) => {
+      // In-Feed Demo Class Card at Position 4 (Index 3)
+      if(index === 3){
+        const ad = document.createElement('div');
+        ad.className = 'sja-review-card sja-infeed-ad';
+        ad.innerHTML = `
+          <h3 class="sja-ad-title">Want to experience these results?</h3>
+          <div class="sja-ad-rating">★★★★★ 220+ 5-Star Google Reviews</div>
+          <p class="sja-ad-text">Learn directly from senior faculty from IBA, LUMS, and ex-KGS. Try our free demo class in DHA Phase 7 or online.</p>
+          <a href="https://www.sjacademy.pk/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="sja-primary-btn">Book A Free Demo Class</a>
+        `;
+        grid.appendChild(ad);
+      }
+
+      const card = document.createElement('div');
+      card.className = 'sja-review-card';
+
+      card.innerHTML = `
+        <div class="sja-card-header">
+          <span class="sja-subject-badge">${r.subjectTag}</span>
+          <div class="sja-stars">★★★★★</div>
+        </div>
+        ${r.studentName !== "Verified Student" && r.studentName !== "Private Candidate" ? `<div class="sja-reviewer-name">${r.studentName}</div>` : ''}
+        <p class="sja-quote-text">"${r.quote}"</p>
+        <div class="sja-card-footer">
+          <span class="sja-teacher-tag"><i class="fa-solid fa-chalkboard-user"></i> ${r.teacher}</span>
+          <span class="sja-verified-badge"><i class="fa-brands fa-google"></i> Verified Review</span>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // Subject Filter Pill Clicks
+  document.querySelectorAll('.sja-pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.sja-pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentSubject = btn.getAttribute('data-subject');
+      render();
+    });
+  });
+
+  // Search Input Handler
+  searchInput.addEventListener('input', (e) => {
+    searchQuery = e.target.value;
+    render();
+  });
+
+  // Clear Filters Handler
+  clearBtn.addEventListener('click', () => {
+    currentSubject = 'all';
+    searchQuery = '';
+    searchInput.value = '';
+
+    document.querySelectorAll('.sja-pill-btn').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-subject') === 'all');
+    });
+
+    render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>

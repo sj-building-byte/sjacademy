@@ -1,0 +1,285 @@
+{
+  "summary": {
+    "webAnimations": 5,
+    "cssDeclarations": 73,
+    "scrollTargets": 15,
+    "cdpAnimations": 23,
+    "canvases": 0
+  },
+  "namedAnimations": [
+    "badge-pop",
+    "tada",
+    "joinchat_show"
+  ],
+  "scrollTriggeredElements": 15,
+  "representativeAnimations": [
+    {
+      "type": "CSSAnimation",
+      "playState": "running",
+      "animationName": "badge-pop",
+      "targetSelector": "span.badge-new",
+      "targetRect": {
+        "x": 576.4659423828125,
+        "y": 14.008523941040039,
+        "width": 120.20867919921875,
+        "height": 29.576704025268555,
+        "top": 14.008523941040039,
+        "right": 696.6746215820312,
+        "bottom": 43.585227966308594,
+        "left": 576.4659423828125
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "easing": "ease-in-out",
+          "composite": "auto",
+          "boxShadow": "rgba(254, 97, 0, 0.6) 0px 0px 0px 0px",
+          "transform": "scale(1)",
+          "computedOffset": 0
+        },
+        {
+          "offset": 0.5,
+          "easing": "ease-in-out",
+          "composite": "auto",
+          "boxShadow": "rgba(254, 97, 0, 0.35) 0px 0px 12px 4px",
+          "transform": "scale(1.15)",
+          "computedOffset": 0.5
+        },
+        {
+          "offset": 1,
+          "easing": "ease-in-out",
+          "composite": "auto",
+          "boxShadow": "rgba(254, 97, 0, 0) 0px 0px 0px 0px",
+          "transform": "scale(1)",
+          "computedOffset": 1
+        }
+      ],
+      "timing": {
+        "duration": 1500,
+        "delay": 0,
+        "iterations": null,
+        "easing": "linear",
+        "direction": "normal"
+      }
+    },
+    {
+      "type": "CSSAnimation",
+      "playState": "finished",
+      "animationName": "tada",
+      "targetSelector": "div.elementor-element.elementor-element-1c7a9c4.elementor-align-center",
+      "targetRect": {
+        "x": 1447.71875,
+        "y": 69.09375,
+        "width": 264.28125,
+        "height": 58,
+        "top": 69.09375,
+        "right": 1712,
+        "bottom": 127.09375,
+        "left": 1447.71875
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(1, 1, 1)",
+          "computedOffset": 0
+        },
+        {
+          "offset": 0.1,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg)",
+          "computedOffset": 0.1
+        },
+        {
+          "offset": 0.2,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg)",
+          "computedOffset": 0.2
+        },
+        {
+          "offset": 0.3,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)",
+          "computedOffset": 0.3
+        },
+        {
+          "offset": 0.4,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)",
+          "computedOffset": 0.4
+        },
+        {
+          "offset": 0.5,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)",
+          "computedOffset": 0.5
+        },
+        {
+          "offset": 0.6,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)",
+          "computedOffset": 0.6
+        },
+        {
+          "offset": 0.7,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)",
+          "computedOffset": 0.7
+        },
+        {
+          "offset": 0.8,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)",
+          "computedOffset": 0.8
+        },
+        {
+          "offset": 0.9,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)",
+          "computedOffset": 0.9
+        },
+        {
+          "offset": 1,
+          "easing": "ease",
+          "composite": "auto",
+          "transform": "scale3d(1, 1, 1)",
+          "computedOffset": 1
+        }
+      ],
+      "timing": {
+        "duration": 1000,
+        "delay": 0,
+        "iterations": 1,
+        "easing": "linear",
+        "direction": "normal"
+      }
+    },
+    {
+      "type": "CSSAnimation",
+      "playState": "finished",
+      "animationName": "joinchat_show",
+      "targetSelector": "div.joinchat.joinchat--right.joinchat--dark-auto",
+      "targetRect": {
+        "x": 1900,
+        "y": 1060,
+        "width": 0,
+        "height": 0,
+        "top": 1060,
+        "right": 1900,
+        "bottom": 1060,
+        "left": 1900
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "easing": "cubic-bezier(0.18, 0.89, 0.32, 1.28)",
+          "composite": "auto",
+          "transform": "scale3d(0, 0, 0)",
+          "computedOffset": 0
+        },
+        {
+          "offset": 1,
+          "easing": "cubic-bezier(0.18, 0.89, 0.32, 1.28)",
+          "composite": "auto",
+          "transform": "scaleX(1)",
+          "computedOffset": 1
+        }
+      ],
+      "timing": {
+        "duration": 500,
+        "delay": 10,
+        "iterations": 1,
+        "easing": "linear",
+        "direction": "normal"
+      }
+    },
+    {
+      "type": "CSSAnimation",
+      "playState": "finished",
+      "animationName": "joinchat_show",
+      "targetSelector": "div.joinchat__bubble",
+      "targetRect": {
+        "x": 1700,
+        "y": 940,
+        "width": 0,
+        "height": 0,
+        "top": 940,
+        "right": 1700,
+        "bottom": 940,
+        "left": 1700
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "easing": "cubic-bezier(0, 0, 0.58, 1.19)",
+          "composite": "auto",
+          "transform": "scale3d(0, 0, 0)",
+          "computedOffset": 0
+        },
+        {
+          "offset": 1,
+          "easing": "cubic-bezier(0, 0, 0.58, 1.19)",
+          "composite": "auto",
+          "transform": "scaleX(1)",
+          "computedOffset": 1
+        }
+      ],
+      "timing": {
+        "duration": 220,
+        "delay": 10,
+        "iterations": 1,
+        "easing": "linear",
+        "direction": "normal"
+      }
+    },
+    {
+      "type": "CSSAnimation",
+      "playState": "finished",
+      "animationName": "joinchat_show",
+      "targetSelector": "div.joinchat__bubble",
+      "targetRect": {
+        "x": 1700,
+        "y": 940,
+        "width": 0,
+        "height": 0,
+        "top": 940,
+        "right": 1700,
+        "bottom": 940,
+        "left": 1700
+      },
+      "keyframes": [
+        {
+          "offset": 0,
+          "easing": "cubic-bezier(0, 0, 0.58, 1.19)",
+          "composite": "auto",
+          "transform": "scale3d(0, 0, 0)",
+          "computedOffset": 0
+        },
+        {
+          "offset": 1,
+          "easing": "cubic-bezier(0, 0, 0.58, 1.19)",
+          "composite": "auto",
+          "transform": "scaleX(1)",
+          "computedOffset": 1
+        }
+      ],
+      "timing": {
+        "duration": 220,
+        "delay": 10,
+        "iterations": 1,
+        "easing": "linear",
+        "direction": "normal"
+      }
+    }
+  ]
+}

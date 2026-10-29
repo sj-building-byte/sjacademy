@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+        @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+        #root { position: absolute; inset: 0; overflow: hidden; background: #151515; font-family: "Poppins", sans-serif; }
+        #s6-bg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; }
+        #s6-scrim { position: absolute; inset: 0; background: rgba(21, 21, 21, 0.74); }
+        #s6-logo { position: absolute; left: 300px; top: 300px; width: 480px; height: auto; display: block; opacity: 0; }
+        #s6-hero { position: absolute; left: 100px; top: 590px; width: 880px; text-align: center; color: #F7F5EF; font-weight: 600; font-size: 112px; line-height: 1.06; letter-spacing: -0.045em; }
+        .s6-m { display: block; overflow: hidden; padding: 0 0.1em 0.06em; }
+        .s6-m > span { display: inline-block; }
+        .s6-hlw { position: relative; display: inline-block; }
+        #s6-hl { position: absolute; left: -0.06em; right: -0.06em; top: 0.14em; bottom: 0.02em; background: #FCE004; border-radius: 10px; transform-origin: 0 50%; }
+        #s6-season { position: relative; color: #F7F5EF; }
+        #s6-mode { position: absolute; left: 100px; top: 1030px; width: 880px; text-align: center; color: #D9D4C7; font-weight: 500; font-size: 46px; line-height: 1.2; white-space: nowrap; opacity: 0; }
+        #s6-btnrow { position: absolute; left: 100px; top: 1160px; width: 880px; display: flex; justify-content: center; }
+        #s6-btn { background: #CC4A00; color: #FFFFFF; border-radius: 22px; padding: 26px 56px 32px; font-weight: 500; font-size: 60px; line-height: 1.1; letter-spacing: -0.02em; white-space: nowrap; opacity: 0; }
+        #s6-info { position: absolute; left: 100px; top: 1400px; width: 880px; text-align: center; color: #F7F5EF; font-weight: 500; font-size: 46px; line-height: 1.35; white-space: nowrap; opacity: 0; }
+        #s6-info span { display: block; }
+      </style>
+      <div data-hf-id="hf-6gco" id="root" data-composition-id="s6-end" data-width="1080" data-height="1920" data-duration="3.269">
+        <video data-hf-id="hf-kyl4" data-layout-allow-overflow="" data-hf-media-start-basis="local" id="s6-bg" class="clip" src="assets/clips/endbg.mp4" data-start="0" data-duration="3.269" data-track-index="1" muted playsinline></video>
+        <div data-hf-id="hf-6r7b" id="s6-scrim"></div>
+        <img data-hf-id="hf-rous" id="s6-logo" src="assets/brand/sj-academy-logo-horizontal-on-brown.svg" alt="SJ Academy">
+        <div data-hf-id="hf-ljif" id="s6-hero">
+          <span data-hf-id="hf-6vgc" class="s6-m"><span data-hf-id="hf-byrx" id="s6-h1">Join our</span></span>
+          <span data-hf-id="hf-bol0" class="s6-m"><span data-hf-id="hf-hhjk" id="s6-h2"><span data-hf-id="hf-jnnu" class="s6-hlw"><span data-hf-id="hf-rs46" id="s6-hl"></span><span data-hf-id="hf-h17c" id="s6-season">May/June 2027</span></span></span></span>
+          <span data-hf-id="hf-ahnx" class="s6-m"><span data-hf-id="hf-lm17" id="s6-h3">batches.</span></span>
+        </div>
+        <div data-hf-id="hf-wpmj" id="s6-mode">O Level · A Level · In class or online</div>
+        <div data-hf-id="hf-7jpf" id="s6-btnrow"><div data-hf-id="hf-nwri" id="s6-btn">Book a free demo class</div></div>
+        <div data-hf-id="hf-cc6r" id="s6-info"><span data-hf-id="hf-6pvn">WhatsApp +92-336-2144454</span><span data-hf-id="hf-zn9t">sjacademy.pk</span></div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s6-bg", { scale: 1.08 }, { scale: 1.0, duration: 3.27, ease: "power2.out" }, 0);
+          // The logo lands with the sonic logo's first note.
+          tl.fromTo("#s6-logo", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, 0.2);
+          tl.fromTo("#s6-h1", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "expo.out" }, 0.28);
+          tl.fromTo("#s6-h2", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "expo.out" }, 0.38);
+          tl.fromTo("#s6-h3", { yPercent: 110 }, { yPercent: 0, duration: 0.4, ease: "expo.out" }, 0.46);
+          tl.fromTo("#s6-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.24, ease: "power2.out" }, 0.62);
+          tl.fromTo("#s6-season", { color: "#F7F5EF" }, { color: "#151515", duration: 0.24, ease: "power2.out" }, 0.62);
+          tl.fromTo("#s6-mode", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 0.62);
+          tl.fromTo("#s6-btn", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 0.72);
+          tl.fromTo("#s6-info", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 0.84);
+          window.__timelines["s6-end"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

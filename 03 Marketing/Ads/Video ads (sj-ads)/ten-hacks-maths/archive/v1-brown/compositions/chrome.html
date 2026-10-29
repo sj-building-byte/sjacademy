@@ -1,0 +1,56 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#FFF6DC;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;color:#FE6100;line-height:1.2;z-index:2;}
+.box{position:absolute;background:#FCE004;border-radius:10px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#FFF6DC;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+
+#ch-count{position:absolute;left:78px;top:330px;font-size:210px;font-weight:800;line-height:1;letter-spacing:-0.04em;color:#FCE004;display:flex;align-items:flex-start;height:210px;overflow:hidden;}
+.col{display:flex;flex-direction:column;}
+.col div{height:210px;text-align:right;}
+#ch-logo{position:absolute;left:90px;top:280px;width:200px;}
+#ch-of{position:absolute;left:392px;top:372px;font-size:40px;font-weight:600;color:rgba(255,246,220,0.5);}
+#ch-rail{position:absolute;right:90px;top:298px;display:flex;gap:8px;}
+.seg{width:30px;height:10px;border-radius:5px;background:rgba(255,246,220,0.16);overflow:hidden;}
+.seg i{display:block;width:100%;height:100%;background:#FCE004;transform-origin:0% 50%;transform:scaleX(0);}
+  </style>
+  <div id="root" data-composition-id="chrome" data-width="1080" data-height="1920">
+    <div id="ch-count" data-layout-ignore><div class="col" id="ch-t"><div>0</div><div>1</div></div><div class="col" id="ch-u"><div>0</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>0</div></div></div>
+    <img id="ch-logo" src="assets/brand/sj-academy-logo-horizontal-on-brown.svg" alt="SJ Academy">
+    <div id="ch-of">/ 10</div>
+    <div id="ch-rail"><div class="seg"><i id="ch-s0"></i></div><div class="seg"><i id="ch-s1"></i></div><div class="seg"><i id="ch-s2"></i></div><div class="seg"><i id="ch-s3"></i></div><div class="seg"><i id="ch-s4"></i></div><div class="seg"><i id="ch-s5"></i></div><div class="seg"><i id="ch-s6"></i></div><div class="seg"><i id="ch-s7"></i></div><div class="seg"><i id="ch-s8"></i></div><div class="seg"><i id="ch-s9"></i></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set('#ch-u',{y:-210},0);
+    tl.fromTo('#ch-s0',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},0.050);
+    tl.fromTo('#ch-u',{y:-210},{y:-420,duration:0.45,ease:'power3.inOut'},6.591);
+    tl.fromTo('#ch-s1',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},6.741);
+    tl.fromTo('#ch-u',{y:-420},{y:-630,duration:0.45,ease:'power3.inOut'},13.675);
+    tl.fromTo('#ch-s2',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},13.825);
+    tl.fromTo('#ch-u',{y:-630},{y:-840,duration:0.45,ease:'power3.inOut'},22.990);
+    tl.fromTo('#ch-s3',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},23.140);
+    tl.fromTo('#ch-u',{y:-840},{y:-1050,duration:0.45,ease:'power3.inOut'},30.735);
+    tl.fromTo('#ch-s4',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},30.885);
+    tl.fromTo('#ch-u',{y:-1050},{y:-1260,duration:0.45,ease:'power3.inOut'},38.793);
+    tl.fromTo('#ch-s5',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},38.943);
+    tl.fromTo('#ch-u',{y:-1260},{y:-1470,duration:0.45,ease:'power3.inOut'},47.274);
+    tl.fromTo('#ch-s6',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},47.424);
+    tl.fromTo('#ch-u',{y:-1470},{y:-1680,duration:0.45,ease:'power3.inOut'},57.363);
+    tl.fromTo('#ch-s7',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},57.513);
+    tl.fromTo('#ch-u',{y:-1680},{y:-1890,duration:0.45,ease:'power3.inOut'},65.373);
+    tl.fromTo('#ch-s8',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},65.523);
+    tl.fromTo('#ch-u',{y:-1890},{y:-2100,duration:0.45,ease:'power3.inOut'},72.591);
+    tl.fromTo('#ch-t',{y:0},{y:-210,duration:0.45,ease:'power3.inOut'},72.591);
+    tl.fromTo('#ch-s9',{scaleX:0},{scaleX:1,duration:0.25,ease:'power2.out'},72.741);
+    window.__timelines["chrome"] = tl;
+  </script>
+</template>

@@ -1,0 +1,2284 @@
+# 02 - A-Level Grade Comeback & Strategy Calculator
+
+> **Type:** Interactive Academic Decision Engine / WordPress & Elementor Scoped Widget  
+> **Brand / Project:** SJ Academy (`sjacademy.pk`)  
+> **Target Audience:** Cambridge International (CAIE) AS & A-Level students evaluating retake options vs. carry-forward paths after receiving AS results.
+
+---
+
+## 1. Overview & Strategic Value
+
+The **A-Level Grade Comeback Calculator** is an advanced academic diagnostic widget that calculates the mathematical feasibility of achieving a target overall A-Level grade from a student's AS baseline.
+
+It dynamically compares **3 core academic pathways**:
+1. **Carry Forward to A2** (Direct continuation to May/June final exams)
+2. **Oct/Nov AS Retake** (Retaking AS components in the autumn session to repair baseline marks)
+3. **May/June Composite** (Sitting both AS and A2 components together in a single session)
+
+It includes an **Examiner Verdict Callout**, an expandable **Component Threshold Breakdown Accordion**, a **PUM (Percentage Uniform Mark) Explainer Modal**, and a direct conversion **WhatsApp CTA** for academic counseling.
+
+---
+
+## 2. Design System & Scoped Tokens
+
+The widget is wrapped in `.sja-calc-wrapper` with scoped CSS variables and `!important` overrides to prevent Elementor / WordPress theme style bleeding.
+
+### Color Palette
+
+| Token | Value | Purpose |
+| :--- | :--- | :--- |
+| `--sja-yellow` | `#FCE004` | Brand yellow, mode badges, active tabs, highlights |
+| `--sja-yellow-light` | `#FFFBE6` | Badge background, info modal accents |
+| `--sja-brown` | `#453516` | Dark brand accent, badge borders, text contrast |
+| `--sja-orange` | `#FE6100` | Primary interactive buttons, target selectors, alert accents |
+| `--sja-orange-hover` | `#E55800` | Button hover states |
+| `--sja-orange-light` | `#FFF2EA` | Hover states on target pills |
+| `--sja-ink` | `#111827` | Headings and primary text |
+| `--sja-ink-muted` | `#4B5563` | Body copy and descriptions |
+| `--sja-ink-subtle` | `#6B7280` | Labels and secondary metadata |
+| `--sja-surface` | `#FFFFFF` | Card surfaces |
+| `--sja-surface-subtle` | `#F9FAFB` | Control panels and input container backgrounds |
+| `--sja-border` | `#E5E7EB` | Container outlines and card borders |
+
+### Semantic Status Badges
+
+| Status | Background | Text Color | Border | Usage |
+| :--- | :--- | :--- | :--- | :--- |
+| **Achievable / Recommended** | `#ECFDF5` (`--sja-green-bg`) | `#047857` | `#A7F3D0` | Safe, high feasibility, recommended |
+| **Moderate / High Challenge** | `#FFFBEB` (`--sja-amber-bg`) | `#B45309` | `#FDE68A` | High workload, borderline risk |
+| **Extreme / Impossible** | `#FEF2F2` (`--sja-red-bg`) | `#B91C1C` | `#FECACA` | Mathematically or practically impossible |
+
+### Key UI Features
+- **Chip Rail / Quick Jump:** Quick-select subject pills for high-traffic CAIE subjects (Maths, Physics, Chemistry, Business, Economics, Bio, CS, Accounting).
+- **Dual Input Modes:** Toggle between precise **PUM Slider (%)** (10%–95%) and **Letter Grade (a–u) + Band Standing (High/Mid/Low)**.
+- **Target Grade Grid:** Tactile buttons for overall target grades ($A^*$, $A$, $B$, $C$, $D$, $E$).
+- **Responsive Layout:** Stacks on mobile; transforms into dual-column input and 3-column comparative strategy cards on desktop (`min-width: 768px`).
+
+---
+
+## 3. Component Architecture
+
+```
+#sja-grade-strategy-tool (.sja-calc-wrapper)
+├── .sja-hero (Title, Highlight, Subtitle, CAIE Decision Engine Badge)
+├── .sja-quick-jump (Horizontal scrollable subject pill rail)
+│
+├── .sja-card (Input Configuration Panel)
+│   ├── .sja-card-header (Step 1 Badge + Session Tag)
+│   ├── .sja-form-grid
+│   │   ├── Subject Select Dropdown
+│   │   └── AS Performance (PUM Slider vs. Letter Grade Toggle)
+│   └── Target Grade Grid (A* to E)
+│
+├── .sja-results-wrap
+│   ├── .sja-baseline-bar (Current AS Marks + PUM vs Target Grade)
+│   ├── .sja-strategy-grid (3 Comparative Cards)
+│   │   ├── Option 1: Carry Forward (Required in A2, Feasibility Badge, Ceiling)
+│   │   ├── Option 2: Oct/Nov Retake (Relief calculation, A2 mark reduction)
+│   │   └── Option 3: May/June Composite (Full syllabus mark across all papers)
+│   │
+│   ├── .sja-examiner-alert (Dynamic contextual verdict & pedagogical advice)
+│   ├── .sja-accordion (Component Threshold Breakdown Table)
+│   ├── .sja-cta-wrap (WhatsApp Advisory Lead Button)
+│   └── .sja-subtle-disclaimer
+│
+└── .sja-tooltip-modal #sja-pum-modal (PUM definition & boundary explanation)
+```
+
+---
+
+## 4. CAIE Calculation Engine & Logic
+
+### 1. Subject Database (13 CAIE Subjects Covered)
+Includes complete raw component maximums, weighting factors, component grade boundaries ($A$ to $E$), and syllabus overall thresholds ($A^*$ to $E$):
+- Mathematics (`9709`)
+- Physics (`9702`)
+- Chemistry (`9701`)
+- Biology (`9700`)
+- Business (`9609`)
+- Economics (`9708`)
+- Computer Science (`9618`)
+- Accounting (`9706`)
+- Psychology (`9990`)
+- Sociology (`9699`)
+- Law (`9084`)
+- Literature in English (`9695`)
+- Urdu (`9686`)
+
+### 2. PUM to Raw Marks Interpolation
+Converts student PUM (%) into weighted raw AS marks using piecewise linear interpolation across Cambridge grade thresholds:
+- $\text{PUM} \ge 80$: Scaled between Grade A threshold and Subject AS Maximum.
+- $70 \le \text{PUM} < 80$: Scaled between Grade B and Grade A.
+- $60 \le \text{PUM} < 70$: Scaled between Grade C and Grade B.
+- $50 \le \text{PUM} < 60$: Scaled between Grade D and Grade C.
+- $40 \le \text{PUM} < 50$: Scaled between Grade E and Grade D.
+- $\text{PUM} < 40$: Scaled between $0$ and Grade E.
+
+### 3. Pathway Feasibility Rules
+- **Mathematically Impossible:** When $\text{Required A2 Marks} > \text{Max A2 Marks}$.
+- **Practically Impossible:** When $\text{AS PUM} < 60$ and $\text{Required A2 Marks} > \text{A2 Grade A Boundary}$.
+- **Secured in AS:** When $\text{Student AS Marks} \ge \text{Target Overall Threshold}$.
+- **Realistic A2 Ceiling:** Predicts the maximum realistic syllabus grade achievable through Carry Forward based on current AS academic foundation.
+
+---
+
+## 5. Copy & Marketing Content
+
+### Hero & Subtitle
+- **Badge:** `CAIE Decision Engine`
+- **Headline:** `A-Level Grade Comeback Calculator 🔥` (with `Grade Comeback Calculator` highlighted)
+- **Subtitle:** *"Should you retake? Let official Cambridge threshold math decide your exact path: Carry Forward to A2, Oct/Nov Retake, or May/June Composite."*
+
+### Key Strategic Messaging
+- **PUM Definition:** Educational explanation highlighting that PUM is standardized positioning, not raw percentage.
+- **Examiner Verdicts:** High-conviction advice cautioning students against carrying forward $U$ or low $E$ grades into competitive A2 targets.
+- **Direct CTA:** *"Ask Us About Retakes"* linking directly to WhatsApp (`https://wa.me/923362144454`).
+
+---
+
+## 6. Complete Source Code
+
+```html
+<!-- SJA CAIE A-Level Grade Converter & Strategy Calculator -->
+<!-- Scoped Container for WordPress / Elementor Custom HTML Widget -->
+<div class="sja-calc-wrapper" id="sja-grade-strategy-tool">
+  <!-- Load Poppins Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       BULLETPROOF SCOPED DESIGN SYSTEM FOR ELEMENTOR & WORDPRESS
+       Strict Component Resets to Prevent Theme CSS Collision
+       ========================================================================== */
+    .sja-calc-wrapper {
+      --sja-yellow: #FCE004;
+      --sja-yellow-hover: #edd300;
+      --sja-yellow-light: #FFFBE6;
+      --sja-brown: #453516;
+      --sja-orange: #FE6100;
+      --sja-orange-hover: #e55800;
+      --sja-orange-light: #FFF2EA;
+      
+      --sja-ink: #111827;
+      --sja-ink-muted: #4B5563;
+      --sja-ink-subtle: #6B7280;
+      --sja-surface: #FFFFFF;
+      --sja-surface-subtle: #F9FAFB;
+      --sja-surface-card: #FFFFFF;
+      --sja-border: #E5E7EB;
+      --sja-border-subtle: #F3F4F6;
+      
+      /* Semantic Alert Tones */
+      --sja-green-text: #047857;
+      --sja-green-bg: #ECFDF5;
+      --sja-green-border: #A7F3D0;
+      
+      --sja-amber-text: #B45309;
+      --sja-amber-bg: #FFFBEB;
+      --sja-amber-border: #FDE68A;
+      
+      --sja-red-text: #B91C1C;
+      --sja-red-bg: #FEF2F2;
+      --sja-red-border: #FECACA;
+
+      /* Elevation & Radii */
+      --sja-radius-sm: 8px;
+      --sja-radius-md: 12px;
+      --sja-radius-lg: 18px;
+      --sja-radius-pill: 9999px;
+      
+      --sja-shadow-subtle: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+      --sja-shadow-card: 0 4px 20px -2px rgba(0,0,0,0.05), 0 2px 6px -1px rgba(0,0,0,0.02);
+      --sja-shadow-card-hover: 0 12px 30px -4px rgba(0,0,0,0.08), 0 4px 12px -2px rgba(0,0,0,0.03);
+      --sja-shadow-btn-orange: 0 4px 14px rgba(254, 97, 0, 0.3);
+      
+      --sja-ease: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      color: var(--sja-ink);
+      background-color: transparent;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 10px 36px;
+      box-sizing: border-box !important;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Strict Global Resets Inside Tool */
+    .sja-calc-wrapper *,
+    .sja-calc-wrapper *::before,
+    .sja-calc-wrapper *::after {
+      box-sizing: border-box !important;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .sja-calc-wrapper button,
+    .sja-calc-wrapper input,
+    .sja-calc-wrapper select,
+    .sja-calc-wrapper a {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      letter-spacing: normal;
+      margin: 0;
+      text-transform: none;
+    }
+
+    /* ---------------- HERO HEADER ---------------- */
+    .sja-calc-wrapper .sja-hero {
+      text-align: center;
+      padding: 12px 6px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .sja-calc-wrapper .sja-mode-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .sja-calc-wrapper .sja-mode-badge {
+      background: var(--sja-yellow-light) !important;
+      color: var(--sja-brown) !important;
+      border: 1.5px solid var(--sja-yellow) !important;
+      font-size: 0.72rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.8px !important;
+      padding: 6px 14px !important;
+      border-radius: var(--sja-radius-pill) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 7px !important;
+      box-shadow: var(--sja-shadow-subtle) !important;
+      line-height: 1.2 !important;
+    }
+
+    .sja-calc-wrapper .sja-mode-badge svg {
+      width: 14px !important;
+      height: 14px !important;
+      fill: var(--sja-brown) !important;
+      display: block !important;
+    }
+
+    .sja-calc-wrapper .sja-hero-title {
+      font-size: 1.85rem !important;
+      font-weight: 900 !important;
+      line-height: 1.2 !important;
+      color: var(--sja-ink) !important;
+      letter-spacing: -0.025em !important;
+      margin: 0 0 10px 0 !important;
+    }
+
+    .sja-calc-wrapper .sja-hero-title .highlight {
+      background: linear-gradient(120deg, var(--sja-yellow) 0%, #FFE838 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 36%;
+      background-position: 0 88%;
+      display: inline;
+      padding: 0 6px;
+      border-radius: 4px;
+    }
+
+    .sja-calc-wrapper .sja-hero-subtitle {
+      font-size: 0.9rem !important;
+      font-weight: 400 !important;
+      color: var(--sja-ink-muted) !important;
+      line-height: 1.6 !important;
+      max-width: 680px;
+      margin: 0 auto !important;
+    }
+
+    /* ---------------- QUICK JUMP PILLS (CHIP RAIL) ---------------- */
+    .sja-calc-wrapper .sja-quick-jump {
+      margin: 8px 0 20px;
+      text-align: center;
+    }
+
+    .sja-calc-wrapper .sja-quick-title {
+      font-size: 0.7rem !important;
+      font-weight: 800 !important;
+      color: var(--sja-ink-subtle) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.8px !important;
+      margin-bottom: 8px !important;
+    }
+
+    .sja-calc-wrapper .sja-quick-pills {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      overflow-x: auto !important;
+      padding: 4px 2px 10px !important;
+      gap: 8px !important;
+      justify-content: flex-start !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    @media (min-width: 768px) {
+      .sja-calc-wrapper .sja-quick-pills {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        overflow-x: visible !important;
+      }
+    }
+
+    .sja-calc-wrapper .sja-quick-pill {
+      font-size: 0.76rem !important;
+      font-weight: 700 !important;
+      padding: 7px 14px !important;
+      border-radius: var(--sja-radius-pill) !important;
+      border: 1.5px solid var(--sja-border) !important;
+      background: var(--sja-surface) !important;
+      color: var(--sja-ink-muted) !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: var(--sja-ease) !important;
+      white-space: nowrap !important;
+      user-select: none !important;
+      flex-shrink: 0 !important;
+      display: inline-block !important;
+      line-height: 1.3 !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .sja-calc-wrapper .sja-quick-pill:hover {
+      border-color: var(--sja-brown) !important;
+      color: var(--sja-ink) !important;
+      background: var(--sja-surface-subtle) !important;
+    }
+
+    .sja-calc-wrapper .sja-quick-pill.active {
+      background: var(--sja-yellow) !important;
+      color: var(--sja-brown) !important;
+      border-color: var(--sja-brown) !important;
+      font-weight: 800 !important;
+      box-shadow: 0 2px 8px rgba(69, 53, 22, 0.18) !important;
+    }
+
+    /* ---------------- CONSOLE / INPUT CONTAINER ---------------- */
+    .sja-calc-wrapper .sja-card {
+      background: var(--sja-surface-card) !important;
+      border-radius: var(--sja-radius-lg) !important;
+      border: 1px solid var(--sja-border) !important;
+      box-shadow: var(--sja-shadow-card) !important;
+      padding: 20px 16px !important;
+      margin-bottom: 20px !important;
+      position: relative !important;
+    }
+
+    .sja-calc-wrapper .sja-card-header {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      margin-bottom: 16px !important;
+      padding-bottom: 12px !important;
+      border-bottom: 1px solid var(--sja-border-subtle) !important;
+    }
+
+    @media (min-width: 600px) {
+      .sja-calc-wrapper .sja-card-header {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+      }
+    }
+
+    .sja-calc-wrapper .sja-card-title {
+      font-size: 1.1rem !important;
+      font-weight: 800 !important;
+      color: var(--sja-ink) !important;
+      letter-spacing: -0.01em !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      margin: 0 !important;
+    }
+
+    .sja-calc-wrapper .sja-step-badge {
+      background: var(--sja-yellow) !important;
+      color: var(--sja-brown) !important;
+      font-size: 0.8rem !important;
+      font-weight: 900 !important;
+      width: 26px !important;
+      height: 26px !important;
+      min-width: 26px !important;
+      max-width: 26px !important;
+      min-height: 26px !important;
+      max-height: 26px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-radius: 50% !important;
+      aspect-ratio: 1 / 1 !important;
+      flex: 0 0 26px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border: 1.5px solid var(--sja-brown) !important;
+      line-height: 1 !important;
+    }
+
+    .sja-calc-wrapper .sja-session-tag {
+      font-size: 0.72rem !important;
+      font-weight: 700 !important;
+      color: var(--sja-ink-subtle) !important;
+      background: var(--sja-surface-subtle) !important;
+      border: 1px solid var(--sja-border) !important;
+      padding: 5px 12px !important;
+      border-radius: var(--sja-radius-pill) !important;
+      white-space: nowrap !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      line-height: 1.2 !important;
+      margin: 0 !important;
+    }
+
+    /* ---------------- FORM LAYOUT ---------------- */
+    .sja-calc-wrapper .sja-form-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+    }
+
+    .sja-calc-wrapper .sja-field {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .sja-calc-wrapper .sja-label {
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.6px !important;
+      color: var(--sja-ink-muted) !important;
+      margin-bottom: 8px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+
+    /* Select Dropdown */
+    .sja-calc-wrapper select.sja-select,
+    .sja-calc-wrapper .sja-select {
+      width: 100% !important;
+      padding: 12px 38px 12px 14px !important;
+      border: 1.5px solid var(--sja-border) !important;
+      border-radius: var(--sja-radius-md) !important;
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.92rem !important;
+      font-weight: 600 !important;
+      color: var(--sja-ink) !important;
+      background-color: var(--sja-surface) !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'%3E%3Cpath d='M1 2l6 6 6-6' stroke='%23453516' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-position: right 14px center !important;
+      cursor: pointer !important;
+      transition: var(--sja-ease) !important;
+      box-shadow: var(--sja-shadow-subtle) !important;
+      line-height: 1.4 !important;
+    }
+
+    .sja-calc-wrapper select.sja-select:focus {
+      border-color: var(--sja-orange) !important;
+      outline: none !important;
+      box-shadow: 0 0 0 3px rgba(254, 97, 0, 0.15) !important;
+    }
+
+    /* Modern Segmented Control Tabs */
+    .sja-calc-wrapper .sja-tabs {
+      display: flex !important;
+      background: var(--sja-surface-subtle) !important;
+      padding: 4px !important;
+      border-radius: var(--sja-radius-md) !important;
+      border: 1px solid var(--sja-border) !important;
+      margin-bottom: 12px !important;
+      gap: 4px !important;
+    }
+
+    .sja-calc-wrapper button.sja-tab-btn,
+    .sja-calc-wrapper .sja-tab-btn {
+      flex: 1 !important;
+      min-width: 0 !important;
+      padding: 10px 8px !important;
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.78rem !important;
+      font-weight: 700 !important;
+      border: none !important;
+      border-radius: var(--sja-radius-sm) !important;
+      background: transparent !important;
+      color: var(--sja-ink-subtle) !important;
+      cursor: pointer !important;
+      transition: var(--sja-ease) !important;
+      text-align: center !important;
+      line-height: 1.3 !important;
+      box-shadow: none !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .sja-calc-wrapper button.sja-tab-btn.active {
+      background: var(--sja-surface) !important;
+      color: var(--sja-ink) !important;
+      font-weight: 800 !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+      border: 1px solid var(--sja-border-subtle) !important;
+    }
+
+    /* PUM Slider Console */
+    .sja-calc-wrapper .sja-slider-box {
+      background: var(--sja-surface-subtle) !important;
+      border: 1px solid var(--sja-border) !important;
+      border-radius: var(--sja-radius-md) !important;
+      padding: 16px 14px !important;
+    }
+
+    .sja-calc-wrapper .sja-slider-readout {
+      display: flex !important;
+      align-items: baseline !important;
+      justify-content: space-between !important;
+      margin-bottom: 14px !important;
+    }
+
+    .sja-calc-wrapper .sja-pum-value {
+      font-size: 2.1rem !important;
+      font-weight: 900 !important;
+      color: var(--sja-ink) !important;
+      line-height: 1 !important;
+      display: inline-flex !important;
+      align-items: baseline !important;
+      gap: 3px !important;
+    }
+
+    .sja-calc-wrapper .sja-pum-unit {
+      font-size: 1.1rem !important;
+      font-weight: 800 !important;
+      color: var(--sja-orange) !important;
+    }
+
+    .sja-calc-wrapper .sja-pum-badge {
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      padding: 6px 14px !important;
+      border-radius: var(--sja-radius-pill) !important;
+      background: var(--sja-yellow) !important;
+      color: var(--sja-brown) !important;
+      border: 1px solid var(--sja-brown) !important;
+      box-shadow: var(--sja-shadow-subtle) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      line-height: 1.2 !important;
+      white-space: nowrap !important;
+    }
+
+    .sja-calc-wrapper .sja-slider-controls {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+    }
+
+    /* Stepper Buttons */
+    .sja-calc-wrapper button.sja-step-btn,
+    .sja-calc-wrapper .sja-step-btn {
+      width: 42px !important;
+      height: 42px !important;
+      min-width: 42px !important;
+      max-width: 42px !important;
+      min-height: 42px !important;
+      max-height: 42px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-radius: 50% !important;
+      aspect-ratio: 1 / 1 !important;
+      flex: 0 0 42px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: var(--sja-surface) !important;
+      border: 1.5px solid var(--sja-border) !important;
+      color: var(--sja-ink) !important;
+      font-size: 1.3rem !important;
+      font-weight: 800 !important;
+      line-height: 1 !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      transition: var(--sja-ease) !important;
+      box-shadow: var(--sja-shadow-subtle) !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .sja-calc-wrapper button.sja-step-btn:hover {
+      background: var(--sja-yellow) !important;
+      color: var(--sja-brown) !important;
+      border-color: var(--sja-brown) !important;
+    }
+
+    .sja-calc-wrapper .sja-range {
+      flex: 1 !important;
+      height: 8px !important;
+      border-radius: var(--sja-radius-pill) !important;
+      background: #E5E7EB !important;
+      outline: none !important;
+      -webkit-appearance: none !important;
+      cursor: pointer !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .sja-calc-wrapper .sja-range::-webkit-slider-thumb {
+      -webkit-appearance: none !important;
+      width: 26px !important;
+      height: 26px !important;
+      border-radius: 50% !important;
+      background: var(--sja-orange) !important;
+      border: 3px solid var(--sja-surface) !important;
+      box-shadow: 0 3px 8px rgba(254, 97, 0, 0.4) !important;
+      cursor: pointer !important;
+      transition: transform 0.15s ease !important;
+    }
+
+    /* Grade Pills */
+    .sja-calc-wrapper .sja-grade-grid {
+      display: grid !important;
+      grid-template-columns: repeat(6, 1fr) !important;
+      gap: 6px !important;
+      margin-bottom: 12px !important;
+    }
+
+    .sja-calc-wrapper .sja-grade-pill {
+      width: 100% !important;
+      min-width: 0 !important;
+      height: 48px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: var(--sja-surface) !important;
+      border: 1.5px solid var(--sja-border) !important;
+      border-radius: var(--sja-radius-md) !important;
+      font-weight: 800 !important;
+      font-size: 1.15rem !important;
+      color: var(--sja-ink-muted) !important;
+      cursor: pointer !important;
+      transition: var(--sja-ease) !important;
+      user-select: none !important;
+      line-height: 1 !important;
+      box-shadow: var(--sja-shadow-subtle) !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .sja-calc-wrapper .sja-grade-pill:hover {
+      border-color: var(--sja-brown) !important;
+      background: var(--sja-yellow-light) !important;
+      color: var(--sja-ink) !important;
+    }
+
+    .sja-calc-wrapper .sja-grade-pill.active {
+      background: var(--sja-yellow) !important;
+      color: var(--sja-brown) !important;
+      border: 2px solid var(--sja-brown) !important;
+      box-shadow: 0 4px 14px rgba(69, 53, 22, 0.22) !important;
+    }
+
+    /* Target Grade Buttons */
+    .sja-calc-wrapper .sja-target-grid {
+      display: grid !important;
+      grid-template-columns: repeat(6, 1fr) !important;
+      gap: 6px !important;
+    }
+
+    .sja-calc-wrapper .sja-target-btn {
+      width: 100% !important;
+      min-width: 0 !important;
+      height: 52px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: var(--sja-surface) !important;
+      border: 1.5px solid var(--sja-border) !important;
+      border-radius: var(--sja-radius-md) !important;
+      font-weight: 900 !important;
+      font-size: 1.2rem !important;
+      color: var(--sja-ink) !important;
+      cursor: pointer !important;
+      transition: var(--sja-ease) !important;
+      user-select: none !important;
+      line-height: 1 !important;
+      box-shadow: var(--sja-shadow-subtle) !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .sja-calc-wrapper .sja-target-btn:hover {
+      border-color: var(--sja-orange) !important;
+      background: var(--sja-orange-light) !important;
+      color: var(--sja-orange) !important;
+    }
+
+    .sja-calc-wrapper .sja-target-btn.active {
+      background: var(--sja-orange) !important;
+      color: #FFFFFF !important;
+      border: 2px solid var(--sja-brown) !important;
+      box-shadow: var(--sja-shadow-btn-orange) !important;
+    }
+
+    /* Modal Styles */
+    .sja-calc-wrapper .sja-tooltip-trigger {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 20px !important;
+      height: 20px !important;
+      min-width: 20px !important;
+      max-width: 20px !important;
+      min-height: 20px !important;
+      max-height: 20px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-radius: 50% !important;
+      aspect-ratio: 1 / 1 !important;
+      flex: 0 0 20px !important;
+      background: var(--sja-yellow-light) !important;
+      border: 1.5px solid var(--sja-yellow) !important;
+      color: var(--sja-brown) !important;
+      font-size: 0.72rem !important;
+      font-weight: 900 !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      line-height: 1 !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .sja-calc-wrapper .sja-tooltip-modal {
+      display: none;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background: rgba(17, 24, 39, 0.65) !important;
+      z-index: 999999 !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 16px !important;
+      backdrop-filter: blur(4px) !important;
+    }
+
+    .sja-calc-wrapper .sja-tooltip-modal.show {
+      display: flex !important;
+    }
+
+    .sja-calc-wrapper .sja-tooltip-dialog {
+      background: var(--sja-surface) !important;
+      border-radius: var(--sja-radius-lg) !important;
+      border-top: 5px solid var(--sja-yellow) !important;
+      max-width: 480px !important;
+      width: 100% !important;
+      padding: 24px 20px 20px !important;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3) !important;
+      position: relative !important;
+      animation: sjaFadeIn 0.22s ease-out;
+    }
+
+    @keyframes sjaFadeIn {
+      from { opacity: 0; transform: translateY(8px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .sja-calc-wrapper button.sja-tooltip-close,
+    .sja-calc-wrapper .sja-tooltip-close {
+      position: absolute !important;
+      top: 14px !important;
+      right: 14px !important;
+      width: 36px !important;
+      height: 36px !important;
+      min-width: 36px !important;
+      max-width: 36px !important;
+      min-height: 36px !important;
+      max-height: 36px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-radius: 50% !important;
+      aspect-ratio: 1 / 1 !important;
+      flex: 0 0 36px !important;
+      background: var(--sja-surface-subtle) !important;
+      border: 1px solid var(--sja-border) !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: var(--sja-ease) !important;
+      box-shadow: none !important;
+      z-index: 10 !important;
+      line-height: 1 !important;
+    }
+
+    .sja-calc-wrapper button.sja-tooltip-close:hover {
+      background: #E5E7EB !important;
+    }
+
+    .sja-calc-wrapper .sja-tooltip-close svg {
+      width: 18px !important;
+      height: 18px !important;
+      fill: #374151 !important;
+      display: block !important;
+    }
+
+    .sja-calc-wrapper .sja-tooltip-title {
+      font-size: 1.05rem !important;
+      font-weight: 800 !important;
+      color: var(--sja-ink) !important;
+      margin: 0 0 10px 0 !important;
+      padding-right: 36px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      line-height: 1.3 !important;
+    }
+
+    .sja-calc-wrapper .sja-tooltip-text {
+      font-size: 0.84rem !important;
+      color: var(--sja-ink-muted) !important;
+      line-height: 1.6 !important;
+      margin: 0 0 12px 0 !important;
+    }
+
+    .sja-calc-wrapper .sja-pum-table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+      font-size: 0.78rem !important;
+      margin-top: 8px !important;
+      border-radius: var(--sja-radius-sm) !important;
+      overflow: hidden !important;
+      border: 1px solid var(--sja-border) !important;
+    }
+
+    .sja-calc-wrapper .sja-pum-table th,
+    .sja-calc-wrapper .sja-pum-table td {
+      padding: 8px 12px !important;
+      text-align: left !important;
+      border-bottom: 1px solid var(--sja-border) !important;
+    }
+
+    .sja-calc-wrapper .sja-pum-table th {
+      background: var(--sja-surface-subtle) !important;
+      font-weight: 800 !important;
+      color: var(--sja-ink) !important;
+    }
+
+    /* Results Dashboard */
+    .sja-calc-wrapper .sja-results-wrap {
+      margin-top: 8px;
+      animation: sjaFadeUp 0.3s ease forwards;
+    }
+
+    @keyframes sjaFadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .sja-calc-wrapper .sja-baseline-bar {
+      background: var(--sja-surface-subtle) !important;
+      border: 1px solid var(--sja-border) !important;
+      border-radius: var(--sja-radius-md) !important;
+      padding: 16px 18px !important;
+      margin-bottom: 20px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      box-shadow: var(--sja-shadow-subtle) !important;
+    }
+
+    @media (min-width: 680px) {
+      .sja-calc-wrapper .sja-baseline-bar {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+      }
+    }
+
+    .sja-calc-wrapper .sja-baseline-left,
+    .sja-calc-wrapper .sja-baseline-right {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 4px !important;
+    }
+
+    @media (max-width: 679px) {
+      .sja-calc-wrapper .sja-baseline-right {
+        border-top: 1px dashed var(--sja-border) !important;
+        padding-top: 10px !important;
+      }
+    }
+
+    .sja-calc-wrapper .sja-baseline-title {
+      font-size: 0.72rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.6px !important;
+      color: var(--sja-ink-subtle) !important;
+      margin: 0 !important;
+    }
+
+    .sja-calc-wrapper .sja-baseline-values {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: baseline !important;
+      gap: 6px 14px !important;
+    }
+
+    .sja-calc-wrapper .sja-b-val {
+      font-size: 1.25rem !important;
+      font-weight: 900 !important;
+      color: var(--sja-ink) !important;
+      line-height: 1.2 !important;
+    }
+
+    .sja-calc-wrapper .sja-b-sub {
+      font-size: 0.82rem !important;
+      font-weight: 600 !important;
+      color: var(--sja-ink-subtle) !important;
+    }
+
+    .sja-calc-wrapper .sja-strategy-grid {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+      margin-bottom: 22px !important;
+    }
+
+    .sja-calc-wrapper .sja-strategy-card {
+      background: var(--sja-surface-card) !important;
+      border: 1px solid var(--sja-border) !important;
+      border-radius: var(--sja-radius-lg) !important;
+      padding: 20px 18px !important;
+      box-shadow: var(--sja-shadow-card) !important;
+      transition: var(--sja-ease) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      position: relative !important;
+    }
+
+    .sja-calc-wrapper .sja-strategy-card:hover {
+      box-shadow: var(--sja-shadow-card-hover) !important;
+    }
+
+    .sja-calc-wrapper .sja-strat-header {
+      display: flex !important;
+      align-items: flex-start !important;
+      justify-content: space-between !important;
+      gap: 8px !important;
+      margin-bottom: 14px !important;
+    }
+
+    .sja-calc-wrapper .sja-strat-num {
+      display: inline-flex !important;
+      align-items: center !important;
+      font-size: 0.72rem !important;
+      font-weight: 900 !important;
+      color: #FFFFFF !important;
+      background: var(--sja-orange) !important;
+      padding: 3px 9px !important;
+      border-radius: var(--sja-radius-pill) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.8px !important;
+      margin-bottom: 6px !important;
+      line-height: 1.2 !important;
+      box-shadow: 0 2px 6px rgba(254, 97, 0, 0.25) !important;
+    }
+
+    .sja-calc-wrapper .sja-strat-title {
+      font-size: 1.1rem !important;
+      font-weight: 800 !important;
+      color: var(--sja-ink) !important;
+      line-height: 1.25 !important;
+      margin: 0 !important;
+    }
+
+    .sja-calc-wrapper .sja-status-pill {
+      font-size: 0.72rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+      padding: 5px 12px !important;
+      border-radius: var(--sja-radius-pill) !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      line-height: 1.2 !important;
+      display: inline-block !important;
+    }
+
+    .sja-calc-wrapper .sja-status-pill.impossible,
+    .sja-calc-wrapper .sja-status-pill.extreme {
+      background: var(--sja-red-bg) !important;
+      color: var(--sja-red-text) !important;
+      border: 1px solid var(--sja-red-border) !important;
+    }
+
+    .sja-calc-wrapper .sja-status-pill.high,
+    .sja-calc-wrapper .sja-status-pill.moderate {
+      background: var(--sja-amber-bg) !important;
+      color: var(--sja-amber-text) !important;
+      border: 1px solid var(--sja-amber-border) !important;
+    }
+
+    .sja-calc-wrapper .sja-status-pill.achievable {
+      background: var(--sja-green-bg) !important;
+      color: var(--sja-green-text) !important;
+      border: 1px solid var(--sja-green-border) !important;
+    }
+
+    .sja-calc-wrapper .sja-metric-row {
+      background: var(--sja-surface-subtle) !important;
+      border: 1px solid var(--sja-border) !important;
+      border-radius: var(--sja-radius-md) !important;
+      padding: 12px 14px !important;
+      margin-bottom: 14px !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+
+    .sja-calc-wrapper .sja-metric-label {
+      font-size: 0.74rem !important;
+      font-weight: 800 !important;
+      color: var(--sja-ink-subtle) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    .sja-calc-wrapper .sja-metric-value {
+      font-size: 1.25rem !important;
+      font-weight: 900 !important;
+      color: var(--sja-ink) !important;
+      line-height: 1.2 !important;
+    }
+
+    .sja-calc-wrapper .sja-metric-sub {
+      font-size: 0.74rem !important;
+      font-weight: 700 !important;
+      color: var(--sja-ink-muted) !important;
+      display: block !important;
+      text-align: right !important;
+    }
+
+    .sja-calc-wrapper .sja-strat-desc {
+      font-size: 0.84rem !important;
+      color: var(--sja-ink-muted) !important;
+      line-height: 1.6 !important;
+      margin-bottom: 14px !important;
+      flex: 1 !important;
+    }
+
+    .sja-calc-wrapper .sja-strat-footer {
+      border-top: 1px dashed var(--sja-border) !important;
+      padding-top: 12px !important;
+      font-size: 0.78rem !important;
+      font-weight: 700 !important;
+      color: var(--sja-ink-subtle) !important;
+    }
+
+    .sja-calc-wrapper .sja-examiner-alert {
+      background: #FFFDF2 !important;
+      border: 1.5px solid #F4E29C !important;
+      border-left: 5px solid var(--sja-orange) !important;
+      border-radius: var(--sja-radius-lg) !important;
+      padding: 18px 20px !important;
+      margin-bottom: 22px !important;
+      display: flex !important;
+      gap: 14px !important;
+      align-items: flex-start !important;
+      box-shadow: var(--sja-shadow-subtle) !important;
+    }
+
+    .sja-calc-wrapper .sja-alert-icon {
+      width: 26px !important;
+      height: 26px !important;
+      flex: 0 0 26px !important;
+      margin-top: 1px !important;
+      display: block !important;
+    }
+
+    .sja-calc-wrapper .sja-alert-title {
+      font-size: 0.95rem !important;
+      font-weight: 800 !important;
+      color: var(--sja-ink) !important;
+      margin: 0 0 5px 0 !important;
+      letter-spacing: -0.01em !important;
+    }
+
+    .sja-calc-wrapper .sja-alert-text {
+      font-size: 0.86rem !important;
+      color: var(--sja-ink-muted) !important;
+      line-height: 1.6 !important;
+      margin: 0 !important;
+    }
+
+    .sja-calc-wrapper .sja-accordion {
+      border: 1px solid var(--sja-border) !important;
+      border-radius: var(--sja-radius-lg) !important;
+      background: var(--sja-surface) !important;
+      overflow: hidden !important;
+      margin-bottom: 22px !important;
+      box-shadow: var(--sja-shadow-subtle) !important;
+    }
+
+    .sja-calc-wrapper button.sja-accordion-btn,
+    .sja-calc-wrapper .sja-accordion-btn {
+      width: 100% !important;
+      background: var(--sja-surface-subtle) !important;
+      border: none !important;
+      padding: 14px 18px !important;
+      text-align: left !important;
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.82rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.6px !important;
+      color: var(--sja-ink) !important;
+      cursor: pointer !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      transition: var(--sja-ease) !important;
+      box-shadow: none !important;
+    }
+
+    .sja-calc-wrapper button.sja-accordion-btn:hover {
+      background: #F3F4F6 !important;
+    }
+
+    .sja-calc-wrapper .sja-accordion-content {
+      display: none;
+      padding: 16px 14px !important;
+      background: var(--sja-surface) !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sja-calc-wrapper .sja-table {
+      width: 100% !important;
+      min-width: 480px !important;
+      border-collapse: collapse !important;
+      font-size: 0.8rem !important;
+    }
+
+    .sja-calc-wrapper .sja-table th,
+    .sja-calc-wrapper .sja-table td {
+      padding: 10px 12px !important;
+      text-align: center !important;
+      border-bottom: 1px solid var(--sja-border) !important;
+    }
+
+    .sja-calc-wrapper .sja-table th {
+      background: var(--sja-surface-subtle) !important;
+      font-weight: 800 !important;
+      color: var(--sja-ink) !important;
+    }
+
+    .sja-calc-wrapper .sja-table td:first-child,
+    .sja-calc-wrapper .sja-table th:first-child {
+      text-align: left !important;
+      font-weight: 700 !important;
+    }
+
+    .sja-calc-wrapper .sja-table tr:hover td {
+      background: var(--sja-surface-subtle) !important;
+    }
+
+    .sja-calc-wrapper .sja-subtle-disclaimer {
+      font-size: 0.73rem !important;
+      color: var(--sja-ink-subtle) !important;
+      text-align: center !important;
+      line-height: 1.5 !important;
+      margin: 14px auto 0 auto !important;
+      max-width: 680px !important;
+      padding: 0 8px !important;
+    }
+
+    .sja-calc-wrapper .sja-cta-wrap {
+      text-align: center !important;
+      margin-top: 12px !important;
+    }
+
+    .sja-calc-wrapper a.sja-cta-btn,
+    .sja-calc-wrapper .sja-cta-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      background: #25D366 !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      border-radius: var(--sja-radius-pill) !important;
+      padding: 15px 28px !important;
+      font-family: 'Poppins', sans-serif !important;
+      font-size: 0.92rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.3px !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35) !important;
+      transition: var(--sja-ease) !important;
+      width: 100% !important;
+      max-width: 440px !important;
+      line-height: 1.3 !important;
+    }
+
+    .sja-calc-wrapper a.sja-cta-btn:hover {
+      background: #20BD5A !important;
+      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45) !important;
+    }
+
+    .sja-calc-wrapper .sja-cta-btn svg {
+      width: 20px !important;
+      height: 20px !important;
+      fill: #FFFFFF !important;
+      display: block !important;
+    }
+
+    @media (min-width: 768px) {
+      .sja-calc-wrapper {
+        padding: 24px 20px 48px !important;
+      }
+      .sja-calc-wrapper .sja-hero-title {
+        font-size: 2.5rem !important;
+      }
+      .sja-calc-wrapper .sja-hero-subtitle {
+        font-size: 1rem !important;
+      }
+      .sja-calc-wrapper .sja-form-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 22px !important;
+      }
+      .sja-calc-wrapper .sja-strategy-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+      }
+    }
+  </style>
+
+  <!-- HERO SECTION -->
+  <div class="sja-hero">
+    <div class="sja-mode-badge-wrap">
+      <div class="sja-mode-badge">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        CAIE Decision Engine
+      </div>
+    </div>
+    <h1 class="sja-hero-title">A-Level <span class="highlight">Grade Comeback Calculator</span> 🔥</h1>
+    <p class="sja-hero-subtitle">Should you retake? Let official Cambridge threshold math decide your exact path: Carry Forward to A2, Oct/Nov Retake, or May/June Composite.</p>
+  </div>
+
+  <!-- QUICK JUMP SUBJECTS -->
+  <div class="sja-quick-jump">
+    <p class="sja-quick-title">Quick Select Subject:</p>
+    <div class="sja-quick-pills" id="sja-quick-pills-list">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+
+  <!-- INPUT FORM CARD -->
+  <div class="sja-card">
+    <div class="sja-card-header">
+      <div class="sja-card-title">
+        <span class="sja-step-badge">1</span> Enter Your AS Results
+      </div>
+      <div class="sja-session-tag">
+        Latest June 2026 Benchmarks
+      </div>
+    </div>
+
+    <div class="sja-form-grid">
+      <!-- Subject Field -->
+      <div class="sja-field">
+        <label class="sja-label" for="sja-subject-select">Selected Subject</label>
+        <select class="sja-select" id="sja-subject-select"></select>
+      </div>
+
+      <!-- Mode Switcher -->
+      <div class="sja-field">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <label class="sja-label" style="margin-bottom: 0;">
+            AS Performance
+            <span class="sja-tooltip-trigger" id="sja-pum-info-btn" title="What is PUM?">?</span>
+          </label>
+        </div>
+
+        <div class="sja-tabs">
+          <button type="button" class="sja-tab-btn active" id="tab-pum-btn">Enter PUM Score (%)</button>
+          <button type="button" class="sja-tab-btn" id="tab-grade-btn">Select Letter Grade</button>
+        </div>
+
+        <!-- PUM Slider Box -->
+        <div class="sja-slider-box" id="pum-input-container">
+          <div class="sja-slider-readout">
+            <div class="sja-pum-value">
+              <span id="pum-val-display">45</span><span class="sja-pum-unit">%</span>
+            </div>
+            <div class="sja-pum-badge" id="pum-equiv-grade">Grade: e (Pass)</div>
+          </div>
+          <div class="sja-slider-controls">
+            <button type="button" class="sja-step-btn" id="pum-minus-btn">-</button>
+            <input type="range" class="sja-range" id="pum-range-input" min="10" max="95" value="45" step="1">
+            <button type="button" class="sja-step-btn" id="pum-plus-btn">+</button>
+          </div>
+        </div>
+
+        <!-- Letter Grade Box (Hidden by default) -->
+        <div id="grade-input-container" style="display: none;">
+          <div class="sja-grade-grid">
+            <div class="sja-grade-pill" data-grade="a">a</div>
+            <div class="sja-grade-pill" data-grade="b">b</div>
+            <div class="sja-grade-pill" data-grade="c">c</div>
+            <div class="sja-grade-pill" data-grade="d">d</div>
+            <div class="sja-grade-pill active" data-grade="e">e</div>
+            <div class="sja-grade-pill" data-grade="u">u</div>
+          </div>
+          <select class="sja-select" id="grade-standing-select">
+            <option value="mid">Mid-Band Score (Average)</option>
+            <option value="high">Top of Grade Band (High)</option>
+            <option value="low">Bottom of Grade Band (Borderline)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Target Overall Grade -->
+    <div style="margin-top: 18px;">
+      <label class="sja-label">Target Overall A-Level Grade</label>
+      <div class="sja-target-grid">
+        <div class="sja-target-btn" data-target="A*">A*</div>
+        <div class="sja-target-btn" data-target="A">A</div>
+        <div class="sja-target-btn active" data-target="B">B</div>
+        <div class="sja-target-btn" data-target="C">C</div>
+        <div class="sja-target-btn" data-target="D">D</div>
+        <div class="sja-target-btn" data-target="E">E</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS SECTION -->
+  <div class="sja-results-wrap" id="sja-results-card">
+    <!-- Baseline summary -->
+    <div class="sja-baseline-bar">
+      <div class="sja-baseline-left">
+        <div class="sja-baseline-title">Your Current Estimated AS Baseline</div>
+        <div class="sja-baseline-values">
+          <div class="sja-b-val" id="res-as-marks">54 / 130 Marks</div>
+          <div class="sja-b-sub" id="res-as-pum">PUM: 45% (Grade e)</div>
+        </div>
+      </div>
+      <div class="sja-baseline-right">
+        <div class="sja-baseline-title">Target A-Level Grade</div>
+        <div class="sja-b-val" style="color: var(--sja-orange);" id="res-target-display">Grade B</div>
+      </div>
+    </div>
+
+    <!-- 3 Pathways Grid -->
+    <div class="sja-strategy-grid">
+      <!-- Option 1: Carry Forward -->
+      <div class="sja-strategy-card featured" id="card-carry">
+        <div class="sja-strat-header">
+          <div>
+            <div class="sja-strat-num">Option 1</div>
+            <div class="sja-strat-title">Carry Forward</div>
+          </div>
+          <div class="sja-status-pill" id="badge-carry">Extreme Risk</div>
+        </div>
+        <div class="sja-metric-row">
+          <div class="sja-metric-label">Required in A2</div>
+          <div>
+            <div class="sja-metric-value" id="val-carry-req">106 / 130</div>
+            <span class="sja-metric-sub" id="pct-carry-req">82% on A2 Papers</span>
+          </div>
+        </div>
+        <div class="sja-strat-desc" id="desc-carry">
+          Requires Grade A* performance on A2 components. Extremely risky given your AS baseline.
+        </div>
+        <div class="sja-strat-footer" id="foot-carry">
+          Max Realistic Target: <strong>Grade C</strong>
+        </div>
+      </div>
+
+      <!-- Option 2: Oct/Nov Retake -->
+      <div class="sja-strategy-card" id="card-retake">
+        <div class="sja-strat-header">
+          <div>
+            <div class="sja-strat-num">Option 2</div>
+            <div class="sja-strat-title">Oct/Nov Retake</div>
+          </div>
+          <div class="sja-status-pill achievable" id="badge-retake">Recommended</div>
+        </div>
+        <div class="sja-metric-row">
+          <div class="sja-metric-label">Target AS in Oct</div>
+          <div>
+            <div class="sja-metric-value" id="val-retake-as">Grade B (~76m)</div>
+            <span class="sja-metric-sub" id="pct-retake-relief">A2 Target Drops to 65%</span>
+          </div>
+        </div>
+        <div class="sja-strat-desc" id="desc-retake">
+          Retaking AS in Oct/Nov repairs your foundation. You only need a balanced Grade B in A2 to achieve your overall target.
+        </div>
+        <div class="sja-strat-footer">
+          Timeline: <strong>Exam in ~2 Months</strong> (Heavy Load)
+        </div>
+      </div>
+
+      <!-- Option 3: May/June Composite -->
+      <div class="sja-strategy-card" id="card-composite">
+        <div class="sja-strat-header">
+          <div>
+            <div class="sja-strat-num">Option 3</div>
+            <div class="sja-strat-title">May/June Composite</div>
+          </div>
+          <div class="sja-status-pill achievable" id="badge-composite">High Potential</div>
+        </div>
+        <div class="sja-metric-row">
+          <div class="sja-metric-label">Full Syllabus Mark</div>
+          <div>
+            <div class="sja-metric-value" id="val-comp-mark">160 / 260</div>
+            <span class="sja-metric-sub" id="pct-comp-overall">62% Across All Papers</span>
+          </div>
+        </div>
+        <div class="sja-strat-desc" id="desc-composite">
+          Wipes your AS grade completely clean. Gives you a full 9 months to master all papers together without mid-year split focus.
+        </div>
+        <div class="sja-strat-footer">
+          Exam Load: <strong>All Papers in May/June</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Examiner Alert Callout -->
+    <div class="sja-examiner-alert" id="examiner-alert-box">
+      <svg class="sja-alert-icon" viewBox="0 0 24 24"><path fill="var(--sja-brown)" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+      <div>
+        <div class="sja-alert-title" id="alert-title">Examiner's Honest Recommendation</div>
+        <div class="sja-alert-text" id="alert-text">
+          Carrying forward an AS Grade E to target an overall Grade B requires scoring in the top 15% of all candidates in A2. We strongly recommend retaking AS in Oct/Nov or shifting to a May/June composite route.
+        </div>
+      </div>
+    </div>
+
+    <!-- Component Threshold Breakdown Accordion -->
+    <div class="sja-accordion">
+      <button type="button" class="sja-accordion-btn" id="accordion-toggle-btn">
+        <span>Component Benchmark & Threshold Breakdown</span>
+        <svg id="accordion-arrow" viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;transition:transform 0.25s;"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
+      <div class="sja-accordion-content" id="accordion-drawer">
+        <table class="sja-table">
+          <thead>
+            <tr>
+              <th>Paper / Component</th>
+              <th>Max</th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+              <th>E</th>
+            </tr>
+          </thead>
+          <tbody id="component-table-body">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- WhatsApp Advisory CTA -->
+    <div class="sja-cta-wrap">
+      <a href="https://wa.me/923362144454?text=Hi%20SJ%20Academy,%20I%20used%20the%20Grade%20Comeback%20Calculator%20and%20want%20to%20ask%20about%20my%20retake%20options%20and%20A-Level%20strategy." target="_blank" rel="noopener" class="sja-cta-btn">
+        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        Ask Us About Retakes
+      </a>
+    </div>
+
+    <!-- Subtle Disclaimer Note -->
+    <p class="sja-subtle-disclaimer">
+      *Disclaimer: Calculations are based on latest official Cambridge threshold benchmarks and serve as strategic academic guidance. Final results depend on session-specific grade boundaries and candidate performance.
+    </p>
+  </div>
+
+  <!-- PUM EXPLAINER MODAL (ACCESSIBLE ON MOBILE TAP & DESKTOP) -->
+  <div class="sja-tooltip-modal" id="sja-pum-modal">
+    <div class="sja-tooltip-dialog">
+      <button type="button" class="sja-tooltip-close" id="sja-pum-close-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <div class="sja-tooltip-title">
+        <svg style="width:20px;height:20px;fill:var(--sja-orange);" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        What is PUM (Percentage Uniform Mark)?
+      </div>
+      <p class="sja-tooltip-text">
+        <strong>PUM is NOT your raw exam percentage.</strong> It is a standardized score showing your exact position within a grade boundary on Cambridge results slips:
+      </p>
+      <table class="sja-pum-table">
+        <thead>
+          <tr>
+            <th>PUM Range</th>
+            <th>AS Grade</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>80 - 100%</strong></td>
+            <td>Grade a</td>
+            <td>Top performance</td>
+          </tr>
+          <tr>
+            <td><strong>70 - 79%</strong></td>
+            <td>Grade b</td>
+            <td>Strong upper band</td>
+          </tr>
+          <tr>
+            <td><strong>60 - 69%</strong></td>
+            <td>Grade c</td>
+            <td>Solid average</td>
+          </tr>
+          <tr>
+            <td><strong>50 - 59%</strong></td>
+            <td>Grade d</td>
+            <td>Passing / Borderline</td>
+          </tr>
+          <tr>
+            <td><strong>40 - 49%</strong></td>
+            <td>Grade e</td>
+            <td>Minimum pass threshold</td>
+          </tr>
+          <tr>
+            <td><strong>Below 40%</strong></td>
+            <td>Ungraded (u)</td>
+            <td>Below minimum pass mark</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="sja-tooltip-text" style="margin-top: 12px; margin-bottom: 0; font-size: 0.78rem;">
+        <em>Example: If the AS Grade 'a' threshold is 75/130 marks, scoring exactly 75 raw marks awards 80% PUM.</em>
+      </p>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT CALCULATION & INTERACTION ENGINE -->
+  <script>
+  (function() {
+    const subjectsData = {
+      "9709": {
+        name: "Mathematics (9709)",
+        shortName: "Mathematics",
+        maxAS: 125,
+        maxA2: 125,
+        maxTotal: 250,
+        asComponents: [
+          { name: "P1 Pure Mathematics 1", max: 75, weight: 1.0, A: 61, B: 51, C: 37, D: 23, E: 10 },
+          { name: "P4 Mechanics / P5 Stats 1", max: 50, weight: 1.0, A: 38, B: 29, C: 23, D: 17, E: 10 }
+        ],
+        a2Components: [
+          { name: "P3 Pure Mathematics 3", max: 75, weight: 1.0, A: 54, B: 46, C: 37, D: 28, E: 19 },
+          { name: "P5 Stats 1 / P6 Stats 2", max: 50, weight: 1.0, A: 41, B: 35, C: 28, D: 21, E: 13 }
+        ],
+        syllabusThresholds: { "A*": 222, "A": 194, "B": 161, "C": 124, "D": 88, "E": 52 }
+      },
+      "9702": {
+        name: "Physics (9702)",
+        shortName: "Physics",
+        maxAS: 130,
+        maxA2: 130,
+        maxTotal: 260,
+        asComponents: [
+          { name: "P1 Multiple Choice", max: 40, weight: 1.0, A: 27, B: 23, C: 19, D: 16, E: 13 },
+          { name: "P2 AS Structured", max: 60, weight: 1.0, A: 39, B: 32, C: 26, D: 20, E: 14 },
+          { name: "P3 Advanced Practical", max: 40, weight: 0.75, A: 30, B: 27, C: 23, D: 19, E: 16 }
+        ],
+        a2Components: [
+          { name: "P4 A Level Structured", max: 100, weight: 1.0, A: 62, B: 50, C: 39, D: 28, E: 18 },
+          { name: "P5 Planning & Analysis", max: 30, weight: 1.0, A: 22, B: 19, C: 15, D: 12, E: 9 }
+        ],
+        syllabusThresholds: { "A*": 188, "A": 158, "B": 131, "C": 105, "D": 80, "E": 55 }
+      },
+      "9701": {
+        name: "Chemistry (9701)",
+        shortName: "Chemistry",
+        maxAS: 130,
+        maxA2: 130,
+        maxTotal: 260,
+        asComponents: [
+          { name: "P1 Multiple Choice", max: 40, weight: 1.0, A: 25, B: 22, C: 18, D: 14, E: 11 },
+          { name: "P2 AS Structured", max: 60, weight: 1.0, A: 37, B: 27, C: 22, D: 18, E: 12 },
+          { name: "P3 Advanced Practical", max: 40, weight: 0.75, A: 22, B: 17, C: 14, D: 12, E: 10 }
+        ],
+        a2Components: [
+          { name: "P4 A Level Structured", max: 100, weight: 1.0, A: 66, B: 52, C: 42, D: 31, E: 20 },
+          { name: "P5 Planning & Analysis", max: 30, weight: 1.0, A: 23, B: 21, C: 17, D: 14, E: 11 }
+        ],
+        syllabusThresholds: { "A*": 201, "A": 168, "B": 135, "C": 110, "D": 86, "E": 62 }
+      },
+      "9700": {
+        name: "Biology (9700)",
+        shortName: "Biology",
+        maxAS: 130,
+        maxA2: 130,
+        maxTotal: 260,
+        asComponents: [
+          { name: "P1 Multiple Choice", max: 40, weight: 1.0, A: 29, B: 24, C: 21, D: 19, E: 17 },
+          { name: "P2 AS Structured", max: 60, weight: 1.0, A: 35, B: 31, C: 26, D: 20, E: 13 },
+          { name: "P3 Advanced Practical", max: 40, weight: 0.75, A: 29, B: 25, C: 23, D: 21, E: 20 }
+        ],
+        a2Components: [
+          { name: "P4 A Level Structured", max: 100, weight: 1.0, A: 71, B: 61, C: 52, D: 43, E: 34 },
+          { name: "P5 Planning & Analysis", max: 30, weight: 1.0, A: 19, B: 16, C: 14, D: 12, E: 10 }
+        ],
+        syllabusThresholds: { "A*": 201, "A": 176, "B": 151, "C": 130, "D": 109, "E": 89 }
+      },
+      "9609": {
+        name: "Business (9609)",
+        shortName: "Business",
+        maxAS: 100,
+        maxA2: 100,
+        maxTotal: 200,
+        asComponents: [
+          { name: "P1 Short Answer & Essay", max: 40, weight: 1.0, A: 36, B: 33, C: 30, D: 27, E: 25 },
+          { name: "P2 Data Response", max: 60, weight: 1.0, A: 41, B: 38, C: 34, D: 30, E: 25 }
+        ],
+        a2Components: [
+          { name: "P3 Case Study", max: 60, weight: 1.0, A: 39, B: 37, C: 33, D: 29, E: 25 },
+          { name: "P4 Business Strategy", max: 40, weight: 1.0, A: 27, B: 25, C: 23, D: 21, E: 19 }
+        ],
+        syllabusThresholds: { "A*": 153, "A": 143, "B": 133, "C": 120, "D": 107, "E": 94 }
+      },
+      "9708": {
+        name: "Economics (9708)",
+        shortName: "Economics",
+        maxAS: 90,
+        maxA2: 90,
+        maxTotal: 180,
+        asComponents: [
+          { name: "P1 Multiple Choice", max: 30, weight: 1.0, A: 23, B: 20, C: 17, D: 14, E: 12 },
+          { name: "P2 Data Response & Essay", max: 60, weight: 1.0, A: 25, B: 22, C: 19, D: 16, E: 13 }
+        ],
+        a2Components: [
+          { name: "P3 Multiple Choice", max: 30, weight: 1.0, A: 22, B: 20, C: 18, D: 16, E: 14 },
+          { name: "P4 Data Response & Essay", max: 60, weight: 1.0, A: 36, B: 31, C: 28, D: 25, E: 21 }
+        ],
+        syllabusThresholds: { "A*": 119, "A": 106, "B": 93, "C": 82, "D": 71, "E": 60 }
+      },
+      "9618": {
+        name: "Computer Science (9618)",
+        shortName: "Computer Science",
+        maxAS: 150,
+        maxA2: 150,
+        maxTotal: 300,
+        asComponents: [
+          { name: "P1 Theory Fundamentals", max: 75, weight: 1.0, A: 48, B: 42, C: 34, D: 27, E: 20 },
+          { name: "P2 Problem Solving & Coding", max: 75, weight: 1.0, A: 51, B: 43, C: 36, D: 29, E: 22 }
+        ],
+        a2Components: [
+          { name: "P3 Advanced Theory", max: 75, weight: 1.0, A: 49, B: 42, C: 35, D: 29, E: 22 },
+          { name: "P4 Practical Programming", max: 75, weight: 1.0, A: 58, B: 45, C: 37, D: 28, E: 19 }
+        ],
+        syllabusThresholds: { "A*": 240, "A": 206, "B": 172, "C": 142, "D": 112, "E": 83 }
+      },
+      "9706": {
+        name: "Accounting (9706)",
+        shortName: "Accounting",
+        maxAS: 120,
+        maxA2: 125,
+        maxTotal: 245,
+        asComponents: [
+          { name: "P1 Multiple Choice", max: 30, weight: 1.0, A: 21, B: 18, C: 15, D: 12, E: 9 },
+          { name: "P2 Fundamentals of Accounting", max: 90, weight: 1.0, A: 60, B: 50, C: 40, D: 30, E: 20 }
+        ],
+        a2Components: [
+          { name: "P3 Financial Accounting", max: 75, weight: 1.0, A: 50, B: 42, C: 34, D: 26, E: 18 },
+          { name: "P4 Cost & Management", max: 50, weight: 1.0, A: 34, B: 28, C: 22, D: 17, E: 12 }
+        ],
+        syllabusThresholds: { "A*": 188, "A": 165, "B": 138, "C": 111, "D": 85, "E": 59 }
+      },
+      "9990": {
+        name: "Psychology (9990)",
+        shortName: "Psychology",
+        maxAS: 120,
+        maxA2: 120,
+        maxTotal: 240,
+        asComponents: [
+          { name: "P1 Approaches & Issues", max: 60, weight: 1.0, A: 39, B: 34, C: 29, D: 24, E: 19 },
+          { name: "P2 Research Methods", max: 60, weight: 1.0, A: 38, B: 33, C: 28, D: 23, E: 18 }
+        ],
+        a2Components: [
+          { name: "P3 Specialist Options (Theory)", max: 60, weight: 1.0, A: 37, B: 31, C: 26, D: 21, E: 16 },
+          { name: "P4 Specialist Options (Application)", max: 60, weight: 1.0, A: 36, B: 30, C: 25, D: 20, E: 15 }
+        ],
+        syllabusThresholds: { "A*": 174, "A": 150, "B": 128, "C": 108, "D": 88, "E": 68 }
+      },
+      "9699": {
+        name: "Sociology (9699)",
+        shortName: "Sociology",
+        maxAS: 108,
+        maxA2: 120,
+        maxTotal: 228,
+        asComponents: [
+          { name: "P1 Socialisation & Culture", max: 54, weight: 1.0, A: 36, B: 31, C: 26, D: 21, E: 16 },
+          { name: "P2 Methods & Research", max: 54, weight: 1.0, A: 35, B: 30, C: 25, D: 20, E: 15 }
+        ],
+        a2Components: [
+          { name: "P3 Education", max: 50, weight: 1.0, A: 33, B: 28, C: 23, D: 18, E: 14 },
+          { name: "P4 Globalisation & Religion", max: 70, weight: 1.0, A: 47, B: 40, C: 33, D: 26, E: 19 }
+        ],
+        syllabusThresholds: { "A*": 172, "A": 151, "B": 129, "C": 107, "D": 85, "E": 64 }
+      },
+      "9084": {
+        name: "Law (9084)",
+        shortName: "Law",
+        maxAS: 135,
+        maxA2: 150,
+        maxTotal: 285,
+        asComponents: [
+          { name: "P1 English Legal System", max: 75, weight: 1.0, A: 48, B: 41, C: 35, D: 29, E: 23 },
+          { name: "P2 Criminal Law", max: 60, weight: 1.0, A: 39, B: 33, C: 27, D: 22, E: 17 }
+        ],
+        a2Components: [
+          { name: "P3 Law of Contract", max: 75, weight: 1.0, A: 46, B: 39, C: 33, D: 27, E: 21 },
+          { name: "P4 Law of Tort", max: 75, weight: 1.0, A: 45, B: 38, C: 32, D: 26, E: 20 }
+        ],
+        syllabusThresholds: { "A*": 204, "A": 178, "B": 151, "C": 127, "D": 104, "E": 81 }
+      },
+      "9695": {
+        name: "Literature in English (9695)",
+        shortName: "English Literature",
+        maxAS: 100,
+        maxA2: 100,
+        maxTotal: 200,
+        asComponents: [
+          { name: "P1 Drama & Poetry", max: 50, weight: 1.0, A: 33, B: 28, C: 23, D: 18, E: 14 },
+          { name: "P2 Prose & Unseen", max: 50, weight: 1.0, A: 32, B: 27, C: 22, D: 17, E: 13 }
+        ],
+        a2Components: [
+          { name: "P3 Shakespeare & Drama", max: 50, weight: 1.0, A: 34, B: 29, C: 24, D: 19, E: 14 },
+          { name: "P4 Pre- & Post-1900", max: 50, weight: 1.0, A: 33, B: 28, C: 23, D: 18, E: 13 }
+        ],
+        syllabusThresholds: { "A*": 152, "A": 132, "B": 112, "C": 92, "D": 72, "E": 54 }
+      },
+      "9686": {
+        name: "Urdu (9686)",
+        shortName: "Urdu",
+        maxAS: 110,
+        maxA2: 75,
+        maxTotal: 185,
+        asComponents: [
+          { name: "P2 Reading & Writing", max: 70, weight: 1.0, A: 50, B: 43, C: 36, D: 29, E: 22 },
+          { name: "P3 Essay", max: 40, weight: 1.0, A: 29, B: 25, C: 21, D: 17, E: 13 }
+        ],
+        a2Components: [
+          { name: "P4 Texts", max: 75, weight: 1.0, A: 52, B: 45, C: 38, D: 31, E: 24 }
+        ],
+        syllabusThresholds: { "A*": 149, "A": 131, "B": 113, "C": 95, "D": 77, "E": 59 }
+      }
+    };
+
+    let currentSubjectCode = "9709";
+    let activeInputMode = "PUM";
+    let currentPUM = 45;
+    let currentGrade = "e";
+    let currentStanding = "mid";
+    let currentTarget = "B";
+
+    function initApp() {
+      populateSubjectDropdown();
+      populateQuickPills();
+      bindEvents();
+      calculateStrategy();
+    }
+
+    function populateSubjectDropdown() {
+      const select = document.getElementById("sja-subject-select");
+      if (!select) return;
+      select.innerHTML = "";
+      Object.keys(subjectsData).forEach(code => {
+        const opt = document.createElement("option");
+        opt.value = code;
+        opt.textContent = subjectsData[code].name;
+        select.appendChild(opt);
+      });
+      select.value = currentSubjectCode;
+    }
+
+    function populateQuickPills() {
+      const pillContainer = document.getElementById("sja-quick-pills-list");
+      if (!pillContainer) return;
+      pillContainer.innerHTML = "";
+      
+      const quickCodes = ["9709", "9702", "9701", "9609", "9708", "9700", "9618", "9706"];
+      quickCodes.forEach(code => {
+        if (subjectsData[code]) {
+          const pill = document.createElement("a");
+          pill.className = `sja-quick-pill ${code === currentSubjectCode ? 'active' : ''}`;
+          pill.textContent = subjectsData[code].shortName;
+          pill.dataset.code = code;
+          pillContainer.appendChild(pill);
+        }
+      });
+    }
+
+    function bindEvents() {
+      const subSelect = document.getElementById("sja-subject-select");
+      subSelect.addEventListener("change", function(e) {
+        currentSubjectCode = e.target.value;
+        updateQuickPillsActive();
+        calculateStrategy();
+      });
+
+      document.getElementById("sja-quick-pills-list").addEventListener("click", function(e) {
+        if (e.target.classList.contains("sja-quick-pill")) {
+          e.preventDefault();
+          currentSubjectCode = e.target.dataset.code;
+          subSelect.value = currentSubjectCode;
+          updateQuickPillsActive();
+          calculateStrategy();
+        }
+      });
+
+      const tabPUM = document.getElementById("tab-pum-btn");
+      const tabGrade = document.getElementById("tab-grade-btn");
+      const pumBox = document.getElementById("pum-input-container");
+      const gradeBox = document.getElementById("grade-input-container");
+
+      tabPUM.addEventListener("click", function() {
+        activeInputMode = "PUM";
+        tabPUM.classList.add("active");
+        tabGrade.classList.remove("active");
+        pumBox.style.display = "block";
+        gradeBox.style.display = "none";
+        range.value = currentPUM;
+        pumDisplay.textContent = currentPUM;
+        pumBadge.textContent = getPUMGradeLabel(currentPUM);
+        calculateStrategy();
+      });
+
+      tabGrade.addEventListener("click", function() {
+        activeInputMode = "GRADE";
+        tabGrade.classList.add("active");
+        tabPUM.classList.remove("active");
+        pumBox.style.display = "none";
+        gradeBox.style.display = "block";
+        let g = "e";
+        if (currentPUM >= 80) g = "a";
+        else if (currentPUM >= 70) g = "b";
+        else if (currentPUM >= 60) g = "c";
+        else if (currentPUM >= 50) g = "d";
+        else if (currentPUM >= 40) g = "e";
+        else g = "u";
+        currentGrade = g;
+        gradePills.forEach(p => p.classList.toggle("active", p.dataset.grade === g));
+        calculateStrategy();
+      });
+
+      const range = document.getElementById("pum-range-input");
+      const pumDisplay = document.getElementById("pum-val-display");
+      const pumBadge = document.getElementById("pum-equiv-grade");
+
+      range.addEventListener("input", function(e) {
+        currentPUM = parseInt(e.target.value) || 45;
+        pumDisplay.textContent = currentPUM;
+        pumBadge.textContent = getPUMGradeLabel(currentPUM);
+        calculateStrategy();
+      });
+
+      document.getElementById("pum-minus-btn").addEventListener("click", function() {
+        if (currentPUM > 10) {
+          currentPUM -= 1;
+          range.value = currentPUM;
+          pumDisplay.textContent = currentPUM;
+          pumBadge.textContent = getPUMGradeLabel(currentPUM);
+          calculateStrategy();
+        }
+      });
+
+      document.getElementById("pum-plus-btn").addEventListener("click", function() {
+        if (currentPUM < 95) {
+          currentPUM += 1;
+          range.value = currentPUM;
+          pumDisplay.textContent = currentPUM;
+          pumBadge.textContent = getPUMGradeLabel(currentPUM);
+          calculateStrategy();
+        }
+      });
+
+      const gradePills = document.querySelectorAll(".sja-grade-pill");
+      gradePills.forEach(pill => {
+        pill.addEventListener("click", function() {
+          gradePills.forEach(p => p.classList.remove("active"));
+          pill.classList.add("active");
+          currentGrade = pill.dataset.grade;
+          const basePUM = { a: 85, b: 75, c: 65, d: 55, e: 45, u: 25 };
+          currentPUM = basePUM[currentGrade] || 45;
+          range.value = currentPUM;
+          pumDisplay.textContent = currentPUM;
+          pumBadge.textContent = getPUMGradeLabel(currentPUM);
+          calculateStrategy();
+        });
+      });
+
+      document.getElementById("grade-standing-select").addEventListener("change", function(e) {
+        currentStanding = e.target.value;
+        calculateStrategy();
+      });
+
+      const targetBtns = document.querySelectorAll(".sja-target-btn");
+      targetBtns.forEach(btn => {
+        btn.addEventListener("click", function() {
+          targetBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentTarget = btn.dataset.target;
+          calculateStrategy();
+        });
+      });
+
+      const pumBtn = document.getElementById("sja-pum-info-btn");
+      const modal = document.getElementById("sja-pum-modal");
+      const closeBtn = document.getElementById("sja-pum-close-btn");
+
+      pumBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        modal.classList.add("show");
+      });
+
+      closeBtn.addEventListener("click", function() {
+        modal.classList.remove("show");
+      });
+
+      modal.addEventListener("click", function(e) {
+        if (e.target === modal) {
+          modal.classList.remove("show");
+        }
+      });
+
+      const accBtn = document.getElementById("accordion-toggle-btn");
+      const accDrawer = document.getElementById("accordion-drawer");
+      const accArrow = document.getElementById("accordion-arrow");
+
+      accBtn.addEventListener("click", function() {
+        const isOpen = accDrawer.style.display === "block";
+        accDrawer.style.display = isOpen ? "none" : "block";
+        accArrow.style.transform = isOpen ? "rotate(0deg)" : "rotate(180deg)";
+      });
+    }
+
+    function updateQuickPillsActive() {
+      const pills = document.querySelectorAll(".sja-quick-pill");
+      pills.forEach(p => {
+        p.classList.toggle("active", p.dataset.code === currentSubjectCode);
+      });
+    }
+
+    function getPUMGradeLabel(pum) {
+      if (pum >= 80) return "Grade a (Top Band)";
+      if (pum >= 70) return "Grade b (Strong Pass)";
+      if (pum >= 60) return "Grade c (Average)";
+      if (pum >= 50) return "Grade d (Borderline)";
+      if (pum >= 40) return "Grade e (Minimum Pass)";
+      return "Ungraded (u)";
+    }
+
+    function calculateStrategy() {
+      const sub = subjectsData[currentSubjectCode];
+      if (!sub) return;
+
+      const asBoundaries = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+      sub.asComponents.forEach(c => {
+        asBoundaries.A += c.A * c.weight;
+        asBoundaries.B += c.B * c.weight;
+        asBoundaries.C += c.C * c.weight;
+        asBoundaries.D += c.D * c.weight;
+        asBoundaries.E += c.E * c.weight;
+      });
+
+      const a2Boundaries = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+      sub.a2Components.forEach(c => {
+        a2Boundaries.A += c.A * c.weight;
+        a2Boundaries.B += c.B * c.weight;
+        a2Boundaries.C += c.C * c.weight;
+        a2Boundaries.D += c.D * c.weight;
+        a2Boundaries.E += c.E * c.weight;
+      });
+
+      let effectivePUM = 0;
+      if (activeInputMode === "PUM") {
+        effectivePUM = currentPUM;
+      } else {
+        const basePUM = { a: 80, b: 70, c: 60, d: 50, e: 40, u: 0 };
+        const offset = currentStanding === "high" ? 8 : (currentStanding === "mid" ? 5 : 1);
+        effectivePUM = basePUM[currentGrade] + offset;
+        if (currentGrade === "u") {
+          effectivePUM = currentStanding === "high" ? 35 : (currentStanding === "mid" ? 22 : 8);
+        }
+      }
+
+      let studentASMark = 0;
+      if (effectivePUM >= 80) {
+        studentASMark = asBoundaries.A + ((effectivePUM - 80) / 20) * (sub.maxAS - asBoundaries.A);
+      } else if (effectivePUM >= 70) {
+        studentASMark = asBoundaries.B + ((effectivePUM - 70) / 10) * (asBoundaries.A - asBoundaries.B);
+      } else if (effectivePUM >= 60) {
+        studentASMark = asBoundaries.C + ((effectivePUM - 60) / 10) * (asBoundaries.B - asBoundaries.C);
+      } else if (effectivePUM >= 50) {
+        studentASMark = asBoundaries.D + ((effectivePUM - 50) / 10) * (asBoundaries.C - asBoundaries.D);
+      } else if (effectivePUM >= 40) {
+        studentASMark = asBoundaries.E + ((effectivePUM - 40) / 10) * (asBoundaries.D - asBoundaries.E);
+      } else {
+        studentASMark = (effectivePUM / 40) * asBoundaries.E;
+      }
+      studentASMark = Math.round(studentASMark);
+
+      const targetThreshold = sub.syllabusThresholds[currentTarget];
+      const requiredA2Marks = targetThreshold - studentASMark;
+      const requiredA2Pct = Math.round((requiredA2Marks / sub.maxA2) * 100);
+
+      const gradeLetter = effectivePUM >= 80 ? "Grade a" : (effectivePUM >= 70 ? "Grade b" : (effectivePUM >= 60 ? "Grade c" : (effectivePUM >= 50 ? "Grade d" : (effectivePUM >= 40 ? "Grade e" : "Ungraded u"))));
+      document.getElementById("res-as-marks").textContent = `${studentASMark} / ${sub.maxAS} Marks`;
+      document.getElementById("res-as-pum").textContent = `Estimated PUM: ~${effectivePUM}% (${gradeLetter})`;
+      document.getElementById("res-target-display").textContent = `Grade ${currentTarget} (${targetThreshold}/${sub.maxTotal}m)`;
+
+      const cardCarry = document.getElementById("card-carry");
+      const badgeCarry = document.getElementById("badge-carry");
+      const valCarryReq = document.getElementById("val-carry-req");
+      const pctCarryReq = document.getElementById("pct-carry-req");
+      const descCarry = document.getElementById("desc-carry");
+      const footCarry = document.getElementById("foot-carry");
+
+      badgeCarry.className = "sja-status-pill";
+
+      let realisticA2Score = 0;
+      if (effectivePUM < 40) {
+        realisticA2Score = a2Boundaries.C;
+      } else if (effectivePUM < 50) {
+        realisticA2Score = a2Boundaries.B;
+      } else if (effectivePUM < 65) {
+        realisticA2Score = a2Boundaries.A;
+      } else if (effectivePUM < 80) {
+        realisticA2Score = a2Boundaries.A + (sub.maxA2 - a2Boundaries.A) * 0.6;
+      } else {
+        realisticA2Score = sub.maxA2 * 0.95;
+      }
+
+      let maxAchievableGrade = "E";
+      const maxRealisticSyllabusMark = studentASMark + realisticA2Score;
+      ["A*", "A", "B", "C", "D", "E"].forEach(g => {
+        if (maxRealisticSyllabusMark >= sub.syllabusThresholds[g]) {
+          if (maxAchievableGrade === "E" || ["D", "C", "B", "A", "A*"].indexOf(g) > ["D", "C", "B", "A", "A*"].indexOf(maxAchievableGrade)) {
+            maxAchievableGrade = g;
+          }
+        }
+      });
+      footCarry.innerHTML = `Max Realistic Target: <strong>Grade ${maxAchievableGrade}</strong>`;
+
+      if (requiredA2Marks <= 0) {
+        badgeCarry.classList.add("achievable");
+        badgeCarry.textContent = "Secured in AS";
+        valCarryReq.textContent = `0 / ${sub.maxA2}`;
+        pctCarryReq.textContent = `0% (Threshold Met)`;
+        descCarry.innerHTML = `<strong>Target Already Secured!</strong> Your AS score (${studentASMark}m) already exceeds the entire syllabus threshold for Grade ${currentTarget} (${targetThreshold}m). You only need minimum passing participation in A2!`;
+      } else if (requiredA2Marks > sub.maxA2) {
+        badgeCarry.classList.add("impossible");
+        badgeCarry.textContent = "Impossible";
+        valCarryReq.textContent = `${requiredA2Marks} / ${sub.maxA2}`;
+        pctCarryReq.textContent = `${requiredA2Pct}% (Exceeds Paper Max)`;
+        descCarry.innerHTML = `<strong style="color:var(--sja-danger-text);">Mathematically Impossible!</strong> To get an overall Grade ${currentTarget}, you need ${requiredA2Marks} marks in A2, but the paper only has ${sub.maxA2} marks available. You <strong>must</strong> retake or composite.`;
+      } else if (effectivePUM < 60 && requiredA2Marks > a2Boundaries.A) {
+        badgeCarry.classList.add("extreme");
+        badgeCarry.textContent = "Practically Impossible";
+        valCarryReq.textContent = `${requiredA2Marks} / ${sub.maxA2}`;
+        pctCarryReq.textContent = `${requiredA2Pct}% (Above A2 Grade A)`;
+        descCarry.innerHTML = `<strong style="color:var(--sja-danger-text);">Virtually Impossible via Carry Forward!</strong> Requires scoring <strong>${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%)</strong> on A2 papers. Grade 'A' on A2 is only ${Math.round(a2Boundaries.A)}m. Scoring ${requiredA2Marks}m on advanced A2 papers is practically unattainable after a low AS score. You <strong>must retake or composite</strong> for Grade ${currentTarget}.`;
+      } else if (effectivePUM >= 80) {
+        badgeCarry.classList.add("achievable");
+        badgeCarry.textContent = "Prime Position";
+        valCarryReq.textContent = `${requiredA2Marks} / ${sub.maxA2}`;
+        pctCarryReq.textContent = `${requiredA2Pct}% on A2 Papers`;
+        if (currentTarget === "A*") {
+          descCarry.innerHTML = `<strong>Outstanding foundation!</strong> With your AS Grade 'a' (${studentASMark}/${sub.maxAS}m), you only need <strong>${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%)</strong> in A2 to lock in an overall <strong>A*</strong>. Carry Forward is your #1 recommended route!`;
+        } else {
+          descCarry.innerHTML = `<strong>Secured position!</strong> You only need <strong>${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%)</strong> in A2 to achieve your target Grade ${currentTarget}. Carry Forward is safe and optimal.`;
+        }
+      } else if (effectivePUM >= 70) {
+        if (currentTarget === "A*") {
+          badgeCarry.classList.add("high");
+          badgeCarry.textContent = "High Challenge";
+          valCarryReq.textContent = `${requiredA2Marks} / ${sub.maxA2}`;
+          pctCarryReq.textContent = `${requiredA2Pct}% (Needs A* in A2)`;
+          descCarry.innerHTML = `Achieving an <strong>A*</strong> from an AS Grade 'b' requires scoring <strong>${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%)</strong> in A2. This requires pushing into the top tier of A2 candidates.`;
+        } else {
+          badgeCarry.classList.add("achievable");
+          badgeCarry.textContent = "Achievable";
+          valCarryReq.textContent = `${requiredA2Marks} / ${sub.maxA2}`;
+          pctCarryReq.textContent = `${requiredA2Pct}% on A2 Papers`;
+          descCarry.innerHTML = `Your Grade 'b' gives you a solid platform. You only need <strong>${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%)</strong> in A2 to secure Grade ${currentTarget}.`;
+        }
+      } else if (requiredA2Marks > a2Boundaries.B) {
+        badgeCarry.classList.add("high");
+        badgeCarry.textContent = "High Risk";
+        valCarryReq.textContent = `${requiredA2Marks} / ${sub.maxA2}`;
+        pctCarryReq.textContent = `${requiredA2Pct}% (Solid Grade A/B)`;
+        descCarry.innerHTML = `Requires scoring <strong>${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%)</strong> in A2. This requires an upper Grade B / solid Grade A performance in the advanced A2 papers.`;
+      } else if (requiredA2Marks > a2Boundaries.D) {
+        badgeCarry.classList.add("moderate");
+        badgeCarry.textContent = "Moderate Challenge";
+        valCarryReq.textContent = `${requiredA2Marks} / ${sub.maxA2}`;
+        pctCarryReq.textContent = `${requiredA2Pct}% (Grade C/D in A2)`;
+        descCarry.innerHTML = `Requires <strong>${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%)</strong> in A2. Achievable with steady preparation corresponding to a solid C in A2 components.`;
+      } else {
+        badgeCarry.classList.add("achievable");
+        badgeCarry.textContent = "Achievable";
+        valCarryReq.textContent = `${requiredA2Marks} / ${sub.maxA2}`;
+        pctCarryReq.textContent = `${requiredA2Pct}% (Passing Level)`;
+        descCarry.innerHTML = `Easily achievable! You only need <strong>${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%)</strong> in your A2 components to lock in your target ${currentTarget}.`;
+      }
+
+      const cardRetake = document.getElementById("card-retake");
+      const badgeRetake = document.getElementById("badge-retake");
+      const valRetakeAS = document.getElementById("val-retake-as");
+      const pctRetakeRelief = document.getElementById("pct-retake-relief");
+      const descRetake = document.getElementById("desc-retake");
+
+      badgeRetake.className = "sja-status-pill";
+
+      if (effectivePUM >= 80) {
+        badgeRetake.classList.add("moderate");
+        badgeRetake.textContent = "Not Needed";
+        valRetakeAS.textContent = `Grade a (${studentASMark}m)`;
+        pctRetakeRelief.textContent = `Already at Top Band`;
+        descRetake.innerHTML = `You already hold the highest possible AS grade (${studentASMark}/${sub.maxAS}m). Retaking AS in Oct/Nov is unnecessary. <strong>Focus 100% of your energy on A2 exam preparation.</strong>`;
+      } else {
+        const improvedASMark = (currentTarget === "A*" || currentTarget === "A") ? Math.round(asBoundaries.A) : Math.round(asBoundaries.B);
+        const improvedASLabel = (currentTarget === "A*" || currentTarget === "A") ? "Grade A" : "Grade B";
+        const newReqA2 = Math.max(0, targetThreshold - improvedASMark);
+        const newReqA2Pct = Math.round((newReqA2 / sub.maxA2) * 100);
+
+        if ((effectivePUM < 60 && (currentTarget === "A*" || currentTarget === "A" || currentTarget === "B")) || requiredA2Marks > sub.maxA2) {
+          badgeRetake.classList.add("achievable");
+          badgeRetake.textContent = "Recommended";
+        } else {
+          badgeRetake.classList.add("moderate");
+          badgeRetake.textContent = "Optional";
+        }
+
+        valRetakeAS.textContent = `${improvedASLabel} (~${improvedASMark}m)`;
+        pctRetakeRelief.textContent = `A2 Target Drops to ${newReqA2Pct}% (${newReqA2}/${sub.maxA2}m)`;
+        if (requiredA2Marks > sub.maxA2) {
+          descRetake.innerHTML = `Because an overall ${currentTarget} is mathematically impossible with your current AS score (${studentASMark}/${sub.maxAS}m), upgrading to <strong>${improvedASLabel}</strong> in Oct/Nov brings the required A2 mark down to <strong>${newReqA2Pct}% (${newReqA2}/${sub.maxA2}m)</strong>, making your goal achievable.`;
+        } else {
+          descRetake.innerHTML = `If you upgrade AS to <strong>${improvedASLabel}</strong> in Oct/Nov, your required A2 mark drops from ${requiredA2Pct}% down to <strong>${newReqA2Pct}%</strong>. This dramatically shields your final grade from high A2 difficulty.`;
+        }
+      }
+
+      const cardComposite = document.getElementById("card-composite");
+      const badgeComposite = document.getElementById("badge-composite");
+      const valCompMark = document.getElementById("val-comp-mark");
+      const pctCompOverall = document.getElementById("pct-comp-overall");
+      const descComposite = document.getElementById("desc-composite");
+
+      badgeComposite.className = "sja-status-pill";
+      const compOverallPct = Math.round((targetThreshold / sub.maxTotal) * 100);
+      valCompMark.textContent = `${targetThreshold} / ${sub.maxTotal}`;
+      pctCompOverall.textContent = `${compOverallPct}% Across All Papers`;
+
+      if (effectivePUM >= 80) {
+        badgeComposite.classList.add("moderate");
+        badgeComposite.textContent = "Not Recommended";
+        descComposite.innerHTML = `Taking composite would force you to re-sit AS papers unnecessarily and throw away your locked-in AS Grade 'a' (${studentASMark}/${sub.maxAS}m). <strong>Stick to Carry Forward.</strong>`;
+      } else if (effectivePUM < 50 && (currentTarget === "A*" || currentTarget === "A" || currentTarget === "B")) {
+        badgeComposite.classList.add("achievable");
+        badgeComposite.textContent = "High Potential";
+        descComposite.innerHTML = `Wipes out your weak AS result completely. You prepare for all papers over <strong>9 full months</strong>. Achieving <strong>${compOverallPct}%</strong> overall secures your Grade ${currentTarget}.`;
+      } else {
+        badgeComposite.classList.add("moderate");
+        badgeComposite.textContent = "Alternative";
+        descComposite.innerHTML = `Sit all papers in May/June together. Requires <strong>${compOverallPct}%</strong> across all papers. Ideal if you prefer a single unified exam session over a 2-month retake.`;
+      }
+
+      const alertTitle = document.getElementById("alert-title");
+      const alertText = document.getElementById("alert-text");
+
+      if (effectivePUM >= 80) {
+        if (currentTarget === "A*") {
+          alertTitle.textContent = "Examiner Verdict: Prime Position for A*";
+          alertText.innerHTML = `With an AS Grade 'a' (${studentASMark}/${sub.maxAS}m), you are in the top tier of candidates. Do not consider retakes or composite. Simply maintain your study discipline and target at least ${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%) in your A2 papers.`;
+        } else {
+          alertTitle.textContent = "Examiner Verdict: Grade Already in Hand";
+          alertText.innerHTML = `Your AS Grade 'a' gives you a massive advantage. Carry forward is by far your safest and most direct path.`;
+        }
+      } else if (effectivePUM >= 70) {
+        if (currentTarget === "A*") {
+          if (requiredA2Marks > sub.maxA2) {
+            alertTitle.textContent = "Examiner Verdict: A* via Carry Forward is Mathematically Impossible";
+            alertText.innerHTML = `To achieve an overall A* in ${sub.shortName} (threshold ${targetThreshold}/${sub.maxTotal}m), your AS Grade 'b' (${studentASMark}/${sub.maxAS}m) leaves a gap of ${requiredA2Marks} marks. Even scoring a perfect 100% (${sub.maxA2}/${sub.maxA2}m) on A2 yields only ${studentASMark + sub.maxA2}/${sub.maxTotal}m. You <strong>must retake AS in Oct/Nov or choose Composite</strong> to achieve an A*.`;
+          } else {
+            alertTitle.textContent = "Examiner Verdict: High Effort Required for A*";
+            alertText.innerHTML = `Your Grade 'b' is a solid base. To achieve an overall A*, you need to score a top A* mark in A2 (${requiredA2Marks}/${sub.maxA2} marks, ${requiredA2Pct}%). An Oct/Nov retake to upgrade to an 'a' is recommended to relieve A2 pressure.`;
+          }
+        } else {
+          alertTitle.textContent = "Examiner Verdict: Carry Forward is Highly Recommended";
+          alertText.innerHTML = `Your AS Grade 'b' easily supports an overall Grade ${currentTarget}. You only need ${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%) in A2. Focus on A2 syllabus mastery.`;
+        }
+      } else if (effectivePUM < 40 || currentGrade === "u") {
+        alertTitle.textContent = "Examiner Verdict: Never Carry Forward an Ungraded (U)";
+        alertText.innerHTML = `Carrying forward an AS Ungraded (U) puts you at an insurmountable mark deficit. You should <strong>immediately register for an Oct/Nov AS Retake</strong> (if disciplined) or prepare for a <strong>May/June Composite</strong> to give yourself a genuine chance at passing with a solid grade.`;
+      } else if (effectivePUM < 50 && (currentTarget === "A*" || currentTarget === "A")) {
+        alertTitle.textContent = "Examiner Verdict: An AS 'E' Cannot Convert to an 'A' via Carry Forward";
+        alertText.innerHTML = `Targeting an overall Grade ${currentTarget} with an AS Grade E is ${requiredA2Marks > sub.maxA2 ? 'mathematically impossible' : 'extremely unrealistic'}. You need ${requiredA2Marks} marks out of ${sub.maxA2} in A2 (${requiredA2Pct}%). If you want an A, you <strong>must retake AS in Oct/Nov or take Composite in June</strong>.`;
+      } else if (effectivePUM < 60 && currentTarget === "A*") {
+        alertTitle.textContent = "Examiner Verdict: A* Requires an Oct/Nov Retake or Composite";
+        alertText.innerHTML = `Cambridge awards an A* only when you achieve both an overall Syllabus Grade A and at least 90% on A2 components. To realistically hit the overall Grade A boundary from an AS Grade D, upgrading your AS baseline in Oct/Nov is the safest route.`;
+      } else if (requiredA2Pct <= 70) {
+        alertTitle.textContent = "Examiner Verdict: Carry Forward is Highly Feasible";
+        alertText.innerHTML = `Your AS baseline provides solid support for an overall Grade ${currentTarget}. You only need to score ${requiredA2Marks}/${sub.maxA2} (${requiredA2Pct}%) in A2. Focus 100% of your energy on A2 syllabus mastery.`;
+      } else {
+        alertTitle.textContent = "Examiner Verdict: High Workload Alert";
+        alertText.innerHTML = `Achieving Grade ${currentTarget} via Carry Forward will require a significant leap in performance during A2 (${requiredA2Pct}% required). Consider whether an Oct/Nov retake will relieve pressure before final May/June exams.`;
+      }
+
+      populateThresholdTable(sub);
+    }
+
+    function populateThresholdTable(sub) {
+      const tbody = document.getElementById("component-table-body");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+
+      const allComps = [
+        ...sub.asComponents.map(c => ({ ...c, level: "AS" })),
+        ...sub.a2Components.map(c => ({ ...c, level: "A2" }))
+      ];
+
+      allComps.forEach(c => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td><strong>${c.name}</strong> <span style="font-size:0.7rem; color:var(--sja-grey); font-weight:600;">(${c.level})</span></td>
+          <td><strong>${c.max}</strong></td>
+          <td>${c.A}</td>
+          <td>${c.B}</td>
+          <td>${c.C}</td>
+          <td>${c.D}</td>
+          <td>${c.E}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initApp);
+    } else {
+      initApp();
+    }
+  })();
+  </script>
+</div>
+```

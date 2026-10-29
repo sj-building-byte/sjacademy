@@ -1,0 +1,100 @@
+<template>
+  <style>
+@font-face{font-family:'SJ Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'SJ Poppins';font-weight:800;src:url('assets/brand/Poppins-ExtraBold.ttf')}
+@font-face{font-family:'SJ Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+
+#root{position:absolute;inset:0;font-family:'SJ Poppins';color:#FFF6DC;font-kerning:none;}
+.tk{position:absolute;white-space:pre;line-height:1.2;z-index:2;}
+.note{position:absolute;white-space:pre;font-family:'SJ Caveat';font-weight:600;color:#FE6100;line-height:1.2;z-index:2;}
+.box{position:absolute;background:#FCE004;border-radius:10px;z-index:1;transform-origin:50% 50%;}
+.bar{position:absolute;height:7px;border-radius:4px;background:#FFF6DC;z-index:2;}
+svg.pen{position:absolute;left:0;top:0;overflow:visible;z-index:2;}
+
+#h05-stage{position:absolute;inset:0;}
+#h05-title{position:absolute;left:390px;top:426px;width:600px;font-size:76px;font-weight:700;line-height:1.1;letter-spacing:-0.01em;}
+#h05-title .w{display:inline-block;}
+#h05-rule{position:absolute;left:90px;top:590px;width:880px;font-size:42px;font-weight:500;line-height:1.38;color:rgba(255,246,220,0.86);}
+#h05-rule .hl{background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;
+  padding:0 6px;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone;font-weight:600;}
+  </style>
+  <div id="root" data-composition-id="h05" data-width="1080" data-height="1920">
+    <div id="h05-stage" data-layout-allow-overlap>
+      <div class="title" id="h05-title"><span class="w" id="h05-tw0">÷</span> <span class="w" id="h05-tw1">3</span> <span class="w" id="h05-tw2">or</span> <span class="w" id="h05-tw3">÷</span> <span class="w" id="h05-tw4">9?</span></div>
+      <div class="rule" id="h05-rule"><span class="" id="h05-r0">Add the digits. If the total divides, </span><span class="hl" id="h05-r1">so does the number</span></div>
+      <div class="tk" id="h05-a5" style="left:90.0px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">5</div>
+      <div class="tk" id="h05-a2" style="left:162.8px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">2</div>
+      <div class="tk" id="h05-a4" style="left:226.8px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">4</div>
+      <div class="tk" id="h05-a7" style="left:302.6px;top:722.8px;font-size:112px;font-weight:700;color:#FFF6DC">7</div>
+      <div class="tk" id="h05-b5" style="left:90.0px;top:867.4px;font-size:96px;font-weight:700;color:#FFF6DC">5</div>
+      <div class="tk" id="h05-p1" style="left:152.4px;top:867.4px;font-size:96px;font-weight:700;color:#FFF6DC"> + </div>
+      <div class="tk" id="h05-b2" style="left:253.4px;top:867.4px;font-size:96px;font-weight:700;color:#FFF6DC">2</div>
+      <div class="tk" id="h05-p2" style="left:308.2px;top:867.4px;font-size:96px;font-weight:700;color:#FFF6DC"> + </div>
+      <div class="tk" id="h05-b4" style="left:409.2px;top:867.4px;font-size:96px;font-weight:700;color:#FFF6DC">4</div>
+      <div class="tk" id="h05-p3" style="left:474.2px;top:867.4px;font-size:96px;font-weight:700;color:#FFF6DC"> + </div>
+      <div class="tk" id="h05-b7" style="left:575.2px;top:867.4px;font-size:96px;font-weight:700;color:#FFF6DC">7</div>
+      <div class="tk" id="h05-ce" style="left:90.0px;top:988.0px;font-size:120px;font-weight:700;color:#FFF6DC">= </div>
+      <div class="tk" id="h05-cr" style="left:199.0px;top:988.0px;font-size:120px;font-weight:700;color:#FFF6DC">18</div>
+      <div class="note" id="h05-nd" style="left:412.5px;top:756.5px;font-size:54px">divides by 9 and by 3</div>
+      <div class="box" id="h05-box0" style="left:181.0px;top:983.6px;width:158.9px;height:144.4px"></div>
+      <div class="box" id="h05-box1" style="left:72.0px;top:718.6px;width:308.5px;height:135.0px"></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#h05-title .w',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out',stagger:0.07},0.12);
+    tl.fromTo('#h05-rule',{opacity:0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.22,ease:'power4.out'},0.28);
+    tl.set('#h05-a5',{opacity:0},0);
+    tl.set('#h05-a2',{opacity:0},0);
+    tl.set('#h05-a4',{opacity:0},0);
+    tl.set('#h05-a7',{opacity:0},0);
+    tl.set('#h05-b5',{opacity:0},0);
+    tl.set('#h05-p1',{opacity:0},0);
+    tl.set('#h05-b2',{opacity:0},0);
+    tl.set('#h05-p2',{opacity:0},0);
+    tl.set('#h05-b4',{opacity:0},0);
+    tl.set('#h05-p3',{opacity:0},0);
+    tl.set('#h05-b7',{opacity:0},0);
+    tl.set('#h05-ce',{opacity:0},0);
+    tl.set('#h05-cr',{opacity:0},0);
+    tl.set('#h05-nd',{opacity:0},0);
+    tl.fromTo('#h05-a5',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.35);
+    tl.fromTo('#h05-a2',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.42);
+    tl.fromTo('#h05-a4',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.49);
+    tl.fromTo('#h05-a7',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},0.56);
+    tl.fromTo('#h05-rule .hl',{backgroundSize:'0% 100%',color:'#FFF6DC'},{backgroundSize:'100% 100%',color:'#453516',duration:0.3,ease:'power2.out'},1.297);
+    tl.set('#h05-b5',{opacity:1,transformOrigin:'0% 50%'},2.482);
+    tl.fromTo('#h05-b5',{x:0.0,scale:1.167},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},2.482);
+    tl.fromTo('#h05-b5',{y:-135.0},{y:0,duration:0.62,ease:'power2.inOut'},2.482);
+    tl.set('#h05-b2',{opacity:1,transformOrigin:'0% 50%'},2.617);
+    tl.fromTo('#h05-b2',{x:-90.6,scale:1.167},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},2.617);
+    tl.fromTo('#h05-b2',{y:-135.0},{y:0,duration:0.62,ease:'power2.inOut'},2.617);
+    tl.set('#h05-b4',{opacity:1,transformOrigin:'0% 50%'},2.753);
+    tl.fromTo('#h05-b4',{x:-182.4,scale:1.167},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},2.753);
+    tl.fromTo('#h05-b4',{y:-135.0},{y:0,duration:0.62,ease:'power2.inOut'},2.753);
+    tl.set('#h05-b7',{opacity:1,transformOrigin:'0% 50%'},2.888);
+    tl.fromTo('#h05-b7',{x:-272.6,scale:1.167},{x:0,scale:1,duration:0.62,ease:'power3.inOut'},2.888);
+    tl.fromTo('#h05-b7',{y:-135.0},{y:0,duration:0.62,ease:'power2.inOut'},2.888);
+    tl.fromTo('#h05-p1',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},2.99);
+    tl.fromTo('#h05-p2',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},3.06);
+    tl.fromTo('#h05-p3',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},3.13);
+    tl.fromTo('#h05-ce',{opacity:0.0,filter:'blur(8px)'},{opacity:1,filter:'blur(0px)',duration:0.2,ease:'power4.out'},5.017);
+    tl.set('#h05-box0',{opacity:0},0);
+    tl.fromTo('#h05-box0',{opacity:0,scale:1.3,rotation:-7},{opacity:1,scale:1,rotation:-1.5,duration:0.14,ease:'back.out(1.7)'},5.273);
+    tl.fromTo('#h05-box0',{x:2},{x:0,duration:0.13,ease:'steps(4)'},5.413);
+    tl.fromTo('#h05-cr',{opacity:0.0},{opacity:1,duration:0.08},5.273);
+    tl.fromTo('#h05-cr',{color:'#FFF6DC'},{color:'#453516',duration:0.05},5.313);
+    tl.set('#h05-box1',{opacity:0},0);
+    tl.fromTo('#h05-box1',{opacity:0,scale:1.3,rotation:-7},{opacity:1,scale:1,rotation:-1.5,duration:0.14,ease:'back.out(1.7)'},6.297);
+    tl.fromTo('#h05-box1',{x:2},{x:0,duration:0.13,ease:'steps(4)'},6.437);
+    tl.fromTo('#h05-a5',{color:'#FFF6DC'},{color:'#453516',duration:0.05},6.337);
+    tl.fromTo('#h05-a2',{color:'#FFF6DC'},{color:'#453516',duration:0.05},6.337);
+    tl.fromTo('#h05-a4',{color:'#FFF6DC'},{color:'#453516',duration:0.05},6.337);
+    tl.fromTo('#h05-a7',{color:'#FFF6DC'},{color:'#453516',duration:0.05},6.337);
+    tl.fromTo('#h05-nd',{opacity:1,clipPath:'inset(0% 100% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:0.4,ease:'sine.inOut'},6.553);
+    tl.fromTo('#h05-stage',{opacity:1,filter:'blur(0px)',y:0},{opacity:0,filter:'blur(10px)',duration:0.22,ease:'expo.in'},7.818);
+    window.__timelines["h05"] = tl;
+  </script>
+</template>

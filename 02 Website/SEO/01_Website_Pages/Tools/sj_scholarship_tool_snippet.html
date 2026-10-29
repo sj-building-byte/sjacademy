@@ -1,0 +1,718 @@
+<style>
+  /* SJ Academy Scholarship Tool - Clean Original Styling */
+  .scholarship-tool {
+    font-family: 'Poppins', sans-serif !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #000000;
+  }
+
+  .scholarship-tool .header-section {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .scholarship-tool .mode-badge-wrap {
+    display: inline-block;
+    border: 2px solid #000000 !important;
+    border-radius: 50px;
+    padding: 6px 8px;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.15) !important;
+    margin-bottom: 16px;
+    background: #FFFFFF;
+  }
+
+  .scholarship-tool .mode-badge {
+    background: #FCE004 !important;
+    color: #000000 !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 18px;
+    border-radius: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .scholarship-tool .mode-badge svg {
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    fill: #000000;
+    flex-shrink: 0;
+  }
+
+  .scholarship-tool h2 {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    line-height: 1.2;
+    color: #000000 !important;
+    margin-bottom: 6px;
+  }
+
+  @media (min-width: 768px) {
+    .scholarship-tool h2 { font-size: 3rem !important; }
+  }
+
+  /* Original Yellow Highlight */
+  .scholarship-tool h2 .highlight {
+    background: linear-gradient(120deg, #FCE004 0%, #FCE004 100%) !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% 35% !important;
+    background-position: 0 85% !important;
+    display: inline !important;
+    padding: 0 3px !important;
+    color: #000000 !important;
+  }
+
+  .scholarship-tool .subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #555555;
+    line-height: 1.5;
+  }
+
+  /* Form Layout */
+  .scholarship-tool .filters-grid,
+  .scholarship-tool .grades-grid {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .scholarship-tool .filters-grid { grid-template-columns: 1fr; }
+  .scholarship-tool .grades-grid { grid-template-columns: repeat(3, 1fr); }
+
+  @media (min-width: 768px) {
+    .scholarship-tool .filters-grid { grid-template-columns: 1fr 1fr; }
+    .scholarship-tool .grades-grid { grid-template-columns: repeat(6, 1fr); }
+  }
+
+  .scholarship-tool .filter-group label {
+    display: block;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #222222 !important;
+    margin-bottom: 8px;
+  }
+
+  .scholarship-tool .grades-grid label { text-align: center; }
+
+  .scholarship-tool select,
+  .scholarship-tool input[type="number"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e5e5e5 !important;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #000000;
+    background: #FFFFFF;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  .scholarship-tool select {
+    padding-right: 35px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23000000' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    cursor: pointer;
+  }
+
+  .scholarship-tool input[type="number"] { text-align: center; }
+
+  .scholarship-tool select:focus,
+  .scholarship-tool input[type="number"]:focus {
+    border-color: #FE6100 !important;
+  }
+
+  .scholarship-tool select:disabled, 
+  .scholarship-tool input:disabled {
+    background-color: #f5f5f5 !important;
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+
+  /* Clean Checkbox Area */
+  .scholarship-tool .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 16px;
+    border: 2px solid #e5e5e5 !important;
+    border-radius: 8px;
+    background: #FAFAFA !important;
+  }
+
+  .scholarship-tool .checkbox-wrapper input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #FE6100 !important;
+    cursor: pointer;
+  }
+  
+  .scholarship-tool .checkbox-wrapper label {
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    color: #222222 !important;
+  }
+
+  /* Clean Orange Button */
+  .scholarship-tool button.check-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px;
+    background: #FE6100 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 16px 20px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 10px rgba(254,97,0,0.3) !important;
+    width: 100% !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .scholarship-tool button.check-btn:hover:not(:disabled) {
+    box-shadow: 0 10px 20px rgba(254,97,0,0.4) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  .scholarship-tool button.check-btn:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .scholarship-tool button.check-btn svg { 
+    width: 18px !important; 
+    height: 18px !important; 
+    min-width: 18px !important;
+    fill: #FFFFFF; 
+    flex-shrink: 0;
+  }
+
+  /* Results Styling */
+  .scholarship-tool .results-container { margin-top: 30px; display: none; }
+
+  .scholarship-tool .result-card {
+    background: #FFFFFF;
+    padding: 24px;
+    border-top: 6px solid #453516;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+    margin-bottom: 24px;
+    animation: fadeUp 0.4s ease forwards;
+  }
+
+  .scholarship-tool .result-card.success { border-top-color: #16a34a !important; background: #f0fdf4 !important; }
+  .scholarship-tool .result-card.info { border-top-color: #FCE004 !important; background: #FFF9CC !important; }
+  .scholarship-tool .result-card.fail { border-top-color: #dc2626 !important; background: #fef2f2 !important; }
+
+  .scholarship-tool .result-title {
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  /* BULLETPROOF SVG SIZING */
+  .scholarship-tool .result-title svg {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+  }
+
+  .scholarship-tool .result-card.success .result-title { color: #16a34a !important; }
+  .scholarship-tool .result-card.fail .result-title { color: #dc2626 !important; }
+  .scholarship-tool .result-card.info .result-title { color: #453516 !important; }
+
+  .scholarship-tool .result-badge {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    background: #FCE004 !important;
+    color: #000000 !important;
+    padding: 4px 10px !important;
+    border-radius: 40px !important;
+    border: 2px solid #453516 !important;
+    margin-left: 8px;
+    text-transform: uppercase;
+  }
+
+  .scholarship-tool .result-desc {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #222222 !important;
+    line-height: 1.5 !important;
+    margin: 0;
+  }
+
+  /* Full Criteria Table - Optimized to never scroll on mobile */
+  .scholarship-tool .criteria-table-wrapper {
+    margin-top: 40px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid #e5e5e5;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .scholarship-tool .criteria-table-wrapper h3 {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: #453516 !important;
+    margin-bottom: 16px !important;
+    display: inline-block;
+    border-bottom: 3px solid #FCE004;
+    padding-bottom: 4px;
+  }
+
+  .scholarship-tool table.criteria-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed; /* Forces table to fit within container */
+  }
+
+  /* Explicit column widths so they share space nicely */
+  .scholarship-tool table.criteria-table th:nth-child(1) { width: 30%; }
+  .scholarship-tool table.criteria-table th:nth-child(2) { width: 35%; }
+  .scholarship-tool table.criteria-table th:nth-child(3) { width: 35%; }
+
+  .scholarship-tool th {
+    background: #453516 !important;
+    color: #FFFFFF !important;
+    padding: 8px 6px !important; /* Smaller padding for mobile fit */
+    font-size: 11px !important; /* Smaller text for mobile fit */
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .scholarship-tool td {
+    padding: 8px 6px !important; /* Smaller padding for mobile fit */
+    font-size: 11px !important; /* Smaller text for mobile fit */
+    color: #222222 !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+    vertical-align: top;
+    line-height: 1.4;
+    word-wrap: break-word; /* Forces long text/URLs to wrap instead of breaking table */
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .scholarship-tool tr:last-child td { border-bottom: none !important; }
+  .scholarship-tool tr:nth-child(even) { background: #FAFAFA !important; }
+  .scholarship-tool td strong { color: #000000 !important; font-weight: 700 !important; }
+
+  /* Pro Tips / Alert Box */
+  .scholarship-tool .pro-tips-card {
+    margin-top: 30px;
+    background: #FAFAFA !important;
+    border-left: 6px solid #FE6100 !important;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .scholarship-tool .pro-tips-title {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: #453516 !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  /* BULLETPROOF SVG SIZING FOR PRO TIPS */
+  .scholarship-tool .pro-tips-title svg {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+  }
+
+  .scholarship-tool .pro-tips-list {
+    margin: 0 !important;
+    padding-left: 20px !important;
+  }
+
+  .scholarship-tool .pro-tips-list li {
+    font-size: 13px !important;
+    color: #222222 !important;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .scholarship-tool .pro-tips-list li:last-child { margin-bottom: 0; }
+  .scholarship-tool .pro-tips-list li strong { color: #000000 !important; font-weight: 700 !important; }
+
+  /* Scale back up slightly on tablets and desktop */
+  @media (min-width: 600px) {
+    .scholarship-tool th,
+    .scholarship-tool td {
+      padding: 14px !important;
+      font-size: 13px !important;
+    }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="scholarship-tool">
+  <div class="header-section">
+    <div class="mode-badge-wrap">
+      <div class="mode-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2.12-1.15L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+        Scholarships
+      </div>
+    </div>
+    <h2>A Level Scholarships in <span class="highlight">Pakistan</span></h2>
+    <p class="subtitle">Enter your O-Level grades to instantly check your eligibility at top A-Level colleges.</p>
+  </div>
+
+  <div class="filters-grid">
+    <div class="filter-group">
+      <label for="citySelect">Select City</label>
+      <select id="citySelect" onchange="loadColleges()">
+        <option value="">All Cities</option>
+        <option value="Karachi">Karachi</option>
+        <option value="Lahore">Lahore</option>
+        <option value="Islamabad/Rawalpindi">Islamabad / Rawalpindi</option>
+        <option value="Other Cities">Other Cities (Faisalabad, Multan, Peshawar)</option>
+      </select>
+    </div>
+    
+    <div class="filter-group">
+      <label id="collegeLabel" for="collegeSelect">Select College</label>
+      <select id="collegeSelect" disabled>
+        <option value="">-- Select City First --</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="checkbox-wrapper">
+    <input type="checkbox" id="internalStudent">
+    <label for="internalStudent">I am already studying in this school network (Internal Student)</label>
+  </div>
+
+  <div class="filter-group" style="margin-bottom: 4px;">
+    <label>Your O-Level Grades</label>
+  </div>
+  <div class="grades-grid">
+    <div class="filter-group">
+      <label>A*</label>
+      <input type="number" id="g_astar" min="0" value="0">
+    </div>
+    <div class="filter-group">
+      <label>A</label>
+      <input type="number" id="g_a" min="0" value="0">
+    </div>
+    <div class="filter-group">
+      <label>B</label>
+      <input type="number" id="g_b" min="0" value="0">
+    </div>
+    <div class="filter-group">
+      <label>C</label>
+      <input type="number" id="g_c" min="0" value="0">
+    </div>
+    <div class="filter-group">
+      <label>D</label>
+      <input type="number" id="g_d" min="0" value="0">
+    </div>
+    <div class="filter-group">
+      <label>E/U</label>
+      <input type="number" id="g_u" min="0" value="0">
+    </div>
+  </div>
+
+  <button class="check-btn" id="checkBtn" onclick="checkEligibility()" disabled>
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    Check Eligibility
+  </button>
+
+  <div id="resultsArea" class="results-container"></div>
+</div>
+
+<script>
+  const sheetUrls = {
+    "Karachi": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRLdJGj74e5mPHPxuaZuWux5pBxX67X-DWKBnk5y1-CPX_T7N6RryAUVQGRORHSdPwvpDBGz8dpvmXu/pub?gid=2141230095&single=true&output=tsv",
+    "Lahore": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRLdJGj74e5mPHPxuaZuWux5pBxX67X-DWKBnk5y1-CPX_T7N6RryAUVQGRORHSdPwvpDBGz8dpvmXu/pub?gid=1760876306&single=true&output=tsv",
+    "Islamabad/Rawalpindi": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRLdJGj74e5mPHPxuaZuWux5pBxX67X-DWKBnk5y1-CPX_T7N6RryAUVQGRORHSdPwvpDBGz8dpvmXu/pub?gid=907956958&single=true&output=tsv",
+    "Other Cities": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRLdJGj74e5mPHPxuaZuWux5pBxX67X-DWKBnk5y1-CPX_T7N6RryAUVQGRORHSdPwvpDBGz8dpvmXu/pub?gid=1074505138&single=true&output=tsv"
+  };
+
+  let cityData = [];
+
+  async function loadColleges() {
+    const city = document.getElementById('citySelect').value;
+    const collegeDropdown = document.getElementById('collegeSelect');
+    const checkBtn = document.getElementById('checkBtn');
+    const results = document.getElementById('resultsArea');
+    const colLabel = document.getElementById('collegeLabel');
+
+    collegeDropdown.innerHTML = '<option value="">-- Choose a College --</option>';
+    collegeDropdown.disabled = true;
+    checkBtn.disabled = true;
+    results.style.display = 'none';
+
+    if (!city) return;
+
+    colLabel.textContent = "Loading...";
+
+    try {
+      const response = await fetch(sheetUrls[city]);
+      let text = await response.text();
+      text = text.replace(/\r/g, ''); 
+      
+      const rows = text.split('\n').map(row => row.split('\t'));
+      const headers = rows[0];
+      cityData = [];
+      
+      for(let i = 1; i < rows.length; i++) {
+        if(rows[i].length < headers.length || !rows[i][0]) continue;
+        let obj = {};
+        for(let j = 0; j < headers.length; j++) {
+          obj[headers[j]] = rows[i][j];
+        }
+        cityData.push(obj);
+      }
+
+      const uniqueColleges = [...new Set(cityData.map(item => item.College))];
+      
+      uniqueColleges.forEach(col => {
+        let opt = document.createElement('option');
+        opt.value = col;
+        opt.textContent = col;
+        collegeDropdown.appendChild(opt);
+      });
+
+      colLabel.textContent = "Select College";
+      collegeDropdown.disabled = false;
+      checkBtn.disabled = false;
+
+    } catch (error) {
+      console.error("Error loading TSV:", error);
+      colLabel.textContent = "Error loading data.";
+    }
+  }
+
+  function checkEligibility() {
+    const college = document.getElementById('collegeSelect').value;
+    if (!college) {
+      alert("Please select a college.");
+      return;
+    }
+
+    const isInternal = document.getElementById('internalStudent').checked;
+    const aStar = parseInt(document.getElementById('g_astar').value) || 0;
+    const a = parseInt(document.getElementById('g_a').value) || 0;
+    const b = parseInt(document.getElementById('g_b').value) || 0;
+    const c = parseInt(document.getElementById('g_c').value) || 0;
+    const d = parseInt(document.getElementById('g_d').value) || 0;
+    const u = parseInt(document.getElementById('g_u').value) || 0;
+    
+    const totalAs = aStar + a;
+    const sicasPoints = (aStar * 10) + (a * 5);
+
+    const rules = cityData.filter(r => r.College === college);
+    let matchedQuant = null;
+    let holisticNotes = [];
+    let usesQuant = false;
+
+    // ACADEMIC BASELINE FILTER: Prevent 5 U's from showing up as "Holistic Process"
+    const isDisqualified = (totalAs === 0 || u >= 2 || d >= 4);
+
+    if (!isDisqualified) {
+      rules.forEach(rule => {
+        if (rule.Student_Type && rule.Student_Type !== "Any") {
+          if (isInternal && rule.Student_Type === "External") return;
+          if (!isInternal && rule.Student_Type === "Internal") return;
+        }
+
+        if (rule.Model === 'Quantitative') {
+          const reqTotal = parseInt(rule.Min_Total_As) || 0;
+          const reqAStars = parseInt(rule.Min_A_Stars) || 0;
+          const reqPoints = parseInt(rule.Min_Points) || 0;
+          
+          if (reqTotal === 0 && reqAStars === 0 && reqPoints === 0) {
+            holisticNotes.push(rule);
+          } else {
+            usesQuant = true;
+            if (totalAs >= reqTotal && aStar >= reqAStars && sicasPoints >= reqPoints) {
+              if (!matchedQuant) {
+                matchedQuant = rule;
+              } else {
+                const currReqTotal = parseInt(matchedQuant.Min_Total_As) || 0;
+                const currReqPoints = parseInt(matchedQuant.Min_Points) || 0;
+                if (reqTotal > currReqTotal || reqPoints > currReqPoints) {
+                  matchedQuant = rule;
+                }
+              }
+            }
+          }
+        } else if (rule.Model === 'Holistic') {
+          holisticNotes.push(rule);
+        }
+      });
+    }
+
+    const resultsArea = document.getElementById('resultsArea');
+    resultsArea.innerHTML = '';
+    resultsArea.style.display = 'block';
+
+    let html = '';
+
+    // 1. Generate Main Result Card
+    if (isDisqualified) {
+      html += `
+        <div class="result-card fail">
+          <div class="result-title">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>
+            Not Eligible
+          </div>
+          <p class="result-desc">Merit scholarships are strictly for high achievers. With 0 A's or multiple low/failing grades, you do not meet the minimum academic baseline for a scholarship.</p>
+        </div>
+      `;
+    } else if (usesQuant) {
+      if (matchedQuant) {
+        html += `
+          <div class="result-card success">
+            <div class="result-title">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              Eligible
+              <span class="result-badge">${matchedQuant.Tier}</span>
+            </div>
+            <p class="result-desc"><strong>Conditions:</strong> ${matchedQuant.Conditions}</p>
+          </div>
+        `;
+      } else {
+        html += `
+          <div class="result-card fail">
+            <div class="result-title">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>
+              Not Eligible
+            </div>
+            <p class="result-desc">Based on your inputted grades, you do not meet the minimum requirements for a guaranteed merit scholarship here.</p>
+          </div>
+        `;
+      }
+    }
+
+    // Only show Holistic Process cards if they actually met the academic baseline
+    if (!isDisqualified && holisticNotes.length > 0) {
+      holisticNotes.forEach(rule => {
+        html += `
+          <div class="result-card info">
+            <div class="result-title">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              Process
+              <span class="result-badge">${rule.Tier}</span>
+            </div>
+            <p class="result-desc"><strong>Details:</strong> ${rule.Conditions}</p>
+          </div>
+        `;
+      });
+    }
+
+    // 2. Generate the "All Criteria" Table
+    if (rules.length > 0) {
+      html += `
+        <div class="criteria-table-wrapper">
+          <h3>Full Eligibility Criteria for ${college}</h3>
+          <table class="criteria-table">
+            <thead>
+              <tr>
+                <th>Award / Tier</th>
+                <th>Requirements</th>
+                <th>Conditions</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+      
+      const sortedRules = [...rules].sort((a, b) => parseInt(b.Min_Total_As) - parseInt(a.Min_Total_As));
+
+      sortedRules.forEach(r => {
+        let reqText = [];
+        if (r.Model === 'Holistic') {
+          reqText.push("Holistic Evaluation");
+        } else {
+          if (parseInt(r.Min_Total_As) > 0) reqText.push(`Min ${r.Min_Total_As} A's (Total)`);
+          if (parseInt(r.Min_A_Stars) > 0) reqText.push(`Min ${r.Min_A_Stars} A*'s`);
+          if (parseInt(r.Min_Points) > 0) reqText.push(`Min ${r.Min_Points} Points`);
+          if (r.Student_Type !== "Any") reqText.push(`${r.Student_Type} Students Only`);
+          if (reqText.length === 0) reqText.push("See conditions");
+        }
+
+        html += `
+          <tr>
+            <td><strong>${r.Tier}</strong></td>
+            <td>${reqText.join('<br>')}</td>
+            <td>${r.Conditions}</td>
+          </tr>
+        `;
+      });
+
+      html += `
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    // 3. Add the "Pro Tips" Alert Box
+    html += `
+      <div class="pro-tips-card">
+        <div class="pro-tips-title">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="#FE6100"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+          Important Rules You Must Know
+        </div>
+        <ul class="pro-tips-list">
+          <li><strong>Scholarships are NOT permanent:</strong> Top colleges (Nixor, Cedar, LGS, etc.) require you to maintain 90-95% attendance and a 'B' grade average in A1 to keep your scholarship for A2.</li>
+          <li><strong>"100% Free" means Tuition Only:</strong> A 100% scholarship only covers tuition fees. You will still have to pay admission fees, security deposits, lab charges, and monthly administrative fees (e.g., Alpha College).</li>
+          <li><strong>Apply Early:</strong> Scholarship funds are limited. Applying in Early Admission rounds (Round 1) gets you higher waivers for the same grades compared to applying in August.</li>
+          <li><strong>Don't forget ECA & Siblings:</strong> National-level sports or debate records can get you massive Extracurricular (ECA) waivers. Also, schools like Cedar offer a flat 10% discount for siblings!</li>
+        </ul>
+      </div>
+    `;
+
+    resultsArea.innerHTML = html;
+  }
+</script>

@@ -1,0 +1,41 @@
+/* SJ Academy carousel template v2: dotted notebook, offset cards, marker highlight. 1080 x 1350. Poppins + Caveat only. */
+@font-face{font-family:Poppins;font-weight:400;src:url(fonts/poppins-latin-400-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:500;src:url(fonts/poppins-latin-500-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:600;src:url(fonts/poppins-latin-600-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:700;src:url(fonts/poppins-latin-700-normal.woff2)}
+@font-face{font-family:Poppins;font-weight:800;src:url(fonts/poppins-latin-800-normal.woff2)}
+@font-face{font-family:Caveat;font-weight:600;src:url(fonts/caveat-latin-600-normal.woff2)}
+:root{--ink:#151515;--canvas:#F7F5EF;--yellow:#FCE004;--pen:#D63A2F;--pen-text:#B92F25;--brown-pen:#B54200;--cta:#CC4A00}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#777}
+.s{width:1080px;height:1350px;position:relative;overflow:hidden;color:var(--ink);font-family:Poppins,sans-serif;margin-bottom:24px;
+ background-color:var(--canvas);background-image:radial-gradient(#D6D0BD 2.6px,transparent 3px);background-size:36px 36px;background-position:18px 18px}
+.logo{position:absolute;left:72px;top:72px;height:96px}
+.pill{position:absolute;right:72px;top:86px;border:4px solid var(--ink);background:#fff;border-radius:60px;padding:12px 32px;font-size:28px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;box-shadow:4px 5px 0 var(--ink)}
+.col{position:absolute;left:72px;right:72px;top:236px;display:flex;flex-direction:column;align-items:stretch;gap:30px}
+h1{font-weight:800;letter-spacing:-.04em;line-height:1.04}
+.center{text-align:center}
+.mark{position:relative;display:inline-block;z-index:0;padding:0 .14em}
+.mark::before{content:"";position:absolute;inset:.08em -.04em .02em -.04em;background:var(--yellow);z-index:-1;transform:rotate(-1.2deg);
+ clip-path:polygon(0 18%,4% 6%,22% 10%,48% 2%,74% 8%,96% 4%,100% 22%,98% 56%,100% 90%,92% 100%,66% 94%,40% 100%,14% 95%,2% 100%,0 82%,2% 50%)}
+.strip{position:relative;text-align:center;padding:22px 36px;font-size:42px;font-weight:600;letter-spacing:-.02em;line-height:1.25;z-index:0}
+.strip::before{content:"";position:absolute;inset:0;background:var(--yellow);z-index:-1;transform:rotate(-.6deg);
+ clip-path:polygon(0 16%,2% 4%,20% 9%,50% 2%,80% 8%,98% 3%,100% 20%,99% 55%,100% 88%,96% 100%,70% 95%,40% 100%,12% 95%,1% 99%,0 84%,1% 50%)}
+.strip b{font-weight:800}
+.card{background:#fff;border:5px solid var(--ink);border-radius:36px;box-shadow:14px 14px 0 var(--ink);position:relative}
+.card.y{box-shadow:14px 14px 0 var(--yellow),14px 14px 0 5px var(--ink)}
+ul{list-style:none}
+li{position:relative;padding-left:44px;font-size:44px;font-weight:600;letter-spacing:-.02em;line-height:1.22;margin:18px 0}
+li::before{content:"";position:absolute;left:6px;top:.55em;width:14px;height:14px;border-radius:50%;background:var(--ink)}
+.catch{border:6px solid var(--pen);border-radius:14px;padding:24px 34px;font-size:38px;font-weight:600;line-height:1.3;color:var(--pen-text);transform:rotate(-1.6deg);background:rgba(255,255,255,.4)}
+.catch b{font-weight:800;text-transform:uppercase}
+.hand{font-family:Caveat,cursive;font-weight:600;color:var(--brown-pen)}
+.cta{display:inline-flex;align-items:center;gap:16px;background:var(--cta);color:#fff;border:4px solid var(--ink);border-radius:60px;padding:20px 44px;font-size:42px;font-weight:700;box-shadow:5px 7px 0 var(--ink)}
+.minicard{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:34px;box-shadow:12px 12px 0 var(--ink);text-align:center}
+.minicard .n{font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.minicard .p{font-size:32px;font-weight:500;margin-top:10px}
+.pick{background:#fff;border:5px solid var(--ink);border-radius:28px;box-shadow:10px 10px 0 var(--ink);padding:30px 38px;position:relative}
+.pick .l{font-size:24px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#6b6252}
+.pick b{display:block;font-size:50px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:4px}
+.pick .reg{font-weight:500}
+.paper{background:#FFFEFA;border-radius:6px;position:relative;box-shadow:0 14px 28px rgba(0,0,0,.22);border:2px solid #d7d2c3}

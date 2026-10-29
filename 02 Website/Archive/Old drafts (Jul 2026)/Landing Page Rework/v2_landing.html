@@ -1,0 +1,1524 @@
+<USER_REQUEST>
+<!-- SJ Academy - May/June 2027 Landing Page v2.0 -->
+
+<!-- Fonts & Icons -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* GT Walsheim Custom Font */
+@font-face {
+    font-family: 'GT Walsheim';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://www.sjacademy.pk/wp-content/uploads/2025/06/GTWalsheimPro-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'GT Walsheim';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://www.sjacademy.pk/wp-content/uploads/2025/06/GTWalsheimPro-Medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'GT Walsheim';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://www.sjacademy.pk/wp-content/uploads/2025/06/GTWalsheimPro-Bold.woff2') format('woff2');
+}
+
+/* ===== CSS VARIABLES ===== */
+#sjacademy-landing {
+    --yellow: #FCE004;
+    --brown: #453516;
+    --brown-light: #5a4822;
+    --orange: #FE6100;
+    --black: #111111;
+    --white: #FFFFFF;
+    --surface: #FAF8F3;
+    --surface-alt: #F3EFE6;
+    --border: #E8E2D8;
+    --text-muted: #6B6358;
+    --grey: #555555;
+    --green: #25D366;
+    --font-body: 'Poppins', sans-serif;
+    --font-heading: 'GT Walsheim', 'Poppins', sans-serif;
+    --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+    --shadow-xs: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+    --shadow-lg: 0 25px 50px rgba(0,0,0,0.12);
+}
+
+/* ===== RESET ===== */
+#sjacademy-landing *,
+#sjacademy-landing *::before,
+#sjacademy-landing *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#sjacademy-landing {
+    font-family: var(--font-body) !important;
+    background: var(--white) !important;
+    color: var(--black) !important;
+    line-height: 1.6 !important;
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding-bottom: 0 !important;
+}
+
+#sjacademy-landing img {
+    max-width: 100% !important;
+    height: auto;
+    display: block;
+}
+
+#sjacademy-landing h1, #sjacademy-landing h2,
+#sjacademy-landing h3, #sjacademy-landing h4 {
+    color: var(--black);
+    font-family: var(--font-heading);
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+#sjacademy-landing p { margin-bottom: 0; }
+#sjacademy-landing a { text-decoration: none; }
+
+/* ===== LAYOUT ===== */
+#sjacademy-landing .sja-container {
+    width: 100% !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+#sjacademy-landing .anim {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+#sjacademy-landing .anim.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+#sjacademy-landing .anim-delay-1 { transition-delay: 0.1s; }
+#sjacademy-landing .anim-delay-2 { transition-delay: 0.2s; }
+#sjacademy-landing .anim-delay-3 { transition-delay: 0.3s; }
+#sjacademy-landing .anim-delay-4 { transition-delay: 0.4s; }
+#sjacademy-landing .anim-delay-5 { transition-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+    #sjacademy-landing .anim {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* ===== BUTTONS ===== */
+#sjacademy-landing .btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 15px 32px !important;
+    border-radius: 14px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    text-decoration: none !important;
+    transition: all 0.3s var(--ease) !important;
+    border: 2px solid transparent !important;
+    cursor: pointer !important;
+    font-family: var(--font-body) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#sjacademy-landing .btn::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(255,255,255,0.15) !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s var(--ease) !important;
+}
+#sjacademy-landing .btn:hover::after {
+    transform: translateX(0) !important;
+}
+
+#sjacademy-landing .btn-yellow {
+    background: var(--yellow) !important;
+    color: var(--black) !important;
+    box-shadow: 0 4px 15px rgba(252,224,4,0.3) !important;
+}
+#sjacademy-landing .btn-yellow:hover {
+    background: var(--black) !important;
+    color: var(--white) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2) !important;
+}
+
+#sjacademy-landing .btn-orange {
+    background: var(--orange) !important;
+    color: var(--white) !important;
+    box-shadow: 0 4px 15px rgba(254,97,0,0.3) !important;
+}
+#sjacademy-landing .btn-orange:hover {
+    background: var(--black) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2) !important;
+}
+
+#sjacademy-landing .btn-outline {
+    background: transparent !important;
+    color: var(--black) !important;
+    border-color: var(--black) !important;
+}
+#sjacademy-landing .btn-outline:hover {
+    background: var(--black) !important;
+    color: var(--white) !important;
+    transform: translateY(-2px) !important;
+}
+
+#sjacademy-landing .btn-whatsapp {
+    background: var(--green) !important;
+    color: var(--white) !important;
+    box-shadow: 0 4px 15px rgba(37,211,102,0.3) !important;
+}
+#sjacademy-landing .btn-whatsapp:hover {
+    background: #1ebc59 !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Pulse on primary CTA */
+#sjacademy-landing .btn-pulse {
+    animation: ctaPulse 2.5s ease-in-out infinite !important;
+}
+@keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 4px 15px rgba(252,224,4,0.3); }
+    50% { box-shadow: 0 4px 30px rgba(252,224,4,0.6); }
+}
+
+/* ===== 1. HERO ===== */
+#sjacademy-landing .hero {
+    position: relative !important;
+    background: linear-gradient(170deg, #FAF8F3 0%, #FFF9E0 40%, #FAF8F3 100%) !important;
+    padding: 70px 0 90px !important;
+    text-align: center !important;
+    overflow: hidden !important;
+}
+
+#sjacademy-landing .hero::before {
+    content: '' !important;
+    position: absolute !important;
+    width: 600px !important;
+    height: 600px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle, rgba(252,224,4,0.12) 0%, transparent 70%) !important;
+    top: -200px !important;
+    right: -150px !important;
+    pointer-events: none !important;
+    animation: heroFloat 10s ease-in-out infinite !important;
+}
+
+#sjacademy-landing .hero::after {
+    content: '' !important;
+    position: absolute !important;
+    width: 400px !important;
+    height: 400px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle, rgba(254,97,0,0.08) 0%, transparent 70%) !important;
+    bottom: -100px !important;
+    left: -100px !important;
+    pointer-events: none !important;
+    animation: heroFloat 12s ease-in-out infinite reverse !important;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -20px) scale(1.05); }
+}
+
+#sjacademy-landing .hero-content {
+    position: relative !important;
+    z-index: 2 !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+#sjacademy-landing .hero-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: var(--black) !important;
+    color: var(--yellow) !important;
+    padding: 10px 24px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    margin-bottom: 28px !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+}
+
+#sjacademy-landing .hero-title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.12 !important;
+    margin-bottom: 20px !important;
+    color: var(--black) !important;
+    letter-spacing: -1px !important;
+}
+
+#sjacademy-landing .hero-title .highlight {
+    position: relative !important;
+    display: inline-block !important;
+    background: linear-gradient(120deg, var(--yellow) 0%, var(--yellow) 100%) !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% 38% !important;
+    background-position: 0 90% !important;
+    padding: 0 4px !important;
+}
+
+/* Countdown Timer */
+#sjacademy-landing .countdown-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    margin-bottom: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+#sjacademy-landing .countdown-unit {
+    background: var(--white) !important;
+    border: 2px solid var(--border) !important;
+    border-radius: 14px !important;
+    padding: 12px 18px !important;
+    min-width: 75px !important;
+    text-align: center !important;
+    box-shadow: var(--shadow-xs) !important;
+    transition: border-color 0.3s ease !important;
+}
+
+#sjacademy-landing .countdown-unit:hover {
+    border-color: var(--yellow) !important;
+}
+
+#sjacademy-landing .countdown-number {
+    font-family: var(--font-heading) !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: var(--black) !important;
+    line-height: 1 !important;
+    display: block !important;
+}
+
+#sjacademy-landing .countdown-label {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-top: 4px !important;
+    display: block !important;
+}
+
+#sjacademy-landing .countdown-expired {
+    background: var(--orange) !important;
+    color: var(--white) !important;
+    padding: 12px 28px !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    display: inline-block !important;
+    animation: ctaPulse 2s ease-in-out infinite !important;
+}
+
+#sjacademy-landing .hero-dates {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: var(--orange) !important;
+    margin-bottom: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+#sjacademy-landing .hero-subtitle {
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 32px !important;
+    line-height: 1.7 !important;
+    max-width: 750px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#sjacademy-landing .hero-subtitle strong {
+    color: var(--black) !important;
+}
+
+#sjacademy-landing .hero-features {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin-bottom: 36px !important;
+}
+
+#sjacademy-landing .hero-feature-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 13px !important;
+    color: var(--black) !important;
+    font-weight: 500 !important;
+    background: var(--white) !important;
+    padding: 9px 18px !important;
+    border-radius: 50px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--shadow-xs) !important;
+    white-space: nowrap !important;
+}
+
+#sjacademy-landing .hero-feature-item i {
+    color: var(--orange) !important;
+    font-size: 14px !important;
+}
+
+#sjacademy-landing .hero-ctas {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+}
+
+/* ===== 2. STATS BAR ===== */
+#sjacademy-landing .stats-bar {
+    background: var(--brown) !important;
+    padding: 0 !important;
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+#sjacademy-landing .stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+}
+
+#sjacademy-landing .stat-item {
+    padding: 32px 24px !important;
+    text-align: center !important;
+    border-right: 1px solid rgba(255,255,255,0.1) !important;
+    transition: background 0.3s ease !important;
+}
+
+#sjacademy-landing .stat-item:last-child {
+    border-right: none !important;
+}
+
+#sjacademy-landing .stat-item:hover {
+    background: rgba(255,255,255,0.04) !important;
+}
+
+#sjacademy-landing .stat-number {
+    font-family: var(--font-heading) !important;
+    font-size: clamp(1.8rem, 3vw, 2.4rem) !important;
+    font-weight: 700 !important;
+    color: var(--yellow) !important;
+    line-height: 1 !important;
+    margin-bottom: 6px !important;
+    display: block !important;
+}
+
+#sjacademy-landing .stat-label {
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: rgba(255,255,255,0.7) !important;
+    letter-spacing: 0.3px !important;
+}
+
+/* ===== 3. SUBJECTS SECTION ===== */
+#sjacademy-landing .subjects-section {
+    padding: 80px 0 !important;
+    background: var(--white) !important;
+}
+
+#sjacademy-landing .section-header {
+    text-align: center !important;
+    margin-bottom: 50px !important;
+}
+
+#sjacademy-landing .section-eyebrow {
+    display: inline-block !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    color: var(--orange) !important;
+    margin-bottom: 12px !important;
+}
+
+#sjacademy-landing .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem) !important;
+    font-weight: 700 !important;
+    color: var(--black) !important;
+    margin-bottom: 14px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.5px !important;
+}
+
+#sjacademy-landing .section-subtitle {
+    font-size: 1rem !important;
+    color: var(--text-muted) !important;
+    max-width: 650px !important;
+    margin: 0 auto !important;
+    line-height: 1.6 !important;
+}
+
+#sjacademy-landing .section-subtitle strong {
+    color: var(--black) !important;
+}
+
+/* Tabs */
+#sjacademy-landing .tabs-nav {
+    display: inline-flex !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    margin: 0 auto 40px !important;
+    background: var(--surface) !important;
+    padding: 6px !important;
+    border-radius: 16px !important;
+    border: 1px solid var(--border) !important;
+}
+
+#sjacademy-landing .tab-btn {
+    background: transparent !important;
+    border: none !important;
+    padding: 12px 32px !important;
+    border-radius: 12px !important;
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    color: var(--text-muted) !important;
+    cursor: pointer !important;
+    transition: all 0.3s var(--ease) !important;
+    white-space: nowrap !important;
+}
+
+#sjacademy-landing .tab-btn:hover {
+    color: var(--black) !important;
+}
+
+#sjacademy-landing .tab-btn.active {
+    background: var(--black) !important;
+    color: var(--white) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+/* Subject Cards */
+#sjacademy-landing .tab-content {
+    display: none !important;
+}
+
+#sjacademy-landing .tab-content.active {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    gap: 16px !important;
+    animation: fadeInUp 0.4s var(--ease) forwards !important;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#sjacademy-landing .subject-card {
+    background: var(--surface) !important;
+    border-radius: 16px !important;
+    padding: 28px 20px !important;
+    text-align: center !important;
+    border: 1px solid var(--border) !important;
+    transition: all 0.3s var(--ease) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#sjacademy-landing .subject-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: var(--yellow) !important;
+    transform: scaleX(0) !important;
+    transition: transform 0.3s var(--ease) !important;
+    transform-origin: left !important;
+}
+
+#sjacademy-landing .subject-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-md) !important;
+    border-color: var(--yellow) !important;
+}
+
+#sjacademy-landing .subject-card:hover::before {
+    transform: scaleX(1) !important;
+}
+
+#sjacademy-landing .subject-icon {
+    width: 56px !important;
+    height: 56px !important;
+    background: var(--white) !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    color: var(--brown) !important;
+    margin-bottom: 14px !important;
+    box-shadow: var(--shadow-xs) !important;
+    transition: all 0.3s var(--ease) !important;
+}
+
+#sjacademy-landing .subject-card:hover .subject-icon {
+    background: var(--yellow) !important;
+    color: var(--black) !important;
+    transform: scale(1.08) !important;
+}
+
+#sjacademy-landing .subject-code {
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+    font-family: 'DM Mono', 'Courier New', monospace !important;
+    background: var(--white) !important;
+    padding: 3px 10px !important;
+    border-radius: 50px !important;
+    margin-bottom: 8px !important;
+    border: 1px solid var(--border) !important;
+    font-weight: 600 !important;
+}
+
+#sjacademy-landing .subject-name {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: var(--black) !important;
+    margin-bottom: 20px !important;
+    font-family: var(--font-heading) !important;
+}
+
+#sjacademy-landing .subject-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+}
+
+#sjacademy-landing .action-register {
+    width: 100% !important;
+    padding: 10px 15px !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    text-decoration: none !important;
+    transition: all 0.3s var(--ease) !important;
+    background: var(--yellow) !important;
+    color: var(--black) !important;
+    display: block !important;
+}
+
+#sjacademy-landing .subject-card:hover .action-register {
+    background: var(--black) !important;
+    color: var(--white) !important;
+}
+
+#sjacademy-landing .action-link {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: var(--text-muted) !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    transition: color 0.3s ease !important;
+    padding: 4px !important;
+    display: block !important;
+}
+
+#sjacademy-landing .action-link:hover {
+    color: var(--black) !important;
+    text-decoration: underline !important;
+}
+
+/* View More */
+#sjacademy-landing .view-more-container {
+    display: none !important;
+    text-align: center !important;
+    margin-top: 30px !important;
+}
+
+/* ===== 4. HOW IT WORKS ===== */
+#sjacademy-landing .how-section {
+    padding: 80px 0 !important;
+    background: var(--surface) !important;
+    border-top: 1px solid var(--border) !important;
+}
+
+#sjacademy-landing .steps-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 30px !important;
+    position: relative !important;
+}
+
+#sjacademy-landing .steps-grid::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 48px !important;
+    left: calc(16.67% + 15px) !important;
+    right: calc(16.67% + 15px) !important;
+    height: 2px !important;
+    background: var(--border) !important;
+    z-index: 0 !important;
+}
+
+#sjacademy-landing .step-card {
+    text-align: center !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+#sjacademy-landing .step-number {
+    width: 96px !important;
+    height: 96px !important;
+    background: var(--white) !important;
+    border: 3px solid var(--yellow) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 24px !important;
+    position: relative !important;
+}
+
+#sjacademy-landing .step-number i {
+    font-size: 32px !important;
+    color: var(--brown) !important;
+}
+
+#sjacademy-landing .step-number .step-idx {
+    position: absolute !important;
+    top: -6px !important;
+    right: -6px !important;
+    width: 28px !important;
+    height: 28px !important;
+    background: var(--orange) !important;
+    color: var(--white) !important;
+    border-radius: 50% !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 8px rgba(254,97,0,0.3) !important;
+}
+
+#sjacademy-landing .step-title {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    color: var(--black) !important;
+}
+
+#sjacademy-landing .step-desc {
+    font-size: 14px !important;
+    color: var(--text-muted) !important;
+    line-height: 1.6 !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+}
+
+/* ===== 5. FACULTY ===== */
+#sjacademy-landing .faculty-section {
+    padding: 80px 0 !important;
+    background: var(--white) !important;
+    border-top: 1px solid var(--border) !important;
+}
+
+#sjacademy-landing .bento-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    grid-auto-rows: auto !important;
+    gap: 20px !important;
+}
+
+#sjacademy-landing .teacher-card {
+    background: var(--surface) !important;
+    border-radius: 16px !important;
+    border: 1px solid var(--border) !important;
+    padding: 28px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: all 0.3s var(--ease) !important;
+}
+
+#sjacademy-landing .teacher-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-md) !important;
+    border-color: var(--orange) !important;
+}
+
+#sjacademy-landing .card-top {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+#sjacademy-landing .teacher-img-wrap {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    padding: 3px !important;
+    border: 2px solid var(--yellow) !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+}
+
+#sjacademy-landing .teacher-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+}
+
+#sjacademy-landing .teacher-name {
+    font-family: var(--font-heading) !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 6px !important;
+}
+
+#sjacademy-landing .teacher-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+}
+
+#sjacademy-landing .tag {
+    background: var(--white) !important;
+    color: var(--text-muted) !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    padding: 3px 10px !important;
+    border-radius: 50px !important;
+    text-transform: uppercase !important;
+    border: 1px solid var(--border) !important;
+    letter-spacing: 0.5px !important;
+}
+
+#sjacademy-landing .tag-highlight {
+    background: var(--yellow) !important;
+    color: var(--black) !important;
+    border-color: var(--yellow) !important;
+    font-weight: 700 !important;
+}
+
+#sjacademy-landing .teacher-bio-snippet {
+    font-size: 13px !important;
+    color: var(--text-muted) !important;
+    line-height: 1.6 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    flex-grow: 1 !important;
+}
+
+#sjacademy-landing .faculty-actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-top: 40px !important;
+}
+
+/* ===== 6. WHAT'S INCLUDED ===== */
+#sjacademy-landing .included-section {
+    padding: 80px 0 !important;
+    background: var(--surface) !important;
+    border-top: 1px solid var(--border) !important;
+}
+
+#sjacademy-landing .included-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+    gap: 16px !important;
+}
+
+#sjacademy-landing .included-item {
+    background: var(--white) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 14px !important;
+    padding: 24px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    transition: all 0.3s var(--ease) !important;
+}
+
+#sjacademy-landing .included-item:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-sm) !important;
+    border-color: var(--yellow) !important;
+}
+
+#sjacademy-landing .included-icon {
+    width: 44px !important;
+    height: 44px !important;
+    background: var(--yellow) !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    color: var(--black) !important;
+    flex-shrink: 0 !important;
+}
+
+#sjacademy-landing .included-text h4 {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+    font-family: var(--font-heading) !important;
+}
+
+#sjacademy-landing .included-text p {
+    font-size: 13px !important;
+    color: var(--text-muted) !important;
+    line-height: 1.5 !important;
+}
+
+/* ===== 7. TESTIMONIALS ===== */
+#sjacademy-landing .testimonials-section {
+    padding: 80px 0 !important;
+    background: var(--brown) !important;
+    color: var(--white) !important;
+    overflow: hidden !important;
+}
+
+#sjacademy-landing .testimonials-section .section-eyebrow {
+    color: var(--yellow) !important;
+}
+
+#sjacademy-landing .testimonials-section .section-title {
+    color: var(--white) !important;
+}
+
+#sjacademy-landing .testimonials-section .section-subtitle {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+#sjacademy-landing .scrolling-reviews-container {
+    width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+    padding: 20px 0 !important;
+}
+
+#sjacademy-landing .scrolling-reviews-container::before,
+#sjacademy-landing .scrolling-reviews-container::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    width: 120px !important;
+    height: 100% !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+}
+
+#sjacademy-landing .scrolling-reviews-container::before {
+    left: 0 !important;
+    background: linear-gradient(to right, var(--brown), transparent) !important;
+}
+
+#sjacademy-landing .scrolling-reviews-container::after {
+    right: 0 !important;
+    background: linear-gradient(to left, var(--brown), transparent) !important;
+}
+
+#sjacademy-landing .scrolling-reviews-track {
+    display: flex !important;
+    gap: 20px !important;
+    width: max-content !important;
+    animation: scrollReviews 45s linear infinite !important;
+}
+
+#sjacademy-landing .scrolling-reviews-track:hover {
+    animation-play-state: paused !important;
+}
+
+@keyframes scrollReviews {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); }
+}
+
+#sjacademy-landing .testimonial-card {
+    background: var(--white) !important;
+    border-radius: 16px !important;
+    padding: 28px !important;
+    color: var(--black) !important;
+    width: 340px !important;
+    flex-shrink: 0 !important;
+    box-shadow: var(--shadow-sm) !important;
+    position: relative !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+#sjacademy-landing .testimonial-card::before {
+    content: '\201C' !important;
+    position: absolute !important;
+    top: 12px !important;
+    right: 20px !important;
+    font-size: 60px !important;
+    font-family: Georgia, serif !important;
+    color: rgba(252,224,4,0.25) !important;
+    line-height: 1 !important;
+}
+
+#sjacademy-landing .testimonial-text {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    color: var(--grey) !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+#sjacademy-landing .testimonial-text strong {
+    color: var(--black) !important;
+    background: linear-gradient(120deg, rgba(252,224,4,0.4) 0%, rgba(252,224,4,0.4) 100%) !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% 35% !important;
+    background-position: 0 88% !important;
+}
+
+#sjacademy-landing .testimonial-author {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+#sjacademy-landing .author-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: var(--yellow) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    color: var(--black) !important;
+    flex-shrink: 0 !important;
+}
+
+#sjacademy-landing .author-info h4 {
+    font-family: var(--font-heading) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    color: var(--black) !important;
+}
+
+#sjacademy-landing .stars {
+    color: var(--orange) !important;
+    font-size: 10px !important;
+    margin-top: 3px !important;
+    display: flex !important;
+    gap: 2px !important;
+}
+
+#sjacademy-landing .reviews-cta {
+    text-align: center !important;
+    margin-top: 40px !important;
+}
+
+/* ===== 8. FAQ ===== */
+#sjacademy-landing .faq-section {
+    padding: 80px 0 !important;
+    background: var(--white) !important;
+    border-top: 1px solid var(--border) !important;
+}
+
+#sjacademy-landing .faq-list {
+    max-width: 780px !important;
+    margin: 0 auto !important;
+}
+
+#sjacademy-landing .faq-item {
+    border: 1px solid var(--border) !important;
+    border-radius: 14px !important;
+    margin-bottom: 10px !important;
+    overflow: hidden !important;
+    transition: all 0.3s var(--ease) !important;
+    background: var(--surface) !important;
+}
+
+#sjacademy-landing .faq-item:hover {
+    border-color: var(--yellow) !important;
+}
+
+#sjacademy-landing .faq-item.active {
+    border-color: var(--yellow) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+#sjacademy-landing .faq-question {
+    width: 100% !important;
+    background: none !important;
+    border: none !important;
+    padding: 20px 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    cursor: pointer !important;
+    font-family: var(--font-heading) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--black) !important;
+    text-align: left !important;
+    line-height: 1.4 !important;
+    transition: color 0.3s ease !important;
+}
+
+#sjacademy-landing .faq-question i {
+    font-size: 14px !important;
+    color: var(--text-muted) !important;
+    transition: transform 0.3s var(--ease) !important;
+    flex-shrink: 0 !important;
+}
+
+#sjacademy-landing .faq-item.active .faq-question i {
+    transform: rotate(180deg) !important;
+    color: var(--orange) !important;
+}
+
+#sjacademy-landing .faq-answer {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.4s var(--ease), padding 0.3s var(--ease) !important;
+}
+
+#sjacademy-landing .faq-item.active .faq-answer {
+    max-height: 300px !important;
+}
+
+#sjacademy-landing .faq-answer-inner {
+    padding: 0 24px 20px !important;
+    font-size: 14px !important;
+    color: var(--text-muted) !important;
+    line-height: 1.7 !important;
+}
+
+#sjacademy-landing .faq-answer-inner a {
+    color: var(--orange) !important;
+    font-weight: 600 !important;
+    text-decoration: underline !important;
+}
+
+/* ===== 9. TIMETABLE BANNER ===== */
+#sjacademy-landing .timetable-banner {
+    background: var(--surface) !important;
+    padding: 50px 0 !important;
+    border-top: 1px solid var(--border) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+#sjacademy-landing .banner-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 24px !important;
+}
+
+#sjacademy-landing .banner-text h3 {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    margin-bottom: 6px !important;
+}
+
+#sjacademy-landing .banner-text p {
+    color: var(--text-muted) !important;
+    font-size: 15px !important;
+}
+
+/* ===== 10. FINAL CTA ===== */
+#sjacademy-landing .final-cta {
+    background: var(--white) !important;
+    padding: 80px 0 100px !important;
+}
+
+#sjacademy-landing .cta-box {
+    background: linear-gradient(135deg, var(--yellow) 0%, #FDE84D 100%) !important;
+    border-radius: 24px !important;
+    padding: 50px 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 40px !important;
+    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,0.04) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#sjacademy-landing .cta-box::before {
+    content: '' !important;
+    position: absolute !important;
+    width: 300px !important;
+    height: 300px !important;
+    border-radius: 50% !important;
+    background: rgba(255,255,255,0.15) !important;
+    top: -100px !important;
+    right: -50px !important;
+    pointer-events: none !important;
+}
+
+#sjacademy-landing .cta-text { flex: 1 !important; position: relative !important; z-index: 1 !important; }
+
+#sjacademy-landing .final-cta h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem) !important;
+    font-weight: 700 !important;
+    color: var(--black) !important;
+    margin-bottom: 12px !important;
+    line-height: 1.1 !important;
+    letter-spacing: -1px !important;
+}
+
+#sjacademy-landing .final-cta p {
+    font-size: 16px !important;
+    color: var(--brown) !important;
+    font-weight: 500 !important;
+    max-width: 500px !important;
+    line-height: 1.5 !important;
+}
+
+#sjacademy-landing .cta-action { position: relative !important; z-index: 1 !important; }
+
+/* ===== 11. FLOATING WHATSAPP ===== */
+#sjacademy-landing .floating-whatsapp {
+    position: fixed !important;
+    bottom: 28px !important;
+    right: 28px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: var(--green) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 28px !important;
+    color: var(--white) !important;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4) !important;
+    z-index: 9998 !important;
+    transition: all 0.3s var(--ease) !important;
+    text-decoration: none !important;
+    animation: whatsappBounce 3s ease-in-out infinite !important;
+}
+
+#sjacademy-landing .floating-whatsapp:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 30px rgba(37,211,102,0.5) !important;
+}
+
+@keyframes whatsappBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ===== 12. STICKY MOBILE BAR ===== */
+#sjacademy-landing .sticky-mobile-bar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: var(--white) !important;
+    border-top: 1px solid var(--border) !important;
+    padding: 10px 16px !important;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+    display: flex !important;
+    gap: 10px !important;
+    z-index: 9999 !important;
+    transform: translateY(100%) !important;
+    transition: transform 0.4s var(--ease) !important;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08) !important;
+}
+
+#sjacademy-landing .sticky-mobile-bar.visible {
+    transform: translateY(0) !important;
+}
+
+#sjacademy-landing .sticky-mobile-bar .sticky-register {
+    flex: 1 !important;
+    background: var(--yellow) !important;
+    color: var(--black) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 14px !important;
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+#sjacademy-landing .sticky-mobile-bar .sticky-wa {
+    width: 50px !important;
+    background: var(--green) !important;
+    color: var(--white) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-size: 22px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    flex-shrink: 0 !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    #sjacademy-landing .steps-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+    }
+    #sjacademy-landing .steps-grid::before { display: none !important; }
+}
+
+@media (max-width: 768px) {
+    #sjacademy-landing { padding-bottom: 80px !important; }
+
+    #sjacademy-landing .hero { padding: 50px 0 60px !important; }
+    #sjacademy-landing .hero-title { font-size: 2rem !important; }
+    #sjacademy-landing .hero-ctas { flex-direction: column !important; }
+    #sjacademy-landing .hero-ctas .btn { width: 100% !important; }
+    #sjacademy-landing .hero-feature-item { font-size: 12px !important; padding: 7px 14px !important; }
+    #sjacademy-landing .countdown-wrapper { gap: 8px !important; }
+    #sjacademy-landing .countdown-unit { min-width: 62px !important; padding: 10px 12px !important; }
+    #sjacademy-landing .countdown-number { font-size: 1.6rem !important; }
+
+    #sjacademy-landing .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    #sjacademy-landing .stat-item { padding: 24px 16px !important; }
+    #sjacademy-landing .stat-item:nth-child(2) { border-right: none !important; }
+    #sjacademy-landing .stat-item:nth-child(1),
+    #sjacademy-landing .stat-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.1) !important; }
+
+    #sjacademy-landing .subjects-section,
+    #sjacademy-landing .how-section,
+    #sjacademy-landing .faculty-section,
+    #sjacademy-landing .included-section,
+    #sjacademy-landing .testimonials-section,
+    #sjacademy-landing .faq-section { padding: 60px 0 !important; }
+
+    #sjacademy-landing .tabs-nav { width: 100% !important; }
+    #sjacademy-landing .tab-btn { flex: 1 !important; padding: 12px 16px !important; font-size: 14px !important; }
+
+    #sjacademy-landing .tab-content.active {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    #sjacademy-landing .subject-card { padding: 18px 12px !important; }
+    #sjacademy-landing .subject-icon { width: 42px !important; height: 42px !important; font-size: 18px !important; margin-bottom: 10px !important; border-radius: 12px !important; }
+    #sjacademy-landing .subject-name { font-size: 14px !important; margin-bottom: 14px !important; }
+    #sjacademy-landing .subject-code { font-size: 10px !important; }
+    #sjacademy-landing .action-register { font-size: 11px !important; padding: 9px 10px !important; }
+
+    /* Hide subjects beyond 6 on mobile */
+    #sjacademy-landing .tab-content:not(.show-all) .subject-card:nth-child(n+7) { display: none !important; }
+    #sjacademy-landing .view-more-container { display: block !important; }
+
+    /* Faculty mobile */
+    #sjacademy-landing .bento-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+    #sjacademy-landing .teacher-card { padding: 18px 14px !important; }
+    #sjacademy-landing .card-top { flex-direction: column !important; text-align: center !important; gap: 10px !important; margin-bottom: 12px !important; }
+    #sjacademy-landing .teacher-img-wrap { width: 64px !important; height: 64px !important; }
+    #sjacademy-landing .teacher-name { font-size: 15px !important; }
+    #sjacademy-landing .teacher-tags { justify-content: center !important; }
+    #sjacademy-landing .tag { font-size: 9px !important; padding: 3px 7px !important; }
+    #sjacademy-landing .teacher-bio-snippet { font-size: 12px !important; -webkit-line-clamp: 3 !important; }
+    #sjacademy-landing .teacher-card:nth-child(n+7) { display: none !important; }
+
+    /* Included mobile */
+    #sjacademy-landing .included-grid { grid-template-columns: 1fr !important; }
+
+    /* FAQ mobile */
+    #sjacademy-landing .faq-question { font-size: 14px !important; padding: 16px 18px !important; }
+
+    /* Banner mobile */
+    #sjacademy-landing .banner-inner { flex-direction: column !important; text-align: center !important; gap: 20px !important; }
+
+    /* Final CTA mobile */
+    #sjacademy-landing .cta-box { flex-direction: column !important; padding: 36px 28px !important; gap: 24px !important; text-align: left !important; }
+    #sjacademy-landing .cta-action, #sjacademy-landing .cta-box .btn { width: 100% !important; text-align: center !important; }
+
+    /* Hide floating WhatsApp on mobile (sticky bar replaces it) */
+    #sjacademy-landing .floating-whatsapp { display: none !important; }
+
+    /* Testimonial cards mobile */
+    #sjacademy-landing .testimonial-card { width: 280px !important; padding: 22px !important; }
+}
+
+@media (max-width: 420px) {
+    #sjacademy-landing .hero-title { font-size: 1.7rem !important; }
+    #sjacademy-landing .tab-content.active { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+    #sjacademy-landing .subject-card { padding: 14px 8px !important; }
+    #sjacademy-landing .bento-grid { grid-template-columns: 1fr !important; }
+    #sjacademy-landing .teacher-card:nth-child(n+7) { display: none !important; }
+    #sjacademy-landing .steps-grid { max-width: 100% !important; }
+}
+</style>
+
+<div id="sjacademy-landing">
+
+    <!-- ===== 1. HERO ===== -->
+    <section class="hero">
+        <div class="sja-container">
+            <div class="hero-content">
+                <div class="hero-badge anim"><i class="fa-solid fa-graduation-cap"></i> May/June 2027 Session</div>
+                <h1 class="hero-title anim anim-delay-1">
+                    Secure <span class="highlight">A* Grades</span> in O/A Levels & IGCSE
+                </h1>
+
+                <!-- Countdown Timer -->
+                <div class="countdown-wrapper anim anim-delay-2" id="sja-countdown">
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="cd-days">--</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="cd-hours">--</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="cd-mins">--</span>
+                        <span class="countdown-label">Mins</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="cd-secs">--</span>
+                        <span class="countdown-label">Secs</span>
+                    </div>
+                </div>
+
+                <div class="hero-dates anim anim-delay-2">
+                    <i class="fa-regular fa-calendar-check"></i> Classes starting from 3rd August, 2026
+                </div>
+
+                <p class="hero-subtitle anim anim-delay-3">
+                    Study with top educators from <strong>KGS, LUMS, IBA, and NED</strong>. We don't just teach the syllabus &mdash; we decode the exam format to guarantee your success.<br>
+                    <strong style="font-size:0.9rem;color:var(--orange);">Note: Onsite classes are for Karachi students only.</strong>
+                </p>
+
+                <div class="hero-features anim anim-delay-3">
+                    <div class="hero-feature-item"><i class="fa-solid fa-video"></i> Live & Onsite</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-cloud-arrow-down"></i> Recorded Lectures</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-book-open"></i> Complete Resources</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-file-signature"></i> Past Papers</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-check-double"></i> Mock Exams</div>
+                </div>
+
+                <div class="hero-ctas anim anim-delay-4">
+                    <a href="https://www.sjacademy.pk/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="btn btn-yellow btn-pulse">
+                        <i class="fa-solid fa-pen-to-square"></i> Register For Class
+                    </a>
+                    <a href="https://wa.me/923362144454" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 2. STATS BAR ===== -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item anim">
+                <span class="stat-number"><span class="counter" data-target="450">0</span>+</span>
+                <span class="stat-label">A* Grades Achieved</span>
+            </div>
+            <div class="stat-item anim anim-delay-1">
+                <span class="stat-number"><span class="counter" data-target="8">0</span>+</span>
+                <span class="stat-label">Years of Experience</span>
+            </div>
+            <div class="stat-item anim anim-delay-2">
+                <span class="stat-number"><span class="counter" data-target="24">0</span>+</span>
+                <span class="stat-label">Subjects Offered</span>
+            </div>
+            <div class="stat-item anim anim-delay-3">
+                <span class="stat-number">4.9 <i class="fa-solid fa-star" style="font-size:0.6em;vertical-align:middle;"></i></span>
+                <span class="stat-label">Google Rating</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 3. SUBJECTS ===== -->
+    <section class="subjects-section">
+        <div class="sja-container">
+            <div class="section-header anim">
+                <div class="section-eyebrow">Browse Our Programs</div>
+                <h2 class="section-title">O Level & A Level Classes</h2>
+                <p class="section-subtitle">Looking for the best <strong>A level academy</strong> or <strong>O level classes</strong>? Select your level to view subjects and register instantly.</p>
+            </div>
+
+            <div style="text-align:center;" class="anim">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-target="o-level-grid">O Level & IGCSE</button>
+                    <button class="tab-btn" data-target="a-level-grid">AS & A Level</button>
+                </div>
+            </div>
+
+            <div class="tab-content active" id="o-level-grid"></div>
+            <div class="tab-content" id="a-level-grid"></div>
+
+            <div class="view-more-container">
+                <button class="btn btn-outline" id="view-more-subjects">View All Subjects <i cl
+<truncated 31718 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.

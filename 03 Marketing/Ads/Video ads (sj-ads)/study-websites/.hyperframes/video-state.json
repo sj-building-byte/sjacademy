@@ -1,0 +1,3568 @@
+{
+  "version": 1,
+  "historyId": "28950c97-9d6e-40da-858d-80de69e8247d",
+  "currentRevision": "eca9caf1-34d2-48cf-a159-565eb03c3246",
+  "pendingChanges": false,
+  "files": {
+    "BRIEF.md": {
+      "hash": "d5251ebd8befa89800907f7a9eda9c4653c0c8e7227a18d7c075954a69c0d01d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d5/d5251ebd8befa89800907f7a9eda9c4653c0c8e7227a18d7c075954a69c0d01d"
+    },
+    "CLAUDE.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "assets/brand/Caveat-600.woff2": {
+      "hash": "1c591acdadd5ea398bad6aa21b36498dde59035ad366d1dbb05bbc0e537e7bc9",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1c/1c591acdadd5ea398bad6aa21b36498dde59035ad366d1dbb05bbc0e537e7bc9"
+    },
+    "assets/brand/Poppins-Bold.ttf": {
+      "hash": "983676516167748b74de6f4771fb384c664fd913acb8b471122ecacf5da5ea6c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/98/983676516167748b74de6f4771fb384c664fd913acb8b471122ecacf5da5ea6c"
+    },
+    "assets/brand/Poppins-ExtraBold.ttf": {
+      "hash": "f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f2/f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1"
+    },
+    "assets/brand/Poppins-Medium.ttf": {
+      "hash": "90373e7d838d32468438fc3e152dca0bdb12edcab99ea639f158790b1ba1fd05",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/90/90373e7d838d32468438fc3e152dca0bdb12edcab99ea639f158790b1ba1fd05"
+    },
+    "assets/brand/Poppins-SemiBold.ttf": {
+      "hash": "d3bf1bdaf0550e83da9ac0b1d1d9fe6db086835a83aa28578e609a394b9a0286",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d3/d3bf1bdaf0550e83da9ac0b1d1d9fe6db086835a83aa28578e609a394b9a0286"
+    },
+    "assets/brand/sj-academy-icon-on-light.svg": {
+      "hash": "ec382fb1050b8244e874ba3089cec93e1c6eff5d1ce956ebd49fb51866c52948",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ec/ec382fb1050b8244e874ba3089cec93e1c6eff5d1ce956ebd49fb51866c52948"
+    },
+    "assets/brand/sj-academy-icon-on-yellow.svg": {
+      "hash": "951100fff5d641b8d8fd88bce4da8f1943d6e0edfb0f68d1e56e8e90f98ca9dd",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/95/951100fff5d641b8d8fd88bce4da8f1943d6e0edfb0f68d1e56e8e90f98ca9dd"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-brown.svg": {
+      "hash": "52fb4a8cb35af4e8cb1d7f30936bbcf332977915b2ca2c2a5b893ef41388cf27",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/52/52fb4a8cb35af4e8cb1d7f30936bbcf332977915b2ca2c2a5b893ef41388cf27"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-light.svg": {
+      "hash": "aced0eac9c4c36ddf0e3919783c884125ce4c091ff7fe4f7a24890431ee2bc45",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ac/aced0eac9c4c36ddf0e3919783c884125ce4c091ff7fe4f7a24890431ee2bc45"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-yellow.svg": {
+      "hash": "75de124bcf0fe73d2d7f7d9d2ee6914932902372f6a995cec95bb6b1a9f79695",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/75/75de124bcf0fe73d2d7f7d9d2ee6914932902372f6a995cec95bb6b1a9f79695"
+    },
+    "assets/brand/sj-academy-logo-stacked-on-yellow.svg": {
+      "hash": "550e9853a6114686e9e7c595c1280e63e58d5d143633b8ab4a3a24503f3fd196",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/55/550e9853a6114686e9e7c595c1280e63e58d5d143633b8ab4a3a24503f3fd196"
+    },
+    "assets/captures/desmos-eq.png": {
+      "hash": "cd5357e053b870d51bab56fd63d074c1e7b3ec949d0debf8d5f8bae1bf185c23",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cd/cd5357e053b870d51bab56fd63d074c1e7b3ec949d0debf8d5f8bae1bf185c23"
+    },
+    "assets/captures/desmos-graph.png": {
+      "hash": "d90c02537afcfaaaba77aca1c276e96660f1f434ea9654f3459ebe3999796f3e",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d9/d90c02537afcfaaaba77aca1c276e96660f1f434ea9654f3459ebe3999796f3e"
+    },
+    "assets/captures/desmos-one.jpg": {
+      "hash": "9b41b825312441528fa6a2f6b27b8898ac3cded11241b3d6a3a9cbd16da98fdb",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/9b/9b41b825312441528fa6a2f6b27b8898ac3cded11241b3d6a3a9cbd16da98fdb"
+    },
+    "assets/captures/desmos-solved.jpg": {
+      "hash": "3a25f2f776a03f88c4c7eac799ab17d6e02a3555d52405d7ec39c85b7b4f6c84",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/3a/3a25f2f776a03f88c4c7eac799ab17d6e02a3555d52405d7ec39c85b7b4f6c84"
+    },
+    "assets/captures/grade-cards.png": {
+      "hash": "1faaa97d6047211e782f4165c2270a7269ced0bfab80b94b6d91efe397d30d3d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1f/1faaa97d6047211e782f4165c2270a7269ced0bfab80b94b6d91efe397d30d3d"
+    },
+    "assets/captures/grade-strategy.jpg": {
+      "hash": "b0283547e28eb56c5c2ea95167f9b904d754f4a1de8f52ed86ad2d7cfe67f035",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/b0/b0283547e28eb56c5c2ea95167f9b904d754f4a1de8f52ed86ad2d7cfe67f035"
+    },
+    "hyperframes.json": {
+      "hash": "ad5dadeef78a520800a9e5cdd27a92ff5ac37f11b6a07f611b6b52b9f8c79a17",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ad/ad5dadeef78a520800a9e5cdd27a92ff5ac37f11b6a07f611b6b52b9f8c79a17"
+    },
+    "index.html": {
+      "hash": "4e6639f93b7e84da77d9541c9bf662e718d173184e4077b37f15aae405599105",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/4e/4e6639f93b7e84da77d9541c9bf662e718d173184e4077b37f15aae405599105"
+    },
+    "meta.json": {
+      "hash": "c29d6c855b42336eab337bd5c08f3a4acdbc85cf58c5b67b96d270fab804f649",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c2/c29d6c855b42336eab337bd5c08f3a4acdbc85cf58c5b67b96d270fab804f649"
+    },
+    "package.json": {
+      "hash": "4702efa74cfb089a281a632ae57aa425b549fe782b1b5c5df517c717fc663c36",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/47/4702efa74cfb089a281a632ae57aa425b549fe782b1b5c5df517c717fc663c36"
+    },
+    "frames/v1/contact-sheet.jpg": {
+      "hash": "effbf323807bc06b40b2ff30a3c172c1f96d6e216dfc8b5d65cffb85b06d3790",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ef/effbf323807bc06b40b2ff30a3c172c1f96d6e216dfc8b5d65cffb85b06d3790"
+    },
+    "frames/v1/frame-00-at-0.5s.png": {
+      "hash": "8eafdb9d79d30e403fb288a52b7e2bd76480cbf4f87b03bf88bbcecdb734307a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8e/8eafdb9d79d30e403fb288a52b7e2bd76480cbf4f87b03bf88bbcecdb734307a"
+    },
+    "frames/v1/frame-01-at-1.5s.png": {
+      "hash": "4d0a51fef67062a06bbda55cded532b9c472a11163a4d2934105b9f9a175fd44",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/4d/4d0a51fef67062a06bbda55cded532b9c472a11163a4d2934105b9f9a175fd44"
+    },
+    "frames/v1/frame-02-at-2.5s.png": {
+      "hash": "5a28379d57cadedd5df7c6f2f05db3e6a8a426a03c1ed4d067d073ca848dec05",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/5a/5a28379d57cadedd5df7c6f2f05db3e6a8a426a03c1ed4d067d073ca848dec05"
+    },
+    "frames/v1/frame-03-at-3.5s.png": {
+      "hash": "36400df31cbe6a564bcf75ae0c0174e5a1082dd97ed179357980d7ed4c26681c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/36/36400df31cbe6a564bcf75ae0c0174e5a1082dd97ed179357980d7ed4c26681c"
+    },
+    "frames/v1/frame-04-at-4.5s.png": {
+      "hash": "e54e8aac898a6566d8b25882c98385950f0e56ee122dc6a6ec05e76007c39337",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e5/e54e8aac898a6566d8b25882c98385950f0e56ee122dc6a6ec05e76007c39337"
+    },
+    "frames/v1/frame-05-at-5.5s.png": {
+      "hash": "4893895f71346a1fea710bd58c953e0dd3e7dfde41d4eefb4fb09ec0c6c58ee8",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/48/4893895f71346a1fea710bd58c953e0dd3e7dfde41d4eefb4fb09ec0c6c58ee8"
+    },
+    "frames/v2/contact-sheet.jpg": {
+      "hash": "d322eb9900cd05fdb125b0c56d23d2e67eb464516c833ea9d10716e1e7e36b7c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d3/d322eb9900cd05fdb125b0c56d23d2e67eb464516c833ea9d10716e1e7e36b7c"
+    },
+    "frames/v2/frame-00-at-0.5s.png": {
+      "hash": "ce35ca8a10897ac51f116a07f7535a7b887506591c4e23088646901d736f5d75",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ce/ce35ca8a10897ac51f116a07f7535a7b887506591c4e23088646901d736f5d75"
+    },
+    "frames/v2/frame-01-at-1.5s.png": {
+      "hash": "04a0deeab44214ff2b490079fcecd5303b12a85854e0a684ba4e1348ea652573",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/04/04a0deeab44214ff2b490079fcecd5303b12a85854e0a684ba4e1348ea652573"
+    },
+    "frames/v2/frame-02-at-2.5s.png": {
+      "hash": "2270863ee4c713b102461e86d987ed81143601583740ef97f061ebc87274884e",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/22/2270863ee4c713b102461e86d987ed81143601583740ef97f061ebc87274884e"
+    },
+    "frames/v2/frame-03-at-3.5s.png": {
+      "hash": "28aa2e2f79f5a75f2157e0e9d0e0107a954abc6c94436843e8777c14287cc41a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/28/28aa2e2f79f5a75f2157e0e9d0e0107a954abc6c94436843e8777c14287cc41a"
+    },
+    "frames/v2/frame-04-at-4.5s.png": {
+      "hash": "7556e9b824c4c0b22673907ae96241643c09a4df361917b4c0815006d23b3a69",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/75/7556e9b824c4c0b22673907ae96241643c09a4df361917b4c0815006d23b3a69"
+    },
+    "frames/v2/frame-05-at-5.5s.png": {
+      "hash": "f38e66057b79883c2fe9b173c34b2b4e3c3f47e3a9b8a12d91cb94ae2193018d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f3/f38e66057b79883c2fe9b173c34b2b4e3c3f47e3a9b8a12d91cb94ae2193018d"
+    },
+    "assets/audio/mix.wav": {
+      "hash": "ce6c4b2d9b5037cb5f2a75d7364bd56cc4dca48c699c782898058894276883a8",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ce/ce6c4b2d9b5037cb5f2a75d7364bd56cc4dca48c699c782898058894276883a8"
+    },
+    "assets/audio/synthwave.mp3": {
+      "hash": "45b79996f595f1def8b92eafeb9baab6dcb9d6dc26d344f699b34ff7b83e9eb3",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/45/45b79996f595f1def8b92eafeb9baab6dcb9d6dc26d344f699b34ff7b83e9eb3"
+    },
+    "assets/audio/vo.wav": {
+      "hash": "93272f6d5ffe40dd2a4dc38413a580bf896332cbadac5f526816920c3279c5b2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/93/93272f6d5ffe40dd2a4dc38413a580bf896332cbadac5f526816920c3279c5b2"
+    },
+    "assets/captures/anki-home.jpg": {
+      "hash": "c0f5b03c47797c95e9ace9f31d45b912d213d87fe7dc4ed6cf0ebb480967dead",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c0/c0f5b03c47797c95e9ace9f31d45b912d213d87fe7dc4ed6cf0ebb480967dead"
+    },
+    "assets/captures/cambridge-command-words.jpg": {
+      "hash": "a2f5f58fc9850edd2a4866b6d1599fa7f7ae25b089b06efad1d3463f87a41118",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a2/a2f5f58fc9850edd2a4866b6d1599fa7f7ae25b089b06efad1d3463f87a41118"
+    },
+    "assets/captures/combos-result.jpg": {
+      "hash": "fd11d5a5240ef4ee4b3ded33c71ad3cf3ead1a10bf0b7b68e345991c6527bf73",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fd/fd11d5a5240ef4ee4b3ded33c71ad3cf3ead1a10bf0b7b68e345991c6527bf73"
+    },
+    "assets/captures/combos-step1.jpg": {
+      "hash": "0a32f5fffb6a776ae7eb84917db24ccf804c61e69e560b625256acdd01bf81de",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/0a/0a32f5fffb6a776ae7eb84917db24ccf804c61e69e560b625256acdd01bf81de"
+    },
+    "assets/captures/combos-step3.jpg": {
+      "hash": "d39c86150d3a5fa53dcdef9cd3c425b49734d57edf997413645c860d5499a1bf",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d3/d39c86150d3a5fa53dcdef9cd3c425b49734d57edf997413645c860d5499a1bf"
+    },
+    "assets/captures/papers-hero.jpg": {
+      "hash": "371a464617d98fd368eaf42ccfe1bdd726d0dfa13a3fe2bcd0e5083d1c362d4a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/37/371a464617d98fd368eaf42ccfe1bdd726d0dfa13a3fe2bcd0e5083d1c362d4a"
+    },
+    "assets/captures/papers-table.jpg": {
+      "hash": "1276825942235104a16cc67e65e80fa614a7eeb1a9f8399244da3e58e7890644",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/12/1276825942235104a16cc67e65e80fa614a7eeb1a9f8399244da3e58e7890644"
+    },
+    "assets/captures/phet-1000.jpg": {
+      "hash": "ff1b734d472148cc311d6565cf3404ff82ca9c7baa4986093766f7bf6e09be4c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ff/ff1b734d472148cc311d6565cf3404ff82ca9c7baa4986093766f7bf6e09be4c"
+    },
+    "assets/captures/phet-500.jpg": {
+      "hash": "83bd596d3aa9849ac2960908b0e901fa5a162b8936443f73a05841f1e3d1b2c7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/83/83bd596d3aa9849ac2960908b0e901fa5a162b8936443f73a05841f1e3d1b2c7"
+    },
+    "assets/sfx/fx-boing.wav": {
+      "hash": "d1d74d23f0e34ff92603eac13a52a7480b6ac26406982bfc2bdc916ebd41eca4",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d1/d1d74d23f0e34ff92603eac13a52a7480b6ac26406982bfc2bdc916ebd41eca4"
+    },
+    "assets/sfx/fx-chime.wav": {
+      "hash": "048b5971eed4764d71712700556334d397a2317475de9928f239d417f5797bff",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/04/048b5971eed4764d71712700556334d397a2317475de9928f239d417f5797bff"
+    },
+    "assets/sfx/fx-impact.wav": {
+      "hash": "d5b4ec5248bd8d82e33eb8425d1d07c4b9b323aadc8b12eec4ed92fce958c907",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d5/d5b4ec5248bd8d82e33eb8425d1d07c4b9b323aadc8b12eec4ed92fce958c907"
+    },
+    "assets/sfx/fx-key.wav": {
+      "hash": "e2ddbb277f006d5d419b0768cc19f16298398adea26e6d8afa2ec0296f1cb593",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e2/e2ddbb277f006d5d419b0768cc19f16298398adea26e6d8afa2ec0296f1cb593"
+    },
+    "assets/sfx/fx-pop.wav": {
+      "hash": "5e7e6883ff4285d85874b14fbd6ce312530d70a4dba3b2bcb64b56a0cdf4edf1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/5e/5e7e6883ff4285d85874b14fbd6ce312530d70a4dba3b2bcb64b56a0cdf4edf1"
+    },
+    "assets/sfx/fx-riser.wav": {
+      "hash": "8fc46a5b2b0ad89066e7182d42a7331f4e7aca85b78bd90fab35c1ff4c09d079",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8f/8fc46a5b2b0ad89066e7182d42a7331f4e7aca85b78bd90fab35c1ff4c09d079"
+    },
+    "assets/sfx/fx-thud.wav": {
+      "hash": "def4a9fa1cd389224034f367bfb3bdb51add82233bf5b3e5c8d84e95d2f7e0b9",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/de/def4a9fa1cd389224034f367bfb3bdb51add82233bf5b3e5c8d84e95d2f7e0b9"
+    },
+    "assets/sfx/fx-tick.wav": {
+      "hash": "acb35b43117a12d4f38bb068430b3c8120554bd02d77b6f7263a7412ff20e6a1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ac/acb35b43117a12d4f38bb068430b3c8120554bd02d77b6f7263a7412ff20e6a1"
+    },
+    "assets/sfx/fx-twinkle.wav": {
+      "hash": "7fb8b6d4a05bd60743ba1f8e4f169f2ff0b04da3d90d88dbb5902664c040a793",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/7f/7fb8b6d4a05bd60743ba1f8e4f169f2ff0b04da3d90d88dbb5902664c040a793"
+    },
+    "assets/sfx/fx-whoosh.wav": {
+      "hash": "cbaf05199a6de16e4cfab86891bdfadebb66007fda204540c453a3571cd4759c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cb/cbaf05199a6de16e4cfab86891bdfadebb66007fda204540c453a3571cd4759c"
+    },
+    "assets/sfx/sj-sfx-highlighter-swipe.wav": {
+      "hash": "7fc0b9afcb3dce4c9de55ee5c1455eac619b6bcf84225b7e37d612b37f37712d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/7f/7fc0b9afcb3dce4c9de55ee5c1455eac619b6bcf84225b7e37d612b37f37712d"
+    },
+    "assets/sfx/sj-sfx-paper-slide.wav": {
+      "hash": "21e34aae928c6c844341da9e02f4af416067d604c7a0bfa8dced08661fea13b5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/21/21e34aae928c6c844341da9e02f4af416067d604c7a0bfa8dced08661fea13b5"
+    },
+    "assets/sfx/sj-sfx-pen-circle.wav": {
+      "hash": "6fe613e1dd69d092ad7f9b05bcb215e7177feb54e11ddd62e6759db23a40d086",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/6f/6fe613e1dd69d092ad7f9b05bcb215e7177feb54e11ddd62e6759db23a40d086"
+    },
+    "assets/sfx/sj-sfx-pen-tick.wav": {
+      "hash": "f41530e52a42c460b101d700eebb1e786df2f7ff52b49a9125ea61ca6d601fc7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f4/f41530e52a42c460b101d700eebb1e786df2f7ff52b49a9125ea61ca6d601fc7"
+    },
+    "assets/sfx/sj-sfx-stamp.wav": {
+      "hash": "346a71e4d598d6ed2d845280b5b0006b4bc9156d45c79d0d89cd83735a7d2f42",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/34/346a71e4d598d6ed2d845280b5b0006b4bc9156d45c79d0d89cd83735a7d2f42"
+    },
+    "assets/sfx/sj-sonic-logo-full.wav": {
+      "hash": "1f8feccc1c5b5a7451cc8c5cb49ad6e932e435990c8c6ad2a0772f335bc2839f",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1f/1f8feccc1c5b5a7451cc8c5cb49ad6e932e435990c8c6ad2a0772f335bc2839f"
+    },
+    "assets/sfx/sj-sonic-logo-short.wav": {
+      "hash": "ed330bf9db23e08abbebf5acd9822bec6b5a0699c488af7e4f88224f623d8af2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ed/ed330bf9db23e08abbebf5acd9822bec6b5a0699c488af7e4f88224f623d8af2"
+    },
+    "frames/v3/contact-sheet.jpg": {
+      "hash": "fc854c341dd0a4f23876db6407bc8139708bd197e0bfc6226a31b1f5bd66484c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fc/fc854c341dd0a4f23876db6407bc8139708bd197e0bfc6226a31b1f5bd66484c"
+    },
+    "frames/v3/frame-00-at-0.5s.png": {
+      "hash": "ce35ca8a10897ac51f116a07f7535a7b887506591c4e23088646901d736f5d75",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ce/ce35ca8a10897ac51f116a07f7535a7b887506591c4e23088646901d736f5d75"
+    },
+    "frames/v3/frame-01-at-1.5s.png": {
+      "hash": "04a0deeab44214ff2b490079fcecd5303b12a85854e0a684ba4e1348ea652573",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/04/04a0deeab44214ff2b490079fcecd5303b12a85854e0a684ba4e1348ea652573"
+    },
+    "frames/v3/frame-02-at-2.5s.png": {
+      "hash": "2270863ee4c713b102461e86d987ed81143601583740ef97f061ebc87274884e",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/22/2270863ee4c713b102461e86d987ed81143601583740ef97f061ebc87274884e"
+    },
+    "frames/v3/frame-03-at-3.5s.png": {
+      "hash": "28aa2e2f79f5a75f2157e0e9d0e0107a954abc6c94436843e8777c14287cc41a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/28/28aa2e2f79f5a75f2157e0e9d0e0107a954abc6c94436843e8777c14287cc41a"
+    },
+    "frames/v3/frame-04-at-4.5s.png": {
+      "hash": "e0257f5cf9e8fa1d94a46d603a7c9ffa32c28ba191a781e45a285a9a106ddd5b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e0/e0257f5cf9e8fa1d94a46d603a7c9ffa32c28ba191a781e45a285a9a106ddd5b"
+    },
+    "frames/v3/frame-05-at-5.5s.png": {
+      "hash": "ed165ed6461a18d07f528d8464ca42b768ce1cd141809b575e782def183f3e45",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ed/ed165ed6461a18d07f528d8464ca42b768ce1cd141809b575e782def183f3e45"
+    },
+    "frames/build1/contact-sheet-1.jpg": {
+      "hash": "f35b2bf78b304b2da53b46450bc85dc3c2fe549c76e43cb02672c81126f9b428",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f3/f35b2bf78b304b2da53b46450bc85dc3c2fe549c76e43cb02672c81126f9b428"
+    },
+    "frames/build1/contact-sheet-2.jpg": {
+      "hash": "a2e09342f824eebf5fd43f0e91bbb7dfca3d1e9774a0502c7091ba5bc5038420",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a2/a2e09342f824eebf5fd43f0e91bbb7dfca3d1e9774a0502c7091ba5bc5038420"
+    },
+    "frames/build1/contact-sheet-3.jpg": {
+      "hash": "25321d3f44a51fc5265dc656566bdf4808ffc76e6e71a4d55543dc616929b289",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/25/25321d3f44a51fc5265dc656566bdf4808ffc76e6e71a4d55543dc616929b289"
+    },
+    "frames/build1/frame-00-at-1.2s.png": {
+      "hash": "d4928e70eab40bf0e1aede8b4a8a204b797bd2219457a4d5a258a7ff572d66e5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d4/d4928e70eab40bf0e1aede8b4a8a204b797bd2219457a4d5a258a7ff572d66e5"
+    },
+    "frames/build1/frame-01-at-3.9s.png": {
+      "hash": "8bdd78c47f4a2387603d3c1e196f9f8bfa712ca3e0f01181c77f9b4493600f30",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8b/8bdd78c47f4a2387603d3c1e196f9f8bfa712ca3e0f01181c77f9b4493600f30"
+    },
+    "frames/build1/frame-02-at-4.7s.png": {
+      "hash": "ab67203c24f1a0db5c84f3babfaf4a8199de7afa8c6c3aea7b263fce66245549",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ab/ab67203c24f1a0db5c84f3babfaf4a8199de7afa8c6c3aea7b263fce66245549"
+    },
+    "frames/build1/frame-03-at-9.8s.png": {
+      "hash": "c2ff484f7a660d1b71837228d54dc41153344f35cd26497d38bcdc9d9a2e316d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c2/c2ff484f7a660d1b71837228d54dc41153344f35cd26497d38bcdc9d9a2e316d"
+    },
+    "frames/build1/frame-04-at-13.2s.png": {
+      "hash": "8845a1ca12daa787f686a5f2be35dfe01e680d9c4ce9debe4ef4b1835f5e7110",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/88/8845a1ca12daa787f686a5f2be35dfe01e680d9c4ce9debe4ef4b1835f5e7110"
+    },
+    "frames/build1/frame-05-at-16.2s.png": {
+      "hash": "3bf365324eb507c37cfa62c5655c61589cf58f3e025afe5ae0fd15899f567d8c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/3b/3bf365324eb507c37cfa62c5655c61589cf58f3e025afe5ae0fd15899f567d8c"
+    },
+    "frames/build1/frame-06-at-19.5s.png": {
+      "hash": "45fd3fe3a3a344e7888c129db22aa43ca0ba0a676bd281659111c474738fbfe4",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/45/45fd3fe3a3a344e7888c129db22aa43ca0ba0a676bd281659111c474738fbfe4"
+    },
+    "frames/build1/frame-07-at-24.5s.png": {
+      "hash": "1f97cadfa906bfdc724bff30e3f75df22e447d691532bab94dc680fbd7fb1648",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1f/1f97cadfa906bfdc724bff30e3f75df22e447d691532bab94dc680fbd7fb1648"
+    },
+    "frames/build1/frame-08-at-27.5s.png": {
+      "hash": "a56fe2801b09839afd97f222d126f42e87d03545645aafde76748b14bb78947a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a5/a56fe2801b09839afd97f222d126f42e87d03545645aafde76748b14bb78947a"
+    },
+    "frames/build1/frame-09-at-31.5s.png": {
+      "hash": "4deabff5e2e27a04a404b81329d204928eda6f7ebc5cc7845d5a67c9443f305d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/4d/4deabff5e2e27a04a404b81329d204928eda6f7ebc5cc7845d5a67c9443f305d"
+    },
+    "frames/build1/frame-10-at-37s.png": {
+      "hash": "d445d53800317892205768a71dc2020301717fbf6ad5cb6788ee584e11d30a2e",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d4/d445d53800317892205768a71dc2020301717fbf6ad5cb6788ee584e11d30a2e"
+    },
+    "frames/build1/frame-11-at-40.9s.png": {
+      "hash": "a54d1688e28d3746f49ce79b6e6c8a2ac79dce0a226ace6675626323aa29fdf2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a5/a54d1688e28d3746f49ce79b6e6c8a2ac79dce0a226ace6675626323aa29fdf2"
+    },
+    "frames/build1/frame-12-at-42.8s.png": {
+      "hash": "725f17da916fe99070d3d362239a7b51cbac593e9566515882d097357eb1975c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/72/725f17da916fe99070d3d362239a7b51cbac593e9566515882d097357eb1975c"
+    },
+    "frames/build1/frame-13-at-47.5s.png": {
+      "hash": "9341b91de7b31379ccab55a080af6dfde097173048f0eec7d5c2d8d476273179",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/93/9341b91de7b31379ccab55a080af6dfde097173048f0eec7d5c2d8d476273179"
+    },
+    "frames/build1/frame-14-at-52.2s.png": {
+      "hash": "79da365b2427f657f4fdb3877b50f18f59d0cf605a4de9d441703462242c5edc",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/79/79da365b2427f657f4fdb3877b50f18f59d0cf605a4de9d441703462242c5edc"
+    },
+    "frames/build1/frame-15-at-55s.png": {
+      "hash": "d39117e09f704c628f8796b23266c970a4fd90cd6810fac57f7f143a34d23b8b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d3/d39117e09f704c628f8796b23266c970a4fd90cd6810fac57f7f143a34d23b8b"
+    },
+    "frames/build1/frame-16-at-59s.png": {
+      "hash": "dd209c2a7f7372fc8fde27bcad6490ab5cd16f809a41358fff86ff5eda3cbbc8",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dd/dd209c2a7f7372fc8fde27bcad6490ab5cd16f809a41358fff86ff5eda3cbbc8"
+    },
+    "frames/build1/frame-17-at-62.2s.png": {
+      "hash": "a3f76b55a577b1f37d5ef60ef0869fe387e9d83d83f59025fac8fb07c257f60b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a3/a3f76b55a577b1f37d5ef60ef0869fe387e9d83d83f59025fac8fb07c257f60b"
+    },
+    "frames/build1/frame-18-at-64.3s.png": {
+      "hash": "42d912ebe2d3f267975701a263cdf5f9264a3cd2db92ce8e700900c435c2a928",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/42/42d912ebe2d3f267975701a263cdf5f9264a3cd2db92ce8e700900c435c2a928"
+    },
+    "frames/build1/frame-19-at-66.8s.png": {
+      "hash": "50f02b898497ef6306762763c89a78aa98d87f894dc7df346c39813081ddee61",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/50/50f02b898497ef6306762763c89a78aa98d87f894dc7df346c39813081ddee61"
+    },
+    "frames/build1/frame-20-at-69.5s.png": {
+      "hash": "25816d04a5456e55fb4226f0a25b4663043a6298d9884d08c4361608356eefb9",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/25/25816d04a5456e55fb4226f0a25b4663043a6298d9884d08c4361608356eefb9"
+    },
+    "frames/build2/contact-sheet.jpg": {
+      "hash": "cf3a432b59f201a012ec6ac20ae053ff0ad842f3f2b7b5c32edc7e8117494270",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cf/cf3a432b59f201a012ec6ac20ae053ff0ad842f3f2b7b5c32edc7e8117494270"
+    },
+    "frames/build2/frame-00-at-2.9s.png": {
+      "hash": "cddac3db8721c3de9322046d4cb873a994e895c646b3078fcb438099cfcdd49c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cd/cddac3db8721c3de9322046d4cb873a994e895c646b3078fcb438099cfcdd49c"
+    },
+    "frames/build2/frame-01-at-10s.png": {
+      "hash": "f7d66afe82f8da19075009946510154af62f4c9676242ecf2dbadc86c0a6307d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f7/f7d66afe82f8da19075009946510154af62f4c9676242ecf2dbadc86c0a6307d"
+    },
+    "frames/build2/frame-02-at-16.5s.png": {
+      "hash": "1018a4763d705c3d150e0e5025f5449148318119b1062e48f901c09fcda06048",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/10/1018a4763d705c3d150e0e5025f5449148318119b1062e48f901c09fcda06048"
+    },
+    "frames/build2/frame-03-at-24.6s.png": {
+      "hash": "65546665249bb13297c383c57eba2fddf6c149f79fc2bbb40e4a4bd0f57eaa2b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/65/65546665249bb13297c383c57eba2fddf6c149f79fc2bbb40e4a4bd0f57eaa2b"
+    },
+    "frames/build2/frame-04-at-40.9s.png": {
+      "hash": "ebd735e8cbcdf437c1d345bebb426a4b061394dcff16ee248ff78658a53bee7a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/eb/ebd735e8cbcdf437c1d345bebb426a4b061394dcff16ee248ff78658a53bee7a"
+    },
+    "frames/build2/frame-05-at-48.2s.png": {
+      "hash": "8fc80e9ee5f197c436e8f4fb9a9c006e5a415763ba2102b79297dab02d85b0e4",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8f/8fc80e9ee5f197c436e8f4fb9a9c006e5a415763ba2102b79297dab02d85b0e4"
+    },
+    "frames/build2/frame-06-at-58s.png": {
+      "hash": "36931bf817bdbbca3618709f7f2824961f5c5bbd8681c9f47dae7ea9d856b44f",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/36/36931bf817bdbbca3618709f7f2824961f5c5bbd8681c9f47dae7ea9d856b44f"
+    },
+    "frames/build2/frame-07-at-62.5s.png": {
+      "hash": "599fb9ceb67c3de74eeb0f9d50b565837971039803479e4266cb4afac930fec3",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/59/599fb9ceb67c3de74eeb0f9d50b565837971039803479e4266cb4afac930fec3"
+    },
+    "archive/v1/build.py": {
+      "hash": "65ab556583a9d3d02dceefded21a7019b0fd538dd6297e57ef217c94a13ab2be",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/65/65ab556583a9d3d02dceefded21a7019b0fd538dd6297e57ef217c94a13ab2be"
+    },
+    "archive/v1/mix.py": {
+      "hash": "ee56542179868de493e3494ac9bfc563b45175dceefc5a428e593c8ada952ce2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ee/ee56542179868de493e3494ac9bfc563b45175dceefc5a428e593c8ada952ce2"
+    },
+    "archive/v1/sj_reel_study-websites-speedrun_9x16_v1_2026-10-21.mp4": {
+      "hash": "2ce21822cdbee7f837758841e5fb456823c6aaa0a8734c8d650c09de01f4d874",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/2c/2ce21822cdbee7f837758841e5fb456823c6aaa0a8734c8d650c09de01f4d874"
+    },
+    "archive/v1/style.css": {
+      "hash": "d9975c90d9ad74b7ed72f565cf864bdfdbb94a3de51829f79c7af8a6313c6997",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d9/d9975c90d9ad74b7ed72f565cf864bdfdbb94a3de51829f79c7af8a6313c6997"
+    },
+    "archive/v1/timeline.js": {
+      "hash": "dadf88f55fccb61b54860bc257fbf07fd3cf93616aae267e4a27c319966c7799",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/da/dadf88f55fccb61b54860bc257fbf07fd3cf93616aae267e4a27c319966c7799"
+    },
+    "assets/audio/mix2.wav": {
+      "hash": "9af0e84e72081e8f4ae5f84b9441a7ba24aff342b851f593647741c84c662a69",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/9a/9af0e84e72081e8f4ae5f84b9441a7ba24aff342b851f593647741c84c662a69"
+    },
+    "assets/rec/anki.mp4": {
+      "hash": "457f97d0ede81b2ccd7968a94f2d4a03df3bbfa1e7e97398f407f53a3afe6d05",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/45/457f97d0ede81b2ccd7968a94f2d4a03df3bbfa1e7e97398f407f53a3afe6d05"
+    },
+    "assets/rec/combos.mp4": {
+      "hash": "d66f3714070aa528bfa567a2a8ac0a5bb71fd953d25109ae663fe96877ed2d55",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d6/d66f3714070aa528bfa567a2a8ac0a5bb71fd953d25109ae663fe96877ed2d55"
+    },
+    "assets/rec/desmos.mp4": {
+      "hash": "dc69c464d6639cc491a705bcc2a7e5c40f0cb9910cdb544d6a99b89a2585d7fe",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dc/dc69c464d6639cc491a705bcc2a7e5c40f0cb9910cdb544d6a99b89a2585d7fe"
+    },
+    "assets/rec/grade.mp4": {
+      "hash": "5647fb138d3ae54eef4cb1805b5d944768bfcb1182b83e716affbb674d89d5e0",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/56/5647fb138d3ae54eef4cb1805b5d944768bfcb1182b83e716affbb674d89d5e0"
+    },
+    "assets/rec/papers.mp4": {
+      "hash": "f585b5809fd7cb022def2ab5f2b7179b81061440005f6cd43f831b893fd6f4b7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f5/f585b5809fd7cb022def2ab5f2b7179b81061440005f6cd43f831b893fd6f4b7"
+    },
+    "assets/rec/phet.mp4": {
+      "hash": "d2c08800af8335232b7323aaa374926ac75ffd1e707bd6e9af2e90419f28770e",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d2/d2c08800af8335232b7323aaa374926ac75ffd1e707bd6e9af2e90419f28770e"
+    },
+    "assets/thumbs/t1.jpg": {
+      "hash": "20787c0dcd307540788c324b9bf3adf17f8ad5c2b1ed0850b93390846fa3bb4b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/20/20787c0dcd307540788c324b9bf3adf17f8ad5c2b1ed0850b93390846fa3bb4b"
+    },
+    "assets/thumbs/t2.jpg": {
+      "hash": "e685351e6bcd3adaa0a4007626744575901d61ab8d9127769b585494625a8320",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e6/e685351e6bcd3adaa0a4007626744575901d61ab8d9127769b585494625a8320"
+    },
+    "assets/thumbs/t3.jpg": {
+      "hash": "95de1330d5f454e8423b4c9510aac802098d2026ee4c11857500363bfe2a2e10",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/95/95de1330d5f454e8423b4c9510aac802098d2026ee4c11857500363bfe2a2e10"
+    },
+    "assets/thumbs/t4.jpg": {
+      "hash": "cc11f006252f9c616d34b972c70675f2fd0e431f9a8126a94b873791ebd5b2d1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cc/cc11f006252f9c616d34b972c70675f2fd0e431f9a8126a94b873791ebd5b2d1"
+    },
+    "assets/thumbs/t6.jpg": {
+      "hash": "c59ebd247e855b73df5fc3b5c28dacf7fac84ec0b46d41157ad0ecd1bb9003e8",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c5/c59ebd247e855b73df5fc3b5c28dacf7fac84ec0b46d41157ad0ecd1bb9003e8"
+    },
+    "assets/thumbs/t7.jpg": {
+      "hash": "bc4875eac14bf0a2284daa1c49fff9328e1a8b1a96e60cc23bb0dd4d75fa9845",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/bc/bc4875eac14bf0a2284daa1c49fff9328e1a8b1a96e60cc23bb0dd4d75fa9845"
+    },
+    "rec/all_sheet.jpg": {
+      "hash": "e46c83b320e7f82c7ca82dfeb3f3401c13751735639bc5963582915d427c9579",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e4/e46c83b320e7f82c7ca82dfeb3f3401c13751735639bc5963582915d427c9579"
+    },
+    "rec/anki_sheet.jpg": {
+      "hash": "beaf05dface7b39573de6da7896e165ffb72869f74bd227d0a6515728ad7be37",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/be/beaf05dface7b39573de6da7896e165ffb72869f74bd227d0a6515728ad7be37"
+    },
+    "rec/anki.mp4": {
+      "hash": "457f97d0ede81b2ccd7968a94f2d4a03df3bbfa1e7e97398f407f53a3afe6d05",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/45/457f97d0ede81b2ccd7968a94f2d4a03df3bbfa1e7e97398f407f53a3afe6d05"
+    },
+    "rec/combos_sheet.jpg": {
+      "hash": "da808fdbb0b92996972e54b7d9100e6b11ed178ef05c5e2e5f59ad5c2dac015a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/da/da808fdbb0b92996972e54b7d9100e6b11ed178ef05c5e2e5f59ad5c2dac015a"
+    },
+    "rec/combos.mp4": {
+      "hash": "d66f3714070aa528bfa567a2a8ac0a5bb71fd953d25109ae663fe96877ed2d55",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d6/d66f3714070aa528bfa567a2a8ac0a5bb71fd953d25109ae663fe96877ed2d55"
+    },
+    "rec/desmos_sheet.jpg": {
+      "hash": "8374be625f46052afa145ee7268b68e3917f819b4683846deb9066bff15a6280",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/83/8374be625f46052afa145ee7268b68e3917f819b4683846deb9066bff15a6280"
+    },
+    "rec/desmos.mp4": {
+      "hash": "dc69c464d6639cc491a705bcc2a7e5c40f0cb9910cdb544d6a99b89a2585d7fe",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dc/dc69c464d6639cc491a705bcc2a7e5c40f0cb9910cdb544d6a99b89a2585d7fe"
+    },
+    "rec/grade_sheet.jpg": {
+      "hash": "dd9a3b78461e04ee7878d80c248b56fc24937a6a320d610b6e33e0501cbeb978",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dd/dd9a3b78461e04ee7878d80c248b56fc24937a6a320d610b6e33e0501cbeb978"
+    },
+    "rec/grade.mp4": {
+      "hash": "5647fb138d3ae54eef4cb1805b5d944768bfcb1182b83e716affbb674d89d5e0",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/56/5647fb138d3ae54eef4cb1805b5d944768bfcb1182b83e716affbb674d89d5e0"
+    },
+    "rec/papers_sheet.jpg": {
+      "hash": "44515e1307771ec04eaf20565f2e59a5a58d9d6c6d96fb0900d3e37ed3c60e34",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/44/44515e1307771ec04eaf20565f2e59a5a58d9d6c6d96fb0900d3e37ed3c60e34"
+    },
+    "rec/papers.mp4": {
+      "hash": "f585b5809fd7cb022def2ab5f2b7179b81061440005f6cd43f831b893fd6f4b7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f5/f585b5809fd7cb022def2ab5f2b7179b81061440005f6cd43f831b893fd6f4b7"
+    },
+    "rec/peek-combos-small.png": {
+      "hash": "3b5900bbad2bacfba8bccae9338fc35a2b23f59ae555c88b1413fea2e3de39aa",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/3b/3b5900bbad2bacfba8bccae9338fc35a2b23f59ae555c88b1413fea2e3de39aa"
+    },
+    "rec/peek-combos.png": {
+      "hash": "74a56d40d7661766706682fe0530bd459888baaa607ae7f430ddfcce1ee96c9b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/74/74a56d40d7661766706682fe0530bd459888baaa607ae7f430ddfcce1ee96c9b"
+    },
+    "rec/phet_sheet.jpg": {
+      "hash": "4e11e2b7c9e670a1468f1cdade99a7a2dd5a27f5f3bdb0d68c856dedbaec8efa",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/4e/4e11e2b7c9e670a1468f1cdade99a7a2dd5a27f5f3bdb0d68c856dedbaec8efa"
+    },
+    "rec/phet.mp4": {
+      "hash": "d2c08800af8335232b7323aaa374926ac75ffd1e707bd6e9af2e90419f28770e",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d2/d2c08800af8335232b7323aaa374926ac75ffd1e707bd6e9af2e90419f28770e"
+    },
+    "frames/v2a/contact-sheet-1.jpg": {
+      "hash": "7324607a1dd61086614d3b64d34e0192d13d4ab1d9efa094f8eee2d548c7624e",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/73/7324607a1dd61086614d3b64d34e0192d13d4ab1d9efa094f8eee2d548c7624e"
+    },
+    "frames/v2a/contact-sheet-2.jpg": {
+      "hash": "18c040062b2e23a67a2c75f3a5c0838cd98e496f4bed2de0de6f56caeccaf7e4",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/18/18c040062b2e23a67a2c75f3a5c0838cd98e496f4bed2de0de6f56caeccaf7e4"
+    },
+    "frames/v2a/frame-00-at-1.6s.png": {
+      "hash": "0d0588420017249ca521ab4bc2f788798a26deb166fb4deccf6161bd90aadc74",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/0d/0d0588420017249ca521ab4bc2f788798a26deb166fb4deccf6161bd90aadc74"
+    },
+    "frames/v2a/frame-01-at-3.4s.png": {
+      "hash": "2fa69e46e5a1ab0c33d01d803301d4379a7253c15e7ccebac6511168bef4444c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/2f/2fa69e46e5a1ab0c33d01d803301d4379a7253c15e7ccebac6511168bef4444c"
+    },
+    "frames/v2a/frame-02-at-4.7s.png": {
+      "hash": "e18addd44ecb085ee4e354fcd31779f4fbc429cd22a595975f525d311938f8cd",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e1/e18addd44ecb085ee4e354fcd31779f4fbc429cd22a595975f525d311938f8cd"
+    },
+    "frames/v2a/frame-03-at-6.4s.png": {
+      "hash": "6074579cdeae9251afc8fcb044358bee89fb788aa883d8845e2a9bff9f47f4be",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/60/6074579cdeae9251afc8fcb044358bee89fb788aa883d8845e2a9bff9f47f4be"
+    },
+    "frames/v2a/frame-04-at-8.5s.png": {
+      "hash": "b635a0f523ef41438e847741c3f858215700eb8f5bf9593aa2141d6bfc90d164",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/b6/b635a0f523ef41438e847741c3f858215700eb8f5bf9593aa2141d6bfc90d164"
+    },
+    "frames/v2a/frame-05-at-9.7s.png": {
+      "hash": "59f324d534d002576d1154ce721a02bb65558e55cfc88545aa31e88b0cadcce5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/59/59f324d534d002576d1154ce721a02bb65558e55cfc88545aa31e88b0cadcce5"
+    },
+    "frames/v2a/frame-06-at-11.8s.png": {
+      "hash": "b8c7a77362e6bb374174e4875885908154652ba65cf5dcadcb3e30856b404100",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/b8/b8c7a77362e6bb374174e4875885908154652ba65cf5dcadcb3e30856b404100"
+    },
+    "frames/v2a/frame-07-at-13s.png": {
+      "hash": "55030d6a6462a98030e7bd1f2f38ebe7d89702c933d4171803a8d6e963684761",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/55/55030d6a6462a98030e7bd1f2f38ebe7d89702c933d4171803a8d6e963684761"
+    },
+    "frames/v2a/frame-08-at-14.2s.png": {
+      "hash": "f4128c5823e253b4cdf73c6736b12b5ef79450b679f1ed565f972c631fc1291b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f4/f4128c5823e253b4cdf73c6736b12b5ef79450b679f1ed565f972c631fc1291b"
+    },
+    "frames/v2a/frame-09-at-15.6s.png": {
+      "hash": "3707fd5b522efca6405e3a8bdefb4e9a3e8806a873f1df5bc9a153ab03b7e599",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/37/3707fd5b522efca6405e3a8bdefb4e9a3e8806a873f1df5bc9a153ab03b7e599"
+    },
+    "frames/v2a/frame-10-at-17s.png": {
+      "hash": "ba4b116e87f4c87fafd557625ea9fa2791f39a594104a22c5587b2a0cf37ba87",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ba/ba4b116e87f4c87fafd557625ea9fa2791f39a594104a22c5587b2a0cf37ba87"
+    },
+    "frames/v2a/frame-11-at-18.5s.png": {
+      "hash": "af2c64fbd39ce828b97a9ee38d07d1f1f996d99b42354716474c61d0a5649441",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/af/af2c64fbd39ce828b97a9ee38d07d1f1f996d99b42354716474c61d0a5649441"
+    },
+    "frames/v2a/frame-12-at-19.7s.png": {
+      "hash": "a57a2a0289a291c9de87e357e1bf7866d2a7fe2db4877bb2457543f48f73a116",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a5/a57a2a0289a291c9de87e357e1bf7866d2a7fe2db4877bb2457543f48f73a116"
+    },
+    "frames/v2a/frame-13-at-21.4s.png": {
+      "hash": "afb6cd5a3284e1d0f390aa94647eba7fc334ba33f1c26c606679572766f514c1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/af/afb6cd5a3284e1d0f390aa94647eba7fc334ba33f1c26c606679572766f514c1"
+    },
+    "frames/v2a/frame-14-at-22.5s.png": {
+      "hash": "a770aee22b255a289265c5a451c2004cff2f1dcdb306bb0902817da7bab81d47",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a7/a770aee22b255a289265c5a451c2004cff2f1dcdb306bb0902817da7bab81d47"
+    },
+    "rec/combos_sheet2.jpg": {
+      "hash": "37b427a481eace37b90d1ed6adc8caac3bde728a3df4c81d6644678acba81351",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/37/37b427a481eace37b90d1ed6adc8caac3bde728a3df4c81d6644678acba81351"
+    },
+    "frames/v2b/contact-sheet.jpg": {
+      "hash": "48efad809e354655d020fed85dc706625f0bd98e07318ad52e3ff9ec93b82ebd",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/48/48efad809e354655d020fed85dc706625f0bd98e07318ad52e3ff9ec93b82ebd"
+    },
+    "frames/v2b/frame-00-at-4.3s.png": {
+      "hash": "1a2900fa29938215572facfcd4fa32b600b603f79bd1837bfd55a6b60b23931b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1a/1a2900fa29938215572facfcd4fa32b600b603f79bd1837bfd55a6b60b23931b"
+    },
+    "frames/v2b/frame-01-at-6.8s.png": {
+      "hash": "781ab97d1331cd7fc102b33075e6d3accd6abf61d96cb2d1e55d52f766adae19",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/78/781ab97d1331cd7fc102b33075e6d3accd6abf61d96cb2d1e55d52f766adae19"
+    },
+    "frames/v2b/frame-02-at-9.5s.png": {
+      "hash": "d123a63d0e2ab241c0ebad71ad5ce24188b478b3604fc336bee34f5d5db9f929",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d1/d123a63d0e2ab241c0ebad71ad5ce24188b478b3604fc336bee34f5d5db9f929"
+    },
+    "frames/v2b/frame-03-at-12.2s.png": {
+      "hash": "65e52989f700e6caeb6cba841a721c4c51eb45fa8daf549caad760899a6f5066",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/65/65e52989f700e6caeb6cba841a721c4c51eb45fa8daf549caad760899a6f5066"
+    },
+    "frames/v2b/frame-04-at-17.8s.png": {
+      "hash": "b8ba3079ac2c3ebfa5ac8103c9a5b0969eaafb457a832c4d3d48dc3b7560b6fc",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/b8/b8ba3079ac2c3ebfa5ac8103c9a5b0969eaafb457a832c4d3d48dc3b7560b6fc"
+    },
+    "frames/v2b/frame-05-at-23.3s.png": {
+      "hash": "67659b5ae6c0e508ad0a13a6363a4bfe47967c03bdb6ab8f3a4b836618eaab54",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/67/67659b5ae6c0e508ad0a13a6363a4bfe47967c03bdb6ab8f3a4b836618eaab54"
+    },
+    "assets/audio/mix3.wav": {
+      "hash": "539135538b716c5289130d75430497bd5ef4ae75565f35394614b28e5a4356c0",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/53/539135538b716c5289130d75430497bd5ef4ae75565f35394614b28e5a4356c0"
+    },
+    "assets/device/macbook.png": {
+      "hash": "db811b0a0657deeac10f09b9b6c1d431947fa7f0a6d3ba139982931658847a26",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/db/db811b0a0657deeac10f09b9b6c1d431947fa7f0a6d3ba139982931658847a26"
+    },
+    "assets/rec/desmos2.mp4": {
+      "hash": "cbfbb11b6930a8b89a3e58c421ba6f0c105a9811b848f270ef8651f498f69fab",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cb/cbfbb11b6930a8b89a3e58c421ba6f0c105a9811b848f270ef8651f498f69fab"
+    },
+    "assets/rec/pomo.mp4": {
+      "hash": "ee0870a5c6b4dfd1536b05b39e96f3ea1f2df028e6d2a8fa800e1749e16ac7bc",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ee/ee0870a5c6b4dfd1536b05b39e96f3ea1f2df028e6d2a8fa800e1749e16ac7bc"
+    },
+    "rec/both.jpg": {
+      "hash": "c4899125cf21e7867e8bb93f820977b596fca67698f3fbae154b0ff19e71518e",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c4/c4899125cf21e7867e8bb93f820977b596fca67698f3fbae154b0ff19e71518e"
+    },
+    "rec/desmos2_end.jpg": {
+      "hash": "f5e93fadf18d007f31bbf445fa578e6d7ab1998de35f202dfae85453043ba4e8",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f5/f5e93fadf18d007f31bbf445fa578e6d7ab1998de35f202dfae85453043ba4e8"
+    },
+    "rec/desmos2_sheet.jpg": {
+      "hash": "65f89590bbec66208bc71fc85899736127f6a5c9dc579245008de86b88849b4c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/65/65f89590bbec66208bc71fc85899736127f6a5c9dc579245008de86b88849b4c"
+    },
+    "rec/desmos2.mp4": {
+      "hash": "cbfbb11b6930a8b89a3e58c421ba6f0c105a9811b848f270ef8651f498f69fab",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cb/cbfbb11b6930a8b89a3e58c421ba6f0c105a9811b848f270ef8651f498f69fab"
+    },
+    "rec/peek-ibcc-equivalence-calculator-s.png": {
+      "hash": "8305d9378f095d0717a7dab9b4fcfd36b140176fa8f2077e1c3a20b6062057dd",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/83/8305d9378f095d0717a7dab9b4fcfd36b140176fa8f2077e1c3a20b6062057dd"
+    },
+    "rec/peek-ibcc-equivalence-calculator.png": {
+      "hash": "8fc84af911cd46657873ffe9de5ee1d46fea15dd821a330b43798aa52cb50538",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8f/8fc84af911cd46657873ffe9de5ee1d46fea15dd821a330b43798aa52cb50538"
+    },
+    "rec/peek-periodic-table-of-elements-s.png": {
+      "hash": "93afa9df79d35ca09ffbe66435049ecedd20be291d0160a63c881d2ca4178d0b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/93/93afa9df79d35ca09ffbe66435049ecedd20be291d0160a63c881d2ca4178d0b"
+    },
+    "rec/peek-periodic-table-of-elements.png": {
+      "hash": "091b0c0a314b96fe49003f8845539b18ea61024fbd444993e7fcdc9840d733d1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/09/091b0c0a314b96fe49003f8845539b18ea61024fbd444993e7fcdc9840d733d1"
+    },
+    "rec/peek-pomo-s.png": {
+      "hash": "01cfdfb7fc3b3f28e00c122d64de5796aa636ee01a194fb285e2caf61024d5c2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/01/01cfdfb7fc3b3f28e00c122d64de5796aa636ee01a194fb285e2caf61024d5c2"
+    },
+    "rec/peek-pomo.png": {
+      "hash": "108fa6193f449e71996a47a8640611d471decce0318b58056b31bea3601e7470",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/10/108fa6193f449e71996a47a8640611d471decce0318b58056b31bea3601e7470"
+    },
+    "rec/peek-university-admission-criteria-tool.png": {
+      "hash": "1015d8215dba23925b89c922d06353cc9540daba8b6946de71c3182551e114b0",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/10/1015d8215dba23925b89c922d06353cc9540daba8b6946de71c3182551e114b0"
+    },
+    "rec/peek-wolfram-s.png": {
+      "hash": "9f4e7f6428f6ba0627ddca7f1258084da05ebf62bdf3166898c442ba87818532",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/9f/9f4e7f6428f6ba0627ddca7f1258084da05ebf62bdf3166898c442ba87818532"
+    },
+    "rec/peek-wolfram.png": {
+      "hash": "d03eca174384fbe2ce0c3534e93cff31077b328e76a8e8213dfeba153ad0cfac",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d0/d03eca174384fbe2ce0c3534e93cff31077b328e76a8e8213dfeba153ad0cfac"
+    },
+    "rec/pomo_sheet.jpg": {
+      "hash": "3f0cd4e0d960133e1979bbf1908eaa2fa4837e4a47cb01b7ae1896843f0596b0",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/3f/3f0cd4e0d960133e1979bbf1908eaa2fa4837e4a47cb01b7ae1896843f0596b0"
+    },
+    "rec/pomo.mp4": {
+      "hash": "ee0870a5c6b4dfd1536b05b39e96f3ea1f2df028e6d2a8fa800e1749e16ac7bc",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ee/ee0870a5c6b4dfd1536b05b39e96f3ea1f2df028e6d2a8fa800e1749e16ac7bc"
+    },
+    "frames/v3a/frame-00-at-1.5s.png": {
+      "hash": "137ef3d375b0407ae4d7868603f3d288634deee2a3b0c9eff81c4b524d964641",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/13/137ef3d375b0407ae4d7868603f3d288634deee2a3b0c9eff81c4b524d964641"
+    },
+    "frames/v3a/frame-01-at-2.35s.png": {
+      "hash": "758bf87bfd12171db6586bc31373b16f38ca6f8e75581ba90794c86b20d7b1b6",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/75/758bf87bfd12171db6586bc31373b16f38ca6f8e75581ba90794c86b20d7b1b6"
+    },
+    "frames/v3a/frame-02-at-2.75s.png": {
+      "hash": "83174db0997ba0bf2b023ab2f15db990ef968c8448939f324a9ec3db63952c7f",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/83/83174db0997ba0bf2b023ab2f15db990ef968c8448939f324a9ec3db63952c7f"
+    },
+    "frames/v3a/frame-03-at-3.3s.png": {
+      "hash": "1e077347756fe854586d0168536108b55f352f159a657e207ef6d01042248c45",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1e/1e077347756fe854586d0168536108b55f352f159a657e207ef6d01042248c45"
+    },
+    "frames/v3a/frame-04-at-4.6s.png": {
+      "hash": "8537787dea98a2ecab151f9f31ca715ef1d102ea37105e81de4854d32b9c29b2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/85/8537787dea98a2ecab151f9f31ca715ef1d102ea37105e81de4854d32b9c29b2"
+    },
+    "frames/v3a/frame-05-at-5.95s.png": {
+      "hash": "e301098662a75834bb9cf11616154cfe85956f49f09b51e1c57efeecc5d4fa32",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e3/e301098662a75834bb9cf11616154cfe85956f49f09b51e1c57efeecc5d4fa32"
+    },
+    "frames/v3a/frame-06-at-7s.png": {
+      "hash": "fb36225204d55a2e78997f3243e64d4183caccb7cb9faababf9b2edda80958ee",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fb/fb36225204d55a2e78997f3243e64d4183caccb7cb9faababf9b2edda80958ee"
+    },
+    "frames/v3a/frame-07-at-9s.png": {
+      "hash": "f27166da3e7c762456ce8399237d3c3fbc243c037d27250f669c3a2e1927a3c7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f2/f27166da3e7c762456ce8399237d3c3fbc243c037d27250f669c3a2e1927a3c7"
+    },
+    "frames/v3a/frame-08-at-12s.png": {
+      "hash": "c7beed2bf6942fe36710726fe2ad85d8fdae94ea5cb31f1e49cd80ba95c753b7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c7/c7beed2bf6942fe36710726fe2ad85d8fdae94ea5cb31f1e49cd80ba95c753b7"
+    },
+    "frames/v3a/frame-09-at-15.2s.png": {
+      "hash": "d6ea345810e6a679de7f8ddf4efff57d5b07c9930e95742f33d1ac0fb352da3c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d6/d6ea345810e6a679de7f8ddf4efff57d5b07c9930e95742f33d1ac0fb352da3c"
+    },
+    "frames/v3a/frame-10-at-16s.png": {
+      "hash": "fa502dd85b21a9f670757938ba7bc7553c2c56a5b214f381d84ee1686e2ddcca",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fa/fa502dd85b21a9f670757938ba7bc7553c2c56a5b214f381d84ee1686e2ddcca"
+    },
+    "frames/v3a/frame-11-at-18.3s.png": {
+      "hash": "c9358ef0198172fccd4a3a6704d65cb1ff260c4e9347fe181aefa727db2036d7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c9/c9358ef0198172fccd4a3a6704d65cb1ff260c4e9347fe181aefa727db2036d7"
+    },
+    "frames/v3a/frame-12-at-19s.png": {
+      "hash": "ff7c7a2a13e863615a3eb66dce1c3d17428d02d8d00f292e8f9e881b44a7be04",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ff/ff7c7a2a13e863615a3eb66dce1c3d17428d02d8d00f292e8f9e881b44a7be04"
+    },
+    "frames/v3a/frame-13-at-20.8s.png": {
+      "hash": "a2f0752fb4ab239de157eb7d3fbb5bc828f8d04335413b6a51702720318ddf08",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a2/a2f0752fb4ab239de157eb7d3fbb5bc828f8d04335413b6a51702720318ddf08"
+    },
+    "frames/v3a/frame-14-at-22.6s.png": {
+      "hash": "0882cbc1299565a492ad8c5a6b319e3dd2a9a8c31c4a0f403b2a7c25ade599b2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/08/0882cbc1299565a492ad8c5a6b319e3dd2a9a8c31c4a0f403b2a7c25ade599b2"
+    },
+    "frames/v3a/contact-sheet-1.jpg": {
+      "hash": "c556d00d018638f1e828d9ac1c54b80ce1896a19d170ace0098eb4da8a21762b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c5/c556d00d018638f1e828d9ac1c54b80ce1896a19d170ace0098eb4da8a21762b"
+    },
+    "frames/v3a/contact-sheet-2.jpg": {
+      "hash": "fe54463d6403333e7cfef901cda036c62f7111a479c07fd36c93b94cc02d707f",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fe/fe54463d6403333e7cfef901cda036c62f7111a479c07fd36c93b94cc02d707f"
+    }
+  },
+  "revisions": {
+    "aa7288d4-da8e-46c1-b164-9c2b0c164995": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792572990447,
+      "endedAt": 1792572990459,
+      "files": {
+        "frames/v1/contact-sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ef/effbf323807bc06b40b2ff30a3c172c1f96d6e216dfc8b5d65cffb85b06d3790"
+        },
+        "frames/v1/frame-00-at-0.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8e/8eafdb9d79d30e403fb288a52b7e2bd76480cbf4f87b03bf88bbcecdb734307a"
+        },
+        "frames/v1/frame-01-at-1.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/4d/4d0a51fef67062a06bbda55cded532b9c472a11163a4d2934105b9f9a175fd44"
+        },
+        "frames/v1/frame-02-at-2.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/5a/5a28379d57cadedd5df7c6f2f05db3e6a8a426a03c1ed4d067d073ca848dec05"
+        },
+        "frames/v1/frame-03-at-3.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/36/36400df31cbe6a564bcf75ae0c0174e5a1082dd97ed179357980d7ed4c26681c"
+        },
+        "frames/v1/frame-04-at-4.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e5/e54e8aac898a6566d8b25882c98385950f0e56ee122dc6a6ec05e76007c39337"
+        },
+        "frames/v1/frame-05-at-5.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/48/4893895f71346a1fea710bd58c953e0dd3e7dfde41d4eefb4fb09ec0c6c58ee8"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ce/cec663650b9f8a8139dae6fb55e2c0399af325b42ee50776a58efe5bd10fd828",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c6/c62062bb7a997400b07511f5077a79fa48a18d004b1cbddc4143dd20c02c0a50"
+        }
+      }
+    },
+    "67dcc423-bf3e-479b-ac28-300c13c2b36b": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792573004498,
+      "endedAt": 1792573004509,
+      "files": {
+        "frames/v2/contact-sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d3/d322eb9900cd05fdb125b0c56d23d2e67eb464516c833ea9d10716e1e7e36b7c"
+        },
+        "frames/v2/frame-00-at-0.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ce/ce35ca8a10897ac51f116a07f7535a7b887506591c4e23088646901d736f5d75"
+        },
+        "frames/v2/frame-01-at-1.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/04/04a0deeab44214ff2b490079fcecd5303b12a85854e0a684ba4e1348ea652573"
+        },
+        "frames/v2/frame-02-at-2.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/22/2270863ee4c713b102461e86d987ed81143601583740ef97f061ebc87274884e"
+        },
+        "frames/v2/frame-03-at-3.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/28/28aa2e2f79f5a75f2157e0e9d0e0107a954abc6c94436843e8777c14287cc41a"
+        },
+        "frames/v2/frame-04-at-4.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/75/7556e9b824c4c0b22673907ae96241643c09a4df361917b4c0815006d23b3a69"
+        },
+        "frames/v2/frame-05-at-5.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f3/f38e66057b79883c2fe9b173c34b2b4e3c3f47e3a9b8a12d91cb94ae2193018d"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c6/c62062bb7a997400b07511f5077a79fa48a18d004b1cbddc4143dd20c02c0a50",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/3d/3df4e3d80ef8cdda5ee640a384b8720803b6767b651cfe7c1a446e094d55fe5a"
+        }
+      }
+    },
+    "37d4e402-6ec2-4785-b3d0-423d8a1dab58": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792576187388,
+      "endedAt": 1792576187444,
+      "files": {
+        "assets/audio/mix.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ce/ce6c4b2d9b5037cb5f2a75d7364bd56cc4dca48c699c782898058894276883a8"
+        },
+        "assets/audio/synthwave.mp3": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/45/45b79996f595f1def8b92eafeb9baab6dcb9d6dc26d344f699b34ff7b83e9eb3"
+        },
+        "assets/audio/vo.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/93/93272f6d5ffe40dd2a4dc38413a580bf896332cbadac5f526816920c3279c5b2"
+        },
+        "assets/captures/anki-home.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c0/c0f5b03c47797c95e9ace9f31d45b912d213d87fe7dc4ed6cf0ebb480967dead"
+        },
+        "assets/captures/cambridge-command-words.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a2/a2f5f58fc9850edd2a4866b6d1599fa7f7ae25b089b06efad1d3463f87a41118"
+        },
+        "assets/captures/combos-result.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fd/fd11d5a5240ef4ee4b3ded33c71ad3cf3ead1a10bf0b7b68e345991c6527bf73"
+        },
+        "assets/captures/combos-step1.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/0a/0a32f5fffb6a776ae7eb84917db24ccf804c61e69e560b625256acdd01bf81de"
+        },
+        "assets/captures/combos-step3.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d3/d39c86150d3a5fa53dcdef9cd3c425b49734d57edf997413645c860d5499a1bf"
+        },
+        "assets/captures/papers-hero.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/37/371a464617d98fd368eaf42ccfe1bdd726d0dfa13a3fe2bcd0e5083d1c362d4a"
+        },
+        "assets/captures/papers-table.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/12/1276825942235104a16cc67e65e80fa614a7eeb1a9f8399244da3e58e7890644"
+        },
+        "assets/captures/phet-1000.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ff/ff1b734d472148cc311d6565cf3404ff82ca9c7baa4986093766f7bf6e09be4c"
+        },
+        "assets/captures/phet-500.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/83/83bd596d3aa9849ac2960908b0e901fa5a162b8936443f73a05841f1e3d1b2c7"
+        },
+        "assets/sfx/fx-boing.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d1/d1d74d23f0e34ff92603eac13a52a7480b6ac26406982bfc2bdc916ebd41eca4"
+        },
+        "assets/sfx/fx-chime.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/04/048b5971eed4764d71712700556334d397a2317475de9928f239d417f5797bff"
+        },
+        "assets/sfx/fx-impact.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d5/d5b4ec5248bd8d82e33eb8425d1d07c4b9b323aadc8b12eec4ed92fce958c907"
+        },
+        "assets/sfx/fx-key.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e2/e2ddbb277f006d5d419b0768cc19f16298398adea26e6d8afa2ec0296f1cb593"
+        },
+        "assets/sfx/fx-pop.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/5e/5e7e6883ff4285d85874b14fbd6ce312530d70a4dba3b2bcb64b56a0cdf4edf1"
+        },
+        "assets/sfx/fx-riser.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8f/8fc46a5b2b0ad89066e7182d42a7331f4e7aca85b78bd90fab35c1ff4c09d079"
+        },
+        "assets/sfx/fx-thud.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/de/def4a9fa1cd389224034f367bfb3bdb51add82233bf5b3e5c8d84e95d2f7e0b9"
+        },
+        "assets/sfx/fx-tick.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ac/acb35b43117a12d4f38bb068430b3c8120554bd02d77b6f7263a7412ff20e6a1"
+        },
+        "assets/sfx/fx-twinkle.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/7f/7fb8b6d4a05bd60743ba1f8e4f169f2ff0b04da3d90d88dbb5902664c040a793"
+        },
+        "assets/sfx/fx-whoosh.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cb/cbaf05199a6de16e4cfab86891bdfadebb66007fda204540c453a3571cd4759c"
+        },
+        "assets/sfx/sj-sfx-highlighter-swipe.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/7f/7fc0b9afcb3dce4c9de55ee5c1455eac619b6bcf84225b7e37d612b37f37712d"
+        },
+        "assets/sfx/sj-sfx-paper-slide.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/21/21e34aae928c6c844341da9e02f4af416067d604c7a0bfa8dced08661fea13b5"
+        },
+        "assets/sfx/sj-sfx-pen-circle.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/6f/6fe613e1dd69d092ad7f9b05bcb215e7177feb54e11ddd62e6759db23a40d086"
+        },
+        "assets/sfx/sj-sfx-pen-tick.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f4/f41530e52a42c460b101d700eebb1e786df2f7ff52b49a9125ea61ca6d601fc7"
+        },
+        "assets/sfx/sj-sfx-stamp.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/34/346a71e4d598d6ed2d845280b5b0006b4bc9156d45c79d0d89cd83735a7d2f42"
+        },
+        "assets/sfx/sj-sonic-logo-full.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1f/1f8feccc1c5b5a7451cc8c5cb49ad6e932e435990c8c6ad2a0772f335bc2839f"
+        },
+        "assets/sfx/sj-sonic-logo-short.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ed/ed330bf9db23e08abbebf5acd9822bec6b5a0699c488af7e4f88224f623d8af2"
+        },
+        "frames/v3/contact-sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fc/fc854c341dd0a4f23876db6407bc8139708bd197e0bfc6226a31b1f5bd66484c"
+        },
+        "frames/v3/frame-00-at-0.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ce/ce35ca8a10897ac51f116a07f7535a7b887506591c4e23088646901d736f5d75"
+        },
+        "frames/v3/frame-01-at-1.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/04/04a0deeab44214ff2b490079fcecd5303b12a85854e0a684ba4e1348ea652573"
+        },
+        "frames/v3/frame-02-at-2.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/22/2270863ee4c713b102461e86d987ed81143601583740ef97f061ebc87274884e"
+        },
+        "frames/v3/frame-03-at-3.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/28/28aa2e2f79f5a75f2157e0e9d0e0107a954abc6c94436843e8777c14287cc41a"
+        },
+        "frames/v3/frame-04-at-4.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e0/e0257f5cf9e8fa1d94a46d603a7c9ffa32c28ba191a781e45a285a9a106ddd5b"
+        },
+        "frames/v3/frame-05-at-5.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ed/ed165ed6461a18d07f528d8464ca42b768ce1cd141809b575e782def183f3e45"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/3d/3df4e3d80ef8cdda5ee640a384b8720803b6767b651cfe7c1a446e094d55fe5a",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/de/de62b3eceea968693e72d8bb8940b44f8a8317c039b0bf5a493b5d220f99fe23"
+        }
+      }
+    },
+    "3b24ebf9-097c-4884-bb99-24847c410ea4": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792576236738,
+      "endedAt": 1792576236763,
+      "files": {
+        "frames/build1/contact-sheet-1.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f3/f35b2bf78b304b2da53b46450bc85dc3c2fe549c76e43cb02672c81126f9b428"
+        },
+        "frames/build1/contact-sheet-2.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a2/a2e09342f824eebf5fd43f0e91bbb7dfca3d1e9774a0502c7091ba5bc5038420"
+        },
+        "frames/build1/contact-sheet-3.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/25/25321d3f44a51fc5265dc656566bdf4808ffc76e6e71a4d55543dc616929b289"
+        },
+        "frames/build1/frame-00-at-1.2s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d4/d4928e70eab40bf0e1aede8b4a8a204b797bd2219457a4d5a258a7ff572d66e5"
+        },
+        "frames/build1/frame-01-at-3.9s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8b/8bdd78c47f4a2387603d3c1e196f9f8bfa712ca3e0f01181c77f9b4493600f30"
+        },
+        "frames/build1/frame-02-at-4.7s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ab/ab67203c24f1a0db5c84f3babfaf4a8199de7afa8c6c3aea7b263fce66245549"
+        },
+        "frames/build1/frame-03-at-9.8s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c2/c2ff484f7a660d1b71837228d54dc41153344f35cd26497d38bcdc9d9a2e316d"
+        },
+        "frames/build1/frame-04-at-13.2s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/88/8845a1ca12daa787f686a5f2be35dfe01e680d9c4ce9debe4ef4b1835f5e7110"
+        },
+        "frames/build1/frame-05-at-16.2s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/3b/3bf365324eb507c37cfa62c5655c61589cf58f3e025afe5ae0fd15899f567d8c"
+        },
+        "frames/build1/frame-06-at-19.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/45/45fd3fe3a3a344e7888c129db22aa43ca0ba0a676bd281659111c474738fbfe4"
+        },
+        "frames/build1/frame-07-at-24.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1f/1f97cadfa906bfdc724bff30e3f75df22e447d691532bab94dc680fbd7fb1648"
+        },
+        "frames/build1/frame-08-at-27.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a5/a56fe2801b09839afd97f222d126f42e87d03545645aafde76748b14bb78947a"
+        },
+        "frames/build1/frame-09-at-31.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/4d/4deabff5e2e27a04a404b81329d204928eda6f7ebc5cc7845d5a67c9443f305d"
+        },
+        "frames/build1/frame-10-at-37s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d4/d445d53800317892205768a71dc2020301717fbf6ad5cb6788ee584e11d30a2e"
+        },
+        "frames/build1/frame-11-at-40.9s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a5/a54d1688e28d3746f49ce79b6e6c8a2ac79dce0a226ace6675626323aa29fdf2"
+        },
+        "frames/build1/frame-12-at-42.8s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/72/725f17da916fe99070d3d362239a7b51cbac593e9566515882d097357eb1975c"
+        },
+        "frames/build1/frame-13-at-47.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/93/9341b91de7b31379ccab55a080af6dfde097173048f0eec7d5c2d8d476273179"
+        },
+        "frames/build1/frame-14-at-52.2s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/79/79da365b2427f657f4fdb3877b50f18f59d0cf605a4de9d441703462242c5edc"
+        },
+        "frames/build1/frame-15-at-55s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d3/d39117e09f704c628f8796b23266c970a4fd90cd6810fac57f7f143a34d23b8b"
+        },
+        "frames/build1/frame-16-at-59s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dd/dd209c2a7f7372fc8fde27bcad6490ab5cd16f809a41358fff86ff5eda3cbbc8"
+        },
+        "frames/build1/frame-17-at-62.2s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a3/a3f76b55a577b1f37d5ef60ef0869fe387e9d83d83f59025fac8fb07c257f60b"
+        },
+        "frames/build1/frame-18-at-64.3s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/42/42d912ebe2d3f267975701a263cdf5f9264a3cd2db92ce8e700900c435c2a928"
+        },
+        "frames/build1/frame-19-at-66.8s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/50/50f02b898497ef6306762763c89a78aa98d87f894dc7df346c39813081ddee61"
+        },
+        "frames/build1/frame-20-at-69.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/25/25816d04a5456e55fb4226f0a25b4663043a6298d9884d08c4361608356eefb9"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/de/de62b3eceea968693e72d8bb8940b44f8a8317c039b0bf5a493b5d220f99fe23",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dc/dc6459ee02f9f3d066ed6e0bc92d86030eeed9fca5202a45f2f0f4fad62be435"
+        }
+      }
+    },
+    "23fdef9f-bf21-446d-808f-891f79be39aa": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792576256336,
+      "endedAt": 1792576256349,
+      "files": {
+        "frames/build2/contact-sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cf/cf3a432b59f201a012ec6ac20ae053ff0ad842f3f2b7b5c32edc7e8117494270"
+        },
+        "frames/build2/frame-00-at-2.9s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cd/cddac3db8721c3de9322046d4cb873a994e895c646b3078fcb438099cfcdd49c"
+        },
+        "frames/build2/frame-01-at-10s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f7/f7d66afe82f8da19075009946510154af62f4c9676242ecf2dbadc86c0a6307d"
+        },
+        "frames/build2/frame-02-at-16.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/10/1018a4763d705c3d150e0e5025f5449148318119b1062e48f901c09fcda06048"
+        },
+        "frames/build2/frame-03-at-24.6s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/65/65546665249bb13297c383c57eba2fddf6c149f79fc2bbb40e4a4bd0f57eaa2b"
+        },
+        "frames/build2/frame-04-at-40.9s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/eb/ebd735e8cbcdf437c1d345bebb426a4b061394dcff16ee248ff78658a53bee7a"
+        },
+        "frames/build2/frame-05-at-48.2s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8f/8fc80e9ee5f197c436e8f4fb9a9c006e5a415763ba2102b79297dab02d85b0e4"
+        },
+        "frames/build2/frame-06-at-58s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/36/36931bf817bdbbca3618709f7f2824961f5c5bbd8681c9f47dae7ea9d856b44f"
+        },
+        "frames/build2/frame-07-at-62.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/59/599fb9ceb67c3de74eeb0f9d50b565837971039803479e4266cb4afac930fec3"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dc/dc6459ee02f9f3d066ed6e0bc92d86030eeed9fca5202a45f2f0f4fad62be435",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/68/68b2a9ee182855565863209001c141f45b3c01073f28926ae583dd1709af257f"
+        }
+      }
+    },
+    "e823170b-276c-4730-a86b-5fb4b82743da": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792577776617,
+      "endedAt": 1792577776891,
+      "files": {
+        "archive/v1/build.py": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/65/65ab556583a9d3d02dceefded21a7019b0fd538dd6297e57ef217c94a13ab2be"
+        },
+        "archive/v1/mix.py": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ee/ee56542179868de493e3494ac9bfc563b45175dceefc5a428e593c8ada952ce2"
+        },
+        "archive/v1/sj_reel_study-websites-speedrun_9x16_v1_2026-10-21.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/2c/2ce21822cdbee7f837758841e5fb456823c6aaa0a8734c8d650c09de01f4d874"
+        },
+        "archive/v1/style.css": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d9/d9975c90d9ad74b7ed72f565cf864bdfdbb94a3de51829f79c7af8a6313c6997"
+        },
+        "archive/v1/timeline.js": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/da/dadf88f55fccb61b54860bc257fbf07fd3cf93616aae267e4a27c319966c7799"
+        },
+        "assets/audio/mix2.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c9/c92af3d7705fb0a8f3f9ffcef01406aff23658e37778aab5ad58683cecb89d01"
+        },
+        "assets/rec/anki.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/45/457f97d0ede81b2ccd7968a94f2d4a03df3bbfa1e7e97398f407f53a3afe6d05"
+        },
+        "assets/rec/combos.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/2a/2ac501f0d04598e11ce6b6a212b36e0a5efdac775fc6f65e3d7c845db4a1a8a8"
+        },
+        "assets/rec/desmos.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dc/dc69c464d6639cc491a705bcc2a7e5c40f0cb9910cdb544d6a99b89a2585d7fe"
+        },
+        "assets/rec/grade.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/56/5647fb138d3ae54eef4cb1805b5d944768bfcb1182b83e716affbb674d89d5e0"
+        },
+        "assets/rec/papers.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f5/f585b5809fd7cb022def2ab5f2b7179b81061440005f6cd43f831b893fd6f4b7"
+        },
+        "assets/rec/phet.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d2/d2c08800af8335232b7323aaa374926ac75ffd1e707bd6e9af2e90419f28770e"
+        },
+        "assets/thumbs/t1.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c5/c5f0bfcbf4ef73680dc50a081bef59a0e40d103558d83a3c4ee3584b8306d592"
+        },
+        "assets/thumbs/t2.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e6/e685351e6bcd3adaa0a4007626744575901d61ab8d9127769b585494625a8320"
+        },
+        "assets/thumbs/t3.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/95/95de1330d5f454e8423b4c9510aac802098d2026ee4c11857500363bfe2a2e10"
+        },
+        "assets/thumbs/t4.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/76/76964c2b22a300d19b2bc1dc40f891182221d4679e0d708678b6d48726053179"
+        },
+        "assets/thumbs/t5.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/b0/b0c2d5b2bbb67bc3f4f7582d8ceaf8ffa507873c1a5c57e37838f847d374d092"
+        },
+        "assets/thumbs/t6.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c5/c59ebd247e855b73df5fc3b5c28dacf7fac84ec0b46d41157ad0ecd1bb9003e8"
+        },
+        "assets/thumbs/t7.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/bc/bc4875eac14bf0a2284daa1c49fff9328e1a8b1a96e60cc23bb0dd4d75fa9845"
+        },
+        "BRIEF.md": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/be/be2d1cc9b2c617e0db22f543b322ddcaa2a96d95f0eba0d1140e10d5f1ebf488",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e7/e7f1e3c21bc599df54432336f6b58ed8c5212173713a545b2a31a1708584126c"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/68/68b2a9ee182855565863209001c141f45b3c01073f28926ae583dd1709af257f",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/db/db4ba3a03af585f2b8de399e1fea6ccaa647ca2c1acf16fa637c4eecde5f2d91"
+        },
+        "rec/all_sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e4/e46c83b320e7f82c7ca82dfeb3f3401c13751735639bc5963582915d427c9579"
+        },
+        "rec/anki_sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/be/beaf05dface7b39573de6da7896e165ffb72869f74bd227d0a6515728ad7be37"
+        },
+        "rec/anki.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/45/457f97d0ede81b2ccd7968a94f2d4a03df3bbfa1e7e97398f407f53a3afe6d05"
+        },
+        "rec/combos_sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/da/da808fdbb0b92996972e54b7d9100e6b11ed178ef05c5e2e5f59ad5c2dac015a"
+        },
+        "rec/combos.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/2a/2ac501f0d04598e11ce6b6a212b36e0a5efdac775fc6f65e3d7c845db4a1a8a8"
+        },
+        "rec/desmos_sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/83/8374be625f46052afa145ee7268b68e3917f819b4683846deb9066bff15a6280"
+        },
+        "rec/desmos.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dc/dc69c464d6639cc491a705bcc2a7e5c40f0cb9910cdb544d6a99b89a2585d7fe"
+        },
+        "rec/grade_sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/dd/dd9a3b78461e04ee7878d80c248b56fc24937a6a320d610b6e33e0501cbeb978"
+        },
+        "rec/grade.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/56/5647fb138d3ae54eef4cb1805b5d944768bfcb1182b83e716affbb674d89d5e0"
+        },
+        "rec/papers_sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/44/44515e1307771ec04eaf20565f2e59a5a58d9d6c6d96fb0900d3e37ed3c60e34"
+        },
+        "rec/papers.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f5/f585b5809fd7cb022def2ab5f2b7179b81061440005f6cd43f831b893fd6f4b7"
+        },
+        "rec/peek-combos-small.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/3b/3b5900bbad2bacfba8bccae9338fc35a2b23f59ae555c88b1413fea2e3de39aa"
+        },
+        "rec/peek-combos.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/74/74a56d40d7661766706682fe0530bd459888baaa607ae7f430ddfcce1ee96c9b"
+        },
+        "rec/phet_sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/4e/4e11e2b7c9e670a1468f1cdade99a7a2dd5a27f5f3bdb0d68c856dedbaec8efa"
+        },
+        "rec/phet.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d2/d2c08800af8335232b7323aaa374926ac75ffd1e707bd6e9af2e90419f28770e"
+        }
+      }
+    },
+    "ffdc456a-d7d6-419c-993e-5fba10a5153a": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792577869170,
+      "endedAt": 1792577869202,
+      "files": {
+        "assets/rec/combos.mp4": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/2a/2ac501f0d04598e11ce6b6a212b36e0a5efdac775fc6f65e3d7c845db4a1a8a8",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d6/d66f3714070aa528bfa567a2a8ac0a5bb71fd953d25109ae663fe96877ed2d55"
+        },
+        "frames/v2a/contact-sheet-1.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/73/7324607a1dd61086614d3b64d34e0192d13d4ab1d9efa094f8eee2d548c7624e"
+        },
+        "frames/v2a/contact-sheet-2.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/18/18c040062b2e23a67a2c75f3a5c0838cd98e496f4bed2de0de6f56caeccaf7e4"
+        },
+        "frames/v2a/frame-00-at-1.6s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/0d/0d0588420017249ca521ab4bc2f788798a26deb166fb4deccf6161bd90aadc74"
+        },
+        "frames/v2a/frame-01-at-3.4s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/2f/2fa69e46e5a1ab0c33d01d803301d4379a7253c15e7ccebac6511168bef4444c"
+        },
+        "frames/v2a/frame-02-at-4.7s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e1/e18addd44ecb085ee4e354fcd31779f4fbc429cd22a595975f525d311938f8cd"
+        },
+        "frames/v2a/frame-03-at-6.4s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/60/6074579cdeae9251afc8fcb044358bee89fb788aa883d8845e2a9bff9f47f4be"
+        },
+        "frames/v2a/frame-04-at-8.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/b6/b635a0f523ef41438e847741c3f858215700eb8f5bf9593aa2141d6bfc90d164"
+        },
+        "frames/v2a/frame-05-at-9.7s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/59/59f324d534d002576d1154ce721a02bb65558e55cfc88545aa31e88b0cadcce5"
+        },
+        "frames/v2a/frame-06-at-11.8s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/b8/b8c7a77362e6bb374174e4875885908154652ba65cf5dcadcb3e30856b404100"
+        },
+        "frames/v2a/frame-07-at-13s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/55/55030d6a6462a98030e7bd1f2f38ebe7d89702c933d4171803a8d6e963684761"
+        },
+        "frames/v2a/frame-08-at-14.2s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f4/f4128c5823e253b4cdf73c6736b12b5ef79450b679f1ed565f972c631fc1291b"
+        },
+        "frames/v2a/frame-09-at-15.6s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/37/3707fd5b522efca6405e3a8bdefb4e9a3e8806a873f1df5bc9a153ab03b7e599"
+        },
+        "frames/v2a/frame-10-at-17s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ba/ba4b116e87f4c87fafd557625ea9fa2791f39a594104a22c5587b2a0cf37ba87"
+        },
+        "frames/v2a/frame-11-at-18.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/af/af2c64fbd39ce828b97a9ee38d07d1f1f996d99b42354716474c61d0a5649441"
+        },
+        "frames/v2a/frame-12-at-19.7s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a5/a57a2a0289a291c9de87e357e1bf7866d2a7fe2db4877bb2457543f48f73a116"
+        },
+        "frames/v2a/frame-13-at-21.4s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/af/afb6cd5a3284e1d0f390aa94647eba7fc334ba33f1c26c606679572766f514c1"
+        },
+        "frames/v2a/frame-14-at-22.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a7/a770aee22b255a289265c5a451c2004cff2f1dcdb306bb0902817da7bab81d47"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/db/db4ba3a03af585f2b8de399e1fea6ccaa647ca2c1acf16fa637c4eecde5f2d91",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/7c/7c9f5c3c5ddaf8faaedeb85bef8950285a410c11d884050c8eb93b012f741d38"
+        },
+        "rec/combos_sheet2.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/37/37b427a481eace37b90d1ed6adc8caac3bde728a3df4c81d6644678acba81351"
+        },
+        "rec/combos.mp4": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/2a/2ac501f0d04598e11ce6b6a212b36e0a5efdac775fc6f65e3d7c845db4a1a8a8",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d6/d66f3714070aa528bfa567a2a8ac0a5bb71fd953d25109ae663fe96877ed2d55"
+        }
+      }
+    },
+    "c19d67f0-314b-4c06-843c-ad0b223f0621": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792577892934,
+      "endedAt": 1792577892956,
+      "files": {
+        "assets/audio/mix2.wav": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c9/c92af3d7705fb0a8f3f9ffcef01406aff23658e37778aab5ad58683cecb89d01",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/9a/9af0e84e72081e8f4ae5f84b9441a7ba24aff342b851f593647741c84c662a69"
+        },
+        "frames/v2b/contact-sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/48/48efad809e354655d020fed85dc706625f0bd98e07318ad52e3ff9ec93b82ebd"
+        },
+        "frames/v2b/frame-00-at-4.3s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1a/1a2900fa29938215572facfcd4fa32b600b603f79bd1837bfd55a6b60b23931b"
+        },
+        "frames/v2b/frame-01-at-6.8s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/78/781ab97d1331cd7fc102b33075e6d3accd6abf61d96cb2d1e55d52f766adae19"
+        },
+        "frames/v2b/frame-02-at-9.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d1/d123a63d0e2ab241c0ebad71ad5ce24188b478b3604fc336bee34f5d5db9f929"
+        },
+        "frames/v2b/frame-03-at-12.2s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/65/65e52989f700e6caeb6cba841a721c4c51eb45fa8daf549caad760899a6f5066"
+        },
+        "frames/v2b/frame-04-at-17.8s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/b8/b8ba3079ac2c3ebfa5ac8103c9a5b0969eaafb457a832c4d3d48dc3b7560b6fc"
+        },
+        "frames/v2b/frame-05-at-23.3s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/67/67659b5ae6c0e508ad0a13a6363a4bfe47967c03bdb6ab8f3a4b836618eaab54"
+        }
+      }
+    },
+    "536413a9-66f2-418c-b7b0-0a46c93c18a4": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792579354157,
+      "endedAt": 1792579354245,
+      "files": {
+        "assets/audio/mix3.wav": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/53/539135538b716c5289130d75430497bd5ef4ae75565f35394614b28e5a4356c0"
+        },
+        "assets/device/macbook.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/db/db811b0a0657deeac10f09b9b6c1d431947fa7f0a6d3ba139982931658847a26"
+        },
+        "assets/rec/desmos2.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cb/cbfbb11b6930a8b89a3e58c421ba6f0c105a9811b848f270ef8651f498f69fab"
+        },
+        "assets/rec/pomo.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ee/ee0870a5c6b4dfd1536b05b39e96f3ea1f2df028e6d2a8fa800e1749e16ac7bc"
+        },
+        "assets/thumbs/t1.jpg": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c5/c5f0bfcbf4ef73680dc50a081bef59a0e40d103558d83a3c4ee3584b8306d592",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/20/20787c0dcd307540788c324b9bf3adf17f8ad5c2b1ed0850b93390846fa3bb4b"
+        },
+        "assets/thumbs/t4.jpg": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/76/76964c2b22a300d19b2bc1dc40f891182221d4679e0d708678b6d48726053179",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cc/cc11f006252f9c616d34b972c70675f2fd0e431f9a8126a94b873791ebd5b2d1"
+        },
+        "assets/thumbs/t5.jpg": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/b0/b0c2d5b2bbb67bc3f4f7582d8ceaf8ffa507873c1a5c57e37838f847d374d092",
+          "after": null
+        },
+        "BRIEF.md": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e7/e7f1e3c21bc599df54432336f6b58ed8c5212173713a545b2a31a1708584126c",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d5/d5251ebd8befa89800907f7a9eda9c4653c0c8e7227a18d7c075954a69c0d01d"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/7c/7c9f5c3c5ddaf8faaedeb85bef8950285a410c11d884050c8eb93b012f741d38",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/27/27d7254dc967fcda9f5133229ab48fd658204b93505f0c5b6c184c8d12366042"
+        },
+        "rec/both.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c4/c4899125cf21e7867e8bb93f820977b596fca67698f3fbae154b0ff19e71518e"
+        },
+        "rec/desmos2_end.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f5/f5e93fadf18d007f31bbf445fa578e6d7ab1998de35f202dfae85453043ba4e8"
+        },
+        "rec/desmos2_sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/65/65f89590bbec66208bc71fc85899736127f6a5c9dc579245008de86b88849b4c"
+        },
+        "rec/desmos2.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/cb/cbfbb11b6930a8b89a3e58c421ba6f0c105a9811b848f270ef8651f498f69fab"
+        },
+        "rec/peek-ibcc-equivalence-calculator-s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/83/8305d9378f095d0717a7dab9b4fcfd36b140176fa8f2077e1c3a20b6062057dd"
+        },
+        "rec/peek-ibcc-equivalence-calculator.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/8f/8fc84af911cd46657873ffe9de5ee1d46fea15dd821a330b43798aa52cb50538"
+        },
+        "rec/peek-periodic-table-of-elements-s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/93/93afa9df79d35ca09ffbe66435049ecedd20be291d0160a63c881d2ca4178d0b"
+        },
+        "rec/peek-periodic-table-of-elements.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/09/091b0c0a314b96fe49003f8845539b18ea61024fbd444993e7fcdc9840d733d1"
+        },
+        "rec/peek-pomo-s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/01/01cfdfb7fc3b3f28e00c122d64de5796aa636ee01a194fb285e2caf61024d5c2"
+        },
+        "rec/peek-pomo.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/10/108fa6193f449e71996a47a8640611d471decce0318b58056b31bea3601e7470"
+        },
+        "rec/peek-university-admission-criteria-tool.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/10/1015d8215dba23925b89c922d06353cc9540daba8b6946de71c3182551e114b0"
+        },
+        "rec/peek-wolfram-s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/9f/9f4e7f6428f6ba0627ddca7f1258084da05ebf62bdf3166898c442ba87818532"
+        },
+        "rec/peek-wolfram.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d0/d03eca174384fbe2ce0c3534e93cff31077b328e76a8e8213dfeba153ad0cfac"
+        },
+        "rec/pomo_sheet.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/3f/3f0cd4e0d960133e1979bbf1908eaa2fa4837e4a47cb01b7ae1896843f0596b0"
+        },
+        "rec/pomo.mp4": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ee/ee0870a5c6b4dfd1536b05b39e96f3ea1f2df028e6d2a8fa800e1749e16ac7bc"
+        }
+      }
+    },
+    "eca9caf1-34d2-48cf-a159-565eb03c3246": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792579385985,
+      "endedAt": 1792579386001,
+      "files": {
+        "frames/v3a/contact-sheet-1.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c5/c556d00d018638f1e828d9ac1c54b80ce1896a19d170ace0098eb4da8a21762b"
+        },
+        "frames/v3a/contact-sheet-2.jpg": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fe/fe54463d6403333e7cfef901cda036c62f7111a479c07fd36c93b94cc02d707f"
+        },
+        "frames/v3a/frame-00-at-1.5s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/13/137ef3d375b0407ae4d7868603f3d288634deee2a3b0c9eff81c4b524d964641"
+        },
+        "frames/v3a/frame-01-at-2.35s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/75/758bf87bfd12171db6586bc31373b16f38ca6f8e75581ba90794c86b20d7b1b6"
+        },
+        "frames/v3a/frame-02-at-2.75s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/83/83174db0997ba0bf2b023ab2f15db990ef968c8448939f324a9ec3db63952c7f"
+        },
+        "frames/v3a/frame-03-at-3.3s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/1e/1e077347756fe854586d0168536108b55f352f159a657e207ef6d01042248c45"
+        },
+        "frames/v3a/frame-04-at-4.6s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/85/8537787dea98a2ecab151f9f31ca715ef1d102ea37105e81de4854d32b9c29b2"
+        },
+        "frames/v3a/frame-05-at-5.95s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/e3/e301098662a75834bb9cf11616154cfe85956f49f09b51e1c57efeecc5d4fa32"
+        },
+        "frames/v3a/frame-06-at-7s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fb/fb36225204d55a2e78997f3243e64d4183caccb7cb9faababf9b2edda80958ee"
+        },
+        "frames/v3a/frame-07-at-9s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/f2/f27166da3e7c762456ce8399237d3c3fbc243c037d27250f669c3a2e1927a3c7"
+        },
+        "frames/v3a/frame-08-at-12s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c7/c7beed2bf6942fe36710726fe2ad85d8fdae94ea5cb31f1e49cd80ba95c753b7"
+        },
+        "frames/v3a/frame-09-at-15.2s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/d6/d6ea345810e6a679de7f8ddf4efff57d5b07c9930e95742f33d1ac0fb352da3c"
+        },
+        "frames/v3a/frame-10-at-16s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/fa/fa502dd85b21a9f670757938ba7bc7553c2c56a5b214f381d84ee1686e2ddcca"
+        },
+        "frames/v3a/frame-11-at-18.3s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/c9/c9358ef0198172fccd4a3a6704d65cb1ff260c4e9347fe181aefa727db2036d7"
+        },
+        "frames/v3a/frame-12-at-19s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/ff/ff7c7a2a13e863615a3eb66dce1c3d17428d02d8d00f292e8f9e881b44a7be04"
+        },
+        "frames/v3a/frame-13-at-20.8s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/a2/a2f0752fb4ab239de157eb7d3fbb5bc828f8d04335413b6a51702720318ddf08"
+        },
+        "frames/v3a/frame-14-at-22.6s.png": {
+          "before": null,
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/08/0882cbc1299565a492ad8c5a6b319e3dd2a9a8c31c4a0f403b2a7c25ade599b2"
+        },
+        "index.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/27/27d7254dc967fcda9f5133229ab48fd658204b93505f0c5b6c184c8d12366042",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/28950c97-9d6e-40da-858d-80de69e8247d/blobs/4e/4e6639f93b7e84da77d9541c9bf662e718d173184e4077b37f15aae405599105"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "c19d67f0-314b-4c06-843c-ad0b223f0621",
+      "id": "86ace85c-1e29-46f6-8b4e-4fec72b86b39"
+    },
+    "revisions": {
+      "37d4e402-6ec2-4785-b3d0-423d8a1dab58": [
+        {
+          "id": "68391320-21d3-43b9-9ff7-177d56d2f696",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792576193989,
+          "contentHash": "76007b13070e9a3a55764ee1ececf749f7490fc54ff572e8b69ffbc5f5a83aea",
+          "revision": "37d4e402-6ec2-4785-b3d0-423d8a1dab58",
+          "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "94c4daf4-1889-4797-bade-ac5a0c2b43fd"
+        }
+      ],
+      "23fdef9f-bf21-446d-808f-891f79be39aa": [
+        {
+          "id": "6d5fa182-947d-46b9-b521-2d61de7d1285",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792576263147,
+          "contentHash": "2241b7da369bfdfe7f7386c8d5c6dbe0dd440b54ccea8fe7e13ef9e9217f0858",
+          "revision": "23fdef9f-bf21-446d-808f-891f79be39aa",
+          "inputFingerprint": "c39eb748de1a2e0757c7cef9a9315243cd24c5096c446ec013f9c046143ac45a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "2325754d-c51a-4f7a-9526-9baf6f99c908"
+        }
+      ],
+      "e823170b-276c-4730-a86b-5fb4b82743da": [
+        {
+          "id": "d5246580-212e-4fed-8154-c9d64b39ee9a",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792577784170,
+          "contentHash": "196eab2156b855f06fe15da92afd7715a253346211770550fe2eb18682e4575a",
+          "revision": "e823170b-276c-4730-a86b-5fb4b82743da",
+          "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "79ef907c-7864-421f-b9c7-a131f7bdfa99"
+        }
+      ],
+      "c19d67f0-314b-4c06-843c-ad0b223f0621": [
+        {
+          "id": "7e1424eb-b5b5-44ec-b6b1-d709c49779c1",
+          "scope": "project",
+          "report": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/.hyperframes/artifacts/checks/7e1424eb-b5b5-44ec-b6b1-d709c49779c1.json",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792577900874,
+          "contentHash": "4ac92c160d4ffb602022e40ed090ae5a8c73d5e34e9a34edb64c4fa008d00e85",
+          "revision": "c19d67f0-314b-4c06-843c-ad0b223f0621",
+          "inputFingerprint": "0f9c3b53b477e0ebf76ea958f748ce2bf533858c0047035de19aa31183cb5936",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "id": "86ace85c-1e29-46f6-8b4e-4fec72b86b39",
+          "scope": "project",
+          "report": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/.hyperframes/artifacts/checks/86ace85c-1e29-46f6-8b4e-4fec72b86b39.json",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792577942051,
+          "contentHash": "67a52b73feddcc678b89318cf2ee299d3654f21b00f3c663fa62e306891badb6",
+          "revision": "c19d67f0-314b-4c06-843c-ad0b223f0621",
+          "inputFingerprint": "0f9c3b53b477e0ebf76ea958f748ce2bf533858c0047035de19aa31183cb5936",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "536413a9-66f2-418c-b7b0-0a46c93c18a4": [
+        {
+          "id": "817bd8a8-d248-431e-b671-7a6efb345a4a",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792579361396,
+          "contentHash": "d9e64aede134c53b94fb2a8618463a5f1f3fb177ee234f93da4475eb5dbf05c2",
+          "revision": "536413a9-66f2-418c-b7b0-0a46c93c18a4",
+          "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "2325754d-c51a-4f7a-9526-9baf6f99c908"
+        }
+      ]
+    },
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-14"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "34a4f9af-1a91-4566-97c5-9872482941c7-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v1/frame-00-at-0.5s.png",
+        "time": 0.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572946800,
+        "contentHash": "8eafdb9d79d30e403fb288a52b7e2bd76480cbf4f87b03bf88bbcecdb734307a",
+        "revision": null,
+        "inputFingerprint": "df89f175ae6d2eadfd0e5fbbb1bb396cc8763dfdeef152814128af70995210b3",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "34a4f9af-1a91-4566-97c5-9872482941c7-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v1/frame-01-at-1.5s.png",
+        "time": 1.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572946800,
+        "contentHash": "4d0a51fef67062a06bbda55cded532b9c472a11163a4d2934105b9f9a175fd44",
+        "revision": null,
+        "inputFingerprint": "df89f175ae6d2eadfd0e5fbbb1bb396cc8763dfdeef152814128af70995210b3",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "34a4f9af-1a91-4566-97c5-9872482941c7-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v1/frame-02-at-2.5s.png",
+        "time": 2.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572946800,
+        "contentHash": "5a28379d57cadedd5df7c6f2f05db3e6a8a426a03c1ed4d067d073ca848dec05",
+        "revision": null,
+        "inputFingerprint": "df89f175ae6d2eadfd0e5fbbb1bb396cc8763dfdeef152814128af70995210b3",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "34a4f9af-1a91-4566-97c5-9872482941c7-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v1/frame-03-at-3.5s.png",
+        "time": 3.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572946800,
+        "contentHash": "36400df31cbe6a564bcf75ae0c0174e5a1082dd97ed179357980d7ed4c26681c",
+        "revision": null,
+        "inputFingerprint": "df89f175ae6d2eadfd0e5fbbb1bb396cc8763dfdeef152814128af70995210b3",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "34a4f9af-1a91-4566-97c5-9872482941c7-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v1/frame-04-at-4.5s.png",
+        "time": 4.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572946800,
+        "contentHash": "e54e8aac898a6566d8b25882c98385950f0e56ee122dc6a6ec05e76007c39337",
+        "revision": null,
+        "inputFingerprint": "df89f175ae6d2eadfd0e5fbbb1bb396cc8763dfdeef152814128af70995210b3",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "34a4f9af-1a91-4566-97c5-9872482941c7-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v1/frame-05-at-5.5s.png",
+        "time": 5.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572946800,
+        "contentHash": "4893895f71346a1fea710bd58c953e0dd3e7dfde41d4eefb4fb09ec0c6c58ee8",
+        "revision": null,
+        "inputFingerprint": "df89f175ae6d2eadfd0e5fbbb1bb396cc8763dfdeef152814128af70995210b3",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c582ff35-2f03-429b-9a2f-2a54f0e2982f-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2/frame-00-at-0.5s.png",
+        "time": 0.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572993688,
+        "contentHash": "ce35ca8a10897ac51f116a07f7535a7b887506591c4e23088646901d736f5d75",
+        "revision": null,
+        "inputFingerprint": "4c668707b766f54aada29ab8cc53576e99ee9dec73e49e82c75438fa47f32e8c",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c582ff35-2f03-429b-9a2f-2a54f0e2982f-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2/frame-01-at-1.5s.png",
+        "time": 1.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572993688,
+        "contentHash": "04a0deeab44214ff2b490079fcecd5303b12a85854e0a684ba4e1348ea652573",
+        "revision": null,
+        "inputFingerprint": "4c668707b766f54aada29ab8cc53576e99ee9dec73e49e82c75438fa47f32e8c",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c582ff35-2f03-429b-9a2f-2a54f0e2982f-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2/frame-02-at-2.5s.png",
+        "time": 2.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572993688,
+        "contentHash": "2270863ee4c713b102461e86d987ed81143601583740ef97f061ebc87274884e",
+        "revision": null,
+        "inputFingerprint": "4c668707b766f54aada29ab8cc53576e99ee9dec73e49e82c75438fa47f32e8c",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c582ff35-2f03-429b-9a2f-2a54f0e2982f-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2/frame-03-at-3.5s.png",
+        "time": 3.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572993688,
+        "contentHash": "28aa2e2f79f5a75f2157e0e9d0e0107a954abc6c94436843e8777c14287cc41a",
+        "revision": null,
+        "inputFingerprint": "4c668707b766f54aada29ab8cc53576e99ee9dec73e49e82c75438fa47f32e8c",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c582ff35-2f03-429b-9a2f-2a54f0e2982f-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2/frame-04-at-4.5s.png",
+        "time": 4.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572993688,
+        "contentHash": "7556e9b824c4c0b22673907ae96241643c09a4df361917b4c0815006d23b3a69",
+        "revision": null,
+        "inputFingerprint": "4c668707b766f54aada29ab8cc53576e99ee9dec73e49e82c75438fa47f32e8c",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c582ff35-2f03-429b-9a2f-2a54f0e2982f-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2/frame-05-at-5.5s.png",
+        "time": 5.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792572993688,
+        "contentHash": "f38e66057b79883c2fe9b173c34b2b4e3c3f47e3a9b8a12d91cb94ae2193018d",
+        "revision": null,
+        "inputFingerprint": "4c668707b766f54aada29ab8cc53576e99ee9dec73e49e82c75438fa47f32e8c",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c8543e85-c339-4263-a963-4f9fe5b40344-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3/frame-00-at-0.5s.png",
+        "time": 0.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792573007854,
+        "contentHash": "ce35ca8a10897ac51f116a07f7535a7b887506591c4e23088646901d736f5d75",
+        "revision": null,
+        "inputFingerprint": "8e26458b82a61c87455b6592f395bbd3acbe0158f8c88588fa233b41367aef3a",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c8543e85-c339-4263-a963-4f9fe5b40344-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3/frame-01-at-1.5s.png",
+        "time": 1.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792573007854,
+        "contentHash": "04a0deeab44214ff2b490079fcecd5303b12a85854e0a684ba4e1348ea652573",
+        "revision": null,
+        "inputFingerprint": "8e26458b82a61c87455b6592f395bbd3acbe0158f8c88588fa233b41367aef3a",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c8543e85-c339-4263-a963-4f9fe5b40344-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3/frame-02-at-2.5s.png",
+        "time": 2.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792573007854,
+        "contentHash": "2270863ee4c713b102461e86d987ed81143601583740ef97f061ebc87274884e",
+        "revision": null,
+        "inputFingerprint": "8e26458b82a61c87455b6592f395bbd3acbe0158f8c88588fa233b41367aef3a",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c8543e85-c339-4263-a963-4f9fe5b40344-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3/frame-03-at-3.5s.png",
+        "time": 3.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792573007854,
+        "contentHash": "28aa2e2f79f5a75f2157e0e9d0e0107a954abc6c94436843e8777c14287cc41a",
+        "revision": null,
+        "inputFingerprint": "8e26458b82a61c87455b6592f395bbd3acbe0158f8c88588fa233b41367aef3a",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c8543e85-c339-4263-a963-4f9fe5b40344-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3/frame-04-at-4.5s.png",
+        "time": 4.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792573007854,
+        "contentHash": "e0257f5cf9e8fa1d94a46d603a7c9ffa32c28ba191a781e45a285a9a106ddd5b",
+        "revision": null,
+        "inputFingerprint": "8e26458b82a61c87455b6592f395bbd3acbe0158f8c88588fa233b41367aef3a",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "c8543e85-c339-4263-a963-4f9fe5b40344-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3/frame-05-at-5.5s.png",
+        "time": 5.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792573007854,
+        "contentHash": "ed165ed6461a18d07f528d8464ca42b768ce1cd141809b575e782def183f3e45",
+        "revision": null,
+        "inputFingerprint": "8e26458b82a61c87455b6592f395bbd3acbe0158f8c88588fa233b41367aef3a",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-00-at-1.2s.png",
+        "time": 1.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199931,
+        "contentHash": "d4928e70eab40bf0e1aede8b4a8a204b797bd2219457a4d5a258a7ff572d66e5",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-01-at-3.9s.png",
+        "time": 3.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "8bdd78c47f4a2387603d3c1e196f9f8bfa712ca3e0f01181c77f9b4493600f30",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-02-at-4.7s.png",
+        "time": 4.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "ab67203c24f1a0db5c84f3babfaf4a8199de7afa8c6c3aea7b263fce66245549",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-03-at-9.8s.png",
+        "time": 9.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "c2ff484f7a660d1b71837228d54dc41153344f35cd26497d38bcdc9d9a2e316d",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-04-at-13.2s.png",
+        "time": 13.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "8845a1ca12daa787f686a5f2be35dfe01e680d9c4ce9debe4ef4b1835f5e7110",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-05-at-16.2s.png",
+        "time": 16.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "3bf365324eb507c37cfa62c5655c61589cf58f3e025afe5ae0fd15899f567d8c",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-6",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-06-at-19.5s.png",
+        "time": 19.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "45fd3fe3a3a344e7888c129db22aa43ca0ba0a676bd281659111c474738fbfe4",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-7",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-07-at-24.5s.png",
+        "time": 24.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "1f97cadfa906bfdc724bff30e3f75df22e447d691532bab94dc680fbd7fb1648",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-8",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-08-at-27.5s.png",
+        "time": 27.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "a56fe2801b09839afd97f222d126f42e87d03545645aafde76748b14bb78947a",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-9",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-09-at-31.5s.png",
+        "time": 31.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "4deabff5e2e27a04a404b81329d204928eda6f7ebc5cc7845d5a67c9443f305d",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-10",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-10-at-37s.png",
+        "time": 37,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "d445d53800317892205768a71dc2020301717fbf6ad5cb6788ee584e11d30a2e",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-11",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-11-at-40.9s.png",
+        "time": 40.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "a54d1688e28d3746f49ce79b6e6c8a2ac79dce0a226ace6675626323aa29fdf2",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-12",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-12-at-42.8s.png",
+        "time": 42.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "725f17da916fe99070d3d362239a7b51cbac593e9566515882d097357eb1975c",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-13",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-13-at-47.5s.png",
+        "time": 47.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "9341b91de7b31379ccab55a080af6dfde097173048f0eec7d5c2d8d476273179",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-14",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-14-at-52.2s.png",
+        "time": 52.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "79da365b2427f657f4fdb3877b50f18f59d0cf605a4de9d441703462242c5edc",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-15",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-15-at-55s.png",
+        "time": 55,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "d39117e09f704c628f8796b23266c970a4fd90cd6810fac57f7f143a34d23b8b",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-16",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-16-at-59s.png",
+        "time": 59,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "dd209c2a7f7372fc8fde27bcad6490ab5cd16f809a41358fff86ff5eda3cbbc8",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-17",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-17-at-62.2s.png",
+        "time": 62.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "a3f76b55a577b1f37d5ef60ef0869fe387e9d83d83f59025fac8fb07c257f60b",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-18",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-18-at-64.3s.png",
+        "time": 64.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "42d912ebe2d3f267975701a263cdf5f9264a3cd2db92ce8e700900c435c2a928",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-19",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-19-at-66.8s.png",
+        "time": 66.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "50f02b898497ef6306762763c89a78aa98d87f894dc7df346c39813081ddee61",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "8bcdcf40-fea1-42f6-8280-24d182fd2305-20",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build1/frame-20-at-69.5s.png",
+        "time": 69.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576199932,
+        "contentHash": "25816d04a5456e55fb4226f0a25b4663043a6298d9884d08c4361608356eefb9",
+        "revision": null,
+        "inputFingerprint": "f523556c277bc42aafc215c3580f60b2816fd3639fa293797311d0e87d177bc1",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "14f9d96b-4b79-47bb-9dcd-80a892ffd913-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build2/frame-00-at-2.9s.png",
+        "time": 2.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576240212,
+        "contentHash": "cddac3db8721c3de9322046d4cb873a994e895c646b3078fcb438099cfcdd49c",
+        "revision": null,
+        "inputFingerprint": "3e0e56d5454a3d4de188490e89ca15d232df2d34fb7704d3e7150a94cd5d5a1f",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "14f9d96b-4b79-47bb-9dcd-80a892ffd913-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build2/frame-01-at-10s.png",
+        "time": 10,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576240212,
+        "contentHash": "f7d66afe82f8da19075009946510154af62f4c9676242ecf2dbadc86c0a6307d",
+        "revision": null,
+        "inputFingerprint": "3e0e56d5454a3d4de188490e89ca15d232df2d34fb7704d3e7150a94cd5d5a1f",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "14f9d96b-4b79-47bb-9dcd-80a892ffd913-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build2/frame-02-at-16.5s.png",
+        "time": 16.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576240212,
+        "contentHash": "1018a4763d705c3d150e0e5025f5449148318119b1062e48f901c09fcda06048",
+        "revision": null,
+        "inputFingerprint": "3e0e56d5454a3d4de188490e89ca15d232df2d34fb7704d3e7150a94cd5d5a1f",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "14f9d96b-4b79-47bb-9dcd-80a892ffd913-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build2/frame-03-at-24.6s.png",
+        "time": 24.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576240212,
+        "contentHash": "65546665249bb13297c383c57eba2fddf6c149f79fc2bbb40e4a4bd0f57eaa2b",
+        "revision": null,
+        "inputFingerprint": "3e0e56d5454a3d4de188490e89ca15d232df2d34fb7704d3e7150a94cd5d5a1f",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "14f9d96b-4b79-47bb-9dcd-80a892ffd913-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build2/frame-04-at-40.9s.png",
+        "time": 40.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576240212,
+        "contentHash": "ebd735e8cbcdf437c1d345bebb426a4b061394dcff16ee248ff78658a53bee7a",
+        "revision": null,
+        "inputFingerprint": "3e0e56d5454a3d4de188490e89ca15d232df2d34fb7704d3e7150a94cd5d5a1f",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "14f9d96b-4b79-47bb-9dcd-80a892ffd913-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build2/frame-05-at-48.2s.png",
+        "time": 48.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576240212,
+        "contentHash": "8fc80e9ee5f197c436e8f4fb9a9c006e5a415763ba2102b79297dab02d85b0e4",
+        "revision": null,
+        "inputFingerprint": "3e0e56d5454a3d4de188490e89ca15d232df2d34fb7704d3e7150a94cd5d5a1f",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "14f9d96b-4b79-47bb-9dcd-80a892ffd913-6",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build2/frame-06-at-58s.png",
+        "time": 58,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576240212,
+        "contentHash": "36931bf817bdbbca3618709f7f2824961f5c5bbd8681c9f47dae7ea9d856b44f",
+        "revision": null,
+        "inputFingerprint": "3e0e56d5454a3d4de188490e89ca15d232df2d34fb7704d3e7150a94cd5d5a1f",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "14f9d96b-4b79-47bb-9dcd-80a892ffd913-7",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/build2/frame-07-at-62.5s.png",
+        "time": 62.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792576240212,
+        "contentHash": "599fb9ceb67c3de74eeb0f9d50b565837971039803479e4266cb4afac930fec3",
+        "revision": null,
+        "inputFingerprint": "3e0e56d5454a3d4de188490e89ca15d232df2d34fb7704d3e7150a94cd5d5a1f",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-00-at-1.6s.png",
+        "time": 1.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "0d0588420017249ca521ab4bc2f788798a26deb166fb4deccf6161bd90aadc74",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-01-at-3.4s.png",
+        "time": 3.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "2fa69e46e5a1ab0c33d01d803301d4379a7253c15e7ccebac6511168bef4444c",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-02-at-4.7s.png",
+        "time": 4.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "e18addd44ecb085ee4e354fcd31779f4fbc429cd22a595975f525d311938f8cd",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-03-at-6.4s.png",
+        "time": 6.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "6074579cdeae9251afc8fcb044358bee89fb788aa883d8845e2a9bff9f47f4be",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-04-at-8.5s.png",
+        "time": 8.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "b635a0f523ef41438e847741c3f858215700eb8f5bf9593aa2141d6bfc90d164",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-05-at-9.7s.png",
+        "time": 9.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "59f324d534d002576d1154ce721a02bb65558e55cfc88545aa31e88b0cadcce5",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-6",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-06-at-11.8s.png",
+        "time": 11.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "b8c7a77362e6bb374174e4875885908154652ba65cf5dcadcb3e30856b404100",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-7",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-07-at-13s.png",
+        "time": 13,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "55030d6a6462a98030e7bd1f2f38ebe7d89702c933d4171803a8d6e963684761",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-8",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-08-at-14.2s.png",
+        "time": 14.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "f4128c5823e253b4cdf73c6736b12b5ef79450b679f1ed565f972c631fc1291b",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-9",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-09-at-15.6s.png",
+        "time": 15.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "3707fd5b522efca6405e3a8bdefb4e9a3e8806a873f1df5bc9a153ab03b7e599",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-10",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-10-at-17s.png",
+        "time": 17,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "ba4b116e87f4c87fafd557625ea9fa2791f39a594104a22c5587b2a0cf37ba87",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-11",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-11-at-18.5s.png",
+        "time": 18.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "af2c64fbd39ce828b97a9ee38d07d1f1f996d99b42354716474c61d0a5649441",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-12",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-12-at-19.7s.png",
+        "time": 19.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "a57a2a0289a291c9de87e357e1bf7866d2a7fe2db4877bb2457543f48f73a116",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-13",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-13-at-21.4s.png",
+        "time": 21.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793147,
+        "contentHash": "afb6cd5a3284e1d0f390aa94647eba7fc334ba33f1c26c606679572766f514c1",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9348bb87-0d98-4bcf-8af5-26dda25875c0-14",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2a/frame-14-at-22.5s.png",
+        "time": 22.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577793148,
+        "contentHash": "a770aee22b255a289265c5a451c2004cff2f1dcdb306bb0902817da7bab81d47",
+        "revision": null,
+        "inputFingerprint": "9b21ae73c77bbd7f887b97f4323629d2da20b04c504acb352299b9a749d304ce",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9acb5219-806b-44fa-8534-8abaa882eead-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2b/frame-00-at-4.3s.png",
+        "time": 4.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577874027,
+        "contentHash": "1a2900fa29938215572facfcd4fa32b600b603f79bd1837bfd55a6b60b23931b",
+        "revision": null,
+        "inputFingerprint": "64857a75f7113771d95dd837371e84103d495a25e2c4d31e96ea691ad50e8e80",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9acb5219-806b-44fa-8534-8abaa882eead-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2b/frame-01-at-6.8s.png",
+        "time": 6.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577874027,
+        "contentHash": "781ab97d1331cd7fc102b33075e6d3accd6abf61d96cb2d1e55d52f766adae19",
+        "revision": null,
+        "inputFingerprint": "64857a75f7113771d95dd837371e84103d495a25e2c4d31e96ea691ad50e8e80",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9acb5219-806b-44fa-8534-8abaa882eead-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2b/frame-02-at-9.5s.png",
+        "time": 9.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577874027,
+        "contentHash": "d123a63d0e2ab241c0ebad71ad5ce24188b478b3604fc336bee34f5d5db9f929",
+        "revision": null,
+        "inputFingerprint": "64857a75f7113771d95dd837371e84103d495a25e2c4d31e96ea691ad50e8e80",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9acb5219-806b-44fa-8534-8abaa882eead-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2b/frame-03-at-12.2s.png",
+        "time": 12.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577874027,
+        "contentHash": "65e52989f700e6caeb6cba841a721c4c51eb45fa8daf549caad760899a6f5066",
+        "revision": null,
+        "inputFingerprint": "64857a75f7113771d95dd837371e84103d495a25e2c4d31e96ea691ad50e8e80",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9acb5219-806b-44fa-8534-8abaa882eead-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2b/frame-04-at-17.8s.png",
+        "time": 17.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577874027,
+        "contentHash": "b8ba3079ac2c3ebfa5ac8103c9a5b0969eaafb457a832c4d3d48dc3b7560b6fc",
+        "revision": null,
+        "inputFingerprint": "64857a75f7113771d95dd837371e84103d495a25e2c4d31e96ea691ad50e8e80",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "9acb5219-806b-44fa-8534-8abaa882eead-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v2b/frame-05-at-23.3s.png",
+        "time": 23.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792577874027,
+        "contentHash": "67659b5ae6c0e508ad0a13a6363a4bfe47967c03bdb6ab8f3a4b836618eaab54",
+        "revision": null,
+        "inputFingerprint": "64857a75f7113771d95dd837371e84103d495a25e2c4d31e96ea691ad50e8e80",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-00-at-1.5s.png",
+        "time": 1.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369854,
+        "contentHash": "137ef3d375b0407ae4d7868603f3d288634deee2a3b0c9eff81c4b524d964641",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-01-at-2.35s.png",
+        "time": 2.35,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369854,
+        "contentHash": "758bf87bfd12171db6586bc31373b16f38ca6f8e75581ba90794c86b20d7b1b6",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-02-at-2.75s.png",
+        "time": 2.75,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "83174db0997ba0bf2b023ab2f15db990ef968c8448939f324a9ec3db63952c7f",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-03-at-3.3s.png",
+        "time": 3.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "1e077347756fe854586d0168536108b55f352f159a657e207ef6d01042248c45",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-04-at-4.6s.png",
+        "time": 4.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "8537787dea98a2ecab151f9f31ca715ef1d102ea37105e81de4854d32b9c29b2",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-05-at-5.95s.png",
+        "time": 5.95,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "e301098662a75834bb9cf11616154cfe85956f49f09b51e1c57efeecc5d4fa32",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-6",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-06-at-7s.png",
+        "time": 7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "fb36225204d55a2e78997f3243e64d4183caccb7cb9faababf9b2edda80958ee",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-7",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-07-at-9s.png",
+        "time": 9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "f27166da3e7c762456ce8399237d3c3fbc243c037d27250f669c3a2e1927a3c7",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-8",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-08-at-12s.png",
+        "time": 12,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "c7beed2bf6942fe36710726fe2ad85d8fdae94ea5cb31f1e49cd80ba95c753b7",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-9",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-09-at-15.2s.png",
+        "time": 15.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "d6ea345810e6a679de7f8ddf4efff57d5b07c9930e95742f33d1ac0fb352da3c",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-10",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-10-at-16s.png",
+        "time": 16,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "fa502dd85b21a9f670757938ba7bc7553c2c56a5b214f381d84ee1686e2ddcca",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-11",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-11-at-18.3s.png",
+        "time": 18.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "c9358ef0198172fccd4a3a6704d65cb1ff260c4e9347fe181aefa727db2036d7",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-12",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-12-at-19s.png",
+        "time": 19,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "ff7c7a2a13e863615a3eb66dce1c3d17428d02d8d00f292e8f9e881b44a7be04",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-13",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-13-at-20.8s.png",
+        "time": 20.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "a2f0752fb4ab239de157eb7d3fbb5bc828f8d04335413b6a51702720318ddf08",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "702d9c7f-c61f-45c6-87b0-8c9a669d1f24-14",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/frames/v3a/frame-14-at-22.6s.png",
+        "time": 22.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792579369855,
+        "contentHash": "0882cbc1299565a492ad8c5a6b319e3dd2a9a8c31c4a0f403b2a7c25ade599b2",
+        "revision": null,
+        "inputFingerprint": "b24826357af308ccaa02303f6ca5efb5aea649f3b450d5db4b41c386e1e1b586",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "2325754d-c51a-4f7a-9526-9baf6f99c908",
+      "completedAt": 1792579410531,
+      "output": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/renders/raw3.mp4",
+      "status": "completed",
+      "revision": "eca9caf1-34d2-48cf-a159-565eb03c3246"
+    },
+    "retainedRevisions": [
+      "eca9caf1-34d2-48cf-a159-565eb03c3246",
+      "c19d67f0-314b-4c06-843c-ad0b223f0621"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

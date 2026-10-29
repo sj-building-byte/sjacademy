@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Uni checker reel v2</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Caveat"; src: url("assets/brand/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+      :root { --yellow: #FCE004; --ink: #151515; --canvas: #F7F5EF; --brown: #453516; --cta: #CC4A00; --pen: #D63A2F; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--yellow); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); background: var(--yellow); }
+      .abs { position: absolute; }
+
+      /* the room: flat brand yellow, an ink graph-paper floor running to the horizon */
+      #floorwrap { position: absolute; inset: 0; perspective: 900px; perspective-origin: 540px 700px; overflow: hidden; }
+      #floor { position: absolute; left: -1600px; top: 1100px; width: 4280px; height: 3600px; transform-origin: 50% 0; transform: rotateX(78deg);
+        background-image: linear-gradient(rgba(21,21,21,0.16) 3px, transparent 3px), linear-gradient(90deg, rgba(21,21,21,0.16) 3px, transparent 3px); background-size: 120px 120px; }
+      #ceil { position: absolute; left: -1600px; top: -2700px; width: 4280px; height: 3600px; transform-origin: 50% 100%; transform: rotateX(-78deg);
+        background-image: linear-gradient(rgba(21,21,21,0.07) 3px, transparent 3px), linear-gradient(90deg, rgba(21,21,21,0.07) 3px, transparent 3px); background-size: 120px 120px; }
+      #flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 60; pointer-events: none; }
+
+      /* the 3D stage: the camera is #world, everything else sits inside it in world px */
+      #stage { position: absolute; inset: 0; z-index: 1; perspective: 1300px; perspective-origin: 540px 760px; }
+      #world { position: absolute; left: 540px; top: 760px; width: 0; height: 0; transform-style: preserve-3d; }
+      .o { position: absolute; left: 0; top: 0; transform-style: preserve-3d; }
+      .t { font-weight: 600; letter-spacing: -0.04em; line-height: 1; white-space: nowrap; }
+
+      /* top logo and captions (2D, above the world) */
+      #logo { position: absolute; left: 420px; top: 290px; width: 240px; z-index: 50; }
+      .cap { position: absolute; left: 120px; width: 840px; top: 400px; z-index: 40; font-weight: 600; letter-spacing: -0.035em; line-height: 1.04; }
+      .cap .w { display: inline-block; }
+      .hl { background-image: linear-gradient(100deg, transparent 0, #fff 0.12em, #fff calc(100% - 0.12em), transparent 100%); background-repeat: no-repeat; background-position: 0 88%; background-size: 0% 42%; padding: 0 0.12em; margin: 0 -0.12em; }
+      .hly { background-image: linear-gradient(100deg, transparent 0, var(--yellow) 0.12em, var(--yellow) calc(100% - 0.12em), transparent 100%); }
+      .pen { fill: none; stroke: var(--pen); stroke-linecap: round; stroke-linejoin: round; }
+
+      #bars { position: absolute; left: 120px; top: 780px; width: 780px; z-index: 40; }
+      #bars .row { margin-bottom: 26px; }
+      #bars .bl { font-weight: 600; font-size: 38px; margin-bottom: 8px; }
+      #bars .trk { position: relative; height: 64px; border-radius: 18px; background: rgba(21,21,21,0.1); }
+      #bars .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 18px; background: #fff; border: 5px solid var(--ink); transform-origin: 0 50%; }
+      #bars .fill.ink { background: var(--ink); }
+      #bars .trk b { position: absolute; right: 18px; top: 6px; font-weight: 600; font-size: 40px; }
+      #fullg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 30; overflow: hidden; background: #fff; opacity: 0; box-shadow: 0 60px 120px rgba(21,21,21,0.4); }
+      #fullg video { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+      .cap.pill .w { background: var(--ink); color: #fff; border-radius: 20px; padding: 4px 24px 12px; margin-bottom: 10px; }
+      .cap.pill .y { color: var(--yellow); }
+      #count { position: absolute; left: 120px; top: 900px; width: 220px; height: 220px; border-radius: 50%; background: var(--yellow); border: 8px solid var(--ink); z-index: 45; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(21,21,21,0.3); opacity: 0; }
+      #count b { font-weight: 600; font-size: 104px; line-height: 0.9; letter-spacing: -0.05em; }
+      #count i { font-style: normal; font-weight: 600; font-size: 26px; }
+      #free2 { position: absolute; left: 290px; top: 600px; z-index: 46; border: 14px solid var(--pen); color: var(--pen); border-radius: 26px; padding: 2px 40px 14px; font-weight: 600; font-size: 150px; letter-spacing: 0.02em; background: rgba(252,224,4,0.94); opacity: 0; }
+      /* sticky CTA */
+      #cta { position: absolute; left: 140px; top: 1140px; width: 700px; height: 100px; z-index: 55; display: flex; align-items: center; gap: 18px; padding: 0 18px 0 26px; background: var(--ink); color: #fff; border-radius: 30px; box-shadow: 0 18px 40px rgba(21,21,21,0.35); transform-origin: 50% 50%; }
+      #cta svg { width: 54px; height: 54px; flex: none; }
+      #cta .a { font-weight: 600; font-size: 44px; letter-spacing: -0.02em; }
+      #cta .u { background: var(--cta); border-radius: 18px; padding: 2px 20px 6px; font-weight: 600; font-size: 46px; }
+      #cta .b { font-weight: 400; font-size: 30px; color: rgba(255,255,255,0.72); line-height: 1.1; }
+
+      /* hook */
+      .nm { font-size: 170px; color: var(--ink); }
+      .nm.out { color: transparent; -webkit-text-stroke: 4px var(--ink); }
+      #lums { font-size: 260px; }
+      #bubble { width: max-content; text-align: center; background: #fff; border-radius: 44px; padding: 26px 44px 38px; box-shadow: 0 40px 80px rgba(21,21,21,0.28); }
+      #bubble:after { content: ""; position: absolute; left: 110px; top: -34px; border: 22px solid transparent; border-bottom: 18px solid #fff; border-left-width: 34px; }
+      #bubble .bw { font-family: "Caveat", cursive; font-weight: 600; font-size: 54px; color: rgba(21,21,21,0.6); }
+      #bubble .bt { font-weight: 600; font-size: 96px; letter-spacing: -0.04em; line-height: 1; white-space: nowrap; }
+      #bubble .bt span { display: inline-block; }
+      #strike { position: absolute; left: 180px; top: 62px; width: 540px; height: 64px; overflow: visible; }
+      #wrong { border: 14px solid var(--pen); color: var(--pen); border-radius: 24px; padding: 2px 40px 14px; font-weight: 600; font-size: 150px; letter-spacing: 0.02em; background: var(--yellow); }
+      #ring .lg { font-weight: 600; font-size: 40px; line-height: 1.35; }
+      #ring .lg i { display: inline-block; width: 30px; height: 30px; border-radius: 8px; margin-right: 12px; vertical-align: -3px; font-style: normal; }
+
+      /* the application form */
+      #form { width: 460px; height: 560px; background: #fff; border-radius: 26px; padding: 50px 50px; box-shadow: 0 40px 80px rgba(21,21,21,0.28); }
+      #form .fh { font-weight: 600; font-size: 46px; letter-spacing: -0.03em; }
+      #form .fl { height: 26px; border-radius: 10px; background: rgba(21,21,21,0.1); margin-top: 34px; }
+      #form .fs { display: inline-block; margin-top: 50px; border: 8px solid var(--ink); color: var(--ink); border-radius: 14px; padding: 4px 22px 8px; font-weight: 600; font-size: 54px; transform: rotate(-7deg); letter-spacing: 0.03em; }
+      #formx { position: absolute; left: -20px; top: -20px; width: 500px; height: 600px; overflow: visible; }
+      #bad { white-space: nowrap; font-family: "Caveat", cursive; font-weight: 600; font-size: 150px; color: var(--pen); }
+
+      /* criteria cards */
+      .card { width: 840px; background: #fff; border-radius: 40px; padding: 44px 52px; box-shadow: 0 50px 90px rgba(21,21,21,0.3); }
+      .card .u { display: inline-block; background: var(--ink); color: var(--yellow); font-weight: 600; font-size: 44px; border-radius: 16px; padding: 4px 22px 8px; }
+      .card .mega { display: flex; align-items: flex-end; gap: 22px; height: 270px; margin-top: 14px; }
+      .tile { width: 210px; height: 250px; border-radius: 30px; background: var(--yellow); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 200px; letter-spacing: -0.05em; line-height: 1; padding-bottom: 18px; box-shadow: inset 0 -12px 0 rgba(21,21,21,0.12); }
+      .tile.sm { width: 200px; height: 240px; font-size: 180px; }
+      .card .lbl { font-weight: 600; font-size: 96px; letter-spacing: -0.045em; line-height: 0.95; padding-bottom: 24px; }
+      .card .c { font-weight: 600; font-size: 50px; line-height: 1.16; letter-spacing: -0.025em; margin-top: 18px; }
+      #ring { width: 260px; height: 260px; position: relative; }
+      #ring svg { width: 260px; height: 260px; transform: rotate(-90deg); }
+      #legend .lg { font-weight: 600; font-size: 40px; line-height: 1.5; white-space: nowrap; }
+      #legend .lg i { display: inline-block; width: 30px; height: 30px; border-radius: 8px; margin-right: 14px; vertical-align: -3px; }
+      #ring .n { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 90px; letter-spacing: -0.05em; }
+
+      /* the phone: a CSS 3D slab with real thickness, the screen recording on its face */
+      #phone { width: 460px; height: 940px; }
+      #phone .slab { position: absolute; inset: 0; border-radius: 74px; background: #2a2a2a; }
+      #phone .face { position: absolute; inset: 0; border-radius: 74px; background: var(--ink); padding: 16px; transform: translateZ(1px); }
+      #screen { position: relative; width: 428px; height: 908px; border-radius: 60px; overflow: hidden; background: #fff; }
+      #screen video { position: absolute; left: -41px; top: 0; width: 511px; height: 908px; }
+      #screen .vid { position: absolute; inset: 0; }
+      #island { position: absolute; left: 50%; top: 16px; width: 130px; height: 36px; margin-left: -65px; background: var(--ink); border-radius: 20px; z-index: 3; }
+      #shine { position: absolute; inset: 0; border-radius: 60px; background: linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 35%); z-index: 4; pointer-events: none; }
+      .gt { width: 170px; height: 190px; border-radius: 28px; background: var(--yellow); border: 6px solid var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 24px 40px rgba(21,21,21,0.3); }
+      .gt b { font-weight: 600; font-size: 110px; line-height: 1; letter-spacing: -0.04em; }
+      .gt i { font-style: normal; font-weight: 600; font-size: 24px; margin-top: 4px; }
+      #stamp { border: 12px solid var(--pen); color: var(--pen); border-radius: 18px; padding: 6px 34px 12px; font-weight: 600; font-size: 96px; letter-spacing: 0.04em; background: rgba(255,255,255,0.86); }
+
+      /* 16 universities */
+      .chip { white-space: nowrap; background: #fff; border-radius: 20px; padding: 8px 22px 12px; font-weight: 600; font-size: 36px; letter-spacing: -0.02em; box-shadow: 0 14px 28px rgba(21,21,21,0.2); }
+      #big16 { font-size: 440px; letter-spacing: -0.07em; }
+      #free { border: 12px solid var(--pen); color: var(--pen); border-radius: 24px; padding: 2px 36px 12px; font-weight: 600; font-size: 140px; letter-spacing: 0.02em; background: var(--yellow); }
+
+      /* the comment */
+      #cbox { width: 820px; background: #fff; border-radius: 40px; padding: 40px 44px; box-shadow: 0 50px 90px rgba(21,21,21,0.3); }
+      #cbox .row { display: flex; align-items: center; gap: 24px; }
+      #cbox .av { width: 96px; height: 96px; border-radius: 50%; background: var(--yellow); border: 5px solid var(--ink); flex: none; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 40px; }
+      #cbox .who { font-weight: 600; font-size: 34px; color: rgba(21,21,21,0.55); }
+      #cbox .txt { font-weight: 600; font-size: 96px; letter-spacing: -0.03em; line-height: 1.05; min-height: 100px; }
+      #cbox .caret { display: inline-block; width: 8px; height: 84px; background: var(--cta); margin-left: 6px; vertical-align: -6px; }
+      #cbox .sep { height: 3px; background: rgba(21,21,21,0.1); margin: 30px 0; }
+      #cbox .dm { display: flex; align-items: center; gap: 20px; font-weight: 600; font-size: 46px; }
+      #cbox .dm .ok { width: 70px; height: 70px; border-radius: 50%; background: var(--cta); display: flex; align-items: center; justify-content: center; flex: none; }
+      #heart { width: 120px; height: 120px; }
+
+      /* end card */
+      #end { position: absolute; inset: 0; background: var(--yellow); z-index: 70; opacity: 0; }
+      #e-logo { position: absolute; left: 230px; top: 470px; width: 620px; }
+      #e-mid { position: absolute; left: 0; right: 0; top: 780px; text-align: center; font-weight: 600; font-size: 124px; letter-spacing: -0.045em; line-height: 1; }
+      #e-mid span { display: inline-block; background: var(--cta); color: #fff; border-radius: 30px; padding: 4px 34px 18px; margin-left: 12px; }
+      #e-sub { position: absolute; left: 0; right: 0; top: 950px; text-align: center; font-weight: 400; font-size: 50px; }
+      #e-url { position: absolute; left: 0; right: 0; top: 1110px; text-align: center; font-weight: 600; font-size: 62px; color: var(--brown); letter-spacing: -0.02em; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="27.2" data-width="1080" data-height="1920">
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="27.2" data-track-index="1" data-volume="1"></audio>
+
+      <div id="floorwrap"><div id="ceil"></div><div id="floor"></div></div>
+
+      <div id="stage"><div id="world">
+        <!-- hook: the name tunnel, then the question -->
+        <div class="o" id="tunnel">
+          <div class="o t nm" data-n>IBA</div><div class="o t nm out" data-n>NUST</div><div class="o t nm" data-n>AKU</div><div class="o t nm out" data-n>GIKI</div>
+          <div class="o t nm" data-n>Habib</div><div class="o t nm out" data-n>FAST</div><div class="o t nm" data-n>NED</div><div class="o t nm out" data-n>PIEAS</div>
+          <div class="o t nm" data-n>UET</div><div class="o t nm out" data-n>IoBM</div><div class="o t nm" data-n>SZABIST</div><div class="o t nm out" data-n>Monash</div>
+          <div class="o t nm" data-n>Toronto</div><div class="o t nm out" data-n>Manchester</div>
+        </div>
+        <div class="o" id="hook">
+          <div class="o t" id="lums">LUMS</div>
+          <div class="o" id="bubble"><div class="bt"><span id="bneeds">needs</span> <span id="bstr">straight As</span></div>
+            <svg id="strike" viewBox="0 0 540 60"><path class="pen" id="strk" stroke-width="16" d="M8,38 C160,22 370,18 532,30"/></svg></div>
+          <div class="o" id="wrong">WRONG</div>
+        </div>
+
+        <!-- the criteria, deep in the room; the camera flies through them -->
+        <div class="o" id="track">
+          <div class="o card" id="cd1"><div class="u">LUMS</div>
+            <div class="mega"><div class="tile" id="t1">B</div><div class="lbl">average</div></div>
+            <div class="c">across your <span class="hl hly" id="hl1">best three A Levels</span></div></div>
+          <div class="o card" id="cd2"><div class="u">IBA BBA</div>
+            <div class="mega" style="gap:18px"><div class="tile sm" id="t2a">B</div><div class="tile sm" id="t2b">B</div><div class="tile sm" id="t2c">C</div></div>
+            <div class="c">At least <span class="hl hly" id="hl2">2 Bs and a C</span></div></div>
+          <div class="o card" id="cd3"><div class="u">NUST</div>
+            <div class="mega" style="align-items:center"><div id="ring"><svg viewBox="0 0 300 300"><circle cx="150" cy="150" r="124" fill="none" stroke="rgba(21,21,21,0.1)" stroke-width="44"/><circle id="arc2" cx="150" cy="150" r="124" fill="none" stroke="#151515" stroke-width="44" stroke-dasharray="0 779.1" stroke-dashoffset="-584.3"/><circle id="arc" cx="150" cy="150" r="124" fill="none" stroke="#FCE004" stroke-width="44" stroke-dasharray="779.1" stroke-dashoffset="779.1"/></svg><div class="n"><span id="pct">0</span>%</div></div><div id="legend" style="padding-left:6px"><div class="lg"><i style="background:#FCE004;border:3px solid #151515"></i>Entry test 75%</div><div class="lg" id="lg2"><i style="background:#151515"></i>O Level grades 25%</div></div></div>
+            <div class="c">The entry test is <span class="hl hly" id="hl3">75% of your merit</span></div></div>
+        </div>
+
+        <!-- the comment -->
+        <div class="o" id="cboxg"><div class="o" id="cbox">
+          <div class="row"><div class="av">you</div><div><div class="who">Add a comment</div><div class="txt"><span id="typed"></span><span class="caret" id="caret"></span></div></div></div>
+          <div class="sep"></div>
+          <div class="dm" id="dm"><div class="ok"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 21l8 8 16-17" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Free checker link sent to your DMs</div>
+        </div>
+        <svg class="o" id="heart" viewBox="0 0 120 120"><path d="M60 104 C20 76 6 56 6 36 C6 18 20 6 36 6 C47 6 55 12 60 22 C65 12 73 6 84 6 C100 6 114 18 114 36 C114 56 100 76 60 104Z" fill="#D63A2F"/></svg>
+        </div>
+      </div></div>
+
+      <!-- the tool, full screen: Sunyyan's own screen recording -->
+      <div id="fullg"><video id="fv" class="clip" src="assets/rec/full.mp4" muted playsinline data-start="16.90" data-duration="5.76" data-media-start="0.00" data-track-index="6"></video></div>
+      <div id="count"><b id="cnum">1</b><i>universities</i></div>
+      <div id="free2">FREE</div>
+
+      <!-- captions: every voice line is on screen -->
+      <div class="cap" id="capA" style="font-size:92px"><span class="w">Your cousin says</span></div>
+      <div class="cap" id="capA2" style="font-size:84px"><span class="w">But your cousin</span> <span class="w">is</span></div>
+      <div class="cap" id="capT" style="font-size:88px;top:430px"><span class="w">So yes,</span> <span class="w">the test</span><br><span class="w"><span class="hl" id="hlT">matters more</span></span> <span class="w">than</span><br><span class="w">your grades.</span></div>
+      <div id="bars"><div class="row"><div class="bl">NUST entry test</div><div class="trk"><div class="fill" style="width:75%"></div><b>75%</b></div></div>
+        <div class="row"><div class="bl">O Level grades</div><div class="trk"><div class="fill ink" style="width:25%"></div><b>25%</b></div></div></div>
+      <div class="cap" id="capD0" style="font-size:150px;top:560px;text-align:center;left:60px;width:960px"><span class="w">Stop</span><br><span class="w">guessing.</span></div>
+      <div class="cap pill" id="capD1" style="font-size:60px"><span class="w">Put your grades in</span><br><span class="w">our <span class="y">free</span> checker.</span></div>
+      <div class="cap pill" id="capD2" style="font-size:60px"><span class="w">See <span class="y">every programme</span></span><br><span class="w">you qualify for.</span></div>
+      <div class="cap pill" id="capE" style="font-size:60px"><span class="w">In these <span class="y">16 universities.</span></span></div>
+      <div class="cap" id="capF" style="font-size:96px"><span class="w">Comment</span> <span class="w" style="color:var(--cta)">UNI</span><br><span class="w" style="font-size:60px;font-weight:400">We'll DM you the link</span><br><span class="w" style="font-size:60px;font-weight:400">straight away.</span></div>
+
+      <img id="logo" src="assets/brand/sj-academy-logo-horizontal-on-yellow.svg" alt="SJ Academy" />
+
+      <div id="cta"><svg viewBox="0 0 54 54"><path d="M27 6C15 6 6 14 6 25c0 5 2 9 5 12l-2 10 10-5c2.5 1 5 1.4 8 1.4 12 0 21-8 21-18.4S39 6 27 6z" fill="#FCE004"/></svg><span class="a">Comment</span><span class="u">UNI</span><span class="b">for the free<br>checker link</span></div>
+
+      <div id="flash"></div>
+
+      <div id="end">
+        <img id="e-logo" src="assets/brand/sj-academy-logo-horizontal-on-yellow.svg" alt="SJ Academy" />
+        <div id="e-mid">Comment<span>UNI</span></div>
+        <div id="e-sub">We'll DM you the free checker.</div>
+        <div id="e-url">sjacademy.pk</div>
+      </div>
+    </div>
+
+    <script>
+      // ---------- timing: every beat sits on a word in assets/audio/vo.wav (Whisper word times, 1.1x voice)
+      const T = window.T = {
+        lums: 0.92, needs: 1.25, straight: 1.51, but: 2.30, wrong: 3.29, cards: [3.95, 7.10, 10.20], b1: 4.73, hl1: 5.89,
+        bbc: [8.74, 9.08, 9.80], ring: 11.30, merit: 12.62, test: 13.76, matters: 14.55, stop: 16.18, grades: 17.07, free: 17.96,
+        every: 18.84, full: 16.9, uni16: 20.57, freeStamp: 21.55, comment: 22.30, dm: 23.30, end: 24.62,
+        beat: 0.46875, musicIn: 14.66, dur: 27.2,
+      };
+      const tl = gsap.timeline({ paused: true });
+      const F = 1 / 30, E = "expo.out", EI = "expo.in", IO = "power3.inOut";
+      const S = (sel, v) => gsap.set(sel, v);
+      const draw = (sel, t, d) => { document.querySelectorAll(sel).forEach((p) => { const L = p.getTotalLength(); p.style.strokeDasharray = L + 2; p.style.strokeDashoffset = L + 2; }); tl.to(sel, { strokeDashoffset: 0, duration: d, ease: "sine.inOut" }, t); };
+      const swipe = (sel, t, d = 0.3) => tl.fromTo(sel, { backgroundSize: "0% 42%" }, { backgroundSize: "100% 42%", duration: d, ease: "power2.inOut" }, t);
+      const show = (sel, t) => tl.set(sel, { opacity: 1 }, t);
+      const hide = (sel, t) => tl.set(sel, { opacity: 0 }, t);
+      const shake = (t, amp = 18) => tl.fromTo("#world", { x: 0 }, { keyframes: [{ x: -amp, y: amp * 0.4 }, { x: amp * 0.7, y: -amp * 0.3 }, { x: -amp * 0.4, y: amp * 0.2 }, { x: 0, y: 0 }], duration: 0.22, ease: "none", immediateRender: false }, t);
+      const flash = (t, a = 0.7) => tl.fromTo("#flash", { opacity: a }, { opacity: 0, duration: 0.18, ease: "power2.out", immediateRender: false }, t);
+      // a kinetic line: each word slams in from depth with motion blur
+      const slam = (sel, t, st = 0.07) => tl.fromTo(sel, { opacity: 0, scale: 1.8, z: 300, filter: "blur(14px)" }, { opacity: 1, scale: 1, z: 0, filter: "blur(0px)", duration: 0.3, ease: E, stagger: st }, t);
+      const capOut = (sel, t) => tl.to(sel, { opacity: 0, y: -40, filter: "blur(10px)", duration: 0.2, ease: EI }, t);
+      const stamp = (sel, t, rot = -8) => tl.fromTo(sel, { opacity: 0, scale: 2.4, rotation: rot - 8 }, { opacity: 1, scale: 1, rotation: rot, duration: 0.13, ease: "power4.in" }, t);
+
+      // everything centred on its own anchor
+      S(".o", { xPercent: -50, yPercent: -50 });
+      S("#world, #track, #tunnel, #hook, #cboxg", { xPercent: 0, yPercent: 0 });
+      S("#bars, .cap, #track, #cboxg, #heart, #bubble, #wrong", { opacity: 0 });
+      S(".cap .w, #bneeds, #bstr", { opacity: 0 });
+
+      // ---------- the floor rushes toward the camera
+      tl.fromTo("#floor", { backgroundPosition: "0px 0px" }, { backgroundPosition: "0px 3200px", duration: T.dur, ease: "none" }, 0);
+      tl.fromTo("#ceil", { backgroundPosition: "0px 0px" }, { backgroundPosition: "0px -1600px", duration: T.dur, ease: "none" }, 0);
+
+      // ---------- HOOK: "Your cousin says LUMS needs straight As" - names stream past, LUMS stops dead on the drop
+      const names = [...document.querySelectorAll("[data-n]")];
+      const rnd = (i, k) => { const x = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453; return x - Math.floor(x); };
+      names.forEach((n, i) => {
+        const a = i * 2.39996, r = 420 + rnd(i, 1) * 220;
+        const x = Math.cos(a) * r, y = Math.max(-120, Math.sin(a) * r * 1.25 + 80), z0 = -4400 + (i / names.length) * 4500;
+        tl.fromTo(n, { x, y, z: z0, opacity: 1 }, { z: z0 + 4400, duration: 1.0, ease: "none" }, 0);
+        tl.to(n, { opacity: 0, duration: 0.06 }, Math.max(0.01, Math.min(0.5, 1.0 * (300 - z0) / 4400)));
+      });
+      show("#capA", 0.45); slam("#capA .w", 0.47);
+      S("#lums", { x: 0, y: -120 }); S("#bubble", { x: 0, y: 150 }); S("#wrong", { x: 60, y: 175, z: 200 });
+      tl.fromTo("#lums", { z: -4200, opacity: 0 }, { z: 0, duration: T.lums, ease: "power4.out" }, 0);
+      tl.to("#lums", { opacity: 1, duration: 0.08, ease: "none" }, 0.52);
+      shake(T.lums - 0.03, 22); flash(T.lums - 0.03, 0.5);
+      tl.fromTo("#bubble", { opacity: 0, scale: 0.3, y: 60 }, { opacity: 1, scale: 1, y: 150, duration: 0.3, ease: "back.out(1.8)", transformOrigin: "15% 0%" }, T.needs - 0.12);
+      slam("#bneeds", T.needs); slam("#bstr", T.straight);
+      tl.fromTo("#hook", { rotationY: -10, rotationX: 4 }, { rotationY: 8, rotationX: -3, duration: T.cards[0], ease: "none" }, 0);
+      capOut("#capA", T.but - 0.15);
+      show("#capA2", T.but); slam("#capA2 .w", T.but + 0.02, 0.35);
+      draw("#strk", T.wrong - 0.2, 0.18);
+      stamp("#wrong", T.wrong, -8); shake(T.wrong + 0.13, 26); flash(T.wrong + 0.11, 0.35);
+
+      // ---------- sticky CTA: rises at 0.5s, pulses every two beats until the comment scene
+      tl.fromTo("#cta", { y: 260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: E }, 0.5);
+      for (let t = T.lums + T.beat * 2; t < T.comment - 0.4; t += T.beat * 2) tl.fromTo("#cta", { scale: 1.07 }, { scale: 1, duration: T.beat * 1.6, ease: "power2.out", immediateRender: false }, t);
+
+      // ---------- CRITERIA: the camera flies down the corridor, card to card
+      const GAP = 2600, C = T.cards;
+      S("#cd1", { x: 0, y: 40, z: 0 }); S("#cd2", { x: 0, y: 40, z: -GAP }); S("#cd3", { x: 0, y: 40, z: -GAP * 2 });
+      capOut("#capA2", C[0] - 0.2);
+      tl.to("#hook", { z: 1100, opacity: 0, duration: 0.32, ease: EI }, C[0] - 0.3);
+      show("#track", C[0] - 0.3);
+      tl.fromTo("#track", { z: -2400 }, { z: 0, duration: 0.55, ease: E }, C[0] - 0.3);
+      C.forEach((t, i) => {
+        if (i > 0) {
+          tl.to("#track", { z: GAP * i, duration: 0.5, ease: IO }, t - 0.32);
+          tl.to(`#cd${i}`, { opacity: 0, duration: 0.14, ease: "none" }, t - 0.3);
+          flash(t - 0.05, 0.25);
+        }
+        tl.fromTo(`#cd${i + 1}`, { rotationY: i % 2 ? 14 : -14, rotationX: 8 }, { rotationY: i % 2 ? -5 : 5, rotationX: -2, duration: i === 2 ? 2.2 : 2.6, ease: "power2.out" }, t - 0.3);
+      });
+      S("#t1, #t2a, #t2b, #t2c", { opacity: 0 });
+      tl.fromTo("#t1", { rotationX: -90, opacity: 0 }, { rotationX: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, T.b1 - 0.08);
+      swipe("#hl1", T.hl1, 0.35);
+      ["#t2a", "#t2b", "#t2c"].forEach((s, k) => tl.fromTo(s, { rotationX: -90, opacity: 0 }, { rotationX: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, T.bbc[k] - 0.06));
+      swipe("#hl2", T.bbc[2] + 0.1, 0.3);
+      S("#lg2", { opacity: 0 });
+      const P = { v: 0, w: 0 };
+      const ring = () => { document.getElementById("pct").textContent = Math.round(P.v); document.getElementById("arc").style.strokeDashoffset = 779.1 * (1 - P.v / 100); document.getElementById("arc2").style.strokeDasharray = (779.1 * P.w / 100) + " 779.1"; };
+      ring();
+      tl.to(P, { v: 75, duration: 0.85, ease: "power2.out", onUpdate: ring }, T.ring);
+      swipe("#hl3", T.merit - 0.1, 0.35);
+      // "So yes, the test matters more than your grades": the O Level 25% fills in, the card steps back for the line
+      tl.to(P, { w: 25, duration: 0.5, ease: "power2.out", onUpdate: ring }, T.test);
+      tl.fromTo("#lg2", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, ease: E }, T.test);
+      tl.to("#cd3", { z: -2500, rotationY: -25, opacity: 0, duration: 0.45, ease: EI }, T.test + 0.05);
+      show("#bars", T.test + 0.3);
+      tl.fromTo("#bars .row", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.35, ease: E, stagger: 0.15 }, T.test + 0.3);
+      tl.fromTo("#bars .fill", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out", stagger: 0.15 }, T.test + 0.45);
+      show("#capT", T.test + 0.1); slam("#capT .w", T.test + 0.1, 0.2);
+      swipe("#hlT", T.matters + 0.3, 0.3);
+
+      // ---------- THE TOOL: "Stop guessing." then the real tool takes the whole screen
+      capOut("#capT", T.stop - 0.2); capOut("#bars", T.stop - 0.2);
+      tl.to("#track", { z: GAP * 2 + 1400, opacity: 0, duration: 0.4, ease: EI }, T.stop - 0.25);
+      show("#capD0", T.stop); slam("#capD0 .w", T.stop, 0.4); shake(T.stop + 0.12, 16); shake(T.stop + 0.52, 12);
+      tl.to("#capD0", { scale: 2.2, opacity: 0, filter: "blur(16px)", duration: 0.25, ease: EI }, T.full - 0.2);
+      // the footage flies in as a tilted card, then opens to full bleed
+      show("#fullg", T.full);
+      tl.to("#logo", { opacity: 0, duration: 0.15 }, T.full + 0.3); tl.to("#logo", { opacity: 1, duration: 0.2 }, T.comment - 0.1);
+      tl.fromTo("#fullg", { scale: 0.42, rotationY: -28, rotationX: 14, rotationZ: -4, y: 220, borderRadius: 90, transformPerspective: 1600 },
+        { scale: 1, rotationY: 0, rotationX: 0, rotationZ: 0, y: 0, borderRadius: 0, duration: 0.55, ease: "power4.out" }, T.full);
+      tl.fromTo("#fv", { scale: 1.0 }, { scale: 1.06, duration: 5.6, ease: "none" }, T.full);
+      flash(T.full + 0.5, 0.25);
+      show("#capD1", T.grades - 0.05); slam("#capD1 .w", T.grades - 0.05, 0.85);
+      capOut("#capD1", T.every - 0.15);
+      show("#capD2", T.every); slam("#capD2 .w", T.every, 0.6);
+      capOut("#capD2", T.uni16 - 0.15);
+      show("#capE", T.uni16); slam("#capE .w", T.uni16);
+      // count the universities as the table scrolls past
+      const CN = { n: 1 }, cnum = document.getElementById("cnum"), countIt = () => { cnum.textContent = Math.round(CN.n); };
+      countIt();
+      tl.fromTo("#count", { opacity: 0, scale: 0.3, rotation: -20 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2)" }, T.uni16 + 0.05);
+      tl.to(CN, { n: 16, duration: 1.0, ease: "power1.in", onUpdate: countIt }, T.uni16 + 0.15);
+      tl.fromTo("#count", { scale: 1.25 }, { scale: 1, duration: 0.25, ease: "power2.out", immediateRender: false }, T.uni16 + 1.15);
+      stamp("#free2", T.freeStamp, -8); shake(T.freeStamp + 0.13, 20); flash(T.freeStamp + 0.11, 0.3);
+      // out: the footage falls back into the room as the comment arrives
+      capOut("#capE", T.comment - 0.2);
+      tl.to("#count, #free2", { opacity: 0, scale: 0.6, duration: 0.2, ease: EI }, T.comment - 0.2);
+      tl.to("#fullg", { scale: 0.4, rotationX: -30, y: -300, opacity: 0, borderRadius: 90, duration: 0.35, ease: EI }, T.comment - 0.22);
+
+      // ---------- COMMENT: the sticky CTA becomes the comment; UNI types itself as he says it, the DM goes out
+                  tl.to("#cta", { y: -300, scale: 1.25, opacity: 0, duration: 0.35, ease: EI }, T.comment - 0.15);
+      show("#capF", T.comment); slam("#capF .w", T.comment + 0.02, 0.3);
+      show("#cboxg", T.comment);
+      S("#cbox", { x: 0, y: 230, scale: 1.05 }); S("#heart", { x: 340, y: 90, z: 80 }); S("#dm", { opacity: 0 });
+      tl.fromTo("#cboxg", { z: -2200, rotationX: -40 }, { z: 0, rotationX: 10, duration: 0.5, ease: E }, T.comment - 0.1);
+      tl.to("#cboxg", { rotationX: 4, rotationY: -6, duration: T.end - T.comment - 0.4, ease: "none" }, T.comment + 0.4);
+      const typed = document.getElementById("typed");
+      const TY = { k: 0 }, typeIt = () => { typed.textContent = "UNI".slice(0, Math.floor(TY.k)); };
+      typeIt();
+      tl.to(TY, { k: 3.01, duration: 0.36, ease: "none", onUpdate: typeIt }, T.comment + 0.45);
+      tl.fromTo("#caret", { opacity: 1 }, { opacity: 0, duration: 0.01, repeat: 7, yoyo: true, repeatDelay: 0.25 }, T.comment + 0.1);
+      tl.fromTo("#heart", { opacity: 0, scale: 0.2 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, T.comment + 0.85);
+      tl.fromTo("#dm", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: E }, T.dm);
+
+      // ---------- END CARD: logo lands with the sonic logo
+      hide("#logo", T.end); hide("#cboxg", T.end + 0.16); hide("#capF", T.end + 0.16);
+      tl.fromTo("#end", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, T.end);
+      tl.fromTo("#e-logo", { opacity: 0, y: 40, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: E }, T.end + 0.05);
+      tl.fromTo("#e-mid", { opacity: 0, scale: 1.4, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.35, ease: E }, T.end + 0.3);
+      tl.fromTo("#e-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: E }, T.end + 0.55);
+      tl.fromTo("#e-url", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: E }, T.end + 0.75);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

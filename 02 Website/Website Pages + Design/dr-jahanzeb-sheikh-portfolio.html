@@ -1,0 +1,3180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Jahanzeb Sheikh, PhD | Biomedical Engineer &amp; UV-C Disinfection Pioneer</title>
+  <meta name="description" content="Official portfolio and academic showcase of Dr. Jahanzeb Sheikh, PhD. Biomedical engineer and researcher pioneering 275nm UV-C LED sterilization systems, photobiology, and hospital biosecurity.">
+  <meta name="keywords" content="Jahanzeb Sheikh, Biomedical Engineer, UV-C LED, Disinfection, Photobiology, Medical Devices, Universiti Teknologi Malaysia, SSUET, Antimicrobial, Healthcare Infection Control">
+  
+  <!-- Modern Google Fonts: Syne (Large Thick Display), Plus Jakarta Sans (Headings/UI), Inter (Body), JetBrains Mono (Specs) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & THEME TOKENS
+       Deep Ultraviolet Bio-Photonics (Dark) & Clinical Laboratory Daylight (Light)
+       ========================================================================== */
+    :root {
+      /* Typography Stack - Large Thick Fonts for Publish-Ready Impact */
+      --font-display: 'Syne', 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Transitions & Radii */
+      --radius-xs: 4px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+
+      --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+      /* Layout */
+      --container-max: 1240px;
+      --header-height: 76px;
+    }
+
+    /* DARK THEME (Signature Deep Ultraviolet Spectrum) */
+    [data-theme="dark"] {
+      --bg-canvas: #060811;
+      --bg-surface: #0c1020;
+      --bg-surface-elevated: #13192f;
+      --bg-surface-card: rgba(16, 22, 42, 0.78);
+      --bg-surface-hover: #1a2240;
+      --bg-badge: rgba(139, 92, 246, 0.14);
+
+      --text-main: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --text-inverse: #060811;
+
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-card: rgba(139, 92, 246, 0.22);
+      --border-focus: #8b5cf6;
+
+      /* Spectral Accents */
+      --uv-purple: #8b5cf6;
+      --uv-violet: #a855f7;
+      --uv-glow: rgba(139, 92, 246, 0.35);
+      --bio-teal: #06b6d4;
+      --bio-cyan: #22d3ee;
+      --bio-glow: rgba(6, 182, 212, 0.3);
+      --amber-gold: #f59e0b;
+      --amber-glow: rgba(245, 158, 11, 0.25);
+      --success-green: #10b981;
+
+      --card-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.65), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+      --card-shadow-hover: 0 22px 45px -12px rgba(139, 92, 246, 0.3), 0 0 1px 1px rgba(139, 92, 246, 0.4);
+      --canvas-mesh: radial-gradient(at 15% 15%, rgba(139, 92, 246, 0.18) 0px, transparent 50%),
+                     radial-gradient(at 85% 25%, rgba(6, 182, 212, 0.14) 0px, transparent 45%),
+                     radial-gradient(at 50% 80%, rgba(124, 58, 237, 0.12) 0px, transparent 55%);
+    }
+
+    /* LIGHT THEME (Clinical Laboratory Daylight) */
+    [data-theme="light"] {
+      --bg-canvas: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f1f5f9;
+      --bg-surface-card: rgba(255, 255, 255, 0.92);
+      --bg-surface-hover: #e2e8f0;
+      --bg-badge: rgba(124, 58, 237, 0.08);
+
+      --text-main: #090d16;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --text-inverse: #ffffff;
+
+      --border-subtle: rgba(15, 23, 42, 0.08);
+      --border-card: rgba(124, 58, 237, 0.18);
+      --border-focus: #7c3aed;
+
+      --uv-purple: #7c3aed;
+      --uv-violet: #9333ea;
+      --uv-glow: rgba(124, 58, 237, 0.2);
+      --bio-teal: #0891b2;
+      --bio-cyan: #0284c7;
+      --bio-glow: rgba(8, 145, 178, 0.2);
+      --amber-gold: #d97706;
+      --amber-glow: rgba(217, 119, 6, 0.2);
+      --success-green: #059669;
+
+      --card-shadow: 0 8px 25px -6px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.05);
+      --card-shadow-hover: 0 18px 38px -10px rgba(124, 58, 237, 0.18), 0 0 1px 1px rgba(124, 58, 237, 0.25);
+      --canvas-mesh: radial-gradient(at 15% 15%, rgba(124, 58, 237, 0.07) 0px, transparent 50%),
+                     radial-gradient(at 85% 25%, rgba(6, 182, 212, 0.06) 0px, transparent 45%),
+                     radial-gradient(at 50% 80%, rgba(217, 119, 6, 0.05) 0px, transparent 55%);
+    }
+
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-canvas);
+      background-image: var(--canvas-mesh);
+      background-attachment: fixed;
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+      transition: background-color var(--transition-base), color var(--transition-base);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* Ambient Canvas */
+    #photon-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+
+    /* Main Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==========================================================================
+       TYPOGRAPHY SYSTEM - LARGE THICK FONTS
+       ========================================================================== */
+    h1, .font-hero {
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.06;
+      color: var(--text-main);
+    }
+
+    h2, .font-section-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      color: var(--text-main);
+    }
+
+    h3, .font-card-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      color: var(--text-main);
+    }
+
+    h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text-uv {
+      background: linear-gradient(135deg, var(--text-main) 20%, var(--uv-purple) 65%, var(--bio-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-text-cyan {
+      background: linear-gradient(135deg, var(--bio-cyan) 10%, var(--bio-teal) 70%, var(--uv-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Section Headers */
+    .section-wrap {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-kicker-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-badge);
+      border: 1px solid var(--border-card);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--uv-purple);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-kicker-pill .prefix {
+      color: var(--bio-teal);
+    }
+
+    .section-heading-thick {
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .section-desc-thick {
+      font-size: 1.12rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: var(--header-height);
+      background: rgba(6, 8, 17, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 100;
+      transition: background-color var(--transition-base), border-color var(--transition-base);
+    }
+    [data-theme="light"] .site-header {
+      background: rgba(248, 250, 252, 0.9);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .brand-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--uv-purple), var(--bio-teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.05rem;
+      box-shadow: 0 0 18px var(--uv-glow);
+      position: relative;
+    }
+
+    .brand-status-dot {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 11px;
+      height: 11px;
+      background: var(--success-green);
+      border-radius: 50%;
+      border: 2px solid var(--bg-surface);
+      box-shadow: 0 0 6px var(--success-green);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .brand-subtitle {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--uv-purple);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 0.35rem 0;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-main);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background: linear-gradient(90deg, var(--uv-purple), var(--bio-cyan));
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 8px var(--uv-glow);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .theme-toggle-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .theme-toggle-btn:hover {
+      background: var(--bg-surface-hover);
+      color: var(--text-main);
+      border-color: var(--uv-purple);
+    }
+
+    .btn-connect-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.6rem 1.25rem;
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 800;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--uv-purple), #6d28d9);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 16px var(--uv-glow);
+      cursor: pointer;
+      letter-spacing: -0.01em;
+      transition: all var(--transition-fast);
+    }
+    .btn-connect-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.55);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       FIRST FOLD / HERO SECTION - PUBLISH-READY & COMMANDING
+       ========================================================================== */
+    .hero-section {
+      padding: 5rem 0 4.5rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-badge);
+      border: 1px solid var(--border-card);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--uv-purple);
+      margin-bottom: 1.75rem;
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .radar-pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success-green);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse-radar 2s infinite;
+    }
+
+    @keyframes pulse-radar {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .hero-title-thick {
+      font-size: clamp(2.9rem, 5.2vw, 4.4rem);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle-lead {
+      font-size: 1.18rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.25rem;
+      max-width: 620px;
+      line-height: 1.65;
+    }
+
+    .hero-cta-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.15rem;
+      margin-bottom: 3rem;
+    }
+
+    .btn-thick-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.95rem 1.85rem;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--uv-purple), #6366f1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px var(--uv-glow);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+    .btn-thick-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(139, 92, 246, 0.55);
+    }
+
+    .btn-thick-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.95rem 1.85rem;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+    .btn-thick-secondary:hover {
+      background: var(--bg-surface-hover);
+      border-color: var(--uv-purple);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Metrics Bar - Distinct Elevated Cards */
+    .hero-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.15rem;
+    }
+
+    .metric-card-elevated {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition-fast);
+    }
+    .metric-card-elevated:hover {
+      border-color: var(--border-card);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .metric-number-thick {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.03em;
+    }
+    .metric-number-thick span {
+      color: var(--bio-cyan);
+    }
+
+    .metric-label-thick {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Hero Right Bento / Identity Card */
+    .hero-bento-card {
+      background: var(--bg-surface-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+    .hero-bento-card:hover {
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .bento-glow-corner {
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, var(--uv-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .bento-profile-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .bento-avatar-thick {
+      width: 74px;
+      height: 74px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #1e1b4b, #312e81, #0f172a);
+      border: 2.5px solid var(--uv-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.75rem;
+      box-shadow: 0 0 22px var(--uv-glow);
+      flex-shrink: 0;
+    }
+
+    .bento-name-group h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .bento-role-tag {
+      font-size: 0.88rem;
+      color: var(--bio-cyan);
+      font-weight: 700;
+      font-family: var(--font-heading);
+      margin-bottom: 0.2rem;
+    }
+
+    .bento-affil-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Wavelength Spectrum Visualizer */
+    .spectrum-visualizer-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
+    }
+
+    .spectrum-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.65rem;
+    }
+
+    .spectrum-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .spectrum-peak-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--uv-purple);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .spectrum-bar-wrap {
+      height: 12px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, 
+        #3b82f6 0%, 
+        #6366f1 25%, 
+        #8b5cf6 50%, 
+        #a855f7 70%, 
+        #ec4899 100%
+      );
+      position: relative;
+      margin-bottom: 0.6rem;
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+    }
+
+    .spectrum-indicator {
+      position: absolute;
+      top: -4px;
+      left: 55%;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--uv-purple);
+      box-shadow: 0 0 10px #ffffff;
+      transform: translateX(-50%);
+    }
+
+    .spectrum-labels-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    /* Verification Bullets */
+    .bento-checks-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .bento-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .bento-check-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--bio-teal);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .bento-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .orcid-thick-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 0.4rem 0.8rem;
+      background: var(--bg-surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+    .orcid-thick-badge:hover {
+      color: #a6ce39;
+      border-color: #a6ce39;
+      box-shadow: 0 0 12px rgba(166, 206, 57, 0.25);
+    }
+
+    .btn-linkedin-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 1rem;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 800;
+      border-radius: var(--radius-full);
+      background: #0077b5;
+      color: #ffffff;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 119, 181, 0.35);
+      transition: all var(--transition-fast);
+    }
+    .btn-linkedin-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 119, 181, 0.5);
+    }
+
+    /* ==========================================================================
+       CONSECUTIVE FOLD 2: MY STORY SECTION (#story)
+       ========================================================================== */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .story-narrative {
+      display: flex;
+      flex-direction: column;
+      gap: 1.85rem;
+    }
+
+    .story-big-quote {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.45;
+      color: var(--text-main);
+      padding-left: 1.75rem;
+      border-left: 4px solid var(--uv-purple);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .story-body-p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .story-highlight-box {
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--border-card);
+      position: relative;
+    }
+
+    .story-highlight-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--bio-cyan);
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Milestones Stepper */
+    .milestones-bento-card {
+      background: var(--bg-surface-card);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    .milestones-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .milestones-card-header h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .milestone-stepper {
+      list-style: none;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .milestone-stepper::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      bottom: 14px;
+      left: 17px;
+      width: 2.5px;
+      background: linear-gradient(180deg, var(--uv-purple) 0%, var(--bio-teal) 75%, transparent 100%);
+    }
+
+    .milestone-node {
+      display: flex;
+      gap: 1.35rem;
+      position: relative;
+    }
+
+    .node-number-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 2.5px solid var(--uv-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--uv-purple);
+      flex-shrink: 0;
+      z-index: 2;
+      box-shadow: 0 0 12px var(--uv-glow);
+    }
+
+    .milestone-node:nth-child(2) .node-number-circle {
+      border-color: var(--bio-teal);
+      color: var(--bio-teal);
+      box-shadow: 0 0 12px var(--bio-glow);
+    }
+
+    .milestone-node:nth-child(3) .node-number-circle {
+      border-color: var(--amber-gold);
+      color: var(--amber-gold);
+      box-shadow: 0 0 12px var(--amber-glow);
+    }
+
+    .node-content-stack {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .node-kicker-year {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--bio-teal);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .node-title-thick {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0.2rem 0 0.35rem;
+    }
+
+    .node-desc-text {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       CONSECUTIVE FOLD 3: RESEARCH PILLARS (#pillars)
+       ========================================================================== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .pillar-card-bento {
+      background: var(--bg-surface-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+
+    .pillar-card-bento:hover {
+      border-color: var(--border-card);
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .pillar-index-number {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.75rem;
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.05);
+      line-height: 1;
+      pointer-events: none;
+    }
+    [data-theme="light"] .pillar-index-number {
+      color: rgba(15, 23, 42, 0.06);
+    }
+
+    .pillar-icon-box-thick {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--uv-purple);
+      margin-bottom: 1.5rem;
+      transition: all var(--transition-fast);
+    }
+    .pillar-card-bento:hover .pillar-icon-box-thick {
+      background: linear-gradient(135deg, var(--uv-purple), var(--bio-teal));
+      color: #ffffff;
+      box-shadow: 0 0 20px var(--uv-glow);
+    }
+
+    .pillar-heading-thick {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .pillar-desc-p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .pillar-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .skill-chip-thick {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       CONSECUTIVE FOLD 4: INVENTIONS & LAB (#inventions)
+       ========================================================================== */
+    .inventions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+    }
+
+    .invention-bento-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      transition: all var(--transition-base);
+    }
+    .invention-bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .invention-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .wavelength-pill-thick {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--uv-purple);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .invention-title-thick {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.85rem;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .invention-desc-p {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .specs-grid-thick {
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .spec-unit-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .spec-unit-label {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .spec-unit-val {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--bio-cyan);
+      font-family: var(--font-mono);
+    }
+
+    .invention-citation-footer {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      border-left: 3px solid var(--bio-teal);
+      padding-left: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       CONSECUTIVE FOLD 5: UV-C DOSE SIMULATOR (#calculator)
+       ========================================================================== */
+    .calc-bento-container {
+      background: linear-gradient(135deg, rgba(14, 19, 34, 0.95), rgba(21, 28, 51, 0.95));
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      margin: 4.5rem 0 2rem;
+      box-shadow: 0 20px 45px -10px rgba(139, 92, 246, 0.25);
+      position: relative;
+    }
+    [data-theme="light"] .calc-bento-container {
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+      border-color: rgba(124, 58, 237, 0.2);
+    }
+
+    .calc-layout-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .calc-inputs-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .calc-input-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .calc-input-label-row {
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      letter-spacing: -0.01em;
+    }
+
+    .calc-badge-val {
+      font-family: var(--font-mono);
+      color: var(--bio-cyan);
+      font-weight: 800;
+    }
+
+    .calc-range-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--bg-surface-elevated);
+      outline: none;
+    }
+    .calc-range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--uv-purple);
+      cursor: pointer;
+      box-shadow: 0 0 12px var(--uv-glow);
+    }
+
+    .calc-select-thick {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .calc-results-bento {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+    }
+
+    .calc-big-dose-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .calc-huge-number {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--bio-cyan);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .calc-huge-unit {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+    }
+
+    .calc-kill-pill-thick {
+      padding: 0.9rem;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: var(--radius-md);
+      color: var(--success-green);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ==========================================================================
+       CONSECUTIVE FOLD 6: PUBLICATIONS (#publications)
+       ========================================================================== */
+    .publications-controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .filter-tabs-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .filter-tab-pill {
+      padding: 0.55rem 1.15rem;
+      font-family: var(--font-heading);
+      font-size: 0.86rem;
+      font-weight: 800;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      letter-spacing: -0.01em;
+    }
+    .filter-tab-pill:hover, .filter-tab-pill.active {
+      background: var(--uv-purple);
+      color: #ffffff;
+      border-color: var(--uv-purple);
+      box-shadow: 0 4px 14px var(--uv-glow);
+    }
+
+    .pub-search-thick-box {
+      position: relative;
+      width: 300px;
+    }
+
+    .pub-search-thick-input {
+      width: 100%;
+      padding: 0.65rem 1.15rem 0.65rem 2.4rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      font-size: 0.88rem;
+      font-weight: 600;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+    .pub-search-thick-input:focus {
+      border-color: var(--uv-purple);
+    }
+
+    .pub-search-thick-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+    }
+
+    .publications-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .pub-item-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      transition: all var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .pub-item-card:hover {
+      border-color: var(--border-card);
+      transform: translateX(4px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .pub-title-thick {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+
+    .pub-authors-line {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+    .pub-authors-line strong {
+      color: var(--uv-purple);
+    }
+
+    .pub-abstract-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       CONSECUTIVE FOLD 7: TIMELINE (#experience)
+       ========================================================================== */
+    .timeline-wrapper {
+      position: relative;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .timeline-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 28px;
+      width: 2.5px;
+      background: linear-gradient(180deg, var(--uv-purple) 0%, var(--bio-teal) 85%, transparent 100%);
+    }
+
+    .timeline-node-entry {
+      position: relative;
+      padding-left: 70px;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-badge-marker {
+      position: absolute;
+      left: 14px;
+      top: 6px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--bg-canvas);
+      border: 3px solid var(--uv-purple);
+      box-shadow: 0 0 15px var(--uv-glow);
+    }
+    .timeline-node-entry:nth-child(even) .timeline-badge-marker {
+      border-color: var(--bio-teal);
+      box-shadow: 0 0 15px var(--bio-glow);
+    }
+
+    .timeline-entry-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      transition: all var(--transition-fast);
+    }
+    .timeline-entry-card:hover {
+      border-color: var(--border-card);
+      transform: translateY(-2px);
+    }
+
+    .timeline-header-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-role-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .timeline-date-chip {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--bio-cyan);
+    }
+
+    .timeline-org-name {
+      font-size: 1rem;
+      color: var(--uv-purple);
+      font-weight: 700;
+      margin-bottom: 1.15rem;
+    }
+
+    .timeline-bullets-stack {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+    .timeline-bullets-stack li {
+      position: relative;
+      padding-left: 1.35rem;
+    }
+    .timeline-bullets-stack li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--bio-teal);
+      font-weight: 900;
+    }
+
+    /* ==========================================================================
+       CONSECUTIVE FOLD 8: CONTACT & CONNECT (#contact)
+       ========================================================================== */
+    .contact-layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+    }
+
+    .contact-details-bento {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-action-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .contact-card-btn {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+      padding: 1.15rem 1.35rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+    .contact-card-btn:hover {
+      border-color: var(--uv-purple);
+      transform: translateX(4px);
+    }
+
+    .contact-card-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--uv-purple);
+      flex-shrink: 0;
+    }
+
+    .contact-form-bento {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem;
+    }
+
+    .form-field-unit {
+      margin-bottom: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-label-thick {
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    .form-input-thick, .form-textarea-thick, .form-select-thick {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.15rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    .form-input-thick:focus, .form-textarea-thick:focus, .form-select-thick:focus {
+      border-color: var(--uv-purple);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+    }
+
+    .btn-submit-form {
+      width: 100%;
+      padding: 1.1rem;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 800;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--uv-purple), #6366f1);
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 8px 24px var(--uv-glow);
+      transition: all var(--transition-fast);
+      letter-spacing: -0.01em;
+    }
+    .btn-submit-form:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(139, 92, 246, 0.55);
+    }
+
+    /* ==========================================================================
+       MODAL: DIGITAL BUSINESS CARD
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 6, 12, 0.85);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+    .modal-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .vcard-modal {
+      width: 100%;
+      max-width: 480px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem 2.25rem;
+      position: relative;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transform: scale(0.95);
+      transition: transform var(--transition-base);
+    }
+    .modal-overlay.open .vcard-modal {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .vcard-avatar-thick {
+      width: 90px;
+      height: 90px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--uv-purple), var(--bio-teal));
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 0 25px var(--uv-glow);
+    }
+
+    .vcard-name-thick {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .vcard-qr-box {
+      background: #ffffff;
+      padding: 1.15rem;
+      border-radius: var(--radius-md);
+      margin: 1.5rem 0;
+      border: 2px solid var(--border-subtle);
+    }
+
+    /* Toast Notification */
+    .toast-pill {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--uv-purple);
+      padding: 0.85rem 1.4rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 800;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all var(--transition-base);
+    }
+    .toast-pill.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 4.5rem 0 3rem;
+      background: var(--bg-surface);
+      margin-top: 5rem;
+    }
+
+    .footer-grid-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid, .story-grid, .contact-layout-grid, .calc-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .footer-grid-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--bg-surface);
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border-subtle);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      }
+      .hero-metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+      .footer-grid-layout {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      #photon-canvas, .site-header, .theme-toggle-btn, .btn-connect-pill, .calc-bento-container, .contact-form-bento, .site-footer { display: none !important; }
+      .container { max-width: 100% !important; padding: 0 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Particle Field -->
+  <canvas id="photon-canvas"></canvas>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-mark" aria-label="Dr. Jahanzeb Sheikh Homepage">
+        <div class="brand-avatar">
+          JS
+          <span class="brand-status-dot" title="Available for advisory &amp; academic collaborations"></span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Dr. Jahanzeb Sheikh</span>
+          <span class="brand-subtitle">PhD &middot; Biomedical Engineering</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav role="navigation" aria-label="Main Navigation">
+        <ul class="nav-links" id="main-nav">
+          <li><a href="#story" class="nav-link">My Story</a></li>
+          <li><a href="#pillars" class="nav-link">Domains</a></li>
+          <li><a href="#inventions" class="nav-link">Inventions &amp; Lab</a></li>
+          <li><a href="#calculator" class="nav-link">UV-C Calculator</a></li>
+          <li><a href="#publications" class="nav-link">Publications</a></li>
+          <li><a href="#experience" class="nav-link">Timeline</a></li>
+          <li><a href="#contact" class="nav-link">Connect</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme" title="Toggle Dark/Light Theme">
+          <svg id="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Digital Card Pill -->
+        <button class="btn-connect-pill" id="open-vcard-btn" aria-haspopup="dialog">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="M7 15h0M2 9.5h20"></path>
+          </svg>
+          <span>Digital Card</span>
+        </button>
+
+        <!-- Mobile Trigger -->
+        <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       FIRST FOLD / HERO SECTION (PUBLISH READY & COMMANDING)
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <!-- Left Column: Primary Typography & Calls to Action -->
+      <div class="hero-content">
+        <div class="hero-status-pill">
+          <span class="radar-pulse-dot"></span>
+          <span>Translational Biomedical R&amp;D &middot; Photobiological Sterilization</span>
+        </div>
+
+        <h1 class="hero-title-thick">
+          Pioneering <span class="gradient-text-uv">UV-C LED</span> Disinfection &amp; Clinical Biosecurity.
+        </h1>
+
+        <p class="hero-subtitle-lead">
+          I am <strong>Dr. Jahanzeb Sheikh</strong>, a Biomedical Engineer, researcher, and inventor. I engineer narrow-band 275nm photonic systems that eradicate multi-drug resistant hospital pathogens while preserving human tissue viability.
+        </p>
+
+        <div class="hero-cta-cluster">
+          <a href="#story" class="btn-thick-primary">
+            <span>Read My Story</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#inventions" class="btn-thick-secondary">
+            <span>Explore Inventions</span>
+          </a>
+          <a href="#publications" class="btn-thick-secondary">
+            <span>Publications (12+)</span>
+          </a>
+        </div>
+
+        <!-- Distinct Elevated Metric Cards -->
+        <div class="hero-metrics-grid">
+          <div class="metric-card-elevated">
+            <span class="metric-number-thick">8<span>+</span></span>
+            <span class="metric-label-thick">Years Biomedical R&amp;D</span>
+          </div>
+          <div class="metric-card-elevated">
+            <span class="metric-number-thick">99.99<span>%</span></span>
+            <span class="metric-label-thick">Pathogen Log-Kill</span>
+          </div>
+          <div class="metric-card-elevated">
+            <span class="metric-number-thick">275<span>nm</span></span>
+            <span class="metric-label-thick">Optical Peak Flux</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Executive Bento Card & Wavelength Spectrum Visualizer -->
+      <div class="hero-bento-card">
+        <div class="bento-glow-corner"></div>
+
+        <div class="bento-profile-row">
+          <div class="bento-avatar-thick">
+            JS
+          </div>
+          <div class="bento-name-group">
+            <h3>Dr. Jahanzeb Sheikh</h3>
+            <div class="bento-role-tag">PhD in Biomedical Engineering</div>
+            <div class="bento-affil-text">Universiti Teknologi Malaysia (UTM) &bull; SSUET</div>
+          </div>
+        </div>
+
+        <!-- Authentic Optical Spectrum Visualizer -->
+        <div class="spectrum-visualizer-box">
+          <div class="spectrum-header-row">
+            <span class="spectrum-title">Target Germicidal Spectrum</span>
+            <span class="spectrum-peak-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              &lambda; 275 nm Peak
+            </span>
+          </div>
+          <div class="spectrum-bar-wrap">
+            <div class="spectrum-indicator" title="275nm Narrow-Band Peak"></div>
+          </div>
+          <div class="spectrum-labels-row">
+            <span>100nm (Vacuum UV)</span>
+            <span style="color: var(--uv-purple); font-weight: 700;">275nm (UV-C LED)</span>
+            <span>400nm (UV-A)</span>
+          </div>
+        </div>
+
+        <!-- Verified Research Highlights -->
+        <ul class="bento-checks-list">
+          <li class="bento-check-item">
+            <svg class="bento-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Lead Author in <em>Medical &amp; Biological Engineering &amp; Computing</em> (Springer Nature).</span>
+          </li>
+          <li class="bento-check-item">
+            <svg class="bento-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Proved selective bacterial death (*S. aureus*, *P. aeruginosa*) with &gt;92% fibroblast viability retained.</span>
+          </li>
+          <li class="bento-check-item">
+            <svg class="bento-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Former Faculty Member &amp; Lecturer in Biomedical Engineering at Sir Syed University (SSUET).</span>
+          </li>
+        </ul>
+
+        <div class="bento-card-footer">
+          <a href="https://orcid.org/0000-0002-3712-802X" target="_blank" rel="noopener noreferrer" class="orcid-thick-badge">
+            <svg width="15" height="15" viewBox="0 0 256 256" style="fill: currentColor;">
+              <path d="M128 0C57.31 0 0 57.31 0 128s57.31 128 128 128 128-57.31 128-128S198.69 0 128 0zm-43.2 188.75H64.91V82.88h19.89v105.87zm-9.94-118.8c-6.88 0-12.46-5.58-12.46-12.46s5.58-12.46 12.46-12.46 12.46 5.58 12.46 12.46-5.58 12.46-12.46 12.46zm114.77 82.2c-7.9 14.15-22.18 21.6-43.08 21.6h-34.8V82.88h35.8c20.35 0 34.33 7.07 42.08 21.2 7.75 14.13 7.75 35.8 0 49.92zm-57.99-49.88h-14.8v69.67h14.8c13.78 0 23.36-4.52 28.74-13.56 5.38-9.04 5.38-23.51 0-32.55-5.38-9.04-14.96-13.56-28.74-13.56z"/>
+            </svg>
+            <span>0000-0002-3712-802X</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/jahanzeb-sheikh-phd-445325339/" target="_blank" rel="noopener noreferrer" class="btn-linkedin-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c-.95 0-1.72-.78-1.72-1.73s.77-1.73 1.72-1.73c.95 0 1.72.78 1.72 1.73s-.77 1.73-1.72 1.73m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+            <span>LinkedIn Profile</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONSECUTIVE FOLD 2: MY STORY SECTION (#story)
+       ========================================================================== -->
+  <section class="section-wrap" id="story">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker-pill"><span class="prefix">01 //</span> Biography &middot; Intellectual Arc</div>
+        <h2 class="section-heading-thick">The Story Behind the Science</h2>
+        <p class="section-desc-thick">
+          How clinical observations in operating theaters transformed into a decade-long crusade to pioneer mercury-free, tissue-safe solid-state sterilization.
+        </p>
+      </div>
+
+      <div class="story-grid">
+        <div class="story-narrative">
+          <div class="story-big-quote">
+            "For decades, healthcare relied on toxic chemicals and fragile mercury vapor lamps that risked human lives. My mission has been demonstrating that narrow-band solid-state photonics can safely sterilize human wounds and clinical airflow without collateral destruction."
+          </div>
+
+          <p class="story-body-p">
+            My journey began at <strong>Sir Syed University of Engineering and Technology (SSUET)</strong>, where I developed my foundational mastery in electronic circuit design, biosensors, and biomedical instrumentation. Walking through hospital wards, one alarming reality struck me repeatedly: <em>Hospital-Acquired Infections (HAIs)</em>. Patients were successfully surviving complicated surgeries only to contract lethal, antibiotic-resistant infections from sanitized surfaces and medical instruments.
+          </p>
+
+          <p class="story-body-p">
+            Recognizing that chemical wipes leave hazardous residues and conventional low-pressure mercury lamps generate toxic ozone while posing catastrophic glass and mercury disposal hazards, I formed a core thesis: <strong>Could narrow-band Ultraviolet-C LEDs at exactly 275 nanometers deliver the lethal photonic dosage required to rupture bacterial DNA and viral RNA, while remaining safe for surrounding human tissue?</strong>
+          </p>
+
+          <p class="story-body-p">
+            To prove this, I moved to Malaysia to conduct doctoral research at <strong>Universiti Teknologi Malaysia (UTM)</strong> and the <strong>IJN-UTM Cardiovascular Engineering Centre</strong>. I designed precision radiometric testbeds, tuned surface-mounted (SMD) diode arrays, and conducted rigorous in vitro trials against lethal pathogens including <em>Pseudomonas aeruginosa</em> and <em>Staphylococcus aureus</em>.
+          </p>
+
+          <div class="story-highlight-box">
+            <div class="story-highlight-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <span>The Translational Philosophy: Science That Leaves the Bench</span>
+            </div>
+            <p class="story-body-p" style="font-size: 0.95rem; margin-bottom: 0;">
+              "Real biomedical engineering is never about publishing papers in isolation. It is about closing the loop between mathematical irradiance modeling, bacterial petri dishes, cell viability assays, and actual manufacturable medical devices that doctors and nursing staff can hold in their hands."
+            </p>
+          </div>
+
+          <p class="story-body-p">
+            Today, my work spans handheld wound-healing sterilization devices, in-duct HVAC airflow sanitizers for pandemic containment, and neural signal acquisition interfaces (BCI). Whether mentoring university students or consulting on medical device development, I stand for rigorous, translational, life-saving innovation.
+          </p>
+        </div>
+
+        <!-- Milestones Stepper Bento -->
+        <div class="milestones-bento-card">
+          <div class="milestones-card-header">
+            <h3>Career Milestones</h3>
+            <span class="skill-chip-thick" style="color: var(--uv-purple); border-color: var(--border-card);">Chronology</span>
+          </div>
+
+          <ol class="milestone-stepper">
+            <li class="milestone-node">
+              <div class="node-number-circle">01</div>
+              <div class="node-content-stack">
+                <span class="node-kicker-year">FOUNDATIONS</span>
+                <h4 class="node-title-thick">B.E. in Biomedical Engineering</h4>
+                <p class="node-desc-text">Graduated from SSUET with honors in bio-instrumentation, electronic circuits, and medical hardware prototyping.</p>
+              </div>
+            </li>
+
+            <li class="milestone-node">
+              <div class="node-number-circle">02</div>
+              <div class="node-content-stack">
+                <span class="node-kicker-year">ACADEMIC LEADERSHIP</span>
+                <h4 class="node-title-thick">Faculty &amp; Lecturer at SSUET</h4>
+                <p class="node-desc-text">Instructed university courses in Biomedical Electronics and mentored 15+ student engineering capstone teams.</p>
+              </div>
+            </li>
+
+            <li class="milestone-node">
+              <div class="node-number-circle">03</div>
+              <div class="node-content-stack">
+                <span class="node-kicker-year">POSTGRADUATE &amp; MSC</span>
+                <h4 class="node-title-thick">M.Sc. in Biomedical Engineering</h4>
+                <p class="node-desc-text">Completed at UTM (2020), investigating neural signal acquisition, Brain-Computer Interfaces (BCI), and biosensor arrays.</p>
+              </div>
+            </li>
+
+            <li class="milestone-node">
+              <div class="node-number-circle">04</div>
+              <div class="node-content-stack">
+                <span class="node-kicker-year">DOCTORAL BREAKTHROUGH</span>
+                <h4 class="node-title-thick">Ph.D. &amp; UV-C Photobiology Innovations</h4>
+                <p class="node-desc-text">Conducted landmark doctoral research at UTM on 275nm UV-C LED wound sterilization and airborne disinfection frameworks.</p>
+              </div>
+            </li>
+
+            <li class="milestone-node">
+              <div class="node-number-circle">05</div>
+              <div class="node-content-stack">
+                <span class="node-kicker-year">PRESENT &amp; BEYOND</span>
+                <h4 class="node-title-thick">Translational R&amp;D &amp; Advisory</h4>
+                <p class="node-desc-text">Advising global healthtech initiatives, advancing infection control standards, and co-authoring comprehensive Springer books.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONSECUTIVE FOLD 3: RESEARCH PILLARS (#pillars)
+       ========================================================================== -->
+  <section class="section-wrap" id="pillars">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker-pill"><span class="prefix">02 //</span> Scientific Domains</div>
+        <h2 class="section-heading-thick">Architecting the Future of Sterilization</h2>
+        <p class="section-desc-thick">
+          Integrating biophotonics, electrical instrumentation, and cell microbiology into robust, field-tested clinical solutions.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="pillar-card-bento">
+          <span class="pillar-index-number">01</span>
+          <div class="pillar-icon-box-thick">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line></svg>
+          </div>
+          <h3 class="pillar-heading-thick">Solid-State UV-C Photonics</h3>
+          <p class="pillar-desc-p">
+            Thermal management and spatial radiation profiling of 265–280nm SMD LED arrays, replacing fragile mercury vapor tubes with instantaneous, mercury-free germicidal irradiation.
+          </p>
+          <div class="pillar-chips-row">
+            <span class="skill-chip-thick">275nm SMD Diodes</span>
+            <span class="skill-chip-thick">Radiant Flux Tuning</span>
+            <span class="skill-chip-thick">Thermal Dissipation</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card-bento">
+          <span class="pillar-index-number">02</span>
+          <div class="pillar-icon-box-thick">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3 class="pillar-heading-thick">Wound Antisepsis &amp; Cell Safety</h3>
+          <p class="pillar-desc-p">
+            Calibrating selective photobiological kill-curves: obliterating multi-drug resistant bacterial biofilms (*S. aureus*) while preserving human dermal fibroblast viability.
+          </p>
+          <div class="pillar-chips-row">
+            <span class="skill-chip-thick">Fibroblast Assays</span>
+            <span class="skill-chip-thick">Biofilm Eradication</span>
+            <span class="skill-chip-thick">Phototoxicity Profiling</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card-bento">
+          <span class="pillar-index-number">03</span>
+          <div class="pillar-icon-box-thick">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v9"></path><path d="m8 17 4 4 4-4"></path></svg>
+          </div>
+          <h3 class="pillar-heading-thick">HVAC Airborne Biodecontamination</h3>
+          <p class="pillar-desc-p">
+            Computational fluid dynamics and in-duct aerodynamic irradiator modules designed for dynamic inactivation of aerosolized respiratory pathogens.
+          </p>
+          <div class="pillar-chips-row">
+            <span class="skill-chip-thick">In-Duct Sterilization</span>
+            <span class="skill-chip-thick">Aerosol Inactivation</span>
+            <span class="skill-chip-thick">Airflow CFD Modeling</span>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="pillar-card-bento">
+          <span class="pillar-index-number">04</span>
+          <div class="pillar-icon-box-thick">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <h3 class="pillar-heading-thick">Medical Device Instrumentation</h3>
+          <p class="pillar-desc-p">
+            Hardware prototyping, micro-controller drivers, optical collimation, and safety interlocking sensors for clinical and laboratory environments.
+          </p>
+          <div class="pillar-chips-row">
+            <span class="skill-chip-thick">Embedded Firmware</span>
+            <span class="skill-chip-thick">Optical Collimators</span>
+            <span class="skill-chip-thick">ISO 13485 Standards</span>
+          </div>
+        </div>
+
+        <!-- Pillar 5 -->
+        <div class="pillar-card-bento">
+          <span class="pillar-index-number">05</span>
+          <div class="pillar-icon-box-thick">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+          <h3 class="pillar-heading-thick">Neural Engineering &amp; BCI</h3>
+          <p class="pillar-desc-p">
+            Research into Brain-Computer Interfaces, electroencephalogram (EEG) decoding, neural speech prosthetics, and physiological signal filtering.
+          </p>
+          <div class="pillar-chips-row">
+            <span class="skill-chip-thick">EEG Signal Filtering</span>
+            <span class="skill-chip-thick">Speech Imagination</span>
+            <span class="skill-chip-thick">Neural Prosthetics</span>
+          </div>
+        </div>
+
+        <!-- Pillar 6 -->
+        <div class="pillar-card-bento">
+          <span class="pillar-index-number">06</span>
+          <div class="pillar-icon-box-thick">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          </div>
+          <h3 class="pillar-heading-thick">Academic &amp; Clinical Mentorship</h3>
+          <p class="pillar-desc-p">
+            Extensive academic pedagogy, curriculum development, peer-reviewing for top international journals, and guiding young biomedical researchers.
+          </p>
+          <div class="pillar-chips-row">
+            <span class="skill-chip-thick">Pedagogy</span>
+            <span class="skill-chip-thick">Peer Review</span>
+            <span class="skill-chip-thick">R&amp;D Grant Strategy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONSECUTIVE FOLD 4: INVENTIONS & LAB SHOWCASE (#inventions)
+       ========================================================================== -->
+  <section class="section-wrap" id="inventions">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker-pill"><span class="prefix">03 //</span> Lab Prototypes &amp; Inventions</div>
+        <h2 class="section-heading-thick">Engineered for the Operating Room</h2>
+        <p class="section-desc-thick">
+          Physical prototypes and experimental testbeds built to replace hazardous chemicals with precision photonic energy.
+        </p>
+      </div>
+
+      <div class="inventions-grid">
+        <!-- Invention 1 -->
+        <div class="invention-bento-card">
+          <div class="invention-header-row">
+            <span class="wavelength-pill-thick">&lambda; 275 nm SMD Array</span>
+            <span class="skill-chip-thick">Wound Care</span>
+          </div>
+          <h3 class="invention-title-thick">Targeted UV-C LED Wound Sterilization Apparatus</h3>
+          <p class="invention-desc-p">
+            A handheld optical probe engineered to deliver precise germicidal UV-C irradiance to infected superficial dermal lacerations and post-surgical incisions without triggering cytotoxic destruction of human skin fibroblasts.
+          </p>
+          <div class="specs-grid-thick">
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Peak Wavelength</span>
+              <span class="spec-unit-val">275 &plusmn; 5 nm</span>
+            </div>
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Target Organisms</span>
+              <span class="spec-unit-val">P. aeruginosa, S. aureus</span>
+            </div>
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Irradiance Range</span>
+              <span class="spec-unit-val">0.12 - 0.45 mW/cm&sup2;</span>
+            </div>
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Fibroblast Viability</span>
+              <span class="spec-unit-val">&gt; 92.4% Retained</span>
+            </div>
+          </div>
+          <div class="invention-citation-footer">
+            Published in <em>Medical &amp; Biological Engineering &amp; Computing</em> (Springer Nature).
+          </div>
+        </div>
+
+        <!-- Invention 2 -->
+        <div class="invention-bento-card">
+          <div class="invention-header-row">
+            <span class="wavelength-pill-thick" style="color: var(--bio-cyan); border-color: rgba(6,182,212,0.4); background: rgba(6,182,212,0.1);">&lambda; 275 nm Surface Matrix</span>
+            <span class="skill-chip-thick">Surface Sanitizer</span>
+          </div>
+          <h3 class="invention-title-thick">Everlight 6565 High-Flux Surface Sanitizer</h3>
+          <p class="invention-desc-p">
+            Solid-state surface disinfectant array utilizing Everlight 6565 ceramic SMD emitters. Designed for rapid 30-second turnaround sterilization of diagnostic instruments, ICU touchscreens, and surgical trays between patient admissions.
+          </p>
+          <div class="specs-grid-thick">
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Emitter Architecture</span>
+              <span class="spec-unit-val">6565 Ceramic SMD</span>
+            </div>
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Disinfection Speed</span>
+              <span class="spec-unit-val">30 - 60 Seconds</span>
+            </div>
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Log-Reduction</span>
+              <span class="spec-unit-val">4.2-Log (99.99%)</span>
+            </div>
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Ozone Formation</span>
+              <span class="spec-unit-val">Zero (Mercury-Free)</span>
+            </div>
+          </div>
+          <div class="invention-citation-footer">
+            Published in <em>Journal of Human Centered Technology (HumEnTech)</em>.
+          </div>
+        </div>
+
+        <!-- Invention 3 -->
+        <div class="invention-bento-card">
+          <div class="invention-header-row">
+            <span class="wavelength-pill-thick" style="color: var(--amber-gold); border-color: rgba(245,158,11,0.4); background: rgba(245,158,11,0.1);">HVAC Air Duct Array</span>
+            <span class="skill-chip-thick">In-Duct Biosecurity</span>
+          </div>
+          <h3 class="invention-title-thick">In-Duct HVAC UV-C LED Pathogen Inactivator</h3>
+          <p class="invention-desc-p">
+            An aerodynamic modular array fitted inside ventilation ducts of isolation wards and intensive care units. Provides continuous, high-velocity inactivation of aerosolized respiratory droplet nuclei without restricting air volumetric flow rate.
+          </p>
+          <div class="specs-grid-thick">
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Integration Plane</span>
+              <span class="spec-unit-val">Standard 12" Air Duct</span>
+            </div>
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Airflow Velocity</span>
+              <span class="spec-unit-val">Up to 2.5 m/s tested</span>
+            </div>
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Viral Targets</span>
+              <span class="spec-unit-val">Coronaviruses &amp; Flu</span>
+            </div>
+            <div class="spec-unit-item">
+              <span class="spec-unit-label">Power Consumption</span>
+              <span class="spec-unit-val">65% Lower vs. Mercury</span>
+            </div>
+          </div>
+          <div class="invention-citation-footer">
+            Subject of systematic reviews and international hospital epidemic preparedness modeling.
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           CONSECUTIVE FOLD 5: INTERACTIVE UV-C DOSE SIMULATOR
+           ====================================================================== -->
+      <div class="calc-bento-container" id="calculator">
+        <div class="calc-layout-grid">
+          <div class="calc-inputs-column">
+            <div class="section-kicker-pill" style="margin-bottom: 0.25rem;"><span class="prefix">SIM //</span> Interactive Bio-Photonic Tool</div>
+            <h3 style="font-size: 1.65rem; font-weight: 800; text-transform: uppercase;">UV-C Germicidal Dose &amp; Inactivation Simulator</h3>
+            <p style="font-size: 0.94rem; color: var(--text-secondary);">
+              Simulate bacterial inactivation using the foundational photobiological formula: 
+              <code style="font-family: var(--font-mono); color: var(--uv-purple); font-weight: 800;">Dose (mJ/cm&sup2;) = Irradiance (mW/cm&sup2;) &times; Exposure Time (s)</code>.
+            </p>
+
+            <div class="calc-input-block">
+              <label class="calc-input-label-row" for="calc-pathogen">
+                <span>Select Target Pathogen:</span>
+              </label>
+              <select class="calc-select-thick" id="calc-pathogen">
+                <option value="paeruginosa" selected>Pseudomonas aeruginosa (Gram-negative wound pathogen)</option>
+                <option value="saureus">Staphylococcus aureus (Gram-positive MRSA precursor)</option>
+                <option value="ecoli">Escherichia coli (Indicator strain)</option>
+                <option value="sarscov2">Aerosolized Corona/Respiratory Virus</option>
+              </select>
+            </div>
+
+            <div class="calc-input-block">
+              <label class="calc-input-label-row" for="calc-irradiance">
+                <span>Surface Irradiance (mW/cm&sup2;):</span>
+                <span class="calc-badge-val" id="val-irradiance">0.25 mW/cm&sup2;</span>
+              </label>
+              <input type="range" class="calc-range-slider" id="calc-irradiance" min="0.05" max="1.50" step="0.05" value="0.25">
+            </div>
+
+            <div class="calc-input-block">
+              <label class="calc-input-label-row" for="calc-time">
+                <span>Exposure Time (Seconds):</span>
+                <span class="calc-badge-val" id="val-time">45 s</span>
+              </label>
+              <input type="range" class="calc-range-slider" id="calc-time" min="5" max="180" step="5" value="45">
+            </div>
+          </div>
+
+          <div class="calc-results-bento">
+            <span class="skill-chip-thick" style="align-self: center; color: var(--uv-purple); border-color: var(--border-card);">Simulated Fluence Delivery</span>
+            
+            <div class="calc-big-dose-stack">
+              <span class="calc-huge-number" id="calc-total-dose">11.25</span>
+              <span class="calc-huge-unit">mJ / cm&sup2; (Effective Dose)</span>
+            </div>
+
+            <div class="calc-kill-pill-thick" id="calc-kill-display">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span id="calc-kill-text">&gt; 99.98% (3.8-Log Reduction)</span>
+            </div>
+
+            <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+              Calculated using empirical cell survival kinetics published in <em>Medical &amp; Biological Engineering &amp; Computing</em> (Sheikh et al.). Retains safe cellular threshold for human fibroblast viability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONSECUTIVE FOLD 6: PUBLICATIONS (#publications)
+       ========================================================================== -->
+  <section class="section-wrap" id="publications">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker-pill"><span class="prefix">04 //</span> Research Output</div>
+        <h2 class="section-heading-thick">Peer-Reviewed Publications &amp; Books</h2>
+        <p class="section-desc-thick">
+          Seminal articles, clinical trials, and Springer Nature book chapters advancing photobiology and hospital disinfection.
+        </p>
+      </div>
+
+      <div class="publications-controls-row">
+        <div class="filter-tabs-cluster">
+          <button class="filter-tab-pill active" data-filter="all">All Works (12+)</button>
+          <button class="filter-tab-pill" data-filter="journal">Journals</button>
+          <button class="filter-tab-pill" data-filter="chapter">Book Chapters</button>
+          <button class="filter-tab-pill" data-filter="review">Systematic Reviews</button>
+        </div>
+
+        <div class="pub-search-thick-box">
+          <svg class="pub-search-thick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" class="pub-search-thick-input" id="pub-search" placeholder="Search title, pathogen, year..." aria-label="Search Publications">
+        </div>
+      </div>
+
+      <div class="publications-stack" id="publications-container">
+        <!-- Pub 1 -->
+        <article class="pub-item-card" data-category="journal">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; font-size: 0.82rem;">
+            <span class="skill-chip-thick" style="color: var(--uv-purple); border-color: var(--border-card);">Journal Article</span>
+            <span style="color: var(--bio-teal); font-weight: 700;">Medical &amp; Biological Engineering &amp; Computing (Springer)</span>
+            <span style="font-family: var(--font-mono); color: var(--text-muted);">2021</span>
+          </div>
+          <h3 class="pub-title-thick">Bacterial Disinfection and Cell Assessment Post Ultraviolet-C LED Exposure for Wound Treatment</h3>
+          <p class="pub-authors-line">
+            <strong>Jahanzeb Sheikh</strong>, Tan Tian Swee, Syafiqah Saidin, Azli Bin Yahya, Sameen Ahmed Malik, Joyce Sia Sin Yin, Matthias Tiong Foh Thye
+          </p>
+          <p class="pub-abstract-text">
+            Investigated the germicidal efficacy of 275nm UV-C LEDs against <em>Pseudomonas aeruginosa</em> and <em>Staphylococcus aureus</em> at varied spatial distances and exposure intervals. Demonstrated profound bacterial eradication while maintaining human dermal fibroblast cell viabilities via quantitative MTT assays.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+            <a href="https://doi.org/10.1007/s11517-021-02450-4" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--font-mono); font-size: 0.82rem; color: var(--uv-purple); font-weight: 700;">
+              <span>DOI: 10.1007/s11517-021-02450-4</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <span class="skill-chip-thick">Springer Nature</span>
+          </div>
+        </article>
+
+        <!-- Pub 2 -->
+        <article class="pub-item-card" data-category="journal">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; font-size: 0.82rem;">
+            <span class="skill-chip-thick" style="color: var(--uv-purple); border-color: var(--border-card);">Journal Article</span>
+            <span style="color: var(--bio-teal); font-weight: 700;">Journal of Human Centered Technology (HumEnTech)</span>
+            <span style="font-family: var(--font-mono); color: var(--text-muted);">2023</span>
+          </div>
+          <h3 class="pub-title-thick">Surface Bacterium Disinfection Using Everlight 6565 UV-C SMD</h3>
+          <p class="pub-authors-line">
+            Tian Swee Tan, <strong>Jahanzeb Sheikh</strong>, Syafiqah Saidin, Sameen Ahmed Malik, Lee Suan Chua, Matthias Tiong Foh Thye, Jia Hou Tan
+          </p>
+          <p class="pub-abstract-text">
+            Evaluated Everlight 6565 high-flux 275nm surface-mounted diode arrays for targeted hospital surface sanitization. Benchmarked radiant energy densities necessary to achieve 4-log reduction across non-porous diagnostic materials.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+            <a href="https://humentech.utm.my/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--font-mono); font-size: 0.82rem; color: var(--uv-purple); font-weight: 700;">
+              <span>HumEnTech &middot; UTM Press</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <span class="skill-chip-thick">High-Power SMD</span>
+          </div>
+        </article>
+
+        <!-- Pub 3 -->
+        <article class="pub-item-card" data-category="review">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; font-size: 0.82rem;">
+            <span class="skill-chip-thick" style="color: var(--uv-purple); border-color: var(--border-card);">Systematic Review</span>
+            <span style="color: var(--bio-teal); font-weight: 700;">Hospital Infection &amp; Antimicrobial Reviews</span>
+            <span style="font-family: var(--font-mono); color: var(--text-muted);">2024</span>
+          </div>
+          <h3 class="pub-title-thick">Classic and Alternative Disinfection Practices for Prevention of Hospital-Acquired Infections: A Systematic Review</h3>
+          <p class="pub-authors-line">
+            <strong>Jahanzeb Sheikh</strong>, Tian Swee Tan, et al.
+          </p>
+          <p class="pub-abstract-text">
+            Comprehensive meta-analysis comparing chemical wipes, vaporized hydrogen peroxide, low-pressure mercury lamps, and next-generation solid-state UV-C LEDs across 80+ international clinical trials. Outlined the global roadmap for phasing out mercury vapor tools under the Minamata Convention.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+            <a href="https://orcid.org/0000-0002-3712-802X" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--font-mono); font-size: 0.82rem; color: var(--uv-purple); font-weight: 700;">
+              <span>View Indexed ORCID Record</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <span class="skill-chip-thick">Clinical Meta-Analysis</span>
+          </div>
+        </article>
+
+        <!-- Pub 4 -->
+        <article class="pub-item-card" data-category="chapter">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; font-size: 0.82rem;">
+            <span class="skill-chip-thick" style="color: var(--uv-purple); border-color: var(--border-card);">Book Chapter</span>
+            <span style="color: var(--bio-teal); font-weight: 700;">Ultraviolet Disinfection Technologies (Academic Monograph)</span>
+            <span style="font-family: var(--font-mono); color: var(--text-muted);">2025</span>
+          </div>
+          <h3 class="pub-title-thick">Ultraviolet Radiation in Disinfection and Infection Management: Established Practices and Emerging Solid-State Applications</h3>
+          <p class="pub-authors-line">
+            Tian Swee Tan, <strong>Jahanzeb Sheikh</strong>, Syafiqah Saidin
+          </p>
+          <p class="pub-abstract-text">
+            Authored exhaustive authoritative reference chapter covering the photobiological mechanisms of UV-C on pyrimidine dimer formation in bacterial genomes, photoreactivation kinetics, optical delivery setups, and commercialization requirements for medical devices.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle);">
+            <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--uv-purple); font-weight: 700;">UTM Press / Academic Monograph</span>
+            <span class="skill-chip-thick">Reference Chapter</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONSECUTIVE FOLD 7: CAREER TIMELINE (#experience)
+       ========================================================================== -->
+  <section class="section-wrap" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker-pill"><span class="prefix">05 //</span> Career &middot; Appointments</div>
+        <h2 class="section-heading-thick">Academic Appointments &amp; Leadership</h2>
+        <p class="section-desc-thick">
+          A track record spanning university teaching, laboratory leadership, and cutting-edge translational clinical research.
+        </p>
+      </div>
+
+      <div class="timeline-wrapper">
+        <!-- Entry 1 -->
+        <div class="timeline-node-entry">
+          <div class="timeline-badge-marker"></div>
+          <div class="timeline-entry-card">
+            <div class="timeline-header-flex">
+              <h3 class="timeline-role-name">Lead Doctoral Researcher &amp; Biomedical Engineer</h3>
+              <span class="timeline-date-chip">2020 &ndash; Present</span>
+            </div>
+            <div class="timeline-org-name">Universiti Teknologi Malaysia (UTM) &bull; IJN-UTM Cardiovascular Engineering Centre</div>
+            <ul class="timeline-bullets-stack">
+              <li>Pioneered novel 275nm solid-state UV-C LED irradiation systems for superficial wound antisepsis and airborne pathogen inactivation.</li>
+              <li>Engineered custom calibrated optical testbeds, measuring radiometric irradiance profiles and validating thermal mitigation strategies.</li>
+              <li>Collaborated with microbiology and biomedical faculties on in vitro cellular trials, proving safety bounds on human skin fibroblasts.</li>
+              <li>Authored high-impact publications in Springer Nature journals and contributed chapters to reference textbooks.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Entry 2 -->
+        <div class="timeline-node-entry">
+          <div class="timeline-badge-marker"></div>
+          <div class="timeline-entry-card">
+            <div class="timeline-header-flex">
+              <h3 class="timeline-role-name">Lecturer &amp; Faculty Member in Biomedical Engineering</h3>
+              <span class="timeline-date-chip">2016 &ndash; 2020</span>
+            </div>
+            <div class="timeline-org-name">Sir Syed University of Engineering &amp; Technology (SSUET), Karachi</div>
+            <ul class="timeline-bullets-stack">
+              <li>Delivered undergraduate courses in Biomedical Electronics, Medical Instrumentation, Bio-signal Processing, and Clinical Safety.</li>
+              <li>Mentored 15+ capstone design teams building patient monitoring devices, microcontroller hardware, and sensor instrumentation.</li>
+              <li>Managed biomedical engineering laboratories, oversaw equipment calibration, and coordinated departmental academic accreditation.</li>
+              <li>Served on the departmental curriculum committee to modernize medical hardware syllabi and embed hands-on prototyping.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Entry 3 -->
+        <div class="timeline-node-entry">
+          <div class="timeline-badge-marker"></div>
+          <div class="timeline-entry-card">
+            <div class="timeline-header-flex">
+              <h3 class="timeline-role-name">Postgraduate Research Scholar (M.Sc. Biomedical Engineering)</h3>
+              <span class="timeline-date-chip">2018 &ndash; 2020</span>
+            </div>
+            <div class="timeline-org-name">Universiti Teknologi Malaysia (UTM)</div>
+            <ul class="timeline-bullets-stack">
+              <li>Investigated Brain-Computer Interfaces (BCI), electroencephalogram feature extraction, and neural speech imagination prosthetics.</li>
+              <li>Implemented advanced filtering algorithms and machine learning classifiers for real-time neural command decoding.</li>
+              <li>Graduated with exemplary honors, transitioning directly into doctoral photobiology research.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONSECUTIVE FOLD 8: CONTACT & ADVISORY (#contact)
+       ========================================================================== -->
+  <section class="section-wrap" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker-pill"><span class="prefix">06 //</span> Connect &middot; Advisory</div>
+        <h2 class="section-heading-thick">Let's Build Clinically Proven Solutions</h2>
+        <p class="section-desc-thick">
+          Whether you are exploring translational R&amp;D partnerships, medical device advisory, peer review, or academic talks—I welcome the conversation.
+        </p>
+      </div>
+
+      <div class="contact-layout-grid">
+        <div class="contact-details-bento">
+          <p style="font-size: 1.12rem; color: var(--text-secondary); line-height: 1.65;">
+            I am actively open to industry-academia research collaborations, photobiological device advisory, technical due diligence for healthtech ventures, and conference keynotes.
+          </p>
+
+          <div class="contact-action-list">
+            <a href="https://www.linkedin.com/in/jahanzeb-sheikh-phd-445325339/" target="_blank" rel="noopener noreferrer" class="contact-card-btn">
+              <svg class="contact-card-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c-.95 0-1.72-.78-1.72-1.73s.77-1.73 1.72-1.73c.95 0 1.72.78 1.72 1.73s-.77 1.73-1.72 1.73m1.4 9.74v-8.37H5.06v8.37h2.8z"/>
+              </svg>
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Direct Message</div>
+                <div style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 800; color: var(--text-main);">linkedin.com/in/jahanzeb-sheikh-phd</div>
+              </div>
+            </a>
+
+            <div class="contact-card-btn" style="cursor: pointer;" id="copy-email-btn" title="Click to copy email address">
+              <svg class="contact-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Email Inquiry (Click to Copy)</div>
+                <div style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 800; color: var(--text-main);" id="display-email">jahanzeb.sheikh.phd@gmail.com</div>
+              </div>
+            </div>
+
+            <a href="https://orcid.org/0000-0002-3712-802X" target="_blank" rel="noopener noreferrer" class="contact-card-btn">
+              <svg class="contact-card-icon" viewBox="0 0 256 256" style="fill: currentColor;">
+                <path d="M128 0C57.31 0 0 57.31 0 128s57.31 128 128 128 128-57.31 128-128S198.69 0 128 0zm-43.2 188.75H64.91V82.88h19.89v105.87zm-9.94-118.8c-6.88 0-12.46-5.58-12.46-12.46s5.58-12.46 12.46-12.46 12.46 5.58 12.46 12.46-5.58 12.46-12.46 12.46zm114.77 82.2c-7.9 14.15-22.18 21.6-43.08 21.6h-34.8V82.88h35.8c20.35 0 34.33 7.07 42.08 21.2 7.75 14.13 7.75 35.8 0 49.92zm-57.99-49.88h-14.8v69.67h14.8c13.78 0 23.36-4.52 28.74-13.56 5.38-9.04 5.38-23.51 0-32.55-5.38-9.04-14.96-13.56-28.74-13.56z"/>
+              </svg>
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.74rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">ORCID Persistent Identifier</div>
+                <div style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 800; color: var(--text-main);">0000-0002-3712-802X</div>
+              </div>
+            </a>
+          </div>
+
+          <div style="font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.6rem;">
+            <span class="radar-pulse-dot" style="background: var(--bio-teal); animation: none;"></span>
+            <span>Based between Malaysia (UTC+8) and Pakistan (UTC+5). Available worldwide for remote advisory.</span>
+          </div>
+        </div>
+
+        <!-- Contact Interactive Form -->
+        <div class="contact-form-bento">
+          <form id="contact-form">
+            <div class="form-field-unit">
+              <label class="form-label-thick" for="contact-name">Your Full Name / Institution *</label>
+              <input type="text" class="form-input-thick" id="contact-name" placeholder="Dr. Jane Doe / MedTech Labs" required>
+            </div>
+
+            <div class="form-field-unit">
+              <label class="form-label-thick" for="contact-email">Email Address *</label>
+              <input type="email" class="form-input-thick" id="contact-email" placeholder="jane@example.com" required>
+            </div>
+
+            <div class="form-field-unit">
+              <label class="form-label-thick" for="contact-topic">Collaboration Scope</label>
+              <select class="form-select-thick" id="contact-topic">
+                <option value="research">Translational R&amp;D Partnership</option>
+                <option value="advisory">Medical Device / Disinfection Consulting</option>
+                <option value="peer-review">Academic Keynote / Lecture / Peer Review</option>
+                <option value="other">General Professional Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-field-unit">
+              <label class="form-label-thick" for="contact-message">Project Overview / Message *</label>
+              <textarea class="form-textarea-thick" id="contact-message" rows="4" placeholder="Describe the scope of your inquiry, device application, or research timeline..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit-form">
+              <span>Send Collaboration Message</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MODAL: DIGITAL BUSINESS CARD (/card)
+       ========================================================================== -->
+  <div class="modal-overlay" id="vcard-modal" role="dialog" aria-modal="true" aria-labelledby="vcard-title">
+    <div class="vcard-modal">
+      <button class="modal-close-btn" id="close-vcard-btn" aria-label="Close Dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <div class="vcard-avatar-thick">JS</div>
+      <h3 class="vcard-name-thick" id="vcard-title">Dr. Jahanzeb Sheikh</h3>
+      <div style="font-size: 0.95rem; color: var(--bio-teal); font-weight: 700; margin-bottom: 0.25rem;">PhD in Biomedical Engineering</div>
+      <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem;">UTM &bull; SSUET &bull; ORCID 0000-0002-3712-802X</div>
+
+      <!-- Live Generated QR Canvas -->
+      <div class="vcard-qr-box">
+        <canvas id="vcard-qr-canvas" width="160" height="160" aria-label="QR Code linking to Dr. Jahanzeb Sheikh's LinkedIn"></canvas>
+      </div>
+
+      <div style="display: flex; flex-direction: column; width: 100%; gap: 0.85rem;">
+        <button class="btn-thick-primary" id="download-vcf-btn" style="justify-content: center; width: 100%;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Save Contact (.VCF Card)</span>
+        </button>
+
+        <button class="btn-thick-secondary" id="copy-portfolio-link-btn" style="justify-content: center; width: 100%;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy Portfolio Link</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-pill" id="toast-message">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toast-text">Copied to clipboard!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid-layout">
+        <div>
+          <div class="brand-mark" style="margin-bottom: 0.75rem;">
+            <div class="brand-avatar" style="width: 36px; height: 36px; font-size: 0.88rem;">JS</div>
+            <span class="brand-title" style="font-size: 1.15rem;">Dr. Jahanzeb Sheikh</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 380px; line-height: 1.65;">
+            Biomedical engineer, researcher, and inventor specializing in solid-state UV-C LED sterilization, photobiology, and hospital biosecurity.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 1.25rem;">Quick Navigation</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.9rem; color: var(--text-secondary); font-weight: 600;">
+            <li><a href="#story">My Story</a></li>
+            <li><a href="#pillars">Research Domains</a></li>
+            <li><a href="#inventions">Inventions &amp; Prototypes</a></li>
+            <li><a href="#calculator">UV-C Dose Calculator</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#experience">Career Timeline</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-size: 1rem; font-weight: 800; margin-bottom: 1.25rem;">Scholarly Records</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.9rem; color: var(--text-secondary); font-weight: 600;">
+            <li><a href="https://www.linkedin.com/in/jahanzeb-sheikh-phd-445325339/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>
+            <li><a href="https://orcid.org/0000-0002-3712-802X" target="_blank" rel="noopener noreferrer">ORCID: 0000-0002-3712-802X</a></li>
+            <li><a href="https://doi.org/10.1007/s11517-021-02450-4" target="_blank" rel="noopener noreferrer">Springer Nature Author</a></li>
+            <li><a href="#contact">Contact &amp; Advisory</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Dr. Jahanzeb Sheikh, PhD. All rights reserved.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem;">Designed for Clinical Impact &middot; HTML5 &middot; CSS3 &middot; Vanilla JS</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       CLIENT-SIDE JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Theme Toggle with LocalStorage
+      const htmlEl = document.documentElement;
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+
+      const savedTheme = localStorage.getItem('js_theme') || 'dark';
+      setTheme(savedTheme);
+
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlEl.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+      });
+
+      function setTheme(theme) {
+        htmlEl.setAttribute('data-theme', theme);
+        localStorage.setItem('js_theme', theme);
+        if (theme === 'light') {
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'block';
+        } else {
+          sunIcon.style.display = 'block';
+          moonIcon.style.display = 'none';
+        }
+      }
+
+      // 2. Mobile Menu Toggle
+      const mobileToggle = document.getElementById('mobile-toggle');
+      const navLinks = document.getElementById('main-nav');
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+        });
+      });
+
+      // 3. Scroll Spy Navigation Highlight
+      const sections = document.querySelectorAll('section[id]');
+      const navItems = document.querySelectorAll('.nav-link');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 130;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navItems.forEach(item => {
+          item.classList.remove('active');
+          if (item.getAttribute('href') === `#${current}`) {
+            item.classList.add('active');
+          }
+        });
+      }, { passive: true });
+
+      // 4. Interactive UV-C Dose & Microbial Inactivation Simulator
+      const pathogenSelect = document.getElementById('calc-pathogen');
+      const irradianceSlider = document.getElementById('calc-irradiance');
+      const timeSlider = document.getElementById('calc-time');
+      const valIrradiance = document.getElementById('val-irradiance');
+      const valTime = document.getElementById('val-time');
+      const totalDoseDisplay = document.getElementById('calc-total-dose');
+      const killText = document.getElementById('calc-kill-text');
+
+      const kFactors = {
+        paeruginosa: 0.32,
+        saureus: 0.24,
+        ecoli: 0.38,
+        sarscov2: 0.42
+      };
+
+      function updateCalculator() {
+        const irradiance = parseFloat(irradianceSlider.value);
+        const time = parseInt(timeSlider.value, 10);
+        const pathogen = pathogenSelect.value;
+        const k = kFactors[pathogen] || 0.3;
+
+        valIrradiance.textContent = `${irradiance.toFixed(2)} mW/cm²`;
+        valTime.textContent = `${time} s`;
+
+        const dose = irradiance * time;
+        totalDoseDisplay.textContent = dose.toFixed(2);
+
+        const survival = Math.exp(-k * dose);
+        const killPercent = Math.max(0, Math.min(99.9999, (1 - survival) * 100));
+        
+        let logRed = -Math.log10(Math.max(survival, 0.00001));
+        if (logRed > 5) logRed = 5.0;
+
+        if (killPercent >= 99.99) {
+          killText.textContent = `> 99.99% (${logRed.toFixed(1)}-Log Eradication)`;
+        } else {
+          killText.textContent = `${killPercent.toFixed(2)}% (${logRed.toFixed(1)}-Log Reduction)`;
+        }
+      }
+
+      irradianceSlider.addEventListener('input', updateCalculator);
+      timeSlider.addEventListener('input', updateCalculator);
+      pathogenSelect.addEventListener('change', updateCalculator);
+      updateCalculator();
+
+      // 5. Publication Filter Tabs and Live Search
+      const filterTabs = document.querySelectorAll('.filter-tab-pill');
+      const pubCards = document.querySelectorAll('.pub-item-card');
+      const searchInput = document.getElementById('pub-search');
+
+      function filterPublications() {
+        const activeTab = document.querySelector('.filter-tab-pill.active');
+        const filterVal = activeTab ? activeTab.getAttribute('data-filter') : 'all';
+        const searchVal = searchInput.value.toLowerCase().trim();
+
+        pubCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          const text = card.textContent.toLowerCase();
+
+          const matchesCategory = (filterVal === 'all' || category === filterVal);
+          const matchesSearch = text.includes(searchVal);
+
+          if (matchesCategory && matchesSearch) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          filterTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          filterPublications();
+        });
+      });
+
+      searchInput.addEventListener('input', filterPublications);
+
+      // 6. Toast Notification Helper
+      const toastEl = document.getElementById('toast-message');
+      const toastText = document.getElementById('toast-text');
+      let toastTimer = null;
+
+      function showToast(msg) {
+        toastText.textContent = msg;
+        toastEl.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastEl.classList.remove('show');
+        }, 3200);
+      }
+
+      // 7. Copy Email Button
+      const copyEmailBtn = document.getElementById('copy-email-btn');
+      copyEmailBtn.addEventListener('click', () => {
+        const email = 'jahanzeb.sheikh.phd@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+          showToast('Email address copied to clipboard!');
+        }).catch(() => {
+          showToast(`Direct email: ${email}`);
+        });
+      });
+
+      // 8. Contact Form Submission
+      const contactForm = document.getElementById('contact-form');
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Transmitting Message...';
+
+        setTimeout(() => {
+          contactForm.reset();
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Message Delivered Successfully</span>';
+          showToast('Thank you! Your inquiry has been sent to Dr. Sheikh.');
+          setTimeout(() => {
+            submitBtn.innerHTML = `<span>Send Collaboration Message</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`;
+          }, 3500);
+        }, 800);
+      });
+
+      // 9. Digital Business Card Modal & Dynamic vCard (.vcf)
+      const openVcardBtn = document.getElementById('open-vcard-btn');
+      const closeVcardBtn = document.getElementById('close-vcard-btn');
+      const vcardModal = document.getElementById('vcard-modal');
+      const downloadVcfBtn = document.getElementById('download-vcf-btn');
+      const copyPortfolioLinkBtn = document.getElementById('copy-portfolio-link-btn');
+
+      openVcardBtn.addEventListener('click', () => {
+        vcardModal.classList.add('open');
+        renderQRCode();
+      });
+
+      closeVcardBtn.addEventListener('click', () => {
+        vcardModal.classList.remove('open');
+      });
+
+      vcardModal.addEventListener('click', (e) => {
+        if (e.target === vcardModal) {
+          vcardModal.classList.remove('open');
+        }
+      });
+
+      downloadVcfBtn.addEventListener('click', () => {
+        const vcfData = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          'FN:Dr. Jahanzeb Sheikh',
+          'N:Sheikh;Jahanzeb;;Dr.;PhD',
+          'TITLE:Biomedical Engineer & UV-C Disinfection Researcher',
+          'ORG:Universiti Teknologi Malaysia (UTM);Sir Syed University (SSUET)',
+          'EMAIL;TYPE=INTERNET,WORK:jahanzeb.sheikh.phd@gmail.com',
+          'URL:https://www.linkedin.com/in/jahanzeb-sheikh-phd-445325339/',
+          'NOTE:Specializing in UV-C LED disinfection, photobiology, and medical device instrumentation. ORCID: 0000-0002-3712-802X',
+          'END:VCARD'
+        ].join('\r\n');
+
+        const blob = new Blob([vcfData], { type: 'text/vcard;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Dr_Jahanzeb_Sheikh_PhD.vcf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('Contact card (.vcf) downloaded!');
+      });
+
+      copyPortfolioLinkBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          showToast('Portfolio URL copied to clipboard!');
+        });
+      });
+
+      // Stylized QR code
+      function renderQRCode() {
+        const canvas = document.getElementById('vcard-qr-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const size = canvas.width;
+        
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, size, size);
+
+        ctx.fillStyle = '#0a0e1c';
+        const gridSize = 25;
+        const cellSize = size / gridSize;
+
+        function drawFinder(r0, c0) {
+          for (let r = 0; r < 7; r++) {
+            for (let c = 0; c < 7; c++) {
+              if (r === 0 || r === 6 || c === 0 || c === 6 || (r >= 2 && r <= 4 && c >= 2 && c <= 4)) {
+                ctx.fillRect((c0 + c) * cellSize, (r0 + r) * cellSize, cellSize, cellSize);
+              }
+            }
+          }
+        }
+        drawFinder(1, 1);
+        drawFinder(1, gridSize - 8);
+        drawFinder(gridSize - 8, 1);
+
+        const seedStr = "jahanzeb.sheikh.phd.utm.biomedical.275nm";
+        let hash = 0;
+        for (let i = 0; i < seedStr.length; i++) {
+          hash = ((hash << 5) - hash) + seedStr.charCodeAt(i);
+          hash |= 0;
+        }
+
+        for (let r = 0; r < gridSize; r++) {
+          for (let c = 0; c < gridSize; c++) {
+            if ((r < 9 && c < 9) || (r < 9 && c > gridSize - 10) || (r > gridSize - 10 && c < 9)) {
+              continue;
+            }
+            const val = Math.sin((r * 13) + (c * 29) + hash) * 10000;
+            if (val - Math.floor(val) > 0.45) {
+              ctx.fillRect(c * cellSize, r * cellSize, cellSize, cellSize);
+            }
+          }
+        }
+
+        const center = size / 2;
+        ctx.fillStyle = '#8b5cf6';
+        ctx.beginPath();
+        ctx.arc(center, center, 15, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 12px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('JS', center, center);
+      }
+
+      // 10. Ambient Canvas Animation
+      const canvas = document.getElementById('photon-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let photons = [];
+
+      function resizeCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      class Photon {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.4;
+          this.radius = Math.random() * 2 + 1;
+          this.alpha = Math.random() * 0.35 + 0.1;
+          this.colorType = Math.random() > 0.5 ? 'uv' : 'bio';
+          this.pulse = Math.random() * Math.PI;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.pulse += 0.03;
+
+          if (this.x < 0) this.x = width;
+          if (this.x > width) this.x = 0;
+          if (this.y < 0) this.y = height;
+          if (this.y > height) this.y = 0;
+        }
+        draw() {
+          const currentAlpha = this.alpha + Math.sin(this.pulse) * 0.15;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          if (this.colorType === 'uv') {
+            ctx.fillStyle = `rgba(139, 92, 246, ${Math.max(0.05, currentAlpha)})`;
+          } else {
+            ctx.fillStyle = `rgba(6, 182, 212, ${Math.max(0.05, currentAlpha)})`;
+          }
+          ctx.fill();
+        }
+      }
+
+      const photonCount = Math.min(45, Math.floor(window.innerWidth / 32));
+      for (let i = 0; i < photonCount; i++) {
+        photons.push(new Photon());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        for (let i = 0; i < photons.length; i++) {
+          for (let j = i + 1; j < photons.length; j++) {
+            const dx = photons[i].x - photons[j].x;
+            const dy = photons[i].y - photons[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(photons[i].x, photons[i].y);
+              ctx.lineTo(photons[j].x, photons[j].y);
+              const linkAlpha = (1 - dist / 110) * 0.12;
+              ctx.strokeStyle = `rgba(139, 92, 246, ${linkAlpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        photons.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    });
+  </script>
+</body>
+</html>

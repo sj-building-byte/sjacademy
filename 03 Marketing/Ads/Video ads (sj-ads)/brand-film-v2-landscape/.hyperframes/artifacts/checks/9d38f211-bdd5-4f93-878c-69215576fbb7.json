@@ -1,0 +1,387 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 7
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 8,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 2.389,
+        "selector": "#s1-zoom",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -36677.85,
+          "top": -26685.56,
+          "right": 32831.72,
+          "bottom": 12413.58,
+          "width": 69509.57,
+          "height": 39099.13
+        },
+        "containerSelector": "#el-intro > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 36677.85,
+          "right": 30911.72,
+          "top": 26685.56,
+          "bottom": 11333.58
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s1-intro.html",
+        "bbox": {
+          "x": -36677.85,
+          "y": -26685.56,
+          "width": 69509.57,
+          "height": 39099.13
+        },
+        "firstSeen": 2.389,
+        "lastSeen": 2.389,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.389
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 2.389,
+        "selector": "#s1-zoom",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -36677.85,
+          "top": -26685.56,
+          "right": 32831.72,
+          "bottom": 12413.58,
+          "width": 69509.57,
+          "height": 39099.13
+        },
+        "containerSelector": "#el-intro > div:nth-of-type(1)",
+        "text": "May/June 2027O & A Level batches May/June 2027O & A Level batches",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s1-intro.html",
+        "bbox": {
+          "x": -36677.85,
+          "y": -26685.56,
+          "width": 69509.57,
+          "height": 39099.13
+        },
+        "firstSeen": 2.389,
+        "lastSeen": 2.389,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.389
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.722,
+        "selector": "#s3-h1",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 170.39,
+          "top": 212.11,
+          "right": 940.73,
+          "bottom": 357.11,
+          "width": 770.34,
+          "height": 145
+        },
+        "containerSelector": "#s3-v3",
+        "text": "We them.",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/s3-subjects.html",
+        "bbox": {
+          "x": 170.39,
+          "y": 212.11,
+          "width": 770.34,
+          "height": 145
+        },
+        "firstSeen": 16.722,
+        "lastSeen": 16.722,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.722
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 16.722,
+        "selector": "#s3-teach",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 351.78,
+          "top": 212.11,
+          "right": 634.77,
+          "bottom": 357.11,
+          "width": 282.98,
+          "height": 145
+        },
+        "containerSelector": "#s3-v3",
+        "text": "teach",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/s3-subjects.html",
+        "bbox": {
+          "x": 351.78,
+          "y": 212.11,
+          "width": 282.98,
+          "height": 145
+        },
+        "firstSeen": 16.722,
+        "lastSeen": 16.722,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.722
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 16.722,
+        "selector": "#s3-h1",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 170.39,
+          "top": 230.11,
+          "right": 940.73,
+          "bottom": 339.29,
+          "width": 770.34,
+          "height": 109.19
+        },
+        "containerSelector": "#s3-head > span:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 160,
+          "top": 110,
+          "right": 1760,
+          "bottom": 225.42,
+          "width": 1600,
+          "height": 115.42
+        },
+        "overflow": {
+          "bottom": 113.87
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s3-subjects.html",
+        "bbox": {
+          "x": 170.39,
+          "y": 230.11,
+          "width": 770.34,
+          "height": 109.19
+        },
+        "firstSeen": 16.722,
+        "lastSeen": 16.722,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          16.722
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 21.5,
+        "selector": "#s4-n0",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 312.19,
+          "top": 202.24,
+          "right": 1607.81,
+          "bottom": 680.47,
+          "width": 1295.61,
+          "height": 478.23
+        },
+        "containerSelector": "#s4-x0",
+        "text": "Salman",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.33,
+        "dataAttributes": {
+          "data-vtop": "520"
+        },
+        "sourceFile": "compositions/s4-teachers.html",
+        "bbox": {
+          "x": 312.19,
+          "y": 202.24,
+          "width": 1295.61,
+          "height": 478.23
+        },
+        "firstSeen": 21.5,
+        "lastSeen": 21.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          21.5
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 26.278,
+        "selector": "#s4-n2",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 220.82,
+          "top": 299.24,
+          "right": 1699.17,
+          "bottom": 775.62,
+          "width": 1478.35,
+          "height": 476.38
+        },
+        "containerSelector": "#s4-x2",
+        "text": "Tayyaba",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.56,
+        "dataAttributes": {
+          "data-vtop": "700"
+        },
+        "sourceFile": "compositions/s4-teachers.html",
+        "bbox": {
+          "x": 220.82,
+          "y": 299.24,
+          "width": 1478.35,
+          "height": 476.38
+        },
+        "firstSeen": 26.278,
+        "lastSeen": 26.278,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          26.278
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 31.056,
+        "selector": "#s4-n4",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 217.94,
+          "top": 166.94,
+          "right": 1702.04,
+          "bottom": 641.47,
+          "width": 1484.1,
+          "height": 474.53
+        },
+        "containerSelector": "#s4-x4",
+        "text": "Sunyyan",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.33,
+        "dataAttributes": {
+          "data-vtop": "470"
+        },
+        "sourceFile": "compositions/s4-teachers.html",
+        "bbox": {
+          "x": 217.94,
+          "y": 166.94,
+          "width": 1484.1,
+          "height": 474.53
+        },
+        "firstSeen": 31.056,
+        "lastSeen": 31.056,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          31.056
+        ]
+      }
+    ],
+    "duration": 43,
+    "samples": [
+      2.389,
+      7.167,
+      11.944,
+      16.722,
+      21.5,
+      26.278,
+      31.056,
+      35.833,
+      40.611
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 8,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.389,
+      11.944,
+      21.5,
+      31.056,
+      40.611
+    ],
+    "checked": 15,
+    "passed": 15
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

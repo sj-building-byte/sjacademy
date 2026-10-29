@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SJ Academy Carousel · Best Tablets for Students (Oct 2026)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../01 Brand/sj-brand.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      background: #222;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+    }
+    .slide-frame {
+      width: 1080px;
+      height: 1350px;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+      flex: none;
+    }
+    .slide-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .logo-patch {
+      background: var(--sj-canvas);
+      padding: 8px 14px 8px 0;
+      border-radius: 8px;
+      display: inline-block;
+    }
+    .logo-patch img {
+      height: 82px;
+      width: auto;
+      display: block;
+    }
+    .slide-pill {
+      border: 2px solid var(--sj-ink);
+      border-radius: 999px;
+      background: #fff;
+      padding: 10px 26px;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--sj-ink);
+    }
+    .slide-headline {
+      font-size: 82px;
+      font-weight: 600;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      color: var(--sj-ink);
+      margin: 0;
+    }
+    .slide-subhead {
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--sj-text);
+      margin-top: 18px;
+    }
+    .hl-block {
+      background: var(--sj-yellow);
+      padding: 0 16px;
+      display: inline-block;
+    }
+    .price-banner {
+      display: inline-block;
+      background: var(--sj-yellow);
+      padding: 10px 22px;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--sj-ink);
+      margin-top: 18px;
+    }
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 16px 0;
+    }
+    .mini-card {
+      background: #fff;
+      border: 2.5px solid var(--sj-ink);
+      border-radius: 22px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 10px 10px 0 var(--sj-ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .mini-card svg {
+      width: 96px;
+      height: 110px;
+    }
+    .mini-card b {
+      display: block;
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--sj-ink);
+    }
+    .mini-card span {
+      font-size: 28px;
+      color: var(--sj-text);
+    }
+    .main-offset-card {
+      background: #fff;
+      border: 2.5px solid var(--sj-ink);
+      border-radius: 26px;
+      padding: 44px 48px;
+      box-shadow: 12px 12px 0 var(--sj-yellow), 12px 12px 0 2.5px var(--sj-ink);
+      margin: 16px 14px 16px 0;
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .device-preview {
+      background: var(--sj-canvas);
+      border: 2px solid var(--sj-ink);
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+    }
+    .device-preview svg {
+      width: 150px;
+      height: 170px;
+    }
+    .device-preview small {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--sj-muted);
+    }
+    .bullet-list {
+      display: grid;
+      gap: 26px;
+      font-size: 35px;
+      line-height: 1.35;
+      color: var(--sj-ink);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .bullet-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .bullet-dot {
+      color: var(--sj-ink);
+      font-weight: 700;
+    }
+    .circled-inline {
+      display: inline-block;
+      border: 3px solid var(--sj-orange);
+      border-radius: 999px;
+      padding: 0 14px;
+      font-weight: 600;
+    }
+    .catch-stamp {
+      border: 3px solid var(--sj-pen);
+      border-radius: 14px;
+      background: #fff;
+      padding: 20px 30px;
+      color: var(--sj-pen-text);
+      font-size: 31px;
+      font-weight: 500;
+      line-height: 1.35;
+      transform: rotate(-1.2deg);
+    }
+    .hand-note {
+      font-family: 'Caveat', cursive;
+      font-weight: 600;
+      font-size: 56px;
+      line-height: 1.1;
+      color: var(--sj-cta-dark);
+    }
+    .verdict-stack {
+      display: grid;
+      gap: 22px;
+      margin: 12px 0;
+    }
+    .verdict-card {
+      background: #fff;
+      border: 2.5px solid var(--sj-ink);
+      border-radius: 22px;
+      padding: 26px 34px;
+      box-shadow: 10px 10px 0 var(--sj-ink);
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .verdict-card svg {
+      width: 72px;
+      height: 72px;
+    }
+    .verdict-card b {
+      display: block;
+      font-size: 34px;
+      font-weight: 600;
+      color: var(--sj-ink);
+    }
+    .verdict-card span {
+      display: block;
+      font-size: 28px;
+      color: var(--sj-text);
+      margin-top: 4px;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--sj-cta);
+      color: #fff;
+      border: 2.5px solid var(--sj-ink);
+      border-radius: 18px;
+      padding: 20px 38px;
+      font-size: 34px;
+      font-weight: 600;
+      box-shadow: 7px 7px 0 var(--sj-ink);
+    }
+    .slide-bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    /* Slide 6 multi-band layout with polaroid */
+    .slide-6 {
+      padding: 0;
+    }
+    .s6-top {
+      padding: 72px 72px 36px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .s6-polaroid {
+      position: absolute;
+      right: 64px;
+      bottom: -85px;
+      width: 310px;
+      background: #fff;
+      padding: 14px 14px 18px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.25);
+      transform: rotate(2.2deg);
+      z-index: 5;
+    }
+    .s6-polaroid .tape {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      width: 110px;
+      height: 30px;
+      margin-left: -55px;
+      background: rgba(252,224,4,0.82);
+      transform: rotate(-2deg);
+    }
+    .s6-polaroid img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+    .s6-polaroid span {
+      display: block;
+      text-align: center;
+      font-family: 'Caveat', cursive;
+      font-size: 32px;
+      color: var(--sj-ink);
+      margin-top: 8px;
+    }
+    .s6-brown {
+      background: var(--sj-brown);
+      color: #fff;
+      padding: 46px 72px;
+      display: grid;
+      gap: 20px;
+      font-size: 32px;
+    }
+    .s6-brown div {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      max-width: 600px;
+    }
+    .s6-yellow {
+      background: radial-gradient(rgba(0,0,0,.12) 1.1px,transparent 1.2px) 0 0/22px 22px, var(--sj-yellow);
+      padding: 38px 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .s6-footer {
+      background: var(--sj-canvas);
+      padding: 26px 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--sj-ink);
+    }
+  </style>
+</head>
+<body id="sj">
+
+  <!-- SLIDE 1: COVER -->
+  <section class="slide-frame sj-bg-dots" id="slide-1">
+    <div class="slide-top">
+      <div class="logo-patch">
+        <img src="../../../01 Brand/Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy">
+      </div>
+      <div class="slide-pill">TOOL DROP · OCT 2026</div>
+    </div>
+
+    <div>
+      <h1 class="slide-headline">
+        iPad vs Samsung<br>
+        vs <span class="hl-block">Xiaomi</span>
+      </h1>
+      <p class="slide-subhead">Which tablet for O &amp; A Levels?</p>
+    </div>
+
+    <div class="card-grid-3">
+      <div class="mini-card">
+        <svg viewBox="0 0 80 96" fill="none" stroke="#151515" stroke-width="2.5">
+          <rect x="10" y="6" width="52" height="78" rx="7" fill="#F7F5EF"/>
+          <rect x="15" y="12" width="42" height="64" rx="3" fill="#FFF9CC"/>
+          <line x1="68" y1="14" x2="68" y2="78" stroke="#151515" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <b>iPad</b>
+        <span>~PKR 100k+</span>
+      </div>
+      <div class="mini-card">
+        <svg viewBox="0 0 80 96" fill="none" stroke="#151515" stroke-width="2.5">
+          <rect x="10" y="6" width="52" height="78" rx="5" fill="#F7F5EF"/>
+          <rect x="15" y="12" width="42" height="64" rx="2" fill="#E9F4EC"/>
+          <line x1="68" y1="14" x2="68" y2="78" stroke="#CC4A00" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <b>Samsung</b>
+        <span>~PKR 99k+</span>
+      </div>
+      <div class="mini-card">
+        <svg viewBox="0 0 80 96" fill="none" stroke="#151515" stroke-width="2.5">
+          <rect x="10" y="6" width="52" height="78" rx="6" fill="#F7F5EF"/>
+          <rect x="15" y="12" width="42" height="64" rx="2" fill="#EDE6D3"/>
+          <line x1="68" y1="14" x2="68" y2="78" stroke="#151515" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <b>Xiaomi</b>
+        <span>~PKR 98k+</span>
+      </div>
+    </div>
+
+    <div class="slide-bottom-bar">
+      <span class="hand-note">read before buying &rarr;</span>
+      <span class="cta-btn">Swipe &rarr;</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: APPLE IPAD -->
+  <section class="slide-frame sj-bg-dots" id="slide-2">
+    <div class="slide-top">
+      <div class="logo-patch">
+        <img src="../../../01 Brand/Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy">
+      </div>
+      <div class="slide-pill">1 · APPLE · 2/6</div>
+    </div>
+
+    <div>
+      <h2 class="slide-headline" style="font-size:74px;">
+        Apple iPad 10th Gen<br>&amp; iPad 11 (A16)
+      </h2>
+      <div class="price-banner">~PKR 100k to 110k (10th Gen) · ~PKR 150k (iPad 11)</div>
+    </div>
+
+    <div class="main-offset-card">
+      <ul class="bullet-list">
+        <li><span class="bullet-dot">&bull;</span><span>Best apps: Goodnotes &amp; Notability</span></li>
+        <li><span class="bullet-dot">&bull;</span><span>Lasts 5 years through A2 &amp; uni</span></li>
+        <li><span class="bullet-dot">&bull;</span><span>7,606 mAh all-day battery</span></li>
+      </ul>
+      <div class="device-preview">
+        <svg viewBox="0 0 120 140" fill="none" stroke="#151515" stroke-width="3">
+          <rect x="14" y="10" width="80" height="116" rx="10" fill="#fff"/>
+          <line x1="26" y1="34" x2="78" y2="34" stroke="#FCE004" stroke-width="8"/>
+          <line x1="26" y1="52" x2="82" y2="52" stroke="#151515" stroke-width="2.5"/>
+          <line x1="26" y1="68" x2="74" y2="68" stroke="#151515" stroke-width="2.5"/>
+          <path d="M28 96 L46 82 L64 92 L80 76" stroke="#D63A2F" stroke-width="3" fill="none"/>
+          <line x1="106" y1="20" x2="106" y2="118" stroke="#151515" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <small>Goodnotes + Pencil</small>
+      </div>
+    </div>
+
+    <div class="catch-stamp">
+      THE CATCH: Apple Pencil adds ~PKR 25k to 30k<br>
+      (Real 10th Gen total: about PKR 125k to 140k)
+    </div>
+  </section>
+
+  <!-- SLIDE 3: SAMSUNG TAB FE -->
+  <section class="slide-frame sj-bg-dots" id="slide-3">
+    <div class="slide-top">
+      <div class="logo-patch">
+        <img src="../../../01 Brand/Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy">
+      </div>
+      <div class="slide-pill">2 · SAMSUNG · 3/6</div>
+    </div>
+
+    <div>
+      <h2 class="slide-headline" style="font-size:74px;">
+        Samsung Tab S9 FE<br>&amp; Tab S10 FE
+      </h2>
+      <div class="price-banner">~PKR 99k to 118k (S9 FE) · ~PKR 113k (Tab S10 FE)</div>
+    </div>
+
+    <div class="main-offset-card">
+      <ul class="bullet-list">
+        <li><span class="bullet-dot">&bull;</span><span>S-Pen in box <span class="circled-inline">PKR 0 extra</span></span></li>
+        <li><span class="bullet-dot">&bull;</span><span>Free Samsung Notes for PDFs</span></li>
+        <li><span class="bullet-dot">&bull;</span><span>128GB + microSD + IP68</span></li>
+      </ul>
+      <div class="device-preview">
+        <svg viewBox="0 0 120 140" fill="none" stroke="#151515" stroke-width="3">
+          <rect x="14" y="10" width="80" height="116" rx="8" fill="#fff"/>
+          <text x="26" y="42" font-family="Poppins" font-size="12" font-weight="600" fill="#151515" stroke="none">PAST PAPER</text>
+          <line x1="26" y1="56" x2="80" y2="56" stroke="#151515" stroke-width="2.5"/>
+          <line x1="26" y1="72" x2="72" y2="72" stroke="#151515" stroke-width="2.5"/>
+          <path d="M58 92 l8 8 l16 -18" stroke="#D63A2F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <line x1="106" y1="20" x2="106" y2="118" stroke="#CC4A00" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <small>S-Pen Included</small>
+      </div>
+    </div>
+
+    <div class="hand-note">
+      &check; best out-of-the-box value in Pakistan
+    </div>
+  </section>
+
+  <!-- SLIDE 4: XIAOMI PAD -->
+  <section class="slide-frame sj-bg-dots" id="slide-4">
+    <div class="slide-top">
+      <div class="logo-patch">
+        <img src="../../../01 Brand/Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy">
+      </div>
+      <div class="slide-pill">3 · XIAOMI · 4/6</div>
+    </div>
+
+    <div>
+      <h2 class="slide-headline" style="font-size:74px;">
+        Xiaomi Pad 6<br>&amp; Xiaomi Pad 7
+      </h2>
+      <div class="price-banner">~PKR 98k to 110k (Pad 6) · ~PKR 117k to 124k (Pad 7)</div>
+    </div>
+
+    <div class="main-offset-card">
+      <ul class="bullet-list">
+        <li><span class="bullet-dot">&bull;</span><span>144Hz ultra-smooth display</span></li>
+        <li><span class="bullet-dot">&bull;</span><span>256GB storage for heavy lectures</span></li>
+        <li><span class="bullet-dot">&bull;</span><span>8,840 mAh battery beats load-shedding</span></li>
+      </ul>
+      <div class="device-preview">
+        <svg viewBox="0 0 120 140" fill="none" stroke="#151515" stroke-width="3">
+          <rect x="14" y="10" width="80" height="116" rx="9" fill="#fff"/>
+          <rect x="24" y="24" width="60" height="38" rx="4" fill="#FFF9CC" stroke="#151515" stroke-width="2"/>
+          <polygon points="48,35 48,51 62,43" fill="#CC4A00" stroke="none"/>
+          <line x1="24" y1="78" x2="80" y2="78" stroke="#151515" stroke-width="2.5"/>
+          <line x1="24" y1="94" x2="70" y2="94" stroke="#151515" stroke-width="2.5"/>
+          <line x1="106" y1="20" x2="106" y2="118" stroke="#151515" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <small>144Hz + 256GB</small>
+      </div>
+    </div>
+
+    <div class="catch-stamp">
+      THE CATCH: Stylus costs ~PKR 20k to 25k extra<br>
+      (Confirm pen stock before buying)
+    </div>
+  </section>
+
+  <!-- SLIDE 5: THE VERDICT -->
+  <section class="slide-frame sj-bg-dots" id="slide-5">
+    <div class="slide-top">
+      <div class="logo-patch">
+        <img src="../../../01 Brand/Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy">
+      </div>
+      <div class="slide-pill">THE VERDICT · 5/6</div>
+    </div>
+
+    <div>
+      <h2 class="slide-headline" style="font-size:78px;">
+        Which one should<br><span class="hl-block">you buy?</span>
+      </h2>
+    </div>
+
+    <div class="verdict-stack">
+      <div class="verdict-card">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#151515" stroke-width="2.5">
+          <rect x="10" y="6" width="38" height="52" rx="5" fill="#FFF9CC"/>
+          <line x1="54" y1="10" x2="54" y2="54" stroke="#CC4A00" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <b>Best value: Samsung Tab S9 FE / S10 FE</b>
+          <span>S-Pen included in box · ~PKR 99k to 113k</span>
+        </div>
+      </div>
+      <div class="verdict-card">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#151515" stroke-width="2.5">
+          <rect x="10" y="6" width="38" height="52" rx="6" fill="#F7F5EF"/>
+          <path d="M20 34 l7 7 l13 -15" stroke="#1F7A3D" stroke-width="3" stroke-linecap="round"/>
+          <line x1="54" y1="10" x2="54" y2="54" stroke="#151515" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <b>Best apps: iPad 10th Gen + Pencil</b>
+          <span>Goodnotes &amp; 5-year life · ~PKR 125k to 140k total</span>
+        </div>
+      </div>
+      <div class="verdict-card">
+        <svg viewBox="0 0 64 64" fill="none" stroke="#151515" stroke-width="2.5">
+          <rect x="10" y="12" width="44" height="30" rx="3" fill="#F7F5EF"/>
+          <path d="M4 46 h56 l-4 6 H8 z" fill="#E9DFC9"/>
+        </svg>
+        <div>
+          <b>Taking Computer Science (2210 / 9618)?</b>
+          <span>Buy a laptop first for Paper 4 coding</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hand-note" style="color:var(--sj-pen-text);">
+      no stylus = just a YouTube screen!
+    </div>
+  </section>
+
+  <!-- SLIDE 6: FINAL CTA -->
+  <section class="slide-frame slide-6 sj-bg-dots" id="slide-6">
+    <div class="s6-top">
+      <div class="slide-top">
+        <div class="logo-patch">
+          <img src="../../../01 Brand/Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy">
+        </div>
+        <div class="slide-pill">6/6</div>
+      </div>
+
+      <div style="max-width:620px;">
+        <h2 class="slide-headline" style="font-size:74px;">
+          Which tablet do you<br><span class="hl-block">use for revision?</span>
+        </h2>
+        <p class="slide-subhead">Drop your pick in the comments.</p>
+      </div>
+
+      <div class="s6-polaroid">
+        <div class="tape"></div>
+        <img src="../../../01 Brand/Images/sj-real-lab-titration.jpg" alt="SJ Academy class">
+        <span>in class at SJ Academy</span>
+      </div>
+    </div>
+
+    <div class="s6-brown">
+      <div><span style="color:var(--sj-yellow);font-weight:700;">&check;</span><span>Full Oct 2026 tablet guide: sjacademy.pk/blog</span></div>
+      <div><span style="color:var(--sj-yellow);font-weight:700;">&check;</span><span>Need marked past papers? Join DHA Phase 7 or Online</span></div>
+    </div>
+
+    <div class="s6-yellow">
+      <b style="font-size:42px;color:var(--sj-ink);">Try a free demo:</b>
+      <span class="cta-btn">Book on WhatsApp &rarr;</span>
+    </div>
+
+    <div class="s6-footer">
+      <span>WhatsApp: +92-336-2144454</span>
+      <span>www.sjacademy.pk</span>
+    </div>
+  </section>
+
+</body>
+</html>

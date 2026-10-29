@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Price elasticity, explained (16:9)</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-ExtraBold.ttf") format("truetype"); font-weight: 800; }
+      @font-face { font-family: "Caveat"; src: url("assets/brand/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+      :root { --yellow: #FCE004; --orange: #FE6100; --brown: #453516; --ink: #121212; --pen: #D63A2F; --canvas: #F7F5EF; --mute: #A7A49B; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--ink); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--canvas); }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+      .abs { position: absolute; }
+      svg.full { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+
+      /* dark ground behind the graphics */
+      #ground { background-color: #0E0E0F;
+        background-image: radial-gradient(circle at 18% 22%, rgba(252,224,4,0.10) 0%, rgba(252,224,4,0) 42%),
+          repeating-linear-gradient(to right, rgba(255,255,255,0.035) 0 2px, transparent 2px 60px),
+          repeating-linear-gradient(to bottom, rgba(255,255,255,0.035) 0 2px, transparent 2px 60px); }
+
+      /* the footage is vertical: a centred panel while he talks, a right-hand window during graphics */
+      #vw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; transform-origin: 0 0; z-index: 2; box-shadow: 0 40px 120px rgba(0,0,0,0.6); }
+      #vin { position: absolute; inset: 0; transform-origin: 50% 62%; }
+      #vin video { width: 100%; height: 100%; object-fit: cover; }
+      #vshade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); opacity: 0; }
+      #vring { position: absolute; inset: 0; border: 16px solid var(--yellow); border-radius: 96px; opacity: 0; }
+
+      .layer { z-index: 5; }
+      .plate { display: inline-block; background: rgba(18,18,18,0.84); border: 2px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 10px 30px 14px; }
+      .band { left: 60px; right: 60px; text-align: center; }
+      .big { font-size: 74px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+      .hl { background: var(--yellow); color: var(--ink); border-radius: 14px; padding: 0 16px; }
+      .chip { display: inline-block; border-radius: 999px; padding: 8px 26px 10px; font-size: 26px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+      .chip.y { background: var(--yellow); color: var(--ink); }
+      .chip.o { background: var(--orange); color: var(--ink); }
+      .stamp { display: inline-block; font-weight: 800; letter-spacing: -0.02em; border-radius: 16px; padding: 4px 26px 8px; }
+      .head { font-weight: 700; letter-spacing: -0.035em; line-height: 1.04; }
+      .mask { overflow: hidden; display: block; padding-bottom: 0.08em; }
+      .mask > span { display: inline-block; }
+      .note { font-family: "Caveat", cursive; font-weight: 600; }
+      .glass { background: rgba(255,255,255,0.06); border: 2px solid rgba(255,255,255,0.10); border-radius: 28px; }
+      .read { font-size: 34px; font-weight: 600; color: var(--canvas); }
+      .read b { font-weight: 700; }
+      .up { color: var(--orange); }
+
+      /* opening: the two side cards */
+      .side { width: 300px; height: 420px; border-radius: 28px; background: rgba(14,14,15,0.82); border: 2px solid rgba(252,224,4,0.55); padding: 24px 20px; text-align: center; }
+      .side .lab { font-size: 36px; font-weight: 800; letter-spacing: 0.1em; margin-top: 6px; }
+      .side .row { font-size: 38px; font-weight: 600; margin-top: 10px; }
+      .side .stamp { font-size: 34px; line-height: 1.15; margin-top: 16px; padding: 6px 16px 8px; }
+
+      /* captions */
+      #caps { z-index: 50; pointer-events: none; }
+      .cap { position: absolute; left: 360px; right: 360px; top: 940px; display: flex; justify-content: center; opacity: 0; }
+      .cap span.box { background: rgba(18,18,18,0.82); border-radius: 18px; padding: 10px 26px 14px; font-size: 44px; font-weight: 600; line-height: 1.25; color: #fff; text-align: center; max-width: 1100px; }
+      .cap i { font-style: normal; }
+
+      /* end card */
+      #se { z-index: 60; background-color: #1E1608;
+        background-image: radial-gradient(circle at 50% 34%, rgba(110,84,34,0.95) 0%, rgba(69,53,22,0.9) 38%, rgba(20,14,5,1) 100%); }
+      #se .grid { position: absolute; inset: 0; background-image: repeating-linear-gradient(to right, rgba(252,224,4,0.05) 0 2px, transparent 2px 60px), repeating-linear-gradient(to bottom, rgba(252,224,4,0.05) 0 2px, transparent 2px 60px); }
+      .tile { width: 248px; height: 176px; border-radius: 26px; background: rgba(18,12,4,0.55); border: 2px solid rgba(252,224,4,0.35); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+      .tile .nm { font-size: 30px; font-weight: 700; color: #fff; }
+      .tile .cd { font-size: 22px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 0.06em; }
+      #e-btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 18px; background: var(--yellow); color: var(--ink); font-size: 36px; font-weight: 700; border-radius: 999px; padding: 22px 44px 26px; box-shadow: 0 18px 50px rgba(252,224,4,0.25); }
+      #e-shine { position: absolute; top: -20px; bottom: -20px; left: -160px; width: 110px; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.75) 50%, rgba(255,255,255,0) 100%); transform: skewX(-20deg); }
+    </style>
+  </head>
+  <body>
+    <!-- All times below are SOURCE seconds in PED.mov. source/build.py maps them onto the cut, 1.2x edit. -->
+    <div id="root" data-composition-id="main" data-start="0.000" data-duration="55.464" data-width="1920" data-height="1080">
+      <!-- sound: cleaned voice, transitions and desk effects, full sonic logo on the end card. Music is mixed after render. -->
+      <audio id="vo" src="assets/audio/vo.wav" data-start="0.000" data-duration="50.464" data-track-index="8" data-volume="1"></audio>
+      <audio id="fx0" src="assets/sfx/fx-whoosh.wav" data-start="0.000" data-duration="0.700" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="fx1" src="assets/sfx/sj-sfx-paper-slide.wav" data-start="0.882" data-duration="0.500" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="fx2" src="assets/sfx/sj-sfx-stamp.wav" data-start="2.655" data-duration="0.480" data-track-index="12" data-volume="0.32"></audio>
+      <audio id="fx3" src="assets/sfx/sj-sfx-paper-slide.wav" data-start="4.373" data-duration="0.500" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="fx4" src="assets/sfx/sj-sfx-stamp.wav" data-start="5.727" data-duration="0.480" data-track-index="11" data-volume="0.32"></audio>
+      <audio id="fx5" src="assets/sfx/fx-riser.wav" data-start="5.818" data-duration="1.300" data-track-index="12" data-volume="0.22"></audio>
+      <audio id="fx6" src="assets/sfx/fx-whoosh.wav" data-start="6.827" data-duration="0.700" data-track-index="10" data-volume="0.4"></audio>
+      <audio id="fx7" src="assets/sfx/fx-impact.wav" data-start="7.327" data-duration="0.900" data-track-index="11" data-volume="0.55"></audio>
+      <audio id="fx8" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="13.645" data-duration="0.550" data-track-index="12" data-volume="0.22"></audio>
+      <audio id="fx9" src="assets/sfx/fx-whoosh.wav" data-start="18.055" data-duration="0.700" data-track-index="10" data-volume="0.25"></audio>
+      <audio id="fx10" src="assets/sfx/sj-sfx-stamp.wav" data-start="20.191" data-duration="0.480" data-track-index="11" data-volume="0.32"></audio>
+      <audio id="fx11" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="21.736" data-duration="0.550" data-track-index="12" data-volume="0.22"></audio>
+      <audio id="fx12" src="assets/sfx/fx-whoosh.wav" data-start="26.691" data-duration="0.700" data-track-index="10" data-volume="0.25"></audio>
+      <audio id="fx13" src="assets/sfx/sj-sfx-stamp.wav" data-start="29.418" data-duration="0.480" data-track-index="11" data-volume="0.32"></audio>
+      <audio id="fx14" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="33.064" data-duration="0.080" data-track-index="12" data-volume="0.35"></audio>
+      <audio id="fx15" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="33.809" data-duration="0.080" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="fx16" src="assets/sfx/fx-whoosh.wav" data-start="37.691" data-duration="0.700" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="fx17" src="assets/sfx/fx-impact.wav" data-start="41.836" data-duration="0.900" data-track-index="12" data-volume="0.4"></audio>
+      <audio id="fx18" src="assets/sfx/fx-whoosh.wav" data-start="42.509" data-duration="0.700" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="fx19" src="assets/sfx/sj-sfx-highlighter-swipe.wav" data-start="44.973" data-duration="0.380" data-track-index="11" data-volume="0.25"></audio>
+      <audio id="fx20" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="46.309" data-duration="0.080" data-track-index="12" data-volume="0.35"></audio>
+      <audio id="fx21" src="assets/sfx/fx-riser.wav" data-start="48.691" data-duration="1.300" data-track-index="10" data-volume="0.25"></audio>
+      <audio id="fx22" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="48.855" data-duration="0.080" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="fxlogo" src="assets/sfx/sj-sonic-logo-full.wav" data-start="50.514" data-duration="3.450" data-track-index="13" data-volume="0.9"></audio>
+      <audio id="fx23" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="51.314" data-duration="0.080" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="fx24" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="51.464" data-duration="0.080" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="fx25" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="51.614" data-duration="0.080" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="fx26" src="assets/sfx/sj-sfx-stamp.wav" data-start="51.964" data-duration="0.480" data-track-index="10" data-volume="0.3"></audio>
+
+      <div id="ground" class="clip" data-start="0.000" data-duration="50.464" data-track-index="0"></div>
+
+      <div id="vw">
+        <div id="vin">
+          <video id="ped" class="clip" src="assets/video/ped.mp4" muted playsinline data-start="0.000" data-duration="50.464" data-track-index="1"></video>
+        </div>
+        <div id="vshade"></div>
+        <div id="vring"></div>
+      </div>
+
+      <!-- Opening: what this is, then petrol vs burger -->
+      <section id="s1" class="clip layer" data-start="0.000" data-duration="7.100" data-track-index="2">
+        <div class="abs band" style="top:90px"><span id="o-chip" class="chip y" style="font-size:28px">A Level Business · 9609</span></div>
+        <div class="abs band" style="top:150px"><div id="o-title" class="plate" style="font-size:62px;font-weight:700;letter-spacing:-0.03em">Price elasticity of demand</div></div>
+
+        <div id="pc" class="abs side" style="left:300px;top:330px;opacity:0">
+          <svg width="112" height="112" viewBox="0 0 96 96" fill="none" stroke="#FCE004" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="16" y="14" width="44" height="70" rx="6"/><rect x="24" y="22" width="28" height="18" rx="3"/>
+            <path d="M10 84 H66"/><path d="M60 34 H70 Q78 34 78 42 V66 Q78 72 84 72"/><path d="M84 72 V50 L78 44"/>
+          </svg>
+          <div class="lab">PETROL</div>
+          <div id="pc-p" class="row" style="opacity:0">price <svg width="26" height="38" viewBox="0 0 44 64" style="vertical-align:-4px" class="up"><path d="M22 58V10M6 26L22 8l16 18" stroke="currentColor" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span id="pc-s" class="stamp" style="background:var(--yellow);color:var(--ink);opacity:0">Still<br>buying</span>
+        </div>
+
+        <div id="bc" class="abs side" style="left:1320px;top:330px;opacity:0">
+          <svg width="112" height="112" viewBox="0 0 96 96" fill="none" stroke="#FCE004" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 42 Q14 16 48 16 Q82 16 82 42 Z"/><path d="M12 54 Q30 46 48 54 Q66 62 84 54"/>
+            <rect x="12" y="60" width="72" height="10" rx="5"/><path d="M14 76 H82 Q82 84 74 84 H22 Q14 84 14 76 Z"/>
+          </svg>
+          <div class="lab">BURGER</div>
+          <div id="bc-p" class="row" style="opacity:0">price <svg width="26" height="38" viewBox="0 0 44 64" style="vertical-align:-4px" class="up"><path d="M22 58V10M6 26L22 8l16 18" stroke="currentColor" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span id="bc-s" class="stamp" style="background:var(--pen);color:#fff;opacity:0">Everyone<br>leaves</span>
+        </div>
+      </section>
+
+      <!-- S3: the idea and the formula -->
+      <section id="s3" class="clip layer" data-start="6.973" data-duration="6.273" data-track-index="2">
+        <div class="abs" style="left:80px;top:110px"><span id="s3-chip" class="chip y">The idea</span></div>
+        <div class="abs head" style="left:80px;top:180px;width:900px;font-size:80px">
+          <div class="mask"><span id="t1">Price</span></div>
+          <div class="mask"><span id="t2" style="color:var(--yellow)">elasticity</span></div>
+          <div class="mask"><span id="t3">of demand</span></div>
+        </div>
+        <div id="s3-card" class="abs glass" style="left:80px;top:500px;width:900px;height:360px;padding:36px 40px;opacity:0">
+          <div style="font-size:46px;font-weight:600;line-height:1.2">How much people <span id="s3-react" style="border-radius:10px;padding:0 10px">react</span> when the price changes.</div>
+          <div id="s3-f" style="margin-top:34px;display:flex;align-items:center;gap:24px;opacity:0">
+            <div style="font-size:44px;font-weight:700;color:var(--yellow)">PED =</div>
+            <div style="text-align:center;font-size:31px;font-weight:600">
+              <div style="padding:0 6px 8px">% change in quantity demanded</div>
+              <div style="height:4px;background:var(--canvas);border-radius:2px"></div>
+              <div style="padding:8px 6px 0">% change in price</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S4: burgers, elastic. Chart: same axes as petrol, price +10% moves the dot up 100 px on both -->
+      <section id="s4" class="clip layer" data-start="13.191" data-duration="8.164" data-track-index="2">
+        <div class="abs" style="left:80px;top:110px"><span id="s4-chip" class="chip o">Burgers</span></div>
+        <div class="abs head" style="left:80px;top:182px;width:900px;font-size:70px">
+          <div class="mask"><span id="b1">Easy alternatives</span></div>
+        </div>
+        <div id="s4-note" class="abs note" style="left:84px;top:272px;font-size:54px;color:var(--yellow);opacity:0">another place, right next door</div>
+        <div id="s4-r1" class="abs read" style="left:80px;top:600px;opacity:0">Price <b class="up">+10%</b> &nbsp;→&nbsp; Quantity <b class="up">−30%</b></div>
+        <div id="s4-r2" class="abs read" style="left:80px;top:670px;font-size:40px;opacity:0">PED = −30 ÷ 10 = <b style="color:var(--yellow)">−3</b></div>
+        <div id="s4-r3" class="abs" style="left:80px;top:740px;font-size:28px;font-weight:500;color:var(--mute);opacity:0">Bigger than 1 (ignoring the minus sign)</div>
+        <svg class="full" viewBox="0 0 1920 1080"><g transform="translate(500 -540)"><g id="c1"></g></g></svg>
+        <div class="abs" style="left:1060px;top:296px"><span id="s4-stamp" class="stamp" style="font-size:54px;background:var(--yellow);color:var(--ink);opacity:0">ELASTIC</span></div>
+      </section>
+
+      <!-- S5: petrol, inelastic -->
+      <section id="s5" class="clip layer" data-start="21.355" data-duration="9.636" data-track-index="2">
+        <div class="abs" style="left:80px;top:110px"><span id="s5-chip" class="chip o">Petrol</span></div>
+        <div class="abs head" style="left:80px;top:182px;width:900px;font-size:70px">
+          <div class="mask"><span id="p1">A need, not a want</span></div>
+        </div>
+        <div id="s5-note" class="abs note" style="left:84px;top:272px;font-size:54px;color:var(--yellow);opacity:0">no real alternative</div>
+        <div id="s5-r1" class="abs read" style="left:80px;top:600px;opacity:0">Price <b class="up">+10%</b> &nbsp;→&nbsp; Quantity <b class="up">−2%</b></div>
+        <div id="s5-r2" class="abs read" style="left:80px;top:670px;font-size:40px;opacity:0">PED = −2 ÷ 10 = <b style="color:var(--yellow)">−0.2</b></div>
+        <div id="s5-r3" class="abs" style="left:80px;top:740px;font-size:28px;font-weight:500;color:var(--mute);opacity:0">Smaller than 1 (ignoring the minus sign)</div>
+        <svg class="full" viewBox="0 0 1920 1080"><g transform="translate(500 -540)"><g id="c2"></g></g></svg>
+        <div class="abs" style="left:1145px;top:330px"><span id="s5-stamp" class="stamp" style="font-size:44px;background:var(--orange);color:var(--ink);opacity:0">INELASTIC</span></div>
+      </section>
+
+      <!-- S6: what businesses do about it -->
+      <section id="s6" class="clip layer" data-start="30.991" data-duration="6.909" data-track-index="2">
+        <div class="abs" style="left:80px;top:110px"><span id="s6-chip" class="chip y">That's why</span></div>
+        <div id="s6-a" class="abs glass" style="left:80px;top:200px;width:600px;height:420px;padding:34px 36px;opacity:0">
+          <div style="display:flex;align-items:center;gap:18px"><div style="font-size:54px;font-weight:700">Burgers</div><span class="chip y" style="font-size:22px">Elastic</span></div>
+          <div style="font-size:32px;font-weight:500;color:var(--mute);margin-top:6px">fight for every customer</div>
+          <div style="margin-top:34px;display:flex;gap:20px">
+            <span id="s6-t1" class="stamp" style="font-size:44px;background:var(--yellow);color:var(--ink);opacity:0">Deals</span>
+            <span id="s6-t2" class="stamp" style="font-size:44px;background:var(--yellow);color:var(--ink);opacity:0">Discounts</span>
+          </div>
+        </div>
+        <div id="s6-b" class="abs glass" style="left:720px;top:200px;width:640px;height:420px;padding:34px 36px;opacity:0">
+          <div style="display:flex;align-items:center;gap:18px"><div style="font-size:54px;font-weight:700">Petrol</div><span class="chip o" style="font-size:22px">Inelastic</span></div>
+          <div id="s6-b1" style="font-size:40px;font-weight:600;margin-top:20px;opacity:0">Price <span class="up">rises</span></div>
+          <div id="s6-b2" style="font-size:40px;font-weight:600;margin-top:4px;opacity:0">Sales <span style="color:var(--yellow)">barely fall</span></div>
+          <svg class="abs" style="left:370px;top:120px" width="240" height="270" viewBox="0 0 240 270">
+            <line x1="10" y1="250" x2="230" y2="250" stroke="rgba(255,255,255,0.35)" stroke-width="4"/>
+            <rect id="s6-bar1" x="40" y="50" width="70" height="200" rx="8" fill="rgba(255,255,255,0.45)"/>
+            <rect id="s6-bar2" x="130" y="54" width="70" height="196" rx="8" fill="var(--yellow)"/>
+            <text x="75" y="40" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="22" fill="#A7A49B">before</text>
+            <text x="165" y="40" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="22" fill="#FCE004">after</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- S7: one question (face) -->
+      <section id="s7" class="clip layer" data-start="37.900" data-duration="4.818" data-track-index="2">
+        <div class="abs band" style="top:110px"><div class="plate" id="s7-a" style="font-size:52px;font-weight:600">Before you touch your prices</div></div>
+        <div class="abs band" style="top:210px"><div class="plate big" id="s7-b" style="opacity:0">Ask <span class="hl">one</span> question.</div></div>
+      </section>
+
+      <!-- S8: the question, and the two answers -->
+      <section id="s8" class="clip layer" data-start="42.718" data-duration="7.745" data-track-index="2">
+        <div class="abs head" style="left:80px;top:110px;width:900px;font-size:72px">
+          <div class="mask"><span id="q1">Can my customers</span></div>
+          <div class="mask"><span id="q2">easily go</span></div>
+          <div class="mask"><span id="q3"><span id="q3h" style="border-radius:12px;padding:0 14px;margin-left:-14px">somewhere else?</span></span></div>
+        </div>
+        <div id="s8-y" class="abs glass" style="left:80px;top:420px;width:900px;height:190px;padding:30px 34px;display:flex;align-items:center;gap:30px;opacity:0">
+          <div style="width:120px;height:120px;border-radius:60px;background:var(--yellow);color:var(--ink);font-size:40px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">YES</div>
+          <div><div id="s8-y1" style="font-size:50px;font-weight:700;opacity:0">Be very careful.</div><div style="font-size:30px;font-weight:500;color:var(--mute)">Demand is elastic. Raise the price, lose them.</div></div>
+        </div>
+        <div id="s8-n" class="abs glass" style="left:80px;top:640px;width:900px;height:190px;padding:30px 34px;display:flex;align-items:center;gap:30px;opacity:0">
+          <div style="width:120px;height:120px;border-radius:60px;background:var(--orange);color:var(--ink);font-size:44px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none">NO</div>
+          <div><div id="s8-n1" style="font-size:50px;font-weight:700;opacity:0">Real <span style="color:var(--yellow)">pricing power.</span></div><div style="font-size:30px;font-weight:500;color:var(--mute)">Demand is inelastic. They keep buying.</div></div>
+        </div>
+      </section>
+
+      <!-- End card: join the A Level classes (starts as the voice ends, plays at normal speed for 5s) -->
+      <section id="se" class="clip" data-start="50.464" data-duration="5.000" data-track-index="3">
+        <div class="grid"></div>
+        <svg class="full" viewBox="0 0 1920 1080" id="e-bg" fill="none" stroke-linecap="round">
+          <path id="e-d" d="M 260 870 C 700 950, 1200 1010, 1660 1040" stroke="rgba(252,224,4,0.22)" stroke-width="10" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+          <path id="e-s" d="M 260 1040 C 720 1010, 1220 950, 1660 870" stroke="rgba(254,97,0,0.22)" stroke-width="10" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+        </svg>
+        <div class="abs" style="left:0;right:0;top:70px;display:flex;justify-content:center"><img id="e-logo" src="assets/brand/sj-academy-logo-horizontal-on-brown.svg" style="width:400px;opacity:0" alt="SJ Academy"></div>
+        <div id="e-k" class="abs note" style="left:0;right:0;top:190px;text-align:center;font-size:52px;color:var(--yellow);opacity:0">Liked this? There's more in class.</div>
+        <div class="abs head" style="left:150px;right:150px;top:256px;display:flex;justify-content:center;gap:22px;font-size:72px;color:#fff">
+          <div class="mask"><span id="e1">Join our</span></div>
+          <div class="mask"><span id="e2" style="color:var(--yellow)">A Level classes</span></div>
+        </div>
+        <div class="abs" style="left:0;right:0;top:396px;display:flex;justify-content:center;gap:26px">
+          <div class="tile" id="e-t1" style="opacity:0">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#FCE004" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="20" width="48" height="34" rx="6"/><path d="M24 20 V14 Q24 10 28 10 H36 Q40 10 40 14 V20"/><path d="M8 34 H56"/><path d="M32 31 V37"/></svg>
+            <div class="nm">Business</div><div class="cd">9609</div>
+          </div>
+          <div class="tile" id="e-t2" style="opacity:0">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#FCE004" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6 V56 H58"/><path d="M18 14 Q30 38 52 48"/><path d="M18 48 Q36 40 52 14"/></svg>
+            <div class="nm">Economics</div><div class="cd">9708</div>
+          </div>
+          <div class="tile" id="e-t3" style="opacity:0">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#FCE004" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="6" width="40" height="52" rx="5"/><path d="M32 6 V58"/><path d="M18 18 H27 M18 28 H27 M18 38 H27 M37 18 H46 M37 28 H46 M37 38 H46"/><path d="M18 48 H46"/></svg>
+            <div class="nm">Accounting</div><div class="cd">9706</div>
+          </div>
+        </div>
+        <div class="abs" style="left:0;right:0;top:608px;text-align:center">
+          <span id="e-btn" style="opacity:0">
+            <svg width="38" height="38" viewBox="0 0 48 48" fill="none" stroke="#121212" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 38 L11 29 Q6 24 6 18 Q6 8 24 8 Q42 8 42 20 Q42 32 24 32 Q19 32 15 30 Z"/><path d="M17 20 H31"/></svg>
+            Book a free demo on WhatsApp
+            <span id="e-shine"></span>
+          </span>
+        </div>
+        <div id="e-ct" class="abs" style="left:0;right:0;top:740px;text-align:center;font-size:36px;font-weight:700;color:#fff;opacity:0">+92-336-2144454 · sjacademy.pk</div>
+        <div id="e-where" class="abs" style="left:0;right:0;top:798px;text-align:center;font-size:28px;font-weight:500;color:rgba(255,255,255,0.78);opacity:0">In class at DHA Phase 7 or live online</div>
+      </section>
+
+      <!-- captions: Sunyyan's words, timed from the edited voice -->
+      <div id="caps" class="clip" data-start="0.000" data-duration="50.464" data-track-index="6" data-layout-allow-overlap data-layout-allow-occlusion></div>
+    </div>
+
+    <script>
+      const CAPS = [[[0.77, 0.89, "So"], [0.89, 0.63, "why"], [0.63, 0.78, "can"], [0.89, 1.28, "petrol"], [1.28, 1.41, "go"], [1.46, 1.6, "up"], [1.6, 1.76, "in"], [1.76, 2.2, "price"]], [[2.2, 2.28, "and"], [2.33, 2.62, "people"], [2.65, 2.91, "still"], [2.91, 3.05, "buy"], [3.06, 3.44, "it?"]], [[3.44, 3.61, "But"], [3.61, 3.72, "if"], [3.72, 3.95, "your"], [4.07, 4.23, "local"], [4.33, 4.57, "burger"]], [[4.57, 4.85, "place"], [4.85, 5.07, "does"], [5.08, 5.25, "the"], [5.25, 5.64, "same,"]], [[5.64, 6.23, "everyone"], [6.29, 7.03, "leaves."]], [[7.04, 7.38, "That's"], [7.64, 7.67, "price"]], [[7.67, 8.22, "elasticity"], [8.24, 8.35, "of"], [8.35, 8.9, "demand."]], [[8.9, 9.06, "It"], [9.5, 9.55, "simply"], [9.56, 9.96, "means"], [9.96, 10.2, "how"], [10.2, 10.52, "much"], [10.53, 11.01, "people"]], [[11.01, 11.43, "react"], [11.43, 11.76, "when"], [11.76, 11.96, "the"], [12.03, 12.49, "prices"], [12.49, 13.24, "change."]], [[13.24, 13.65, "Because"], [13.87, 14.02, "burgers"], [14.13, 14.29, "have"]], [[14.29, 14.52, "easy"], [14.52, 15.44, "alternatives."]], [[15.44, 15.77, "There's"], [16.04, 16.11, "another"], [16.11, 16.35, "place"], [16.35, 16.59, "right"]], [[16.59, 16.77, "next"], [16.78, 16.97, "door"], [16.97, 17.05, "or"], [17.05, 17.45, "anywhere"], [17.45, 17.8, "else,"]], [[17.8, 17.97, "so"], [17.97, 18.49, "people"], [18.49, 18.83, "just"], [18.83, 19.17, "walk"], [19.17, 19.8, "away."]], [[19.8, 20.22, "That's"], [20.43, 20.71, "elastic"], [20.71, 21.36, "demand."]], [[21.36, 21.55, "But"], [21.55, 21.98, "petrol"], [21.98, 22.07, "is"], [22.25, 22.66, "something"], [22.66, 23.05, "people"], [23.05, 23.26, "need"]], [[23.31, 23.44, "to"], [23.44, 23.63, "get"], [23.63, 23.74, "to"], [23.78, 24.02, "work"], [24.02, 24.15, "or"], [24.15, 24.51, "school"], [24.6, 24.73, "and"], [24.73, 25.05, "there"]], [[25.05, 25.18, "is"], [25.18, 25.31, "no"], [25.31, 25.64, "real"], [25.64, 26.62, "alternative."]], [[26.64, 26.78, "So"], [26.78, 27.07, "they"], [27.25, 27.36, "have"], [27.36, 27.37, "to"], [27.53, 27.79, "keep"], [27.79, 28.21, "buying"], [28.22, 28.6, "it."]], [[28.6, 29.21, "That's"], [29.23, 30.12, "inelastic"], [30.12, 31.06, "demand."]], [[31.06, 31.43, "That's"], [31.43, 31.69, "why"], [31.69, 32, "burger"], [32, 32.38, "places"]], [[32.38, 32.69, "fight"], [32.7, 32.94, "with"], [32.95, 33.34, "deals,"]], [[33.39, 34.12, "discounts,"]], [[34.19, 34.51, "while"], [34.61, 34.93, "petrol"], [34.93, 35.35, "prices"], [35.35, 35.53, "can"], [35.58, 35.88, "rise"]], [[35.88, 36.31, "without"], [36.32, 36.74, "sales"], [36.95, 37.32, "falling"], [37.32, 37.92, "much."]], [[37.92, 38.07, "So"], [38.52, 38.54, "before"], [38.55, 38.68, "any"], [38.81, 39.39, "business"]], [[39.39, 39.94, "touches"], [39.94, 40.17, "its"], [40.17, 40.79, "prices,"]], [[40.79, 40.94, "it"], [40.94, 41.37, "should"], [41.47, 41.64, "ask"], [41.64, 41.87, "one"], [41.87, 42.8, "question."]], [[42.8, 43.01, "Can"], [43.01, 43.15, "my"], [43.43, 43.79, "customers"], [43.79, 44.21, "easily"]], [[44.21, 44.35, "go"], [44.35, 44.99, "somewhere"], [44.99, 45.52, "else?"]], [[45.52, 45.67, "If"], [45.67, 45.97, "they"], [46.13, 46.28, "can,"]], [[46.41, 46.49, "be"], [46.49, 46.79, "very"], [46.79, 47.56, "careful."]], [[47.56, 47.76, "But"], [47.76, 47.89, "if"], [47.89, 48.19, "they"], [48.19, 48.61, "can't,"]], [[48.61, 48.97, "that's"], [49.06, 49.32, "real"], [49.32, 49.77, "pricing"], [49.77, 50.35, "power."]]];
+      // source time -> edited time (same rule as source/build.py)
+      const KEEP = [[5.4, 12.33], [12.62, 22.42], [22.72, 39.25], [39.45, 56.92], [57.07, 61.85]], SPEED = 1.1, LAST = KEEP[KEEP.length - 1][1];
+      const END = KEEP.reduce((s, [a, b]) => s + b - a, 0) / SPEED;
+      const T = (x) => {
+        if (x >= LAST) return END + (x - LAST);
+        let done = 0;
+        for (const [a, b] of KEEP) { if (x < a) return done / SPEED; if (x <= b) return (done + x - a) / SPEED; done += b - a; }
+        return END;
+      };
+      const tl0 = gsap.timeline({ paused: true });
+      const tl = {
+        fromTo: (s, a, b, t) => tl0.fromTo(s, a, b, T(t)),
+        to: (s, v, t) => tl0.to(s, v, T(t)),
+        set: (s, v, t) => tl0.set(s, v, T(t)),
+      };
+      const ENTER = "expo.out", EXIT = "expo.in";
+      const maskUp = (sel, t, d = 0.45) => tl.fromTo(sel, { yPercent: 120 }, { yPercent: 0, duration: d, ease: ENTER }, t);
+      const pop = (sel, t, s = 0.7) => tl.fromTo(sel, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.7)", transformOrigin: "50% 50%" }, t);
+      const fadeIn = (sel, t, d = 0.3) => tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: d, ease: "none" }, t);
+      const slideIn = (sel, t) => tl.fromTo(sel, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: ENTER }, t);
+      const sideIn = (sel, t, from) => tl.fromTo(sel, { opacity: 0, x: from }, { opacity: 1, x: 0, duration: 0.5, ease: ENTER }, t);
+      const pen = (sel, t, d) => tl.fromTo(sel, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "sine.inOut" }, t);
+      const stamp = (sel, t, rot) => {
+        tl.fromTo(sel, { scale: 1.4, opacity: 0, rotation: rot }, { scale: 1, opacity: 1, duration: 0.15, ease: "back.out(1.7)" }, t);
+        tl.fromTo(sel, { x: -4 }, { x: 4, duration: 0.035, repeat: 3, yoyo: true, ease: "none" }, t + 0.15);
+        tl.to(sel, { x: 0, duration: 0.01 }, t + 0.3);
+      };
+      const NS = "http://www.w3.org/2000/svg";
+      const el = (tag, attrs, parent, text) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text) e.textContent = text; parent && parent.appendChild(e); return e; };
+
+      // ---------- footage framing ----------
+      // 16:9: the take is vertical, so he stays a sharp 540x960 panel in the middle while talking,
+      // and moves to a 400x711 window on the right while the graphics fill the left
+      const PIP = { x: 1440, y: 80, scale: 400 / 1080, borderRadius: 96 };
+      const FULL = { x: 690, y: 60, scale: 0.5, borderRadius: 72 };
+      const CAP_PIP = -240;
+      const toPip = (t) => { tl.to("#vw", { ...PIP, duration: 0.55, ease: "power3.inOut" }, t); tl.to("#vring", { opacity: 1, duration: 0.3 }, t + 0.25); tl.to("#vshade", { opacity: 0, duration: 0.3 }, t); tl.to("#caps", { x: CAP_PIP, duration: 0.55, ease: "power3.inOut" }, t); };
+      const toFull = (t) => { tl.to("#vw", { ...FULL, duration: 0.5, ease: "power3.inOut" }, t); tl.to("#vring", { opacity: 0, duration: 0.2 }, t); tl.to("#vshade", { opacity: 1, duration: 0.3 }, t + 0.2); tl.to("#caps", { x: 0, duration: 0.5, ease: "power3.inOut" }, t); };
+      tl0.set("#vw", FULL, 0);
+      tl0.set("#caps", { x: 0 }, 0);
+      tl0.fromTo("#vshade", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 0);
+      tl0.fromTo("#vin", { scale: 1 }, { scale: 1.06, duration: T(13.3), ease: "none" }, 0);
+      toPip(13.3);
+      tl.set("#vin", { scale: 1 }, 14.0);
+      toFull(47.7);
+      tl.set("#vin", { scale: 1.1 }, 48.2);
+      tl0.to("#vin", { scale: 1.14, duration: T(53) - T(48.2), ease: "none" }, T(48.2));
+      toPip(53.0);
+      tl.set("#vin", { scale: 1 }, 53.7);
+
+      // ---------- demand charts (same axes on both, computed below) ----------
+      // origin (210,1210). Old price at y 1060, new price (+10%) at y 960 on both charts.
+      // Burgers: old qty x 710, new qty x 470 (a big drop). Petrol: old qty x 590, new qty x 560 (a tiny drop).
+      function chart(g, o) {
+        const A = o.A, B = o.B;
+        el("path", { id: o.id + "-ax", d: "M 210 850 L 210 1210 L 860 1210", fill: "none", stroke: "#F7F5EF", "stroke-width": 5, "stroke-linecap": "round", "stroke-linejoin": "round", pathLength: 1, "stroke-dasharray": 1, "stroke-dashoffset": 1 }, g);
+        el("text", { id: o.id + "-pl", x: 222, y: 862, "font-family": "Poppins", "font-weight": 600, "font-size": 28, fill: "#F7F5EF", opacity: 0 }, g, "Price");
+        el("text", { id: o.id + "-ql", x: 860, y: 1250, "text-anchor": "end", "font-family": "Poppins", "font-weight": 600, "font-size": 26, fill: "#F7F5EF", opacity: 0 }, g, "Quantity");
+        el("line", { id: o.id + "-cv", x1: o.c[0], y1: o.c[1], x2: o.c[2], y2: o.c[3], stroke: o.col, "stroke-width": 9, "stroke-linecap": "round", pathLength: 1, "stroke-dasharray": 1, "stroke-dashoffset": 1 }, g);
+        el("text", { id: o.id + "-dl", x: o.dl[0], y: o.dl[1], "font-family": "Poppins", "font-weight": 700, "font-size": 30, fill: o.col, opacity: 0 }, g, "Demand");
+        const ga = el("g", { id: o.id + "-ga", opacity: 0 }, g);
+        el("path", { d: `M 210 ${A[1]} L ${A[0]} ${A[1]} L ${A[0]} 1210`, fill: "none", stroke: "#A7A49B", "stroke-width": 3, "stroke-dasharray": "10 10" }, ga);
+        el("text", { x: 198, y: A[1] + 9, "text-anchor": "end", "font-family": "Poppins", "font-weight": 500, "font-size": 26, fill: "#A7A49B" }, ga, "old price");
+        const gb = el("g", { id: o.id + "-gb", opacity: 0 }, g);
+        el("path", { d: `M 210 ${B[1]} L ${B[0]} ${B[1]} L ${B[0]} 1210`, fill: "none", stroke: "#FCE004", "stroke-width": 3, "stroke-dasharray": "10 10" }, gb);
+        el("text", { x: 198, y: B[1] + 9, "text-anchor": "end", "font-family": "Poppins", "font-weight": 600, "font-size": 26, fill: "#FCE004" }, gb, "new price");
+        o.qlab.forEach(([x, s, c]) => el("text", { x, y: 1250, "text-anchor": "middle", "font-family": "Poppins", "font-weight": 600, "font-size": 24, fill: c }, gb, s));
+        const pa = el("g", { id: o.id + "-pa", opacity: 0 }, g);
+        el("path", { d: `M 240 ${A[1] - 8} L 240 ${B[1] + 14} M 228 ${B[1] + 28} L 240 ${B[1] + 12} L 252 ${B[1] + 28}`, fill: "none", stroke: "#FE6100", "stroke-width": 6, "stroke-linecap": "round", "stroke-linejoin": "round" }, pa);
+        el("text", { x: 254, y: (A[1] + B[1]) / 2 + 10, "font-family": "Poppins", "font-weight": 700, "font-size": 28, fill: "#FE6100" }, pa, "+10%");
+        const qa = el("g", { id: o.id + "-qa", opacity: 0 }, g);
+        el("path", { d: `M ${A[0]} 1182 L ${B[0] + 4} 1182 M ${B[0] + 16} 1170 L ${B[0] + 2} 1182 L ${B[0] + 16} 1194`, fill: "none", stroke: "#FE6100", "stroke-width": 6, "stroke-linecap": "round", "stroke-linejoin": "round" }, qa);
+        el("text", { x: o.qt[0], y: o.qt[1], "text-anchor": "middle", "font-family": "Poppins", "font-weight": 700, "font-size": 30, fill: "#FE6100" }, qa, o.qtext);
+        el("circle", { id: o.id + "-dot", cx: A[0], cy: A[1], r: 16, fill: "#FCE004", stroke: "#121212", "stroke-width": 5, opacity: 0 }, g);
+      }
+      chart(document.getElementById("c1"), { id: "c1", A: [710, 1060], B: [470, 960], c: [290, 885, 840, 1114], col: "#FCE004", dl: [700, 1150],
+        qlab: [[470, "new", "#FCE004"], [710, "old", "#A7A49B"]], qt: [590, 1166], qtext: "−30%" });
+      chart(document.getElementById("c2"), { id: "c2", A: [590, 1060], B: [560, 960], c: [533, 870, 632, 1200], col: "#FE6100", dl: [375, 905],
+        qlab: [[560, "barely moves", "#A7A49B"]], qt: [520, 1166], qtext: "−2%" });
+      function runChart(id, A, B, t0, tMove) {
+        pen(`#${id}-ax`, t0, 0.5); fadeIn(`#${id}-pl, #${id}-ql`, t0 + 0.3);
+        pen(`#${id}-cv`, t0 + 0.5, 0.6); fadeIn(`#${id}-dl`, t0 + 1.0);
+        pop(`#${id}-dot`, t0 + 1.1); fadeIn(`#${id}-ga`, t0 + 1.2);
+        fadeIn(`#${id}-pa`, tMove - 0.1, 0.2);
+        tl.to(`#${id}-dot`, { attr: { cx: B[0], cy: B[1] }, duration: 0.6, ease: "power2.inOut" }, tMove);
+        fadeIn(`#${id}-gb`, tMove + 0.6, 0.25); fadeIn(`#${id}-qa`, tMove + 0.7, 0.25);
+      }
+
+      // captions
+      const capBox = document.getElementById("caps");
+      CAPS.forEach((ph, i) => {
+        const d = document.createElement("div"); d.className = "cap"; d.id = "cap" + i;
+        d.innerHTML = '<span class="box">' + ph.map((w, j) => `<i id="cw${i}_${j}">${w[2]}</i>`).join(" ") + "</span>";
+        capBox.appendChild(d);
+      });
+
+      // ---------- opening ----------
+      tl.fromTo("#o-chip", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: ENTER }, 5.4);
+      tl.fromTo("#o-title", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.45, ease: ENTER }, 5.45);
+      sideIn("#pc", 6.37, -80);
+      fadeIn("#pc-p", 7.3, 0.2);
+      tl.fromTo("#pc-p svg", { y: 14 }, { y: 0, duration: 0.3, ease: "back.out(2)" }, 7.3);
+      stamp("#pc-s", 8.32, -4);
+      sideIn("#bc", 10.21, 80);
+      fadeIn("#bc-p", 10.79, 0.2);
+      tl.fromTo("#bc-p svg", { y: 14 }, { y: 0, duration: 0.3, ease: "back.out(2)" }, 10.79);
+      stamp("#bc-s", 11.7, 4);
+      tl.to("#pc", { x: -300, opacity: 0, duration: 0.35, ease: EXIT }, 13.1);
+      tl.to("#bc", { x: 300, opacity: 0, duration: 0.35, ease: EXIT }, 13.1);
+      tl.to("#o-chip, #o-title", { opacity: 0, duration: 0.25 }, 13.2);
+
+      // ---------- S3 ----------
+      pop("#s3-chip", 13.5);
+      maskUp("#t1", 13.81); maskUp("#t2", 14.12); maskUp("#t3", 14.74);
+      slideIn("#s3-card", 15.46);
+      tl.fromTo("#s3-react", { backgroundColor: "rgba(252,224,4,0)", color: "#F7F5EF" }, { backgroundColor: "rgba(252,224,4,1)", color: "#121212", duration: 0.25 }, 17.81);
+      slideIn("#s3-f", 18.6);
+
+      // ---------- S4 burgers ----------
+      pop("#s4-chip", 20.59);
+      maskUp("#b1", 21.2);
+      runChart("c1", [710, 1060], [470, 960], 20.7, 25.9);
+      fadeIn("#s4-note", 22.75, 0.3);
+      slideIn("#s4-r1", 26.3);
+      stamp("#s4-stamp", 28.2, -4);
+      slideIn("#s4-r2", 26.9);
+      fadeIn("#s4-r3", 27.3);
+
+      // ---------- S5 petrol ----------
+      pop("#s5-chip", 29.69);
+      maskUp("#p1", 30.88);
+      runChart("c2", [590, 1060], [560, 960], 29.9, 35.4);
+      fadeIn("#s5-note", 34.15, 0.3);
+      slideIn("#s5-r1", 36.3);
+      stamp("#s5-stamp", 38.35, -4);
+      slideIn("#s5-r2", 36.9);
+      fadeIn("#s5-r3", 37.3);
+
+      // ---------- S6 ----------
+      pop("#s6-chip", 40.4);
+      slideIn("#s6-a", 40.96);
+      stamp("#s6-t1", 42.56, -3); stamp("#s6-t2", 43.38, 3);
+      slideIn("#s6-b", 44.3);
+      fadeIn("#s6-b1", 45.33, 0.25);
+      fadeIn("#s6-b2", 46.08, 0.25);
+      tl.fromTo("#s6-bar1, #s6-bar2", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.5, ease: ENTER, stagger: 0.25 }, 46.1);
+
+      // ---------- S7 ----------
+      slideIn("#s7-a", 48.05);
+      slideIn("#s7-b", 51.71);
+
+      // ---------- S8 ----------
+      maskUp("#q1", 53.3); maskUp("#q2", 54.33); maskUp("#q3", 55.21);
+      tl.fromTo("#q3h", { backgroundColor: "rgba(252,224,4,0)", color: "#F7F5EF" }, { backgroundColor: "rgba(252,224,4,1)", color: "#121212", duration: 0.3 }, 55.66);
+      slideIn("#s8-y", 56.24); fadeIn("#s8-y1", 57.12, 0.25);
+      slideIn("#s8-n", 58.6); fadeIn("#s8-n1", 59.66, 0.25);
+
+      // ---------- end card (source time past 61.85 runs at normal speed) ----------
+      const E = 61.85;
+      pen("#e-d", E, 1.4); pen("#e-s", E + 0.2, 1.4);
+      tl.fromTo("#e-bg", { y: 0 }, { y: -40, duration: 5, ease: "none" }, E);
+      tl.fromTo("#e-logo", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: ENTER }, E + 0.05);
+      tl.fromTo("#e-k", { opacity: 0, rotation: -4 }, { opacity: 1, rotation: -2, duration: 0.35, ease: "back.out(1.7)" }, E + 0.3);
+      maskUp("#e1", E + 0.45); maskUp("#e2", E + 0.6);
+      tl.fromTo("#e-t1, #e-t2, #e-t3", { opacity: 0, y: 60, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)", stagger: 0.15 }, E + 0.85);
+      tl.fromTo("#e-t1 svg, #e-t2 svg, #e-t3 svg", { scale: 0.5, rotation: -10 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)", stagger: 0.15 }, E + 0.95);
+      stamp("#e-btn", E + 1.5, -2);
+      tl.fromTo("#e-shine", { x: 0 }, { x: 1000, duration: 0.9, ease: "power2.inOut" }, E + 2.0);
+      tl.fromTo("#e-btn", { scale: 1 }, { scale: 1.05, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3 }, E + 2.9);
+      tl.fromTo("#e-shine", { x: 0 }, { x: 1000, duration: 0.9, ease: "power2.inOut", immediateRender: false }, E + 3.7);
+      slideIn("#e-ct", E + 1.9);
+      fadeIn("#e-where", E + 2.15, 0.35);
+
+      // captions: phrase in, active word goes yellow (already in edited time)
+      CAPS.forEach((ph, i) => {
+        const a = Math.max(0, ph[0][0] - 0.06);
+        const nextStart = i + 1 < CAPS.length ? CAPS[i + 1][0][0] - 0.06 : END - 0.05;
+        const b = Math.min(nextStart, ph[ph.length - 1][1] + 0.5);
+        tl0.fromTo("#cap" + i, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.1, ease: "power2.out" }, a);
+        tl0.to("#cap" + i, { opacity: 0, duration: 0.07, ease: "none" }, Math.max(a + 0.2, b - 0.07));
+        ph.forEach((w, j) => {
+          const ws = w[0], we = j + 1 < ph.length ? ph[j + 1][0] : w[1] + 0.2;
+          tl0.set(`#cw${i}_${j}`, { color: "#FCE004" }, ws);
+          tl0.set(`#cw${i}_${j}`, { color: "#FFFFFF" }, Math.max(ws + 0.05, we));
+        });
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl0;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,465 @@
+<!-- SJ Academy O Level tuition (level page), Elementor HTML widget. Version 1.0, October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Enrol.
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes. Address stays /o-level-tuition-center-karachi/.
+     Class timings load from the "SJA Class Timetable" Google Sheet (O Level tab, May/June 2027 batch).
+     Set the title tag, meta description and og:title in Yoast (see the handoff note); the widget cannot change them.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet"></noscript>
+
+<div id="sj" class="sj-p-o-level" data-family="enrol">
+
+  <!-- 1. HERO -->
+  <section class="sj-section sj-bg-dots" data-sj-hero>
+    <div class="sj-wrap">
+      <nav class="sj-crumbs" aria-label="Breadcrumb"><ol><li><a href="https://www.sjacademy.pk/">Home</a></li><li aria-current="page">O Level tuition</li></ol></nav>
+    </div>
+    <div class="sj-wrap sj-grid sj-grid-hero">
+      <div class="sj-stack">
+        <h1 class="sj-h1"><span class="sj-pill"><span>O Level tutors &amp; tuition center, DHA Karachi</span></span>We teach O Level <span class="sj-hl">the way it is marked</span></h1>
+        <p class="sj-lead sj-measure">SJ Academy is an O Level tuition center and coaching centre in DHA Phase 7, Karachi. O Level tutors for 12 subjects, in small batches and live online, with teachers from LUMS, IBA and ex-KGS. Your first class is a free demo.</p>
+        <span class="sj-hand sj-tilt-l">the mark scheme is not a secret</span>
+      </div>
+      <div class="sj-offset sj-stack sj-tagged" id="sja-finder">
+        <span class="sj-tag">free demo class</span>
+        <h2 class="sj-h3">Find your O Level class</h2>
+        <div class="sj-field" id="sja-field" hidden>
+          <label class="sj-label" for="sja-subject">Subject</label>
+          <select class="sj-select" id="sja-subject">
+            <option value="math">Maths (4024)</option>
+            <option value="phys">Physics (5054)</option>
+            <option value="chem">Chemistry (5070)</option>
+            <option value="bio">Biology (5090)</option>
+            <option value="pak">Pakistan Studies (2059)</option>
+            <option value="isl">Islamiyat (2058)</option>
+            <option value="eng">English Language (1123)</option>
+            <option value="acc">Accounting (7707)</option>
+            <option value="bus">Business (7081)</option>
+            <option value="eco">Economics (2281)</option>
+            <option value="comp">Computer Science (2210)</option>
+            <option value="urdu">Urdu</option>
+          </select>
+        </div>
+        <ul class="sja-rows">
+          <li><span>Class</span><span id="sja-title">O Level classes</span></li>
+          <li><span>Teacher</span><span id="sja-teacher">A specialist teacher for every subject</span></li>
+          <li><span>Timings</span><span id="sja-when">On the <a class="sj-link" href="https://www.sjacademy.pk/classes-schedule/">class timetable</a></span></li>
+          <li><span>Where</span><span>DHA Phase 7, Karachi, or live online</span></li>
+        </ul>
+        <div class="sja-acts">
+          <a class="sj-btn sj-btn-primary" id="sja-demo" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20saw%20the%20O%20Level%20tuition%20page%20and%20would%20like%20to%20book%20a%20free%20demo%20class.%20My%20name%20is%20" target="_blank" rel="noopener" data-loc="hero">Book a free demo</a>
+          <a class="sj-btn sj-btn-ghost" id="sja-page" href="#sja-subjects" data-loc="hero">See all subjects</a>
+        </div>
+        <p class="sj-small sj-muted">The demo button opens WhatsApp with your class filled in. Batch: May/June 2027, admissions open.</p>
+      </div>
+    </div>
+    <div class="sj-wrap sja-gap">
+      <div class="sj-proof">
+        <span><b>4,500+</b>students taught</span>
+        <span><b>12</b>O Level subjects</span>
+        <a href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener"><b>5.0</b>on Google, from 226 reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. SUBJECTS -->
+  <section class="sj-section sj-bg-white" id="sja-subjects">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">Subjects</div>
+        <h2 class="sj-h2">O Level classes <span class="sj-hl">we teach</span></h2>
+        <p class="sja-top">Every subject is taught for the Cambridge O Level syllabus by a teacher who specialises in it. Take one subject, or a full Science or Commerce combination.</p>
+      </div>
+      <div class="sj-grid sj-grid-4 sja-subs">
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-math-tuition/"><b>Maths (4024)</b><p>Sir Salman Junaid</p><span class="sj-link sj-link-go">O Level Maths tuition</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-physics-tuition/"><b>Physics (5054)</b><p>Sir Basharat in class, Sir Salman Junaid online</p><span class="sj-link sj-link-go">O Level Physics tuition</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-chemistry-tuitions/"><b>Chemistry (5070)</b><p>Sir Abdullah Zaman</p><span class="sj-link sj-link-go">O Level Chemistry tuition</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-biology-sj-academy/"><b>Biology (5090)</b><p>Sir Umair</p><span class="sj-link sj-link-go">O Level Biology tuition</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-pakistan-studies-tuition/"><b>Pakistan Studies (2059)</b><p>Sir Kashaan Ali</p><span class="sj-link sj-link-go">O Level Pakistan Studies tuition</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-islamiat-tuition/"><b>Islamiyat (2058)</b><p>Sir Kashaan Ali</p><span class="sj-link sj-link-go">O Level Islamiyat tuition</span></a>
+        <a class="sj-tile" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20saw%20the%20O%20Level%20tuition%20page%20and%20would%20like%20to%20book%20a%20free%20demo%20class%20for%20O%20Level%20English%20Language%20%281123%29.%20My%20name%20is%20" target="_blank" rel="noopener" data-loc="subjects"><b>English Language (1123)</b><p>Miss Tayyaba Yaseen</p><span class="sj-link sj-link-go">Book an English Language demo</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-accounting-tuition/"><b>Accounting (7707)</b><p>Sir Saifullah</p><span class="sj-link sj-link-go">O Level Accounting tuition</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/business7081/"><b>Business (7081)</b><p>Sir Aaliyan</p><span class="sj-link sj-link-go">O Level Business tuition</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-economics-tuition/"><b>Economics (2281)</b><p>Sir Aaliyan</p><span class="sj-link sj-link-go">O Level Economics tuition</span></a>
+        <a class="sj-tile" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20saw%20the%20O%20Level%20tuition%20page%20and%20would%20like%20to%20book%20a%20free%20demo%20class%20for%20O%20Level%20Computer%20Science%20%282210%29.%20My%20name%20is%20" target="_blank" rel="noopener" data-loc="subjects"><b>Computer Science (2210)</b><p>Sir Riza Walji</p><span class="sj-link sj-link-go">Book a Computer Science demo</span></a>
+        <a class="sj-tile" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20saw%20the%20O%20Level%20tuition%20page%20and%20would%20like%20to%20book%20a%20free%20demo%20class%20for%20O%20Level%20Urdu.%20My%20name%20is%20" target="_blank" rel="noopener" data-loc="subjects"><b>Urdu</b><p>Miss Asmat Zafar</p><span class="sj-link sj-link-go">Book an Urdu demo</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. THE PROBLEM -->
+  <section class="sj-section sj-bg-dots">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">The problem</div>
+        <h2 class="sj-h2">Why O Level marks slip, even when students <span class="sj-hl">work hard</span></h2>
+        <p class="sja-top">Most O Level students put in the hours. Fewer put them into the right thing. Rereading the notes a fourth time feels productive. It mostly just feels familiar.</p>
+      </div>
+      <div class="sj-grid sj-grid-3">
+        <div class="sj-card"><h3 class="sj-h3">Knowing is not scoring</h3><p class="sja-top">Cambridge asks you to use what you know on a question you have not seen. Remembering the notes is where the answer starts, not where it ends.</p></div>
+        <div class="sj-card"><h3 class="sj-h3">Command words decide marks</h3><p class="sja-top">Describe, explain and evaluate each ask for a different answer. A student who writes the same answer for all three leaves marks behind.</p></div>
+        <div class="sj-card"><h3 class="sj-h3">Feedback arrives too late</h3><p class="sja-top">If the first properly marked paper you see is your mock, there is very little time left to fix what it shows.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. THE METHOD -->
+  <section class="sj-section sj-bg-brown">
+    <div class="sj-wrap sja-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">The method</div>
+        <h2 class="sj-h2">Every class runs on <span class="sj-hl">the same method</span></h2>
+        <p class="sj-measure">Different subjects, different teachers, one way of working. It is the reason an O Level coaching center should exist at all.</p>
+        <ol class="sj-steps">
+          <li><b>Learn the syllabus properly</b><span>Concepts first, taught by a subject specialist, in the order the syllabus builds them.</span></li>
+          <li><b>Practise on past papers</b><span>Real Cambridge questions on every topic, so the exam style is never a surprise.</span></li>
+          <li><b>Get marked to the mark scheme</b><span>Your answers are marked the way an examiner marks them.</span></li>
+          <li><b>Find out where the marks went</b><span>Feedback shows which marks were lost and what to write next time.</span></li>
+        </ol>
+      </div>
+      <div class="sja-photo">
+        <div class="sj-polaroid"><span class="sj-tape" aria-hidden="true"></span><img src="https://www.sjacademy.pk/wp-content/uploads/2026/10/IMG_6923_Original-1-1-768x432.webp" alt="An SJ Academy teacher checking a student's working during a class" width="768" height="432" loading="lazy" decoding="async"><span class="sj-hand">working checked, in class</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. TEACHERS -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">Teachers</div>
+        <h2 class="sj-h2">O Level tutors in Karachi who <span class="sj-hl">know the exam</span></h2>
+        <p class="sja-top">Looking for an O Level tutor in Karachi? SJ Academy's O Level teachers include faculty from LUMS, IBA and ex-KGS. Each one teaches only the subject they specialise in.</p>
+      </div>
+      <div class="sj-grid sj-grid-3">
+        <div class="sj-card sj-teacher"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" alt="Sir Salman Junaid, O Level Maths teacher at SJ Academy" width="182" height="182" loading="lazy" decoding="async"><div><b>Sir Salman Junaid</b><span>O Level Maths (4024) and online Physics (5054)</span></div><ul><li>Ex-KGS faculty</li><li>12+ years teaching</li></ul></div>
+        <div class="sj-card sj-teacher"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/12/Zaman-chemistry-768x569.jpeg" alt="Sir Abdullah Zaman, O Level Chemistry teacher at SJ Academy" width="768" height="569" loading="lazy" decoding="async"><div><b>Sir Abdullah Zaman</b><span>O Level Chemistry (5070)</span></div></div>
+        <div class="sj-card sj-teacher"><img src="https://www.sjacademy.pk/wp-content/uploads/2025/11/Umair-Pic-1.jpg" alt="Sir Umair, O Level Biology teacher at SJ Academy" width="588" height="426" loading="lazy" decoding="async"><div><b>Sir Umair</b><span>O Level Biology (5090)</span></div><ul><li>Ex-Beaconhouse</li><li>8+ years teaching</li></ul></div>
+        <div class="sj-card sj-teacher"><span class="sja-crop"><img src="https://www.sjacademy.pk/wp-content/uploads/2026/06/Alyaan-240x300.jpeg" alt="Sir Aaliyan, O Level Business and Economics teacher at SJ Academy" width="240" height="300" loading="lazy" decoding="async"></span><div><b>Sir Aaliyan</b><span>O Level Business (7081) and Economics (2281)</span></div></div>
+        <div class="sj-card sj-teacher"><img src="https://www.sjacademy.pk/wp-content/uploads/2026/07/Saifullah-Accounts-768x829.jpeg" alt="Sir Saifullah, O Level Accounting teacher at SJ Academy" width="768" height="829" loading="lazy" decoding="async"><div><b>Sir Saifullah</b><span>O Level Accounting (7707)</span></div></div>
+        <a class="sj-tile sja-more" href="https://www.sjacademy.pk/meet-the-teachers/"><b>The rest of the faculty</b><p>Physics, Pakistan Studies, Islamiyat, English, Computer Science and Urdu.</p><span class="sj-link sj-link-go">Meet the teachers</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. WHO JOINS -->
+  <section class="sj-section sj-bg-dots">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">Who joins</div>
+        <h2 class="sj-h2">However you are <span class="sj-hl">doing O Levels</span></h2>
+      </div>
+      <div class="sj-grid sj-grid-4">
+        <div class="sj-card"><h3 class="sj-h3">School students</h3><p class="sja-top">Evening and weekend O Level classes that sit alongside your school timetable.</p></div>
+        <div class="sj-card"><h3 class="sj-h3">Private candidates</h3><p class="sja-top">Sitting O Levels privately in Karachi? Join the same batches, with the same tests and feedback as everyone else.</p></div>
+        <div class="sj-card"><h3 class="sj-h3">Students retaking papers</h3><p class="sja-top">Retaking a subject to lift a grade? Join the class and practise past papers on the topics where marks were lost.</p></div>
+        <div class="sj-card"><h3 class="sj-h3">Online students</h3><p class="sja-top">Every class runs live online. Students join from across Karachi and Pakistan, and from abroad.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. PARENTS -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">For parents</div>
+        <h2 class="sj-h2">What you will want to <span class="sj-hl">check first</span></h2>
+        <p class="sja-top">Choosing an O Level tuition center in Karachi is a decision about your child's exam years. Here is everything you need to compare us properly. The first class is free, so your child can judge the teaching before you pay anything.</p>
+      </div>
+      <div class="sj-grid sja-five">
+        <a class="sj-tile" href="https://www.sjacademy.pk/fee-structure/"><b>Fees</b><p>Per subject, per month.</p><span class="sj-link sj-link-go">See the fee structure</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/classes-schedule/"><b>Timings</b><p>Every class, every day.</p><span class="sj-link sj-link-go">Open the timetable</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/meet-the-teachers/"><b>Teachers</b><p>Who teaches what.</p><span class="sj-link sj-link-go">Meet the teachers</span></a>
+        <a class="sj-tile" href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener"><b>Reviews</b><p>From students and parents.</p><span class="sj-link sj-link-go">Read them on Google</span></a>
+        <a class="sj-tile" href="#sja-location"><b>Location</b><p>DHA Phase 7, close to Clifton.</p><span class="sj-link sj-link-go">See how to find us</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FIND US -->
+  <section class="sj-section sj-bg-dots" id="sja-location">
+    <div class="sj-wrap sja-two">
+      <div class="sj-stack">
+        <div class="sj-eyebrow">Find us</div>
+        <h2 class="sj-h2">O Level tuition center in <span class="sj-hl">DHA Phase 7</span>, Karachi</h2>
+        <p class="sj-measure">SJ Academy is in Seher Commercial Area, DHA Phase 7. Khayaban-e-Shahbaz and Khayaban-e-Ittehad link this part of DHA to Phases 5, 6 and 8, and Clifton is close by. Students from across DHA and Clifton can reach the academy for an evening or weekend class.</p>
+        <ul class="sja-areas" aria-label="Areas close to SJ Academy"><li>DHA Phase 5</li><li>DHA Phase 6</li><li>DHA Phase 7</li><li>DHA Phase 8</li><li>Defence</li><li>Clifton</li></ul>
+        <p class="sj-small sj-muted">Live in Gulshan, Johar or further away? Every class also runs live online.</p>
+      </div>
+      <div class="sj-offset sj-stack sj-tagged">
+        <span class="sj-tag">visit us</span>
+        <h3 class="sj-h3">SJ Academy, DHA Phase 7</h3>
+        <ul class="sja-rows">
+          <li><span>Address</span><span>Plot 29C, Lane 5, Seher Commercial Area, DHA Phase 7, Karachi 75500</span></li>
+          <li><span>Nearby</span><span>Commercial Avenue, Rahat Park and Defence Authority Degree College</span></li>
+          <li><span>Reach us</span><span>WhatsApp +92 336 2144454</span></li>
+          <li><span>Online</span><span>Every class also runs live</span></li>
+        </ul>
+        <div class="sja-acts">
+          <a class="sj-btn sj-btn-primary" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20saw%20the%20O%20Level%20tuition%20page%20and%20have%20a%20question%20about%20the%20classes.%20My%20name%20is%20" target="_blank" rel="noopener" data-loc="find_us">WhatsApp us</a>
+          <a class="sj-btn sj-btn-ghost" href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener" data-loc="find_us">Get directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. REVIEWS -->
+  <section class="sj-section sj-bg-white">
+    <div class="sj-wrap sj-stack-lg">
+      <div class="sj-measure">
+        <div class="sj-eyebrow">Reviews</div>
+        <h2 class="sj-h2">What <span class="sj-hl">parents and students</span> say</h2>
+        <p class="sja-top">SJ Academy is rated <span class="sj-circled"><svg class="sj-circle" viewBox="0 0 120 70" preserveAspectRatio="none" aria-hidden="true"><path d="M14 38C10 18 40 6 68 7c27 1 44 13 42 30-2 16-30 24-56 23C28 59 8 50 13 30" fill="none" stroke="#FE6100" stroke-width="2.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg><b>5.0</b></span> on Google from 226 reviews. Read what O Level and A Level families wrote, in their own words.</p>
+      </div>
+      <p><a class="sj-btn sj-btn-ghost" href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener" data-loc="reviews">Read the Google reviews</a></p>
+    </div>
+  </section>
+
+  <!-- 10. RESOURCES -->
+  <section class="sj-section sj-bg-dots">
+    <div class="sj-wrap sj-stack-lg">
+      <div>
+        <div class="sj-eyebrow">Not ready for classes yet?</div>
+        <h2 class="sj-h2">Free O Level <span class="sj-hl">tools and resources</span></h2>
+      </div>
+      <div class="sj-grid sj-grid-4">
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-past-papers/"><b>O Level past papers</b><p>Question papers and mark schemes for every subject, by year and series.</p><span class="sj-link sj-link-go">Open past papers</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/o-level-grade-thresholds/"><b>O Level grade thresholds</b><p>See the marks needed for each grade.</p><span class="sj-link sj-link-go">Check the thresholds</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/schools-near-me-karachi/"><b>Schools near me</b><p>Find O and A Level schools near you in Karachi.</p><span class="sj-link sj-link-go">Find schools</span></a>
+        <a class="sj-tile" href="https://www.sjacademy.pk/blog/top-10-best-schools-in-karachi-with-fee-structures/"><b>Top schools in Karachi</b><p>A guide to schools in Karachi, with fee structures.</p><span class="sj-link sj-link-go">Read the guide</span></a>
+      </div>
+      <p class="sj-small sj-muted">New to Cambridge? Read our guide to <a class="sj-link" href="https://www.sjacademy.pk/blog/o-level-in-pakistan/">O Level in Pakistan</a>. Older sibling? See <a class="sj-link" href="https://www.sjacademy.pk/a-level-tuition-center-karachi/">A Level tuition in Karachi</a>.</p>
+    </div>
+  </section>
+
+  <!-- 11. FAQ -->
+  <section class="sj-section sj-bg-canvas">
+    <div class="sj-wrap sj-stack-lg">
+      <div>
+        <div class="sj-eyebrow">FAQ</div>
+        <h2 class="sj-h2">Questions about <span class="sj-hl">O Level tuition</span> in Karachi</h2>
+      </div>
+      <div class="sj-faq">
+        <details open><summary>Which O Level subjects do you teach?</summary><div class="sj-faq-a"><p>We teach O Level Maths (4024), Physics (5054), Chemistry (5070), Biology (5090), Pakistan Studies (2059), Islamiyat (2058), English Language (1123), Accounting (7707), Business (7081, which replaces 7115 from June 2027), Economics (2281), Computer Science (2210) and Urdu. Take one subject or your full combination.</p></div></details>
+        <details><summary>What makes SJ Academy different from other O Level academies in Karachi?</summary><div class="sj-faq-a"><p>We teach to the mark scheme. Students learn the syllabus, then practise past papers that are marked the way Cambridge examiners mark them, with feedback on where each mark was lost.</p></div></details>
+        <details><summary>Is there an O Level tutor, academy or coaching centre near me in DHA or Clifton, Karachi?</summary><div class="sj-faq-a"><p>Yes. Our O Level academy is at Plot 29C, Lane 5, Seher Commercial Area, DHA Phase 7, Karachi, close to Clifton and the rest of DHA. If you live further away, or outside Karachi, every class also runs live online. <a class="sj-link" href="https://maps.app.goo.gl/QSrQVThJrZMzJgKF8" target="_blank" rel="noopener">Get directions</a>.</p></div></details>
+        <details><summary>Who are the O Level tutors in Karachi at SJ Academy?</summary><div class="sj-faq-a"><p>SJ Academy's O Level tutors include teachers from LUMS, IBA and ex-KGS, each teaching the subject they specialise in. <a class="sj-link" href="https://www.sjacademy.pk/meet-the-teachers/">Meet the teachers</a>.</p></div></details>
+        <details><summary>How many students are in each batch?</summary><div class="sj-faq-a"><p>We keep batches small so the teacher can give each student feedback. Message us for the current size of the batch you want to join. We do not offer one-on-one or home tuition.</p></div></details>
+        <details><summary>Can I take a free demo class before I register?</summary><div class="sj-faq-a"><p>Yes. The first demo class is free for every O Level subject. Pick your subject at the top of this page and book it on WhatsApp.</p></div></details>
+        <details><summary>How do I register for O Level classes?</summary><div class="sj-faq-a"><p>After your demo class, fill in the registration form and choose your subjects. Admissions for the May/June 2027 batch are open.</p></div></details>
+        <details><summary>What are the fees for O Level tuition in Karachi?</summary><div class="sj-faq-a"><p>Fees are charged per subject, per month, with a one-time admission fee. Current figures and a fee calculator are on the <a class="sj-link" href="https://www.sjacademy.pk/fee-structure/">fee structure page</a>.</p></div></details>
+        <details><summary>Do you offer online O Level classes?</summary><div class="sj-faq-a"><p>Yes. Every class runs live online as well as in class at DHA Phase 7. Students join from across Karachi, including Gulshan and Johar, from across Pakistan and from abroad.</p></div></details>
+        <details><summary>Do you teach O Level private candidates in Karachi?</summary><div class="sj-faq-a"><p>Yes. Private candidates join the same batches as everyone else, with the same tests and feedback. Not sure how to register with Cambridge? See our guide to <a class="sj-link" href="https://www.sjacademy.pk/caie-private-candidate-registration/">CAIE private candidate registration</a>.</p></div></details>
+        <details><summary>Do you run evening and weekend O Level classes?</summary><div class="sj-faq-a"><p>Yes. O Level classes run in the evenings and on Saturdays and Sundays, so they sit alongside your school timetable. Every class and its time is on the <a class="sj-link" href="https://www.sjacademy.pk/classes-schedule/">class timetable</a>.</p></div></details>
+        <details><summary>How do I choose the best O Level tutor or academy in Karachi?</summary><div class="sj-faq-a"><p>Sit in a class before you pay. Ask who teaches your subject, how past papers are marked, how big the batch is and whether classes also run live online. At SJ Academy the first class is free, so your child can judge the teaching first.</p></div></details>
+      </div>
+      <p class="sj-small sj-muted">SJ Academy is an independent tuition centre and is not affiliated with or endorsed by Cambridge.</p>
+    </div>
+  </section>
+
+  <!-- 12. FINAL -->
+  <section class="sj-section sj-bg-yellow">
+    <div class="sj-wrap sj-stack sja-final">
+      <h2 class="sj-h2">Try one O Level class before you commit</h2>
+      <p class="sj-measure">Admissions for May/June 2027 are open. Book a free demo, sit in the class, and decide afterwards.</p>
+      <div class="sj-row"><a class="sj-btn sj-btn-primary" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" data-loc="final_band">Register for a class</a></div>
+      <p>or <a class="sj-link" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20saw%20the%20O%20Level%20tuition%20page%20and%20have%20a%20question%20about%20the%20classes.%20My%20name%20is%20" target="_blank" rel="noopener" data-loc="final_band">WhatsApp us</a></p>
+      <span class="sj-hand sj-tilt-l">your first class is on us</span>
+    </div>
+  </section>
+
+  <!-- phone bottom bar -->
+  <div class="sj-bar">
+    <a class="sj-btn sj-btn-primary" href="#sja-finder" data-loc="bottom_bar">Book a free demo</a>
+    <a class="sj-btn sj-btn-wa" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20saw%20the%20O%20Level%20tuition%20page%20and%20have%20a%20question%20about%20the%20classes.%20My%20name%20is%20" target="_blank" rel="noopener" data-loc="bottom_bar">WhatsApp us</a>
+  </div>
+</div>
+
+<style>
+/* Page-only layout for the A Level tuition page. Every rule is scoped to this page. */
+#sj.sj-p-o-level .sja-top{margin-top:var(--sj-s3)}
+#sj.sj-p-o-level .sja-gap{margin-top:var(--sj-s6)}
+#sj.sj-p-o-level .sja-rows{border-top:1.5px solid var(--sj-ink)}
+#sj.sj-p-o-level .sja-rows li{display:grid;grid-template-columns:84px minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid var(--sj-line);color:var(--sj-ink)}
+#sj.sj-p-o-level .sja-rows li>span:first-child{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sj-muted);padding-top:3px}
+#sj.sj-p-o-level .sja-acts{display:grid;gap:var(--sj-s3)}
+#sj.sj-p-o-level .sja-two{display:grid;gap:var(--sj-s6);grid-template-columns:minmax(0,1fr)}
+#sj.sj-p-o-level .sja-photo{display:grid;justify-items:center}
+#sj.sj-p-o-level .sja-photo .sj-polaroid{width:100%;max-width:440px}
+#sj.sj-p-o-level .sja-five{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sj-s3)}
+#sj.sj-p-o-level .sja-more{align-self:stretch}
+@media (max-width:599px){#sj.sj-p-o-level .sja-subs{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sj-s3)}}
+#sj.sj-p-o-level .sja-final{text-align:center;display:grid;justify-items:center}
+#sj.sj-p-o-level .sja-final .sj-row{justify-content:center}
+#sj.sj-p-o-level #sja-finder,#sj.sj-p-o-level #sja-subjects,#sj.sj-p-o-level #sja-location{scroll-margin-top:96px}
+#sj.sj-p-o-level .sja-areas{display:flex;flex-wrap:wrap;gap:8px}
+#sj.sj-p-o-level .sja-areas li{border:1px solid var(--sj-line);border-radius:999px;padding:6px 14px;font-size:14px;line-height:1.4;color:var(--sj-ink);background:#fff}
+@media (max-width:899px){.joinchat,#back-to-top{display:none!important}}
+@media (min-width:600px){
+  #sj.sj-p-o-level .sja-acts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:900px){
+  #sj.sj-p-o-level .sja-two{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--sj-s7);align-items:center}
+  #sj.sj-p-o-level .sja-five{grid-template-columns:repeat(5,minmax(0,1fr))}
+}
+#sj.sj-p-o-level .sj-teacher img{border-radius:50%}
+#sj.sj-p-o-level .sja-crop{display:block;width:88px;height:88px;border-radius:50%;overflow:hidden}
+#sj.sj-p-o-level .sja-crop img{width:88px;height:88px;object-fit:cover;object-position:50% 30%;transform:scale(1.8);border-radius:0}
+</style>
+
+<script>
+/* Page script for the O Level tuition page: class finder with live timings. */
+(function(){
+  var root=document.getElementById('sj'); if(!root||!root.classList.contains('sj-p-o-level')) return;
+  var $=function(id){return document.getElementById(id)};
+  var SITE='https://www.sjacademy.pk',TT=SITE+'/classes-schedule/';
+  var SHEET='https://docs.google.com/spreadsheets/d/e/2PACX-1vRNaIRWzVbWjAz6uXXzEngSykiYmSrY_jeeRCjLgMXf1aF8Zo39EqRCM7s8VuE4RWzf0edXe7UhTCf8/pub?single=true&output=tsv&gid=';
+  var WA='https://wa.me/923362144454?text=';
+  var GID='674937139';
+  var S={math:['Maths (4024)','Sir Salman Junaid','/o-level-math-tuition/'],
+    phys:['Physics (5054)','Sir Basharat in class, Sir Salman Junaid online','/o-level-physics-tuition/'],
+    chem:['Chemistry (5070)','Sir Abdullah Zaman','/o-level-chemistry-tuitions/'],
+    bio:['Biology (5090)','Sir Umair','/o-level-biology-sj-academy/'],
+    pak:['Pakistan Studies (2059)','Sir Kashaan Ali','/o-level-pakistan-studies-tuition/'],
+    isl:['Islamiyat (2058)','Sir Kashaan Ali','/o-level-islamiat-tuition/'],
+    eng:['English Language (1123)','Miss Tayyaba Yaseen',''],
+    acc:['Accounting (7707)','Sir Saifullah','/o-level-accounting-tuition/'],
+    bus:['Business (7081)','Sir Aaliyan','/business7081/'],
+    eco:['Economics (2281)','Sir Aaliyan','/o-level-economics-tuition/'],
+    comp:['Computer Science (2210)','Sir Riza Walji',''],
+    urdu:['Urdu','Miss Asmat Zafar','']};
+  var MATCH={math:function(t){return /math/.test(t)&&!/add/.test(t)},
+    comp:function(t){return /comp|\bcs\b/.test(t)},pak:function(t){return /pak|p\.?\s?st/.test(t)},
+    bus:function(t){return /bus/.test(t)},eco:function(t){return /eco/.test(t)}};
+  var cache=null,loaded=false,token=0,sel=$('sja-subject'),whenEl=$('sja-when'),pageBtn=$('sja-page');
+  var fallback='On the <a class="sj-link" href="'+TT+'">class timetable</a>';
+
+  function parseTsv(text){
+    var rows=[],row=[],f='',q=false;
+    for(var i=0;i<text.length;i++){var c=text[i],n=text[i+1];
+      if(c==='"'&&q&&n==='"'){f+='"';i++;continue}
+      if(c==='"'){q=!q;continue}
+      if(c==='\t'&&!q){row.push(f);f='';continue}
+      if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;row.push(f);rows.push(row);row=[];f='';continue}
+      f+=c}
+    row.push(f);rows.push(row);
+    rows=rows.filter(function(r){return r.some(function(v){return String(v||'').trim()!==''})});
+    if(rows.length<2) return null;
+    var days=rows[0].slice(1).map(function(d){return String(d||'').trim()});
+    return {days:days,rows:rows.slice(1).map(function(r){return {time:String(r[0]||'').trim(),cells:r.slice(1,days.length+1)}}).filter(function(r){return r.time})};
+  }
+  /* shares its cache with the homepage and timetable page */
+  function loadSheet(cb){
+    if(loaded) return cb(cache);
+    try{var s=sessionStorage.getItem('sjh-tt-'+GID);if(s){var v=JSON.parse(s);if(v&&(!v._t||Date.now()-v._t<600000)){cache=v;loaded=true;return cb(v)}}}catch(e){}
+    if(!window.fetch) return cb(null);
+    fetch(SHEET+GID).then(function(r){if(!r.ok)throw 0;return r.text()}).then(function(t){
+      var d=parseTsv(t);cache=d;loaded=true;try{if(d){d._t=Date.now();sessionStorage.setItem('sjh-tt-'+GID,JSON.stringify(d))}}catch(e){}cb(d);
+    }).catch(function(){cache=null;loaded=true;cb(null)});
+  }
+  function when(d,key){
+    var m=MATCH[key]||function(t){return t.indexOf(key)>-1},groups={},order=[];
+    d.rows.forEach(function(r){r.cells.forEach(function(c,i){
+      var t=String(c||'').split('||')[0].toLowerCase(); if(!t||!m(t)) return;
+      if(!groups[r.time]){groups[r.time]=[];order.push(r.time)}
+      var day=String(d.days[i]||'').slice(0,3); if(day&&groups[r.time].indexOf(day)<0) groups[r.time].push(day)})});
+    return order.map(function(t){var g=groups[t];return (g.length>1?g.slice(0,-1).join(', ')+' & '+g[g.length-1]:g[0])+' \u00b7 '+t}).join('; ');
+  }
+  function update(){
+    var key=sel.value,s=S[key],title='O Level '+s[0],mine=++token;
+    $('sja-title').textContent=title;
+    $('sja-teacher').textContent=s[1];
+    $('sja-demo').setAttribute('href',WA+encodeURIComponent('Hi SJ Academy, I saw the O Level tuition page and would like to book a free demo class for '+title+'. My name is '));
+    if(s[2]){pageBtn.setAttribute('href',SITE+s[2]);pageBtn.textContent='View subject page'}
+    else{pageBtn.setAttribute('href','#sja-subjects');pageBtn.textContent='See all subjects'}
+    whenEl.textContent='Checking the timetable\u2026';
+    loadSheet(function(d){
+      if(mine!==token) return;
+      var w=d?when(d,key):'';
+      if(w){whenEl.textContent=w}else{whenEl.innerHTML=fallback}
+    });
+  }
+  $('sja-field').hidden=false;
+  sel.addEventListener('change',update);
+  update();
+})();
+</script>
+
+<script>
+/* Standard page script, copied unchanged from 07-Code & Scripts/sj-page-script.js */
+(function(){
+  var root=document.getElementById('sj');
+  if(!root){return;}
+  var each=function(list,fn){Array.prototype.forEach.call(list,fn);};
+
+  /* Tabs: role="tablist" > role="tab" aria-controls="panel-id" */
+  each(root.querySelectorAll('[role="tablist"]'),function(list){
+    var tabs=Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    var pick=function(tab,focus){
+      tabs.forEach(function(t){
+        var on=t===tab;
+        t.setAttribute('aria-selected',on?'true':'false');
+        t.tabIndex=on?0:-1;
+        var panel=document.getElementById(t.getAttribute('aria-controls'));
+        if(panel){panel.hidden=!on;}
+      });
+      if(focus){tab.focus();}
+    };
+    tabs.forEach(function(tab,i){
+      tab.addEventListener('click',function(){pick(tab,false);});
+      tab.addEventListener('keydown',function(e){
+        var step=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+        if(!step){return;}
+        e.preventDefault();
+        pick(tabs[(i+step+tabs.length)%tabs.length],true);
+      });
+    });
+  });
+
+  /* Phone bottom bar: shows once the element marked data-sj-hero has scrolled away */
+  var bar=root.querySelector('.sj-bar');
+  var hero=root.querySelector('[data-sj-hero]');
+  if(bar&&hero&&'IntersectionObserver' in window){
+    root.classList.add('sj-has-bar');
+    new IntersectionObserver(function(entries){
+      bar.classList.toggle('is-on',!entries[0].isIntersecting);
+    }).observe(hero);
+  }
+
+  /* Video: loads the player only after a tap */
+  each(root.querySelectorAll('.sj-video[data-src]'),function(v){
+    v.addEventListener('click',function(e){
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src=v.getAttribute('data-src');
+      f.title=v.getAttribute('data-title')||'Video';
+      f.allow='autoplay; encrypted-media; picture-in-picture';
+      f.allowFullscreen=true;
+      f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';
+      v.innerHTML='';
+      v.appendChild(f);
+    });
+  });
+
+  /* Measurement: one event name per action, location read from data-loc */
+  var send=function(name,loc){
+    var g=window['gt'+'ag'];
+    if(typeof g==='function'){g('event',name,{link_location:loc||'unknown',page_family:root.getAttribute('data-family')||''});}
+  };
+  root.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a,button'):null;
+    if(!a){return;}
+    var href=a.getAttribute('href')||'';
+    var loc=a.getAttribute('data-loc');
+    if(href.indexOf('wa.me')>-1){send('whatsapp_click',loc);}
+    else if(href.indexOf('popup%3Aopen')>-1){send('register_open',loc);}
+    else if(a.hasAttribute('download')){send('resource_download',loc);}
+    else if(a.hasAttribute('data-event')){send(a.getAttribute('data-event'),loc);}
+  });
+})();
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sjacademy.pk/"}, {"@type": "ListItem", "position": 2, "name": "O Level tuition", "item": "https://www.sjacademy.pk/o-level-tuition-center-karachi/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which O Level subjects do you teach?", "acceptedAnswer": {"@type": "Answer", "text": "We teach O Level Maths (4024), Physics (5054), Chemistry (5070), Biology (5090), Pakistan Studies (2059), Islamiyat (2058), English Language (1123), Accounting (7707), Business (7081, which replaces 7115 from June 2027), Economics (2281), Computer Science (2210) and Urdu. Take one subject or your full combination."}}, {"@type": "Question", "name": "What makes SJ Academy different from other O Level academies in Karachi?", "acceptedAnswer": {"@type": "Answer", "text": "We teach to the mark scheme. Students learn the syllabus, then practise past papers that are marked the way Cambridge examiners mark them, with feedback on where each mark was lost."}}, {"@type": "Question", "name": "Is there an O Level tutor, academy or coaching centre near me in DHA or Clifton, Karachi?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Our O Level academy is at Plot 29C, Lane 5, Seher Commercial Area, DHA Phase 7, Karachi, close to Clifton and the rest of DHA. If you live further away, or outside Karachi, every class also runs live online. Get directions."}}, {"@type": "Question", "name": "Who are the O Level tutors in Karachi at SJ Academy?", "acceptedAnswer": {"@type": "Answer", "text": "SJ Academy's O Level tutors include teachers from LUMS, IBA and ex-KGS, each teaching the subject they specialise in. Meet the teachers."}}, {"@type": "Question", "name": "How many students are in each batch?", "acceptedAnswer": {"@type": "Answer", "text": "We keep batches small so the teacher can give each student feedback. Message us for the current size of the batch you want to join. We do not offer one-on-one or home tuition."}}, {"@type": "Question", "name": "Can I take a free demo class before I register?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The first demo class is free for every O Level subject. Pick your subject at the top of this page and book it on WhatsApp."}}, {"@type": "Question", "name": "How do I register for O Level classes?", "acceptedAnswer": {"@type": "Answer", "text": "After your demo class, fill in the registration form and choose your subjects. Admissions for the May/June 2027 batch are open."}}, {"@type": "Question", "name": "What are the fees for O Level tuition in Karachi?", "acceptedAnswer": {"@type": "Answer", "text": "Fees are charged per subject, per month, with a one-time admission fee. Current figures and a fee calculator are on the fee structure page."}}, {"@type": "Question", "name": "Do you offer online O Level classes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every class runs live online as well as in class at DHA Phase 7. Students join from across Karachi, including Gulshan and Johar, from across Pakistan and from abroad."}}, {"@type": "Question", "name": "Do you teach O Level private candidates in Karachi?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Private candidates join the same batches as everyone else, with the same tests and feedback. Not sure how to register with Cambridge? See our guide to CAIE private candidate registration."}}, {"@type": "Question", "name": "Do you run evening and weekend O Level classes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. O Level classes run in the evenings and on Saturdays and Sundays, so they sit alongside your school timetable. Every class and its time is on the class timetable."}}, {"@type": "Question", "name": "How do I choose the best O Level tutor or academy in Karachi?", "acceptedAnswer": {"@type": "Answer", "text": "Sit in a class before you pay. Ask who teaches your subject, how past papers are marked, how big the batch is and whether classes also run live online. At SJ Academy the first class is free, so your child can judge the teaching first."}}]}</script>

@@ -1,0 +1,239 @@
+<!-- SJ Academy site-wide strip v2.0 (28 Oct 2026). Paste the whole block into the header HTML widget(s). Safe to paste in both the desktop and mobile header. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  .quiz-strip {
+    background-color: #FEE000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    gap: 14px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .quiz-strip[hidden] {
+    display: none !important;
+  }
+
+  .badge-new {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background-color: #fe6100;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    animation: badge-pop 2.4s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(254, 97, 0, 0.5);
+  }
+
+  @keyframes badge-pop {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(254, 97, 0, 0.6);
+    }
+    50% {
+      transform: scale(1.08);
+      box-shadow: 0 0 12px 4px rgba(254, 97, 0, 0.35);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(254, 97, 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .badge-new {
+      animation: none;
+    }
+  }
+
+  .quiz-strip-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #000;
+    white-space: nowrap;
+  }
+
+  .quiz-strip-text .qs-lead {
+    text-decoration: underline;
+  }
+
+  .quiz-strip-cta {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 6px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .quiz-strip-cta:hover,
+  .quiz-strip-cta:focus-visible {
+    background-color: #fe6100;
+    color: #fff;
+    border-color: #fe6100;
+  }
+
+  @media (max-width: 1024px) {
+    .quiz-strip-text {
+      white-space: normal;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .quiz-strip {
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px 14px;
+      text-align: center;
+    }
+
+    .quiz-strip-text {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .quiz-strip-cta {
+      font-size: 11px;
+      padding: 6px 14px;
+    }
+  }
+</style>
+
+<div class="quiz-strip" data-sj-strip>
+  <span class="badge-new">FREE DEMO</span>
+  <span class="quiz-strip-text"><span class="qs-lead">May/June 2027 classes are running.</span> <span class="qs-rest">Sit one free, then decide.</span></span>
+  <a class="quiz-strip-cta" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I'd%20like%20to%20book%20a%20free%20demo%20class.%0ALevel%3A%20%0ASubject%3A%20%0AIn%20class%20or%20online%3A%20%0A(Ref%3A%20STRIP)%0AMy%20name%20is%20" target="_blank" rel="noopener">Book a free demo</a>
+</div>
+
+<script>
+(function(){
+  var WA='https://wa.me/923362144454?text=';
+
+  /* Pages where the strip would get in the way of a sign-up already under way */
+  var HIDE=['/registration-form/','/thank-you/','/payment-confirmation/','/demo-class-registration/','/checkout/','/cart/'];
+
+  /* Tuition pages: [level, subject as written in the WhatsApp message, name shown in the strip, ref, mode] */
+  var PAGES={
+    '/a-level-tuition-center-karachi/':['A Level','','A Level','AL',''],
+    '/o-level-tuition-center-karachi/':['O Level','','O Level','OL',''],
+    '/a-level-maths-tuition/':['A Level','Maths (9709)','A Level Maths','ALM',''],
+    '/a-level-physics-tuition/':['A Level','Physics (9702)','A Level Physics','ALP',''],
+    '/a-level-chemistry-tuition/':['A Level','Chemistry (9701)','A Level Chemistry','ALC',''],
+    '/a-level-biology-tuition/':['A Level','Biology (9700)','A Level Biology','ALB','Online'],
+    '/a-level-business-tuition/':['A Level','Business (9609)','A Level Business','ALBS',''],
+    '/a-level-economics-tuition/':['A Level','Economics (9708)','A Level Economics','ALE',''],
+    '/a-level-accounting-tuition/':['A Level','Accounting (9706)','A Level Accounting','ALA',''],
+    '/a-level-computer-science-tuition/':['A Level','Computer Science (9618)','A Level Computer Science','ALCS',''],
+    '/o-level-math-tuition/':['O Level','Maths (4024)','O Level Maths','OLM',''],
+    '/o-level-physics-tuition/':['O Level','Physics (5054)','O Level Physics','OLP',''],
+    '/o-level-chemistry-tuitions/':['O Level','Chemistry (5070)','O Level Chemistry','OLC',''],
+    '/o-level-biology-sj-academy/':['O Level','Biology (5090)','O Level Biology','OLB',''],
+    '/o-level-accounting-tuition/':['O Level','Accounting (7707)','O Level Accounting','OLA',''],
+    '/o-level-economics-tuition/':['O Level','Economics (2281)','O Level Economics','OLE',''],
+    '/business7081/':['O Level','Business','O Level Business','OLBS',''],
+    '/o-level-pakistan-studies-tuition/':['O Level','Pakistan Studies (2059)','O Level Pakistan Studies','OLPS',''],
+    '/o-level-islamiat-tuition/':['O Level','Islamiyat (2058)','O Level Islamiyat','OLI','']
+  };
+
+  /* Past paper pages, matched by the syllabus code at the end of the address */
+  var CODES={
+    '9709':['A Level','Maths (9709)','A Level Maths',''],
+    '9702':['A Level','Physics (9702)','A Level Physics',''],
+    '9701':['A Level','Chemistry (9701)','A Level Chemistry',''],
+    '9700':['A Level','Biology (9700)','A Level Biology','Online'],
+    '9609':['A Level','Business (9609)','A Level Business',''],
+    '9708':['A Level','Economics (9708)','A Level Economics',''],
+    '9706':['A Level','Accounting (9706)','A Level Accounting',''],
+    '9618':['A Level','Computer Science (9618)','A Level Computer Science',''],
+    '4024':['O Level','Maths (4024)','O Level Maths',''],
+    '5054':['O Level','Physics (5054)','O Level Physics',''],
+    '5070':['O Level','Chemistry (5070)','O Level Chemistry',''],
+    '5090':['O Level','Biology (5090)','O Level Biology',''],
+    '7707':['O Level','Accounting (7707)','O Level Accounting',''],
+    '2281':['O Level','Economics (2281)','O Level Economics',''],
+    '7115':['O Level','Business Studies (7115)','O Level Business',''],
+    '2059':['O Level','Pakistan Studies (2059)','O Level Pakistan Studies',''],
+    '2058':['O Level','Islamiyat (2058)','O Level Islamiyat',''],
+    '1123':['O Level','English Language (1123)','O Level English',''],
+    '2210':['O Level','Computer Science (2210)','O Level Computer Science',''],
+    '3248':['O Level','Urdu (3248)','O Level Urdu','']
+  };
+
+  var path=(location.pathname||'/').toLowerCase();
+  if(path.charAt(path.length-1)!=='/'){path+='/';}
+
+  var hide=HIDE.indexOf(path)>-1;
+  var practicals=path.indexOf('/a-level-practicals/')===0;
+  var level='',subject='',name='',mode='',ref='STRIP';
+
+  if(PAGES[path]){
+    var p=PAGES[path];
+    level=p[0];subject=p[1];name=p[2];ref='STRIP-'+p[3];mode=p[4];
+  }else{
+    var m=path.match(/^\/[ao]-level-past-papers\/[a-z0-9-]*?(\d{4})\/$/);
+    if(m){
+      ref='STRIP-PP-'+m[1];
+      var c=CODES[m[1]];
+      if(c){level=c[0];subject=c[1];name=c[2];mode=c[3];}
+    }
+  }
+
+  var message="Hi SJ Academy, I'd like to book a free demo class.\nLevel: "+level+"\nSubject: "+subject+"\nIn class or online: "+mode+"\n(Ref: "+ref+")\nMy name is ";
+
+  var strips=document.querySelectorAll('[data-sj-strip]');
+  Array.prototype.forEach.call(strips,function(strip){
+    if(strip.getAttribute('data-sj-ready')){return;}
+    strip.setAttribute('data-sj-ready','1');
+
+    if(hide){strip.hidden=true;return;}
+
+    var badge=strip.querySelector('.badge-new');
+    var lead=strip.querySelector('.qs-lead');
+    var rest=strip.querySelector('.qs-rest');
+    var cta=strip.querySelector('.quiz-strip-cta');
+    if(!badge||!lead||!rest||!cta){return;}
+
+    if(practicals){
+      /* No demo classes for lab practicals, so this page gets its own offer */
+      badge.textContent='LAB PRACTICALS';
+      lead.textContent='Private candidate?';
+      rest.textContent='Physics, Chemistry and Biology practicals in a real lab in DHA.';
+      cta.textContent='See lab fees';
+      cta.setAttribute('href','#fees');
+      cta.removeAttribute('target');
+      cta.removeAttribute('rel');
+      cta.setAttribute('data-loc','site_strip');
+      return;
+    }
+
+    if(name){
+      lead.textContent=name+' for May/June 2027.';
+      rest.textContent=mode==='Online'?'Live online. Sit one class free, then decide.':'Sit one class free, then decide.';
+    }
+    cta.setAttribute('href',WA+encodeURIComponent(message));
+    cta.setAttribute('data-loc','site_strip');
+
+    cta.addEventListener('click',function(){
+      var g=window['gt'+'ag'];
+      if(typeof g==='function'){g('event','whatsapp_click',{link_location:'site_strip',page_family:'strip',sj_ref:ref});}
+    });
+  });
+})();
+</script>

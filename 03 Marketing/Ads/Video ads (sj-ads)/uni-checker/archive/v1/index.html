@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Uni checker reel</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Caveat"; src: url("assets/brand/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+      :root { --yellow: #FCE004; --ink: #151515; --canvas: #F7F5EF; --brown: #453516; --cta: #CC4A00; --pen: #D63A2F; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--yellow); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); background: var(--yellow); }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+      .abs { position: absolute; }
+
+      /* grounds: flat yellow, or canvas with thin graph-paper lines */
+      .ground { position: absolute; inset: 0; }
+      .ground.yellow { background: var(--yellow); }
+      .ground.canvas { background-color: var(--canvas);
+        background-image: linear-gradient(rgba(21,21,21,0.07) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(21,21,21,0.07) 1.5px, transparent 1.5px);
+        background-size: 54px 54px; background-position: 27px 0; }
+      /* the small horizontal logo: top, just under the 270px line */
+      .logo { position: absolute; left: 420px; top: 290px; width: 240px; }
+
+      h1, .h { font-weight: 600; letter-spacing: -0.03em; }
+      .hl { background-image: linear-gradient(100deg, transparent 0, var(--yellow) 0.12em, var(--yellow) calc(100% - 0.12em), transparent 100%);
+        background-repeat: no-repeat; background-position: 0 88%; background-size: 0% 42%; padding: 0 0.12em; margin: 0 -0.12em; }
+      .pen { fill: none; stroke: var(--pen); stroke-linecap: round; stroke-linejoin: round; }
+
+      /* 1 hook */
+      #hk { left: 120px; top: 690px; width: 860px; font-size: 150px; line-height: 1.04; }
+      #hk .w { display: inline-block; }
+      #lums { position: relative; margin-left: 0.22em; }
+      #lums svg { position: absolute; left: -40px; top: -18px; width: 490px; height: 200px; overflow: visible; }
+
+      /* 2 the catch */
+      #ct { left: 120px; top: 560px; width: 860px; font-size: 112px; line-height: 1.06; }
+      #ct .w { display: inline-block; }
+      #bad { left: 470px; top: 1060px; font-family: "Caveat", cursive; font-weight: 600; font-size: 88px; color: var(--pen); transform: rotate(-6deg); white-space: nowrap; }
+      #bad-u { left: 450px; top: 1150px; width: 300px; height: 40px; overflow: visible; }
+
+      /* 3 index cards */
+      .card { position: absolute; left: 110px; width: 760px; height: 270px; background: #fff; border-radius: 10px; padding: 34px 44px 0;
+        box-shadow: 0 2px 0 rgba(21,21,21,0.08), 0 18px 34px rgba(21,21,21,0.16);
+        background-image: repeating-linear-gradient(transparent 0, transparent 62px, rgba(21,21,21,0.08) 62px, rgba(21,21,21,0.08) 64px);
+        background-position: 0 98px; }
+      .card .u { display: inline-block; background: var(--ink); color: var(--yellow); font-weight: 600; font-size: 38px; border-radius: 12px; padding: 2px 18px 4px; }
+      .card .c { font-weight: 600; font-size: 52px; line-height: 1.2; letter-spacing: -0.025em; margin-top: 16px; }
+      #cd1 { top: 440px; } #cd2 { top: 690px; } #cd3 { top: 940px; }
+
+      /* 4 the tool */
+      #cap4 { left: 120px; top: 430px; width: 860px; font-size: 56px; line-height: 1.16; }
+      #phone { left: 300px; top: 670px; width: 480px; height: 870px; background: var(--ink); border-radius: 66px; padding: 14px; box-shadow: 0 30px 60px rgba(21,21,21,0.28); }
+      #screen { position: relative; width: 452px; height: 842px; border-radius: 54px; overflow: hidden; background: #fff; }
+      #screen video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+      #island { position: absolute; left: 50%; top: 14px; width: 126px; height: 34px; margin-left: -63px; background: var(--ink); border-radius: 20px; z-index: 3; }
+      #stamp { left: 330px; top: 1090px; border: 10px solid var(--pen); color: var(--pen); border-radius: 14px; padding: 6px 30px 10px; font-weight: 600; font-size: 84px; letter-spacing: 0.04em; background: rgba(247,245,239,0.78); transform: rotate(-8deg); }
+
+      /* 5 bonus tickets */
+      #cap5 { left: 120px; top: 440px; width: 860px; font-size: 76px; line-height: 1.12; }
+      .tk { position: absolute; left: 120px; width: 720px; height: 180px; display: flex; align-items: center; border-radius: 14px;
+        -webkit-mask: radial-gradient(circle 22px at 0 50%, transparent 21px, #000 22px) left / 51% 100% no-repeat, radial-gradient(circle 22px at 100% 50%, transparent 21px, #000 22px) right / 51% 100% no-repeat;
+        filter: drop-shadow(0 14px 18px rgba(21,21,21,0.18)); }
+      .tk .ic { width: 180px; height: 100%; display: flex; align-items: center; justify-content: center; border-right: 4px dashed rgba(21,21,21,0.35); }
+      .tk .ic svg { width: 84px; height: 84px; fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .tk .lb { padding-left: 40px; font-weight: 600; font-size: 56px; letter-spacing: -0.025em; }
+      #tk1 { top: 820px; background: var(--yellow); }
+      #tk2 { top: 1040px; background: #fff; }
+
+      /* 6 CTA and end card */
+      #cta { left: 120px; top: 470px; width: 860px; }
+      #cta .a { font-weight: 600; font-size: 176px; line-height: 1; letter-spacing: -0.045em; }
+      .pill { display: inline-block; background: var(--cta); color: #fff; border-radius: 34px; font-weight: 600; letter-spacing: -0.03em; }
+      #cta .pill { font-size: 220px; line-height: 1; padding: 6px 54px 26px; margin-top: 26px; }
+      #cta .s { font-weight: 400; font-size: 54px; line-height: 1.2; margin-top: 44px; }
+      #arrow { left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+      #e-logo { left: 260px; top: 440px; width: 560px; }
+      #e-mid { left: 0; right: 0; top: 760px; text-align: center; font-weight: 600; font-size: 118px; letter-spacing: -0.04em; line-height: 1; }
+      #e-mid .pill { font-size: 118px; padding: 4px 34px 16px; margin-left: 10px; }
+      #e-url { left: 0; right: 0; top: 1060px; text-align: center; font-weight: 600; font-size: 60px; color: var(--brown); letter-spacing: -0.02em; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20.5" data-width="1080" data-height="1920">
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20.5" data-track-index="1" data-volume="1"></audio>
+
+      <!-- 1 hook, hype speed -->
+      <section id="s1" class="clip" style="z-index:10" data-start="0" data-duration="1.92" data-track-index="2" data-track-kind="graphics">
+        <div class="ground yellow"></div>
+        <img class="logo" src="assets/brand/sj-academy-logo-horizontal-on-yellow.svg" alt="SJ Academy" />
+        <h1 class="abs" id="hk"><span class="w" id="hw1">Will</span> <span class="w" id="lums">LUMS<svg viewBox="0 0 520 200"><path class="pen" id="lums-c" stroke-width="10" d="M70,46 C150,6 390,4 480,52 C530,96 480,172 310,186 C150,196 16,170 20,104 C24,62 90,36 190,26"/></svg></span><br><span class="w" id="hw3">take your</span><br><span class="w" id="hw4">A Levels?</span></h1>
+      </section>
+
+      <!-- 2 the catch -->
+      <section id="s2" class="clip" style="z-index:11" data-start="1.92" data-duration="1.92" data-track-index="3" data-track-kind="graphics">
+        <div class="ground canvas"></div>
+        <img class="logo" src="assets/brand/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy" />
+        <h1 class="abs" id="ct"><span class="w" id="cw1">Most students</span><br><span class="w" id="cw2">check this</span><br><span class="w" id="cw3"><span class="hl" id="hl-after">after</span> they</span><br><span class="w" id="cw4">apply.</span></h1>
+        <div class="abs" id="bad">bad idea</div>
+        <svg class="abs" id="bad-u" viewBox="0 0 300 40"><path class="pen" id="bad-p" stroke-width="7" d="M6,24 C80,14 190,12 292,20"/></svg>
+      </section>
+
+      <!-- 3 the real criteria -->
+      <section id="s3" class="clip" style="z-index:12" data-start="3.84" data-duration="5.76" data-track-index="4" data-track-kind="graphics">
+        <div class="ground canvas"></div>
+        <img class="logo" src="assets/brand/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy" />
+        <div class="card" id="cd1"><div class="u">LUMS</div><div class="c"><span class="hl" id="hl1">B average</span> across your best three A Levels</div></div>
+        <div class="card" id="cd2"><div class="u">IBA BBA</div><div class="c">At least <span class="hl" id="hl2">2 Bs and a C</span></div></div>
+        <div class="card" id="cd3"><div class="u">NUST</div><div class="c">The entry test is <span class="hl" id="hl3">75% of your merit</span></div></div>
+      </section>
+
+      <!-- 4 the tool, real screen recording -->
+      <section id="s4" class="clip" style="z-index:12" data-start="9.60" data-duration="4.80" data-track-index="5" data-track-kind="graphics">
+        <div class="ground canvas"></div>
+        <img class="logo" src="assets/brand/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy" />
+        <h1 class="abs" id="cap4">Enter your grades.<br>See <span class="hl" id="hl4">every programme</span><br>you qualify for.</h1>
+      </section>
+
+      <!-- the phone sits outside the scene so its video is timed on its own; shown only during scene 4 -->
+      <div id="pwrap" class="abs" style="left:0;top:0;width:1080px;height:1920px;z-index:13;opacity:0;pointer-events:none">
+          <div class="abs" id="phone"><div id="screen"><div id="island"></div>
+            <video id="pv" class="clip" src="assets/rec/phone.mp4" muted playsinline data-start="9.60" data-duration="4.80" data-media-start="0.00" data-track-index="6"></video>
+          </div></div>
+          <div class="abs" id="stamp">CHECKED</div>
+      </div>
+
+      <!-- 5 bonus -->
+      <section id="s5" class="clip" style="z-index:14" data-start="14.40" data-duration="1.92" data-track-index="7" data-track-kind="graphics">
+        <div class="ground canvas"></div>
+        <img class="logo" src="assets/brand/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy" />
+        <h1 class="abs" id="cap5">16 universities.<br>Pakistan and abroad.<br><span class="hl" id="hl5">Free.</span></h1>
+        <div class="tk" id="tk1"><div class="ic"><svg viewBox="0 0 84 84"><rect x="8" y="14" width="68" height="62" rx="8"/><path d="M8 32h68M26 6v16M58 6v16"/><path d="M28 54l9 9 19-19" stroke="#D63A2F"/></svg></div><div class="lb">Deadlines</div></div>
+        <div class="tk" id="tk2"><div class="ic"><svg viewBox="0 0 84 84"><rect x="14" y="6" width="56" height="72" rx="8"/><rect x="24" y="16" width="36" height="16" rx="3"/><path d="M28 46h0M42 46h0M56 46h0M28 60h0M42 60h0M56 60h0" stroke-width="9"/></svg></div><div class="lb">Merit calculator</div></div>
+      </section>
+
+      <!-- 6 CTA -->
+      <section id="s6" class="clip" style="z-index:15" data-start="16.32" data-duration="1.92" data-track-index="8" data-track-kind="graphics">
+        <div class="ground yellow"></div>
+        <img class="logo" src="assets/brand/sj-academy-logo-horizontal-on-yellow.svg" alt="SJ Academy" />
+        <div class="abs" id="cta"><div class="a" id="ca1">Comment</div><div class="pill" id="ca2">UNI</div><div class="s" id="ca3">We will DM you<br>the free checker.</div></div>
+        <svg class="abs" id="arrow" viewBox="0 0 1080 1920"><path class="pen" id="ar1" stroke-width="12" d="M560,1130 C700,1150 800,1190 850,1290"/><path class="pen" id="ar2" stroke-width="12" d="M806,1262 L852,1296 L868,1240"/></svg>
+      </section>
+
+      <!-- end card: full logo, the ask, the site, sonic logo -->
+      <section id="s7" class="clip" style="z-index:16" data-start="18.24" data-duration="2.26" data-track-index="9" data-track-kind="graphics">
+        <div class="ground yellow"></div>
+        <img class="abs" id="e-logo" src="assets/brand/sj-academy-logo-horizontal-on-yellow.svg" alt="SJ Academy" />
+        <div class="abs" id="e-mid">Comment<span class="pill">UNI</span></div>
+        <div class="abs" id="e-url">sjacademy.pk</div>
+      </section>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const ENTER = "expo.out", PEN = "sine.inOut", F = 1 / 30;
+      const draw = (sel, t, d) => { document.querySelectorAll(sel).forEach((p) => { const L = p.getTotalLength(); p.style.strokeDasharray = L + 2; p.style.strokeDashoffset = L + 2; }); tl.to(sel, { strokeDashoffset: 0, duration: d, ease: PEN }, t); };
+      const swipe = (sel, t, frames) => tl.fromTo(sel, { backgroundSize: "0% 42%" }, { backgroundSize: "100% 42%", duration: frames * F, ease: "power2.inOut" }, t);
+      // paper drop: slides in from an edge, tilted, settles under 1 degree in 18 frames
+      const drop = (sel, t, from, rot) => tl.fromTo(sel, { x: from.x || 0, y: from.y || 0, rotation: from.r }, { x: 0, y: 0, rotation: rot, duration: 18 * F, ease: ENTER }, t);
+      // stamp: 130% to 100% in 4 frames, then a 2px shake for 4 frames
+      const stamp = (sel, t, rot) => {
+        tl.fromTo(sel, { opacity: 0, scale: 1.3, rotation: rot }, { opacity: 1, scale: 1, rotation: rot, duration: 4 * F, ease: "back.out(1.7)" }, t);
+        tl.fromTo(sel, { x: 0 }, { keyframes: [{ x: -2 }, { x: 2 }, { x: -1 }, { x: 0 }], duration: 4 * F, ease: "none", immediateRender: false }, t + 4 * F);
+      };
+
+      // 1 hook: line lands by phrase on the beat, then the pen circles LUMS
+      tl.fromTo("#hw3", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 8 * F, ease: ENTER }, 0.24);
+      tl.fromTo("#hw4", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 8 * F, ease: ENTER }, 0.48);
+      draw("#lums-c", 0.84, 16 * F);
+
+      // 2 the catch
+      tl.fromTo("#cw1, #cw2, #cw3, #cw4", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 8 * F, ease: ENTER, stagger: 0.08 }, 1.92);
+      swipe("#hl-after", 2.44, 8);
+      tl.fromTo("#bad", { opacity: 0 }, { opacity: 1, duration: 2 * F, ease: "none" }, 2.88);
+      draw("#bad-p", 2.92, 10 * F);
+
+      // 3 three cards, one every 1.92s, highlighter after each settles
+      [["#cd1", 3.84, -0.8, "#hl1", 10], ["#cd2", 5.76, 0.6, "#hl2", 12], ["#cd3", 7.68, -0.5, "#hl3", 14]].forEach(([c, t, r, h, f], i) => {
+        tl.set(c, { opacity: 0 }, 0);
+        tl.set(c, { opacity: 1 }, t);
+        drop(c, t, { x: i % 2 ? -900 : 900, r: i % 2 ? -5 : 5 }, r);
+        swipe(h, t + 18 * F + 4 * F, f);
+      });
+
+      // 4 phone slides up, the caption marks its key words, the stamp lands on the result
+      drop("#phone", 9.60, { y: 1300, r: 4 }, 0);
+      tl.fromTo("#cap4", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 12 * F, ease: ENTER }, 9.70);
+      swipe("#hl4", 10.40, 12);
+      tl.set("#stamp", { opacity: 0 }, 0);
+      tl.set("#pwrap", { opacity: 0 }, 0); tl.set("#pwrap", { opacity: 1 }, 9.60); tl.set("#pwrap", { opacity: 0 }, 14.40);
+      stamp("#stamp", 13.44, -8);
+
+      // 5 two ticket stubs
+      tl.fromTo("#cap5", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 8 * F, ease: ENTER }, 14.40);
+      drop("#tk1", 14.48, { x: -900, r: -5 }, -0.8);
+      drop("#tk2", 14.72, { x: 900, r: 5 }, 0.6);
+      swipe("#hl5", 15.30, 8);
+
+      // 6 CTA, then the pen draws an arrow down toward the comments
+      tl.fromTo("#ca1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 8 * F, ease: ENTER }, 16.32);
+      stamp("#ca2", 16.56, -2);
+      tl.fromTo("#ca3", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 12 * F, ease: ENTER }, 16.80);
+      draw("#ar1", 17.20, 10 * F);
+      draw("#ar2", 17.20 + 10 * F, 5 * F);
+
+      // end card: the logo lands with the sonic logo
+      tl.fromTo("#e-logo", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 30 * F, ease: ENTER }, 18.24);
+      tl.fromTo("#e-mid", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 12 * F, ease: ENTER }, 18.50);
+      tl.fromTo("#e-url", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 12 * F, ease: ENTER }, 18.70);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

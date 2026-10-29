@@ -1,0 +1,1406 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 10,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-hook\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-hook",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-hook\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-desmos\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-desmos",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-desmos\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-phet\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-phet",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-phet\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-anki\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-anki",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-anki\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-cam\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-cam",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-cam\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-grade\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-grade",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-grade\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-combo\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-combo",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-combo\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-papers\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-papers",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-papers\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-div\"> is a timeline element that contains nested <div id=\"dv-bg\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-div",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-div\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-end\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-end",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/study-websites/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-end\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": false,
+    "errorCount": 2,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "request_failed",
+        "severity": "error",
+        "message": "Failed to load npm/gsap@3.14.2/dist/gsap.min.js: net::ERR_NETWORK_CHANGED",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "24.0",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"
+      },
+      {
+        "code": "page_error",
+        "severity": "error",
+        "message": "Cannot read properties of undefined (reading 'timeline')",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "24.0",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0
+      }
+    ]
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 2,
+    "warningCount": 21,
+    "infoCount": 7,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 9.333,
+        "selector": "#ak3 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 371.79,
+          "top": 1112.4,
+          "right": 708.19,
+          "bottom": 1247.6,
+          "width": 336.4,
+          "height": 135.2
+        },
+        "containerSelector": "#ak2 > div:nth-of-type(1)",
+        "text": "Revenue",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 371.79,
+          "y": 1112.4,
+          "width": 336.4,
+          "height": 135.2
+        },
+        "firstSeen": 7.508,
+        "lastSeen": 10.324,
+        "occurrences": 23,
+        "heldMs": 2816,
+        "times": [
+          7.508,
+          7.642,
+          7.777,
+          7.911,
+          8.045,
+          8.179,
+          8.313,
+          8.447,
+          8.581,
+          8.715,
+          8.849,
+          8.983,
+          9.117,
+          9.251,
+          9.333,
+          9.385,
+          9.52,
+          9.654,
+          9.788,
+          9.922,
+          10.056,
+          10.19,
+          10.324
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 9.333,
+        "selector": "#ak2 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 363.43,
+          "top": 1108.82,
+          "right": 716.56,
+          "bottom": 1251.18,
+          "width": 353.13,
+          "height": 142.36
+        },
+        "containerSelector": "#ak1 > div:nth-of-type(1)",
+        "text": "Elasticity",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 363.43,
+          "y": 1108.82,
+          "width": 353.13,
+          "height": 142.36
+        },
+        "firstSeen": 7.508,
+        "lastSeen": 10.324,
+        "occurrences": 23,
+        "heldMs": 2816,
+        "times": [
+          7.508,
+          7.642,
+          7.777,
+          7.911,
+          8.045,
+          8.179,
+          8.313,
+          8.447,
+          8.581,
+          8.715,
+          8.849,
+          8.983,
+          9.117,
+          9.251,
+          9.333,
+          9.385,
+          9.52,
+          9.654,
+          9.788,
+          9.922,
+          10.056,
+          10.19,
+          10.324
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 2.279,
+        "selector": "#hk1 > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 102,
+          "top": 317,
+          "right": 619.88,
+          "bottom": 612,
+          "width": 517.88,
+          "height": 295
+        },
+        "containerSelector": "#ln-desmos",
+        "text": "7 free",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 102,
+          "y": 317,
+          "width": 517.88,
+          "height": 295
+        },
+        "firstSeen": 2.279,
+        "lastSeen": 2.547,
+        "occurrences": 3,
+        "heldMs": 268.0000000000002,
+        "times": [
+          2.279,
+          2.413,
+          2.547
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 4.827,
+        "selector": "#tg-desmos > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 86,
+          "top": 291.5,
+          "right": 127.77,
+          "bottom": 347.5,
+          "width": 41.77,
+          "height": 56
+        },
+        "containerSelector": "#tg-phet > span:nth-of-type(1)",
+        "text": "01",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 86,
+          "y": 291.5,
+          "width": 41.77,
+          "height": 56
+        },
+        "firstSeen": 4.827,
+        "lastSeen": 5.095,
+        "occurrences": 3,
+        "heldMs": 267.9999999999998,
+        "times": [
+          4.827,
+          4.961,
+          5.095
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 4.827,
+        "selector": "#tg-desmos > span:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 159.77,
+          "top": 288,
+          "right": 344.23,
+          "bottom": 352,
+          "width": 184.46,
+          "height": 64
+        },
+        "containerSelector": "#tg-phet > span:nth-of-type(2)",
+        "text": "Desmos",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 159.77,
+          "y": 288,
+          "width": 184.46,
+          "height": 64
+        },
+        "firstSeen": 4.827,
+        "lastSeen": 5.095,
+        "occurrences": 3,
+        "heldMs": 267.9999999999998,
+        "times": [
+          4.827,
+          4.961,
+          5.095
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 4.827,
+        "selector": "#tg-desmos > span:nth-of-type(3)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 360.23,
+          "top": 317,
+          "right": 505.86,
+          "bottom": 348,
+          "width": 145.63,
+          "height": 31
+        },
+        "containerSelector": "#tg-phet > span:nth-of-type(3)",
+        "text": "desmos.com",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 360.23,
+          "y": 317,
+          "width": 145.63,
+          "height": 31
+        },
+        "firstSeen": 4.827,
+        "lastSeen": 5.095,
+        "occurrences": 3,
+        "heldMs": 267.9999999999998,
+        "times": [
+          4.827,
+          4.961,
+          5.095
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 4.827,
+        "selector": "#ln-desmos",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 92.31,
+          "top": 407.54,
+          "right": 649.99,
+          "bottom": 552.47,
+          "width": 557.68,
+          "height": 144.93
+        },
+        "containerSelector": "#ln-phet",
+        "text": "Graph any equation. Tap where they cross.",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 92.31,
+          "y": 407.54,
+          "width": 557.68,
+          "height": 144.93
+        },
+        "firstSeen": 4.827,
+        "lastSeen": 5.095,
+        "occurrences": 3,
+        "heldMs": 267.9999999999998,
+        "times": [
+          4.827,
+          4.961,
+          5.095
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 4.827,
+        "selector": "#nt-desmos",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 516.07,
+          "top": 608.75,
+          "right": 1012.68,
+          "bottom": 734.25,
+          "width": 496.61,
+          "height": 125.5
+        },
+        "containerSelector": "#nt-phet",
+        "text": "A Level Maths, sorted",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 516.07,
+          "y": 608.75,
+          "width": 496.61,
+          "height": 125.5
+        },
+        "firstSeen": 4.827,
+        "lastSeen": 5.095,
+        "occurrences": 3,
+        "heldMs": 267.9999999999998,
+        "times": [
+          4.827,
+          4.961,
+          5.095
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 7.508,
+        "selector": "#tg-phet > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 86,
+          "top": 291.5,
+          "right": 135.05,
+          "bottom": 347.5,
+          "width": 49.05,
+          "height": 56
+        },
+        "containerSelector": "#tg-anki > span:nth-of-type(1)",
+        "text": "02",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 86,
+          "y": 291.5,
+          "width": 49.05,
+          "height": 56
+        },
+        "firstSeen": 7.508,
+        "lastSeen": 7.642,
+        "occurrences": 2,
+        "heldMs": 134.00000000000034,
+        "times": [
+          7.508,
+          7.642
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 7.508,
+        "selector": "#tg-phet > span:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 167.05,
+          "top": 288,
+          "right": 275.34,
+          "bottom": 352,
+          "width": 108.29,
+          "height": 64
+        },
+        "containerSelector": "#tg-anki > span:nth-of-type(2)",
+        "text": "PhET",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 167.05,
+          "y": 288,
+          "width": 108.29,
+          "height": 64
+        },
+        "firstSeen": 7.508,
+        "lastSeen": 7.642,
+        "occurrences": 2,
+        "heldMs": 134.00000000000034,
+        "times": [
+          7.508,
+          7.642
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 7.508,
+        "selector": "#tg-phet > span:nth-of-type(3)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 291.34,
+          "top": 317,
+          "right": 497.58,
+          "bottom": 348,
+          "width": 206.24,
+          "height": 31
+        },
+        "containerSelector": "#tg-anki > span:nth-of-type(3)",
+        "text": "phet.colorado.edu",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 291.34,
+          "y": 317,
+          "width": 206.24,
+          "height": 31
+        },
+        "firstSeen": 7.508,
+        "lastSeen": 7.642,
+        "occurrences": 2,
+        "heldMs": 134.00000000000034,
+        "times": [
+          7.508,
+          7.642
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 7.508,
+        "selector": "#ln-phet",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 92.3,
+          "top": 407.43,
+          "right": 597.57,
+          "bottom": 551.8,
+          "width": 505.27,
+          "height": 144.37
+        },
+        "containerSelector": "#ln-anki",
+        "text": "Run the experiment before the lab.",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 92.3,
+          "y": 407.43,
+          "width": 505.27,
+          "height": 144.37
+        },
+        "firstSeen": 7.508,
+        "lastSeen": 7.642,
+        "occurrences": 2,
+        "heldMs": 134.00000000000034,
+        "times": [
+          7.508,
+          7.642
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 10.056,
+        "selector": "#tg-anki > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 86,
+          "top": 291.5,
+          "right": 136.69,
+          "bottom": 347.5,
+          "width": 50.69,
+          "height": 56
+        },
+        "containerSelector": "#tg-cam > span:nth-of-type(1)",
+        "text": "03",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 86,
+          "y": 291.5,
+          "width": 50.69,
+          "height": 56
+        },
+        "firstSeen": 10.056,
+        "lastSeen": 10.324,
+        "occurrences": 3,
+        "heldMs": 268.0000000000007,
+        "times": [
+          10.056,
+          10.19,
+          10.324
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 10.056,
+        "selector": "#tg-anki > span:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 168.69,
+          "top": 288,
+          "right": 273.39,
+          "bottom": 352,
+          "width": 104.7,
+          "height": 64
+        },
+        "containerSelector": "#tg-cam > span:nth-of-type(2)",
+        "text": "Anki",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 168.69,
+          "y": 288,
+          "width": 104.7,
+          "height": 64
+        },
+        "firstSeen": 10.056,
+        "lastSeen": 10.324,
+        "occurrences": 3,
+        "heldMs": 268.0000000000007,
+        "times": [
+          10.056,
+          10.19,
+          10.324
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 10.056,
+        "selector": "#tg-anki > span:nth-of-type(3)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 289.39,
+          "top": 317,
+          "right": 427.25,
+          "bottom": 348,
+          "width": 137.86,
+          "height": 31
+        },
+        "containerSelector": "#tg-cam > span:nth-of-type(2)",
+        "text": "ankiweb.net",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 289.39,
+          "y": 317,
+          "width": 137.86,
+          "height": 31
+        },
+        "firstSeen": 10.056,
+        "lastSeen": 10.324,
+        "occurrences": 3,
+        "heldMs": 268.0000000000007,
+        "times": [
+          10.056,
+          10.19,
+          10.324
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 10.056,
+        "selector": "#ln-anki",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 92.3,
+          "top": 407.34,
+          "right": 625.7,
+          "bottom": 552.15,
+          "width": 533.4,
+          "height": 144.81
+        },
+        "containerSelector": "#ln-cam",
+        "text": "Flashcards for every definition you forget.",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 92.3,
+          "y": 407.34,
+          "width": 533.4,
+          "height": 144.81
+        },
+        "firstSeen": 10.056,
+        "lastSeen": 10.324,
+        "occurrences": 3,
+        "heldMs": 268.0000000000007,
+        "times": [
+          10.056,
+          10.19,
+          10.324
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 12.603,
+        "selector": "#nt-cam",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 582.68,
+          "top": 611.66,
+          "right": 1012.81,
+          "bottom": 731.34,
+          "width": 430.13,
+          "height": 119.68
+        },
+        "containerSelector": "#dv1",
+        "text": "it's in your syllabus",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 582.68,
+          "y": 611.66,
+          "width": 430.13,
+          "height": 119.68
+        },
+        "firstSeen": 12.603,
+        "lastSeen": 12.872,
+        "occurrences": 3,
+        "heldMs": 269.0000000000001,
+        "times": [
+          12.603,
+          12.737,
+          12.872
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 16.223,
+        "selector": "#tg-grade > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 86,
+          "top": 291.5,
+          "right": 138.48,
+          "bottom": 347.5,
+          "width": 52.48,
+          "height": 56
+        },
+        "containerSelector": "#tg-combo > span:nth-of-type(1)",
+        "text": "05",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 86,
+          "y": 291.5,
+          "width": 52.48,
+          "height": 56
+        },
+        "firstSeen": 16.223,
+        "lastSeen": 16.358,
+        "occurrences": 2,
+        "heldMs": 135.00000000000156,
+        "times": [
+          16.223,
+          16.358
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 16.223,
+        "selector": "#tg-grade > span:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 170.48,
+          "top": 288,
+          "right": 816.06,
+          "bottom": 352,
+          "width": 645.58,
+          "height": 64
+        },
+        "containerSelector": "#tg-combo > span:nth-of-type(2)",
+        "text": "Grade Comeback Calculator",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 170.48,
+          "y": 288,
+          "width": 645.58,
+          "height": 64
+        },
+        "firstSeen": 16.223,
+        "lastSeen": 16.358,
+        "occurrences": 2,
+        "heldMs": 135.00000000000156,
+        "times": [
+          16.223,
+          16.358
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 16.223,
+        "selector": "#ln-grade",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 92.32,
+          "top": 405.79,
+          "right": 723.17,
+          "bottom": 553.45,
+          "width": 630.85,
+          "height": 147.66
+        },
+        "containerSelector": "#ln-combo",
+        "text": "Retake or carry forward? See the marks you need.",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 92.32,
+          "y": 405.79,
+          "width": 630.85,
+          "height": 147.66
+        },
+        "firstSeen": 16.223,
+        "lastSeen": 16.358,
+        "occurrences": 2,
+        "heldMs": 135.00000000000156,
+        "times": [
+          16.223,
+          16.358
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 18.771,
+        "selector": "#tg-combo > span:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 86,
+          "top": 291.5,
+          "right": 137.69,
+          "bottom": 347.5,
+          "width": 51.69,
+          "height": 56
+        },
+        "containerSelector": "#tg-papers > span:nth-of-type(1)",
+        "text": "06",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 86,
+          "y": 291.5,
+          "width": 51.69,
+          "height": 56
+        },
+        "firstSeen": 18.771,
+        "lastSeen": 19.039,
+        "occurrences": 3,
+        "heldMs": 268.0000000000007,
+        "times": [
+          18.771,
+          18.905,
+          19.039
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 18.771,
+        "selector": "#tg-combo > span:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 169.69,
+          "top": 288,
+          "right": 667,
+          "bottom": 352,
+          "width": 497.31,
+          "height": 64
+        },
+        "containerSelector": "#tg-papers > span:nth-of-type(2)",
+        "text": "Subject combinations",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 169.69,
+          "y": 288,
+          "width": 497.31,
+          "height": 64
+        },
+        "firstSeen": 18.771,
+        "lastSeen": 19.039,
+        "occurrences": 3,
+        "heldMs": 268.0000000000007,
+        "times": [
+          18.771,
+          18.905,
+          19.039
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 18.771,
+        "selector": "#ln-combo",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 92.3,
+          "top": 410.12,
+          "right": 600.59,
+          "bottom": 551.82,
+          "width": 508.29,
+          "height": 141.7
+        },
+        "containerSelector": "#ln-papers",
+        "text": "Pick A Levels for your dream degree.",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 92.3,
+          "y": 410.12,
+          "width": 508.29,
+          "height": 141.7
+        },
+        "firstSeen": 18.771,
+        "lastSeen": 19.039,
+        "occurrences": 3,
+        "heldMs": 268.0000000000007,
+        "times": [
+          18.771,
+          18.905,
+          19.039
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 1.333,
+        "selector": "#hk1 > span:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 102,
+          "top": 317,
+          "right": 619.88,
+          "bottom": 612,
+          "width": 517.88,
+          "height": 295
+        },
+        "containerSelector": "#hk1 > span:nth-of-type(1)",
+        "text": "7 free",
+        "fixHint": "Text is 518px x 295px inside 562px x 218px and overflows by up to 43px; increase the container height to at least ~261px or shrink font-size from 210px to ~155px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 80,
+          "top": 360,
+          "right": 641.88,
+          "bottom": 578,
+          "width": 561.88,
+          "height": 218
+        },
+        "overflow": {
+          "top": 43
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 102,
+          "y": 317,
+          "width": 517.88,
+          "height": 295
+        },
+        "firstSeen": 1.333,
+        "lastSeen": 1.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          1.333
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 4,
+        "selector": "#nt-desmos",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 516.07,
+          "top": 608.75,
+          "right": 1012.68,
+          "bottom": 734.25,
+          "width": 496.61,
+          "height": 125.5
+        },
+        "containerSelector": "#s-desmos > div:nth-of-type(1)",
+        "text": "A Level Maths, sorted",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.22,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 516.07,
+          "y": 608.75,
+          "width": 496.61,
+          "height": 125.5
+        },
+        "firstSeen": 4,
+        "lastSeen": 4,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 4,
+        "selector": "#v-desmos-v",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -479.52,
+          "top": -668.16,
+          "right": 1248.48,
+          "bottom": 2403.84,
+          "width": 1728,
+          "height": 3072
+        },
+        "containerSelector": "#v-desmos",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 479.52,
+          "right": 168.48,
+          "top": 668.16,
+          "bottom": 483.84
+        },
+        "dataAttributes": {
+          "data-start": "2.20",
+          "data-duration": "2.95",
+          "data-media-start": "0.00",
+          "data-playback-rate": "2.2",
+          "data-track-index": "3",
+          "data-end": "5.15",
+          "data-has-audio": "false",
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -479.52,
+          "y": -668.16,
+          "width": 1728,
+          "height": 3072
+        },
+        "firstSeen": 4,
+        "lastSeen": 4,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 9.333,
+        "selector": "#ak3 > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 371.79,
+          "top": 1112.4,
+          "right": 708.19,
+          "bottom": 1247.6,
+          "width": 336.4,
+          "height": 135.21
+        },
+        "containerSelector": "#ak1",
+        "text": "Revenue",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 371.79,
+          "y": 1112.4,
+          "width": 336.4,
+          "height": 135.21
+        },
+        "firstSeen": 9.333,
+        "lastSeen": 9.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.333
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 9.333,
+        "selector": "#ak2 > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 363.43,
+          "top": 1108.82,
+          "right": 716.56,
+          "bottom": 1251.18,
+          "width": 353.13,
+          "height": 142.35
+        },
+        "containerSelector": "#ak1",
+        "text": "Elasticity",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 363.43,
+          "y": 1108.82,
+          "width": 353.13,
+          "height": 142.35
+        },
+        "firstSeen": 9.333,
+        "lastSeen": 9.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.333
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 12,
+        "selector": "#nt-cam",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 582.68,
+          "top": 611.66,
+          "right": 1012.81,
+          "bottom": 731.34,
+          "width": 430.13,
+          "height": 119.68
+        },
+        "containerSelector": "#s-cam > div:nth-of-type(1)",
+        "text": "it's in your syllabus",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.15,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 582.68,
+          "y": 611.66,
+          "width": 430.13,
+          "height": 119.68
+        },
+        "firstSeen": 12,
+        "lastSeen": 12,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          12
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 12,
+        "selector": "img.shot",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -178,
+          "top": 487,
+          "right": 1322,
+          "bottom": 1326.63,
+          "width": 1500,
+          "height": 839.63
+        },
+        "containerSelector": "#scr-cam",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 90,
+          "top": 780,
+          "right": 990,
+          "bottom": 1342,
+          "width": 900,
+          "height": 562
+        },
+        "overflow": {
+          "left": 268,
+          "right": 332,
+          "top": 293
+        },
+        "dataAttributes": {
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -178,
+          "y": 487,
+          "width": 1500,
+          "height": 839.63
+        },
+        "firstSeen": 12,
+        "lastSeen": 12,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          12
+        ]
+      }
+    ],
+    "duration": 24,
+    "samples": [
+      1.333,
+      4,
+      6.667,
+      9.333,
+      12,
+      14.667,
+      17.333,
+      20,
+      22.667
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 30,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.333,
+      6.667,
+      12,
+      17.333,
+      22.667
+    ],
+    "checked": 23,
+    "passed": 23
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

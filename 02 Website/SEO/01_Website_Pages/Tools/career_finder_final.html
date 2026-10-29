@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Discover Your Best A Level Subject Combinations | SJ Academy</title>
+  <meta name="description" content="Answer a few quick questions and discover the best A Level subject combinations, degree directions, and career clusters for you. Free tool by SJ Academy.">
+  <meta name="keywords" content="career pathway finder, A Level subject combination, which A Levels should I take, best A Level subjects for medicine, best A Level subjects for engineering, career quiz Pakistan, university subject guide, SJ Academy">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.sjacademy.pk/career-finder/">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="A Level Subject Combinations Finder | SJ Academy">
+  <meta property="og:description" content="Discover the best A Level subject combinations and career clusters for you. Free tool by SJ Academy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sjacademy.pk/career-finder/">
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "A Level Subject Combinations Finder",
+    "description": "An interactive tool to help students find the best A Level subject combinations and discover university degrees.",
+    "url": "https://www.sjacademy.pk/career-finder/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SJ Academy",
+      "url": "https://www.sjacademy.pk"
+    },
+    "applicationCategory": "EducationalApplication"
+  }
+  </script>
+
+  <!-- HTML2PDF Library for direct PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #FE6100;
+      --primary-hover: #e55800;
+      --secondary: #FCE004;
+      --dark: #0f172a;
+      --darker: #020617;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --gray: #64748b;
+      --gray-light: #e2e8f0;
+      --gray-dark: #334155;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --radius: 20px;
+      --font: 'Poppins', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: var(--font); 
+      background-color: #f1f5f9; 
+      color: var(--dark); 
+      line-height: 1.6; 
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .container { max-width: 760px; margin: 0 auto; padding: 20px; }
+
+    /* Header */
+    header { text-align: center; padding: 50px 0 40px; }
+    .sja-badge {
+      display: inline-block;
+      background-color: var(--white);
+      border: 2px solid #000;
+      border-radius: 50px;
+      padding: 5px;
+      margin-bottom: 25px;
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+    }
+    .sja-mode-pill {
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1;
+    }
+    .sja-mode-pill--career {
+      background-color: var(--secondary);
+      color: #000;
+    }
+    header h1 { 
+      font-size: 2.8rem; 
+      font-weight: 800; 
+      color: #000; 
+      margin-bottom: 20px; 
+      letter-spacing: -1px; 
+      line-height: 1.3;
+    }
+    header h1 span { 
+      background: linear-gradient(120deg, var(--secondary) 0%, var(--secondary) 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 35%;
+      background-position: 0 85%;
+      display: inline;
+      color: #000;
+      padding: 0 3px;
+    }
+    header p { 
+      font-size: 1.1rem; 
+      color: var(--gray-dark); 
+      max-width: 650px; 
+      margin: 0 auto; 
+      font-weight: 400;
+    }
+
+    /* Progress */
+    .progress-container { margin: 0 auto 30px; max-width: 400px; }
+    .progress-bar { 
+      background-color: var(--gray-light); 
+      height: 10px; 
+      border-radius: 10px; 
+      overflow: hidden; 
+    }
+    .progress-fill { 
+      background-color: var(--primary); 
+      height: 100%; 
+      width: 0%; 
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+      border-radius: 10px;
+    }
+    .progress-text { 
+      text-align: center; 
+      font-size: 0.85rem; 
+      font-weight: 600; 
+      color: var(--gray); 
+      margin-top: 10px; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+    }
+
+    /* Card Layout */
+    .card { 
+      background: var(--white); 
+      border-radius: 24px; 
+      padding: 40px; 
+      box-shadow: var(--shadow-lg); 
+      margin-bottom: 24px; 
+      border: 1px solid rgba(0,0,0,0.03); 
+      animation: slideUp 0.4s ease-out forwards;
+    }
+    
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card h2 { 
+      font-size: 1.6rem; 
+      font-weight: 700; 
+      margin-bottom: 12px; 
+      color: var(--darker); 
+      letter-spacing: -0.5px;
+      text-align: center;
+    }
+    .card p.desc { 
+      color: var(--gray-dark); 
+      margin-bottom: 30px; 
+      font-size: 1rem; 
+      text-align: center;
+    }
+
+    /* Options */
+    .options-grid { display: grid; gap: 14px; }
+    .options-grid.cols-2 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .option { 
+      background: var(--white); 
+      border: 2px solid var(--gray-light); 
+      border-radius: 16px; 
+      padding: 16px 20px; 
+      cursor: pointer; 
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 600; 
+      font-size: 0.95rem; 
+      display: flex; 
+      align-items: center; 
+      gap: 14px;
+      color: var(--gray-dark);
+    }
+    .option:hover { 
+      border-color: var(--primary); 
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .option.selected { 
+      border-color: var(--primary); 
+      background-color: #FFF7F2; 
+      color: var(--primary); 
+    }
+    
+    .check { 
+      width: 24px; 
+      height: 24px; 
+      border: 2px solid var(--gray-light); 
+      border-radius: 6px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      flex-shrink: 0; 
+      transition: all 0.2s; 
+      background: var(--white);
+    }
+    .check::after { 
+      content: ''; 
+      width: 12px; 
+      height: 12px; 
+      background: white; 
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%); 
+      display: none; 
+    }
+    .option.selected .check { 
+      background-color: var(--primary); 
+      border-color: var(--primary); 
+    }
+    .option.selected .check::after { display: block; }
+
+    .option.pill { 
+      padding: 14px 20px; 
+      border-radius: 100px; 
+      text-align: center; 
+      justify-content: center; 
+    }
+    .option.pill .check { display: none; }
+
+    /* Grouped Options */
+    .opt-group { margin-bottom: 30px; }
+    .opt-group h3 { 
+      font-size: 0.9rem; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      color: var(--gray); 
+      margin-bottom: 16px; 
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Navigation */
+    .nav-buttons { 
+      display: flex; 
+      gap: 16px; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-top: 32px; 
+      padding-top: 24px; 
+    }
+    .btn { 
+      font-family: var(--font); 
+      font-weight: 700; 
+      font-size: 1.05rem; 
+      padding: 16px 32px; 
+      border-radius: 14px; 
+      cursor: pointer; 
+      transition: all 0.3s ease; 
+      border: none; 
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.3px;
+    }
+    .btn-primary { 
+      background: var(--primary); 
+      color: white; 
+      box-shadow: 0 4px 14px 0 rgba(254, 97, 0, 0.39);
+    }
+    .btn-primary:hover:not(:disabled) { 
+      background: var(--primary-hover); 
+      transform: translateY(-2px); 
+      box-shadow: 0 6px 20px rgba(254, 97, 0, 0.23); 
+    }
+    .btn-outline { 
+      background: white; 
+      color: var(--gray-dark); 
+      border: 2px solid var(--gray-light); 
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-outline:hover:not(:disabled) { 
+      border-color: var(--gray); 
+      color: var(--dark); 
+    }
+    .btn:disabled { 
+      opacity: 0.5; 
+      cursor: not-allowed; 
+      box-shadow: none;
+    }
+
+    /* Results */
+    #results-view { display: none; }
+    .result-header { text-align: center; margin-bottom: 40px; }
+    .result-header h2 { 
+      font-size: 2.2rem; 
+      font-weight: 800; 
+      margin-bottom: 12px; 
+      color: var(--darker);
+      letter-spacing: -1px;
+    }
+    .result-header p {
+      font-size: 1.1rem;
+      color: var(--gray-dark);
+    }
+    
+    .portfolio-card { 
+      background: white; 
+      border-radius: 24px; 
+      padding: 0; 
+      box-shadow: var(--shadow-lg); 
+      margin-bottom: 40px; 
+      border: 1px solid rgba(0,0,0,0.05); 
+      position: relative;
+    }
+    
+    .portfolio-header { 
+      background: var(--secondary); 
+      color: var(--darker); 
+      padding: 32px; 
+      border-radius: 24px 24px 0 0;
+      border-bottom: 4px solid var(--darker); 
+    }
+    .portfolio-header h3 { 
+      font-size: 1.6rem; 
+      font-weight: 800; 
+      margin: 0; 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      letter-spacing: -0.5px;
+    }
+    .badge { 
+      font-size: 0.8rem; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      background: var(--darker); 
+      color: var(--secondary); 
+      padding: 6px 16px; 
+      border-radius: 30px; 
+      font-weight: 800; 
+    }
+    
+    .portfolio-body { padding: 32px; }
+    .portfolio-blurb { 
+      margin-bottom: 24px; 
+      font-size: 1.05rem; 
+      color: var(--gray-dark); 
+      font-style: italic; 
+      line-height: 1.6; 
+      font-weight: 500;
+    }
+    
+    /* SUBJECT SWAPPING DESIGN */
+    .subjects-wrapper { 
+      background: #f8fafc; 
+      padding: 24px; 
+      border-radius: 16px; 
+      border: 1px solid var(--gray-light); 
+      margin-bottom: 24px; 
+    }
+    .subject-section { margin-bottom: 20px; }
+    .subject-section:last-child { margin-bottom: 0; }
+    .subject-section-title { 
+      font-size: 0.85rem; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      color: var(--gray); 
+      font-weight: 700; 
+      margin-bottom: 12px; 
+    }
+    
+    .subject-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+    .subj-tag { 
+      background: var(--darker); 
+      color: white; 
+      padding: 10px 18px; 
+      border-radius: 10px; 
+      font-weight: 600; 
+      font-size: 0.95rem; 
+      box-shadow: var(--shadow-sm); 
+      letter-spacing: 0.3px;
+    }
+    .subj-tag.optional { 
+      background: var(--white); 
+      color: var(--darker); 
+      border: 2px dashed #cbd5e1; 
+      box-shadow: none; 
+    }
+    
+    /* INFO GRID */
+    .info-grid { 
+      display: grid; 
+      gap: 24px; 
+    }
+    .info-group { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 8px; 
+      background: var(--white);
+    }
+    .info-label { 
+      font-size: 0.85rem; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      color: var(--gray); 
+      font-weight: 700; 
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .info-text { 
+      font-size: 1rem; 
+      color: var(--dark); 
+      font-weight: 600; 
+      line-height: 1.5;
+    }
+    
+    .warning-box { 
+      background: #FFFBEB; 
+      border-left: 5px solid var(--warning); 
+      padding: 16px 20px; 
+      margin-top: 30px; 
+      border-radius: 0 12px 12px 0; 
+      font-size: 0.95rem; 
+      color: #92400E; 
+      display: flex; 
+      gap: 16px; 
+      font-weight: 600; 
+      align-items: center;
+    }
+    
+    .danger-box {
+      background: #FEF2F2; 
+      border-left: 5px solid var(--danger); 
+      padding: 16px 20px; 
+      margin-top: 30px; 
+      border-radius: 0 12px 12px 0; 
+      font-size: 0.95rem; 
+      color: #991B1B; 
+      display: flex; 
+      gap: 16px; 
+      font-weight: 600; 
+      align-items: center;
+    }
+    
+    .warning-icon { font-size: 1.4rem; }
+
+    @media(max-width: 600px) {
+      header { padding: 30px 0 20px; }
+      header h1 { font-size: 2rem; margin-bottom: 12px; }
+      header p { font-size: 0.95rem; }
+      .card { padding: 20px; }
+      .card h2 { font-size: 1.35rem; margin-bottom: 8px; }
+      .card p.desc { font-size: 0.85rem; margin-bottom: 20px; }
+      .opt-group h3 { font-size: 0.8rem; margin-bottom: 10px; }
+      .options-grid { gap: 10px; }
+      .option { padding: 12px 14px; font-size: 0.85rem; gap: 10px; border-radius: 12px; }
+      .option.pill { padding: 12px 14px; }
+      .check { width: 20px; height: 20px; }
+      .nav-buttons { flex-direction: column-reverse; gap: 10px;}
+      #results-nav-btns { flex-direction: column; }
+      .btn { padding: 14px 20px; font-size: 0.95rem; width: 100%; text-align: center; border-radius: 12px; }
+      
+      /* Result Cards Compression */
+      .portfolio-card { margin-bottom: 16px; border-radius: 12px; }
+      .portfolio-header { padding: 14px 16px; }
+      .portfolio-header h3 { font-size: 1.15rem; flex-direction: column; align-items: flex-start; gap: 8px; }
+      .portfolio-body { padding: 16px; }
+      .portfolio-desc { font-size: 0.85rem; margin-bottom: 12px; line-height: 1.4; }
+      .subjects-section { padding: 14px; margin-bottom: 12px; border-radius: 10px; }
+      .subjects-section h4 { font-size: 0.7rem; margin-bottom: 10px; letter-spacing: 0.5px; }
+      .subject-tags { gap: 6px; }
+      .subject-tag { padding: 6px 12px; font-size: 0.8rem; border-radius: 6px; }
+    }
+    /* WPForms #7255 Styling */
+    #wpforms-7255 {
+      background: transparent !important;
+      font-family: var(--font) !important;
+      margin: 40px auto !important;
+      max-width: 760px !important;
+      box-sizing: border-box !important;
+      padding: 0 20px !important;
+    }
+    
+    #wpforms-7255 .wpforms-head-container {
+      margin-bottom: 32px !important;
+      text-align: center !important;
+    }
+    
+    #wpforms-7255 .wpforms-title {
+      font-size: 1.8rem !important;
+      font-weight: 800 !important;
+      color: var(--darker) !important;
+      margin-bottom: 12px !important;
+      letter-spacing: -0.5px !important;
+    }
+    
+    #wpforms-7255 .wpforms-description {
+      font-size: 1.05rem !important;
+      color: var(--gray-dark) !important;
+      margin-bottom: 0 !important;
+      line-height: 1.6 !important;
+    }
+    
+    #wpforms-7255 .wpforms-field-label {
+      font-weight: 700 !important;
+      color: var(--darker) !important;
+      font-size: 0.95rem !important;
+      margin-bottom: 10px !important;
+    }
+    
+    #wpforms-7255 input[type=text],
+    #wpforms-7255 input[type=email],
+    #wpforms-7255 input[type=number],
+    #wpforms-7255 input[type=tel],
+    #wpforms-7255 textarea {
+      font-family: var(--font) !important;
+      border: 2px solid var(--gray-light) !important;
+      border-radius: 12px !important;
+      padding: 14px 16px !important;
+      font-size: 1rem !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      color: var(--dark) !important;
+      transition: all 0.2s ease !important;
+      background: var(--white) !important;
+    }
+    
+    #wpforms-7255 input[type=text]:focus,
+    #wpforms-7255 input[type=email]:focus,
+    #wpforms-7255 input[type=number]:focus,
+    #wpforms-7255 input[type=tel]:focus,
+    #wpforms-7255 textarea:focus {
+      border-color: var(--primary) !important;
+      outline: none !important;
+      box-shadow: 0 0 0 4px rgba(254, 97, 0, 0.15) !important;
+      background: var(--white) !important;
+    }
+    
+    #wpforms-7255 .wpforms-field-sublabel {
+      font-size: 0.8rem !important;
+      color: var(--gray) !important;
+      margin-top: 6px !important;
+      font-weight: 500 !important;
+    }
+    
+    #wpforms-7255 .wpforms-field-radio li {
+      margin-bottom: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    #wpforms-7255 .wpforms-field-radio input[type=radio] {
+      accent-color: var(--primary) !important;
+      margin-right: 12px !important;
+      width: 18px !important;
+      height: 18px !important;
+    }
+    
+    #wpforms-7255 .wpforms-submit-container {
+      margin-top: 32px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      clear: both !important;
+    }
+    
+    #wpforms-7255 .wpforms-submit-container button {
+      font-family: var(--font) !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      padding: 18px 32px !important;
+      border-radius: 14px !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      border: none !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      background: var(--primary) !important;
+      color: white !important;
+      box-shadow: 0 4px 14px 0 rgba(254, 97, 0, 0.39) !important;
+      letter-spacing: 0.3px !important;
+      text-align: center !important;
+      display: block !important;
+    }
+    
+    #wpforms-7255 .wpforms-submit-container button:hover {
+      background: var(--primary-hover) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(254, 97, 0, 0.23) !important;
+    }
+    
+    @media(max-width: 600px) {
+      #wpforms-7255 {
+        padding: 24px 16px !important;
+        margin: 20px auto !important;
+      }
+      #wpforms-7255 .wpforms-head-container { margin-bottom: 24px !important; }
+      #wpforms-7255 .wpforms-title { font-size: 1.4rem !important; margin-bottom: 8px !important; }
+      #wpforms-7255 .wpforms-description { font-size: 0.9rem !important; }
+      
+      #wpforms-7255 .wpforms-field-label { font-size: 0.85rem !important; margin-bottom: 6px !important; }
+      #wpforms-7255 input[type=text],
+      #wpforms-7255 input[type=email],
+      #wpforms-7255 input[type=number],
+      #wpforms-7255 input[type=tel],
+      #wpforms-7255 textarea {
+        padding: 12px 14px !important;
+        font-size: 0.9rem !important;
+        border-radius: 10px !important;
+      }
+      #wpforms-7255 .wpforms-field-radio li { margin-bottom: 8px !important; font-size: 0.9rem !important; }
+      #wpforms-7255 .wpforms-field-radio input[type=radio] { width: 16px !important; height: 16px !important; margin-right: 8px !important; }
+      
+      #wpforms-7255 .wpforms-submit-container button {
+        padding: 14px 24px !important;
+        font-size: 1rem !important;
+        border-radius: 12px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="sja-badge">
+        <div class="sja-mode-pill sja-mode-pill--career">
+          <span>Career Finder</span>
+        </div>
+      </div>
+      <h1>A Level <span>Subject Combinations</span></h1>
+      <p>Answer a few quick questions. We will suggest degree and career clusters plus A Level subject combinations that suit you.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="progress-container">
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-text" id="progress-text">Step 1 of 4</div>
+    </div>
+
+    <!-- Quiz View -->
+    <div id="quiz-view">
+      <div class="card" id="step-content">
+        <!-- Injected via JS -->
+      </div>
+      <div class="nav-buttons">
+        <button class="btn btn-outline" id="btn-back" onclick="goBack()" style="visibility: hidden;">Back</button>
+        <button class="btn btn-primary" id="btn-next" onclick="goNext()">Continue</button>
+      </div>
+    </div>
+
+    <!-- Results View -->
+    <div id="results-view">
+      <div class="result-header">
+        <h2>Your Custom Subject Portfolios</h2>
+        <p>Based on your strengths and goals, here are the most strategic A Level combinations for you.</p>
+      </div>
+      <div id="portfolios-container">
+        <!-- Injected via JS -->
+      </div>
+      <div class="nav-buttons" id="results-nav-btns" style="justify-content: center; flex-wrap: wrap; gap: 16px;">
+        <button class="btn btn-primary" id="pdf-btn" onclick="downloadPDF()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Save as PDF
+        </button>
+        <button class="btn btn-outline" onclick="editAnswers()">Edit Answers</button>
+        <button class="btn btn-outline" onclick="location.reload()" style="border:none; text-decoration:underline; box-shadow:none;">Start Over Completely</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+// --- DATA STRUCTURES ---
+
+const OLEVEL_SUBJECTS = {
+  "Sciences & Math": [
+    { id: "math", name: "Mathematics" },
+    { id: "addmath", name: "Add Maths" },
+    { id: "physics", name: "Physics" },
+    { id: "chemistry", name: "Chemistry" },
+    { id: "biology", name: "Biology" },
+    { id: "cs", name: "Computer Science" }
+  ],
+  "Business & Humanities": [
+    { id: "econ", name: "Economics" },
+    { id: "business", name: "Business" },
+    { id: "accounting", name: "Accounting" },
+    { id: "english", name: "English Language / Lit" },
+    { id: "history", name: "History" },
+    { id: "sociology", name: "Sociology" },
+    { id: "art", name: "Art & Design" }
+  ]
+};
+
+// Rigorous IBCC & Cambridge Compliant Portfolios
+const PORTFOLIOS = [
+  {
+    id: "med_pakistan", title: "The Pre-Medical Standard (Pakistan)",
+    core: ["Biology", "Chemistry", "Physics"],
+    options: ["Mathematics (as 4th)", "Psychology (as 4th)", "None (Keep it to 3)"],
+    tags: ["medicine"], reqs: ["biology", "chemistry", "physics"], style: "memorization",
+    degrees: "MBBS, BDS, Pharmacy",
+    unis: "Aga Khan University, NUMS, Dow, KEMU",
+    int_unis: "Recognized Globally",
+    entry_tests: "MDCAT, AKU Entry Test, NUMS",
+    blurb: "CRITICAL: The IBCC strictly requires Physics, Chemistry, and Biology to grant Pre-Medical equivalence in Pakistan. Do not drop Physics if you want to be a doctor in Pakistan."
+  },
+  {
+    id: "med_international", title: "The Bio-Medical Route (International)",
+    core: ["Biology", "Chemistry"],
+    options: ["Mathematics", "Psychology", "Computer Science"],
+    tags: ["medicine", "science"], reqs: ["biology", "chemistry"], style: "memorization",
+    degrees: "Medicine (UK/US), Biomedical Sciences, Genetics, Bioinformatics",
+    unis: "NUST (Applied Biosciences), LUMS (SBASSE - Biology)",
+    int_unis: "Oxford (UK), Johns Hopkins (US), NUS (Singapore)",
+    entry_tests: "BMAT/UCAT (UK), NUST NET (Applied Biosciences)",
+    blurb: "Perfect for students planning to study Medicine or Bio-sciences abroad. Note: This will NOT get you Pre-Medical equivalence in Pakistan without Physics."
+  },
+  {
+    id: "eng_core", title: "The Pre-Engineering Standard",
+    core: ["Mathematics", "Physics", "Chemistry"],
+    options: ["Further Mathematics (as 4th)", "Computer Science (as 4th)", "None (Keep it to 3)"],
+    tags: ["engineering"], reqs: ["math", "physics", "chemistry"], style: "logic",
+    degrees: "Mechanical, Civil, Chemical, Electrical, and Aerospace Engineering",
+    unis: "NUST, UET, GIKI, PIEAS, NED",
+    int_unis: "MIT (US), Cambridge (UK), Stanford (US)",
+    entry_tests: "ECAT, NUST NET (Engineering), PIEAS Entry Test",
+    blurb: "The classic combination. The IBCC strictly requires Math, Physics, and Chemistry for traditional Pre-Engineering equivalence in Pakistan."
+  },
+  {
+    id: "tech_innovator", title: "The ICS / Software Route",
+    core: ["Mathematics", "Physics", "Computer Science"],
+    options: ["Further Mathematics (as 4th)", "Economics (as 4th)", "None (Keep it to 3)"],
+    tags: ["engineering", "cs"], reqs: ["math", "physics"], style: "logic",
+    degrees: "Computer Science, Software Engineering, AI, Data Science",
+    unis: "FAST, NUST (SEECS), LUMS, GIKI, ITU",
+    int_unis: "Carnegie Mellon (US), Stanford (US), Oxford (UK)",
+    entry_tests: "FAST NU Test, NUST NET (CS), ECAT (ICS Group)",
+    blurb: "Perfect for the digital age. IBCC grants ICS equivalence for this, allowing you to apply for all elite Software Engineering and CS programs."
+  },
+  {
+    id: "biz_finance", title: "The High Finance & Data Track",
+    core: ["Mathematics", "Economics"],
+    options: ["Accounting", "Computer Science", "Further Mathematics"],
+    tags: ["business", "undecided"], reqs: ["math"], style: "systems",
+    degrees: "Finance, Actuarial Science, Accounting (CA/ACCA), Data Science, Economics",
+    unis: "IBA, LUMS (SDSB), LSE, NUST (NBS)",
+    int_unis: "LSE (UK), Wharton (US), Bocconi (Italy)",
+    entry_tests: "LUMS LCAT, IBA Aptitude Test, NUST NET (Business)",
+    blurb: "Mathematics is the undisputed king for elite business, finance, and actuarial degrees. This combo signals high analytical capability."
+  },
+  {
+    id: "biz_management", title: "The Corporate Business Route",
+    core: ["Business", "Economics", "Accounting"],
+    options: ["Mathematics", "Sociology", "Law"],
+    tags: ["business"], reqs: [], style: "systems",
+    degrees: "Business Administration (BBA), Marketing, Management, HR, CA, ACCA",
+    unis: "IBA, LUMS, LSE, SZABIST, CBM",
+    int_unis: "Harvard (US), INSEAD (France), London Business School (UK)",
+    entry_tests: "IBA Aptitude Test, LUMS LCAT",
+    blurb: "A pure commerce approach. Highly applicable for understanding global markets, corporate structures, and organizational behavior."
+  },
+  {
+    id: "law_policy", title: "The Law, Humanities & Policy Route",
+    core: ["History", "English Literature"],
+    options: ["Sociology", "Economics", "Law"],
+    tags: ["law", "undecided"], reqs: [], style: "essays",
+    degrees: "Law (LLB), International Relations, Public Policy, Humanities, Journalism",
+    unis: "LUMS, IBA, QAU, SZABIST, L'ecole",
+    int_unis: "Oxford (UK), Harvard (US), Yale (US)",
+    entry_tests: "LAT (Law Admission Test), LUMS LCAT",
+    blurb: "Elite essay-based subjects that develop the intense critical thinking, reading comprehension, and argumentation skills required for Law and Policy."
+  },
+  {
+    id: "architecture", title: "The Architect",
+    core: ["Mathematics", "Physics", "Art & Design"],
+    options: ["Computer Science (as 4th)", "Geography (as 4th)", "None (Keep it to 3)"],
+    tags: ["creative", "engineering"], reqs: ["math", "physics"], style: "projects",
+    degrees: "Architecture, Urban Design, Industrial Design",
+    unis: "NCA, UET, NED, IVS",
+    int_unis: "UCL (UK), MIT (US), TU Delft (Netherlands)",
+    entry_tests: "NCA Architecture Test, ECAT (Architecture)",
+    blurb: "The rare, highly sought-after blend of mathematical physics and creative spatial design. A portfolio is often required."
+  }
+];
+
+// --- APP STATE & LOGIC ---
+
+let state = {
+  step: 0,
+  strong_subjects: [],
+  assessment_style: null,
+  directions: [],
+  dealbreakers: []
+};
+
+function setVal(key, val, el) {
+  state[key] = val;
+  if (el) {
+    let parent = el.closest('.options-grid');
+    parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('btn-next').disabled = !STEPS[state.step].validate();
+  } else {
+    renderStep();
+  }
+}
+
+function toggleArray(key, val, el) {
+  let arr = state[key];
+  if(arr.includes(val)) {
+    state[key] = arr.filter(x => x !== val);
+    if(el) el.classList.remove('selected');
+  } else {
+    state[key].push(val);
+    if(el) el.classList.add('selected');
+  }
+  if(el) {
+    document.getElementById('btn-next').disabled = !STEPS[state.step].validate();
+  } else {
+    renderStep();
+  }
+}
+
+function toggleDirection(val, el) {
+  if (val === 'undecided') {
+    state.directions = ['undecided'];
+    if(el) {
+      let parent = el.closest('.options-grid');
+      parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+  } else {
+    state.directions = state.directions.filter(x => x !== 'undecided');
+    if(el) {
+      let parent = el.closest('.options-grid');
+      parent.querySelectorAll('.option').forEach(opt => {
+        if(opt.innerText.includes('I have no idea')) opt.classList.remove('selected');
+      });
+    }
+    
+    if(state.directions.includes(val)) {
+      state.directions = state.directions.filter(x => x !== val);
+      if(el) el.classList.remove('selected');
+    } else {
+      if(state.directions.length < 2) {
+        state.directions.push(val);
+        if(el) el.classList.add('selected');
+      } else {
+        return;
+      }
+    }
+  }
+  if(el) {
+    document.getElementById('btn-next').disabled = !STEPS[state.step].validate();
+  } else {
+    renderStep();
+  }
+}
+
+const STEPS = [
+  {
+    title: "Your Strongest Subjects",
+    desc: "Which O-Level subjects do you genuinely enjoy and expect strong grades in? <br><br><span style='font-size:0.85rem; color:var(--gray);'>(If your grades were lower, select the ones you are willing to work hardest at).</span>",
+    render: () => {
+      let html = '';
+      for (const [category, subjects] of Object.entries(OLEVEL_SUBJECTS)) {
+        html += `<div class="opt-group"><h3>${category}</h3><div class="options-grid cols-2">`;
+        subjects.forEach(sub => {
+          let sel = state.strong_subjects.includes(sub.id) ? 'selected' : '';
+          html += `<div class="option pill ${sel}" onclick="toggleArray('strong_subjects', '${sub.id}', this)">${sub.name}</div>`;
+        });
+        html += `</div></div>`;
+      }
+      return html;
+    },
+    validate: () => state.strong_subjects.length > 0,
+    error: "Please select at least one strong O-Level subject."
+  },
+  {
+    title: "The Reality Check",
+    desc: "Loving O-Level History doesn't mean you'll love writing 3-hour essays at A-Level. Where do your natural testing strengths lie?",
+    render: () => {
+      const styles = [
+        { id: "logic", text: "Solving complex math and logical equations (Math, Physics, CS)" },
+        { id: "essays", text: "Writing well-structured, analytical essays (English, History, Law)" },
+        { id: "memorization", text: "Understanding & memorizing deep scientific concepts (Bio, Chem)" },
+        { id: "systems", text: "Analyzing real-world businesses & economies (Econ, Business, Acc)" },
+        { id: "projects", text: "Creating portfolios, artwork, or coursework projects (Art, Media)" }
+      ];
+      return `<div class="options-grid">` + styles.map(s => `
+        <div class="option ${state.assessment_style === s.id ? 'selected' : ''}" onclick="setVal('assessment_style', '${s.id}', this)">
+          <div class="check"></div><span>${s.text}</span>
+        </div>
+      `).join('') + `</div>`;
+    },
+    validate: () => !!state.assessment_style,
+    error: "Please select your preferred assessment style."
+  },
+  {
+    title: "The Compass: Your Direction",
+    desc: "Where do you see yourself heading after A-Levels? (Select up to 2, or choose Undecided)",
+    render: () => {
+      const dirs = [
+        { id: "medicine", text: "🩺 Medicine & Healthcare" },
+        { id: "engineering", text: "⚙️ Engineering & Technology" },
+        { id: "cs", text: "💻 Computer Science & AI" },
+        { id: "business", text: "📈 Business, Finance & Accounting" },
+        { id: "law", text: "⚖️ Law, Policy & Social Sciences" },
+        { id: "creative", text: "🎨 Creative Arts & Architecture" },
+        { id: "undecided", text: "🤷 I have no idea. Keep my options as wide open as possible!" }
+      ];
+      return `<div class="options-grid">` + dirs.map(d => {
+        let sel = state.directions.includes(d.id) ? 'selected' : '';
+        return `
+          <div class="option ${sel}" onclick="toggleDirection('${d.id}', this)">
+            <div class="check"></div><span>${d.text}</span>
+          </div>`;
+      }).join('') + `</div>`;
+    },
+    validate: () => state.directions.length > 0,
+    error: "Please select a direction or choose Undecided."
+  },
+  {
+    title: "The Filter: Dealbreakers",
+    desc: "Are there any subjects you absolutely REFUSE to take at A-Level? (We will filter these out).",
+    render: () => {
+      const bans = [
+        { id: "biology", text: "No Biology" },
+        { id: "chemistry", text: "No Chemistry" },
+        { id: "physics", text: "No Physics" },
+        { id: "math", text: "No Mathematics" },
+        { id: "essay", text: "No Heavy Essay Subjects (History/Sociology)" }
+      ];
+      return `<div class="options-grid cols-2">` + bans.map(b => {
+        let sel = state.dealbreakers.includes(b.id) ? 'selected' : '';
+        return `
+          <div class="option pill ${sel}" onclick="toggleArray('dealbreakers', '${b.id}', this)">
+            ${b.text}
+          </div>`;
+      }).join('') + `</div><p style="margin-top:20px; font-size:0.95rem; color:var(--gray); text-align:center;">(You can leave this blank if you are open to anything)</p>`;
+    },
+    validate: () => true,
+    error: ""
+  }
+];
+
+// --- CORE FUNCTIONS ---
+
+function renderStep() {
+  const stepData = STEPS[state.step];
+  
+  // Progress
+  const pct = ((state.step) / STEPS.length) * 100;
+  document.getElementById('progress-fill').style.width = `${pct}%`;
+  document.getElementById('progress-text').innerText = `Step ${state.step + 1} of ${STEPS.length}`;
+
+  // Content
+  document.getElementById('step-content').innerHTML = `
+    <h2>${stepData.title}</h2>
+    <p class="desc">${stepData.desc}</p>
+    ${stepData.render()}
+  `;
+
+  // Buttons
+  document.getElementById('btn-back').style.visibility = state.step > 0 ? 'visible' : 'hidden';
+  document.getElementById('btn-next').innerText = state.step === STEPS.length - 1 ? 'Build My Portfolio' : 'Continue';
+  
+  // Validate button state
+  document.getElementById('btn-next').disabled = !stepData.validate();
+}
+
+function goNext() {
+  if (state.step < STEPS.length - 1) {
+    state.step++;
+    renderStep();
+    window.scrollTo({ top: document.querySelector('.card').offsetTop - 50, behavior: 'smooth' });
+  } else {
+    generateResults();
+    window.scrollTo({ top: document.querySelector('.card').offsetTop - 50, behavior: 'smooth' });
+  }
+}
+
+function goBack() {
+  if (state.step > 0) {
+    state.step--;
+    renderStep();
+    window.scrollTo({ top: document.querySelector('.card').offsetTop - 50, behavior: 'smooth' });
+  }
+}
+
+function editAnswers() {
+  document.getElementById('results-view').style.display = 'none';
+  document.querySelector('.progress-container').style.display = 'block';
+  document.getElementById('quiz-view').style.display = 'block';
+  renderStep();
+}
+
+// --- RECOMMENDATION ENGINE ---
+
+function generateResults() {
+  document.getElementById('quiz-view').style.display = 'none';
+  document.querySelector('.progress-container').style.display = 'none';
+  document.getElementById('results-view').style.display = 'block';
+  document.getElementById('progress-fill').style.width = '100%';
+
+  let scoredPortfolios = PORTFOLIOS.map(p => {
+    let score = 0;
+    let isValid = true;
+    let warnings = [];
+
+    // 1. Check Dealbreakers (Bans)
+    p.core.forEach(sub => {
+      let s = sub.toLowerCase();
+      if (state.dealbreakers.includes("biology") && s.includes("biology")) isValid = false;
+      if (state.dealbreakers.includes("chemistry") && s.includes("chemistry")) isValid = false;
+      if (state.dealbreakers.includes("physics") && s.includes("physics")) isValid = false;
+      if (state.dealbreakers.includes("math") && s.includes("math")) isValid = false;
+      if (state.dealbreakers.includes("essay") && (s.includes("history") || s.includes("sociology") || s.includes("literature"))) isValid = false;
+    });
+    
+    let safeOptions = p.options.filter(sub => {
+      let s = sub.toLowerCase();
+      if (state.dealbreakers.includes("biology") && s.includes("biology")) return false;
+      if (state.dealbreakers.includes("chemistry") && s.includes("chemistry")) return false;
+      if (state.dealbreakers.includes("physics") && s.includes("physics")) return false;
+      if (state.dealbreakers.includes("math") && s.includes("math")) return false;
+      if (state.dealbreakers.includes("essay") && (s.includes("history") || s.includes("sociology") || s.includes("literature"))) return false;
+      return true;
+    });
+
+    if (!isValid) return { ...p, score: -1, warnings: [] };
+
+    // 2. Score Directions
+    let directionMatch = false;
+    state.directions.forEach(dir => {
+      if (p.tags.includes(dir)) {
+        score += 10;
+        directionMatch = true;
+      }
+    });
+    
+    if (!directionMatch && !state.directions.includes("undecided")) {
+      score -= 20; 
+    }
+
+    // 3. Score Assessment Style
+    if (p.style === state.assessment_style) score += 5;
+
+    // 4. Validate against Strong Subjects (The reality check)
+    p.reqs.forEach(req => {
+      if (!state.strong_subjects.includes(req)) {
+        score -= 2; // Slight penalty
+        let name = req.charAt(0).toUpperCase() + req.slice(1);
+        if (req === 'cs') name = "Computer Science";
+        
+        // Differentiate styling for CRITICAL missing subjects vs normal ones
+        if(p.id === 'med_pakistan' || p.id === 'eng_core') {
+            warnings.push(`<div class="danger-box">
+              <div class="warning-icon">⛔</div>
+              <div><strong>Critical IBCC Warning:</strong> You didn't list O-Level <strong>${name}</strong> as a strength. IBCC strictly requires this subject for equivalence in this field. You MUST take it at A-Level and work extremely hard to catch up.</div>
+            </div>`);
+        } else {
+            warnings.push(`<div class="warning-box">
+              <div class="warning-icon">⚠️</div>
+              <div>You didn't list O-Level <strong>${name}</strong> as a strength. This core combination requires it, so you will need to put in extra effort to catch up!</div>
+            </div>`);
+        }
+      }
+    });
+
+    return { ...p, score, warnings, safeOptions };
+  });
+
+  let finalOptions = scoredPortfolios
+    .filter(p => p.score >= 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3); // Top 3
+
+  const container = document.getElementById('portfolios-container');
+  
+  if (finalOptions.length === 0) {
+    container.innerHTML = `<div class="card" style="text-align:center; padding: 40px;">
+      <h2>No exact matches found!</h2>
+      <p class="desc">Your dealbreakers filtered out all available combinations for your chosen career path. Try relaxing your constraints.</p>
+    </div>`;
+    return;
+  }
+
+  container.innerHTML = finalOptions.map((p, index) => {
+    let warningHtml = p.warnings.join('');
+
+    return `
+      <div class="portfolio-card">
+        <div class="portfolio-header">
+          <h3>${p.title} ${index === 0 ? '<span class="badge">Top Match</span>' : ''}</h3>
+        </div>
+        <div class="portfolio-body">
+          <p class="portfolio-blurb">"${p.blurb}"</p>
+          
+          <div class="subjects-wrapper">
+            <div class="subject-section">
+              <div class="subject-section-title">Core Subjects (Required)</div>
+              <div class="subject-tags">
+                ${p.core.map(sub => `<span class="subj-tag">${sub}</span>`).join('')}
+              </div>
+            </div>
+            
+            ${p.safeOptions && p.safeOptions.length > 0 ? `
+            <div class="subject-section">
+              <div class="subject-section-title">Optional (Choose 1 or none)</div>
+              <div class="subject-tags">
+                ${p.safeOptions.map(sub => `<span class="subj-tag optional">${sub}</span>`).join('')}
+              </div>
+            </div>
+            ` : ''}
+          </div>
+
+          <hr style="border: 0; border-top: 1px solid var(--gray-light); margin: 24px 0;">
+
+          <div class="info-grid">
+            <div class="info-group">
+              <div class="info-label">🎓 Doors This Opens</div>
+              <div class="info-text">${p.degrees}</div>
+            </div>
+            
+            <div class="info-group">
+              <div class="info-label">🎯 Target Entry Tests</div>
+              <div class="info-text" style="color: var(--primary);">${p.entry_tests}</div>
+            </div>
+            
+            <div class="info-group">
+              <div class="info-label">🇵🇰 Top Pakistani Universities</div>
+              <div class="info-text">${p.unis}</div>
+            </div>
+
+            <div class="info-group">
+              <div class="info-label">🌎 Top International Universities</div>
+              <div class="info-text">${p.int_unis}</div>
+            </div>
+          </div>
+
+          ${warningHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// --- DIRECT PDF DOWNLOAD FUNCTION ---
+function downloadPDF() {
+  const btn = document.getElementById('pdf-btn');
+  btn.innerText = 'Generating PDF...';
+  btn.disabled = true;
+
+  // IMPORTANT: Scroll to top before capturing to prevent blank pages bug in html2canvas
+  window.scrollTo(0, 0);
+
+  const resultsView = document.getElementById('results-view');
+  const navBtns = document.getElementById('results-nav-btns');
+  
+  // Hide navigation buttons from the PDF
+  navBtns.style.display = 'none';
+
+  // 1. Inject Header
+  const header = document.createElement('div');
+  header.id = 'pdf-header';
+  header.innerHTML = `
+    <div style="text-align:center; margin-bottom:40px; padding-bottom:20px; border-bottom:4px solid var(--secondary);">
+      <!-- REPLACE THE H1 BELOW WITH YOUR IMAGE LOGO if desired: <img src="URL" alt="SJ Academy" style="height:60px;"> -->
+      <h1 style="font-size:36px; font-weight:900; color:var(--darker); margin:0;">SJ Academy</h1>
+      <p style="font-size:14px; color:var(--gray-dark); margin-top:5px; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Custom A Level Pathway Plan | www.sjacademy.pk</p>
+    </div>
+  `;
+  resultsView.insertBefore(header, resultsView.firstChild);
+
+  // 2. Inject Ogilvy-Style Minimalist Text CTA
+  const footer = document.createElement('div');
+  footer.id = 'pdf-footer';
+  footer.innerHTML = `
+    <div style="text-align: center; font-family: 'Poppins', sans-serif; color: #111; margin-top: 60px; padding: 20px; background: white; page-break-inside: avoid;">
+      <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 20px;">📚 SJ Academy: Your Competitive Edge</h2>
+      
+      <p style="font-size: 15px; margin-bottom: 20px;">You've just discovered your perfect A Level pathway.</p>
+      
+      <p style="font-size: 15px; margin-bottom: 20px;"><strong>Now stop.</strong></p>
+      
+      <p style="font-size: 15px; margin-bottom: 20px; line-height: 1.6;">Picking the right subjects won't save you.<br>
+      A Levels aren't a vocabulary test. It's a battlefield of concepts, application, and strategy.<br>
+      The students who walk into the exam hall without flinching? They don't just know the theory. They know how to use it.</p>
+      
+      <p style="font-size: 15px; margin-bottom: 20px;">That's where we come in.</p>
+      
+      <p style="font-size: 15px; margin-bottom: 20px; line-height: 1.6;">SJ Academy doesn't teach you to repeat. We teach you to conquer.<br>
+      We turn Cambridge A Levels from a dense textbook into a surgical tool. No fluff. No noise. Just the clarity, the frameworks, and the exam-sharp tactics that push you from "almost there" to A*.</p>
+      
+      <p style="font-size: 15px; margin-bottom: 20px;">You want to secure your future and get into your dream university.</p>
+      
+      <p style="font-size: 15px; margin-bottom: 30px;">We want that too.</p>
+      
+      <p style="font-size: 16px; font-weight: 700; margin-bottom: 20px;">✅ Book your free consultation & get the A* advantage:</p>
+      
+      <div style="font-size: 15px; display: inline-block; text-align: left; font-weight: 600; line-height: 2.2;">
+        <div>📞 WhatsApp: <a href="https://wa.me/923362144454" style="color: #0056b3; text-decoration: none;" target="_blank">+92 336 2144454</a></div>
+        <div>📸 Instagram: <a href="https://instagram.com/sjacademypk" style="color: #0056b3; text-decoration: none;" target="_blank">@sjacademypk</a></div>
+        <div>🌐 Website: <a href="https://www.sjacademy.pk" style="color: #0056b3; text-decoration: none;" target="_blank">www.sjacademy.pk</a></div>
+        <div>▶️ YouTube: <a href="https://www.youtube.com/@sjacademypk" style="color: #0056b3; text-decoration: none;" target="_blank">SJ Academy Channel</a></div>
+      </div>
+    </div>
+  `;
+  resultsView.appendChild(footer);
+
+  // Prevent cards from breaking awkwardly across PDF pages
+  const cards = document.querySelectorAll('.portfolio-card');
+  cards.forEach(card => card.style.pageBreakInside = 'avoid');
+
+  // html2pdf options (enableLinks ensures <a href> tags in HTML remain clickable in the final PDF)
+  const opt = {
+    margin:       15,
+    filename:     'SJ_Academy_ALevel_Plan.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true, scrollY: 0 }, 
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    enableLinks:  true 
+  };
+
+  // Generate and Download
+  html2pdf().set(opt).from(resultsView).save().then(() => {
+    // Clean up DOM after PDF generation
+    header.remove();
+    footer.remove();
+    navBtns.style.display = 'flex';
+    btn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      Save as PDF
+    `;
+    btn.disabled = false;
+  });
+}
+
+// Initialize
+renderStep();
+</script>
+</body>
+</html>

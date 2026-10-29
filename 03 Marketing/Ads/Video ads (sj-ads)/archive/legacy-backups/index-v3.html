@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>SJ Academy, May/June 2027</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+@font-face { font-family: "Poppins"; font-weight: 400; src: url("assets/fonts/Poppins-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Poppins"; font-weight: 500; src: url("assets/fonts/Poppins-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Poppins"; font-weight: 600; src: url("assets/fonts/Poppins-SemiBold.ttf") format("truetype"); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background-color: #F7F5EF; font-family: "Poppins", sans-serif; color: #2B2B2B; -webkit-font-smoothing: antialiased; }
+#root { position: relative; width: 100%; height: 100%; overflow: hidden; background-color: #F7F5EF; }
+.dots { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background-color: #F7F5EF;
+  background-image: radial-gradient(#DAD4C3 2.2px, rgba(218,212,195,0) 2.4px); background-size: 44px 44px; background-position: 22px 22px; }
+.clip { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+.abs { position: absolute; }
+.h1 { font-weight: 600; font-size: 132px; line-height: 1.05; letter-spacing: -0.03em; color: #151515; }
+.sub { font-weight: 500; font-size: 44px; line-height: 1.3; letter-spacing: -0.01em; color: #151515; }
+.ln { display: block; overflow: hidden; padding-bottom: 0.12em; margin-bottom: -0.12em; white-space: nowrap; }
+.w { display: inline-block; }
+.hl { position: relative; display: inline-block; }
+.hl .bg { position: absolute; left: -0.08em; right: -0.08em; top: 0.16em; bottom: -0.02em; background-color: #FCE004; transform-origin: 0% 50%; }
+.hl .tx { position: relative; }
+svg.tk path, svg.pen path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+svg.tk, svg.pen { opacity: 0; }
+
+/* persistent kicker pill (top right) */
+#pill { position: absolute; right: 96px; top: 132px; height: 76px; padding: 0 30px; border: 3px solid #151515; border-radius: 999px;
+  background-color: #FFFFFF; box-shadow: 6px 6px 0 rgba(0,0,0,0.14); display: flex; align-items: center; z-index: 50;
+  font-weight: 500; font-size: 28px; letter-spacing: 0.05em; text-transform: uppercase; color: #151515; white-space: nowrap; }
+.logo { position: absolute; left: 96px; top: 136px; }
+
+/* S1 hook */
+#s1 .h1 { left: 96px; top: 520px; }
+
+/* S2 method: exam paper */
+#s2 .lab { left: 96px; top: 330px; }
+#s2 .paper { left: 96px; top: 420px; width: 888px; height: 900px; background-color: #FFFEF9; border-radius: 8px; box-shadow: 0 28px 68px rgba(0,0,0,0.18); overflow: hidden; }
+#s2 .paper .mline { position: absolute; left: 72px; top: 0; width: 3px; height: 900px; background-color: #E9A29C; }
+#s2 .pq { position: absolute; left: 104px; top: 40px; width: 740px; color: #111111; font-size: 38px; line-height: 1.38; font-weight: 400; }
+#s2 .pq small { display: block; font-size: 36px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #5E5E5E; margin-bottom: 10px; }
+#s2 .rule { position: absolute; left: 0; top: 268px; width: 888px; height: 3px; background-color: #1B2A4A; }
+#s2 .ruled { position: absolute; left: 0; top: 271px; width: 888px; height: 860px; background-image: repeating-linear-gradient(rgba(216,226,238,0) 0px, rgba(216,226,238,0) 70px, #D8E2EE 70px, #D8E2EE 72px); }
+#s2 .ans { position: absolute; left: 104px; top: 286px; width: 760px; color: #1B2A4A; font-size: 40px; line-height: 72px; }
+#s2 .ans .al { display: block; white-space: nowrap; position: relative; }
+#s2 .mark { position: absolute; right: 48px; top: 292px; color: #B92F25; font-size: 64px; font-weight: 500; line-height: 1; }
+#s2 .mnote { position: absolute; left: 104px; top: 528px; border-left: 5px solid #D63A2F; padding: 4px 0 4px 26px; color: #B92F25; font-size: 40px; font-weight: 500; line-height: 1.25; }
+#s2 .rt { display: inline-block; width: 52px; height: 52px; vertical-align: -10px; margin-left: 6px; }
+#s2 .stamp { position: absolute; left: 604px; top: 620px; width: 236px; height: 236px; border: 6px solid #D63A2F; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: #B92F25; font-size: 78px; font-weight: 500; letter-spacing: -0.02em; }
+
+/* website screens */
+.screen { position: absolute; left: 130px; width: 820px; border-radius: 40px; overflow: hidden; background-color: #FFFFFF; box-shadow: 0 28px 68px rgba(0,0,0,0.18); }
+.screen .pic { position: absolute; left: 0; top: 0; }
+.tap { position: absolute; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; background-color: rgba(21,21,21,0.18); border: 3px solid rgba(21,21,21,0.35); opacity: 0; }
+#s3 .screen { top: 320px; height: 1314px; }
+#s6 .screen { top: 336px; height: 1325px; }
+#s6 .lab { left: 96px; top: 252px; }
+
+/* notebook (O Level / A Level) */
+.nb { position: absolute; left: 96px; top: 360px; width: 888px; height: 1150px; transform-origin: 0px 50%; }
+.tabs { position: absolute; left: 24px; top: 0; display: flex; gap: 8px; }
+.tab { height: 92px; padding: 0 40px; display: flex; align-items: center; border: 3px solid #151515; border-bottom: 0; border-radius: 24px 24px 0 0; background-color: #E9DFC9; color: #151515; font-size: 38px; font-weight: 400; }
+.tab.sel { background-color: #FFFFFF; font-weight: 500; box-shadow: inset 0 8px 0 #FCE004; }
+.page { position: absolute; left: 0; top: 89px; width: 888px; height: 930px; border: 3px solid #151515; border-radius: 0 24px 24px 24px; background-color: #FFFFFF;
+  background-image: repeating-linear-gradient(rgba(226,221,208,0) 0px, rgba(226,221,208,0) 80px, #E2DDD0 80px, #E2DDD0 82px); background-position: 0 6px; box-shadow: 0 28px 68px rgba(0,0,0,0.18); }
+.page .h1 { position: absolute; left: 56px; top: 50px; font-size: 140px; }
+.page .plab { position: absolute; left: 56px; top: 236px; color: #2B2B2B; }
+.page .list { position: absolute; left: 0; top: 400px; width: 888px; }
+.it { position: absolute; height: 82px; display: flex; align-items: center; gap: 18px; }
+.it svg { width: 44px; height: 44px; flex: none; }
+.it .wr { display: block; font-size: 38px; font-weight: 400; color: #2B2B2B; white-space: nowrap; }
+#s5 .list { top: 400px; }
+#s4, #s5 { perspective: 2600px; }
+
+/* S7 proof: the one brown band */
+#s7 .band { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background-color: #453516; }
+#s7 .num { position: absolute; left: 96px; color: #FFFFFF; font-size: 150px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap; }
+#s7 .nl { position: absolute; left: 96px; color: #EDE6D3; font-size: 44px; font-weight: 500; }
+#s7 .circ { position: absolute; left: 62px; top: 524px; width: 470px; height: 230px; }
+#s7 .hr { position: absolute; left: 96px; top: 1226px; width: 888px; height: 3px; background-color: rgba(237,230,211,0.35); transform-origin: 0% 50%; }
+#s7 .fact { position: absolute; left: 96px; color: #EDE6D3; font-size: 44px; font-weight: 500; line-height: 1.3; }
+
+/* S8 close: the one yellow band */
+#s8 .band { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background-color: #FCE004;
+  background-image: radial-gradient(rgba(0,0,0,0.12) 2.2px, rgba(0,0,0,0) 2.4px); background-size: 44px 44px; background-position: 22px 22px; }
+#s8 .yl { position: absolute; left: 96px; top: 136px; }
+#s8 .line { position: absolute; left: 96px; top: 600px; font-size: 92px; font-weight: 500; line-height: 1.08; letter-spacing: -0.025em; color: #151515; }
+#s8 .btn { position: absolute; left: 96px; top: 900px; height: 128px; padding: 0 56px; border: 3px solid #151515; border-radius: 24px; background-color: #CC4A00;
+  box-shadow: 8px 8px 0 #151515; display: flex; align-items: center; color: #FFFFFF; font-size: 48px; font-weight: 500; white-space: nowrap; }
+#s8 .url { position: absolute; left: 96px; top: 1110px; font-size: 56px; font-weight: 500; color: #151515; letter-spacing: -0.01em; }
+#s8 .legal { position: absolute; left: 96px; top: 1700px; width: 888px; font-size: 26px; line-height: 1.45; font-weight: 400; color: #2B2B2B; }
+</style>
+  </head>
+  <body>
+    <div data-hf-id="hf-qi4x" id="root" data-composition-id="main" data-start="0" data-duration="20" data-fps="60" data-width="1080" data-height="1920">
+      <audio data-hf-id="hf-7x8g" id="bgm" src="assets/audio/bgm20.wav" data-start="0" data-duration="20" data-track-index="10" data-volume="0.9"></audio>
+      <audio data-hf-id="hf-19th" id="sfx-swipe1" src="assets/sfx3/swipe.wav" data-start="1.3" data-duration="0.5" data-track-index="11" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-lr9k" id="sfx-pen1" src="assets/sfx3/pen.wav" data-start="3.25" data-duration="0.4" data-track-index="12" data-volume="0.8"></audio>
+      <audio data-hf-id="hf-tl0b" id="sfx-pen2" src="assets/sfx3/pen.wav" data-start="4.45" data-duration="0.4" data-track-index="11" data-volume="0.8"></audio>
+      <audio data-hf-id="hf-qol6" id="sfx-stamp" src="assets/sfx3/stamp.wav" data-start="4.95" data-duration="0.4" data-track-index="12" data-volume="0.9"></audio>
+      <audio data-hf-id="hf-nlz8" id="sfx-tap1" src="assets/sfx3/tap.wav" data-start="7.05" data-duration="0.2" data-track-index="11" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-vo5b" id="sfx-tap2" src="assets/sfx3/tap.wav" data-start="7.55" data-duration="0.2" data-track-index="12" data-volume="0.7"></audio>
+      <audio data-hf-id="hf-1eeq" id="sfx-swipe2" src="assets/sfx3/swipe.wav" data-start="8.85" data-duration="0.5" data-track-index="11" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-jy7l" id="sfx-pen3" src="assets/sfx3/pen.wav" data-start="9.2" data-duration="0.4" data-track-index="12" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-2c3w" id="sfx-turn" src="assets/sfx3/pageturn.wav" data-start="10.95" data-duration="0.7" data-track-index="11" data-volume="0.9"></audio>
+      <audio data-hf-id="hf-9o1m" id="sfx-pen4" src="assets/sfx3/pen.wav" data-start="11.9" data-duration="0.4" data-track-index="12" data-volume="0.6"></audio>
+      <audio data-hf-id="hf-60pe" id="sfx-pen5" src="assets/sfx3/pen.wav" data-start="16.75" data-duration="0.4" data-track-index="11" data-volume="0.8"></audio>
+
+      <div data-hf-id="hf-zx1w" class="dots"></div>
+
+      <!-- S1 · 0–2.5 · hook -->
+      <div data-hf-id="hf-x110" class="clip" id="clip-s1" data-start="0" data-duration="3.25" data-track-index="1"><div data-hf-id="hf-yihu" id="s1" class="scene"><div data-hf-id="hf-12x1" class="cam">
+        <div data-hf-id="hf-w9ch" class="logo pic" role="img" aria-label="SJ Academy" style="background-image: url('assets/brand-v3/sj-academy-logo-horizontal-on-light.svg'); background-size: contain; background-position: left center; background-repeat: no-repeat; width: 290px; height: 69px;"></div>
+        <div data-hf-id="hf-j5kh" class="abs h1">
+          <span data-hf-id="hf-smev" class="ln"><span data-hf-id="hf-e5hy" class="w">Cambridge</span></span>
+          <span data-hf-id="hf-oupj" class="ln"><span data-hf-id="hf-5gy2" class="w">doesn't</span> <span data-hf-id="hf-gfx5" class="w">mark</span></span>
+          <span data-hf-id="hf-ogei" class="ln"><span data-hf-id="hf-5y3c" class="w">effort.</span></span>
+          <span data-hf-id="hf-o23h" class="ln"><span data-hf-id="hf-ehbp" class="w">It</span> <span data-hf-id="hf-wc4e" class="w">marks</span></span>
+          <span data-hf-id="hf-qu8o" class="ln"><span data-hf-id="hf-aykk" class="w hl"><i data-hf-id="hf-6j31" class="bg"></i><span data-hf-id="hf-tmwm" class="tx">method.</span></span></span>
+        </div>
+      </div></div></div>
+
+      <!-- S2 · 2.5–5.5 · method -->
+      <div data-hf-id="hf-uxl4" class="clip" id="clip-s2" data-start="2.4" data-duration="3.3" data-track-index="2"><div data-hf-id="hf-ukdt" id="s2" class="scene"><div data-hf-id="hf-wcpl" class="cam">
+        <div data-hf-id="hf-7kk7" class="abs sub lab"><span data-hf-id="hf-iu4n" class="l1">First attempt</span></div>
+        <div data-hf-id="hf-prq9" class="abs sub lab lab2" style="opacity: 0">After SJ method</div>
+        <div data-hf-id="hf-oqvq" class="abs paper">
+          <div data-hf-id="hf-fpui" class="ruled"></div>
+          <div data-hf-id="hf-dlsv" class="mline"></div>
+          <div data-hf-id="hf-jwpn" class="pq"><small data-hf-id="hf-61l8">Sample answer</small>Analyse the benefits to a business of training its employees. [8]</div>
+          <div data-hf-id="hf-a46i" class="rule"></div>
+          <div data-hf-id="hf-qrpy" class="ans a1"><span data-hf-id="hf-nzm9" class="al">Training is good because</span><span data-hf-id="hf-fho9" class="al">workers learn new skills</span><span data-hf-id="hf-wpuc" class="al">and work better.</span></div>
+          <div data-hf-id="hf-llcn" class="mark">3/8</div>
+          <div data-hf-id="hf-09ya" class="mnote">Describes.<br data-hf-id="hf-x5px">No chain of reasoning.</div>
+          <div data-hf-id="hf-mtlx" class="ans a2"><span data-hf-id="hf-0m4h" class="al">Training raises productivity, <svg data-hf-id="hf-1dil" class="tk rt" viewBox="0 0 24 24"><path data-hf-id="hf-duoc" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#D63A2F" stroke-width="2.6" pathLength="1" /></svg></span><span data-hf-id="hf-6345" class="al">so unit costs fall. <svg data-hf-id="hf-yijl" class="tk rt" viewBox="0 0 24 24"><path data-hf-id="hf-m10k" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#D63A2F" stroke-width="2.6" pathLength="1" /></svg></span><span data-hf-id="hf-pzxz" class="al">Lower costs allow lower prices,</span><span data-hf-id="hf-gy6c" class="al">which can raise market share</span><span data-hf-id="hf-zgjv" class="al">and profit. <svg data-hf-id="hf-zpgo" class="tk rt" viewBox="0 0 24 24"><path data-hf-id="hf-ku3h" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#D63A2F" stroke-width="2.6" pathLength="1" /></svg></span></div>
+          <div data-hf-id="hf-d8a8" class="stamp">8/8</div>
+        </div>
+      </div></div></div>
+
+      <!-- S3 · 5.5–8.5 · website: find your class (real capture) -->
+      <div data-hf-id="hf-jzf7" class="clip" id="clip-s3" data-start="5.65" data-duration="3.75" data-track-index="1"><div data-hf-id="hf-tsq0" id="s3" class="scene"><div data-hf-id="hf-xjmo" class="cam">
+        <div data-hf-id="hf-cdmk" class="screen">
+          <div data-hf-id="hf-mx1s" class="sc pic" role="img" aria-label="sjacademy.pk homepage" style="background-image: url('assets/site/scroll-find.png'); background-size: 100% 100%; background-repeat: no-repeat; width: 820px; height: 2864px;"></div>
+          <div data-hf-id="hf-9yvo" class="fo pic" role="img" aria-label="Find your class, O Level tab" style="background-image: url('assets/site/find-olevel-crop.png'); background-size: 100% 100%; background-repeat: no-repeat; width: 820px; height: 1314px; opacity: 0"></div>
+          <div data-hf-id="hf-abfw" class="ft pic" role="img" aria-label="Find your class, Physics selected" style="background-image: url('assets/site/find-tapped-crop.png'); background-size: 100% 100%; background-repeat: no-repeat; width: 820px; height: 1314px; opacity: 0"></div>
+          <div data-hf-id="hf-34f9" class="tap t1" style="left: 169px; top: 156px"></div>
+          <div data-hf-id="hf-jop7" class="tap t2" style="left: 447px; top: 286px"></div>
+        </div>
+      </div></div></div>
+
+      <!-- S5 · 11–13.5 · A Level (sits under the O Level page for the page-turn) -->
+      <div data-hf-id="hf-ldg4" class="clip" id="clip-s5" data-start="10.9" data-duration="3.5" data-track-index="1"><div data-hf-id="hf-lwhy" id="s5" class="scene"><div data-hf-id="hf-x5bn" class="cam">
+        <div data-hf-id="hf-xjjk" class="nb">
+          <div data-hf-id="hf-5rmk" class="tabs"><div data-hf-id="hf-m008" class="tab">O Level</div><div data-hf-id="hf-b0da" class="tab sel">A Level</div></div>
+          <div data-hf-id="hf-9tvl" class="page">
+            <div data-hf-id="hf-t9z5" class="h1"><span data-hf-id="hf-cmgs" class="w hl"><i data-hf-id="hf-8i0h" class="bg"></i><span data-hf-id="hf-mexq" class="tx">A Level</span></span></div>
+            <div data-hf-id="hf-qu3r" class="sub plab">Cambridge International<br data-hf-id="hf-rsrt">AS and A Level</div>
+            <div data-hf-id="hf-33o8" class="list"><div data-hf-id="hf-5now" class="it ai" style="left:48px; top:0px"><svg data-hf-id="hf-s387" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-4jbj" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-90jt" class="wr">Maths</span></div>
+<div data-hf-id="hf-b9l6" class="it ai" style="left:48px; top:82px"><svg data-hf-id="hf-yt07" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-dj3j" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-vnij" class="wr">Physics</span></div>
+<div data-hf-id="hf-pjor" class="it ai" style="left:48px; top:164px"><svg data-hf-id="hf-yep6" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-d4si" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-0dxc" class="wr">Chemistry</span></div>
+<div data-hf-id="hf-2xe8" class="it ai" style="left:48px; top:246px"><svg data-hf-id="hf-y0e5" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-cqhh" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-nqt9" class="wr">Biology</span></div>
+<div data-hf-id="hf-tse1" class="it ai" style="left:48px; top:328px"><svg data-hf-id="hf-0sjc" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-fimo" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-vnob" class="wr">Accounting</span></div>
+<div data-hf-id="hf-xxzb" class="it ai" style="left:48px; top:410px"><svg data-hf-id="hf-0e8b" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-f4bn" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-o2rk" class="wr">Business</span></div>
+<div data-hf-id="hf-rhno" class="it ai" style="left:440px; top:0px"><svg data-hf-id="hf-zzxa" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-eq0m" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-gd78" class="wr">Economics</span></div>
+<div data-hf-id="hf-6u8m" class="it ai" style="left:440px; top:82px"><svg data-hf-id="hf-zlm9" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-ebpl" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-zspp" class="wr">Computer Science</span></div>
+<div data-hf-id="hf-x4xb" class="it ai" style="left:440px; top:164px"><svg data-hf-id="hf-2drg" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-aqyc" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-epar" class="wr">Psychology</span></div>
+<div data-hf-id="hf-dh5w" class="it ai" style="left:440px; top:246px"><svg data-hf-id="hf-1zgf" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-acnb" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-ppx0" class="wr">Sociology</span></div>
+<div data-hf-id="hf-vhwt" class="it ai" style="left:440px; top:328px"><svg data-hf-id="hf-hjc5" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-c64t" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-b5wa" class="wr">English</span></div>
+<div data-hf-id="hf-wmxf" class="it ai" style="left:440px; top:410px"><svg data-hf-id="hf-hxn6" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-ckfu" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-03mi" class="wr">Urdu</span></div></div>
+          </div>
+        </div>
+      </div></div></div>
+
+      <!-- S4 · 8.5–11 · O Level -->
+      <div data-hf-id="hf-m70e" class="clip" id="clip-s4" data-start="8.45" data-duration="3.4" data-track-index="2"><div data-hf-id="hf-pulz" id="s4" class="scene"><div data-hf-id="hf-v5si" class="cam">
+        <div data-hf-id="hf-mf48" class="nb">
+          <div data-hf-id="hf-ias4" class="tabs"><div data-hf-id="hf-ybj8" class="tab sel">O Level</div><div data-hf-id="hf-fqp6" class="tab">A Level</div></div>
+          <div data-hf-id="hf-b7h1" class="page">
+            <div data-hf-id="hf-92vp" class="h1"><span data-hf-id="hf-bfjp" class="w hl"><i data-hf-id="hf-9oxk" class="bg"></i><span data-hf-id="hf-9q3o" class="tx">O Level</span></span></div>
+            <div data-hf-id="hf-t1ac" class="sub plab">Cambridge O Level</div>
+            <div data-hf-id="hf-wzhs" class="list"><div data-hf-id="hf-vv7m" class="it oi" style="left:48px; top:0px"><svg data-hf-id="hf-iby7" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-cyqv" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-ygvx" class="wr">Maths</span></div>
+<div data-hf-id="hf-5tuc" class="it oi" style="left:48px; top:82px"><svg data-hf-id="hf-iq98" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-dd1w" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-e7fv" class="wr">Physics</span></div>
+<div data-hf-id="hf-om2p" class="it oi" style="left:48px; top:164px"><svg data-hf-id="hf-j4k9" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-drcx" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-flh4" class="wr">Chemistry</span></div>
+<div data-hf-id="hf-awpm" class="it oi" style="left:48px; top:246px"><svg data-hf-id="hf-jiva" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-e5ny" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-jssx" class="wr">Biology</span></div>
+<div data-hf-id="hf-0nlv" class="it oi" style="left:48px; top:328px"><svg data-hf-id="hf-jx6b" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-ejyz" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-s2cb" class="wr">Accounting</span></div>
+<div data-hf-id="hf-rtux" class="it oi" style="left:48px; top:410px"><svg data-hf-id="hf-kbhc" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-eya0" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-jsag" class="wr">Business</span></div>
+<div data-hf-id="hf-ike2" class="it oi" style="left:440px; top:0px"><svg data-hf-id="hf-ecvx" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-fcl1" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-77jg" class="wr">Economics</span></div>
+<div data-hf-id="hf-exws" class="it oi" style="left:440px; top:82px"><svg data-hf-id="hf-er6y" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-fqw2" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-0kkx" class="wr">Computer Science</span></div>
+<div data-hf-id="hf-g3p5" class="it oi" style="left:440px; top:164px"><svg data-hf-id="hf-iazy" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-6qeu" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-5wou" class="wr">English</span></div>
+<div data-hf-id="hf-7lg2" class="it oi" style="left:440px; top:246px"><svg data-hf-id="hf-hwox" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-6c3t" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-b5vi" class="wr">Urdu</span></div>
+<div data-hf-id="hf-eyaz" class="it oi" style="left:440px; top:328px"><svg data-hf-id="hf-j3m0" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-7j0w" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-5na0" class="wr">Pakistan Studies</span></div>
+<div data-hf-id="hf-3ash" class="it oi" style="left:440px; top:410px"><svg data-hf-id="hf-ipaz" class="tk lt" viewBox="0 0 24 24"><path data-hf-id="hf-74pv" d="M4 13.5c2 1.4 3.4 3 4.6 5C11 12.5 14.5 8 20 4.5" stroke="#CC4A00" stroke-width="2.6" pathLength="1" /></svg><span data-hf-id="hf-yce3" class="wr">Islamiyat</span></div></div>
+          </div>
+        </div>
+      </div></div></div>
+
+      <!-- S6 · 13.5–15.5 · website: free tools (real capture) -->
+      <div data-hf-id="hf-7n3f" class="clip" id="clip-s6" data-start="13.45" data-duration="2.95" data-track-index="2"><div data-hf-id="hf-hydx" id="s6" class="scene"><div data-hf-id="hf-urhh" class="cam">
+        <div data-hf-id="hf-09kj" class="abs sub lab">Free tools for every O and A Level student</div>
+        <div data-hf-id="hf-0hv8" class="screen"><div data-hf-id="hf-tz2z" class="sc pic" role="img" aria-label="sjacademy.pk free tools" style="background-image: url('assets/site/scroll-tools.png'); background-size: 100% 100%; background-repeat: no-repeat; width: 820px; height: 1766px;"></div></div>
+      </div></div></div>
+
+      <!-- S7 · 15.5–18 · proof (the one brown band) -->
+      
+
+      <!-- S8 · 18–20 · close (the one yellow band) -->
+      <div data-hf-id="hf-jxbv" class="clip" id="clip-s8" data-start="17.5" data-duration="2.05" data-track-index="2"><div data-hf-id="hf-b10b" id="s8" class="scene">
+        <div data-hf-id="hf-dvmx" class="band"></div>
+        <div data-hf-id="hf-vk3j" class="cam">
+          <div data-hf-id="hf-59dl" class="yl pic" role="img" aria-label="SJ Academy" style="background-image: url('assets/brand-v3/sj-academy-logo-horizontal-on-yellow.svg'); background-size: contain; background-position: left center; background-repeat: no-repeat; width: 290px; height: 69px;"></div>
+          <div data-hf-id="hf-np12" class="line"><span data-hf-id="hf-qfxn" class="ln"><span data-hf-id="hf-iogc" class="w">One</span> <span data-hf-id="hf-58ds" class="w">class</span> <span data-hf-id="hf-49zy" class="w">free,</span></span><span data-hf-id="hf-q1mm" class="ln"><span data-hf-id="hf-lwg7" class="w">then</span> <span data-hf-id="hf-qkg8" class="w">decide</span></span></div>
+          <div data-hf-id="hf-p196" class="btn">Book a free demo on WhatsApp</div>
+          <div data-hf-id="hf-j1af" class="url">sjacademy.pk</div>
+          <div data-hf-id="hf-8uex" class="legal">SJ Academy is an independent tuition centre and is not affiliated with or endorsed by Cambridge.</div>
+        </div>
+      </div></div>
+
+      <div data-hf-id="hf-51ds" id="pill">O &amp; A Level · May/June 2027</div>
+    </div>
+    <script>
+      const FIND_END = -1367, TOOLS_END = -442;
+      const tl = gsap.timeline({ paused: true });
+      const E = "expo.out";
+      const clipIn = { clipPath: "inset(-10% 100% -10% 0%)" }, clipOut = { clipPath: "inset(-10% 0% -10% 0%)" };
+
+
+      // slow camera pushes (ease-in-out)
+      [["#s1", 0, 3.2], ["#s2", 2.5, 3.6], ["#s3", 5.5, 3.6], ["#s4", 8.5, 3.0], ["#s5", 11.0, 3.2], ["#s6", 13.5, 2.8], ["#s7", 15.5, 3.2], ["#s8", 18.0, 2.0]]
+        .forEach(([id, t, d]) => tl.fromTo(`${id} .cam`, { scale: 1 }, { scale: 1.03, duration: d, ease: "sine.inOut", transformOrigin: "50% 45%" }, t));
+
+      // pill: lands once, then stays anchored for the whole film
+      tl.set("#pill", { opacity: 1 }, 0);
+
+      // ── S1 hook 0–2.5 ──
+      tl.set("#s1 .logo", { opacity: 1 }, 0);
+      tl.fromTo("#s1 .h1 .w", { yPercent: 105 }, { yPercent: 0, duration: 0.85, ease: E, stagger: 0.08 }, 0.1);
+      tl.fromTo("#s1 .hl .bg", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 1.3);
+
+      // T1 push up 2.5
+      tl.to("#s1", { y: -520, duration: 0.7, ease: "power3.inOut" }, 2.4);
+      tl.to("#s1", { opacity: 0, duration: 0.3, ease: "power1.in" }, 2.4);
+      tl.fromTo("#s2", { y: 1600 }, { y: 0, duration: 0.95, ease: "power3.inOut" }, 2.4);
+
+      // ── S2 method 2.5–5.5 ──
+      tl.set("#s2 .paper", { rotation: -0.6 }, 0);
+      tl.fromTo("#s2 .lab .l1", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: E }, 2.75);
+      tl.fromTo("#s2 .mark", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.45, ease: E }, 3.25);
+      tl.fromTo("#s2 .mnote", clipIn, { ...clipOut, duration: 0.6, ease: "power2.out" }, 3.4);
+      tl.to(["#s2 .a1", "#s2 .mark", "#s2 .mnote", "#s2 .lab .l1"], { opacity: 0, duration: 0.25, ease: "power1.out" }, 4.15);
+      tl.fromTo("#s2 .lab2", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: E }, 4.25);
+      tl.fromTo("#s2 .a2 .al", clipIn, { ...clipOut, duration: 0.45, ease: "power2.out", stagger: 0.08 }, 4.25);
+      document.querySelectorAll("#s2 .rt").forEach((sv, i) => tl.set(sv, { opacity: 1 }, [4.55, 4.68, 4.98][i]));
+      document.querySelectorAll("#s2 .rt path").forEach((p, i) => tl.fromTo(p, { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, ease: "power2.out" }, [4.55, 4.68, 4.98][i]));
+      tl.fromTo("#s2 .stamp", { opacity: 0, scale: 1.35, rotation: -14 }, { opacity: 1, scale: 1, rotation: -8, duration: 0.5, ease: "back.out(1.5)" }, 4.95);
+
+      // T2 scale-dissolve 5.5
+      tl.to("#s2", { scale: 0.94, duration: 0.4, ease: "power2.in" }, 5.25);
+      tl.to("#s2", { opacity: 0, duration: 0.35, ease: "power1.in" }, 5.3);
+      tl.fromTo("#s3", { scale: 1.06 }, { scale: 1, duration: 0.85, ease: E }, 5.65);
+      tl.fromTo("#s3", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power1.out" }, 5.65);
+
+      // ── S3 find your class 5.5–8.5 (real capture) ──
+      tl.fromTo("#s3 .sc", { y: 0 }, { y: FIND_END, duration: 1.05, ease: "power2.inOut" }, 5.95);
+      tl.fromTo("#s3 .t1", { opacity: 0.9, scale: 0.5 }, { opacity: 0, scale: 1.15, duration: 0.45, ease: "power2.out", immediateRender: false }, 7.05);
+      tl.fromTo("#s3 .fo", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 7.1);
+      tl.fromTo("#s3 .t2", { opacity: 0.9, scale: 0.5 }, { opacity: 0, scale: 1.15, duration: 0.45, ease: "power2.out", immediateRender: false }, 7.55);
+      tl.fromTo("#s3 .ft", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "none" }, 7.6);
+
+      // T3 slide 8.5
+      tl.to("#s3", { x: -1080, duration: 0.8, ease: "power3.inOut" }, 8.45);
+      tl.fromTo("#s4", { x: 1080 }, { x: 0, duration: 0.8, ease: "power3.inOut" }, 8.45);
+
+      // ── S4 O Level 8.5–11 ──
+      tl.fromTo("#s4 .hl .bg", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 8.95);
+      tl.fromTo("#s4 .oi .wr", clipIn, { ...clipOut, duration: 0.4, ease: "power2.out", stagger: 0.085 }, 9.15);
+      document.querySelectorAll("#s4 .oi svg").forEach((sv, i) => tl.set(sv, { opacity: 1 }, 9.4 + i * 0.085));
+      tl.fromTo("#s4 .oi path", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, ease: "power2.out", stagger: 0.085 }, 9.4);
+
+      // T4 page-turn 11.0 (the only one)
+      tl.set("#s5 .list .wr", clipIn, 0);
+      tl.fromTo("#s4 .nb", { rotationY: 0, transformPerspective: 2400 }, { rotationY: -178, transformPerspective: 2400, duration: 0.9, ease: "power2.inOut", transformOrigin: "0% 50%" }, 10.95);
+      tl.set(["#s4 .page > *", "#s4 .tabs"], { opacity: 0 }, 11.4);
+      tl.to("#s4 .nb", { x: -260, duration: 0.45, ease: "power2.in" }, 11.45);
+
+      // ── S5 A Level 11–13.5 ──
+      tl.fromTo("#s5 .hl .bg", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 11.45);
+      tl.fromTo("#s5 .ai .wr", clipIn, { ...clipOut, duration: 0.4, ease: "power2.out", stagger: 0.07 }, 11.6);
+      document.querySelectorAll("#s5 .ai svg").forEach((sv, i) => tl.set(sv, { opacity: 1 }, 11.85 + i * 0.07));
+      tl.fromTo("#s5 .ai path", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, ease: "power2.out", stagger: 0.07 }, 11.85);
+
+      // T5 slide 13.5
+      tl.to("#s5", { x: -1080, duration: 0.8, ease: "power3.inOut" }, 13.45);
+      tl.fromTo("#s6", { x: 1080 }, { x: 0, duration: 0.8, ease: "power3.inOut" }, 13.45);
+
+      // ── S6 free tools 13.5–15.5 (real capture) ──
+      tl.fromTo("#s6 .lab", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 13.85);
+      tl.fromTo("#s6 .sc", { y: 0 }, { y: TOOLS_END, duration: 0.85, ease: "power2.inOut" }, 14.4);
+
+      // T6 brown band rises 15.5
+            tl.to("#s6", { y: -300, duration: 0.8, ease: "power3.inOut" }, 15.45);
+
+      // ── S7 proof 15.5–18 ──
+      const count = (id, to, t) => {
+        const el = document.getElementById(id), o = { v: 0 };
+        tl.to(o, { v: to, duration: 0.9, ease: "power2.out", onUpdate: () => (el.textContent = Math.round(o.v).toLocaleString("en-US")) }, t);
+      };
+      tl.fromTo("#s7 .n1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 15.85);
+      tl.fromTo("#s7 .l1", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 15.95);
+      count("c950", 950, 15.9);
+      tl.fromTo("#s7 .n2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 16.05);
+      tl.fromTo("#s7 .l2", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 16.15);
+      count("c4500", 4500, 16.1);
+      tl.set("#s7 .circ", { opacity: 1 }, 16.8);
+      tl.fromTo("#s7 .circ path", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut" }, 16.8);
+      tl.fromTo("#s7 .hr", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: E }, 16.85);
+      tl.fromTo("#s7 .fact", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.09 }, 16.95);
+
+      // T7 yellow band rises 18.0
+      tl.fromTo("#s8", { y: 1920 }, { y: 0, duration: 0.8, ease: "power3.inOut" }, 17.5);
+      tl.to("#s7 .cam", { y: -300, duration: 0.8, ease: "power3.inOut" }, 17.95);
+
+      // ── S8 close 18–20 ──
+      tl.fromTo("#s8 .yl", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.8, ease: E }, 18);
+      tl.fromTo("#s8 .line .w", { yPercent: 105 }, { yPercent: 0, duration: 0.85, ease: E, stagger: 0.07 }, 17.9);
+      tl.fromTo("#s8 .btn", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: E }, 18.25);
+      tl.fromTo("#s8 .url", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 18.4);
+      tl.fromTo("#s8 .legal", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: E }, 18.5);
+
+      window.__timelines["main"] = tl;
+
+    </script>
+  </body>
+</html>

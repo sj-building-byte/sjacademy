@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJ Academy - A Level Business</title>
+<style>
+    /* --- SJ ACADEMY PREMIUM DESIGN SYSTEM --- */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+        --sja-yellow: #FCE004; 
+        --sja-brown: #2b210f; 
+        --sja-black: #000000;
+        --sja-orange: #fe6100;
+        --sja-white: #ffffff;
+        --sja-neutral: #f8f9fa; 
+        --sja-whatsapp: #25D366;
+        --section-padding-desktop: 100px;
+        --section-padding-mobile: 40px; /* Reduced for better mobile fit */
+    }
+
+    * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    /* --- FULL WIDTH BREAKOUT MAGIC --- */
+    .sja-pmt-wrapper {
+        font-family: 'Poppins', sans-serif;
+        color: var(--sja-black);
+        line-height: 1.6;
+        background-color: var(--sja-white);
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        overflow-x: hidden;
+    }
+
+    .sja-pmt-container {
+        max-width: 1340px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* --- ELEGANT NOTIFICATION STRIP --- */
+    .sja-batch-alert {
+        background-color: var(--sja-black);
+        color: var(--sja-yellow);
+        text-align: center;
+        padding: 14px 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+    }
+
+    /* --- TYPOGRAPHY & HEADINGS --- */
+    .sja-pmt-wrapper h1, .sja-pmt-wrapper h2, .sja-pmt-wrapper h3 {
+        color: var(--sja-black);
+        line-height: 1.2;
+    }
+
+    .sja-pmt-wrapper h1 { font-size: clamp(1.8rem, 5vw, 3.8rem); font-weight: 800; margin-bottom: 16px; }
+    .sja-pmt-wrapper h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 700; margin-bottom: 20px; text-align: center; }
+    .sja-pmt-wrapper h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+
+    .sja-highlight {
+        background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 35%;
+        background-position: 0 85%;
+        display: inline;
+    }
+
+    /* --- FOLD 1: HERO (WHITE) --- */
+    .sja-pmt-hero { padding: var(--section-padding-mobile) 0; background: var(--sja-white); }
+    .sja-hero-flex { display: flex; flex-direction: column-reverse; gap: 30px; align-items: center; }
+    .sja-hero-text { flex: 1; text-align: center; }
+    .sja-hero-image { flex: 1; display: none; } /* HIDDEN ON MOBILE */
+    .sja-hero-image img { width: 100%; border-radius: 20px; box-shadow: 20px 20px 0px var(--sja-yellow); }
+
+    .sja-hero-subtitle { font-size: clamp(0.95rem, 3vw, 1.2rem); color: #444; line-height: 1.5; margin-bottom: 15px; }
+
+    /* --- BATCH BOX DESIGN --- */
+    .sja-batch-date-box {
+        background: #fdfdfd;
+        border-left: 5px solid var(--sja-orange);
+        padding: 15px 20px;
+        margin: 20px auto; /* Centered for mobile text-align */
+        border-radius: 4px 12px 12px 4px;
+        text-align: left;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        display: inline-block;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .sja-batch-tag { margin: 0 0 5px 0; font-weight: 700; color: var(--sja-orange); font-size: 0.85rem; }
+    .sja-batch-title { margin: 0 0 5px 0; font-size: clamp(1rem, 3vw, 1.2rem); font-weight: 600; }
+    .sja-batch-desc { margin: 0; font-size: clamp(0.8rem, 2vw, 0.9rem); color: #666; }
+
+    /* --- BUTTONS --- */
+    .sja-btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+    .sja-btn-primary {
+        background-color: var(--sja-orange);
+        color: white;
+        font-weight: 700;
+        padding: 16px 24px;
+        text-decoration: none;
+        border-radius: 8px;
+        text-transform: uppercase;
+        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        text-align: center;
+        font-size: 0.95rem;
+        box-shadow: 0 10px 20px rgba(254, 97, 0, 0.2);
+    }
+    .sja-btn-whatsapp {
+        border: 2px solid var(--sja-whatsapp);
+        color: var(--sja-whatsapp);
+        font-weight: 700;
+        padding: 14px 24px;
+        text-decoration: none;
+        border-radius: 8px;
+        text-transform: uppercase;
+        transition: 0.3s;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+    .sja-btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(254, 97, 0, 0.3); }
+
+    /* --- FOLD 2: MENTOR (NEUTRAL GRAY) --- */
+    .sja-pmt-mentor { padding: var(--section-padding-mobile) 0; background: var(--sja-neutral); border-top: 1px solid #eee; }
+    .sja-mentor-flex { display: flex; flex-direction: column; gap: 30px; align-items: center; }
+    .sja-mentor-content h2 { text-align: left; margin-bottom: 10px; }
+    .sja-mentor-image img { width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .sja-adv-list { list-style: none; padding: 0; margin-top: 20px; }
+    .sja-adv-list li { margin-bottom: 12px; padding-left: 30px; position: relative; font-weight: 500; font-size: 0.95rem; }
+    .sja-adv-list li::before { content: "✓"; position: absolute; left: 0; color: var(--sja-orange); font-weight: 900; font-size: 1.1rem; }
+
+    /* --- FOLD 3: PROBLEM (WHITE) --- */
+    .sja-pmt-problem { padding: var(--section-padding-mobile) 0; background: var(--sja-white); }
+    .sja-problem-grid { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+    .sja-problem-card { background: var(--sja-neutral); padding: 25px; border-radius: 16px; transition: 0.3s; border: 1px solid transparent; }
+    .sja-problem-card p { font-size: 0.95rem; }
+    .sja-problem-card:hover { background: #fff; border-color: var(--sja-yellow); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+    /* --- FOLD 4: METHOD (WHITE/GRADIENT) --- */
+    .sja-pmt-method { padding: var(--section-padding-mobile) 0; background: var(--sja-white); border-top: 1px solid #eee; }
+    .sja-method-grid { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+    .sja-method-item { padding: 30px 20px; border: 1px solid #eee; border-radius: 16px; text-align: center; background: #fff; transition: 0.3s; }
+    .sja-method-item p { font-size: 0.95rem; }
+    .sja-method-item:hover { transform: scale(1.02); border-color: var(--sja-orange); }
+    .sja-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+
+    /* --- FOLD 5: REVIEWS (DARK BROWN) --- */
+    .sja-reviews { padding: var(--section-padding-mobile) 0; background: var(--sja-brown); color: white; }
+    .sja-reviews h2 { color: var(--sja-yellow); }
+    .sja-reviews-grid { display: flex; flex-direction: column; gap: 20px; margin-top: 30px; }
+    .sja-review-card { background: rgba(255,255,255,0.06); padding: 25px; border-radius: 12px; border-left: 6px solid var(--sja-yellow); }
+    .sja-review-card p { font-size: 0.95rem; }
+    .sja-stars { color: var(--sja-yellow); margin-bottom: 10px; letter-spacing: 2px; }
+
+    /* --- FOLD 6: CTA (VIBRANT YELLOW) --- */
+    .sja-pmt-cta { padding: var(--section-padding-mobile) 24px; text-align: center; background: var(--sja-yellow); }
+    .sja-cta-card { background: var(--sja-white); padding: 35px 20px; border-radius: 24px; max-width: 800px; margin: 0 auto; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+    .sja-cta-btn { 
+        background: #000000 !important; 
+        color: #FFFFFF !important;      
+        padding: 18px 30px; 
+        font-weight: 800; 
+        font-size: 1.05rem; 
+        text-decoration: none; 
+        border-radius: 12px; 
+        display: inline-block; 
+        text-transform: uppercase; 
+        transition: 0.3s ease; 
+        margin-top: 20px; 
+    }
+
+    /* Hover State */
+    .sja-cta-btn:hover { 
+        background: #000000 !important; 
+        color: var(--sja-yellow) !important; 
+        transform: translateY(-3px); 
+        text-decoration: none;
+    }
+
+    /* --- HYBRID MODE INDICATOR --- */
+    .sja-mode-wrapper {
+        display: inline-flex;
+        align-items: center;
+        background-color: #fff;
+        border: 2px solid var(--sja-black);
+        border-radius: 50px;
+        padding: 4px;
+        margin-bottom: 15px;
+        box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+    }
+    .sja-mode-pill { padding: 6px 14px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+    .sja-mode-physical { background-color: var(--sja-yellow); color: var(--sja-black); }
+    .sja-mode-online { background-color: transparent; color: #555; }
+    .sja-mode-divider { width: 1px; height: 14px; background-color: #ddd; margin: 0 5px; }
+    .sja-pulse { width: 8px; height: 8px; background-color: #ff3b3b; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.4); } 70% { box-shadow: 0 0 0 8px rgba(255, 59, 59, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0); } }
+
+    /* --- DESKTOP ADJUSTMENTS --- */
+    @media (min-width: 992px) {
+        .sja-pmt-hero, .sja-pmt-mentor, .sja-pmt-problem, .sja-pmt-method, .sja-reviews, .sja-pmt-cta {
+            padding: var(--section-padding-desktop) 0;
+        }
+        
+        .sja-mode-wrapper { margin-bottom: 25px; padding: 5px; }
+        .sja-mode-pill { padding: 8px 18px; font-size: 0.8rem; gap: 8px; }
+        .sja-mode-divider { height: 18px; }
+
+        .sja-hero-flex { flex-direction: row; text-align: left; gap: 40px; }
+        .sja-hero-text { text-align: left; }
+        .sja-hero-image { display: block; flex: 1; }
+        
+        .sja-batch-date-box { padding: 20px 25px; margin: 30px 0; }
+        
+        .sja-btn-group { flex-direction: row; margin-top: 30px; }
+        .sja-btn-primary, .sja-btn-whatsapp { flex: 1; padding: 20px 35px; font-size: 1rem; }
+        
+        .sja-adv-list li { margin-bottom: 15px; padding-left: 35px; font-size: 1.05rem; }
+        .sja-adv-list li::before { font-size: 1.2rem; }
+
+        .sja-problem-grid, .sja-method-grid, .sja-reviews-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            margin-top: 40px;
+        }
+        
+        .sja-problem-card { padding: 35px; }
+        .sja-method-item { padding: 40px 30px; }
+        .sja-icon { font-size: 3rem; margin-bottom: 20px; }
+        .sja-review-card { padding: 30px; }
+        
+        .sja-cta-card { padding: 50px 30px; }
+        .sja-cta-btn { padding: 22px 50px; font-size: 1.2rem; }
+
+        .sja-mentor-flex { flex-direction: row-reverse; text-align: left; gap: 80px; }
+        .sja-mentor-content { flex: 1.2; }
+        .sja-mentor-image { flex: 0.8; }
+    }
+</style>
+</head>
+<body>
+<div class="sja-pmt-wrapper">
+
+    <!-- FOLD 1: HERO (WHITE) -->
+    <section class="sja-pmt-hero">
+        <div class="sja-pmt-container">
+            <div class="sja-hero-flex">
+                <div class="sja-hero-text">
+                    <div class="sja-mode-wrapper">
+                        <div class="sja-mode-pill sja-mode-physical"><span>📍 Karachi Campus</span></div>
+                        <div class="sja-mode-divider"></div>
+                        <div class="sja-mode-pill sja-mode-online"><span class="sja-pulse"></span><span>Live Online</span></div>
+                    </div>
+
+                    <h1>Master <span class="sja-highlight">A Level Business</span> for Oct/Nov 2026</h1>
+                    
+                    <p class="sja-hero-subtitle"><strong>Memorizing the textbook is a recipe for a 'C'.</strong> To get an A*, you need to master <em>Application</em> and <em>Evaluation</em>; the two skills that carry 60% of the marks but are rarely taught correctly in schools.</p>
+
+                   <div class="sja-batch-date-box">
+                        <p class="sja-batch-tag">📅 ADMISSIONS OPEN</p>
+                        <p class="sja-batch-title">Next Batch Starts June 1st, 2026</p>
+                        <p class="sja-batch-desc">Limited seats available for personalized attention.</p>
+                    </div>
+                    
+                    <div class="sja-btn-group">
+                        <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="sja-btn-primary">REgister NOW →</a>
+                        <a href="https://wa.me/923362144454" target="_blank" class="sja-btn-whatsapp">Talk on Whatsapp</a>
+                    </div>
+                </div>
+
+                <div class="sja-hero-image">
+                    <img src="https://www.sjacademy.pk/wp-content/uploads/2026/05/IMG_7174-1-scaled.jpg" alt="A Level Business Class">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOLD 2: MENTOR (NEUTRAL GRAY) -->
+    <section class="sja-pmt-mentor">
+        <div class="sja-pmt-container">
+            <div class="sja-mentor-flex">
+                <div class="sja-mentor-image">
+                    <img src="https://www.sjacademy.pk/wp-content/uploads/2025/07/296167730_10159330125240939_9121453372746153911_n-min.jpg" alt="Sir Sunyyan Junaid">
+                </div>
+
+                <div class="sja-mentor-content">
+                    <h2>Learn From a Business Professional</h2>
+                    <h3><span class="sja-highlight">Sir Sunyyan Junaid</span></h3>
+                    <p>Business shouldn't be taught as a theoretical subject. Sir Sunyyan, co-founder of SJ Academy, brings <strong>8+ years of real-world corporate experience</strong> with global tech giants like DigitalOcean and Cloudways.</p>
+                    
+                    <ul class="sja-adv-list">
+                        <li>Expertise in Marketing, Finance, and Operations</li>
+                        <li>Proven track record of A* and A grades</li>
+                        <li>Focus on "Marking Scheme" precision</li>
+                        <li>Real-world business case applications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOLD 3: PROBLEM (WHITE) -->
+    <section class="sja-pmt-problem">
+        <div class="sja-pmt-container">
+            <h2>Why Students Struggle With <br><span class="sja-highlight">Cambridge 9609</span></h2>
+            <div class="sja-problem-grid">
+                <div class="sja-problem-card">
+                    <h3>The Context Trap</h3>
+                    <p>Writing generic definitions instead of linking to the specific Case Study. No context = Zero marks for application.</p>
+                </div>
+                <div class="sja-problem-card">
+                    <h3>The Analysis Gap</h3>
+                    <p>Failing to build logical "Chains of Analysis" that show exactly how one business decision leads to a financial outcome.</p>
+                </div>
+                <div class="sja-problem-card">
+                    <h3>Evaluation Paralysis</h3>
+                    <p>Not knowing how to weigh arguments to reach a justified recommendation—the key to the A* in P3 & P4.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOLD 4: METHOD (WHITE/NEUTRAL) -->
+    <section class="sja-pmt-method">
+        <div class="sja-pmt-container">
+            <h2>A Complete Ecosystem for Success</h2>
+            <div class="sja-method-grid">
+                <div class="sja-method-item">
+                    <span class="sja-icon">📑</span>
+                    <h3>Exam-Focused Notes</h3>
+                    <p>Ditch the 600-page textbooks. Get concise notes designed specifically for the CAIE marking scheme.</p>
+                </div>
+                <div class="sja-method-item">
+                    <span class="sja-icon">🔎</span>
+                    <h3>Case Study Workshops</h3>
+                    <p>We solve years of past papers together, training you to spot data trends and use them in your answers.</p>
+                </div>
+                <div class="sja-method-item">
+                    <span class="sja-icon">🎥</span>
+                    <h3>Recorded Lectures</h3>
+                    <p>Missed a session? All lectures are recorded and uploaded to our portal for unlimited revision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOLD 5: REVIEWS (DARK BROWN) -->
+    <section class="sja-reviews">
+        <div class="sja-pmt-container">
+            <h2>Success Stories</h2>
+            <div class="sja-reviews-grid">
+                <div class="sja-review-card">
+                    <div class="sja-stars">★★★★★</div>
+                    <p>"The analysis chains taught by Sir Sunyyan helped me jump from a C in my mocks to an A* in the finals. Best Business teacher!"</p>
+                    <p><strong>- Hassan Raza</strong></p>
+                </div>
+                <div class="sja-review-card">
+                    <div class="sja-stars">★★★★★</div>
+                    <p>"His notes are gold. No fluff, just exactly what the examiner wants to see. Everything is so exam-focused."</p>
+                    <p><strong>- Ayesha Khan</strong></p>
+                </div>
+                <div class="sja-review-card">
+                    <div class="sja-stars">★★★★★</div>
+                    <p>"The testing system at SJ Academy is rigorous. It forced me to manage my time better for the 20-mark evaluation questions."</p>
+                    <p><strong>- Saad Ahmed</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOLD 6: CTA (BRAND YELLOW) -->
+    <section class="sja-pmt-cta">
+        <div class="sja-pmt-container">
+            <h2>Don't Leave Your A Level Business Grade to Chance</h2>
+            <p>Our Oct/Nov 2026 Batch starts <strong>June 1st</strong>. Seats are filling fast.</p>
+            <a href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" class="sja-cta-btn">
+                Secure Your Spot NOW
+            </a>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #444;">Questions? <a href="https://wa.me/923362144454" style="color: var(--sja-black); font-weight: 700;">Chat with us on WhatsApp</a></p>
+        </div>
+    </section>
+
+</div>
+</body>
+</html>

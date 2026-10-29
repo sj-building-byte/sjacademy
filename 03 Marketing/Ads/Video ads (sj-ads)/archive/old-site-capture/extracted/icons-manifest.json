@@ -1,0 +1,32 @@
+{
+  "schema": "hyperframes.capture.icons.v1",
+  "headline": {
+    "file": "assets/favicon.svg",
+    "source": "assets/icon-icon-unsized.svg",
+    "rank": 0,
+    "shape": "bare-mark",
+    "reason": "bare mark preferred over 1 badge(s)"
+  },
+  "icons": [
+    {
+      "file": "assets/icon-icon-unsized.svg",
+      "url": "https://www.sjacademy.pk/wp-content/uploads/2025/06/sj-icon-svg.svg",
+      "rel": "icon",
+      "sizes": null,
+      "type": "image/svg+xml",
+      "rank": 0,
+      "shape": "bare-mark",
+      "shapeReason": "first painted element is <polygon> with margins"
+    },
+    {
+      "file": "assets/icon-apple-touch-icon-180x180.png",
+      "url": "https://www.sjacademy.pk/wp-content/uploads/2026/08/Logo-for-Search-engine.png",
+      "rel": "apple-touch-icon",
+      "sizes": "180x180",
+      "type": null,
+      "rank": 1,
+      "shape": "badge",
+      "shapeReason": "4 of 4 edge midpoints are opaque, so the drawing carries a backdrop"
+    }
+  ]
+}

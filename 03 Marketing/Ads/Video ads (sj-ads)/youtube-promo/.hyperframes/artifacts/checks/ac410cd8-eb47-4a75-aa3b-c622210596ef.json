@@ -1,0 +1,898 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 14,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 4 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 3 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 5 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 8 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s1\"> is a timeline element that contains nested <div id=\"wall\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s3\"> is a timeline element that contains nested <div id=\"s3-strip\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s3",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s4\"> is a timeline element that contains nested <div id=\"s4-head\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s4",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s4\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"phone\"> is a timeline element that contains nested <div id=\"device\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#phone",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"phone\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s4b\"> is a timeline element that contains nested <div id=\"s4b-head\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s4b",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s4b\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s5\"> is a timeline element that contains nested <div id=\"s5-card\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s5",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s5\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s6\"> is a timeline element that contains nested <div id=\"s6-thumb\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s6",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s6\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s7\"> is a timeline element that contains nested <div id=\"s7-strip\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s7",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s7\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s8\"> is a timeline element that contains nested <div id=\"s8-strip\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s8",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/youtube-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s8\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 15,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 2.178,
+        "selector": "#wall",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -297,
+          "top": -528,
+          "right": 1377,
+          "bottom": 2448,
+          "width": 1674,
+          "height": 2976
+        },
+        "containerSelector": "#s1",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 297,
+          "right": 297,
+          "top": 528,
+          "bottom": 528
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -297,
+          "y": -528,
+          "width": 1674,
+          "height": 2976
+        },
+        "firstSeen": 2.178,
+        "lastSeen": 6.533,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          2.178,
+          6.533
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 15.244,
+        "selector": "#rows > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 642.06,
+          "right": 737.81,
+          "bottom": 671.06,
+          "width": 201.81,
+          "height": 29
+        },
+        "containerSelector": "#list-head",
+        "text": "A level P1 | Topicals",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.67,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 642.06,
+          "width": 201.81,
+          "height": 29
+        },
+        "firstSeen": 15.244,
+        "lastSeen": 15.244,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.244
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 15.244,
+        "selector": "#rows > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 677.35,
+          "right": 716.81,
+          "bottom": 701.35,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#list-head",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 677.35,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 15.244,
+        "lastSeen": 15.244,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.244
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 15.244,
+        "selector": "#rows > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 804.06,
+          "right": 771.08,
+          "bottom": 833.06,
+          "width": 235.08,
+          "height": 29
+        },
+        "containerSelector": "#list-head",
+        "text": "A Level P3 Past Papers",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 804.06,
+          "width": 235.08,
+          "height": 29
+        },
+        "firstSeen": 15.244,
+        "lastSeen": 15.244,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.244
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 15.244,
+        "selector": "#rows > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 1128.06,
+          "right": 688.59,
+          "bottom": 1157.06,
+          "width": 152.59,
+          "height": 29
+        },
+        "containerSelector": "#chip2",
+        "text": "S1 Past papers",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.78,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 1128.06,
+          "width": 152.59,
+          "height": 29
+        },
+        "firstSeen": 15.244,
+        "lastSeen": 15.244,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.244
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 15.244,
+        "selector": "#rows > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 536,
+          "top": 1163.35,
+          "right": 716.81,
+          "bottom": 1187.35,
+          "width": 180.81,
+          "height": 24
+        },
+        "containerSelector": "#chip2",
+        "text": "SJ Academy · Playlist",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.78,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 536,
+          "y": 1163.35,
+          "width": 180.81,
+          "height": 24
+        },
+        "firstSeen": 15.244,
+        "lastSeen": 15.244,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.244
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 19.6,
+        "selector": "#d5",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -695.77,
+          "top": 593.16,
+          "right": 255.77,
+          "bottom": 1270.84,
+          "width": 951.54,
+          "height": 677.68
+        },
+        "containerSelector": "#deck",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 110,
+          "top": 690,
+          "right": 970,
+          "bottom": 1174,
+          "width": 860,
+          "height": 484
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -695.77,
+          "y": 593.16,
+          "width": 951.54,
+          "height": 677.68
+        },
+        "firstSeen": 19.6,
+        "lastSeen": 19.6,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          19.6
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 19.6,
+        "selector": "#d6",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 824.23,
+          "top": 593.16,
+          "right": 1775.77,
+          "bottom": 1270.84,
+          "width": 951.54,
+          "height": 677.68
+        },
+        "containerSelector": "#deck",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 110,
+          "top": 690,
+          "right": 970,
+          "bottom": 1174,
+          "width": 860,
+          "height": 484
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 824.23,
+          "y": 593.16,
+          "width": 951.54,
+          "height": 677.68
+        },
+        "firstSeen": 19.6,
+        "lastSeen": 19.6,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          19.6
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 19.6,
+        "selector": "#d7",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -695.77,
+          "top": 593.16,
+          "right": 255.77,
+          "bottom": 1270.84,
+          "width": 951.54,
+          "height": 677.68
+        },
+        "containerSelector": "#deck",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 110,
+          "top": 690,
+          "right": 970,
+          "bottom": 1174,
+          "width": 860,
+          "height": 484
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -695.77,
+          "y": 593.16,
+          "width": 951.54,
+          "height": 677.68
+        },
+        "firstSeen": 19.6,
+        "lastSeen": 19.6,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          19.6
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 28.311,
+        "selector": "#st2a",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 394.75,
+          "top": 1293.42,
+          "right": 482.95,
+          "bottom": 1443.42,
+          "width": 88.2,
+          "height": 150
+        },
+        "containerSelector": "#st2 > div:nth-of-type(1)",
+        "text": "+",
+        "fixHint": "Text is 88px x 150px inside 840px x 151px and overflows by up to 2px; increase the container height to at least ~153px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 130,
+          "top": 1290,
+          "right": 970,
+          "bottom": 1441.27,
+          "width": 840,
+          "height": 151.27
+        },
+        "overflow": {
+          "bottom": 2.15
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 394.75,
+          "y": 1293.42,
+          "width": 88.2,
+          "height": 150
+        },
+        "firstSeen": 28.311,
+        "lastSeen": 28.311,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.311
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 28.311,
+        "selector": "#count",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 130,
+          "top": 1293.42,
+          "right": 394.75,
+          "bottom": 1443.42,
+          "width": 264.75,
+          "height": 150
+        },
+        "containerSelector": "#st2 > div:nth-of-type(1)",
+        "text": "264",
+        "fixHint": "Text is 265px x 150px inside 840px x 151px and overflows by up to 2px; increase the container height to at least ~153px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 130,
+          "top": 1290,
+          "right": 970,
+          "bottom": 1441.27,
+          "width": 840,
+          "height": 151.27
+        },
+        "overflow": {
+          "bottom": 2.15
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 130,
+          "y": 1293.42,
+          "width": 264.75,
+          "height": 150
+        },
+        "firstSeen": 28.311,
+        "lastSeen": 28.311,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.311
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 28.311,
+        "selector": "#st2b",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 130,
+          "top": 1466.09,
+          "right": 637.64,
+          "bottom": 1522.09,
+          "width": 507.64,
+          "height": 56
+        },
+        "containerSelector": "#st2 > div:nth-of-type(2)",
+        "text": "solved past paper videos",
+        "fixHint": "Text is 508px x 56px inside 840px x 67px and overflows by up to 14px; increase the container height to at least ~81px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 130,
+          "top": 1441.27,
+          "right": 970,
+          "bottom": 1508.53,
+          "width": 840,
+          "height": 67.27
+        },
+        "overflow": {
+          "bottom": 13.56
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 130,
+          "y": 1466.09,
+          "width": 507.64,
+          "height": 56
+        },
+        "firstSeen": 28.311,
+        "lastSeen": 28.311,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.311
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 28.311,
+        "selector": "#st2a",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 130,
+          "top": 1293.92,
+          "right": 970,
+          "bottom": 1443.92,
+          "width": 840,
+          "height": 150
+        },
+        "containerSelector": "#st2 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 130,
+          "top": 1290,
+          "right": 970,
+          "bottom": 1441.27,
+          "width": 840,
+          "height": 151.27
+        },
+        "overflow": {
+          "bottom": 2.65
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 130,
+          "y": 1293.92,
+          "width": 840,
+          "height": 150
+        },
+        "firstSeen": 28.311,
+        "lastSeen": 28.311,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.311
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 28.311,
+        "selector": "#st2b",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 130,
+          "top": 1464.09,
+          "right": 970,
+          "bottom": 1524.09,
+          "width": 840,
+          "height": 60
+        },
+        "containerSelector": "#st2 > div:nth-of-type(2)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 130,
+          "top": 1441.27,
+          "right": 970,
+          "bottom": 1508.53,
+          "width": 840,
+          "height": 67.27
+        },
+        "overflow": {
+          "bottom": 15.56
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 130,
+          "y": 1464.09,
+          "width": 840,
+          "height": 60
+        },
+        "firstSeen": 28.311,
+        "lastSeen": 28.311,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.311
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 32.667,
+        "selector": "#btn-a",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 417.68,
+          "top": 1072.67,
+          "right": 662.31,
+          "bottom": 1141.15,
+          "width": 244.63,
+          "height": 68.49
+        },
+        "containerSelector": "#btn-b",
+        "text": "Subscribe",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 417.68,
+          "y": 1072.67,
+          "width": 244.63,
+          "height": 68.49
+        },
+        "firstSeen": 32.667,
+        "lastSeen": 32.667,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          32.667
+        ]
+      }
+    ],
+    "duration": 39.2,
+    "samples": [
+      2.178,
+      6.533,
+      10.889,
+      15.244,
+      19.6,
+      23.956,
+      28.311,
+      32.667,
+      37.022
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 15,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.178,
+      10.889,
+      19.6,
+      28.311,
+      37.022
+    ],
+    "checked": 24,
+    "passed": 24
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

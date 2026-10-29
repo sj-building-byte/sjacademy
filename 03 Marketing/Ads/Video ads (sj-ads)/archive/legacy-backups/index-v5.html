@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>SJ Academy · May/June 2027 Reel</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hyperframes/shader-transitions@0.8.143/dist/index.global.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/v4/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      @font-face { font-family: "Poppins"; src: url("assets/v4/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+      @font-face { font-family: "Poppins"; src: url("assets/v4/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Caveat"; src: url("assets/v4/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+
+      html, body { margin: 0; padding: 0; width: 1080px; height: 1920px; overflow: hidden; background: #F7F5EF; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: #151515; }
+      * { box-sizing: border-box; }
+
+      /* ---------- notebook canvas ---------- */
+      .act { position: absolute; inset: 0; overflow: hidden; background-color: #F7F5EF; }
+      .dots { position: absolute; left: -160px; top: -160px; width: 1400px; height: 2240px;
+        background-image: radial-gradient(circle, #CDC8B8 1.3px, rgba(205, 200, 184, 0) 1.8px); background-size: 40px 40px; }
+      .dots-far { position: absolute; left: -160px; top: -160px; width: 1400px; height: 2240px;
+        background-image: radial-gradient(circle, #DDD8CA 1.5px, rgba(221, 216, 202, 0) 2px); background-size: 80px 80px; background-position: 20px 20px; }
+      .hot { position: absolute; opacity: 0; background-image: radial-gradient(circle, #151515 2.3px, rgba(21, 21, 21, 0) 2.9px); background-size: 40px 40px;
+        -webkit-mask-image: radial-gradient(circle closest-side, #000 25%, rgba(0, 0, 0, 0) 100%); mask-image: radial-gradient(circle closest-side, #000 25%, rgba(0, 0, 0, 0) 100%); }
+      .scene, .shot { position: absolute; inset: 0; overflow: hidden; }
+      .cam { position: absolute; inset: 0; }
+      .fx { position: absolute; inset: 0; pointer-events: none; }
+      .pt { position: absolute; left: 0; top: 0; border-radius: 50%; }
+
+      /* ---------- shared brand atoms ---------- */
+      .logo-patch { position: absolute; padding: 14px 18px; margin: -14px -18px; background: #F7F5EF; border-radius: 12px; }
+      .logo-patch img { display: block; height: 80px; width: auto; }
+      .pill { position: absolute; background: #FFFFFF; border: 3.5px solid #151515; border-radius: 999px; padding: 10px 30px 11px;
+        font-weight: 500; font-size: 34px; line-height: 1.2; letter-spacing: 0.07em; text-transform: uppercase; white-space: nowrap; }
+      .w { display: inline-block; position: relative; white-space: nowrap; }
+      .hlw { isolation: isolate; }
+      .hl { position: absolute; left: -0.1em; right: -0.1em; top: 0.2em; bottom: 0.02em; background: #FCE004; z-index: -1; border-radius: 6px; }
+      .ln { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+      .li { display: block; }
+      .card { position: absolute; background: #FFFFFF; border: 4px solid #151515; border-radius: 18px; }
+      .tag { position: absolute; background: #151515; color: #FFFFFF; font-weight: 500; font-size: 44px; line-height: 1.1; padding: 8px 22px 10px; border-radius: 10px; white-space: nowrap; }
+      .bar { position: absolute; height: 16px; border-radius: 8px; background: #DCD8CD; }
+      svg.pen { position: absolute; overflow: visible; }
+      svg.pen path, svg.pen ellipse { fill: none; stroke: #D63A2F; stroke-linecap: round; stroke-linejoin: round; }
+      .hand { position: absolute; font-family: "Caveat", cursive; font-weight: 600; color: #B92F25; font-size: 56px; line-height: 1; white-space: nowrap; }
+
+      /* ---------- S1 hook ---------- */
+      #s1 { z-index: 1; }
+      #s1h { position: absolute; left: 84px; top: 496px; width: 900px; margin: 0; font-weight: 600; font-size: 128px; line-height: 1.0; letter-spacing: -0.04em; }
+      #s1h .line { display: block; }
+      .paperzone { position: absolute; inset: 0; }
+      #s1soft { position: absolute; left: 190px; top: 1080px; width: 740px; height: 420px; border-radius: 40px; background: rgba(21, 21, 21, 0.2); filter: blur(34px); }
+      #s1back { position: absolute; left: 196px; top: 1048px; width: 730px; height: 420px; background: #FCE004; border: 4px solid #151515; border-radius: 14px; }
+      #s1paper { position: absolute; left: 166px; top: 1030px; width: 740px; height: 430px; background: #FFFFFF; border: 4px solid #151515; border-radius: 14px; overflow: hidden; }
+      #s1paper .ptag { position: absolute; left: 34px; top: 30px; border: 3.5px solid #151515; border-radius: 8px; padding: 2px 16px 4px; font-weight: 500; font-size: 44px; line-height: 1.1; letter-spacing: 0.08em; }
+      #s1paper .rule { position: absolute; left: 0; right: 0; height: 3px; background: #E9E5DA; }
+      #s1stamp { position: absolute; left: 734px; top: 1318px; width: 214px; height: 214px; border-radius: 50%; border: 8px solid #D63A2F; display: flex; align-items: center; justify-content: center; }
+      #s1stamp::before { content: ""; position: absolute; inset: 9px; border-radius: 50%; border: 3px solid #D63A2F; }
+      #s1stamp span { font-weight: 600; font-size: 84px; letter-spacing: -0.03em; color: #B92F25; line-height: 1; }
+      #s1ring { position: absolute; left: 734px; top: 1318px; width: 214px; height: 214px; border-radius: 50%; border: 7px solid #D63A2F; opacity: 0; }
+
+      /* ---------- S2 marking montage ---------- */
+      #s2 { z-index: 2; }
+      #s2wrap { position: absolute; inset: 0; background-color: #F7F5EF; overflow: hidden; }
+      #s2h { position: absolute; left: 84px; top: 292px; width: 900px; margin: 0; font-weight: 600; font-size: 92px; line-height: 1.04; letter-spacing: -0.035em; }
+      .scard { position: absolute; left: 240px; top: 830px; width: 600px; height: 380px; box-shadow: 18px 18px 0 #151515; }
+      .scard .sc-in { position: absolute; inset: 0; overflow: hidden; border-radius: 14px; }
+      #s2iris { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+
+      /* ---------- S3 method ---------- */
+      #s3 { z-index: 3; }
+      #s3h { position: absolute; left: 84px; top: 300px; width: 900px; margin: 0; font-weight: 600; font-size: 120px; line-height: 1.0; letter-spacing: -0.04em; }
+      .step { position: absolute; left: 60px; width: 880px; height: 236px; box-shadow: 18px 18px 0 #151515; opacity: 0; }
+      .step .ico { position: absolute; left: 26px; top: 56px; width: 116px; height: 116px; background: #FCE004; border: 4px solid #151515; border-radius: 18px; }
+      .step .ico svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .step .ico path, .step .ico rect, .step .ico circle { fill: none; stroke: #151515; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+      .step .tx { position: absolute; left: 166px; right: 34px; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+      .step .tt { font-weight: 500; font-size: 46px; line-height: 1.08; letter-spacing: -0.025em; }
+      .step .ts { font-weight: 400; font-size: 44px; line-height: 1.2; letter-spacing: -0.025em; color: #2B2B2B; white-space: nowrap; }
+
+      /* ---------- S4 subjects (paper page that folds away) ---------- */
+      #s4 { z-index: 6; }
+      .half { position: absolute; left: 0; width: 1080px; }
+      .half-top { top: 0; height: 960px; overflow: hidden; }
+      .half-bot { top: 960px; height: 960px; transform-style: preserve-3d; }
+      .face { position: absolute; inset: 0; overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+      .face-front .page { top: -960px; }
+      .face-back { background: #EEEBE2; transform: rotateX(180deg); }
+      .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(21, 21, 21, 0.55) 0%, rgba(21, 21, 21, 0.15) 45%, rgba(21, 21, 21, 0) 100%); opacity: 0; }
+      .page { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; background-color: #F7F5EF; }
+      .s4content { position: absolute; inset: 0; perspective: 1100px; perspective-origin: 540px 980px; }
+      .colh { position: absolute; top: 290px; font-weight: 600; font-size: 64px; line-height: 1.1; letter-spacing: -0.03em; white-space: nowrap; }
+      .colh .band { position: absolute; left: -8px; right: -8px; bottom: 4px; height: 24px; background: #FCE004; z-index: -1; border-radius: 4px; }
+      .colh { isolation: isolate; }
+      .chip { position: absolute; background: #FFFFFF; border: 3.5px solid #151515; border-radius: 999px; padding: 11px 24px 12px; font-weight: 500; font-size: 44px; line-height: 1.1; letter-spacing: -0.015em; white-space: nowrap; box-shadow: 7px 7px 0 #151515; }
+
+      /* ---------- S5 / S6 browser cards ---------- */
+      #s5 { z-index: 5; }
+      .browser { position: absolute; background: #FFFFFF; border: 4px solid #151515; border-radius: 26px; overflow: hidden; box-shadow: 18px 18px 0 #151515; }
+      .browser .bar { position: static; height: 72px; border-radius: 0; background: #FFFFFF; border-bottom: 4px solid #151515; display: flex; align-items: center; padding: 0 24px; gap: 12px; }
+      .browser .dot { width: 20px; height: 20px; border-radius: 50%; border: 3.5px solid #151515; }
+      .browser .url { margin-left: 18px; flex: 1; height: 50px; border-radius: 999px; background: #F7F5EF; border: 3px solid #151515; font-weight: 500; font-size: 34px; line-height: 44px; padding: 0 22px; white-space: nowrap; }
+      .browser .vp { position: absolute; left: 0; right: 0; top: 76px; bottom: 0; overflow: hidden; }
+      .browser .vp img { position: absolute; left: 0; top: 0; width: 874px; display: block; }
+      .cursor { position: absolute; left: 0; top: 0; width: 76px; height: 92px; z-index: 30; }
+      .ripple { position: absolute; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; border: 9px solid #FCE004; opacity: 0; z-index: 29; }
+      .ripple.ink { border: 4px solid #151515; }
+
+      /* ---------- S6 free tools ---------- */
+      #s6 { z-index: 2; }
+      #s6h { position: absolute; left: 84px; top: 292px; width: 900px; margin: 0; font-weight: 600; font-size: 88px; line-height: 1.04; letter-spacing: -0.035em; }
+
+      /* ---------- S7 rating (yellow, centred) ---------- */
+      #s7 { z-index: 3; }
+      .ypage { position: absolute; inset: 0; background-color: #FCE004; overflow: hidden; }
+      .ydots { position: absolute; left: -160px; top: -160px; width: 1400px; height: 2240px;
+        background-image: radial-gradient(circle, #E2C800 1.4px, rgba(226, 200, 0, 0) 1.9px); background-size: 40px 40px; }
+      .ylogo { position: absolute; left: 371px; top: 300px; padding: 14px 18px; margin: -14px -18px; background: #FCE004; border-radius: 12px; }
+      .ylogo img { display: block; height: 80px; width: auto; }
+      #rate { position: absolute; left: 90px; top: 440px; width: 900px; height: 660px; }
+      #big50 { position: absolute; left: 0; top: 0; width: 900px; text-align: center; font-weight: 600; font-size: 330px; line-height: 1; letter-spacing: -0.05em; }
+      .star { position: absolute; top: 360px; width: 112px; height: 112px; }
+      .star path { stroke: #151515; stroke-width: 6; stroke-linejoin: round; }
+      #rateline { position: absolute; left: 0; top: 500px; width: 900px; text-align: center; font-weight: 500; font-size: 60px; line-height: 1.12; letter-spacing: -0.02em; }
+      .rchip { position: absolute; background: #FFFFFF; border: 4px solid #151515; border-radius: 999px; padding: 10px 30px 12px; font-weight: 500; font-size: 44px; line-height: 1.1; box-shadow: 10px 10px 0 #151515; white-space: nowrap; display: flex; align-items: center; gap: 14px; }
+      .rchip svg { width: 196px; height: 40px; }
+
+      /* ---------- S8 end card: class photo + centred CTA ---------- */
+      #s8 { z-index: 4; }
+      #pol { position: absolute; left: 540px; top: 960px; width: 640px; height: 800px; background: #FFFFFF; padding: 28px 28px 132px; border-radius: 6px; box-shadow: 0 30px 60px rgba(21, 21, 21, 0.28); }
+      #polph { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 4px; }
+      #polph img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+      #ov { position: absolute; inset: 0; background: #151515; opacity: 0; }
+      #tape { position: absolute; left: 50%; top: -18px; width: 210px; height: 58px; margin-left: -105px; background: rgba(252, 224, 4, 0.8); transform-origin: 0% 50%; }
+      #endcard { position: absolute; inset: 0; color: #FFFFFF; }
+      #elogo { position: absolute; left: 371px; top: 380px; height: 80px; width: auto; display: block; }
+      #endh { position: absolute; left: 0; top: 520px; width: 1080px; margin: 0; text-align: center; font-weight: 600; font-size: 104px; line-height: 1.04; letter-spacing: -0.035em; }
+      .erow { position: absolute; left: 0; width: 1080px; display: flex; justify-content: center; gap: 30px; }
+      .epill { background: #FFFFFF; color: #151515; border: 4px solid #151515; border-radius: 999px; padding: 12px 40px 14px; font-weight: 500; font-size: 52px; line-height: 1.1; white-space: nowrap; box-shadow: 10px 10px 0 #FCE004; }
+      #ebtnwrap { position: relative; }
+      #ebtn { position: relative; overflow: hidden; background: #FCE004; color: #151515; border: 4px solid #151515; border-radius: 22px; padding: 30px 60px 32px; font-weight: 500; font-size: 60px; line-height: 1.1; letter-spacing: -0.015em; white-space: nowrap; box-shadow: 12px 12px 0 #FFFFFF; }
+      #shine { position: absolute; top: -20px; bottom: -20px; left: 0; width: 70px; background: rgba(255, 255, 255, 0.6); }
+      .bring { position: absolute; inset: -4px; border: 6px solid #FCE004; border-radius: 26px; opacity: 0; }
+      #elink { position: absolute; left: 0; top: 1300px; width: 1080px; text-align: center; font-weight: 500; font-size: 36px; line-height: 1.2; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920" data-fps="30">
+
+      <!-- ================= ACT 1 (S1-S5), dotted notebook canvas ================= -->
+      <div id="act1" class="act scene" style="background-color: #F7F5EF">
+        <div id="a1far" class="dots-far"></div>
+        <div id="a1dots" class="dots"></div>
+
+        <!-- S1 HOOK -->
+        <div id="s1" class="clip shot" data-start="0" data-duration="3.12" data-track-index="1">
+          <div id="s1cam" class="cam">
+            <div id="s1logo" class="logo-patch" style="left: 84px; top: 285px"><img src="assets/v4/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy" /></div>
+            <div id="s1pill" class="pill" style="left: 84px; top: 390px">O &amp; A Level &middot; May/June 2027</div>
+            <h1 id="s1h">
+              <span class="line"><span class="w s1w">Learn</span> <span class="w s1w">to think</span></span>
+              <span class="line"><span class="w s1w">like a</span> <span class="w s1w">CAIE</span></span>
+              <span class="line"><span class="w s1w hlw"><span id="s1hl" class="hl"></span>examiner.</span></span>
+            </h1>
+            <div id="s1zone" class="paperzone">
+              <div id="s1soft"></div>
+              <div id="s1back"></div>
+              <div id="s1paper">
+                <div class="ptag">SAMPLE</div>
+                <div class="rule" style="top: 112px"></div>
+              </div>
+              <div id="s1ring"></div>
+              <div id="s1stamp"><span>8/8</span></div>
+            </div>
+            <div id="s1fx" class="fx"></div>
+          </div>
+        </div>
+
+        <!-- S2 MARKING MONTAGE -->
+        <div id="s2" class="clip shot" data-start="2.75" data-duration="2.87" data-track-index="2">
+          <div id="s2wrap">
+            <div id="s2dots" class="dots"></div>
+            <div id="s2cam" class="cam">
+              <h2 id="s2h">
+                <span class="ln"><span class="li"><span class="w s2w">Every</span> <span class="w s2w">subject.</span></span></span>
+                <span class="ln"><span class="li"><span class="w s2w">Marked</span> <span class="w s2w">the way</span></span></span>
+                <span class="ln"><span class="li"><span class="w s2w hlw"><span id="s2hl" class="hl"></span>Cambridge</span> <span class="w s2w">marks.</span></span></span>
+              </h2>
+              <div id="s2deck"></div>
+              <div id="s2fx" class="fx"></div>
+            </div>
+          </div>
+          <svg id="s2iris" width="1080" height="1920"><circle id="s2ringc" cx="841" cy="1425" r="105" fill="none" stroke="#D63A2F" stroke-width="12" /></svg>
+        </div>
+
+        <!-- S3 THE METHOD -->
+        <div id="s3" class="clip shot" data-start="5.5" data-duration="3.2" data-track-index="3">
+          <div id="s3cam" class="cam">
+            <h2 id="s3h"><span class="ln"><span class="li"><span class="w s3w">The SJ</span> <span class="w s3w hlw"><span id="s3hl" class="hl"></span>method.</span></span></span></h2>
+            <div id="s3steps"></div>
+            <div id="s3fx" class="fx"></div>
+          </div>
+        </div>
+
+        <!-- S5 WEBSITE PROOF (sits under S4's page, revealed by the fold) -->
+        <div id="s5" class="clip shot" data-start="10.25" data-duration="2.3" data-track-index="5">
+          <div id="s5cam" class="cam">
+            <div id="brA" class="browser" data-layout-allow-overlap style="left: 60px; top: 290px; width: 882px; height: 1010px">
+              <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url" data-layout-allow-overlap>sjacademy.pk</div></div>
+              <div class="vp"><img id="brAimg" src="assets/v4/site-hero.jpg" alt="SJ Academy homepage hero" /></div>
+              <div id="rippleA" class="ripple"></div><div id="rippleA2" class="ripple ink"></div>
+            </div>
+            <div id="brB" class="browser" data-layout-allow-overlap style="left: 66px; top: 760px; width: 882px; height: 760px">
+              <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url" data-layout-allow-overlap>sjacademy.pk/teachers</div></div>
+              <div class="vp"><img id="brBimg" src="assets/v4/site-teachers.jpg" alt="SJ Academy teachers section" /></div>
+            </div>
+            <svg id="cur5" class="cursor" viewBox="0 0 76 92"><path d="M6 4 L6 76 L24 60 L36 88 L50 82 L38 55 L62 55 Z" fill="#FFFFFF" stroke="#151515" stroke-width="5" stroke-linejoin="round" /></svg>
+          </div>
+        </div>
+
+        <!-- S4 SUBJECTS (a dotted page: top half + a bottom half that folds up) -->
+        <div id="s4" class="clip shot" data-start="8.35" data-duration="2.45" data-track-index="4">
+          <div id="s4cam" class="cam">
+            <div id="s4top" class="half half-top"><div id="s4page" class="page"><div class="dots s4dots"></div><div class="s4content"></div></div></div>
+            <div id="s4bot" class="half half-bot">
+              <div class="face face-front"><div id="s4slot"></div><div id="s4shadeF" class="shade"></div></div>
+              <div class="face face-back"><div class="dots" style="opacity: 0.5"></div><div id="s4shadeB" class="shade"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= ACT 2 (S6-S8) ================= -->
+      <div id="act2" class="act scene" style="background-color: #F7F5EF">
+        <div id="a2far" class="dots-far"></div>
+        <div id="a2dots" class="dots"></div>
+
+        <!-- S6 FREE TOOLS -->
+        <div id="s6" class="clip shot" data-start="12.1" data-duration="2.6" data-track-index="6">
+          <div id="s6cam" class="cam">
+            <h2 id="s6h" data-layout-allow-overlap>
+              <span class="ln"><span class="li"><span class="w s6w hlw"><span id="s6hl" class="hl"></span>Free tools</span> <span class="w s6w">for</span></span></span>
+              <span class="ln"><span class="li"><span class="w s6w">O and A Level</span></span></span>
+              <span class="ln"><span class="li"><span class="w s6w">students</span></span></span>
+            </h2>
+            <div id="brT" class="browser" data-layout-allow-overlap style="left: 60px; top: 618px; width: 882px; height: 902px">
+              <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url" data-layout-allow-overlap>sjacademy.pk/free-tools</div></div>
+              <div class="vp"><img id="brTimg" src="assets/v4/site-tools.jpg" alt="SJ Academy free tools" /></div>
+              <div id="rippleT" class="ripple"></div><div id="rippleT2" class="ripple ink"></div>
+            </div>
+            <div id="brR" class="browser" data-layout-allow-overlap style="left: 72px; top: 640px; width: 882px; height: 880px">
+              <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url" data-layout-allow-overlap>IBCC equivalence calculator</div></div>
+              <div class="vp">
+                <img id="brRimg" src="assets/v4/site-ibcc-result.jpg" alt="IBCC equivalence calculator result" />
+                <div id="scan" style="position: absolute; left: 0; right: 0; top: 0; height: 100%; background: #FFFFFF"></div>
+                <div id="s6marks" class="fx"></div>
+              </div>
+              <div id="s6sample" class="tag" style="right: 30px; left: auto; top: 470px; background: #151515">sample grades</div>
+            </div>
+            <svg id="cur6" class="cursor" viewBox="0 0 76 92"><path d="M6 4 L6 76 L24 60 L36 88 L50 82 L38 55 L62 55 Z" fill="#FFFFFF" stroke="#151515" stroke-width="5" stroke-linejoin="round" /></svg>
+            <div id="s6fx" class="fx"></div>
+          </div>
+        </div>
+
+        <!-- S7 RATING -->
+        <div id="s7" class="clip shot" data-start="14.3" data-duration="2.36" data-track-index="7">
+          <div id="s7cam" class="cam">
+            <div id="ypage" class="ypage">
+              <div id="ydots" class="ydots"></div>
+              <div class="ylogo"><img src="assets/v4/sj-academy-logo-horizontal-on-yellow.svg" alt="SJ Academy" /></div>
+              <div id="rate">
+                <div id="big50" data-layout-allow-overlap>5.0</div>
+                <div id="stars"></div>
+                <div id="rateline">Rated 5.0 on Google<br />from <span id="cnt">226</span> reviews</div>
+              </div>
+              <div id="rchips"></div>
+              <div id="s7fx" class="fx"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- S8 END CARD: the class photo under a 60% ink overlay, centred CTA -->
+        <div id="s8" class="clip shot" data-start="15.7" data-duration="4.3" data-track-index="8">
+          <div id="s8cam" class="cam">
+            <div id="pol">
+              <div id="polph"><img id="polimg" src="assets/v4/class-photo.jpg" alt="Students working in the SJ Academy lab at DHA Phase 7" /><div id="ov"></div></div>
+              <div id="tape"></div>
+            </div>
+            <div id="endcard">
+              <img id="elogo" src="assets/v4/sj-academy-logo-horizontal-on-brown.svg" alt="SJ Academy" />
+              <h2 id="endh">
+                <span class="ln"><span class="li"><span class="w ew">Join our</span></span></span>
+                <span class="ln"><span class="li"><span class="w ew hlw"><span id="ehl" class="hl"></span>May/June 2027</span></span></span>
+                <span class="ln"><span class="li"><span class="w ew">batches</span></span></span>
+              </h2>
+              <div class="erow" style="top: 916px"><div id="ep1" class="epill">O Level</div><div id="ep2" class="epill">A Level</div></div>
+              <div class="erow" style="top: 1078px"><div id="ebtnwrap"><div id="ebtn">Book a free demo class<div id="shine"></div></div><div id="br1" class="bring"></div><div id="br2" class="bring"></div></div></div>
+              <div id="elink">sjacademy.pk &middot; WhatsApp +92-336-2144454</div>
+              <div id="s8fx" class="fx"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <audio id="music" src="assets/v4/music.wav" data-start="0" data-duration="20" data-track-index="10" data-volume="1"></audio>
+      <audio id="sfx" src="assets/v4/sfx.wav" data-start="0" data-duration="20" data-track-index="11" data-volume="1"></audio>
+    </div>
+
+    <script>
+      /* =====================================================================
+         SJ Academy · May/June 2027 · 20s Reel
+         Beat grid: BPM drives every hit. Change BPM here and in build/audio.mjs.
+         ===================================================================== */
+      var BPM = 120, BEAT = 60 / BPM; // 0.5s per beat, 8ths = 0.25, 16ths = 0.125
+      var b = function (n) { return n * BEAT; };
+      window.__sfxEvents = []; // read by build/audio.mjs to place SFX on the same grid
+      function sfx(t, type, gain) { window.__sfxEvents.push({ t: +t.toFixed(4), type: type, g: gain == null ? 1 : gain }); }
+
+      var INK = "#151515", RED = "#D63A2F", YEL = "#FCE004";
+      function $(s) { return document.querySelector(s); }
+      function $$(s) { return Array.prototype.slice.call(document.querySelectorAll(s)); }
+      function rng(seed) { return function () { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; var t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+      function el(tag, cls, parent, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; if (parent) parent.appendChild(e); return e; }
+      var SVGNS = "http://www.w3.org/2000/svg";
+      function penSVG(parent, x, y, w, h, d, sw, vb) {
+        var s = document.createElementNS(SVGNS, "svg"); s.setAttribute("class", "pen"); s.setAttribute("viewBox", vb || "0 0 " + w + " " + h);
+        s.style.left = x + "px"; s.style.top = y + "px"; s.style.width = w + "px"; s.style.height = h + "px";
+        var p = document.createElementNS(SVGNS, "path"); p.setAttribute("d", d); p.setAttribute("pathLength", "1"); p.style.strokeWidth = sw || 9;
+        p.style.strokeDasharray = "1"; p.style.strokeDashoffset = "1"; s.appendChild(p); parent.appendChild(s); return p;
+      }
+      var TICK = "M6 30 L24 50 L66 6";
+      var STAR = "M50 4 L62 36 L96 37 L69 58 L79 92 L50 72 L21 92 L31 58 L4 37 L38 36 Z";
+
+      /* ---------- build: S1 paper lines + ticks ---------- */
+      var paper = $("#s1paper"), s1ticks = [];
+      [[34, 166, 380], [34, 236, 420], [34, 306, 340], [34, 376, 300]].forEach(function (r, i) {
+        el("div", "bar", paper).setAttribute("style", "left:" + r[0] + "px;top:" + r[1] + "px;width:" + r[2] + "px");
+        s1ticks.push(penSVG(paper, 450 + (i % 2) * 16 - (i === 3 ? 60 : 0), r[1] - 40, 76, 60, TICK, 10, "0 0 72 56"));
+      });
+
+      /* ---------- build: S2 subject cards ---------- */
+      var SUBJ = [["Maths", "M1 A1"], ["Physics", "B1 B1"], ["Chemistry", "M1 A1"], ["Biology", "2/2"], ["Business", "AN"], ["Economics", "EV"], ["Accounting", "OF"], ["English", "L4"]];
+      var deck = $("#s2deck"), cards = [];
+      SUBJ.forEach(function (s, i) {
+        var c = el("div", "card scard", deck); c.setAttribute("data-layout-allow-overlap", ""); var inn = el("div", "sc-in", c);
+        var t = el("div", "tag", inn, s[0]); t.setAttribute("data-layout-allow-overlap", ""); t.style.left = "28px"; t.style.top = "26px";
+        [[128, 400], [178, 470], [228, 360], [278, 430], [328, 300]].forEach(function (r, k) { el("div", "bar", inn).setAttribute("style", "left:30px;top:" + (r[0] + 4) + "px;width:" + (r[1] - (i * 13) % 60) + "px"); });
+        var tick = penSVG(inn, 470, 120, 92, 72, TICK, 10, "0 0 72 56");
+        var circ = penSVG(inn, 16, 210, 420, 82, "M210 6 C 330 4, 416 18, 412 42 C 408 70, 300 78, 200 76 C 90 74, 8 66, 10 40 C 12 16, 110 6, 220 10", 6, "0 0 420 82");
+        var mk = el("div", "hand", inn, s[1]); mk.style.left = "476px"; mk.style.top = "212px";
+        cards.push({ el: c, inn: inn, tick: tick, circ: circ, mk: mk });
+      });
+
+      /* ---------- build: S3 steps ---------- */
+      var STEPS = [
+        ["Taught to the mark scheme", "Learn what each mark is for", '<rect x="34" y="22" width="60" height="84" rx="8"/><path d="M46 46 H82 M46 64 H82 M46 82 H66"/>'],
+        ["Past papers, marked like the real thing", "Timed, like the exam hall", '<rect x="40" y="30" width="56" height="76" rx="8"/><path d="M30 92 V24 a6 6 0 0 1 6 -6 H84"/><path d="M52 62 L62 72 L84 48"/>'],
+        ["Feedback you can act on", "See where each mark was lost", '<circle cx="56" cy="56" r="26"/><path d="M76 76 L100 100"/><path d="M46 56 H66"/>'],
+        ["Try a free demo class", "Before you enrol", '<path d="M22 44 H106 V60 a10 10 0 0 0 0 20 V96 H22 V80 a10 10 0 0 0 0 -20 Z"/><path d="M64 50 V90" stroke-dasharray="2 10"/>']
+      ];
+      var SLOT_TOP = [470, 732, 994, 1256], steps = [];
+      STEPS.forEach(function (s, i) {
+        var c = el("div", "card step", $("#s3steps")); c.style.top = SLOT_TOP[i] + "px";
+        var ic = el("div", "ico", c, '<svg viewBox="0 0 128 128">' + s[2] + "</svg>");
+        var tx = el("div", "tx", c), tt = el("div", "tt", tx, s[0]), ts = el("div", "ts", tx, s[1]);
+        var tk = penSVG(c, 790, -30, 92, 72, TICK, 12, "0 0 72 56");
+        steps.push({ el: c, ic: ic, tt: tt, ts: ts, tk: tk });
+      });
+
+      /* ---------- build: S4 subject chips (real lists from the homepage FAQ) ---------- */
+      var OL = ["Maths", "Add Maths", "Physics", "Chemistry", "Biology", "Pakistan Studies", "Islamiyat", "English", "Urdu", "Accounting", "Business", "Economics", "Computer Science"];
+      var AL = ["Maths", "Physics", "Chemistry", "Biology", "Business", "Economics", "Computer Science", "Accounting", "Psychology", "Sociology", "English", "Urdu"];
+      var s4c = $("#s4page .s4content");
+      var hO = el("div", "colh colhO", s4c, '<span class="band"></span>O Level'); hO.style.left = "84px";
+      var hA = el("div", "colh colhA", s4c, '<span class="band"></span>A Level'); hA.style.left = "556px";
+      var chipData = [];
+      OL.forEach(function (n, r) { chipData.push({ n: n, x: 70, y: 400 + r * 84, r: r }); });
+      AL.forEach(function (n, r) { chipData.push({ n: n, x: 545, y: 400 + r * 84, r: r }); });
+      chipData.forEach(function (d, i) { var c = el("div", "chip chip" + i, s4c, d.n); c.setAttribute("data-layout-allow-overlap", ""); c.style.left = d.x + "px"; c.style.top = d.y + "px"; });
+      // the bottom half is a clone of the whole page, so the fold carries the real content
+      var clone = $("#s4page").cloneNode(true); clone.removeAttribute("id"); $("#s4slot").replaceWith(clone);
+
+      /* ---------- build: S7 stars + review chips ---------- */
+      var stars = [];
+      for (var i = 0; i < 5; i++) {
+        var sv = document.createElementNS(SVGNS, "svg"); sv.setAttribute("viewBox", "0 0 100 96"); sv.setAttribute("class", "star"); sv.style.left = 138 + i * 128 + "px";
+        var o = document.createElementNS(SVGNS, "path"); o.setAttribute("d", STAR); o.setAttribute("fill", "none"); sv.appendChild(o);
+        var f = document.createElementNS(SVGNS, "path"); f.setAttribute("d", STAR); f.setAttribute("fill", INK); f.style.transformOrigin = "50px 50px"; sv.appendChild(f);
+        $("#stars").appendChild(sv); stars.push({ sv: sv, f: f });
+      }
+      var starRow = '<svg viewBox="0 0 490 100">' + [0, 1, 2, 3, 4].map(function (k) { return '<path transform="translate(' + k * 98 + ',2)" d="' + STAR + '" fill="#151515"/>'; }).join("") + "</svg>";
+      var rchips = [];
+      [[200, 1150, -2], [260, 1282, 1.6], [220, 1414, -1.2]].forEach(function (p, i) {
+        var c = el("div", "rchip", $("#rchips"), starRow + "<span>Google review</span>"); c.style.left = p[0] + "px"; c.style.top = p[1] + "px"; rchips.push({ el: c, rot: p[2] });
+      });
+
+      /* ---------- helpers that add tweens ---------- */
+      var tl = HyperShader.init({
+        bgColor: "#F7F5EF",
+        accentColor: "#FCE004",
+        scenes: ["act1", "act2"],
+        transitions: [{ time: 12.1, shader: "ripple-waves", duration: 0.4, ease: "power2.inOut" }],
+        compositionId: "main"
+      });
+
+      function burst(parent, x, y, t, n, seed, opts) {
+        opts = opts || {}; var R = rng(seed), cols = opts.colors || [YEL, RED, YEL, INK];
+        for (var i = 0; i < n; i++) {
+          var sz = 8 + R() * (opts.big || 14), p = el("div", "pt", parent); p.style.width = sz + "px"; p.style.height = sz + "px"; p.style.background = cols[i % cols.length];
+          if (i % 3 === 0) p.style.borderRadius = "3px";
+          var a = (i / n) * Math.PI * 2 + R() * 0.6, d = (opts.dist || 220) * (0.55 + R() * 0.7);
+          tl.fromTo(p, { x: x - sz / 2, y: y - sz / 2, scale: 1, opacity: 1, rotation: 0 },
+            { x: x - sz / 2 + Math.cos(a) * d, y: y - sz / 2 + Math.sin(a) * d + (opts.fall || 40), scale: 0, rotation: R() * 360, duration: 0.55 + R() * 0.25, ease: "expo.out" }, t);
+          tl.set(p, { opacity: 0 }, 0); tl.set(p, { opacity: 1 }, t);
+        }
+      }
+      function shake(target, t, amp, dur) {
+        var ks = [[1, -0.6], [-0.8, 0.9], [0.6, -0.4], [-0.35, 0.3], [0.15, -0.1], [0, 0]], step = (dur || 0.24) / ks.length;
+        ks.forEach(function (k, i) { tl.to(target, { x: k[0] * amp, y: k[1] * amp, duration: step, ease: "sine.inOut", immediateRender: false }, t + i * step); });
+      }
+      function pulse(layer, x, y, t, R) {
+        // dots near the action darken and swell; the patch is snapped to the 40px grid so dots line up
+        R = R || 260; var L = Math.round((x + 160 - R) / 40) * 40, T = Math.round((y + 160 - R) / 40) * 40;
+        var h = el("div", "hot", layer); h.setAttribute("data-no-capture", ""); h.style.left = L + "px"; h.style.top = T + "px"; h.style.width = 2 * R + "px"; h.style.height = 2 * R + "px";
+        tl.fromTo(h, { opacity: 0 }, { opacity: 0.55, duration: 0.07, ease: "power2.out" }, t);
+        tl.to(h, { opacity: 0, duration: 0.6, ease: "power2.in", immediateRender: false }, t + 0.09);
+      }
+      function draw(path, t, dur, ease) { tl.fromTo(path, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: dur || 0.16, ease: ease || "power2.out" }, t); }
+      function slamWords(words, times, opts) {
+        opts = opts || {};
+        words.forEach(function (w, i) {
+          if (opts.ghost != null && opts.ghost < 1) {
+            // pencil ghost sits flat until its slam
+            tl.fromTo(w, { opacity: opts.ghost, scale: 1, y: 0, filter: "blur(0px)" }, { opacity: opts.ghost, duration: 0.01 }, 0);
+            tl.to(w, { keyframes: [{ scale: 1.25, opacity: 0.5, y: 18, filter: "blur(3px)", duration: 0.001 }, { scale: 1, opacity: 1, y: 0, filter: "blur(0px)", duration: 0.34, ease: "back.out(2.2)" }], transformOrigin: "50% 60%", immediateRender: false }, times[i]);
+          } else {
+            tl.fromTo(w, { scale: 1.25, opacity: opts.ghost == null ? 0 : opts.ghost, y: 18, filter: "blur(3px)", transformOrigin: "50% 60%" },
+              { scale: 1, opacity: 1, y: 0, filter: "blur(0px)", duration: 0.34, ease: "back.out(2.2)" }, times[i]);
+          }
+        });
+      }
+      function rise(lines, t, stagger) { tl.fromTo(lines, { yPercent: 108 }, { yPercent: 0, duration: 0.42, ease: "expo.out", stagger: stagger || 0.08 }, t); }
+      function swipe(hl, t, dur) { tl.fromTo(hl, { scaleX: 0, rotation: -1.2, transformOrigin: "0% 50%" }, { scaleX: 1, rotation: -1.2, duration: dur || 0.25, ease: "power3.inOut" }, t); sfx(t, "swipe", 0.6); }
+      function drift(cam, t0, t1, from, to) { tl.fromTo(cam, { scale: from || 1 }, { scale: to || 1.02, duration: t1 - t0, ease: "sine.inOut" }, t0); }
+
+      /* ---------- the world: dot-grid parallax runs under every scene ---------- */
+      tl.fromTo("#a1dots", { scale: 1.08, y: 0 }, { scale: 1, duration: 0.25, ease: "expo.out" }, 0);   // 0.00-0.25 dot grid push-in
+      tl.fromTo("#a1far", { scale: 1.14 }, { scale: 1, duration: 0.4, ease: "expo.out" }, 0);
+      tl.to("#a1dots", { y: -120, duration: 12.25, ease: "none", immediateRender: false }, 0.25);       // near layer drifts faster
+      tl.to("#a1far", { y: -48, duration: 12.6, ease: "none", immediateRender: false }, 0);            // far layer slower
+      tl.fromTo("#a2dots", { y: 0 }, { y: -80, duration: 7.9, ease: "none" }, 12.1);
+      tl.fromTo("#a2far", { y: 0 }, { y: -30, duration: 7.9, ease: "none" }, 12.1);
+
+      /* =================== S1 HOOK 0.0-3.0 ===================
+         WOW: the 3D paper landing + the 8/8 stamp slam */
+      tl.addLabel("S1", 0);
+      drift("#s1cam", 0, 2.75, 1, 1.02);
+      var s1w = $$(".s1w");
+      slamWords(s1w, [b(0.5), b(0.75), b(1), b(1.25), b(1.5)], { ghost: 0.16 });            // 0.25-0.9 word slams on 16ths
+      [0.25, 0.375, 0.5, 0.625].forEach(function (t) { sfx(t, "slam", 0.55); }); sfx(0.75, "hit", 0.8);
+      pulse($("#a1dots"), 420, 700, 0.75, 300);
+      tl.fromTo("#s1pill", { scale: 0.92, opacity: 1 }, { scale: 1, duration: 0.5, ease: "back.out(3)" }, 0);
+      swipe("#s1hl", 0.9, 0.25);                                                             // 0.9-1.15 highlighter
+
+      // paper flies up in 3D; yellow back sheet lands first, paper settles flat at -4deg
+      tl.fromTo("#s1back", { y: 980, rotationX: 25, rotationY: -16, rotation: 8, transformPerspective: 1500, transformOrigin: "50% 100%" },
+        { y: 0, rotationX: 0, rotationY: 0, rotation: 2.5, duration: 0.42, ease: "expo.out" }, 1.0);
+      tl.fromTo("#s1paper", { y: 1060, rotationX: 25, rotationY: -16, rotation: -8, scale: 1.08, transformPerspective: 1500, transformOrigin: "50% 100%", boxShadow: "0px 0px 0px #151515", filter: "blur(4px)" },
+        { y: 0, rotationX: 0, rotationY: 0, rotation: -4, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "back.out(1.15)" }, 1.0);
+      tl.to("#s1paper", { boxShadow: "18px 18px 0px #151515", duration: 0.14, ease: "expo.out", immediateRender: false }, 1.5); // shadow snaps out on landing
+      tl.fromTo("#s1soft", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power2.out" }, 1.1);
+      tl.fromTo("#s1stamp", { opacity: 0, scale: 2.2, rotation: -20 }, { opacity: 0, scale: 2.2, rotation: -20, duration: 0.01 }, 0);
+      sfx(1.0, "whoosh", 0.7); sfx(1.375, "paper", 0.8); sfx(1.5, "hit", 0.7);
+      shake("#s1zone", 1.5, 3, 0.18);
+      // four ticks draw in with a bounce on the grid
+      [1.75, 2.0, 2.25, 2.375].forEach(function (t, i) {
+        draw(s1ticks[i], t - 0.06, 0.13, "power3.out");
+        tl.fromTo(s1ticks[i].parentNode, { scale: 0.6, transformOrigin: "30% 80%" }, { scale: 1, duration: 0.3, ease: "elastic.out(1.1,0.45)" }, t - 0.06);
+        sfx(t, "tick", 0.9);
+      });
+      // 8/8 stamp slams on beat 5 (2.5s)
+      tl.to("#s1stamp", { opacity: 1, scale: 1, rotation: 8, duration: 0.12, ease: "power4.in", immediateRender: false }, 2.38);
+      tl.to("#s1stamp", { scale: 0.94, duration: 0.06, ease: "power2.out", immediateRender: false }, 2.5);
+      tl.to("#s1stamp", { scale: 1, duration: 0.18, ease: "back.out(3)", immediateRender: false }, 2.56);
+      tl.fromTo("#s1ring", { opacity: 0.9, scale: 1 }, { opacity: 0, scale: 2.7, duration: 0.42, ease: "expo.out" }, 2.5);
+      tl.set("#s1ring", { opacity: 0 }, 0);
+      shake("#s1cam", 2.5, 6, 0.24);
+      burst($("#s1fx"), 841, 1425, 2.5, 22, 7, { dist: 260 });
+      pulse($("#a1dots"), 841, 1425, 2.5, 320);
+      tl.to("#s1pill", { scale: 1.07, backgroundColor: YEL, duration: 0.08, ease: "power2.out", immediateRender: false }, 2.5);
+      tl.to("#s1pill", { scale: 1, backgroundColor: "#FFFFFF", duration: 0.35, ease: "back.out(2)", immediateRender: false }, 2.58);
+      sfx(2.5, "stamp", 1);
+
+      /* ---- T1 match cut 2.75-3.1: the stamp ring expands and becomes S2 ---- */
+      tl.fromTo("#s2wrap", { clipPath: "circle(105px at 841px 1425px)" }, { clipPath: "circle(2300px at 841px 1425px)", duration: 0.36, ease: "power3.in" }, 2.75);
+      tl.fromTo("#s2ringc", { attr: { r: 105 }, opacity: 1 }, { attr: { r: 2300 }, duration: 0.36, ease: "power3.in" }, 2.75);
+      tl.to("#s1cam", { scale: 1.5, filter: "blur(5px)", duration: 0.36, ease: "power3.in", transformOrigin: "841px 1425px", immediateRender: false }, 2.75);
+      sfx(2.75, "whoosh", 0.9); sfx(3.0, "hit", 0.8);
+      tl.set("#s1cam", { opacity: 0 }, 3.12);   // S1 fully gone after the match cut
+      // S2 carries its own canvas so the ring wipes S1 away; its dots track the act dots exactly
+      tl.fromTo("#s2dots", { y: -120 * (2.75 - 0.25) / 12.25 }, { y: -120 * (5.62 - 0.25) / 12.25, duration: 2.87, ease: "none" }, 2.75);
+
+      /* =================== S2 MARKING MONTAGE 3.0-5.5 ===================
+         WOW: subject cards fan out of the stamp ring */
+      tl.addLabel("S2", 3.0);
+      drift("#s2cam", 2.75, 5.5, 1, 1.02);
+      rise($$("#s2h .li"), 2.98, 0.125);                                                     // lines rise on 16ths
+      slamWords($$(".s2w"), [3.0, 3.0, 3.125, 3.125, 3.25, 3.25], { ghost: 1 });
+      swipe("#s2hl", 3.4, 0.22);
+      var FAN = [-12, -8.6, -5.2, -1.8, 1.8, 5.2, 8.6, 12], R2 = rng(42);
+      cards.forEach(function (c, i) {
+        var r0 = (R2() - 0.5) * 80;
+        tl.fromTo(c.el, { x: 301, y: 595, scale: 0.12, rotation: r0, transformOrigin: "50% 230%", boxShadow: "0px 0px 0px #151515", zIndex: i },
+          { x: 0, y: 150, scale: 0.86, rotation: FAN[i], duration: 0.5, ease: "back.out(1.4)" }, 2.92 + i * 0.045);
+      });
+      sfx(2.95, "fan", 0.9);
+      // marking: each 8th note the front card of the hand lands on the marked stack and gets its red mark
+      var order = [7, 6, 5, 4, 3, 2, 1, 0];
+      order.forEach(function (ci, k) {
+        var c = cards[ci], t = 3.5 + k * 0.25, rot = k % 2 ? 2.4 : -2.4;
+        tl.set(c.el, { zIndex: 20 + k }, t - 0.2);
+        tl.to(c.el, { x: 0, y: 0, scale: 1, rotation: rot, boxShadow: "18px 18px 0px #151515", duration: 0.22, ease: "expo.out", immediateRender: false }, t - 0.2);
+        draw(c.tick, t, 0.12);
+        tl.fromTo(c.mk, { scale: 0, rotation: -14 }, { scale: 1, rotation: -4, duration: 0.3, ease: "back.out(3)" }, t + 0.03);
+        if (k % 3 === 1) draw(c.circ, t + 0.04, 0.16);
+        sfx(t - 0.2, "flick", 0.5); sfx(t, "tick", 0.85);
+        shake("#s2deck", t, 2.5, 0.14);
+        if (k % 2 === 0) pulse($("#a1dots"), 540, 1020, t, 280);
+      });
+
+      /* ---- T2 FLIP re-sort 5.25-5.55: four marked cards physically re-order into the four steps ---- */
+      var flipMap = [[3, 0], [2, 1], [1, 2], [0, 3]];
+      flipMap.forEach(function (m, j) {
+        var c = cards[m[0]];
+        tl.to(c.inn, { clipPath: "inset(0% 0% 100% 0%)", duration: 0.12, ease: "power2.in", immediateRender: false }, 5.2);
+        tl.fromTo(c.inn, { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.01 }, 0);
+        tl.to(c.el, { x: -180, y: SLOT_TOP[m[1]] - 830, width: 880, height: 236, rotation: 0, scale: 1, duration: 0.33, ease: "expo.inOut", immediateRender: false }, 5.22 + j * 0.03);
+      });
+      [7, 6, 5, 4].forEach(function (ci, j) {
+        tl.to(cards[ci].el, { y: 1250, rotation: (j % 2 ? 1 : -1) * 24, filter: "blur(6px)", duration: 0.32, ease: "power3.in", immediateRender: false }, 5.2 + j * 0.03);
+      });
+      tl.to($$("#s2h .li"), { yPercent: -108, duration: 0.24, ease: "power3.in", stagger: 0.04, immediateRender: false }, 5.22);
+      sfx(5.22, "whoosh", 0.7); sfx(5.5, "hit", 0.6);
+
+      /* =================== S3 THE METHOD 5.5-8.5 ===================
+         WOW: the four cards snap in, then a chain-reaction tick wave */
+      tl.addLabel("S3", 5.5);
+      drift("#s3cam", 5.5, 8.3, 1, 1.02);
+      steps.forEach(function (s) { tl.set(s.el, { opacity: 0 }, 0); tl.set(s.el, { opacity: 1 }, 5.56); });
+      rise($$("#s3h .li"), 5.45);
+      slamWords($$(".s3w"), [5.5, 5.62], { ghost: 1 });
+      swipe("#s3hl", 5.78, 0.22);
+      [6.0, 6.5, 7.0, 7.5].forEach(function (t, i) {
+        var s = steps[i];
+        tl.fromTo(s.el, { boxShadow: "6px 6px 0px #151515", y: 10 }, { boxShadow: "18px 18px 0px #151515", y: 0, duration: 0.3, ease: "expo.out" }, t);
+        tl.fromTo(s.ic, { scale: 0, rotation: -25 }, { scale: 1, rotation: 0, duration: 0.42, ease: "back.out(2.6)" }, t);
+        tl.fromTo(s.tt, { clipPath: "inset(0% 100% 0% 0%)", x: -24 }, { clipPath: "inset(0% 0% 0% 0%)", x: 0, duration: 0.34, ease: "expo.out" }, t + 0.06);
+        tl.fromTo(s.ts, { clipPath: "inset(0% 100% 0% 0%)", x: -24 }, { clipPath: "inset(0% 0% 0% 0%)", x: 0, duration: 0.34, ease: "expo.out" }, t + 0.14);
+        sfx(t, "pop", 0.8);
+        pulse($("#a1dots"), 120, SLOT_TOP[i] + 118, t, 220);
+      });
+      [7.875, 8.0, 8.125, 8.25].forEach(function (t, i) {                                     // tick wave on 16ths
+        var s = steps[i];
+        draw(s.tk, t - 0.05, 0.12, "power3.out");
+        tl.to(s.el, { scale: 1.035, y: -8, duration: 0.07, ease: "power2.out", immediateRender: false }, t);
+        tl.to(s.el, { scale: 1, y: 0, duration: 0.3, ease: "back.out(3)", immediateRender: false }, t + 0.07);
+        burst($("#s3fx"), 890, SLOT_TOP[i] + 10, t, 10, 100 + i, { dist: 120, big: 10 });
+        sfx(t, "tick", 1);
+      });
+
+      /* ---- T3 whip pan 8.3-8.7 (S3 out left, S4 page in from the right, 2-frame overshoot) ---- */
+      tl.to("#s3cam", { x: -1180, filter: "blur(16px)", duration: 0.2, ease: "power3.in", immediateRender: false }, 8.32);
+      tl.fromTo("#s4cam", { x: 1180, filter: "blur(16px)" }, { x: -30, filter: "blur(0px)", duration: 0.22, ease: "power3.out" }, 8.4);
+      tl.to("#s4cam", { x: 0, duration: 0.08, ease: "power2.out", immediateRender: false }, 8.62);
+      tl.set("#s4cam", { filter: "none" }, 8.7);
+      tl.to(["#a1dots"], { x: -400, duration: 0.42, ease: "power3.inOut", immediateRender: false }, 8.3);
+      sfx(8.3, "whip", 1); sfx(8.5, "hit", 0.7);
+
+      /* =================== S4 SUBJECTS 8.5-10.5 ===================
+         WOW: a 3D chip-tunnel dolly that collapses into two sorted columns */
+      tl.addLabel("S4", 8.5);
+      var R4 = rng(2027);
+      chipData.forEach(function (d, i) {
+        var th = i * 2.39996 + R4() * 0.4, rad = 380 + R4() * 200, z0 = -1400 + R4() * 750;
+        var tx = 540 + Math.cos(th) * rad - (d.x + 200), ty = 980 + Math.sin(th) * rad - (d.y + 39);
+        var sel = "#s4cam .chip" + i;
+        tl.fromTo(sel, { x: tx, y: ty, z: z0, rotation: th * 57.3 + 90, rotationY: (R4() - 0.5) * 60 },
+          { z: z0 + 1450, rotation: th * 57.3 + 60, duration: 0.85, ease: "power1.in" }, 8.4);
+        tl.to(sel, { x: 0, y: 0, z: 0, rotation: 0, rotationY: 0, duration: 0.42, ease: "expo.out", immediateRender: false }, 9.15 + d.r * 0.06 + (d.x > 300 ? 0.03 : 0));
+      });
+      tl.fromTo("#s4cam .colhO", { y: -40, scale: 1.3, opacity: 0, filter: "blur(3px)" }, { y: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "back.out(2)" }, 9.25);
+      tl.fromTo("#s4cam .colhA", { y: -40, scale: 1.3, opacity: 0, filter: "blur(3px)" }, { y: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "back.out(2)" }, 9.375);
+      tl.fromTo("#s4cam .colh .band", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.24, ease: "power3.inOut", stagger: 0.12 }, 9.5);
+      sfx(8.6, "riser", 0.6); sfx(9.25, "slam", 0.8); sfx(9.375, "slam", 0.8);
+      for (var r = 0; r < 13; r += 2) sfx(9.15 + r * 0.06 + 0.1, "click", 0.5);
+      tl.fromTo("#s4cam .page", { scale: 1.0 }, { scale: 1.02, duration: 1.9, ease: "sine.inOut" }, 8.4);
+      tl.fromTo("#s4cam .s4dots", { y: 0 }, { y: -60, duration: 2.2, ease: "none" }, 8.4);
+
+      /* ---- T4 paper-fold wipe 10.3-10.72: the bottom half folds up over the top, then the folded sheet flies off ---- */
+      tl.fromTo("#s4bot", { rotationX: 0, transformPerspective: 2600, transformOrigin: "50% 0%" }, { rotationX: -180, duration: 0.3, ease: "power2.in" }, 10.3);
+      tl.fromTo("#s4shadeF", { opacity: 0 }, { opacity: 0.45, duration: 0.15, ease: "power1.in" }, 10.3);
+      tl.fromTo("#s4shadeB", { opacity: 0.3 }, { opacity: 0, duration: 0.15, ease: "power1.out" }, 10.45);
+      tl.to("#s4cam", { y: -1500, rotation: -7, duration: 0.22, ease: "power3.in", immediateRender: false }, 10.55);
+      sfx(10.3, "paper", 1); sfx(10.55, "whoosh", 0.8);
+
+      /* =================== S5 WEBSITE PROOF 10.5-12.3 ===================
+         WOW: the cursor tap fires a ripple and the real page scrolls */
+      tl.addLabel("S5", 10.5);
+      drift("#s5cam", 10.25, 12.3, 1, 1.02);
+      tl.fromTo("#brA", { y: 70, rotation: -1.5 }, { y: 0, rotation: 0, duration: 0.6, ease: "back.out(1.4)" }, 10.35);
+      tl.fromTo("#brAimg", { y: 0 }, { y: 0, duration: 0.01 }, 0);
+      tl.fromTo("#cur5", { x: 1180, y: 2050, rotation: 12 }, { x: 495, y: 1063, rotation: 0, duration: 0.42, ease: "power3.out" }, 10.55);
+      tl.to("#cur5", { scale: 0.82, duration: 0.06, ease: "power2.in", transformOrigin: "10% 5%", immediateRender: false }, 10.98);
+      tl.to("#cur5", { scale: 1, duration: 0.22, ease: "back.out(3)", immediateRender: false }, 11.04);
+      tl.fromTo("#rippleA", { left: 437, top: 773, scale: 0.2, opacity: 1 }, { scale: 5, opacity: 0, duration: 0.5, ease: "expo.out" }, 11.0);
+      tl.fromTo("#rippleA2", { left: 437, top: 773, scale: 0.2, opacity: 1 }, { scale: 3.4, opacity: 0, duration: 0.42, ease: "expo.out" }, 11.04);
+      sfx(11.0, "tap", 1);
+      tl.to("#brAimg", { y: -1411, duration: 0.5, ease: "power3.inOut", immediateRender: false }, 11.05);  // page scrolls to Find your class
+      tl.to("#cur5", { x: 900, y: 2100, duration: 0.4, ease: "power2.in", immediateRender: false }, 11.2);
+      tl.fromTo("#brB", { y: 1250, rotation: 6 }, { y: 0, rotation: 1.2, duration: 0.25, ease: "expo.out" }, 11.25);
+      tl.to("#brA", { y: -20, scale: 0.97, duration: 0.4, ease: "power2.out", immediateRender: false }, 11.3);
+      sfx(11.25, "whoosh", 0.6); sfx(11.5, "hit", 0.6);
+      tl.fromTo("#brBimg", { y: -22 }, { y: -510, duration: 0.55, ease: "power2.inOut" }, 11.65);
+      pulse($("#a1dots"), 500, 800, 11.0, 300);
+
+      /* ---- T5 shader transition 12.1-12.5 (ripple-waves via @hyperframes/shader-transitions) ---- */
+      sfx(12.05, "whoosh", 0.8); sfx(12.3, "hit", 0.5);
+
+      /* =================== S6 FREE TOOLS 12.3-14.5 ===================
+         WOW: a tool result computes live, then a red tick wave runs down it */
+      tl.addLabel("S6", 12.3);
+      drift("#s6cam", 12.1, 14.3, 1, 1.02);
+      rise($$("#s6h .li"), 12.3, 0.1);
+      slamWords($$(".s6w"), [12.32, 12.32, 12.42, 12.52], { ghost: 1 });
+      swipe("#s6hl", 12.62, 0.22);
+      tl.fromTo("#brT", { y: 90 }, { y: 0, duration: 0.5, ease: "back.out(1.3)" }, 12.2);
+      tl.fromTo("#brTimg", { y: -358 }, { y: -358, duration: 0.01 }, 0);
+      tl.fromTo("#cur6", { x: 1180, y: 2050 }, { x: 394, y: 1223, duration: 0.4, ease: "power3.out" }, 12.55);
+      tl.to("#cur6", { scale: 0.82, duration: 0.06, transformOrigin: "10% 5%", immediateRender: false }, 12.94);
+      tl.to("#cur6", { scale: 1, duration: 0.2, ease: "back.out(3)", immediateRender: false }, 13.0);
+      tl.fromTo("#rippleT", { left: 336, top: 605, scale: 0.2, opacity: 1 }, { scale: 5, opacity: 0, duration: 0.5, ease: "expo.out" }, 13.0);
+      tl.fromTo("#rippleT2", { left: 336, top: 605, scale: 0.2, opacity: 1 }, { scale: 3.4, opacity: 0, duration: 0.42, ease: "expo.out" }, 13.04);
+      sfx(13.0, "tap", 1);
+      tl.to("#cur6", { x: 1000, y: 2100, duration: 0.35, ease: "power2.in", immediateRender: false }, 13.12);
+      tl.fromTo("#brR", { y: 1300, rotationX: 38, rotation: -5, scale: 0.8, transformPerspective: 1600, transformOrigin: "50% 100%" },
+        { y: 0, rotationX: 0, rotation: -1, scale: 1, duration: 0.34, ease: "back.out(1.25)" }, 13.05);
+      tl.to("#brT", { scale: 0.95, y: -24, duration: 0.4, ease: "power2.out", immediateRender: false }, 13.08);
+      tl.fromTo("#brRimg", { y: -134 }, { y: -134, duration: 0.01 }, 0);
+      tl.fromTo("#scan", { yPercent: 0 }, { yPercent: 101, duration: 0.3, ease: "power2.inOut" }, 13.25);    // result computes in
+      sfx(13.05, "whoosh", 0.5); sfx(13.25, "riser2", 0.5);
+      var resY = [488, 529, 570, 611, 652, 693, 734, 775];
+      resY.forEach(function (y, i) {
+        var p = penSVG($("#s6marks"), 140, y - 34, 50, 40, TICK, 7, "0 0 72 56");
+        draw(p, 13.5 + i * 0.0625, 0.08, "power3.out");
+        if (i % 2 === 0) sfx(13.5 + i * 0.0625, "tick", 0.55);
+      });
+      var circ6 = penSVG($("#s6marks"), 100, 168, 700, 190, "M330 10 C 500 6, 630 40, 624 96 C 618 160, 470 182, 320 180 C 160 178, 14 150, 18 92 C 22 34, 170 10, 350 16", 7, "0 0 640 190");
+      draw(circ6, 14.0, 0.22, "power2.inOut"); sfx(14.0, "pen", 0.8);
+      tl.fromTo("#s6sample", { scale: 0, rotation: -12 }, { scale: 1, rotation: -3, duration: 0.3, ease: "back.out(3)" }, 13.75);
+      pulse($("#a2dots"), 380, 1222, 13.0, 300);
+
+      /* ---- T6 vertical whip 14.3-14.65 (S6 flies up, the yellow page whips in from below with overshoot) ---- */
+      tl.to("#s6cam", { y: -1300, filter: "blur(14px)", duration: 0.2, ease: "power3.in", immediateRender: false }, 14.3);
+      tl.fromTo("#s7cam", { y: 1920, filter: "blur(14px)" }, { y: -34, filter: "blur(0px)", duration: 0.22, ease: "power3.out" }, 14.34);
+      tl.to("#s7cam", { y: 0, duration: 0.08, ease: "power2.out", immediateRender: false }, 14.56);
+      tl.set("#s7cam", { filter: "none" }, 14.66);
+      sfx(14.36, "whip", 1);
+
+      /* =================== S7 RATING 14.5-16.0 ===================
+         WOW: five stars ignite in a chain on the beat */
+      tl.addLabel("S7", 14.5);
+      drift("#ypage", 14.3, 16.7, 1, 1.03);
+      tl.fromTo("#ydots", { y: 0 }, { y: -70, duration: 2.4, ease: "none" }, 14.3);
+      tl.fromTo("#big50", { scale: 1.6, opacity: 0, filter: "blur(6px)", transformOrigin: "50% 60%" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 14.5);
+      shake("#ypage", 14.5, 7, 0.24);
+      sfx(14.5, "drop", 1);
+      stars.forEach(function (s, i) {
+        var t = 14.75 + i * 0.125;                                                            // chain on 16ths
+        tl.fromTo(s.f, { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.34, ease: "back.out(3)" }, t);
+        tl.fromTo(s.sv, { scale: 1 }, { scale: 1, duration: 0.01 }, 0);
+        tl.to(s.sv, { scale: 1.22, duration: 0.07, ease: "power2.out", immediateRender: false }, t);
+        tl.to(s.sv, { scale: 1, duration: 0.3, ease: "elastic.out(1,0.4)", immediateRender: false }, t + 0.07);
+        burst($("#s7fx"), 90 + 138 + i * 128 + 56, 440 + 360 + 56, t, 12, 300 + i, { colors: ["#FFFFFF", RED, INK, "#FFFFFF"], dist: 150, big: 9 });
+        sfx(t, "spark", 0.8);
+      });
+      tl.fromTo("#rateline", { clipPath: "inset(0% 50% 0% 50%)", y: 16 }, { clipPath: "inset(0% 0% 0% 0%)", y: 0, duration: 0.45, ease: "expo.out" }, 15.0);
+      var cnt = { v: 0 };
+      tl.fromTo(cnt, { v: 0 }, { v: 226, duration: 0.7, ease: "power2.out", onUpdate: function () { $("#cnt").textContent = Math.round(cnt.v); } }, 15.0);
+      sfx(15.0, "swish", 0.5);
+      rchips.forEach(function (c, i) {
+        var t = 15.25 + i * 0.125, dir = i % 2 ? 1 : -1;
+        tl.fromTo(c.el, { x: dir * 900, rotation: dir * 18, filter: "blur(8px)" }, { x: 0, rotation: c.rot, filter: "blur(0px)", duration: 0.38, ease: "back.out(1.6)" }, t);
+        sfx(t, "swish", 0.5);
+      });
+
+      /* ---- T7 polaroid slam 15.75-16.65: the class photo lands on the yellow page, its tape peels, it opens to full bleed ---- */
+      tl.fromTo("#pol", { xPercent: -50, yPercent: -50, y: -1500, rotation: -16, scale: 0.9, filter: "blur(8px)" },
+        { y: 0, rotation: 3, scale: 0.92, filter: "blur(0px)", duration: 0.25, ease: "expo.out" }, 15.78);
+      tl.set("#pol", { filter: "none" }, 16.04);
+      shake("#ypage", 16.0, 8, 0.22);
+      burst($("#s7fx"), 540, 1300, 16.0, 16, 77, { colors: ["#FFFFFF", INK, RED, "#FFFFFF"], dist: 300 });
+      sfx(15.8, "whoosh2", 0.7); sfx(16.0, "hit", 1);
+      tl.fromTo("#tape", { rotation: 2, y: 0, x: 0, scaleY: 1 }, { rotation: -32, y: -50, x: -60, scaleY: 1.15, duration: 0.18, ease: "power2.in" }, 16.06);    // peel
+      tl.to("#tape", { y: -900, x: -500, rotation: -80, duration: 0.24, ease: "power3.in", immediateRender: false }, 16.24);                                          // flick off
+      sfx(16.06, "peel", 1);
+      tl.to("#pol", { width: 1200, height: 2060, padding: 0, rotation: 0, scale: 1, borderRadius: 0, duration: 0.42, ease: "expo.inOut", immediateRender: false }, 16.2);
+      tl.fromTo("#ov", { opacity: 0 }, { opacity: 0.6, duration: 0.4, ease: "power2.inOut" }, 16.28);       // 60% ink over the photo
+      sfx(16.2, "whoosh2", 0.6);
+      tl.fromTo("#polimg", { scale: 1.0 }, { scale: 1.14, duration: 4.2, ease: "sine.out" }, 15.8);          // slow push-in to the end
+
+      /* =================== S8 END CARD 16.5-20.0 ===================
+         WOW: the CTA button slams in, then shines and pulses on the beat */
+      tl.addLabel("S8", 16.5);
+      tl.fromTo("#elogo", { y: -40, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 16.4);
+      rise($$("#endh .li"), 16.48, 0.125);
+      slamWords($$(".ew"), [16.5, 16.625, 16.75], { ghost: 1 });
+      sfx(16.5, "slam", 0.7); sfx(16.625, "slam", 0.7); sfx(16.75, "slam", 0.7);
+      swipe("#ehl", 16.85, 0.22);
+      tl.fromTo("#endh .hlw", { color: "#FFFFFF" }, { color: "#151515", duration: 0.16, ease: "power2.inOut" }, 16.92);   // turns ink as the highlighter passes under it
+      ["#ep1", "#ep2"].forEach(function (id, i) {
+        var t = 17.0 + i * 0.125;
+        tl.fromTo(id, { scale: 2, opacity: 0, y: -30, rotation: i ? 6 : -6, boxShadow: "0px 0px 0px #FCE004" },
+          { scale: 1, opacity: 1, y: 0, rotation: 0, boxShadow: "10px 10px 0px #FCE004", duration: 0.26, ease: "expo.out" }, t - 0.06);
+        sfx(t, "hit", 0.6);
+      });
+      tl.fromTo("#ebtn", { scale: 2.3, opacity: 0, rotation: -5, boxShadow: "0px 0px 0px #FFFFFF" },
+        { scale: 1, opacity: 1, rotation: 0, boxShadow: "12px 12px 0px #FFFFFF", duration: 0.3, ease: "expo.out" }, 17.19);
+      shake("#s8cam", 17.25, 7, 0.24);
+      burst($("#s8fx"), 540, 1144, 17.25, 22, 2027, { colors: [YEL, "#FFFFFF", YEL, RED], dist: 330 });
+      sfx(17.25, "stamp", 1); sfx(17.25, "spark", 0.7);
+      tl.fromTo("#elink", { clipPath: "inset(0% 50% 0% 50%)", y: 10 }, { clipPath: "inset(0% 0% 0% 0%)", y: 0, duration: 0.4, ease: "expo.out" }, 17.5);
+      sfx(17.5, "swish", 0.4);
+      [17.75, 18.75].forEach(function (t) { tl.fromTo("#shine", { x: -120, skewX: -20 }, { x: 900, skewX: -20, duration: 0.42, ease: "power2.inOut" }, t); });
+      tl.set("#shine", { x: -120, skewX: -20 }, 0);
+      [[18.0, "#br1"], [19.0, "#br2"]].forEach(function (p) {                                // the button breathes on the beat
+        tl.fromTo(p[1], { scale: 1, opacity: 0.9 }, { scale: 1.18, opacity: 0, duration: 0.5, ease: "expo.out" }, p[0]);
+        tl.to("#ebtn", { scale: 1.045, duration: 0.08, ease: "power2.out", immediateRender: false }, p[0]);
+        tl.to("#ebtn", { scale: 1, duration: 0.35, ease: "back.out(3)", immediateRender: false }, p[0] + 0.08);
+        sfx(p[0], "pop", 0.35);
+      });
+      tl.set(["#br1", "#br2"], { opacity: 0 }, 0);
+      tl.fromTo("#s8cam", { scale: 1 }, { scale: 1.02, duration: 3.6, ease: "sine.inOut" }, 16.4);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

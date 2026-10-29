@@ -1,0 +1,582 @@
+<title>SJ Academy Brand Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: one reference page on the dotted canvas. Sticky chip nav. Sections alternate canvas and white. Single light theme: the brand has no dark mode. */
+:root{
+  --yellow:#FCE004; --yellow-l:#FFF9CC; --ink:#151515; --text:#2B2B2B; --muted:#66625A;
+  --canvas:#F7F5EF; --line:#E2DDD0; --white:#FFFFFF; --brown:#453516; --brown-t:#EDE6D3;
+  --navy:#1B2A4A; --cta:#CC4A00; --cta-d:#B54200; --orange:#FE6100; --pen:#D63A2F; --pen-t:#B92F25;
+  --f:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fh:"Caveat","Segoe Print","Bradley Hand",cursive;
+  --e-enter:cubic-bezier(.16,1,.3,1); --e-move:cubic-bezier(.4,.14,.3,1); --e-stamp:cubic-bezier(.34,1.56,.64,1); --e-pen:cubic-bezier(.45,0,.55,1);
+  --sh-offset:7px 7px 0 var(--yellow),7px 7px 0 1.5px var(--ink);
+  --sh-lift:0 14px 34px rgba(0,0,0,.16); --sh-soft:0 8px 18px rgba(0,0,0,.09);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:radial-gradient(#DAD4C3 1.1px,transparent 1.2px) 0 0/22px 22px,var(--canvas);color:var(--text);font:400 16px/1.6 var(--f);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+@media(min-width:900px){.wrap{padding-inline:28px}}
+h1,h2,h3,h4{color:var(--ink);margin:0;text-wrap:balance}
+h1{font-weight:600;font-size:clamp(38px,6.4vw,72px);line-height:1.04;letter-spacing:-.035em}
+h2{font-weight:500;font-size:clamp(28px,3.6vw,42px);line-height:1.12;letter-spacing:-.025em}
+h3{font-weight:500;font-size:19px;line-height:1.3;letter-spacing:-.01em}
+p{margin:0}
+.lead{font-size:clamp(17px,1.6vw,19px);line-height:1.6;max-width:62ch}
+.small{font-size:14px;line-height:1.5;color:var(--muted)}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.hand{font-family:var(--fh);font-weight:600;color:var(--cta-d);font-size:24px;line-height:1.1}
+.hl{background:linear-gradient(100deg,transparent 0,var(--yellow) .14em,var(--yellow) calc(100% - .14em),transparent 100%) no-repeat 0 calc(100% - .31em)/100% .4em;padding:0 .14em;margin:0 -.14em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:rgba(21,21,21,.06);padding:.1em .35em;border-radius:5px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(247,245,239,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:8px;align-items:center;overflow-x:auto;padding-block:8px;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{flex:none;display:inline-flex;align-items:center;min-height:48px;padding:0 16px;text-decoration:none;font-size:14px;font-weight:500;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;background:var(--white)}
+.nav a:hover{background:var(--yellow)}
+
+section{padding-block:56px}
+@media(min-width:900px){section{padding-block:88px}}
+.white{background:var(--white)}
+.head{display:grid;gap:14px;margin-bottom:36px}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.grid>*{min-width:0}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.white .card{background:var(--canvas)}
+.offset{background:var(--white);border:1.5px solid var(--ink);border-radius:18px;padding:22px;box-shadow:var(--sh-offset);margin:0 9px 9px 0;display:grid;gap:12px;align-content:start}
+.pill{display:inline-block;border:1.5px solid var(--ink);border-radius:999px;padding:4px;background:var(--white);box-shadow:3px 3px 0 rgba(0,0,0,.14)}
+.pill span{display:block;background:var(--yellow);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--white)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.5}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left;padding:12px 14px;border-bottom:1.5px solid var(--ink);background:var(--canvas);white-space:nowrap}
+td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:500;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 18px;border-radius:12px;border:1.5px solid var(--ink);background:var(--white);font:500 15px var(--f);color:var(--ink);cursor:pointer}
+.btn:hover{background:var(--yellow-l)}
+.btn svg{width:14px;height:14px}
+
+.hero{padding-block:40px 64px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.hero-top img{width:200px;height:auto}
+.hero-grid{display:grid;gap:36px;align-items:end}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.4fr 1fr}}
+.rules{margin:0;padding:0;list-style:none;display:grid;gap:12px;counter-reset:r}
+.rules li{display:grid;grid-template-columns:24px 1fr;gap:8px;font-size:15px;line-height:1.5}
+.rules li::before{counter-increment:r;content:counter(r);font-weight:600;color:var(--cta-d)}
+.rules b{font-weight:600;color:var(--ink)}
+
+.asset .vis{height:104px;border-radius:12px;display:grid;place-items:center;background:var(--canvas);border:1px solid var(--line);overflow:hidden}
+.white .asset .vis{background:var(--white)}
+.asset .num{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.08em}
+.asset p{font-size:14.5px}
+
+.frames{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.fmt{display:grid;gap:10px;align-content:start}
+.post{aspect-ratio:4/5;width:100%;border-radius:12px;overflow:hidden;position:relative;container-type:inline-size;box-shadow:var(--sh-soft);border:1px solid rgba(0,0,0,.08);color:var(--ink)}
+.post *{margin:0}
+.post .lg{position:absolute;top:6cqw;left:6cqw;width:30cqw;height:auto}
+.fmt .meta{display:flex;gap:8px;align-items:baseline;justify-content:space-between}
+.fmt .meta h3{font-size:17px}
+.fmt>p{font-size:14px;color:var(--muted)}
+.tag{flex:none;font-size:12px;font-weight:600;letter-spacing:.04em;padding:2px 9px;border-radius:999px;border:1px solid var(--ink);color:var(--ink)}
+.dots{background:radial-gradient(#DAD4C3 .35cqw,transparent .4cqw) 0 0/5cqw 5cqw,var(--canvas)}
+.cbtn{display:inline-block;background:var(--cta);color:#fff;font-weight:500;font-size:4cqw;padding:2.4cqw 4cqw;border-radius:2.4cqw;border:.4cqw solid var(--ink);box-shadow:1cqw 1cqw 0 var(--ink)}
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.stages{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.stage{display:grid;gap:10px;align-content:start}
+.box{aspect-ratio:4/3;border-radius:14px;background:radial-gradient(#DAD4C3 1.1px,transparent 1.2px) 0 0/22px 22px,var(--canvas);border:1px solid var(--line);position:relative;overflow:hidden;display:grid;place-items:center}
+.stage .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.stage .row p{font-size:14px;color:var(--muted)}
+.stage h3{font-size:16px}
+.play{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:var(--yellow);display:grid;place-items:center;cursor:pointer;flex:none}
+.play:hover{background:var(--yellow-l)}
+.play svg{width:14px;height:14px;margin-left:2px}
+.playing{background:var(--ink)!important}
+.playing svg path{fill:var(--yellow)}
+.d-hl{font-size:32px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.d-hl span{background:linear-gradient(100deg,transparent 0,var(--yellow) .14em,var(--yellow) calc(100% - .14em),transparent 100%) no-repeat 0 calc(100% - .31em)/100% .4em;padding:0 .14em;margin:0 -.14em}
+.go .d-hl span{animation:hlgrow .267s var(--e-enter) .13s both}
+@keyframes hlgrow{from{background-size:0% .4em}to{background-size:100% .4em}}
+.d-pen{position:relative;font-size:46px;font-weight:600;color:var(--ink)}
+.d-pen svg{position:absolute;inset:-22px -30px;width:calc(100% + 60px);height:calc(100% + 44px);overflow:visible}
+.d-pen path{fill:none;stroke:var(--pen);stroke-width:3.2;stroke-linecap:round;stroke-dasharray:520}
+.go .d-pen path{animation:draw .55s var(--e-pen) both}
+@keyframes draw{from{stroke-dashoffset:520}to{stroke-dashoffset:0}}
+.d-ticks{display:flex;gap:18px}
+.d-ticks svg{width:48px;height:48px}
+.d-ticks path{fill:none;stroke:var(--pen);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60}
+.go .d-ticks path{animation:tick .2s var(--e-pen) both}
+.go .d-ticks svg:nth-child(2) path{animation-delay:.25s}
+.go .d-ticks svg:nth-child(3) path{animation-delay:.5s}
+@keyframes tick{from{stroke-dashoffset:60}to{stroke-dashoffset:0}}
+.d-stamp{border:3px solid var(--pen);color:var(--pen-t);font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-radius:6px;transform:rotate(-8deg);font-size:20px;background:rgba(255,255,255,.5)}
+.go .d-stamp{animation:stamp .26s var(--e-stamp) both}
+.go.box{animation:shake .14s linear .13s 1}
+@keyframes stamp{0%{transform:scale(1.3) rotate(-8deg);opacity:0}50%{opacity:1}100%{transform:scale(1) rotate(-8deg);opacity:1}}
+@keyframes shake{0%,100%{transform:translate(0,0)}25%{transform:translate(2px,-1px)}50%{transform:translate(-2px,1px)}75%{transform:translate(1px,1px)}}
+.d-paper{width:62%;background:#FFFEF9;box-shadow:var(--sh-lift);border-radius:4px;padding:14px 14px 14px 30px;position:relative;transform:rotate(-.8deg);color:var(--navy);font-size:12px;line-height:1.5}
+.d-paper::before{content:"";position:absolute;left:20px;top:0;bottom:0;width:1.5px;background:#E9A29C}
+.d-paper b{display:block;font-weight:600;color:#111;font-size:12.5px;margin-bottom:6px}
+.d-paper i{display:block;height:8px;border-bottom:1px solid #D8E2EE;margin-bottom:4px}
+.go .d-paper{animation:drop .6s var(--e-enter) both}
+@keyframes drop{from{transform:translate(-30%,-130%) rotate(-7deg)}to{transform:translate(0,0) rotate(-.8deg)}}
+.d-scn{position:absolute;inset:0;display:grid;place-items:center;font-weight:600;font-size:24px;letter-spacing:-.02em;padding:16px;text-align:center}
+.d-a{background:var(--ink);color:var(--canvas);opacity:0}
+.d-b{background:var(--canvas);color:var(--ink)}
+.d-band{position:absolute;inset:0;background:var(--yellow);transform:translateX(-101%)}
+.go .d-a{animation:hideA .5s steps(1) both}
+@keyframes hideA{0%{opacity:1}50%{opacity:0}100%{opacity:0}}
+.go .d-band{animation:wipe .5s var(--e-move) both}
+@keyframes wipe{0%{transform:translateX(-101%)}50%{transform:translateX(0)}100%{transform:translateX(101%)}}
+@media (prefers-reduced-motion:reduce){.go *,.go{animation-duration:.01ms!important;animation-delay:0s!important}}
+
+.phones{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr))}
+.phone{aspect-ratio:9/16;border-radius:16px;overflow:hidden;position:relative;container-type:inline-size;background:var(--ink);box-shadow:var(--sh-soft)}
+.phone img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.zone{position:absolute;left:0;right:0;background:rgba(214,58,47,.45);border:1px dashed rgba(255,255,255,.7);display:grid;place-items:center;color:#fff;font-size:4.6cqw;font-weight:500;text-align:center;padding:2cqw}
+.safe{position:absolute;border:2px solid var(--yellow);border-radius:2cqw;display:grid;place-items:center;color:var(--yellow);font-weight:600;font-size:5.4cqw;text-align:center;background:rgba(21,21,21,.4)}
+.cap-clean{position:absolute;left:8cqw;right:8cqw;bottom:37%;text-align:center}
+.cap-clean span{background:rgba(21,21,21,.78);color:var(--canvas);font-weight:500;font-size:5.2cqw;line-height:1.45;padding:1cqw 2.4cqw;border-radius:1.6cqw;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cap-punch{position:absolute;left:6cqw;right:6cqw;bottom:40%;text-align:center;font-weight:700;font-size:10cqw;line-height:1.05;color:var(--canvas);letter-spacing:-.02em;text-shadow:0 .5cqw 1.6cqw rgba(0,0,0,.6)}
+.cap-punch em{font-style:normal;color:var(--ink);background:linear-gradient(100deg,transparent 0,var(--yellow) .1em,var(--yellow) calc(100% - .1em),transparent 100%) no-repeat 0 calc(100% - .12em)/100% .62em;text-shadow:none;padding:0 .1em}
+.ph-logo{position:absolute;top:15%;left:50%;transform:translateX(-50%);background:var(--canvas);border-radius:1.6cqw;padding:1.6cqw 2.6cqw;width:48cqw}
+.ph-logo img{display:block;width:100%}
+.timeline{display:grid;grid-template-columns:2fr 6fr 4fr 3fr;border:1.5px solid var(--ink);border-radius:12px;overflow:hidden;font-size:13.5px;background:var(--white)}
+.timeline div{padding:12px;border-right:1px solid var(--ink);min-width:0}
+.timeline div:last-child{border-right:0}
+.timeline b{display:block;font-weight:600;color:var(--ink)}
+.timeline span{color:var(--muted);font-size:12.5px}
+@media(max-width:600px){.timeline{grid-template-columns:1fr 1fr}.timeline div:nth-child(2){border-right:0}.timeline div:nth-child(-n+2){border-bottom:1px solid var(--ink)}}
+
+.sonic{display:grid;gap:22px}
+@media(min-width:900px){.sonic{grid-template-columns:1.3fr 1fr;align-items:start}}
+.score-svg{width:100%;height:auto;background:var(--white);border:1.5px solid var(--ink);border-radius:14px}
+.snd-list{display:grid;gap:10px}
+.snd-row{display:flex;gap:12px;align-items:center;background:var(--canvas);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.snd-row b{display:block;font-weight:500;color:var(--ink);font-size:15px}
+.snd-row span{font-size:13px;color:var(--muted)}
+
+.sheet{background:#fff;border:1px solid var(--line);border-radius:6px;padding:20px 20px 20px 36px;position:relative;font-size:13.5px;color:var(--text);box-shadow:var(--sh-soft)}
+.sheet::before{content:"";position:absolute;left:24px;top:0;bottom:0;width:1.5px;background:#E9A29C}
+.sheet h4{font-size:15px;margin:0 0 6px;color:var(--ink);font-weight:500}
+.sheet .mk{font-family:var(--fh);font-weight:600;color:var(--pen-t);font-size:20px}
+.sheet .ln{height:22px;border-bottom:1px solid #bbb}
+.gray{filter:grayscale(1) contrast(1.05)}
+
+.brief{display:grid;border:1.5px solid var(--ink);border-radius:14px;overflow:hidden;background:var(--white)}
+.brief div{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:14px 16px;border-bottom:1px solid var(--line);font-size:15px}
+.brief div:last-child{border-bottom:0}
+.brief b{font-weight:600;color:var(--ink)}
+@media(max-width:600px){.brief div{grid-template-columns:1fr;gap:2px}}
+ol.clean{margin:0;padding-left:20px;display:grid;gap:8px}
+.foot{font-size:13px;color:var(--muted);padding-block:36px;margin-top:40px;border-top:1px solid var(--line)}
+</style>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a href="#core">Core</a><a href="#levels">Levels</a><a href="#colour">Colour</a><a href="#formats">Formats</a><a href="#motion">Motion</a><a href="#video">Video</a><a href="#sound">Sound</a><a href="#print">Print</a><a href="#brief">Brief</a><a href="#decide">Decide</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <img src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy" width="200" height="47">
+      <div class="pill"><span>Brand system v4.2</span></div>
+    </div>
+    <div class="hero-grid">
+      <div style="display:grid;gap:20px">
+        <h1>Lock the assets. <span class="hl">Free the ideas.</span></h1>
+        <p class="lead">A few things never change, so people always know it's SJ Academy. Everything else is free to change, so nothing looks like the last post.</p>
+      </div>
+      <div class="offset">
+        <p class="eyebrow">The five rules</p>
+        <ol class="rules">
+          <li><span><b>Lock the assets.</b> Logo, yellow, highlighter, red pen, Poppins, the voice, real people.</span></li>
+          <li><span><b>Start with the brief,</b> never with the last file.</span></li>
+          <li><span><b>Pick a level:</b> Calm, Clear or Loud.</span></li>
+          <li><span><b>One idea per frame.</b> Two ideas, two frames.</span></li>
+          <li><span><b>Only true things.</b> Real facts, real people, real work.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="white" id="core">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The core</p>
+      <h2>Seven things that <span class="hl">never change</span></h2>
+      <p class="lead">Their form stays identical on a web page, a reel, a thumbnail and a worksheet. Where they go, how big they are and how they move can change.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card asset"><div class="vis"><img src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy logo" style="width:72%;height:auto"></div><span class="num">01</span><h3>Logo</h3><p>Never redrawn, retyped, tilted or recoloured. At the top on ads.</p></div>
+      <div class="card asset"><div class="vis" style="background:var(--yellow);border-color:var(--yellow)"><span style="font-weight:600;font-size:22px;color:var(--ink)">#FCE004</span></div><span class="num">02</span><h3>SJ yellow</h3><p>On every piece, at first glance or in the first 3 seconds.</p></div>
+      <div class="card asset"><div class="vis"><span style="font-size:30px;font-weight:600;color:var(--ink);letter-spacing:-.02em"><span class="hl">the method</span></span></div><span class="num">03</span><h3>The highlighter</h3><p>Lower half of the letters, soft ends. Never an underline or a box.</p></div>
+      <div class="card asset"><div class="vis"><svg viewBox="0 0 160 70" width="150" aria-hidden="true"><path d="M14 38 l12 13 l24 -30" fill="none" stroke="#D63A2F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="112" cy="36" rx="34" ry="22" fill="none" stroke="#D63A2F" stroke-width="3" transform="rotate(-6 112 36)"/><text x="112" y="44" text-anchor="middle" font-family="Caveat,cursive" font-weight="600" font-size="24" fill="#B92F25">6/12</text></svg></div><span class="num">04</span><h3>The red pen</h3><p>Marks the work: ticks, circles, scores.</p></div>
+      <div class="card asset"><div class="vis"><span style="font-size:52px;font-weight:700;color:var(--ink);letter-spacing:-.03em">Aa</span></div><span class="num">05</span><h3>Poppins</h3><p>Every word people read. Caveat only for short handwritten notes.</p></div>
+      <div class="card asset"><div class="vis" style="padding:14px"><span style="font-size:15px;color:var(--ink);line-height:1.4;text-align:center">"6 of the 12 marks" beats "lots of marks"</span></div><span class="num">06</span><h3>The voice</h3><p>A teacher who knows the mark scheme, with a dry sense of humour.</p></div>
+      <div class="card asset"><div class="vis" style="padding:0"><img src="Images/sj-real-lab-titration.jpg" alt="A student's hands at a titration in the SJ Academy lab" style="width:100%;height:100%;object-fit:cover"></div><span class="num">07</span><h3>Real people</h3><p>Real teachers, students and rooms. No stock, no AI images.</p></div>
+      <div class="card asset" style="border-style:dashed"><div class="vis"><button class="btn" type="button" data-snd="sj-sonic-logo-full" aria-label="Play the prototype sonic logo"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg>Prototype</button></div><span class="num">08 &middot; pending</span><h3>Sonic logo</h3><p>Joins the core once a composer records the final version.</p></div>
+    </div>
+
+    <div style="margin-top:56px;display:grid;gap:18px">
+      <p class="eyebrow">What every piece says underneath &middot; to confirm</p>
+      <div class="grid g3">
+        <div class="card"><p class="hand" style="color:var(--pen-t)">method</p><h3>You learn where the marks are</h3><p class="small">Past papers marked to the mark scheme. Feedback on the marks you lost.</p></div>
+        <div class="card"><p class="hand" style="color:var(--pen-t)">teachers</p><h3>You know who teaches you</h3><p class="small">Named teachers from LUMS, IBA and ex-KGS.</p></div>
+        <div class="card"><p class="hand" style="color:var(--pen-t)">access</p><h3>Try it before you commit</h3><p class="small">A free demo class. In class at DHA Phase 7 or live online.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="levels">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Expression levels</p>
+      <h2>One message, <span class="hl">three volumes</span></h2>
+      <p class="lead">Pick the level before you design. Calm when people need information. Clear when we are teaching. Loud when we need to be noticed.</p>
+    </div>
+    <div class="frames">
+      <div class="fmt">
+        <div class="post" style="background:var(--white)">
+          <img class="lg" src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="">
+          <div style="position:absolute;left:7cqw;right:7cqw;top:26cqw;display:grid;gap:3.4cqw">
+            <p style="font-size:3.6cqw;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500">Free demo class</p>
+            <p style="font-size:7.6cqw;font-weight:600;line-height:1.15;letter-spacing:-.02em">Try one class before you <span class="hl">register</span></p>
+            <p style="font-size:4.4cqw;line-height:1.5">Every O Level and A Level subject, except lab practicals. In class at DHA Phase 7 or live online.</p>
+            <div style="border:1px solid var(--line);border-radius:2.4cqw;padding:3cqw;font-size:4cqw;display:grid;gap:1.4cqw"><span>WhatsApp +92-336-2144454</span><span>sjacademy.pk</span></div>
+          </div>
+        </div>
+        <div class="meta"><h3>1 &middot; Calm</h3></div><p>Notices, timetables, fees, worksheets.</p>
+      </div>
+      <div class="fmt">
+        <div class="post dots">
+          <img class="lg" src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="">
+          <div style="position:absolute;left:7cqw;right:7cqw;top:23cqw;display:grid;gap:4.4cqw">
+            <p style="font-size:8.6cqw;font-weight:600;line-height:1.1;letter-spacing:-.03em">Someone actually <span class="hl">reads</span> your answers.</p>
+            <div style="background:#FFFEF9;box-shadow:var(--sh-lift);border-radius:1cqw;padding:3cqw 3cqw 3cqw 7cqw;position:relative;transform:rotate(-1deg);color:var(--navy);font-size:3.4cqw;line-height:1.6">
+              <span style="position:absolute;left:4.6cqw;top:0;bottom:0;width:.35cqw;background:#E9A29C"></span>
+              Social media is cheap, so the caf&eacute;... <b style="font-family:var(--fh);color:var(--pen-t);font-size:6cqw;font-weight:600">&#10003;</b><br>However, older customers may not... <b style="font-family:var(--fh);color:var(--pen-t);font-size:5cqw;font-weight:600">which matters more?</b>
+            </div>
+            <span class="cbtn" style="justify-self:start">Book a free demo class</span>
+          </div>
+        </div>
+        <div class="meta"><h3>2 &middot; Clear</h3></div><p>The website, value carousels, lessons, teacher reels.</p>
+      </div>
+      <div class="fmt">
+        <div class="post" style="background:var(--yellow)">
+          <img class="lg" src="Logos/SVG/sj-academy-logo-horizontal-on-yellow.svg" alt="">
+          <p style="position:absolute;left:7cqw;right:7cqw;top:30cqw;font-weight:800;font-size:19cqw;line-height:.92;letter-spacing:-.05em">One class free.</p>
+          <p style="position:absolute;left:7cqw;right:7cqw;top:70cqw;font-weight:600;font-size:8cqw;line-height:1.05;letter-spacing:-.03em;color:var(--brown)">Then decide.</p>
+          <div style="position:absolute;left:7cqw;right:7cqw;bottom:7cqw;display:flex;justify-content:space-between;align-items:end;gap:3cqw">
+            <span class="cbtn" style="background:var(--ink);box-shadow:1cqw 1cqw 0 #fff">Book on WhatsApp</span>
+            <span style="font-size:3.4cqw;text-align:right">O &amp; A Level<br>In class or online</span>
+          </div>
+        </div>
+        <div class="meta"><h3>3 &middot; Loud</h3></div><p>Ads, launches, results day, thumbnails.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="white" id="colour">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Colour</p>
+      <h2>No new colours. <span class="hl">Bigger use</span> of ours.</h2>
+      <p class="lead">Off the website, four grounds can fill the frame: yellow, ink, brown and a real photo. Yellow is on every piece. One accent besides yellow. No gradients, except a dark scrim where text sits on a photo.</p>
+    </div>
+    <div class="grid g4">
+      <div style="background:var(--yellow);border-radius:16px;padding:22px;min-height:180px;display:grid;align-content:space-between;color:var(--ink)"><span class="eyebrow" style="color:var(--ink)">Yellow</span><p style="font-weight:800;font-size:40px;line-height:1;letter-spacing:-.04em">7 months.</p><span style="font-size:13px">Ink type</span></div>
+      <div style="background:var(--ink);border-radius:16px;padding:22px;min-height:180px;display:grid;align-content:space-between;color:#D9D4C7"><span class="eyebrow" style="color:#D9D4C7">Ink</span><p style="font-weight:700;font-size:28px;line-height:1.05;color:var(--canvas);letter-spacing:-.02em">Pros. Cons. <span style="color:var(--ink);background:var(--yellow);padding:0 6px">6/12</span></p><span style="font-size:13px">Canvas type, yellow accent</span></div>
+      <div style="background:var(--brown);border-radius:16px;padding:22px;min-height:180px;display:grid;align-content:space-between;color:var(--brown-t)"><span class="eyebrow" style="color:var(--brown-t)">Brown</span><p style="font-weight:600;font-size:28px;line-height:1.05;color:var(--canvas);letter-spacing:-.02em">Marked to the <span style="color:var(--yellow)">mark scheme</span></p><span style="font-size:13px">Canvas or yellow type</span></div>
+      <div style="position:relative;border-radius:16px;min-height:180px;overflow:hidden;color:var(--canvas)"><img src="Images/sj-real-lab-titration.jpg" alt="" class="photo"><div style="position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(21,21,21,.75));padding:22px;display:grid;align-content:end;gap:6px"><p style="font-weight:600;font-size:26px;line-height:1.05;letter-spacing:-.02em">In our lab</p><span style="font-size:13px">Real photo, scrim where text sits</span></div></div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+      <span style="background:var(--canvas);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--ink)">Canvas #F7F5EF</span>
+      <span style="background:var(--cta);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:#fff">Buttons #CC4A00</span>
+      <span style="background:var(--pen);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:#fff">Red pen #D63A2F</span>
+    </div>
+  </div>
+</section>
+
+<section id="formats">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Social and ads</p>
+      <h2>Six formats. <span class="hl">Rotate them.</span></h2>
+      <p class="lead">Never the same format twice in a row; at least three per campaign. Every post passes the share test first: who would send this to a friend, and why?</p>
+    </div>
+    <div class="frames">
+      <div class="fmt">
+        <div class="post" style="background:var(--ink)">
+          <img class="lg" src="Logos/SVG/sj-academy-logo-horizontal-on-brown.svg" alt="">
+          <p style="position:absolute;top:19cqw;left:6cqw;right:6cqw;font-weight:700;font-size:9cqw;line-height:1;color:var(--canvas);letter-spacing:-.03em">Pros. Cons. <span style="color:var(--yellow)">No decision.</span></p>
+          <div style="position:absolute;left:6cqw;right:10cqw;top:44cqw;background:#FFFEF9;border-radius:1cqw;padding:3cqw 3cqw 3cqw 8cqw;transform:rotate(-2deg);color:var(--navy);font-size:3.2cqw;line-height:1.7;box-shadow:0 2cqw 4cqw rgba(0,0,0,.35)">
+            <span style="position:absolute;left:5cqw;top:0;bottom:0;width:.35cqw;background:#E9A29C"></span>
+            <b style="color:#111;font-weight:600">Evaluate whether... [12]</b><br>Social media is cheap, so... <span style="color:var(--pen-t);font-family:var(--fh);font-size:5cqw">&#10003;</span><br>However, older customers... <span style="color:var(--pen-t);font-family:var(--fh);font-size:5cqw">&#10003;</span><br>In conclusion, it depends.
+            <span style="position:absolute;right:3cqw;top:2cqw;border:.6cqw solid var(--pen);border-radius:50%;padding:2cqw 2.6cqw;font-family:var(--fh);font-weight:600;color:var(--pen-t);font-size:7cqw;transform:rotate(-8deg)">6/12</span>
+          </div>
+          <p style="position:absolute;left:6cqw;bottom:7cqw;font-size:3.2cqw;color:#D9D4C7;letter-spacing:.06em;text-transform:uppercase">Sample answer</p>
+          <span class="cbtn" style="position:absolute;right:6cqw;bottom:5cqw;font-size:3.4cqw;background:var(--yellow);color:var(--ink)">Book a free demo</span>
+        </div>
+        <div class="meta"><h3>F1 &middot; The marked answer</h3><span class="tag">Ads</span></div><p>Shows the method: an answer marked in red, with its score.</p>
+      </div>
+      <div class="fmt">
+        <div class="post" style="background:var(--yellow)">
+          <img class="lg" src="Logos/SVG/sj-academy-logo-horizontal-on-yellow.svg" alt="">
+          <p style="position:absolute;left:3cqw;top:14cqw;font-weight:800;font-size:86cqw;line-height:.8;letter-spacing:-.06em">7</p>
+          <p style="position:absolute;left:50cqw;right:6cqw;top:30cqw;font-weight:700;font-size:10cqw;line-height:.95;letter-spacing:-.03em">months</p>
+          <p style="position:absolute;left:50cqw;right:6cqw;top:43cqw;font-size:4.4cqw;line-height:1.3">until your first A Level exams.</p>
+          <p style="position:absolute;left:48cqw;top:62cqw;font-family:var(--fh);font-weight:600;color:var(--pen-t);font-size:6.4cqw;transform:rotate(-4deg)">minus wedding season.</p>
+          <p style="position:absolute;left:6cqw;right:6cqw;bottom:7cqw;font-weight:600;font-size:4.6cqw;line-height:1.3">Enough time to learn it properly.<br>Not enough to learn it twice.</p>
+        </div>
+        <div class="meta"><h3>F2 &middot; Big type</h3><span class="tag">Ads, posts</span></div><p>One number or one sentence does all the talking.</p>
+      </div>
+      <div class="fmt">
+        <div class="post" style="background:var(--canvas)">
+          <img class="lg" src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="">
+          <div style="position:absolute;left:14cqw;right:14cqw;top:20cqw;bottom:-6cqw;background:#fff;border-radius:6cqw 6cqw 0 0;border:.5cqw solid var(--ink);padding:6cqw;box-shadow:0 2cqw 5cqw rgba(0,0,0,.12)">
+            <p style="font-size:3cqw;color:#8A6D00;font-weight:500">&lsaquo; Notes</p>
+            <p style="font-size:6cqw;font-weight:700;margin-top:2cqw;color:#111">The realistic plan</p>
+            <div style="font-size:3.8cqw;line-height:1.9;margin-top:2cqw;color:#111">
+              <p><s style="color:#7a7a7a">study 8 hours a day</s></p>
+              <p><s style="color:#7a7a7a">finish syllabus by Dec</s></p>
+              <p>1 past paper a week, <span class="hl">marked</span></p>
+              <p>fix the marks I lose</p>
+              <p>book the free demo</p>
+            </div>
+          </div>
+        </div>
+        <div class="meta"><h3>F3 &middot; The phone</h3><span class="tag">Posts, ads</span></div><p>Notes app, chats, search bars, real reviews. Doesn't look like an ad.</p>
+      </div>
+      <div class="fmt">
+        <div class="post" style="background:var(--white)">
+          <img class="lg" src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="">
+          <span style="position:absolute;right:6cqw;top:7cqw;font-size:3.4cqw;font-weight:600;color:var(--muted)">3/8</span>
+          <p style="position:absolute;left:6cqw;top:21cqw;font-size:3.2cqw;letter-spacing:.1em;text-transform:uppercase;color:var(--pen-t);font-weight:600">Command word</p>
+          <p style="position:absolute;left:6cqw;right:6cqw;top:27cqw;font-weight:800;font-size:15cqw;line-height:1;letter-spacing:-.04em">Evaluate</p>
+          <div style="position:absolute;left:6cqw;right:6cqw;top:49cqw;display:grid;gap:2.4cqw;font-size:4cqw;line-height:1.45">
+            <p><b style="font-weight:600">It wants:</b> a judgement, with a reason.</p>
+            <p><b style="font-weight:600">It loses marks:</b> "it depends" with nothing after it.</p>
+            <p style="background:var(--yellow-l);padding:2cqw 3cqw;border-radius:1.4cqw"><b style="font-weight:600">Fix:</b> depends on <span class="hl">what</span>, and which matters more.</p>
+          </div>
+        </div>
+        <div class="meta"><h3>F4 &middot; The mark scheme</h3><span class="tag">Carousels</span></div><p>Pure value. The posts students save and share.</p>
+      </div>
+      <div class="fmt">
+        <div class="post" style="background:var(--ink)">
+          <img class="photo" src="Images/sj-real-lab-titration.jpg" alt="A student's hands at a titration in the SJ Academy lab">
+          <div style="position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(21,21,21,.78))"></div>
+          <div style="position:absolute;top:5cqw;left:5cqw;background:var(--canvas);border-radius:1.6cqw;padding:1.6cqw 2.4cqw"><img src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="" style="width:28cqw;display:block"></div>
+          <span style="position:absolute;left:14cqw;top:47cqw;width:36cqw;height:34cqw;border:.7cqw solid var(--pen);border-radius:50%;transform:rotate(-8deg)"></span>
+          <p style="position:absolute;left:6cqw;right:6cqw;bottom:7cqw;font-weight:700;font-size:8cqw;line-height:1.05;color:var(--canvas);letter-spacing:-.03em">At least 20 practicals <span style="color:var(--ink);background:var(--yellow);padding:0 1cqw">per subject</span></p>
+        </div>
+        <div class="meta"><h3>F5 &middot; The real moment</h3><span class="tag">Needs the shoot</span></div><p>Real teachers, classes and labs. One pen mark. Never stock or placeholders.</p>
+      </div>
+      <div class="fmt">
+        <div class="post dots">
+          <img class="lg" src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt="">
+          <p style="position:absolute;left:6cqw;right:6cqw;top:17cqw;font-weight:700;font-size:6.6cqw;line-height:1.08;letter-spacing:-.025em">Subject combos, ranked by how much they ruin your sleep</p>
+          <div style="position:absolute;left:6cqw;right:6cqw;top:44cqw;display:grid;gap:1.8cqw;font-size:3.6cqw">
+            <div style="display:flex;gap:2cqw;align-items:center"><b style="width:10cqw;text-align:center;background:var(--pen);color:#fff;padding:2.4cqw 0;border-radius:1cqw">S</b><span style="background:#fff;border:.3cqw solid var(--ink);border-radius:5cqw;padding:1cqw 2.6cqw">Maths, Physics, Chemistry</span></div>
+            <div style="display:flex;gap:2cqw;align-items:center"><b style="width:10cqw;text-align:center;background:var(--orange);padding:2.4cqw 0;border-radius:1cqw">A</b><span style="background:#fff;border:.3cqw solid var(--ink);border-radius:5cqw;padding:1cqw 2.6cqw">Bio, Chem, Physics</span></div>
+            <div style="display:flex;gap:2cqw;align-items:center"><b style="width:10cqw;text-align:center;background:var(--yellow);padding:2.4cqw 0;border-radius:1cqw">B</b><span style="background:#fff;border:.3cqw solid var(--ink);border-radius:5cqw;padding:1cqw 2.6cqw">Business, Econ, Accounting</span></div>
+            <div style="display:flex;gap:2cqw;align-items:center"><b style="width:10cqw;text-align:center;background:var(--line);padding:2.4cqw 0;border-radius:1cqw">C</b><span style="background:#fff;border:.3cqw solid var(--ink);border-radius:5cqw;padding:1cqw 2.6cqw">The one you picked for fun</span></div>
+          </div>
+          <p style="position:absolute;right:6cqw;bottom:6cqw;font-family:var(--fh);font-weight:600;color:var(--cta-d);font-size:5.6cqw;transform:rotate(-3deg)">fight us in the comments</p>
+        </div>
+        <div class="meta"><h3>F6 &middot; The take</h3><span class="tag">Shares</span></div><p>Memes, POV, tier lists. Never about a named school or person.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="white" id="motion">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Motion</p>
+      <h2>Five moves. <span class="hl">Nothing else.</span></h2>
+      <p class="lead">Things move the way they would on a teacher's desk. Nothing floats, spins or glows. Press play: each move plays with its sound.</p>
+    </div>
+    <div class="stages">
+      <div class="stage"><div class="box" id="m-hl"><p class="d-hl">Learn the <span>method</span></p></div><div class="row"><div><h3>Highlighter swipe</h3><p>Marks the key word</p></div><button class="play" data-demo="m-hl" data-snd="sj-sfx-highlighter-swipe" aria-label="Play highlighter swipe"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button></div></div>
+      <div class="stage"><div class="box" id="m-wipe"><div class="d-scn d-b">The method</div><div class="d-scn d-a">The hook</div><div class="d-band"></div></div><div class="row"><div><h3>Highlighter wipe</h3><p>The transition. Twice a video at most</p></div><button class="play" data-demo="m-wipe" data-snd="sj-sfx-highlighter-swipe" aria-label="Play highlighter wipe"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button></div></div>
+      <div class="stage"><div class="box" id="m-pen"><span class="d-pen">6/12<svg viewBox="0 0 200 120" aria-hidden="true"><path d="M58 22 C 20 30, 10 80, 70 100 C 130 116, 192 92, 186 52 C 180 18, 110 6, 52 26"/></svg></span></div><div class="row"><div><h3>Pen circle</h3><p>Points at the one thing that matters</p></div><button class="play" data-demo="m-pen" data-snd="sj-sfx-pen-circle" aria-label="Play pen circle"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button></div></div>
+      <div class="stage"><div class="box" id="m-tick"><div class="d-ticks"><svg viewBox="0 0 48 48"><path d="M8 26 l10 11 l22 -26"/></svg><svg viewBox="0 0 48 48"><path d="M8 26 l10 11 l22 -26"/></svg><svg viewBox="0 0 48 48"><path d="M8 26 l10 11 l22 -26"/></svg></div></div><div class="row"><div><h3>Pen ticks</h3><p>Marks earned, one by one</p></div><button class="play" data-demo="m-tick" data-snd="sj-sfx-pen-tick" data-repeat="3" aria-label="Play pen ticks"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button></div></div>
+      <div class="stage"><div class="box" id="m-stamp"><span class="d-stamp">Free demo</span></div><div class="row"><div><h3>Stamp</h3><p>A verdict: a score, a date</p></div><button class="play" data-demo="m-stamp" data-snd="sj-sfx-stamp" aria-label="Play stamp"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button></div></div>
+      <div class="stage"><div class="box" id="m-paper"><div class="d-paper"><b>Analyse two benefits... [8]</b><i></i><i></i><i></i></div></div><div class="row"><div><h3>Paper slide</h3><p>Brings in the exam paper</p></div><button class="play" data-demo="m-paper" data-snd="sj-sfx-paper-slide" aria-label="Play paper slide"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button></div></div>
+    </div>
+    <div class="grid g2" style="margin-top:22px">
+      <div class="card"><h3>Teach speed</h3><p class="small">Lessons, teacher reels, testimonials. Cuts every 2 to 4 seconds. One move at a time.</p></div>
+      <div class="card"><h3>Hype speed</h3><p class="small">Ads, results day, the first 3 seconds of a reel. Cuts on the beat. Punch-ins on emphasis.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Video</p>
+      <h2>Hook in 2 seconds. <span class="hl">Brand in 3.</span></h2>
+      <p class="lead">Open on a face, a marked paper, a number or a question, never on a logo. Every video works with the sound off.</p>
+    </div>
+    <div class="phones">
+      <div class="fmt"><div class="phone"><img class="bg" src="Images/sj-real-lab-titration.jpg" alt=""><div class="zone" style="top:0;height:14.06%">app interface</div><div class="zone" style="bottom:0;height:34.9%">caption and buttons</div><div class="safe" style="left:6%;right:21.3%;top:14.06%;bottom:34.9%">safe area</div></div><h3 style="font-size:16px">Reel safe zone</h3><p class="small">Text, faces and the logo stay in the yellow box.</p></div>
+      <div class="fmt"><div class="phone"><img class="bg" src="Images/sj-real-lab-titration.jpg" alt=""><div class="ph-logo"><img src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt=""></div><div class="cap-clean"><span>Add the indicator before you start the titration, not after.</span></div></div><h3 style="font-size:16px">Clean captions</h3><p class="small">Lessons and testimonials. Two lines at most.</p></div>
+      <div class="fmt"><div class="phone"><img class="bg" src="Images/sj-real-lab-titration.jpg" alt=""><div class="ph-logo"><img src="Logos/SVG/sj-academy-logo-horizontal-on-light.svg" alt=""></div><div class="cap-punch">You lost <em>6 marks</em></div></div><h3 style="font-size:16px">Punch captions</h3><p class="small">Hooks and ads. One to four words, key word highlighted.</p></div>
+    </div>
+    <h3 style="margin:40px 0 14px">A 15-second ad</h3>
+    <div class="timeline">
+      <div><b>0 to 2s &middot; Hook</b><span>The viewer's situation</span></div>
+      <div><b>2 to 8s &middot; Proof</b><span>A marked answer, the class, the lab</span></div>
+      <div><b>8 to 12s &middot; Offer</b><span>"One class free. Then decide."</span></div>
+      <div><b>12 to 15s &middot; End card</b><span>Logo, button, sonic logo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="white" id="sound">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Sound</p>
+      <h2>Desk sounds, and <span class="hl">one signature</span></h2>
+      <p class="lead">The voice always comes first. Our effects are real desk sounds, not stock whooshes. The sonic logo here is a prototype to set the timing; a composer writes the final melody.</p>
+    </div>
+    <div class="sonic">
+      <svg class="score-svg" viewBox="0 0 600 220" role="img" aria-label="Sonic logo timing: two pen ticks, then three notes, the last ringing out">
+        <g stroke="#E2DDD0"><line x1="40" y1="60" x2="580" y2="60"/><line x1="40" y1="100" x2="580" y2="100"/><line x1="40" y1="140" x2="580" y2="140"/></g>
+        <g font-family="Poppins,sans-serif" font-size="12" fill="#66625A"><text x="40" y="206">0s</text><text x="232" y="206">0.5s</text><text x="425" y="206">1.0s</text></g>
+        <g stroke="#D63A2F" stroke-width="4" stroke-linecap="round" fill="none"><path d="M44 172 l6 7 l12 -16"/><path d="M86 172 l6 7 l12 -16"/></g>
+        <text x="50" y="152" font-family="Caveat,cursive" font-weight="600" font-size="20" fill="#B92F25">tick tick</text>
+        <rect x="140" y="132" width="56" height="14" rx="7" fill="#FCE004" stroke="#151515" stroke-width="1.5"/>
+        <rect x="194" y="96" width="56" height="14" rx="7" fill="#FCE004" stroke="#151515" stroke-width="1.5"/>
+        <rect x="256" y="58" width="300" height="14" rx="7" fill="#FCE004" stroke="#151515" stroke-width="1.5"/>
+        <text x="292" y="112" font-family="Caveat,cursive" font-weight="600" font-size="24" fill="#B54200">marked, then correct</text>
+      </svg>
+      <div class="snd-list">
+        <div class="snd-row"><button class="play" data-snd="sj-sonic-logo-full" aria-label="Play full sonic logo prototype"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button><div><b>Sonic logo, full</b><span>Prototype. End cards</span></div></div>
+        <div class="snd-row"><button class="play" data-snd="sj-sonic-logo-short" aria-label="Play short sonic logo prototype"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button><div><b>Sonic logo, short</b><span>Prototype. Bumpers, 9-second ads</span></div></div>
+        <div class="snd-row"><button class="play" data-snd="sj-sfx-pen-tick" aria-label="Play pen tick"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button><div><b>Pen tick</b><span>To re-record on a real desk</span></div></div>
+        <div class="snd-row"><button class="play" data-snd="sj-sfx-stamp" aria-label="Play stamp"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></button><div><b>Stamp</b><span>To re-record on a real desk</span></div></div>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card"><h3>Voice first</h3><p class="small">Music sits well under speech. Lessons have no music under explanation.</p></div>
+      <div class="card"><h3>License everything</h3><p class="small">No trending songs on the business account or in ads.</p></div>
+      <div class="card"><h3>Check on a phone</h3><p class="small">Mix to about -14 LUFS and listen on a phone speaker before posting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="print">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">PDF and print</p>
+      <h2>It has to survive <span class="hl">the photocopier</span></h2>
+      <p class="lead">Worksheets get photocopied in black and white. The highlighted word is also bold, and red marks keep their shape in grey. No yellow text, ever.</p>
+    </div>
+    <div class="grid g2">
+      <div class="fmt"><div class="sheet"><h4>9609 &middot; Break-even</h4><p>3. Calculate the <b class="hl">margin of safety</b> for Firm A. <span class="mk">[3]</span></p><div class="ln"></div><div class="ln"></div><p style="margin-top:8px">Answer: 1,200 units <span class="mk">&#10003; &#10003;</span></p></div><p class="small">On screen</p></div>
+      <div class="fmt"><div class="sheet gray"><h4>9609 &middot; Break-even</h4><p>3. Calculate the <b class="hl">margin of safety</b> for Firm A. <span class="mk">[3]</span></p><div class="ln"></div><div class="ln"></div><p style="margin-top:8px">Answer: 1,200 units <span class="mk">&#10003; &#10003;</span></p></div><p class="small">Photocopied</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="white" id="brief">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Before you design anything</p>
+      <h2>Five lines, <span class="hl">then design</span></h2>
+      <p class="lead">Most sameness comes from opening the last file and changing the words. Write these five lines first.</p>
+    </div>
+    <div class="grid g2">
+      <div style="display:grid;gap:12px;align-content:start">
+        <div class="brief">
+          <div><b>Who and when</b><span>A Level student, scrolling at 11pm the week before mocks</span></div>
+          <div><b>The one thing</b><span>Most lost marks come from not making a decision</span></div>
+          <div><b>The idea</b><span>A perfect pros-and-cons answer that scores 6/12. Sent to a friend because "this is literally me"</span></div>
+          <div><b>The proof</b><span>A sample 9609 answer, labelled "sample", marked in red</span></div>
+          <div><b>Format, level</b><span>F1, the marked answer. Loud</span></div>
+        </div>
+        <div><button class="btn" type="button" id="copyBrief">Copy the five lines</button> <span class="small" id="copyMsg" role="status"></span></div>
+      </div>
+      <div class="card">
+        <h3>Is it on brand?</h3>
+        <ol class="clean small">
+          <li>Does it carry the core: logo where needed, yellow, highlighter, Poppins?</li>
+          <li>Is it true: real people, real work, facts from <code>FACTS.md</code>?</li>
+          <li>Would a good teacher be happy to have made it? Funny is fine. Mean is not.</li>
+        </ol>
+        <p class="hand">yes to all three? ship it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="decide">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Your call</p>
+      <h2>Three decisions, <span class="hl">then build</span></h2>
+    </div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Decision</th><th>Proposal</th></tr></thead>
+        <tbody>
+          <tr><td>What every piece says</td><td>Method, Teachers, Access (the three cards in the Core section)</td></tr>
+          <tr><td>Review wording</td><td><code>FACTS.md</code> says "226+ five-star Google reviews"; the old guide banned that wording. Pick one</td></tr>
+          <tr><td>Sonic logo</td><td>Brief a composer; keep the two pen ticks</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card"><p class="eyebrow">Week 1</p><h3>Decide and shoot</h3><p class="small">One photo and video day at the campus. F5 and every thumbnail depend on it.</p></div>
+      <div class="card"><p class="eyebrow">Weeks 2 and 3</p><h3>Build templates</h3><p class="small">F1 to F4, captions, name tag and end card, in Canva and HyperFrames.</p></div>
+      <div class="card"><p class="eyebrow">Week 4</p><h3>Sound and numbers</h3><p class="small">Record desk sounds, brief the composer, tag every post by format.</p></div>
+    </div>
+    <p class="foot">SJ Academy brand system v4.2. The full rules live in <code>01 Brand</code>: the brand book and the Web, Social, Video, Sound and Print playbooks.</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  function play(name,btn,n){
+    if(!name)return; n=n||1; var i=0;
+    (function one(){
+      try{
+        var a=new Audio('Sound/mp3/'+name+'.mp3');
+        if(btn){btn.classList.add('playing');a.addEventListener('ended',function(){btn.classList.remove('playing')});}
+        var pr=a.play(); if(pr&&pr.catch)pr.catch(function(){if(btn)btn.classList.remove('playing')});
+      }catch(e){}
+      i++; if(i<n)setTimeout(one,250);
+    })();
+  }
+  document.querySelectorAll('[data-snd]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var id=b.getAttribute('data-demo');
+      if(id){var el=document.getElementById(id);el.classList.remove('go');void el.offsetWidth;el.classList.add('go');}
+      play(b.getAttribute('data-snd'),b,parseInt(b.getAttribute('data-repeat')||'1',10));
+    });
+  });
+  var tpl="Who and when: \nThe one thing: \nThe idea (and who would send it to a friend): \nThe proof: \nFormat and level: ";
+  var cb=document.getElementById('copyBrief'),msg=document.getElementById('copyMsg');
+  cb.addEventListener('click',function(){
+    try{navigator.clipboard.writeText(tpl).then(function(){msg.textContent='Copied';},function(){msg.textContent='Select the five lines and copy them';});}
+    catch(e){msg.textContent='Select the five lines and copy them';}
+  });
+})();
+</script>

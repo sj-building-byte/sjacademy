@@ -1,0 +1,962 @@
+{
+  "version": 1,
+  "historyId": "27ed4356-88bc-4995-b5ec-40d30c72be52",
+  "currentRevision": "da37eb14-11cb-4bcc-a5b6-4f9b4d0d79a9",
+  "pendingChanges": false,
+  "files": {
+    "__pycache__/build.cpython-315.pyc": {
+      "hash": "203f580cc086432ef6686f7dd3b8e2b4f2be29e76ac4537b250595c953a44b85",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/20/203f580cc086432ef6686f7dd3b8e2b4f2be29e76ac4537b250595c953a44b85"
+    },
+    "__pycache__/episode.cpython-315.pyc": {
+      "hash": "617643c0e1d8cd52f8ca0fe3b9272d5538d3fbd5a416a768ae4c6172025f031c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/61/617643c0e1d8cd52f8ca0fe3b9272d5538d3fbd5a416a768ae4c6172025f031c"
+    },
+    "assets/brand/Caveat-600.woff2": {
+      "hash": "1c591acdadd5ea398bad6aa21b36498dde59035ad366d1dbb05bbc0e537e7bc9",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/1c/1c591acdadd5ea398bad6aa21b36498dde59035ad366d1dbb05bbc0e537e7bc9"
+    },
+    "assets/brand/Poppins-Bold.ttf": {
+      "hash": "983676516167748b74de6f4771fb384c664fd913acb8b471122ecacf5da5ea6c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/98/983676516167748b74de6f4771fb384c664fd913acb8b471122ecacf5da5ea6c"
+    },
+    "assets/brand/Poppins-ExtraBold.ttf": {
+      "hash": "f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/f2/f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1"
+    },
+    "assets/brand/Poppins-Medium.ttf": {
+      "hash": "90373e7d838d32468438fc3e152dca0bdb12edcab99ea639f158790b1ba1fd05",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/90/90373e7d838d32468438fc3e152dca0bdb12edcab99ea639f158790b1ba1fd05"
+    },
+    "assets/brand/Poppins-SemiBold.ttf": {
+      "hash": "d3bf1bdaf0550e83da9ac0b1d1d9fe6db086835a83aa28578e609a394b9a0286",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/d3/d3bf1bdaf0550e83da9ac0b1d1d9fe6db086835a83aa28578e609a394b9a0286"
+    },
+    "assets/brand/poppins-metrics.json": {
+      "hash": "d5c1ddb2f4c01f96aa1c84028fb4b680e5db7131bb3583b559e454bd9e043048",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/d5/d5c1ddb2f4c01f96aa1c84028fb4b680e5db7131bb3583b559e454bd9e043048"
+    },
+    "assets/brand/sj-academy-icon-on-brown.svg": {
+      "hash": "fa0c213e83105b856d9b36cedc9fc7d8e185bc77890e6ab5406433607eba544a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/fa/fa0c213e83105b856d9b36cedc9fc7d8e185bc77890e6ab5406433607eba544a"
+    },
+    "assets/brand/sj-academy-icon-on-light.svg": {
+      "hash": "ec382fb1050b8244e874ba3089cec93e1c6eff5d1ce956ebd49fb51866c52948",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ec/ec382fb1050b8244e874ba3089cec93e1c6eff5d1ce956ebd49fb51866c52948"
+    },
+    "assets/brand/sj-academy-icon-on-yellow.svg": {
+      "hash": "951100fff5d641b8d8fd88bce4da8f1943d6e0edfb0f68d1e56e8e90f98ca9dd",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/95/951100fff5d641b8d8fd88bce4da8f1943d6e0edfb0f68d1e56e8e90f98ca9dd"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-brown.svg": {
+      "hash": "52fb4a8cb35af4e8cb1d7f30936bbcf332977915b2ca2c2a5b893ef41388cf27",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/52/52fb4a8cb35af4e8cb1d7f30936bbcf332977915b2ca2c2a5b893ef41388cf27"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-light.svg": {
+      "hash": "aced0eac9c4c36ddf0e3919783c884125ce4c091ff7fe4f7a24890431ee2bc45",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ac/aced0eac9c4c36ddf0e3919783c884125ce4c091ff7fe4f7a24890431ee2bc45"
+    },
+    "assets/brand/sj-academy-logo-horizontal-on-yellow.svg": {
+      "hash": "75de124bcf0fe73d2d7f7d9d2ee6914932902372f6a995cec95bb6b1a9f79695",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/75/75de124bcf0fe73d2d7f7d9d2ee6914932902372f6a995cec95bb6b1a9f79695"
+    },
+    "assets/brand/sj-academy-logo-stacked-mono-white.svg": {
+      "hash": "52181c722e82d80572e59f236d76f23a8775cdc8afd96ca4054b2d926f0479ca",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/52/52181c722e82d80572e59f236d76f23a8775cdc8afd96ca4054b2d926f0479ca"
+    },
+    "assets/brand/sj-academy-logo-stacked-on-yellow.svg": {
+      "hash": "550e9853a6114686e9e7c595c1280e63e58d5d143633b8ab4a3a24503f3fd196",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/55/550e9853a6114686e9e7c595c1280e63e58d5d143633b8ab4a3a24503f3fd196"
+    },
+    "assets/sfx/fx-impact.wav": {
+      "hash": "d5b4ec5248bd8d82e33eb8425d1d07c4b9b323aadc8b12eec4ed92fce958c907",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/d5/d5b4ec5248bd8d82e33eb8425d1d07c4b9b323aadc8b12eec4ed92fce958c907"
+    },
+    "assets/sfx/fx-pop.wav": {
+      "hash": "5e7e6883ff4285d85874b14fbd6ce312530d70a4dba3b2bcb64b56a0cdf4edf1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/5e/5e7e6883ff4285d85874b14fbd6ce312530d70a4dba3b2bcb64b56a0cdf4edf1"
+    },
+    "assets/sfx/fx-riser.wav": {
+      "hash": "acde7322abc18671b16fbbcffd84a433aeec20268581a7c5cd9181cb9d95b54b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ac/acde7322abc18671b16fbbcffd84a433aeec20268581a7c5cd9181cb9d95b54b"
+    },
+    "assets/sfx/fx-whoosh.wav": {
+      "hash": "d105b15bf460257871b2e2e9293df007b6ba0e6431d49798dc724f0b80154d18",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/d1/d105b15bf460257871b2e2e9293df007b6ba0e6431d49798dc724f0b80154d18"
+    },
+    "assets/sfx/sj-sfx-highlighter-swipe.wav": {
+      "hash": "7fc0b9afcb3dce4c9de55ee5c1455eac619b6bcf84225b7e37d612b37f37712d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/7f/7fc0b9afcb3dce4c9de55ee5c1455eac619b6bcf84225b7e37d612b37f37712d"
+    },
+    "assets/sfx/sj-sfx-paper-slide.wav": {
+      "hash": "21e34aae928c6c844341da9e02f4af416067d604c7a0bfa8dced08661fea13b5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/21/21e34aae928c6c844341da9e02f4af416067d604c7a0bfa8dced08661fea13b5"
+    },
+    "assets/sfx/sj-sfx-pen-tick.wav": {
+      "hash": "f41530e52a42c460b101d700eebb1e786df2f7ff52b49a9125ea61ca6d601fc7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/f4/f41530e52a42c460b101d700eebb1e786df2f7ff52b49a9125ea61ca6d601fc7"
+    },
+    "assets/sfx/sj-sfx-stamp.wav": {
+      "hash": "346a71e4d598d6ed2d845280b5b0006b4bc9156d45c79d0d89cd83735a7d2f42",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/34/346a71e4d598d6ed2d845280b5b0006b4bc9156d45c79d0d89cd83735a7d2f42"
+    },
+    "assets/sfx/sj-sonic-logo-full.wav": {
+      "hash": "1f8feccc1c5b5a7451cc8c5cb49ad6e932e435990c8c6ad2a0772f335bc2839f",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/1f/1f8feccc1c5b5a7451cc8c5cb49ad6e932e435990c8c6ad2a0772f335bc2839f"
+    },
+    "build.py": {
+      "hash": "7e42b2cdad56bca63c91b4bca43b0731199f19574eddec883dc7e4ee91bda6f5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/7e/7e42b2cdad56bca63c91b4bca43b0731199f19574eddec883dc7e4ee91bda6f5"
+    },
+    "compositions/bg.html": {
+      "hash": "58ee30f85a1fbc78802e8de993499388752cc7a61f7ab473561100e1d9afe414",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/58/58ee30f85a1fbc78802e8de993499388752cc7a61f7ab473561100e1d9afe414"
+    },
+    "compositions/captions.html": {
+      "hash": "6bd6524714718e9f315df0eb808e75ecb9da0f5fbe85f0fc63a533f9c36196a5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/6b/6bd6524714718e9f315df0eb808e75ecb9da0f5fbe85f0fc63a533f9c36196a5"
+    },
+    "compositions/chrome.html": {
+      "hash": "5279bae62ae23274278f45ac9960d82676bb84801fadcf0f03cf32aaea9bb2fe",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/52/5279bae62ae23274278f45ac9960d82676bb84801fadcf0f03cf32aaea9bb2fe"
+    },
+    "compositions/endcard.html": {
+      "hash": "06b9a0e6a94c2d9638142d7a2a97cc3eb9f153a90d30786f7c6ae0f3dc67ad65",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/06/06b9a0e6a94c2d9638142d7a2a97cc3eb9f153a90d30786f7c6ae0f3dc67ad65"
+    },
+    "compositions/h01.html": {
+      "hash": "42d9e013cb3dbe667e67c2d5ea0fed2e89994694d90c7468a6b787c30ac332bd",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/42/42d9e013cb3dbe667e67c2d5ea0fed2e89994694d90c7468a6b787c30ac332bd"
+    },
+    "compositions/h02.html": {
+      "hash": "c67bc58b7a9f9777c7ef4e1bae1eff62f942f026c486d66b19b4b1e7a3261de5",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/c6/c67bc58b7a9f9777c7ef4e1bae1eff62f942f026c486d66b19b4b1e7a3261de5"
+    },
+    "compositions/h03.html": {
+      "hash": "61badab686603da0488bc5226bc24153917ca700eb8d2bd949984309124eefb2",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/61/61badab686603da0488bc5226bc24153917ca700eb8d2bd949984309124eefb2"
+    },
+    "compositions/h04.html": {
+      "hash": "ce346104296a0b201bb73755c75f80388d6e8ce7407929fa0898cfce3e57f5b6",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ce/ce346104296a0b201bb73755c75f80388d6e8ce7407929fa0898cfce3e57f5b6"
+    },
+    "compositions/h05.html": {
+      "hash": "d1dd816fc20fbb6a2618e8ba43896f1eda31f74c505902ea0e1aa9d59f86f521",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/d1/d1dd816fc20fbb6a2618e8ba43896f1eda31f74c505902ea0e1aa9d59f86f521"
+    },
+    "compositions/h06.html": {
+      "hash": "79ffaa03e73ee7a90299b2852c5a47f503e9c419e5d72c1009421a840aaa9598",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/79/79ffaa03e73ee7a90299b2852c5a47f503e9c419e5d72c1009421a840aaa9598"
+    },
+    "compositions/h07.html": {
+      "hash": "ec6e1e00f6c9711e0c89c59e4cf4f0ce2a194a614677c6e7c1b9a9e7b9dbd40c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ec/ec6e1e00f6c9711e0c89c59e4cf4f0ce2a194a614677c6e7c1b9a9e7b9dbd40c"
+    },
+    "compositions/h08.html": {
+      "hash": "9339c14833440098c99b56605c2682e6fbd1ef90195416671c51b55c35c102c9",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/93/9339c14833440098c99b56605c2682e6fbd1ef90195416671c51b55c35c102c9"
+    },
+    "compositions/h09.html": {
+      "hash": "05c67b6d86db6466d70908f2f41bf9b039c41f7d7ed51d4d0955192d77a8bac8",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/05/05c67b6d86db6466d70908f2f41bf9b039c41f7d7ed51d4d0955192d77a8bac8"
+    },
+    "compositions/h10.html": {
+      "hash": "3190936183bc07d9a7bf4a45449f702979617d013b067fa720eddded53b16d08",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/31/3190936183bc07d9a7bf4a45449f702979617d013b067fa720eddded53b16d08"
+    },
+    "compositions/hits.html": {
+      "hash": "ee593389eb1d193b9d815386f1948dc59cc18f22f69524bead152f40624f6204",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ee/ee593389eb1d193b9d815386f1948dc59cc18f22f69524bead152f40624f6204"
+    },
+    "compositions/intro.html": {
+      "hash": "c2c8343dcf09305b47d0e06020f72c9255cab2665b05e8fc8bbe452b848bdac4",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/c2/c2c8343dcf09305b47d0e06020f72c9255cab2665b05e8fc8bbe452b848bdac4"
+    },
+    "compositions/recap.html": {
+      "hash": "9fdb73450ee2cef699edaa54a652ff6498778a29d7ccf4f7231d8f62fd0ab806",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/9f/9fdb73450ee2cef699edaa54a652ff6498778a29d7ccf4f7231d8f62fd0ab806"
+    },
+    "episode.py": {
+      "hash": "11f7a170880062f804006ac7bceb6c92879764372eed187c16bc2d0c09789390",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/11/11f7a170880062f804006ac7bceb6c92879764372eed187c16bc2d0c09789390"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "394b508757c7ce6d7a19a191ab90ffab04f0cdabc9540ea967193c7546e6801b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/39/394b508757c7ce6d7a19a191ab90ffab04f0cdabc9540ea967193c7546e6801b"
+    },
+    "make-voice.sh": {
+      "hash": "bafab984ecce9d60a95f9837a962e1df13143d8ef5a9b5edbe862e1f18e5b76b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ba/bafab984ecce9d60a95f9837a962e1df13143d8ef5a9b5edbe862e1f18e5b76b"
+    },
+    "meta.json": {
+      "hash": "f4a29facc5c827b4a73bce085257853aee8685e52b63f689a6f6c7af9c17dc80",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/f4/f4a29facc5c827b4a73bce085257853aee8685e52b63f689a6f6c7af9c17dc80"
+    },
+    "package.json": {
+      "hash": "633776f86931693ccd7d88e436524040b7f68a520cff233964261d0a40baf176",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/63/633776f86931693ccd7d88e436524040b7f68a520cff233964261d0a40baf176"
+    },
+    "timing.json": {
+      "hash": "c4a54a82331e22bb42b21cf5b883463bbad76d4066f3193e38b0a00f38ab17b3",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/c4/c4a54a82331e22bb42b21cf5b883463bbad76d4066f3193e38b0a00f38ab17b3"
+    },
+    "voice/h10a.wav": {
+      "hash": "c9a0e02fc248011d44be192f0e322538eb233e8aa6435a5b0e838b61fa30f270",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/c9/c9a0e02fc248011d44be192f0e322538eb233e8aa6435a5b0e838b61fa30f270"
+    },
+    "voice/h10b.wav": {
+      "hash": "3e66ebd2c4bb2cc5ebc05db88089055f2d6066234260a55adfc77da1f1a5582b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/3e/3e66ebd2c4bb2cc5ebc05db88089055f2d6066234260a55adfc77da1f1a5582b"
+    },
+    "voice/h1a.wav": {
+      "hash": "59994b8dcfbbef67fde15fed75504c6bc39ee9869ee602fb9fc1f1c9f87ab650",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/59/59994b8dcfbbef67fde15fed75504c6bc39ee9869ee602fb9fc1f1c9f87ab650"
+    },
+    "voice/h1b.wav": {
+      "hash": "f1b1497b8897e52ba0c78b3b166ddbadc167950fab5d11375567979c4664c49a",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/f1/f1b1497b8897e52ba0c78b3b166ddbadc167950fab5d11375567979c4664c49a"
+    },
+    "voice/h2a.wav": {
+      "hash": "1248007bb29850d2fcb0670c6a9ae71a86bc19f76abda462a01c522e560a4b2f",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/12/1248007bb29850d2fcb0670c6a9ae71a86bc19f76abda462a01c522e560a4b2f"
+    },
+    "voice/h2b.wav": {
+      "hash": "5227dddd7a90bd95aab1c3f16166db720d81814dcc622ed52ba2cb2500dc1fa8",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/52/5227dddd7a90bd95aab1c3f16166db720d81814dcc622ed52ba2cb2500dc1fa8"
+    },
+    "voice/h3a.wav": {
+      "hash": "6181efb5c2a5e188d97f42368329f4297e95157ee00c27579d3c53d79368f7e7",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/61/6181efb5c2a5e188d97f42368329f4297e95157ee00c27579d3c53d79368f7e7"
+    },
+    "voice/h3b.wav": {
+      "hash": "2d62e8a28dc241071c13eb5f1481b7467399c2ed9ec72c87f701fc58a42f0e3b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/2d/2d62e8a28dc241071c13eb5f1481b7467399c2ed9ec72c87f701fc58a42f0e3b"
+    },
+    "voice/h4a.wav": {
+      "hash": "aea45533f9869091c05948d06183ff14381ba2f1d0a4372bad2d06656d767469",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ae/aea45533f9869091c05948d06183ff14381ba2f1d0a4372bad2d06656d767469"
+    },
+    "voice/h4b.wav": {
+      "hash": "f125802d022067186c85d2ac03fe7650eacc6c7358948a7d6b824a47a766756d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/f1/f125802d022067186c85d2ac03fe7650eacc6c7358948a7d6b824a47a766756d"
+    },
+    "voice/h5a.wav": {
+      "hash": "68d79bab74803311e88dd8b33230e0e3cbd0866abda112d0666cd8c3bc089793",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/68/68d79bab74803311e88dd8b33230e0e3cbd0866abda112d0666cd8c3bc089793"
+    },
+    "voice/h5b.wav": {
+      "hash": "33f6f92012891dbdaf9e20695276882fdd317363bf4784bb44bbbc92acb651cb",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/33/33f6f92012891dbdaf9e20695276882fdd317363bf4784bb44bbbc92acb651cb"
+    },
+    "voice/h6a.wav": {
+      "hash": "be4fc6d12d776a6c852aa901db61b15890bc7932f8422bd82c21680a6709eb61",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/be/be4fc6d12d776a6c852aa901db61b15890bc7932f8422bd82c21680a6709eb61"
+    },
+    "voice/h6b.wav": {
+      "hash": "e7e13253d7d965d997d0522b7661fd072492b68260a59978afd38e9b73538d3b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/e7/e7e13253d7d965d997d0522b7661fd072492b68260a59978afd38e9b73538d3b"
+    },
+    "voice/h7a.wav": {
+      "hash": "e6730ee8dc61ea81dbf0489e614247c4b9ca084b03ae25aa1a814dea6e5af8f3",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/e6/e6730ee8dc61ea81dbf0489e614247c4b9ca084b03ae25aa1a814dea6e5af8f3"
+    },
+    "voice/h7b.wav": {
+      "hash": "9e9c0c79226f65d4a65aa720dfb6727b2d68b2f5062f7d55db82ee593fbe257c",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/9e/9e9c0c79226f65d4a65aa720dfb6727b2d68b2f5062f7d55db82ee593fbe257c"
+    },
+    "voice/h8a.wav": {
+      "hash": "d5b45122f933cd3204d991348c39e9960b3882ab82fd5c6466d9812d01faa0c6",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/d5/d5b45122f933cd3204d991348c39e9960b3882ab82fd5c6466d9812d01faa0c6"
+    },
+    "voice/h8b.wav": {
+      "hash": "075741d9bf82fcd946f05426717600c3597ec1706fcb064ca4df95f30b23128f",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/07/075741d9bf82fcd946f05426717600c3597ec1706fcb064ca4df95f30b23128f"
+    },
+    "voice/h9a.wav": {
+      "hash": "54593cb7c7aaaed16de6abb3b4c3838b5dfe9b8f4b7ad867910f6f8393227229",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/54/54593cb7c7aaaed16de6abb3b4c3838b5dfe9b8f4b7ad867910f6f8393227229"
+    },
+    "voice/h9b.wav": {
+      "hash": "56b0a811be58f8a1aca23551f112558a25bed33d00c14193f75991fb1b64692b",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/56/56b0a811be58f8a1aca23551f112558a25bed33d00c14193f75991fb1b64692b"
+    },
+    "voice/i1.wav": {
+      "hash": "464e05eb70000072e918f39cda7daf4cfaa9e086ffd15d45821dc80d3bd80a5d",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/46/464e05eb70000072e918f39cda7daf4cfaa9e086ffd15d45821dc80d3bd80a5d"
+    },
+    "voice/lines.txt": {
+      "hash": "642369693abf9f4a7cf3fd0e2437e28b15fe47e1bfa6b2810bea2916282556c1",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/64/642369693abf9f4a7cf3fd0e2437e28b15fe47e1bfa6b2810bea2916282556c1"
+    },
+    "voice/o1.wav": {
+      "hash": "0feb0393f0b0d2b29639581c29de38eaf83e54ea22b2d394f744a29cada3a6f6",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/0f/0feb0393f0b0d2b29639581c29de38eaf83e54ea22b2d394f744a29cada3a6f6"
+    },
+    "voice/o2.wav": {
+      "hash": "d1c21cb7914d785230c1d2fb0793d7d5758b12110b52a3a624ed44665cd8b2ff",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/d1/d1c21cb7914d785230c1d2fb0793d7d5758b12110b52a3a624ed44665cd8b2ff"
+    },
+    "assets/music/lofi.mp3": {
+      "hash": "1dcbefd551553386a9e5b08c52af33a556af4b62e92d7849698d2c4fe88ce923",
+      "content": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/1d/1dcbefd551553386a9e5b08c52af33a556af4b62e92d7849698d2c4fe88ce923"
+    }
+  },
+  "revisions": {
+    "6a35c12a-e52c-4911-af6a-9eed082eac54": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793013573209,
+      "endedAt": 1793013573223,
+      "files": {
+        "__pycache__/build.cpython-315.pyc": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/8d/8d63a82fa358bfda56f9dd23ff5060af10bd13f305c0c3644fed1054e142393c",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ff/ffd89d869a402a7792fac12d901dd523b5db91c03f26b67e6198b74d58a2583e"
+        },
+        "build.py": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/74/742ed99b0f979466b9df6d2148b3b8cb9926e7609e8ccfc53dca9ed8c905ae87",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/3b/3b315ea4308a897e0612e5d364643095d88ad1c55860f0b3bb1aff6b7b761289"
+        },
+        "compositions/chrome.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/2c/2ca9a3c3794c70c39ec05261caa8a8572259f2fc12f935f932e65dba4a565d00",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/52/5279bae62ae23274278f45ac9960d82676bb84801fadcf0f03cf32aaea9bb2fe"
+        },
+        "compositions/endcard.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/19/190a797e8de02ef5865e5eeaf5294245d81df1fbb95eeccb7542f720900a8280",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/c8/c86d250ad4210c7e2758ffb580c066e52234a5625ad2328f2011f944250cea38"
+        },
+        "compositions/h01.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/6e/6e458d18430f0d5b06434076f51b46b634656f2bc732a0a9d0c213cdc8d20999",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/94/94211d38181824c9b520486d14900ddfb95659f9d771ac5233e11d6ff1a68489"
+        },
+        "compositions/h02.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/c8/c8141175a4230b205500e2a32ce21d0489dacefd20c26f1260332061132a7fc1",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/df/dfb5355dd74e5d216f89bdfd738822342f89843eebba3bf1665752be3c90be67"
+        },
+        "compositions/h03.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/2d/2d27b07529c179b03c67c30b4cb73820ca0ff98482b136bd2889247005bf8f63",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/3c/3cbce2033f57357f50951c57b2db390a4cf94312091a69fd98ea193ee4b3a93b"
+        },
+        "compositions/h04.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/de/def12746d61781c9512e732f3b23382dd7b1d8bbc9de562abb7c75aaa7340500",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/4a/4a219de803283f3aba47e3df8555cdb9926e46500b0b8c4b5044a18d6c2c2a54"
+        },
+        "compositions/h05.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/c0/c0e6e88534aa96e84118da6d0249ef4ed4f3a6aaaee5b955be18f5f491fb4720",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/35/3564cb8b0764aa7af46d28d15de6a022cf0bab163b88ec7c95f95150c6a7cc0f"
+        },
+        "compositions/h06.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/d1/d1260fd085e5cd921ca9767aea1162e08f51d023f46f2b86dce4557d127de0e3",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/9a/9a1c6e8dd06af2af7e0d0dd59a7d7700e35d626658a65e18fc5eb8087817f0d0"
+        },
+        "compositions/h07.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/bc/bce576bf6900e0fa014449b2f1836f9effbdf54040604f9f27a76005ea8f3295",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/80/805f595c6f763a3170daf51e11436ac39ec7016021d456c86a6eaf6df287ea0d"
+        },
+        "compositions/h08.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/6a/6a3a27e7b3682ef58cf6ca1f84d331c386219288ebfadec2806d819034931198",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/81/812094704e9b0af69d80736a638bf7e346cb7494a7a122e31ad2597775808fc8"
+        },
+        "compositions/h09.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/87/87f1a8b3f67263f7dd2e5bc52a06b358bab083dcef86cd52d543825d140b09c1",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/5b/5b7e45a7f13b14c127e7357ef44e128af6a7aacbccf824f2432d2802f3fa343a"
+        },
+        "compositions/h10.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/46/468c69f7f547224e631c3e6acddbfe048ab0ef7cfad5e3db37411a6fe6b0c0a5",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ff/ff06e6949042d916509af0035ba94ecd31df0e07f753cf1971372014769ba348"
+        },
+        "compositions/hits.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ff/ffcfc79018b83d835191a81928e2627c37709d6fb66e8360a570a0f9c61fdf4d",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ee/ee593389eb1d193b9d815386f1948dc59cc18f22f69524bead152f40624f6204"
+        }
+      }
+    },
+    "da37eb14-11cb-4bcc-a5b6-4f9b4d0d79a9": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793013602853,
+      "endedAt": 1793013602877,
+      "files": {
+        "__pycache__/build.cpython-315.pyc": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ff/ffd89d869a402a7792fac12d901dd523b5db91c03f26b67e6198b74d58a2583e",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/20/203f580cc086432ef6686f7dd3b8e2b4f2be29e76ac4537b250595c953a44b85"
+        },
+        "build.py": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/3b/3b315ea4308a897e0612e5d364643095d88ad1c55860f0b3bb1aff6b7b761289",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/7e/7e42b2cdad56bca63c91b4bca43b0731199f19574eddec883dc7e4ee91bda6f5"
+        },
+        "compositions/endcard.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/c8/c86d250ad4210c7e2758ffb580c066e52234a5625ad2328f2011f944250cea38",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/06/06b9a0e6a94c2d9638142d7a2a97cc3eb9f153a90d30786f7c6ae0f3dc67ad65"
+        },
+        "compositions/h01.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/94/94211d38181824c9b520486d14900ddfb95659f9d771ac5233e11d6ff1a68489",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/42/42d9e013cb3dbe667e67c2d5ea0fed2e89994694d90c7468a6b787c30ac332bd"
+        },
+        "compositions/h02.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/df/dfb5355dd74e5d216f89bdfd738822342f89843eebba3bf1665752be3c90be67",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/c6/c67bc58b7a9f9777c7ef4e1bae1eff62f942f026c486d66b19b4b1e7a3261de5"
+        },
+        "compositions/h03.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/3c/3cbce2033f57357f50951c57b2db390a4cf94312091a69fd98ea193ee4b3a93b",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/61/61badab686603da0488bc5226bc24153917ca700eb8d2bd949984309124eefb2"
+        },
+        "compositions/h04.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/4a/4a219de803283f3aba47e3df8555cdb9926e46500b0b8c4b5044a18d6c2c2a54",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ce/ce346104296a0b201bb73755c75f80388d6e8ce7407929fa0898cfce3e57f5b6"
+        },
+        "compositions/h05.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/35/3564cb8b0764aa7af46d28d15de6a022cf0bab163b88ec7c95f95150c6a7cc0f",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/d1/d1dd816fc20fbb6a2618e8ba43896f1eda31f74c505902ea0e1aa9d59f86f521"
+        },
+        "compositions/h06.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/9a/9a1c6e8dd06af2af7e0d0dd59a7d7700e35d626658a65e18fc5eb8087817f0d0",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/79/79ffaa03e73ee7a90299b2852c5a47f503e9c419e5d72c1009421a840aaa9598"
+        },
+        "compositions/h07.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/80/805f595c6f763a3170daf51e11436ac39ec7016021d456c86a6eaf6df287ea0d",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ec/ec6e1e00f6c9711e0c89c59e4cf4f0ce2a194a614677c6e7c1b9a9e7b9dbd40c"
+        },
+        "compositions/h08.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/81/812094704e9b0af69d80736a638bf7e346cb7494a7a122e31ad2597775808fc8",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/93/9339c14833440098c99b56605c2682e6fbd1ef90195416671c51b55c35c102c9"
+        },
+        "compositions/h09.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/5b/5b7e45a7f13b14c127e7357ef44e128af6a7aacbccf824f2432d2802f3fa343a",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/05/05c67b6d86db6466d70908f2f41bf9b039c41f7d7ed51d4d0955192d77a8bac8"
+        },
+        "compositions/h10.html": {
+          "before": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/ff/ff06e6949042d916509af0035ba94ecd31df0e07f753cf1971372014769ba348",
+          "after": "/Users/sunyyanjunaid/.cache/hyperframes/history/27ed4356-88bc-4995-b5ec-40d30c72be52/blobs/31/3190936183bc07d9a7bf4a45449f702979617d013b067fa720eddded53b16d08"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "da37eb14-11cb-4bcc-a5b6-4f9b4d0d79a9",
+      "id": "a027cb8a-07ab-4cf6-ab9a-46076a4bc774"
+    },
+    "revisions": {
+      "6a35c12a-e52c-4911-af6a-9eed082eac54": [
+        {
+          "id": "44c2c7d0-7836-406b-9c53-920a654d39cf",
+          "scope": "project",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793013583757,
+          "contentHash": "d0eb858ee07b780befa95e63231d260ca5ac628274e142161de102b069329144",
+          "revision": "6a35c12a-e52c-4911-af6a-9eed082eac54",
+          "inputFingerprint": "97def06a2462622a919dc2e55bb67dd7208d4fd06c5b49c2cec091bec852d3c7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "4525e0dd-1eb8-43c9-9a62-7c0529d4c3fd"
+        }
+      ],
+      "da37eb14-11cb-4bcc-a5b6-4f9b4d0d79a9": [
+        {
+          "id": "a027cb8a-07ab-4cf6-ab9a-46076a4bc774",
+          "scope": "project",
+          "report": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.hyperframes/artifacts/checks/a027cb8a-07ab-4cf6-ab9a-46076a4bc774.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793013613743,
+          "contentHash": "e59c517b9dbbd4aa73662fb54527030a1a0dd09476cf2491f76edb9f0fe8cae8",
+          "revision": "da37eb14-11cb-4bcc-a5b6-4f9b4d0d79a9",
+          "inputFingerprint": "882f39a3ccad428a2dbe0b839d15372ecf2b41813a4ec48339d6996019d99441",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "486a2d56-2839-4c7d-87d1-bc1fb865ab9d",
+        "scope": "project",
+        "report": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.hyperframes/artifacts/checks/486a2d56-2839-4c7d-87d1-bc1fb865ab9d.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793013534067,
+        "contentHash": "9f4a7a445bfbefb4b9ea623dac4dd21883d8fd0e815af27a4bccb3bd7584f5b0",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "ad35a590-a4ae-4223-9fe9-a072a8423202-1"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-00-at-2.5s.png",
+        "time": 2.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "1908d164f988a24ec4ce480d4e39577964281e76cb454f25bcf03c2db4d9d358",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-01-at-4.33s.png",
+        "time": 4.33,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "443e9cbf9da357fed6910afc182879358bf426cfa13249a979cf72c70b3b24ae",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-02-at-10.77s.png",
+        "time": 10.77,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "10da430b4dac47c9a5aa3db33c38ca797503f2d3a7e731141413aa2a079ee25a",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-03-at-18.45s.png",
+        "time": 18.45,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "f08b13e48a697345031d8f3cb0c676f254796002c2ac38c5d27b077ad262eb7e",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-4",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-04-at-28.37s.png",
+        "time": 28.37,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "19e853f120c12fdf3e612ff199ee12196642c2b78eb6bd6d2e82b33f217cee87",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-5",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-05-at-36.71s.png",
+        "time": 36.71,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "407e2e8be9497e56867d5d55ac60a85f284f8600a58b6314a105eddc5cada76f",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-6",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-06-at-45.37s.png",
+        "time": 45.37,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "954333cc8dba4a29a9290272062aa8f9311b5d1d8b5bb53008588774b18f17c5",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-7",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-07-at-54.45s.png",
+        "time": 54.45,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "a941cd2b17f2e4c6863116026ff141f7079fbf54ceb5e7216daabffb0dec27f3",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-8",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-08-at-65.14s.png",
+        "time": 65.14,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "f8f1139f153a6b15ec47ae27feaf589d9ebd4af5b0c28cfdc540ae401c00d012",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-9",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-09-at-73.75s.png",
+        "time": 73.75,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "9031e1423c17e19c25488bf055fcf894dd5f09e37c99aa58c34dc7687f4cb85d",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-10",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-10-at-81.57s.png",
+        "time": 81.57,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "7130be18bbe0ed627823f7ef88655853a354f520b7548acddce6c79a4be289dc",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-11",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-11-at-90.73s.png",
+        "time": 90.73,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "c04d2bf0bb248448cdd079a1284dec370e7146b44331a92fc94434f5082569dd",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-12",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-12-at-95.46s.png",
+        "time": 95.46,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "7e8ee475a7eb779d0179ccf40fe313b8aa950c86af1be69e1aca1da311ac9992",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "45aaba11-786c-4e43-8eb1-306a33ba037c-13",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l1/frame-13-at-100.86s.png",
+        "time": 100.86,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013547383,
+        "contentHash": "fbe86b382ea2970469b5914d4e012d6f37b8a674f6f5dba0cab7900249573cde",
+        "revision": null,
+        "inputFingerprint": "20b846f835dff8e0d6e37fe4446b983d85a47757aabc364794b298052bfe4e97",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "b4a46519-37c1-49ae-9844-29455fb0e28e-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l2/frame-00-at-10.77s.png",
+        "time": 10.77,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013588648,
+        "contentHash": "1891530e98128034a7fdf0261c774acb5eff794e89e69a7fe0490f2c9d018b64",
+        "revision": null,
+        "inputFingerprint": "97def06a2462622a919dc2e55bb67dd7208d4fd06c5b49c2cec091bec852d3c7",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "b4a46519-37c1-49ae-9844-29455fb0e28e-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l2/frame-01-at-73.75s.png",
+        "time": 73.75,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013588648,
+        "contentHash": "71c895aede79c38e6da050300dc4b715d749d85b3d1ccff11affe05289e45ef4",
+        "revision": null,
+        "inputFingerprint": "97def06a2462622a919dc2e55bb67dd7208d4fd06c5b49c2cec091bec852d3c7",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "b4a46519-37c1-49ae-9844-29455fb0e28e-2",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l2/frame-02-at-90.73s.png",
+        "time": 90.73,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013588648,
+        "contentHash": "92a3027711d613220bb819c9a0e6161cb9b2d11c4a7af07d0143c3a96ec637af",
+        "revision": null,
+        "inputFingerprint": "97def06a2462622a919dc2e55bb67dd7208d4fd06c5b49c2cec091bec852d3c7",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "b4a46519-37c1-49ae-9844-29455fb0e28e-3",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l2/frame-03-at-101.5s.png",
+        "time": 101.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013588648,
+        "contentHash": "bc3f59022e6769fa5c0ce6b193f4b2489ff7bc2ffccbd4c825f942a0f589e273",
+        "revision": null,
+        "inputFingerprint": "97def06a2462622a919dc2e55bb67dd7208d4fd06c5b49c2cec091bec852d3c7",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "ad35a590-a4ae-4223-9fe9-a072a8423202-0",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l3/frame-00-at-73.75s.png",
+        "time": 73.75,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013618666,
+        "contentHash": "71977742190653e971f4faca2093d0390c76ebdae3a36f947a36a79c254501f8",
+        "revision": null,
+        "inputFingerprint": "882f39a3ccad428a2dbe0b839d15372ecf2b41813a4ec48339d6996019d99441",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      },
+      {
+        "scope": "full",
+        "id": "ad35a590-a4ae-4223-9fe9-a072a8423202-1",
+        "image": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/.review/l3/frame-01-at-101.5s.png",
+        "time": 101.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013618666,
+        "contentHash": "7946aaa013b3a3bdf93d6705ce20f72b2e28b89017edde3f090fa53e71d02cce",
+        "revision": null,
+        "inputFingerprint": "882f39a3ccad428a2dbe0b839d15372ecf2b41813a4ec48339d6996019d99441",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "4525e0dd-1eb8-43c9-9a62-7c0529d4c3fd",
+      "completedAt": 1793013792520,
+      "output": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/ten-hacks-maths-landscape/renders/raw.mp4",
+      "status": "completed",
+      "revision": "da37eb14-11cb-4bcc-a5b6-4f9b4d0d79a9"
+    },
+    "retainedRevisions": [
+      "da37eb14-11cb-4bcc-a5b6-4f9b4d0d79a9"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

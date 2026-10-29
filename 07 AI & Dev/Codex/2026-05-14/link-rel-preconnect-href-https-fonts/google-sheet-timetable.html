@@ -1,0 +1,756 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --sja-yellow: #FCE004;
+  --sja-brown: #453516;
+  --sja-black: #000000;
+  --sja-orange: #FE6100;
+  --sja-white: #FFFFFF;
+  --sja-grey: #555555;
+  --sja-dark-grey: #222222;
+  --sja-light-bg: #FAFAFA;
+  --sja-light-yellow: #fff9cc;
+  --sja-border-light: #e5e5e5;
+  --sja-transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#sjtt {
+  font-family: 'Poppins', sans-serif;
+  color: var(--sja-black);
+  line-height: 1.4;
+  background:
+    linear-gradient(180deg, rgba(252,224,4,0.08) 0, rgba(252,224,4,0) 180px),
+    var(--sja-white);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#sjtt *, #sjtt *::before, #sjtt *::after { box-sizing: border-box; }
+
+#sjtt .sja-header {
+  background: transparent;
+  padding: 38px 0 22px;
+  text-align: center;
+}
+
+#sjtt .sja-badge {
+  display: inline-block;
+  background-color: var(--sja-white);
+  border: 2px solid var(--sja-black);
+  border-radius: 50px;
+  padding: 5px;
+  margin-bottom: 18px;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+}
+
+#sjtt .sja-mode-pill {
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  background-color: var(--sja-yellow);
+  color: var(--sja-black);
+  min-width: 120px;
+  justify-content: center;
+}
+
+#sjtt .sja-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--sja-black);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+#sjtt .sja-highlight {
+  background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 35%;
+  background-position: 0 85%;
+  display: inline;
+  padding: 0 3px;
+}
+
+#sjtt .sja-level-tabs {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 16px;
+  margin-bottom: 14px;
+}
+
+#sjtt .sja-level-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 40px;
+  border: 1.5px solid var(--sja-brown);
+  background: var(--sja-white);
+  color: var(--sja-black);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.08);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  min-height: 40px;
+}
+
+#sjtt .sja-level-btn[aria-pressed="true"] {
+  background: var(--sja-yellow);
+  border-color: var(--sja-brown);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
+
+#sjtt .sja-level-btn:hover { background: #fff9cc; }
+#sjtt .sja-level-btn:focus {
+  outline: 3px solid var(--sja-orange);
+  outline-offset: 2px;
+}
+
+#sjtt .sja-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--sja-grey);
+  justify-content: center;
+  padding: 0 16px;
+  margin-bottom: 12px;
+}
+
+#sjtt .sja-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sja-orange);
+  flex-shrink: 0;
+}
+
+#sjtt .sja-status {
+  min-height: 20px;
+  padding: 0 16px 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sja-grey);
+}
+
+#sjtt .sja-status.is-error { color: #b42318; }
+#sjtt[aria-busy="true"] .sja-status { color: var(--sja-orange); }
+
+#sjtt .sja-scroll-hint {
+  text-align: right;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sja-orange);
+  padding: 0 16px 6px;
+  display: none;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+#sjtt .sja-table-wrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin: 0 16px;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+  background: var(--sja-white);
+}
+
+#sjtt .sja-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+}
+
+#sjtt .sja-table-scroll::-webkit-scrollbar { display: none; }
+
+#sjtt table.sja-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--sja-white);
+  min-width: 460px;
+  table-layout: fixed;
+}
+
+#sjtt .sja-table thead th {
+  background: var(--sja-yellow);
+  color: var(--sja-black);
+  font-weight: 800;
+  font-size: 12px;
+  padding: 12px 8px;
+  text-align: center;
+  border-bottom: 2px solid var(--sja-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+#sjtt .sja-table thead th:first-child {
+  background: var(--sja-brown);
+  color: var(--sja-white);
+  text-align: left;
+  padding-left: 8px;
+  font-size: 10px;
+  position: sticky;
+  left: 0;
+  z-index: 4;
+  width: 72px;
+  min-width: 72px;
+  max-width: 72px;
+}
+
+#sjtt .sja-table tbody th {
+  background: var(--sja-light-bg);
+  color: var(--sja-brown);
+  font-weight: 700;
+  font-size: 10px;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  white-space: nowrap;
+  width: 72px;
+  min-width: 72px;
+  max-width: 72px;
+}
+
+#sjtt .sja-table tbody td {
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding: 4px;
+  text-align: left;
+  vertical-align: top;
+  min-width: 80px;
+  background: rgba(255,255,255,0.98);
+}
+
+#sjtt .sja-table tbody tr:last-child td,
+#sjtt .sja-table tbody tr:last-child th { border-bottom: none; }
+
+#sjtt .sja-table tbody tr:hover td { background: rgba(252,224,4,0.04); }
+
+#sjtt a.sja-cell {
+  display: block;
+  background: var(--sja-white);
+  border: 1.5px solid #eee;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sja-black);
+  text-decoration: none;
+  line-height: 1.35;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  width: 100%;
+  text-align: left;
+  min-height: 50px;
+}
+
+#sjtt a.sja-cell:hover {
+  border-color: var(--sja-yellow);
+  background: var(--sja-light-yellow);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+}
+
+#sjtt a.sja-cell:focus {
+  outline: 3px solid var(--sja-orange);
+  outline-offset: 2px;
+}
+
+#sjtt .sja-cell-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+#sjtt .sja-online {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--sja-grey);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+#sjtt .sja-scroll-shadow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(90deg, transparent, rgba(252,224,4,0.15));
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#sjtt .sja-scroll-shadow.visible { opacity: 1; }
+
+#sjtt .sja-footer {
+  text-align: center;
+  padding: 22px 16px 24px;
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+}
+
+#sjtt .sja-footer a {
+  color: var(--sja-orange);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#sjtt .sja-footer a:hover { color: var(--sja-brown); }
+
+@media (max-width: 767px) {
+  #sjtt .sja-header { padding: 28px 0 16px; }
+  #sjtt .sja-title { font-size: 1.7rem; padding: 0 16px; }
+  #sjtt .sja-level-tabs { gap: 8px; margin-bottom: 16px; }
+  #sjtt .sja-level-btn { padding: 9px 16px; font-size: 11px; }
+  #sjtt .sja-legend {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #sjtt .sja-status {
+    padding-bottom: 8px;
+    font-size: 11px;
+  }
+  #sjtt .sja-scroll-hint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: calc(100% - 24px);
+    margin: 0 12px;
+    padding: 0 0 8px;
+  }
+  #sjtt .sja-table-wrap { margin: 0 12px; border-radius: 10px; }
+  #sjtt table.sja-table { min-width: 620px; }
+  #sjtt .sja-table thead th { padding: 11px 8px; }
+  #sjtt .sja-table tbody th { padding: 10px 8px; }
+  #sjtt .sja-table tbody td { padding: 5px; }
+  #sjtt a.sja-cell { padding: 8px 9px; min-height: 56px; }
+  #sjtt .sja-footer {
+    padding-top: 18px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+}
+
+@media (min-width: 768px) {
+  #sjtt .sja-header { padding: 50px 0 30px; }
+  #sjtt .sja-title { font-size: 2.6rem; }
+  #sjtt .sja-table-wrap {
+    margin: 0 auto;
+    width: min(1320px, calc(100% - 48px));
+    max-width: none;
+  }
+  #sjtt .sja-scroll-hint { display: none !important; }
+  #sjtt .sja-scroll-shadow { display: none; }
+  #sjtt .sja-table { min-width: 100%; }
+  #sjtt .sja-table thead th { font-size: 13px; padding: 14px 10px; }
+  #sjtt .sja-table thead th:first-child {
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    font-size: 12px;
+    padding-left: 12px;
+  }
+  #sjtt .sja-table tbody th {
+    font-size: 12px;
+    padding: 12px 12px;
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+  }
+  #sjtt .sja-table tbody td { min-width: 100px; padding: 6px; }
+  #sjtt a.sja-cell { font-size: 12px; padding: 10px 12px; }
+  #sjtt .sja-online { font-size: 10px; }
+}
+
+@media (min-width: 992px) {
+  #sjtt .sja-title { font-size: 3.2rem; }
+}
+</style>
+
+<div id="sjtt">
+  <div class="sja-header">
+    <div class="sja-badge">
+      <div class="sja-mode-pill">Timetable</div>
+    </div>
+    <h1 class="sja-title">Class <span class="sja-highlight">Timetable</span></h1>
+  </div>
+
+  <div class="sja-level-tabs" role="tablist" aria-label="Level">
+    <button class="sja-level-btn" role="tab" aria-selected="true" aria-pressed="true" data-level="o">O Level</button>
+    <button class="sja-level-btn" role="tab" aria-selected="false" aria-pressed="false" data-level="as">AS Level</button>
+    <button class="sja-level-btn" role="tab" aria-selected="false" aria-pressed="false" data-level="a2">A2 Level</button>
+    <button class="sja-level-btn" role="tab" aria-selected="false" aria-pressed="false" data-level="lab">Lab Practicals</button>
+  </div>
+
+  <div class="sja-legend">
+    <span class="sja-legend-dot"></span>
+    <span>Click any subject to open registration</span>
+  </div>
+
+  <div class="sja-status" id="sjtt-status" aria-live="polite"></div>
+  <div class="sja-scroll-hint" id="sjtt-hint">Scroll for more &rsaquo;</div>
+
+  <div class="sja-table-wrap">
+    <div class="sja-scroll-shadow" id="sjtt-shadow"></div>
+    <div class="sja-table-scroll" id="sjtt-scroll">
+      <table class="sja-table" id="sjtt-table">
+        <thead id="sjtt-thead"></thead>
+        <tbody id="sjtt-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sja-footer">
+    Schedule may change. Contact us for the latest updates.
+  </div>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('sjtt');
+  if(!root) return;
+
+  var CONFIG = {
+    registrationHref: '#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D',
+    cacheTtlMs: 86400000,
+    cachePrefix: 'sjtt-cache-v1:',
+    levels: {
+      o: {
+        label: 'O Level',
+        tsvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRNaIRWzVbWjAz6uXXzEngSykiYmSrY_jeeRCjLgMXf1aF8Zo39EqRCM7s8VuE4RWzf0edXe7UhTCf8/pub?gid=230541006&single=true&output=tsv'
+      },
+      as: {
+        label: 'AS Level',
+        tsvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRNaIRWzVbWjAz6uXXzEngSykiYmSrY_jeeRCjLgMXf1aF8Zo39EqRCM7s8VuE4RWzf0edXe7UhTCf8/pub?gid=526799171&single=true&output=tsv'
+      },
+      a2: {
+        label: 'A2 Level',
+        tsvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRNaIRWzVbWjAz6uXXzEngSykiYmSrY_jeeRCjLgMXf1aF8Zo39EqRCM7s8VuE4RWzf0edXe7UhTCf8/pub?gid=1529699202&single=true&output=tsv'
+      },
+      lab: {
+        label: 'Lab Practicals',
+        tsvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRNaIRWzVbWjAz6uXXzEngSykiYmSrY_jeeRCjLgMXf1aF8Zo39EqRCM7s8VuE4RWzf0edXe7UhTCf8/pub?gid=1049078162&single=true&output=tsv'
+      }
+    }
+  };
+
+  var thead = document.getElementById('sjtt-thead');
+  var tbody = document.getElementById('sjtt-tbody');
+  var scrollEl = document.getElementById('sjtt-scroll');
+  var shadow = document.getElementById('sjtt-shadow');
+  var hint = document.getElementById('sjtt-hint');
+  var status = document.getElementById('sjtt-status');
+  var levelBtns = root.querySelectorAll('.sja-level-btn');
+  var activeLevel = 'o';
+  var memoryCache = {};
+
+  function esc(s){
+    return String(s || '').replace(/[&<>"']/g, function(m){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+    });
+  }
+
+  function setStatus(message, isError){
+    status.textContent = message || '';
+    status.classList.toggle('is-error', !!isError);
+    root.setAttribute('aria-busy', message && !isError ? 'true' : 'false');
+  }
+
+  function shortTime(t){
+    if(window.innerWidth >= 768) return t;
+    return String(t || '').replace(/:00/g,'').replace(/\s+/g,' ');
+  }
+
+  function splitCell(value){
+    var text = String(value || '').trim();
+    if(!text || text === '-' || text === '—' || text === 'â€”') return null;
+    var parts = text.split('||');
+    return {
+      t: parts[0].trim(),
+      o: parts.slice(1).join('||').trim()
+    };
+  }
+
+  function cell(value){
+    var parsed = splitCell(value);
+    if(!parsed) return '<span class="sja-cell-empty">-</span>';
+
+    var html = '<a class="sja-cell" href="' + CONFIG.registrationHref + '">' + esc(parsed.t);
+    if(parsed.o) html += '<span class="sja-online">' + esc(parsed.o) + '</span>';
+    html += '</a>';
+    return html;
+  }
+
+  function parseDelimited(text, delimiter){
+    var rows = [];
+    var row = [];
+    var field = '';
+    var quoted = false;
+
+    for(var i = 0; i < text.length; i++){
+      var ch = text[i];
+      var next = text[i + 1];
+
+      if(ch === '"' && quoted && next === '"'){
+        field += '"';
+        i++;
+        continue;
+      }
+
+      if(ch === '"'){
+        quoted = !quoted;
+        continue;
+      }
+
+      if(ch === delimiter && !quoted){
+        row.push(field);
+        field = '';
+        continue;
+      }
+
+      if((ch === '\n' || ch === '\r') && !quoted){
+        if(ch === '\r' && next === '\n') i++;
+        row.push(field);
+        if(row.some(function(value){ return String(value || '').trim() !== ''; })){
+          rows.push(row);
+        }
+        row = [];
+        field = '';
+        continue;
+      }
+
+      field += ch;
+    }
+
+    row.push(field);
+    if(row.some(function(value){ return String(value || '').trim() !== ''; })){
+      rows.push(row);
+    }
+
+    return rows;
+  }
+
+  function normalizeTsv(text){
+    var rows = parseDelimited(String(text || '').trim(), '\t');
+    if(!rows.length) return { days: [], rows: [] };
+
+    var header = rows.shift();
+    var days = header.slice(1).map(function(day){
+      return String(day || '').trim();
+    });
+
+    return {
+      days: days,
+      rows: rows.map(function(row){
+        return {
+          time: String(row[0] || '').trim(),
+          cells: row.slice(1, days.length + 1)
+        };
+      }).filter(function(row){
+        return row.time;
+      })
+    };
+  }
+
+  function render(data){
+    var headHtml = '<tr><th>Time</th>';
+    data.days.forEach(function(day){ headHtml += '<th>' + esc(day) + '</th>'; });
+    headHtml += '</tr>';
+    thead.innerHTML = headHtml;
+
+    var bodyHtml = '';
+    data.rows.forEach(function(row){
+      bodyHtml += '<tr><th>' + esc(shortTime(row.time)) + '</th>';
+      row.cells.forEach(function(value){
+        bodyHtml += '<td>' + cell(value) + '</td>';
+      });
+      bodyHtml += '</tr>';
+    });
+    tbody.innerHTML = bodyHtml;
+
+    scrollEl.scrollLeft = 0;
+    setTimeout(checkShadow, 50);
+  }
+
+  function checkShadow(){
+    var canScroll = scrollEl.scrollWidth > scrollEl.clientWidth + 10;
+    if(canScroll){
+      shadow.classList.add('visible');
+      if(hint) hint.style.display = 'block';
+    } else {
+      shadow.classList.remove('visible');
+      if(hint) hint.style.display = 'none';
+    }
+  }
+
+  function cacheKey(level){
+    return CONFIG.cachePrefix + level;
+  }
+
+  function getCachedLevel(level){
+    if(memoryCache[level]) return memoryCache[level];
+    try {
+      var raw = localStorage.getItem(cacheKey(level));
+      if(!raw) return null;
+      var parsed = JSON.parse(raw);
+      if(!parsed || !parsed.data || !parsed.savedAt) return null;
+      memoryCache[level] = parsed;
+      return parsed;
+    } catch(error){
+      return null;
+    }
+  }
+
+  function setCachedLevel(level, data){
+    var entry = { data: data, savedAt: Date.now() };
+    memoryCache[level] = entry;
+    try {
+      localStorage.setItem(cacheKey(level), JSON.stringify(entry));
+    } catch(error){}
+  }
+
+  function isFresh(entry){
+    return !!entry && (Date.now() - entry.savedAt) < CONFIG.cacheTtlMs;
+  }
+
+  function fetchLevel(level, options){
+    var cfg = CONFIG.levels[level];
+    var opts = options || {};
+    if(!cfg || !cfg.tsvUrl || cfg.tsvUrl.indexOf('PASTE_') === 0) return Promise.resolve(false);
+
+    return fetch(cfg.tsvUrl, { cache: 'no-store' })
+      .then(function(response){
+        if(!response.ok) throw new Error('Request failed');
+        return response.text();
+      })
+      .then(function(text){
+        var normalized = normalizeTsv(text);
+        if(!normalized.days.length || !normalized.rows.length){
+          throw new Error('Empty timetable');
+        }
+        setCachedLevel(level, normalized);
+        if(activeLevel === level && opts.renderIfActive !== false){
+          render(normalized);
+          setStatus('');
+        }
+        return true;
+      })
+      .catch(function(){
+        return false;
+      });
+  }
+
+  function loadLevel(level){
+    var cfg = CONFIG.levels[level];
+    if(!cfg) return;
+    activeLevel = level;
+
+    if(!cfg.tsvUrl || cfg.tsvUrl.indexOf('PASTE_') === 0){
+      setStatus('Add the published TSV URL for ' + cfg.label + ' in the timetable config.', true);
+      thead.innerHTML = '';
+      tbody.innerHTML = '';
+      return;
+    }
+
+    var cached = getCachedLevel(level);
+    if(cached && cached.data){
+      render(cached.data);
+      setStatus('');
+      if(!isFresh(cached)){
+        fetchLevel(level, { renderIfActive: true });
+      }
+      return;
+    }
+
+    setStatus('Loading ' + cfg.label + ' schedule...');
+    fetchLevel(level, { renderIfActive: true }).then(function(success){
+      if(success) return;
+      setStatus('Could not load the ' + cfg.label + ' schedule. Check the published TSV URL and sheet visibility.', true);
+      thead.innerHTML = '';
+      tbody.innerHTML = '';
+    });
+  }
+
+  levelBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      levelBtns.forEach(function(b){
+        b.setAttribute('aria-pressed','false');
+        b.setAttribute('aria-selected','false');
+      });
+      btn.setAttribute('aria-pressed','true');
+      btn.setAttribute('aria-selected','true');
+      loadLevel(btn.getAttribute('data-level'));
+    });
+
+    btn.addEventListener('keydown', function(event){
+      if(event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+      event.preventDefault();
+      var btnArray = Array.prototype.slice.call(levelBtns);
+      var currentIndex = btnArray.indexOf(btn);
+      var nextIndex = event.key === 'ArrowRight'
+        ? (currentIndex + 1) % btnArray.length
+        : (currentIndex - 1 + btnArray.length) % btnArray.length;
+      btnArray[nextIndex].focus();
+      btnArray[nextIndex].click();
+    });
+  });
+
+  scrollEl.addEventListener('scroll', function(){
+    var remaining = scrollEl.scrollWidth - scrollEl.scrollLeft - scrollEl.clientWidth;
+    shadow.classList.toggle('visible', remaining >= 20);
+    if(hint) hint.style.display = 'none';
+  });
+
+  window.addEventListener('resize', checkShadow);
+
+  if(hint){
+    setTimeout(function(){
+      hint.style.opacity = '0';
+      hint.style.transition = 'opacity 0.5s ease';
+    }, 4000);
+  }
+
+  loadLevel('o');
+})();
+</script>

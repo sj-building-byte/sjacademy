@@ -1,0 +1,716 @@
+<!-- SJ Academy IBCC Equivalence Calculator. Elementor HTML widget. Version 2.1, built 20 October 2026.
+     Address stays /ibcc-equivalence-calculator/. Replaces the current calculator HTML widget completely (it has the H1).
+     Family: Tool. Uses the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Plain ASCII on purpose.
+     Yoast SEO title: IBCC Equivalence Calculator 2026 (O/A Level) | SJ Academy
+     Yoast meta description: Work out your O Level (Matric) and A Level (FSc) IBCC equivalence with the official A* marks for every session and the February 2026 rule. Free and instant.
+     GA4: fires calculation_complete (calc_level, calc_rule; no grades or marks) once per visit, plus whatsapp_click and register_open via the page script.
+     Sources (checked 20 October 2026):
+     IBCC grade conversion and A* tables 2021-2026: https://ibcc.edu.pk/conversion-for-equivalence/
+     IBCC British system requirements: https://ibcc.edu.pk/equivalence-intro/british-system/
+     IBCC E2 form (exemption for mixed Pakistan/abroad): https://ibcc.edu.pk/wp-content/uploads/2024/08/E2-British.pdf
+     IBCC notification IBCC/EC-176/Imp-05/7-2/2026, 17 Feb 2026: https://ibcc.edu.pk/notification-for-calculation-of-a-level-equivalent-qualification-based-on-compulsory-subjects-of-o-level/
+     IBCC O Level example (x900): https://ibcc.edu.pk/equivalence/Example-for-Calculating-O-Level-Marks-1.pdf (April 2026 copy labels 1100 with the same 844 result)
+     IBCC A Level example: https://ibcc.edu.pk/equivalence/Example-for-Calculating-A-Levels-Marks-1.pdf
+     IBCC FAQs: https://ibcc.edu.pk/faqs/equivalence-faqs/
+     Cambridge Destination Pakistan brochure: https://www.cambridgeinternational.org/Images/505904-destination-pakistan-brochure.pdf
+     Accuracy check: ref_check.py (120 A* values vs IBCC text, 5,000 random cases vs a separate Python version, 8 worked examples) - all pass. -->
+<style>
+#sj.sj-p-ibcc .sji-sec{padding:28px 0}#sj.sj-p-ibcc .sji-head{margin-bottom:20px}
+#sj.sj-p-ibcc .sji-grid{display:grid;gap:20px;align-items:start}
+@media (min-width:960px){#sj.sj-p-ibcc .sji-grid{grid-template-columns:minmax(0,1fr) 360px}#sj.sj-p-ibcc .sji-aside{position:sticky;top:96px;max-height:calc(100vh - 112px);overflow:auto;padding:0 10px 10px 0}#sj.sj-p-ibcc .sji-bar{display:none!important}}
+@media (max-width:959px){#sj.sj-p-ibcc .is-empty .sji-aside{display:none}}
+#sj.sj-p-ibcc .sji-form{border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-lg);background:#fff;padding:18px 16px;min-width:0}
+#sj.sj-p-ibcc .sji-seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;border:0;margin:0;padding:0;min-width:0}
+#sj.sj-p-ibcc .sji-seg label{position:relative;cursor:pointer}
+#sj.sj-p-ibcc .sji-seg input{position:absolute;opacity:0;width:1px;height:1px}
+#sj.sj-p-ibcc .sji-seg span{display:grid;place-items:center;min-height:64px;padding:8px;border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-md);background:#fff;text-align:center;font-weight:500;line-height:1.25;color:var(--sj-ink)}
+#sj.sj-p-ibcc .sji-seg small{display:block;font-size:13px;font-weight:400;color:var(--sj-muted)}
+#sj.sj-p-ibcc .sji-seg input:checked+span{background:var(--sj-yellow);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+#sj.sj-p-ibcc .sji-seg input:focus-visible+span{outline:3px solid var(--sj-ink);outline-offset:2px}
+#sj.sj-p-ibcc .sji-set{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+#sj.sj-p-ibcc .sji-set .sj-field.sji-wide{grid-column:1/-1}
+@media (min-width:600px){#sj.sj-p-ibcc .sji-set{grid-template-columns:repeat(4,minmax(0,1fr))}#sj.sj-p-ibcc .sji-set .sj-field.sji-wide{grid-column:span 2}}
+#sj.sj-p-ibcc .sji-h{margin:20px 0 4px;font-size:16px;font-weight:500;color:var(--sj-ink)}
+#sj.sj-p-ibcc .sji-r{display:grid;grid-template-columns:minmax(0,1fr) 96px;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--sj-line)}
+#sj.sj-p-ibcc .sji-r.sji-r3{grid-template-columns:minmax(0,1fr) 86px 86px}
+#sj.sj-p-ibcc .sji-r .sj-select{min-height:46px;padding:8px 30px 8px 12px;background-position:right 8px center}
+#sj.sj-p-ibcc .sji-r .sji-g{font-weight:500}
+#sj.sj-p-ibcc .sji-r.is-done .sji-g{background-color:var(--sj-yellow-light)}
+#sj.sj-p-ibcc .sji-r.is-error{background:var(--sj-err-bg)}
+#sj.sj-p-ibcc .sji-name{font-weight:500;color:var(--sj-ink)}
+#sj.sj-p-ibcc .sji-more{margin-top:16px;border-top:1px solid var(--sj-line);padding-top:4px}
+#sj.sj-p-ibcc .sji-more summary,#sj.sj-p-ibcc .sji-work summary{display:flex;align-items:center;min-height:44px;font-weight:500;cursor:pointer;color:var(--sj-ink)}
+#sj.sj-p-ibcc .sji-more summary::after,#sj.sj-p-ibcc .sji-work summary::after{content:"+";margin-left:8px;color:var(--sj-cta)}#sj.sj-p-ibcc .sji-more[open] summary::after,#sj.sj-p-ibcc .sji-work[open] summary::after{content:"\2212"}
+#sj.sj-p-ibcc .sji-card{border:1.5px solid var(--sj-ink);border-radius:var(--sj-r-lg);background:#fff;padding:20px 18px;box-shadow:var(--sj-sh-offset);scroll-margin-top:96px}
+#sj.sj-p-ibcc .sji-big{margin:4px 0;font-size:52px;line-height:1.05;font-weight:500;color:var(--sj-ink)}#sj.sj-p-ibcc .sji-big span{font-size:22px;color:var(--sj-muted)}#sj.sj-p-ibcc .sji-dim{color:var(--sj-line)}
+#sj.sj-p-ibcc .sji-prog{height:8px;margin:12px 0 0;border-radius:8px;background:var(--sj-line);overflow:hidden}#sj.sj-p-ibcc .sji-prog i{display:block;height:100%;background:var(--sj-orange)}
+#sj.sj-p-ibcc .sji-also,#sj.sj-p-ibcc .sji-warn{margin-top:10px}#sj.sj-p-ibcc .sji-warn{font-size:14px;color:var(--sj-pen-text)}
+#sj.sj-p-ibcc .sji-work{margin-top:8px}#sj.sj-p-ibcc .sji-off td{color:var(--sj-muted)}
+#sj.sj-p-ibcc .sji-notes{margin:10px 0 0;padding:0 0 0 18px;font-size:14px}#sj.sj-p-ibcc .sji-notes li+li{margin-top:6px}
+#sj.sj-p-ibcc .sji-tip{margin-top:14px;padding:16px;border-radius:var(--sj-r-md);background:var(--sj-yellow-light);border:1.5px solid var(--sj-ink)}#sj.sj-p-ibcc .sji-tip>*+*{margin-top:10px}
+#sj.sj-p-ibcc .sji-acts{margin-top:12px;color:var(--sj-muted)}#sj.sj-p-ibcc .sji-lnk{border:0;background:none;padding:8px 0;font:inherit;color:var(--sj-ink);text-decoration:underline;cursor:pointer}
+#sj.sj-p-ibcc .sji-bar{position:fixed;left:0;right:0;bottom:0;z-index:var(--sj-z-bar);display:flex;justify-content:space-between;gap:10px;width:100%;min-height:56px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));border:0;border-top:1.5px solid var(--sj-ink);background:var(--sj-yellow);color:var(--sj-ink);font:inherit;font-size:15px;text-align:left;cursor:pointer}#sj.sj-p-ibcc .sji-bar b{font-weight:500;white-space:nowrap}
+#sj.sj-p-ibcc .sji-tabbox .sj-table td:first-child{font-weight:500;color:var(--sj-ink)}
+</style>
+
+<div id="sj" class="sj-p-ibcc" data-family="tool">
+
+  <!-- 1. CALCULATOR -->
+  <div class="sji-sec"><div class="sj-wrap">
+    <div class="sj-stack sji-head">
+      <div class="sj-pill"><span>Free tool &middot; Updated 20 October 2026</span></div>
+      <h1 class="sj-h1">IBCC Equivalence <span class="sj-hl">Calculator 2026</span></h1>
+      <p class="sj-lead sj-measure">Enter your grades and see your Matric (SSC) or FSc (HSSC) marks straight away. It uses IBCC&rsquo;s official 2026 rules.</p>
+    </div>
+
+    <div class="sji-grid" data-sji>
+      <div class="sji-form">
+        <noscript><div class="sj-alert"><b>Turn on JavaScript</b><p>The calculator needs JavaScript. The rules and A* tables are below.</p></div></noscript>
+        <fieldset class="sji-seg"><legend class="sj-vh">What do you want to calculate?</legend>
+          <label><input type="radio" name="sji-target" value="ssc"><span>O Level<small>Matric (SSC) marks</small></span></label>
+          <label><input type="radio" name="sji-target" value="hssc"><span>A Level<small>FSc (HSSC) marks</small></span></label>
+        </fieldset>
+
+        <div data-setup hidden>
+          <div class="sji-set">
+            <div class="sj-field sji-wide"><label class="sj-label" for="sji-route">Where did you sit?</label>
+              <select class="sj-select" id="sji-route"><option value="pk">Pakistan</option><option value="abroad">Abroad, or I&rsquo;m a foreign national</option></select></div>
+            <div class="sj-field sji-wide" data-hssc><label class="sj-label" for="sji-group">FSc group</label>
+              <select class="sj-select" id="sji-group"><option value="">Choose group</option><option value="pm">Pre-Medical</option><option value="pe">Pre-Engineering</option><option value="cs">Computer Science</option><option value="hum">Humanities</option></select></div>
+            <div class="sj-field"><label class="sj-label" for="sji-oy">O Level year</label><select class="sj-select" id="sji-oy"><option value="2028">2028 (forecast)</option><option value="2027">2027 (forecast)</option><option value="2026" selected>2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2006 to 2020</option></select></div>
+            <div class="sj-field" data-hssc><label class="sj-label" for="sji-ay">A Level year</label><select class="sj-select" id="sji-ay"><option value="2028">2028 (forecast)</option><option value="2027">2027 (forecast)</option><option value="2026" selected>2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2006 to 2020</option></select></div>
+          </div>
+          <p class="sj-help" data-pick hidden style="margin-top:16px">Pick your FSc group to see your subjects.</p>
+
+          <div data-block="O" hidden><p class="sji-h">O Level grades</p><div data-rows="O"></div></div>
+          <div data-block="A" hidden><p class="sji-h">A Level grades</p><div data-rows="A"></div></div>
+
+          <details class="sji-more"><summary>More options</summary>
+            <label class="sj-check"><input type="checkbox" id="sji-multi"><span>My subjects are from different years</span></label>
+            <label class="sj-check"><input type="checkbox" id="sji-nums"><span>My O Level grades are numbers (9 to 1)</span></label>
+            <label class="sj-check" data-eth><input type="checkbox" id="sji-eth"><span>I took Ethics instead of Islamiyat</span></label>
+            <p class="sj-help">&ldquo;Abroad&rdquo; means both your O and A Levels were abroad, or you are a foreign or dual national. If only one was abroad, choose Pakistan.</p>
+          </details>
+        </div>
+      </div>
+
+      <aside class="sji-aside" aria-label="Your result">
+        <div class="sji-card" data-result tabindex="-1"></div>
+        <p class="sj-caption" style="margin-top:12px">An estimate from IBCC&rsquo;s published rules. Your official equivalence comes from IBCC. SJ Academy is not part of IBCC.</p>
+        <p class="sj-vh" aria-live="polite" data-live></p>
+      </aside>
+      <button type="button" class="sji-bar" data-bar hidden></button>
+    </div>
+  </div></div>
+
+  <!-- 2. HOW IT WORKS -->
+  <div class="sji-sec"><div class="sj-wrap"><div class="sj-prose">
+    <h2>How IBCC works out your equivalence</h2>
+    <p>IBCC (the Inter Boards Coordination Commission) converts Cambridge and Edexcel grades into Pakistani board marks so you can apply to universities and colleges in Pakistan. There are three steps.</p>
+    <h3>1. Each grade becomes marks out of 100</h3>
+    <div class="sj-grid sj-grid-2">
+      <div class="sj-table-wrap"><table class="sj-table"><caption class="sj-vh">IBCC marks for letter grades</caption><thead><tr><th scope="col">Letter grade</th><th scope="col" class="sj-num">Marks</th></tr></thead><tbody>
+        <tr><td>A*</td><td class="sj-num">90+ (table below)</td></tr><tr><td>A</td><td class="sj-num">85</td></tr><tr><td>B</td><td class="sj-num">75</td></tr>
+        <tr><td>C</td><td class="sj-num">65</td></tr><tr><td>D</td><td class="sj-num">55</td></tr><tr><td>E</td><td class="sj-num">45</td></tr><tr><td>U, F, G</td><td class="sj-num">Not accepted</td></tr></tbody></table></div>
+      <div class="sj-table-wrap"><table class="sj-table"><caption class="sj-vh">IBCC marks for IGCSE 9 to 1 grades</caption><thead><tr><th scope="col">IGCSE grade</th><th scope="col" class="sj-num">Marks</th></tr></thead><tbody>
+        <tr><td>9</td><td class="sj-num">Same as A*</td></tr><tr><td>8</td><td class="sj-num">87</td></tr><tr><td>7</td><td class="sj-num">82</td></tr><tr><td>6</td><td class="sj-num">77</td></tr>
+        <tr><td>5</td><td class="sj-num">70</td></tr><tr><td>4</td><td class="sj-num">60</td></tr><tr><td>3</td><td class="sj-num">50</td></tr><tr><td>2</td><td class="sj-num">40</td></tr><tr><td>1</td><td class="sj-num">Not accepted</td></tr></tbody></table></div>
+    </div>
+    <h3>2. A* depends on the subject and the year</h3>
+    <p>Since 2021, IBCC publishes a separate A* value for each subject and exam session. Before 2021, A* counted as 90. Here are the official values:</p>
+    <div class="sj-tabs" role="tablist" aria-label="Exam session"><button type="button" role="tab" id="sji-t2026" aria-controls="sji-p2026" aria-selected="true" tabindex="0">2026</button><button type="button" role="tab" id="sji-t2025" aria-controls="sji-p2025" aria-selected="false" tabindex="-1">2025</button><button type="button" role="tab" id="sji-t2024" aria-controls="sji-p2024" aria-selected="false" tabindex="-1">2024</button><button type="button" role="tab" id="sji-t2023" aria-controls="sji-p2023" aria-selected="false" tabindex="-1">2023</button><button type="button" role="tab" id="sji-t2022" aria-controls="sji-p2022" aria-selected="false" tabindex="-1">2022</button><button type="button" role="tab" id="sji-t2021" aria-controls="sji-p2021" aria-selected="false" tabindex="-1">2021</button></div><div class="sji-tabbox"><div role="tabpanel" id="sji-p2026" aria-labelledby="sji-t2026"><div class="sj-table-wrap"><table class="sj-table"><caption class="sj-vh">IBCC A* marks, 2026 session</caption><thead><tr><th scope="col">Subject</th><th scope="col" class="sj-num">O Level</th><th scope="col" class="sj-num">A Level</th></tr></thead><tbody><tr><td>Physics</td><td class="sj-num">94</td><td class="sj-num">95</td></tr><tr><td>Chemistry</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Biology</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Computer Science</td><td class="sj-num">94</td><td class="sj-num">93</td></tr><tr><td>Mathematics</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>English</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Urdu</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Pakistan Studies</td><td class="sj-num">94</td><td class="sj-num">&ndash;</td></tr><tr><td>Islamiyat</td><td class="sj-num">94</td><td class="sj-num">&ndash;</td></tr><tr><td>Other subjects</td><td class="sj-num">94</td><td class="sj-num">94</td></tr></tbody></table></div></div><div role="tabpanel" id="sji-p2025" aria-labelledby="sji-t2025" hidden><div class="sj-table-wrap"><table class="sj-table"><caption class="sj-vh">IBCC A* marks, 2025 session</caption><thead><tr><th scope="col">Subject</th><th scope="col" class="sj-num">O Level</th><th scope="col" class="sj-num">A Level</th></tr></thead><tbody><tr><td>Physics</td><td class="sj-num">94</td><td class="sj-num">95</td></tr><tr><td>Chemistry</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Biology</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Computer Science</td><td class="sj-num">94</td><td class="sj-num">93</td></tr><tr><td>Mathematics</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>English</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Urdu</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Pakistan Studies</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Islamiyat</td><td class="sj-num">94</td><td class="sj-num">&ndash;</td></tr><tr><td>Other subjects</td><td class="sj-num">94</td><td class="sj-num">94</td></tr></tbody></table></div></div><div role="tabpanel" id="sji-p2024" aria-labelledby="sji-t2024" hidden><div class="sj-table-wrap"><table class="sj-table"><caption class="sj-vh">IBCC A* marks, 2024 session</caption><thead><tr><th scope="col">Subject</th><th scope="col" class="sj-num">O Level</th><th scope="col" class="sj-num">A Level</th></tr></thead><tbody><tr><td>Physics</td><td class="sj-num">94</td><td class="sj-num">95</td></tr><tr><td>Chemistry</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Biology</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Computer Science</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Mathematics</td><td class="sj-num">94</td><td class="sj-num">95</td></tr><tr><td>English</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Urdu</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Pakistan Studies</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Islamiyat</td><td class="sj-num">94</td><td class="sj-num">&ndash;</td></tr><tr><td>Other subjects</td><td class="sj-num">94</td><td class="sj-num">94</td></tr></tbody></table></div></div><div role="tabpanel" id="sji-p2023" aria-labelledby="sji-t2023" hidden><div class="sj-table-wrap"><table class="sj-table"><caption class="sj-vh">IBCC A* marks, 2023 session</caption><thead><tr><th scope="col">Subject</th><th scope="col" class="sj-num">O Level</th><th scope="col" class="sj-num">A Level</th></tr></thead><tbody><tr><td>Physics</td><td class="sj-num">94</td><td class="sj-num">95</td></tr><tr><td>Chemistry</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Biology</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Computer Science</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Mathematics</td><td class="sj-num">95</td><td class="sj-num">94</td></tr><tr><td>English</td><td class="sj-num">94</td><td class="sj-num">&ndash;</td></tr><tr><td>Urdu</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Pakistan Studies</td><td class="sj-num">94</td><td class="sj-num">&ndash;</td></tr><tr><td>Islamiyat</td><td class="sj-num">95</td><td class="sj-num">&ndash;</td></tr><tr><td>Other subjects</td><td class="sj-num">94</td><td class="sj-num">94</td></tr></tbody></table></div></div><div role="tabpanel" id="sji-p2022" aria-labelledby="sji-t2022" hidden><div class="sj-table-wrap"><table class="sj-table"><caption class="sj-vh">IBCC A* marks, 2022 session</caption><thead><tr><th scope="col">Subject</th><th scope="col" class="sj-num">O Level</th><th scope="col" class="sj-num">A Level</th></tr></thead><tbody><tr><td>Physics</td><td class="sj-num">95</td><td class="sj-num">95</td></tr><tr><td>Chemistry</td><td class="sj-num">95</td><td class="sj-num">95</td></tr><tr><td>Biology</td><td class="sj-num">95</td><td class="sj-num">94</td></tr><tr><td>Computer Science</td><td class="sj-num">96</td><td class="sj-num">94</td></tr><tr><td>Mathematics</td><td class="sj-num">95</td><td class="sj-num">94</td></tr><tr><td>English</td><td class="sj-num">95</td><td class="sj-num">&ndash;</td></tr><tr><td>Urdu</td><td class="sj-num">95</td><td class="sj-num">&ndash;</td></tr><tr><td>Pakistan Studies</td><td class="sj-num">95</td><td class="sj-num">&ndash;</td></tr><tr><td>Islamiyat</td><td class="sj-num">95</td><td class="sj-num">&ndash;</td></tr><tr><td>Other subjects</td><td class="sj-num">95</td><td class="sj-num">95</td></tr></tbody></table></div></div><div role="tabpanel" id="sji-p2021" aria-labelledby="sji-t2021" hidden><div class="sj-table-wrap"><table class="sj-table"><caption class="sj-vh">IBCC A* marks, 2021 session</caption><thead><tr><th scope="col">Subject</th><th scope="col" class="sj-num">O Level</th><th scope="col" class="sj-num">A Level</th></tr></thead><tbody><tr><td>Physics</td><td class="sj-num">94</td><td class="sj-num">93</td></tr><tr><td>Chemistry</td><td class="sj-num">94</td><td class="sj-num">93</td></tr><tr><td>Biology</td><td class="sj-num">94</td><td class="sj-num">94</td></tr><tr><td>Computer Science</td><td class="sj-num">94</td><td class="sj-num">93</td></tr><tr><td>Mathematics</td><td class="sj-num">95</td><td class="sj-num">93</td></tr><tr><td>English</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Urdu</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Pakistan Studies</td><td class="sj-num">93</td><td class="sj-num">&ndash;</td></tr><tr><td>Islamiyat</td><td class="sj-num">94</td><td class="sj-num">&ndash;</td></tr><tr><td>Other subjects</td><td class="sj-num">94</td><td class="sj-num">93</td></tr></tbody></table></div></div></div>
+    <h3>3. The right subjects are added up</h3>
+    <ul>
+      <li><b>O Level (Matric, SSC), taken in Pakistan:</b> English, Maths, Urdu, Islamiyat, Pakistan Studies and 3 electives. The total out of 800 is scaled to 900. Physics, Chemistry and Biology or Computer Science put you in the Science group.</li>
+      <li><b>O Level, taken abroad or foreign/dual national:</b> English, Maths and 3 electives. The total out of 500 is scaled to 900.</li>
+      <li><b>A Level (FSc, HSSC):</b> your 8 O Levels plus 3 A Levels for your group, out of 1100. Pre-Medical needs Physics, Chemistry and Biology; Pre-Engineering needs Physics, Chemistry and Maths; Computer Science needs Physics, Maths and Computer Science; Humanities takes any 3 subjects.</li>
+      <li><b>A Level, exempt students:</b> 5 O Levels plus 3 A Levels, out of 800, scaled to 1100.</li>
+      <li><b>The February 2026 rule:</b> for science-group students who finish O Levels in 2026 or later, only the 5 compulsory O Levels and the 3 A Levels count (English, Maths and the A Levels if you are exempt). Your O Level electives still need a pass.</li>
+    </ul>
+    <div class="sj-answer"><p><b>Worked example from IBCC:</b> eight O Level A*s from 2021 add up to 750 out of 800. 750 / 800 &times; 900 = 843.75, so the SSC equivalence is 844 out of 900 (93.78%). Add three A Level A*s (93, 93 and 94) and the HSSC equivalence is 1030 out of 1100 (93.64%).</p></div>
+  </div></div></div>
+
+  <!-- 3. CLASS OFFER -->
+  <div class="sji-sec"><div class="sj-wrap">
+    <div class="sj-bg-brown sj-stack" style="border-radius:var(--sj-r-lg);padding:28px 20px">
+      <div class="sj-eyebrow">For O and A Level students</div>
+      <h2 class="sj-h2">Want a better number? <span class="sj-hl">Raise the grades behind it.</span></h2>
+      <p class="sj-measure">SJ Academy is a Cambridge O Level and A Level tuition academy. Join in person at DHA Phase 7, Karachi, or live online from anywhere in Pakistan. 4,500+ students taught so far.</p>
+      <ul class="sj-ticks sj-measure">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Past-paper practice marked to the mark scheme</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Feedback on the marks you lost</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Teachers from LUMS, IBA and ex-KGS</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>226+ five-star Google reviews</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your first class is free</span></li>
+      </ul>
+      <div class="sj-row"><a class="sj-btn sj-btn-primary" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%20used%20your%20IBCC%20calculator%20and%20I%27d%20like%20a%20free%20demo%20class.%0ALevel%3A%20%0ASubject%3A%20%0AMode%20%28in%20class%20or%20online%29%3A%20%0A%28Ref%3A%20IBCC-END%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="offer_end">Book a free demo class on WhatsApp</a></div>
+      <p>or <a class="sj-link" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjYwMjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D" data-loc="offer_end">register for a class</a></p>
+      <p class="sj-small"><a class="sj-link" href="https://www.sjacademy.pk/a-level-grade-strategy-tool/">A Level grade strategy tool</a> &middot; <a class="sj-link" href="https://www.sjacademy.pk/o-level-grade-thresholds/">O Level grade thresholds</a> &middot; <a class="sj-link" href="https://www.sjacademy.pk/classes-schedule/">Class timetable</a> &middot; <a class="sj-link" href="https://www.sjacademy.pk/fee-structure/">Fees</a></p>
+    </div>
+  </div></div>
+
+  <!-- 4. FAQ -->
+  <div class="sji-sec"><div class="sj-wrap sj-stack-lg">
+    <div><div class="sj-eyebrow">FAQ</div><h2 class="sj-h2">IBCC equivalence <span class="sj-hl">questions</span></h2></div>
+    <div class="sj-faq">
+<details id="sji-faq-o"><summary>How does IBCC calculate O Level equivalence?</summary><div class="sj-faq-a"><p>IBCC turns each grade into marks out of 100: A is 85, B 75, C 65, D 55 and E 45, and A* gets a subject value set for each exam session (93 or 94 in 2026). If you took O Levels in Pakistan, your 8 subjects (English, Maths, Urdu, Islamiyat, Pakistan Studies and 3 electives) give a total out of 800, which is scaled to 900. If you took them abroad, or you are a foreign or dual national, 5 subjects (English, Maths and 3 electives) give a total out of 500, also scaled to 900.</p></div></details>
+<details id="sji-faq-a"><summary>How does IBCC calculate A Level equivalence for FSc?</summary><div class="sj-faq-a"><p>For most students your 8 O Levels and 3 A Levels are added together, giving marks out of 1100 with no scaling. If you are exempt from Urdu, Islamiyat and Pakistan Studies, 5 O Levels and 3 A Levels give a total out of 800, which is scaled to 1100. For Pre-Medical, Pre-Engineering and Computer Science students who finish O Levels in 2026 or later, the February 2026 rule applies instead (see below).</p></div></details>
+<details id="sji-faq-astar"><summary>What is an A* worth in IBCC equivalence in 2026?</summary><div class="sj-faq-a"><p>For the 2026 session, an O Level A* is worth 93 in English and Urdu and 94 in every other subject. An A Level A* is worth 95 in Physics, 93 in Computer Science and 94 in Chemistry, Biology, Maths and other subjects. The values change every year, so the calculator uses the table for the session in which you sat each subject. Before 2021, A* counted as a flat 90.</p></div></details>
+<details id="sji-faq-2026"><summary>Does the February 2026 IBCC rule apply to me?</summary><div class="sj-faq-a"><p>Only if you are in a science group (Pre-Medical, Pre-Engineering or Computer Science) and finish your O Levels in 2026 or later. For you, IBCC counts only the 5 compulsory O Levels plus your 3 A Levels, and your O Level electives no longer count towards the marks, though you still need to pass them. If your O Levels finished in 2025 or earlier, the old rule still applies and all 8 O Levels count. Humanities is not covered by the new rule. The calculator picks the right rule from the O Level years you enter.</p></div></details>
+<details id="sji-faq-900"><summary>Is O Level equivalence out of 900 or 1100?</summary><div class="sj-faq-a"><p>We show it out of 900. IBCC&#x27;s worked example gives 750 out of 800 as 844, which is 750 / 800 x 900. Its older example, Cambridge&#x27;s guide for Pakistan and other calculators also use 900. IBCC&#x27;s newest copy of that page, uploaded in April 2026, labels the formula 1100 but still shows 844, so we have kept 900 until IBCC corrects it. Your percentage is the same either way.</p></div></details>
+<details id="sji-faq-exempt"><summary>Who is exempt from Urdu, Islamiyat and Pakistan Studies?</summary><div class="sj-faq-a"><p>Foreign nationals and dual nationals are exempt. For O Level (SSC) equivalence, so are students who took their O Levels abroad. For A Level (HSSC) equivalence, Pakistani students are exempt only if they took both their O Levels and A Levels abroad. If you took one in Pakistan and one abroad, you still need to pass all three.</p></div></details>
+<details id="sji-faq-91"><summary>Can I use IGCSE 9 to 1 grades?</summary><div class="sj-faq-a"><p>Yes. IBCC converts 8 to 87, 7 to 82, 6 to 77, 5 to 70, 4 to 60, 3 to 50 and 2 to 40. Grade 9 is listed with A* as above 90, so the calculator uses the subject&#x27;s A* value for it. Grade 1 is not accepted. In the calculator, open &quot;More options&quot; and tick the 9 to 1 box.</p></div></details>
+<details id="sji-faq-fail"><summary>Which grades does IBCC not accept?</summary><div class="sj-faq-a"><p>IBCC only accepts grades A* to E (or 9 to 2). A U, or an F or G at IGCSE, does not count, and you need at least an E in every subject IBCC requires for your group.</p></div></details>
+<details id="sji-faq-years"><summary>What if I sat my subjects in different years?</summary><div class="sj-faq-a"><p>IBCC works out each subject using the A* table for the session you sat it in, so the same grade can be worth slightly different marks. Open &quot;More options&quot; in the calculator, tick &quot;different years&quot; and set the year for each subject. The calculator handles every session from 2006 onwards, with 2027 and 2028 as forecasts until IBCC publishes them.</p></div></details>
+<details id="sji-faq-official"><summary>Is this my official IBCC equivalence?</summary><div class="sj-faq-a"><p>No. This is an estimate using IBCC&#x27;s published rules. Your official equivalence certificate comes from IBCC when you apply with your original results, and universities use that certificate. SJ Academy is not part of IBCC.</p></div></details>
+    </div>
+  </div></div>
+
+  <!-- 5. SOURCES -->
+  <div class="sji-sec"><div class="sj-wrap"><div class="sj-prose">
+    <h2 class="sj-h3">Sources and how we checked</h2>
+    <p class="sj-small">Every A* value above is taken from IBCC&rsquo;s own tables and checked by a script against IBCC&rsquo;s documents. The calculator also reproduces IBCC&rsquo;s and Cambridge&rsquo;s worked examples exactly. Last checked 20 October 2026.</p>
+    <ul class="sj-small">
+      <li><a class="sj-link" href="https://ibcc.edu.pk/conversion-for-equivalence/" rel="noopener" target="_blank">IBCC: grade conversion and yearly A* tables</a></li>
+      <li><a class="sj-link" href="https://ibcc.edu.pk/equivalence-intro/british-system/" rel="noopener" target="_blank">IBCC: O Level and A Level requirements</a></li>
+      <li><a class="sj-link" href="https://ibcc.edu.pk/notification-for-calculation-of-a-level-equivalent-qualification-based-on-compulsory-subjects-of-o-level/" rel="noopener" target="_blank">IBCC: February 2026 notification on compulsory subjects</a></li>
+      <li><a class="sj-link" href="https://ibcc.edu.pk/equivalence/Example-for-Calculating-A-Levels-Marks-1.pdf" rel="noopener" target="_blank">IBCC: worked A Level example</a></li>
+      <li><a class="sj-link" href="https://ibcc.edu.pk/faqs/equivalence-faqs/" rel="noopener" target="_blank">IBCC: equivalence FAQs</a></li>
+    </ul>
+  </div></div></div>
+</div>
+
+<script>
+/* SJ Academy IBCC equivalence engine. Pure functions, no DOM.
+   Sources (checked 20 Oct 2026):
+   - IBCC grade conversion and yearly A* tables: ibcc.edu.pk/conversion-for-equivalence/
+   - IBCC British system requirements and E2 form (subjects, groups, exemptions)
+   - IBCC notification IBCC/EC-176/Imp-05/7-2/2026, 17 Feb 2026 (science groups, O Level 2026 cohort onward)
+   - IBCC worked examples (O Level x/800*900 = 844, A Level 1030/1100 and 750/800*1100 = 1031) */
+var SJI = (function () {
+  'use strict';
+
+  var LETTER = { 'A': 85, 'B': 75, 'C': 65, 'D': 55, 'E': 45 };
+  var NUMBER = { '8': 87, '7': 82, '6': 77, '5': 70, '4': 60, '3': 50, '2': 40 };
+  var LETTERS = ['A*', 'A', 'B', 'C', 'D', 'E'];
+  var NUMBERS = ['9', '8', '7', '6', '5', '4', '3', '2'];
+
+  /* A* (and grade 9) marks by level, session and subject. "_" is IBCC's "other subjects" value.
+     2020 stands for every session from 2006 to 2020, when A* counted as 90. */
+  var ASTAR = {
+    O: {
+      2020: { _: 90 },
+      2021: { math: 95, pst: 93, eng: 93, urdu: 93, _: 94 },
+      2022: { cs: 96, _: 95 },
+      2023: { math: 95, isl: 95, urdu: 93, _: 94 },
+      2024: { phy: 94, chem: 94, bio: 94, cs: 94, math: 94, eng: 93, urdu: 93, pst: 93, isl: 94, _: 94 },
+      2025: { phy: 94, chem: 94, bio: 94, cs: 94, math: 94, eng: 93, urdu: 93, pst: 93, isl: 94, _: 94 },
+      2026: { phy: 94, chem: 94, bio: 94, cs: 94, math: 94, eng: 93, urdu: 93, pst: 94, isl: 94, _: 94 }
+    },
+    A: {
+      2020: { _: 90 },
+      2021: { bio: 94, _: 93 },
+      2022: { bio: 94, cs: 94, math: 94, chem: 95, phy: 95, _: 95 },
+      2023: { phy: 95, _: 94 },
+      2024: { phy: 95, chem: 94, bio: 94, cs: 94, math: 95, _: 94 },
+      2025: { phy: 95, chem: 94, bio: 94, cs: 93, math: 94, _: 94 },
+      2026: { phy: 95, chem: 94, bio: 94, cs: 93, math: 94, _: 94 }
+    }
+  };
+  var LATEST = 2026;      /* newest session IBCC has published */
+  var FORECAST = 2027;    /* first unpublished session: it and later ones use LATEST values, flagged */
+  /* A Level subjects IBCC lists as "NA" in the A* table */
+  var A_NA = { eng: 1, englit: 1, urdu: 1, isl: 1, pst: 1 };
+
+  var SUBJ = {
+    eng: 'English Language', urdu: 'Urdu', isl: 'Islamiyat', ethics: 'Ethics', pst: 'Pakistan Studies',
+    math: 'Mathematics', phy: 'Physics', chem: 'Chemistry', bio: 'Biology', cs: 'Computer Science',
+    addm: 'Additional Mathematics', ict: 'ICT / Information Technology', acc: 'Accounting', bus: 'Business Studies',
+    econ: 'Economics', comm: 'Commerce', soc: 'Sociology', englit: 'English Literature', geo: 'Geography',
+    hist: 'History', envm: 'Environmental Management', art: 'Art and Design', stats: 'Statistics',
+    arab: 'Arabic', fren: 'French', psy: 'Psychology', fmath: 'Further Mathematics', law: 'Law',
+    media: 'Media Studies', it: 'Information Technology', mar: 'Marine Science', other: 'Other academic subject'
+  };
+  var O_ELECTIVES = ['phy', 'chem', 'bio', 'cs', 'addm', 'ict', 'acc', 'bus', 'econ', 'comm', 'soc', 'englit', 'geo',
+    'hist', 'envm', 'art', 'stats', 'arab', 'fren', 'mar', 'other'];
+  var A_SUBJECTS = ['phy', 'chem', 'bio', 'math', 'fmath', 'cs', 'it', 'bus', 'econ', 'acc', 'psy', 'soc', 'law',
+    'englit', 'eng', 'urdu', 'hist', 'geo', 'media', 'art', 'envm', 'mar', 'other'];
+  var GROUPS = {
+    pm: { name: 'Pre-Medical', a: ['phy', 'chem', 'bio'], o3: ['bio'], science: true },
+    pe: { name: 'Pre-Engineering', a: ['phy', 'chem', 'math'], o3: ['bio', 'cs', 'addm'], science: true },
+    cs: { name: 'Computer Science', a: ['phy', 'math', 'cs'], o3: ['bio', 'cs', 'addm'], science: true },
+    hum: { name: 'Humanities', a: null, o3: null, science: false }
+  };
+  var SSC_SCIENCE_THIRD = { bio: 1, cs: 1, ict: 1, addm: 1 };
+
+  function exempt(target, route) {
+    if (route === 'foreign') { return true; }
+    if (route === 'abroad') { return true; }   /* SSC: O Levels abroad. HSSC: both O and A Levels abroad */
+    return false;                              /* 'pk' and HSSC 'mixed' must pass Urdu, Islamiyat, Pak Studies */
+  }
+
+  /* The rows the student must fill, in display order */
+  function rows(s) {
+    var out = [];
+    var ex = exempt(s.target, s.route);
+    out.push({ id: 'o-eng', level: 'O', fixed: 'eng', kind: 'comp' });
+    out.push({ id: 'o-math', level: 'O', fixed: 'math', kind: 'comp' });
+    if (!ex) {
+      out.push({ id: 'o-urdu', level: 'O', fixed: 'urdu', kind: 'comp' });
+      out.push({ id: 'o-isl', level: 'O', fixed: 'isl', alt: ['isl', 'ethics'], kind: 'comp' });
+      out.push({ id: 'o-pst', level: 'O', fixed: 'pst', kind: 'comp' });
+    }
+    var g = s.target === 'hssc' ? GROUPS[s.group] : null;
+    if (s.target === 'hssc' && !g) { return out; }
+    if (g && g.o3) {
+      out.push({ id: 'o-e1', level: 'O', fixed: 'phy', kind: 'elec' });
+      out.push({ id: 'o-e2', level: 'O', fixed: 'chem', kind: 'elec' });
+      if (g.o3.length === 1) { out.push({ id: 'o-e3', level: 'O', fixed: g.o3[0], kind: 'elec' }); }
+      else { out.push({ id: 'o-e3', level: 'O', choose: g.o3, kind: 'elec' }); }
+    } else {
+      ['o-e1', 'o-e2', 'o-e3'].forEach(function (id) { out.push({ id: id, level: 'O', choose: O_ELECTIVES, kind: 'elec' }); });
+    }
+    if (g) {
+      if (g.a) { g.a.forEach(function (sub, i) { out.push({ id: 'a-' + (i + 1), level: 'A', fixed: sub, kind: 'a' }); }); }
+      else { ['a-1', 'a-2', 'a-3'].forEach(function (id) { out.push({ id: id, level: 'A', choose: A_SUBJECTS, kind: 'a' }); }); }
+    }
+    return out;
+  }
+
+  function sessionKey(level, year) {
+    var y = Number(year);
+    if (y >= FORECAST) { return LATEST; }
+    if (y <= 2020) { return 2020; }
+    return ASTAR[level][y] ? y : null;
+  }
+
+  /* One grade to marks. Returns {marks, flags} or {error} */
+  function marks(level, year, subj, grade) {
+    var flags = [];
+    if (grade in LETTER) { return { marks: LETTER[grade], flags: flags }; }
+    if (level === 'O' && grade in NUMBER) { return { marks: NUMBER[grade], flags: flags }; }
+    if (grade === 'A*' || (grade === '9' && level === 'O')) {
+      var k = sessionKey(level, year);
+      if (k === null) { return { error: 'year' }; }
+      var t = ASTAR[level][k];
+      var key = subj === 'ethics' ? '_' : subj;   /* Ethics is not listed separately */
+      if (level === 'A' && A_NA[subj]) { flags.push('a_na'); key = '_'; }
+      if (Number(year) >= FORECAST) { flags.push('forecast'); }
+      if (grade === '9') { flags.push('nine'); }
+      return { marks: key in t ? t[key] : t._, flags: flags };
+    }
+    return { error: 'grade' };
+  }
+
+  function round(x) { return Math.round(x + 1e-9); }
+  function pct(v, of) { return Math.round(v / of * 10000) / 100; }
+
+  /* s: {target:'ssc'|'hssc', route:'pk'|'abroad'|'foreign'|'mixed', group, oYear, aYear,
+         rows:{id:{subj, grade, year}}} */
+  function compute(s) {
+    var res = { status: 'incomplete', missing: [], errors: [], flags: [], items: [] };
+    if (!s.target) { res.missing.push('target'); return res; }
+    if (!s.route || (s.target === 'ssc' && s.route === 'mixed')) { res.missing.push('route'); return res; }
+    if (s.target === 'hssc' && !GROUPS[s.group]) { res.missing.push('group'); return res; }
+    var list = rows(s), seen = {}, data = s.rows || {}, flagSet = {};
+    list.forEach(function (r) {
+      var d = data[r.id] || {};
+      var subj = r.fixed || null;
+      if (r.alt && d.subj && r.alt.indexOf(d.subj) > -1) { subj = d.subj; }
+      if (r.choose) { subj = (d.subj && r.choose.indexOf(d.subj) > -1) ? d.subj : null; }
+      var year = Number(d.year || (r.level === 'O' ? s.oYear : s.aYear)) || null;
+      var item = { id: r.id, level: r.level, kind: r.kind, subj: subj, grade: d.grade || null, year: year };
+      res.items.push(item);
+      if (!subj) { res.missing.push(r.id + ':subj'); return; }
+      var dupKey = r.level + ':' + subj;
+      if (seen[dupKey] && subj !== 'other') { res.errors.push({ id: r.id, code: 'dup' }); }
+      seen[dupKey] = 1;
+      if (!year) { res.missing.push(r.id + ':year'); return; }
+      if (!item.grade) { res.missing.push(r.id + ':grade'); return; }
+      var m = marks(r.level, year, subj, item.grade);
+      if (m.error) { res.errors.push({ id: r.id, code: m.error }); return; }
+      item.marks = m.marks;
+      m.flags.forEach(function (f) { flagSet[f] = 1; });
+    });
+    if (res.errors.length) { res.status = 'invalid'; return res; }
+    if (res.missing.length) { return res; }
+
+    var ex = exempt(s.target, s.route);
+    var O = res.items.filter(function (i) { return i.level === 'O'; });
+    var A = res.items.filter(function (i) { return i.level === 'A'; });
+    var sum = function (l) { return l.reduce(function (t, i) { return t + i.marks; }, 0); };
+
+    /* SSC part: every O Level row counts (8 in Pakistan, 5 when exempt), scaled to 900 */
+    var oRaw = sum(O), oMax = O.length * 100;
+    var elec = O.filter(function (i) { return i.kind === 'elec'; }).map(function (i) { return i.subj; });
+    var sciSsc = elec.indexOf('phy') > -1 && elec.indexOf('chem') > -1 && elec.some(function (x) { return SSC_SCIENCE_THIRD[x]; });
+    var ssc = { raw: oRaw, max: oMax, scale: 900, marks: round(oRaw * 900 / oMax), group: sciSsc ? 'Science' : 'Arts' };
+    ssc.pct = pct(ssc.marks, 900);
+    if (elec.indexOf('addm') > -1 && elec.indexOf('bio') < 0 && elec.indexOf('cs') < 0 && elec.indexOf('ict') < 0 && sciSsc) { flagSet.addm = 1; }
+
+    if (s.target === 'ssc') {
+      res.status = 'ok';
+      res.rule = ex ? 'ssc_exempt' : 'ssc_pk';
+      res.raw = oRaw; res.max = oMax; res.scale = 900; res.marks = ssc.marks; res.pct = ssc.pct; res.group = ssc.group;
+      res.items.forEach(function (i) { i.counted = true; });
+      res.flags = Object.keys(flagSet);
+      return res;
+    }
+
+    /* HSSC */
+    var g = GROUPS[s.group];
+    var oFinish = Math.max.apply(null, O.map(function (i) { return i.year; }));
+    var newRule = g.science && oFinish >= 2026;
+    var counted = [];
+    res.items.forEach(function (i) {
+      var c = i.level === 'A' || i.kind === 'comp' || !newRule;
+      i.counted = c;
+      if (c) { counted.push(i); }
+    });
+    var raw = sum(counted), max = counted.length * 100;
+    res.status = 'ok';
+    res.rule = (newRule ? 'new' : 'legacy') + (ex ? '_exempt' : '_pk');
+    res.newRule = newRule;
+    res.oFinish = oFinish;
+    res.raw = raw; res.max = max; res.scale = 1100;
+    res.marks = round(raw * 1100 / max);
+    res.pct = pct(res.marks, 1100);
+    res.group = g.name;
+    res.ssc = ssc;
+    if (newRule) { flagSet.new_scale = 1; }
+    if (s.group === 'cs' && ex) { flagSet.cs_abroad = 1; }
+    res.flags = Object.keys(flagSet);
+    return res;
+  }
+
+  /* Next grade up for tips */
+  function nextUp(grade) {
+    var l = LETTERS.indexOf(grade); if (l > 0) { return LETTERS[l - 1]; }
+    var n = NUMBERS.indexOf(grade); if (n > 0) { return NUMBERS[n - 1]; }
+    return null;
+  }
+
+  /* Best single improvement: the counted subject with the lowest marks that can still go up.
+     For HSSC, A Levels win ties because students can still resit them. */
+  function tip(s, res) {
+    if (res.status !== 'ok') { return null; }
+    var best = null;
+    res.items.forEach(function (i) {
+      if (!i.counted) { return; }
+      var up = nextUp(i.grade); if (!up) { return; }
+      var score = i.marks - (i.level === 'A' ? 0.5 : 0);
+      if (!best || score < best.score) { best = { item: i, up: up, score: score }; }
+    });
+    if (!best) { return null; }
+    var copy = JSON.parse(JSON.stringify(s));
+    copy.rows = copy.rows || {};
+    copy.rows[best.item.id] = copy.rows[best.item.id] || {};
+    copy.rows[best.item.id].grade = best.up;
+    if (best.item.subj && !copy.rows[best.item.id].subj) { copy.rows[best.item.id].subj = best.item.subj; }
+    var r2 = compute(copy);
+    return { id: best.item.id, level: best.item.level, subj: best.item.subj, from: best.item.grade, to: best.up,
+      marks: r2.marks, pct: r2.pct, gain: r2.marks - res.marks };
+  }
+
+  return { compute: compute, rows: rows, marks: marks, tip: tip, exempt: exempt, ASTAR: ASTAR, LETTER: LETTER,
+    NUMBER: NUMBER, LETTERS: LETTERS, NUMBERS: NUMBERS, SUBJ: SUBJ, GROUPS: GROUPS, O_ELECTIVES: O_ELECTIVES,
+    A_SUBJECTS: A_SUBJECTS, LATEST: LATEST, FORECAST: FORECAST };
+})();
+(function () {
+  var root = document.getElementById('sj');
+  var app = root && root.querySelector('[data-sji]');
+  if (!app || app.getAttribute('data-ready')) { return; }
+  app.setAttribute('data-ready', '1');
+  var S = SJI, $ = function (sel, el) { return (el || app).querySelector(sel); };
+  var $$ = function (sel, el) { return Array.prototype.slice.call((el || app).querySelectorAll(sel)); };
+  var KEY = 'sj-ibcc-v3', WA = "https://wa.me/923362144454?text=";
+  var YEARS = [[2028, '2028 (forecast)'], [2027, '2027 (forecast)'], [2026, '2026'], [2025, '2025'], [2024, '2024'], [2023, '2023'], [2022, '2022'], [2021, '2021'], [2020, '2006 to 2020']];
+  var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var name = function (id) { return S.SUBJ[id] || ''; };
+  var yearLabel = function (y) { for (var i = 0; i < YEARS.length; i++) { if (YEARS[i][0] === Number(y)) { return YEARS[i][1]; } } return String(y); };
+  var fresh = function () { return { target: null, route: 'pk', group: '', oYear: null, aYear: 2026, oType: 'letter', multi: false, rows: {} }; };
+
+  var st = fresh();
+  try { var saved = JSON.parse(localStorage.getItem(KEY) || 'null'); if (saved && saved.st) { st = saved.st; } } catch (e) { }
+  var q = /[?&]level=([oa])/.exec(location.search);
+  if (q && !st.target) { st.target = q[1] === 'o' ? 'ssc' : 'hssc'; }
+  var save = function () { try { localStorage.setItem(KEY, JSON.stringify({ st: st })); } catch (e) { } };
+  var sent = false;
+
+  function options(list, value, blank) {
+    return (blank ? '<option value="">' + blank + '</option>' : '') + list.map(function (o) {
+      return '<option value="' + o[0] + '"' + (String(o[0]) === String(value) ? ' selected' : '') + '>' + esc(o[1]) + '</option>';
+    }).join('');
+  }
+
+  /* ---------- grade rows ---------- */
+  function renderRows() {
+    var ready = st.target && (st.target === 'ssc' || st.group);
+    var list = ready ? S.rows(st) : [];
+    ['O', 'A'].forEach(function (lvl) {
+      var mine = list.filter(function (r) { return r.level === lvl; });
+      var wrap = $('[data-block="' + lvl + '"]');
+      wrap.hidden = !mine.length;
+      var grades = lvl === 'O' && st.oType === 'number' ? S.NUMBERS : S.LETTERS;
+      $('[data-rows="' + lvl + '"]').innerHTML = mine.map(function (r) {
+        var d = st.rows[r.id] || {}, subjCell;
+        if (r.choose) {
+          var opts = r.choose;
+          var val = d.subj && opts.indexOf(d.subj) > -1 ? d.subj : '';
+          subjCell = '<select class="sj-select sji-subj" data-subj="' + r.id + '" aria-label="Subject">' +
+            options(opts.map(function (o) { return [o, name(o)]; }), val, 'Choose subject') + '</select>';
+        } else {
+          subjCell = '<label class="sji-name" for="g-' + r.id + '">' + esc(name(r.alt && d.subj === 'ethics' ? 'ethics' : r.fixed)) + '</label>';
+        }
+        var yearCell = st.multi ? '<select class="sj-select sji-y" id="y-' + r.id + '" aria-label="Exam year">' +
+          options(YEARS.map(function (y) { return [y[0], y[0] === 2020 ? '2006-20' : String(y[0])]; }), d.year || (lvl === 'O' ? st.oYear : st.aYear)) + '</select>' : '';
+        return '<div class="sji-r' + (st.multi ? ' sji-r3' : '') + (d.grade ? ' is-done' : '') + '" data-row="' + r.id + '">' + subjCell + yearCell +
+          '<select class="sj-select sji-g" id="g-' + r.id + '" aria-label="Grade for ' + esc(name(r.fixed) || 'this subject') + '">' +
+          options(grades.map(function (g) { return [g, g]; }), d.grade, 'Grade') + '</select></div>';
+      }).join('');
+    });
+    $('[data-pick]').hidden = !(st.target === 'hssc' && !st.group);
+    syncDupes();
+  }
+
+  function syncDupes() {
+    ['O', 'A'].forEach(function (lvl) {
+      var sels = $$('[data-rows="' + lvl + '"] select.sji-subj');
+      var used = sels.map(function (s) { return s.value; });
+      sels.forEach(function (s, i) {
+        $$('option', s).forEach(function (o) { o.disabled = !!o.value && o.value !== 'other' && used.some(function (u, j) { return j !== i && u === o.value; }); });
+      });
+    });
+  }
+
+  function renderForm() {
+    $$('input[name="sji-target"]').forEach(function (i) { i.checked = i.value === st.target; });
+    $('[data-setup]').hidden = !st.target;
+    $$('[data-hssc]').forEach(function (el) { el.hidden = st.target !== 'hssc'; });
+    if (st.target && !st.oYear) { st.oYear = st.target === 'ssc' ? 2026 : 2025; }
+    $('#sji-route').value = st.route;
+    $('#sji-group').value = st.group || '';
+    $('#sji-oy').value = st.oYear || 2026;
+    $('#sji-ay').value = st.aYear || 2026;
+    $('#sji-multi').checked = st.multi;
+    $('#sji-nums').checked = st.oType === 'number';
+    $('#sji-eth').checked = (st.rows['o-isl'] || {}).subj === 'ethics';
+    $('[data-eth]').hidden = st.route !== 'pk';
+    renderRows();
+  }
+
+  /* ---------- result ---------- */
+  var RULE = {
+    ssc_pk: '8 O Levels, scaled from 800 to 900',
+    ssc_exempt: '5 O Levels (no Urdu, Islamiyat or Pak Studies), scaled from 500 to 900',
+    legacy_pk: '8 O Levels + 3 A Levels, out of 1100',
+    legacy_exempt: '5 O Levels + 3 A Levels, scaled from 800 to 1100',
+    new_pk: 'New 2026 rule: 5 compulsory O Levels + 3 A Levels, scaled from 800 to 1100',
+    new_exempt: 'New 2026 rule: English, Maths + 3 A Levels, scaled from 500 to 1100'
+  };
+  var FLAG = {
+    forecast: 'Sessions after 2026 are a forecast: IBCC has not published their A* marks yet, so A* uses the 2026 values.',
+    nine: 'Grade 9 uses the subject\u2019s A* marks, as IBCC lists 9 and A* together.',
+    a_na: 'IBCC gives no A Level A* figure for English, Urdu, Islamiyat or Pakistan Studies, so we used its \u201cother subjects\u201d value.',
+    addm: 'Additional Maths keeps you in the Science group (IBCC FAQ).',
+    new_scale: 'IBCC has not published an example for the 2026 rule, so the marks are an estimate. The percentage is the solid figure.',
+    cs_abroad: 'IBCC\u2019s overseas text lists Physics, Chemistry and Maths for this group. Check with IBCC.'
+  };
+
+  function waLink(level, subj, ref) {
+    var msg = ['Hi SJ Academy, I used your IBCC calculator and I\u2019d like a free demo class.', 'Level: ' + (level || ''),
+      'Subject: ' + (subj || ''), 'Mode (in class or online): ', '(Ref: ' + ref + ')', 'My name is '].join('\n');
+    return WA + encodeURIComponent(msg);
+  }
+
+  function renderResult() {
+    var res = S.compute(st), box = $('[data-result]'), bar = $('[data-bar]');
+    var ready = st.target && (st.target === 'ssc' || st.group);
+    var list = ready ? S.rows(st) : [];
+    var need = list.length, done = list.filter(function (r) { return st.rows[r.id] && st.rows[r.id].grade; }).length;
+    $$('.sji-r').forEach(function (el) { el.classList.toggle('is-done', !!(st.rows[el.getAttribute('data-row')] || {}).grade); el.classList.remove('is-error'); });
+    var title = st.target === 'ssc' ? 'Matric (SSC)' : 'FSc (HSSC)';
+    var lvlName = function (l) { return l === 'O' ? 'O Level' : 'A Level'; };
+    var html;
+    if (res.status === 'invalid') {
+      res.errors.forEach(function (e) { var el = $('[data-row="' + e.id + '"]'); if (el) { el.classList.add('is-error'); } });
+      html = '<div class="sj-alert sj-alert-err" role="alert"><b>Same subject twice</b><p>Pick a different subject in the highlighted row.</p></div>';
+      bar.innerHTML = '<span>Check your subjects</span>';
+    } else if (res.status !== 'ok') {
+      var left = need - done;
+      var msg = !st.target ? 'Choose O Level or A Level to start.' : !ready ? 'Pick your FSc group.' :
+        left > 0 ? 'Add ' + left + ' more ' + (left === 1 ? 'grade' : 'grades') + ' to see your marks.' : 'Choose a subject for each elective.';
+      html = '<p class="sj-eyebrow">Your ' + (st.target ? title + ' ' : '') + 'marks</p><p class="sji-big sji-dim">&ndash;</p><p>' + msg + '</p>' +
+        (need ? '<div class="sji-prog" aria-hidden="true"><i style="width:' + Math.round(done / need * 100) + '%"></i></div>' : '');
+      bar.innerHTML = '<span>' + (need ? done + ' of ' + need + ' grades' : 'Your marks') + '</span><b>See result</b>';
+    } else {
+      var t = S.tip(st, res);
+      var notes = [];
+      if (res.rule.indexOf('legacy') === 0 && res.group !== 'Humanities') { notes.push('Your O Levels finished before 2026, so IBCC\u2019s February 2026 rule does not apply and all your O Levels count.'); }
+      if (res.rule.indexOf('legacy') === 0 && res.group === 'Humanities' && res.oFinish >= 2026) { notes.push('The February 2026 rule covers science groups only, so Humanities still counts all your O Levels.'); }
+      if (res.newRule) { notes.push('You finish O Levels in ' + res.oFinish + ', so IBCC\u2019s February 2026 rule applies: your O Level electives need a pass but do not count.' + (st.multi ? ' If you only resat a subject in 2026, ask IBCC which rule applies.' : '')); }
+      res.flags.forEach(function (f) { if (FLAG[f]) { notes.push(FLAG[f]); } });
+      var aYears = res.items.filter(function (i) { return i.level === 'A'; }).map(function (i) { return i.year; });
+      if (aYears.length && Math.min.apply(null, aYears) <= res.oFinish && res.oFinish > 2020) { notes.push('Check your years: your A Levels are set to the same year as your O Levels or earlier.'); }
+      if (st.target === 'ssc') { notes.push('Why out of 900? IBCC\u2019s own worked examples use 900. <a class="sj-link" href="#sji-faq-900">More on this</a>'); }
+      var rowsHtml = res.items.map(function (i) {
+        return '<tr' + (i.counted ? '' : ' class="sji-off"') + '><td>' + esc(name(i.subj)) + ' <span class="sj-small">' + lvlName(i.level) + ' ' + esc(yearLabel(i.year)) + '</span></td><td>' + esc(i.grade) + '</td><td class="sj-num">' + (i.counted ? i.marks : 'not counted') + '</td></tr>';
+      }).join('');
+      var maths = res.max === res.scale ? 'Total: ' + res.raw + ' / ' + res.max :
+        res.raw + ' / ' + res.max + ' &times; ' + res.scale + ' = ' + (Math.round(res.raw * res.scale / res.max * 100) / 100) + ', rounded to ' + res.marks;
+      var warn = res.flags.indexOf('forecast') > -1 || res.newRule;
+      html = '<p class="sj-eyebrow">Your ' + title + ' marks</p>' +
+        '<p class="sji-big"><b>' + res.marks + '</b><span> / ' + res.scale + '</span></p>' +
+        '<p class="sji-pct"><span class="sj-chip sj-chip-yellow">' + res.pct.toFixed(2) + '%</span> <span class="sj-small">' + esc(res.group) + ' group</span></p>' +
+        (res.ssc ? '<p class="sji-also">Matric (SSC): <b>' + res.ssc.marks + ' / 900</b> (' + res.ssc.pct.toFixed(2) + '%)</p>' : '') +
+        (warn ? '<p class="sji-warn">' + (res.newRule ? 'Uses IBCC\u2019s new 2026 rule' : 'Includes a 2027/2028 forecast') + ', so treat this as an estimate.</p>' : '') +
+        '<details class="sji-work"><summary>How we worked it out</summary><p class="sj-small"><b>Rule:</b> ' + RULE[res.rule] + '</p><div class="sj-table-wrap"><table class="sj-table"><thead><tr><th scope="col">Subject</th><th scope="col">Grade</th><th scope="col" class="sj-num">Marks</th></tr></thead><tbody>' + rowsHtml + '</tbody></table></div><p class="sj-small">' + maths + '</p>' +
+        '<ul class="sji-notes">' + notes.map(function (n) { return '<li>' + n + '</li>'; }).join('') + '</ul></details>';
+      var tipLevel = t ? lvlName(t.level) : (st.target === 'ssc' ? 'O Level' : 'A Level');
+      html += '<div class="sji-tip">' + (t ?
+        '<p><b>Quickest win:</b> ' + esc(tipLevel + ' ' + name(t.subj)) + ' ' + t.from + ' &rarr; ' + t.to + ' gets you <b>' + t.marks + ' / ' + res.scale + '</b> (' + t.pct.toFixed(2) + '%).</p>' :
+        '<p><b>Top marks in every subject.</b> Well done.</p>') +
+        '<a class="sj-btn sj-btn-primary sj-btn-block" target="_blank" rel="noopener" data-loc="result_tip" href="' + esc(waLink(tipLevel, t ? name(t.subj) : '', 'IBCC-RESULT')) + '">Get help with a free demo class</a>' +
+        '<p class="sj-small">On WhatsApp. In class at DHA Phase 7, Karachi, or online from anywhere.</p></div>' +
+        '<p class="sji-acts sj-small"><button type="button" class="sji-lnk" data-act="share">Share result</button> &middot; <button type="button" class="sji-lnk" data-act="reset">Start again</button></p>';
+      bar.innerHTML = '<span>' + title + '</span><b>' + res.marks + ' / ' + res.scale + ' &middot; ' + res.pct.toFixed(2) + '%</b>';
+      if (!sent) {
+        sent = true;
+        var g = window['gt' + 'ag'];
+        if (typeof g === 'function') { g('event', 'calculation_complete', { calc_level: st.target, calc_rule: res.rule, page_family: root.getAttribute('data-family') || '' }); }
+      }
+      app._last = res;
+    }
+    box.innerHTML = html;
+    app.classList.toggle('is-empty', !st.target);
+    $('[data-live]').textContent = res.status === 'ok' ? 'Result: ' + res.marks + ' out of ' + res.scale + ', ' + res.pct.toFixed(2) + ' percent.' : '';
+    bar.hidden = !st.target;
+    save();
+  }
+
+  function update(full) { if (full) { renderForm(); } renderResult(); }
+
+  /* ---------- events ---------- */
+  app.addEventListener('change', function (e) {
+    var el = e.target, n = el.name || '', id = el.id || '';
+    if (n === 'sji-target') { if (st.target !== el.value) { st.target = el.value; st.oYear = null; } return update(true); }
+    if (id === 'sji-route') { st.route = el.value; return update(true); }
+    if (id === 'sji-group') { st.group = el.value; return update(true); }
+    if (id === 'sji-oy' || id === 'sji-ay') {
+      var pre = id === 'sji-oy' ? 'o-' : 'a-';
+      st[id === 'sji-oy' ? 'oYear' : 'aYear'] = Number(el.value);
+      if (!st.multi) { Object.keys(st.rows).forEach(function (k) { if (k.indexOf(pre) === 0) { delete st.rows[k].year; } }); }
+      return update(true);
+    }
+    if (id === 'sji-multi') {
+      st.multi = el.checked;
+      if (!el.checked) { Object.keys(st.rows).forEach(function (k) { delete st.rows[k].year; }); }
+      return update(true);
+    }
+    if (id === 'sji-nums') {
+      st.oType = el.checked ? 'number' : 'letter';
+      var ok = el.checked ? S.NUMBERS : S.LETTERS;
+      Object.keys(st.rows).forEach(function (k) { if (k.indexOf('o-') === 0 && st.rows[k].grade && ok.indexOf(st.rows[k].grade) < 0) { delete st.rows[k].grade; } });
+      return update(true);
+    }
+    if (id === 'sji-eth') { (st.rows['o-isl'] = st.rows['o-isl'] || {}).subj = el.checked ? 'ethics' : 'isl'; return update(true); }
+    if (id.indexOf('y-') === 0) { var r = id.slice(2); (st.rows[r] = st.rows[r] || {}).year = Number(el.value); return update(false); }
+    if (id.indexOf('g-') === 0) { var g = id.slice(2); (st.rows[g] = st.rows[g] || {}).grade = el.value; return update(false); }
+    if (el.classList.contains('sji-subj')) { var s = el.getAttribute('data-subj'); (st.rows[s] = st.rows[s] || {}).subj = el.value; syncDupes(); return update(false); }
+  });
+
+  app.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest('a[href^="#sji-faq"]') : null;
+    if (link) { var d = document.getElementById(link.getAttribute('href').slice(1)); if (d) { d.open = true; } return; }
+    var b = e.target.closest ? e.target.closest('[data-act],[data-bar]') : null;
+    if (!b) { return; }
+    if (b.hasAttribute('data-bar')) { $('[data-result]').scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    var act = b.getAttribute('data-act');
+    if (act === 'reset') { st = fresh(); sent = false; update(true); app.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (act === 'share' && app._last) {
+      var r = app._last;
+      var text = 'My IBCC ' + (st.target === 'ssc' ? 'Matric (SSC)' : 'FSc (HSSC)') + ' equivalence: ' + r.marks + '/' + r.scale + ' (' + r.pct.toFixed(2) + '%). Work out yours:';
+      var url = "https://www.sjacademy.pk/ibcc-equivalence-calculator/";
+      if (navigator.share) { navigator.share({ title: 'IBCC equivalence', text: text, url: url }).catch(function () { }); }
+      else if (navigator.clipboard) { navigator.clipboard.writeText(text + ' ' + url).then(function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Share result'; }, 2000); }); }
+    }
+  });
+
+  update(true);
+})();
+</script>
+<script>
+(function(){
+  var root=document.getElementById('sj');
+  if(!root){return;}
+  var each=function(list,fn){Array.prototype.forEach.call(list,fn);};
+
+  /* Tabs: role="tablist" > role="tab" aria-controls="panel-id" */
+  each(root.querySelectorAll('[role="tablist"]'),function(list){
+    var tabs=Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    var pick=function(tab,focus){
+      tabs.forEach(function(t){
+        var on=t===tab;
+        t.setAttribute('aria-selected',on?'true':'false');
+        t.tabIndex=on?0:-1;
+        var panel=document.getElementById(t.getAttribute('aria-controls'));
+        if(panel){panel.hidden=!on;}
+      });
+      if(focus){tab.focus();}
+    };
+    tabs.forEach(function(tab,i){
+      tab.addEventListener('click',function(){pick(tab,false);});
+      tab.addEventListener('keydown',function(e){
+        var step=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+        if(!step){return;}
+        e.preventDefault();
+        pick(tabs[(i+step+tabs.length)%tabs.length],true);
+      });
+    });
+  });
+
+  /* Phone bottom bar: shows once the element marked data-sj-hero has scrolled away */
+  var bar=root.querySelector('.sj-bar');
+  var hero=root.querySelector('[data-sj-hero]');
+  if(bar&&hero&&'IntersectionObserver' in window){
+    root.classList.add('sj-has-bar');
+    new IntersectionObserver(function(entries){
+      bar.classList.toggle('is-on',!entries[0].isIntersecting);
+    }).observe(hero);
+  }
+
+  /* Video: loads the player only after a tap */
+  each(root.querySelectorAll('.sj-video[data-src]'),function(v){
+    v.addEventListener('click',function(e){
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src=v.getAttribute('data-src');
+      f.title=v.getAttribute('data-title')||'Video';
+      f.allow='autoplay; encrypted-media; picture-in-picture';
+      f.allowFullscreen=true;
+      f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';
+      v.innerHTML='';
+      v.appendChild(f);
+    });
+  });
+
+  /* Measurement: one event name per action, location read from data-loc */
+  var send=function(name,loc){
+    var g=window['gt'+'ag'];
+    if(typeof g==='function'){g('event',name,{link_location:loc||'unknown',page_family:root.getAttribute('data-family')||''});}
+  };
+  root.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('a,button'):null;
+    if(!a){return;}
+    var href=a.getAttribute('href')||'';
+    var loc=a.getAttribute('data-loc');
+    if(href.indexOf('wa.me')>-1){send('whatsapp_click',loc);}
+    else if(href.indexOf('popup%3Aopen')>-1){send('register_open',loc);}
+    else if(a.hasAttribute('download')){send('resource_download',loc);}
+    else if(a.hasAttribute('data-event')){send(a.getAttribute('data-event'),loc);}
+  });
+})();
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "IBCC Equivalence Calculator", "url": "https://www.sjacademy.pk/ibcc-equivalence-calculator/", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PKR"}, "description": "Calculates O Level (SSC, Matric) and A Level (HSSC, FSc) equivalence marks using IBCC's published A* marks for 2021 to 2026 and the February 2026 rule.", "provider": {"@type": "EducationalOrganization", "name": "SJ Academy", "url": "https://www.sjacademy.pk/"}, "dateModified": "2026-10-20"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does IBCC calculate O Level equivalence?", "acceptedAnswer": {"@type": "Answer", "text": "IBCC turns each grade into marks out of 100: A is 85, B 75, C 65, D 55 and E 45, and A* gets a subject value set for each exam session (93 or 94 in 2026). If you took O Levels in Pakistan, your 8 subjects (English, Maths, Urdu, Islamiyat, Pakistan Studies and 3 electives) give a total out of 800, which is scaled to 900. If you took them abroad, or you are a foreign or dual national, 5 subjects (English, Maths and 3 electives) give a total out of 500, also scaled to 900."}}, {"@type": "Question", "name": "How does IBCC calculate A Level equivalence for FSc?", "acceptedAnswer": {"@type": "Answer", "text": "For most students your 8 O Levels and 3 A Levels are added together, giving marks out of 1100 with no scaling. If you are exempt from Urdu, Islamiyat and Pakistan Studies, 5 O Levels and 3 A Levels give a total out of 800, which is scaled to 1100. For Pre-Medical, Pre-Engineering and Computer Science students who finish O Levels in 2026 or later, the February 2026 rule applies instead (see below)."}}, {"@type": "Question", "name": "What is an A* worth in IBCC equivalence in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "For the 2026 session, an O Level A* is worth 93 in English and Urdu and 94 in every other subject. An A Level A* is worth 95 in Physics, 93 in Computer Science and 94 in Chemistry, Biology, Maths and other subjects. The values change every year, so the calculator uses the table for the session in which you sat each subject. Before 2021, A* counted as a flat 90."}}, {"@type": "Question", "name": "Does the February 2026 IBCC rule apply to me?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you are in a science group (Pre-Medical, Pre-Engineering or Computer Science) and finish your O Levels in 2026 or later. For you, IBCC counts only the 5 compulsory O Levels plus your 3 A Levels, and your O Level electives no longer count towards the marks, though you still need to pass them. If your O Levels finished in 2025 or earlier, the old rule still applies and all 8 O Levels count. Humanities is not covered by the new rule. The calculator picks the right rule from the O Level years you enter."}}, {"@type": "Question", "name": "Is O Level equivalence out of 900 or 1100?", "acceptedAnswer": {"@type": "Answer", "text": "We show it out of 900. IBCC's worked example gives 750 out of 800 as 844, which is 750 / 800 x 900. Its older example, Cambridge's guide for Pakistan and other calculators also use 900. IBCC's newest copy of that page, uploaded in April 2026, labels the formula 1100 but still shows 844, so we have kept 900 until IBCC corrects it. Your percentage is the same either way."}}, {"@type": "Question", "name": "Who is exempt from Urdu, Islamiyat and Pakistan Studies?", "acceptedAnswer": {"@type": "Answer", "text": "Foreign nationals and dual nationals are exempt. For O Level (SSC) equivalence, so are students who took their O Levels abroad. For A Level (HSSC) equivalence, Pakistani students are exempt only if they took both their O Levels and A Levels abroad. If you took one in Pakistan and one abroad, you still need to pass all three."}}, {"@type": "Question", "name": "Can I use IGCSE 9 to 1 grades?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. IBCC converts 8 to 87, 7 to 82, 6 to 77, 5 to 70, 4 to 60, 3 to 50 and 2 to 40. Grade 9 is listed with A* as above 90, so the calculator uses the subject's A* value for it. Grade 1 is not accepted. In the calculator, open \"More options\" and tick the 9 to 1 box."}}, {"@type": "Question", "name": "Which grades does IBCC not accept?", "acceptedAnswer": {"@type": "Answer", "text": "IBCC only accepts grades A* to E (or 9 to 2). A U, or an F or G at IGCSE, does not count, and you need at least an E in every subject IBCC requires for your group."}}, {"@type": "Question", "name": "What if I sat my subjects in different years?", "acceptedAnswer": {"@type": "Answer", "text": "IBCC works out each subject using the A* table for the session you sat it in, so the same grade can be worth slightly different marks. Open \"More options\" in the calculator, tick \"different years\" and set the year for each subject. The calculator handles every session from 2006 onwards, with 2027 and 2028 as forecasts until IBCC publishes them."}}, {"@type": "Question", "name": "Is this my official IBCC equivalence?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is an estimate using IBCC's published rules. Your official equivalence certificate comes from IBCC when you apply with your original results, and universities use that certificate. SJ Academy is not part of IBCC."}}]}</script>

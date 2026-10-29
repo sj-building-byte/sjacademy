@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Why mangoes get cheaper</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Caveat"; src: url("assets/brand/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+      :root { --yellow: #FCE004; --ink: #151515; --canvas: #F7F5EF; --pen: #D63A2F; --blue: #2F80ED; --blue-t: #1F63C2; --orange: #FF7A00; --orange-t: #9A4300; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--canvas); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+      .abs { position: absolute; }
+      .ruled { background-color: var(--canvas); background-image: repeating-linear-gradient(to bottom, transparent 0 63px, rgba(21,21,21,0.06) 63px 65px); }
+      .sun { background: radial-gradient(circle at 50% 30%, #FFF4C2 0%, #FFE07A 45%, #FFC94A 100%); }
+      .yel { background-color: var(--yellow); background-image: repeating-linear-gradient(to bottom, transparent 0 63px, rgba(21,21,21,0.07) 63px 65px); }
+      svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+      .head { left: 60px; right: 60px; top: 280px; text-align: center; font-weight: 700; letter-spacing: -0.035em; line-height: 1.1; }
+      .head .sub { font-size: 50px; font-weight: 600; color: #555; letter-spacing: -0.015em; line-height: 1.25; }
+      .mask { overflow: hidden; display: block; padding-bottom: 0.12em; }
+      .mask > span { display: block; }
+      .hl { background: var(--yellow); border-radius: 12px; padding: 0 14px; }
+      .note { font-family: "Caveat", cursive; font-weight: 600; }
+      .pill { display: inline-block; border-radius: 999px; padding: 14px 36px; font-weight: 600; }
+      .stamp { font-weight: 700; letter-spacing: -0.03em; border-radius: 18px; padding: 6px 30px 10px; display: inline-block; }
+      .msg { left: 0; right: 0; top: 1300px; display: flex; justify-content: center; }
+      .msg span { background: var(--ink); color: #fff; border-radius: 24px; padding: 16px 36px 20px; font-size: 52px; font-weight: 600; text-align: center; opacity: 0; }
+      .msg b { color: var(--yellow); font-weight: 700; }
+      .gl { position: absolute; font-weight: 700; font-size: 42px; opacity: 0; white-space: nowrap; }
+      .pt { position: absolute; font-family: "Caveat", cursive; font-weight: 600; font-size: 50px; opacity: 0; white-space: nowrap; line-height: 1; }
+      .idea { display: flex; align-items: center; gap: 26px; background: #fff; border-radius: 28px; padding: 26px 30px; box-shadow: 0 18px 44px rgba(21,21,21,0.12); margin-bottom: 26px; opacity: 0; }
+      .idea svg { width: 220px; height: 150px; flex: 0 0 auto; }
+      .idea .t1 { font-size: 46px; font-weight: 700; line-height: 1.15; }
+      .idea .t2 { font-size: 40px; font-weight: 600; line-height: 1.2; color: #444; margin-top: 6px; }
+      .idea .t2 b { color: var(--ink); background: var(--yellow); border-radius: 8px; padding: 0 8px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="68" data-width="1080" data-height="1920">
+      <!-- sound: no voice. Playful music that ends naturally at 65.5s, owned effects, sonic logo once the music ends -->
+      <audio id="music" src="assets/audio/funny66.mp3" data-timeline-role="music" data-start="0" data-duration="66" data-track-index="9" data-volume="0.5"></audio>
+      <audio id="fx0" src="assets/sfx/fx-boing.wav" data-start="0.5" data-duration="0.45" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="fx1" src="assets/sfx/fx-pop.wav" data-start="3.4" data-duration="0.09" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="fx2" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="5.6" data-duration="0.55" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="fx3" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="6.6" data-duration="0.55" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="fx4" src="assets/sfx/fx-pop.wav" data-start="8.0" data-duration="0.09" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="fx5" src="assets/sfx/fx-pop.wav" data-start="11.5" data-duration="0.09" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="fx6" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="15.8" data-duration="0.55" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="fx7" src="assets/sfx/fx-pop.wav" data-start="17.3" data-duration="0.09" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="fx8" src="assets/sfx/fx-pop.wav" data-start="20.8" data-duration="0.09" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="fx9" src="assets/sfx/fx-chime.wav" data-start="26.0" data-duration="1.0" data-track-index="11" data-volume="0.25"></audio>
+      <audio id="fx10" src="assets/sfx/fx-twinkle.wav" data-start="32.0" data-duration="0.55" data-track-index="12" data-volume="0.2"></audio>
+      <audio id="fx11" src="assets/sfx/fx-thud.wav" data-start="32.9" data-duration="0.35" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="fx12" src="assets/sfx/fx-thud.wav" data-start="33.5" data-duration="0.35" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="fx13" src="assets/sfx/fx-thud.wav" data-start="34.1" data-duration="0.35" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="fx14" src="assets/sfx/sj-sfx-paper-slide.wav" data-start="35.2" data-duration="0.5" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="fx15" src="assets/sfx/sj-sfx-highlighter-swipe.wav" data-start="42.6" data-duration="0.38" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="fx16" src="assets/sfx/sj-sfx-paper-slide.wav" data-start="46.3" data-duration="0.5" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="fx17" src="assets/sfx/fx-chime.wav" data-start="48.4" data-duration="1.0" data-track-index="10" data-volume="0.25"></audio>
+      <audio id="fx18" src="assets/sfx/sj-sfx-paper-slide.wav" data-start="52.6" data-duration="0.5" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="fx19" src="assets/sfx/fx-pop.wav" data-start="53.6" data-duration="0.09" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="fx20" src="assets/sfx/fx-pop.wav" data-start="56.0" data-duration="0.09" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="fx21" src="assets/sfx/sj-sfx-stamp.wav" data-start="59.2" data-duration="0.48" data-track-index="11" data-volume="0.4"></audio>
+      <audio id="fxlogo" src="assets/sfx/sj-sonic-logo-short.wav" data-start="65.8" data-duration="2" data-track-index="13" data-volume="0.9"></audio>
+
+      <!-- 1. hook -->
+      <section id="s1" class="clip sun" data-start="0" data-duration="5" data-track-index="1">
+        <div class="abs head" style="font-size:80px">
+          <div class="mask"><span id="h1a">Why do mangoes get</span></div>
+          <div class="mask"><span id="h1b"><span class="hl">cheaper in June?</span></span></div>
+        </div>
+        <svg class="full" viewBox="0 0 1080 1920"><g id="s1-mango"></g>
+          <g id="s1-tag">
+            <line x1="610" y1="760" x2="700" y2="840" stroke="#151515" stroke-width="5"/>
+            <path d="M 660 840 L 860 840 L 900 900 L 860 960 L 660 960 Z" fill="#fff" stroke="#151515" stroke-width="6"/>
+            <circle cx="690" cy="900" r="10" fill="#151515"/>
+            <text id="t-pricey" x="785" y="916" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="44" fill="#151515">pricey</text>
+            <text id="t-cheap" x="785" y="916" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="42" fill="#1E8E3E" opacity="0">cheap!</text>
+          </g>
+        </svg>
+        <div id="s1-note" class="abs note" style="left:0;right:0;top:1310px;text-align:center;font-size:62px;opacity:0">Pakistan's mango season peaks in June and July</div>
+      </section>
+
+      <!-- 2-6. the graph. Centred: axes x 180 to 900, curves symmetric about x = 540 -->
+      <section id="sg" class="clip ruled" data-start="5" data-duration="47" data-track-index="1">
+        <svg class="full" viewBox="0 0 1080 1920" style="z-index:0"><g id="rain"></g></svg>
+        <div class="abs head" id="hA" style="font-size:76px">
+          <div class="mask"><span id="a1"><span style="color:var(--blue-t)">Demand</span></span></div>
+          <div class="mask sub"><span id="a2">what people want to buy</span></div>
+        </div>
+        <div class="abs head" id="hB" style="font-size:76px">
+          <div class="mask"><span id="b1"><span style="color:var(--orange-t)">Supply</span></span></div>
+          <div class="mask sub"><span id="b2">what farmers want to sell</span></div>
+        </div>
+        <div class="abs head" id="hC" style="font-size:72px">
+          <div class="mask"><span id="c1">The price settles</span></div>
+          <div class="mask"><span id="c2">where they <span class="hl">match.</span></span></div>
+        </div>
+        <div class="abs head" id="hD" style="font-size:76px">
+          <div class="mask"><span id="d1">June: mango season!</span></div>
+          <div class="mask sub"><span id="d2">More mangoes at every price.</span></div>
+        </div>
+        <div class="abs head" id="hE" style="font-size:72px">
+          <div class="mask"><span id="e1x">At the old price,</span></div>
+          <div class="mask"><span id="e2x"><span class="hl">too many mangoes.</span></span></div>
+        </div>
+        <div class="abs head" id="hF" style="font-size:72px">
+          <div class="mask"><span id="f1x">So sellers cut the price</span></div>
+          <div class="mask"><span id="f2x">until it <span class="hl">matches again.</span></span></div>
+        </div>
+
+        <svg class="full" viewBox="0 0 1080 1920">
+          <path id="ax" d="M 180 560 L 180 1180 L 900 1180" fill="none" stroke="#151515" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+          <path id="cSg" d="M 250 1140 L 830 600" stroke="#FF7A00" stroke-width="8" stroke-linecap="round" stroke-dasharray="14 14" opacity="0"/>
+          <rect id="gap" x="540" y="848" width="150" height="44" rx="10" fill="#FCE004" stroke="#151515" stroke-width="4" opacity="0"/>
+          <line id="pline" x1="180" y1="870" x2="540" y2="870" stroke="#151515" stroke-width="4" stroke-dasharray="12 10" opacity="0"/>
+          <line id="qline" x1="540" y1="870" x2="540" y2="1180" stroke="#151515" stroke-width="4" stroke-dasharray="12 10" opacity="0"/>
+          <line id="pline2" x1="180" y1="939.83" x2="615" y2="939.83" stroke="#D63A2F" stroke-width="4" stroke-dasharray="12 10" opacity="0"/>
+          <line id="qline2" x1="615" y1="939.83" x2="615" y2="1180" stroke="#D63A2F" stroke-width="4" stroke-dasharray="12 10" opacity="0"/>
+          <path id="cD" d="M 250 600 L 830 1140" stroke="#2F80ED" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+          <path id="cS" d="M 250 1140 L 830 600" stroke="#FF7A00" stroke-width="10" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+          <path id="shiftA" d="M 560 760 L 680 760 M 656 738 L 684 760 L 656 782" stroke="#D63A2F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0"/>
+          <circle id="dotD" cx="337" cy="681" r="22" fill="#2F80ED" stroke="#151515" stroke-width="5" opacity="0"/>
+          <circle id="dotS" cx="337" cy="1059" r="22" fill="#FF7A00" stroke="#151515" stroke-width="5" opacity="0"/>
+          <circle id="eq1" cx="540" cy="870" r="22" fill="#FCE004" stroke="#151515" stroke-width="6" opacity="0"/>
+          <circle id="eq2" cx="615" cy="939.83" r="22" fill="#FCE004" stroke="#D63A2F" stroke-width="6" opacity="0"/>
+        </svg>
+        <div class="gl" id="lP" style="left:100px;width:160px;top:500px;text-align:center;font-size:40px">Price</div>
+        <div class="gl" id="lQ" style="right:180px;top:1196px;text-align:right;font-size:40px">Mangoes</div>
+        <div class="gl" id="lD" style="left:846px;top:1112px;color:var(--blue-t)">D</div>
+        <div class="gl" id="lS" style="left:846px;top:566px;color:var(--orange-t)">S</div>
+        <div class="pt" id="pD1" style="left:372px;top:628px;color:var(--blue-t)">expensive → buy a few</div>
+        <div class="pt" id="pD2b" style="left:330px;top:1078px;width:390px;text-align:right;color:var(--blue-t)">cheap → buy lots</div>
+        <div class="pt" id="pS1" style="left:372px;top:1080px;color:var(--orange-t)">low price → sell a few</div>
+        <div class="pt" id="pS2" style="left:330px;top:622px;width:390px;text-align:right;color:var(--orange-t)">high price → sell lots</div>
+        <div class="pt" id="pOld" style="left:196px;top:822px;font-size:44px">old price</div>
+        <div class="pt" id="pNew" style="left:196px;top:952px;font-size:44px;color:#D63A2F">new price</div>
+        <div class="pt" id="pMore" style="left:790px;top:800px;font-size:48px;color:#D63A2F">June supply</div>
+        <div class="pt" id="pBefore" style="left:560px;top:552px;font-size:44px;color:#6a6a6a">before June</div>
+        <div class="pt" id="pGap" style="left:708px;top:850px;font-size:48px;color:#151515">← extra mangoes</div>
+        <div class="pt" id="pSold" style="left:470px;top:1196px;font-size:44px;color:#D63A2F">more sold →</div>
+        <div class="abs msg"><span id="mA">Cheaper → people <b>buy more</b></span></div>
+        <div class="abs msg"><span id="mB">Pricier → farmers <b>sell more</b></span></div>
+        <div class="abs msg"><span id="mC">That point is the <b>market price</b></span></div>
+        <div class="abs msg"><span id="mD">The <b>whole supply line</b> moves right</span></div>
+        <div class="abs msg"><span id="mE">Nobody buys them at that price</span></div>
+        <div class="abs msg"><span id="mF">Result: <b>cheaper mangoes</b></span></div>
+      </section>
+
+      <!-- 7. the big idea -->
+      <section id="s7" class="clip ruled" data-start="52" data-duration="10.5" data-track-index="1">
+        <div class="abs head" style="font-size:84px">
+          <div class="mask"><span id="g1">The big idea</span></div>
+        </div>
+        <div class="abs" style="left:80px;right:80px;top:470px">
+          <div class="idea" id="i1">
+            <svg viewBox="0 0 220 150"><line x1="20" y1="20" x2="200" y2="130" stroke="#2F80ED" stroke-width="8" stroke-linecap="round"/><circle id="i1dot" cx="56" cy="42" r="14" fill="#2F80ED" stroke="#151515" stroke-width="4"/></svg>
+            <div><div class="t1">Price changes?</div><div class="t2">You move <b>along</b> the curve.</div></div>
+          </div>
+          <div class="idea" id="i2">
+            <svg viewBox="0 0 220 150"><line x1="20" y1="130" x2="130" y2="20" stroke="#FF7A00" stroke-width="6" stroke-dasharray="10 10" opacity="0.5" stroke-linecap="round"/><line id="i2line" x1="20" y1="130" x2="130" y2="20" stroke="#FF7A00" stroke-width="8" stroke-linecap="round"/></svg>
+            <div><div class="t1">Something else changes?</div><div class="t2">Season, weather, income: the <b>whole curve</b> shifts.</div></div>
+          </div>
+        </div>
+        <div class="abs" style="left:0;right:0;top:1060px;text-align:center"><span id="g3" class="stamp" style="font-size:66px;background:#151515;color:#FCE004;opacity:0">More supply → lower price</span></div>
+        <div id="g4" class="abs note" style="left:0;right:0;top:1190px;text-align:center;font-size:58px;color:#D63A2F;opacity:0">less supply → higher price</div>
+      </section>
+
+      <!-- end card -->
+      <section id="se" class="clip yel" data-start="62.5" data-duration="5.5" data-track-index="1">
+        <div class="abs" style="left:0;right:0;top:270px;display:flex;justify-content:center"><img id="e-logo" src="assets/brand/sj-academy-logo-horizontal-on-yellow.svg" style="width:520px;opacity:0" alt="SJ Academy"></div>
+        <div class="abs head" style="top:500px">
+          <div class="mask" style="font-size:112px"><span id="e1">Supply &amp; demand.</span></div>
+          <div class="mask" style="font-size:62px;font-weight:600;color:rgba(21,21,21,0.6)"><span id="e2">Explained by mangoes.</span></div>
+        </div>
+        <svg class="full" viewBox="0 0 1080 1920"><g id="e-mango"></g></svg>
+        <div class="abs" style="left:0;right:0;top:1180px;text-align:center"><span id="e-pill" class="pill" style="font-size:50px;background:#151515;color:#FCE004;padding:20px 46px;opacity:0">Follow for more simple economics</span></div>
+        <div id="e-save" class="abs note" style="left:0;right:0;top:1320px;text-align:center;font-size:68px;opacity:0">Save it for your next Economics test.</div>
+        <div id="e-handle" class="abs" style="left:0;right:0;top:1430px;text-align:center;font-size:42px;font-weight:600;opacity:0">@sjacademypk</div>
+      </section>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const ENTER = "expo.out", EXIT = "expo.in";
+      const maskUp = (sel, t, d = 0.45) => tl.fromTo(sel, { yPercent: 150 }, { yPercent: 0, duration: d, ease: ENTER }, t);
+      const maskOut = (sel, t) => tl.to(sel, { yPercent: -150, duration: 0.3, ease: EXIT }, t);
+      const fadeIn = (sel, t, d = 0.3) => tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: d, ease: "none" }, t);
+      const fadeOut = (sel, t, d = 0.25) => tl.to(sel, { opacity: 0, duration: d, ease: "none" }, t);
+      const pop = (sel, t, s = 0.6) => tl.fromTo(sel, { opacity: 0, scale: s }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.8)", transformOrigin: "50% 50%" }, t);
+      const pen = (sel, t, d) => tl.fromTo(sel, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "sine.inOut" }, t);
+      const stamp = (sel, t, rot) => {
+        tl.fromTo(sel, { scale: 1.4, opacity: 0, rotation: rot }, { scale: 1, opacity: 1, duration: 0.15, ease: "back.out(1.7)" }, t);
+        tl.fromTo(sel, { x: -4 }, { x: 4, duration: 0.035, repeat: 3, yoyo: true, ease: "none" }, t + 0.15);
+        tl.to(sel, { x: 0, duration: 0.01 }, t + 0.3);
+      };
+      // a headline block: reveal its two lines at t, clear them later
+      const headIn = (box, a, b, t) => { tl.fromTo(box, { opacity: 0 }, { opacity: 1, duration: 0.01 }, t - 0.01); maskUp(a, t); maskUp(b, t + 0.15); };
+      const headOut = (box, a, b, t) => { maskOut(a, t); maskOut(b, t + 0.05); tl.to(box, { opacity: 0, duration: 0.01 }, t + 0.36); };
+
+      const NS = "http://www.w3.org/2000/svg";
+      const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent && parent.appendChild(e); return e; };
+      function mango(g, cx, cy, s, face = true) {
+        const m = el("g", { transform: `translate(${cx} ${cy}) scale(${s})` }, g);
+        el("path", { d: "M -70 -10 C -80 -95 40 -130 85 -55 C 125 15 70 115 -10 110 C -80 105 -62 45 -70 -10 Z", fill: "#FFB627", stroke: "#151515", "stroke-width": 7 }, m);
+        el("path", { d: "M 40 -40 C 70 -10 75 40 50 75", fill: "none", stroke: "#FF8C1A", "stroke-width": 10, "stroke-linecap": "round", opacity: 0.7 }, m);
+        el("path", { d: "M 20 -95 Q 60 -150 110 -125 Q 70 -90 20 -95 Z", fill: "#3BB273", stroke: "#151515", "stroke-width": 6 }, m);
+        if (face) {
+          el("circle", { cx: -25, cy: 0, r: 10, fill: "#151515" }, m); el("circle", { cx: 25, cy: 0, r: 10, fill: "#151515" }, m);
+          el("path", { d: "M -22 30 Q 0 50 22 30", fill: "none", stroke: "#151515", "stroke-width": 6, "stroke-linecap": "round" }, m);
+        }
+      }
+      mango(document.getElementById("s1-mango"), 540, 980, 2.6);
+      mango(document.getElementById("e-mango"), 540, 1020, 0.9);
+      let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+      const rain = document.getElementById("rain");
+      for (let i = 0; i < 18; i++) { const g = el("g", { id: "rm" + i }, rain); mango(g, 80 + rnd() * 920, -150, 0.5 + rnd() * 0.3, rnd() > 0.5); }
+
+      // geometry (computed, so everything lines up)
+      const K = 540 / 580;
+      const qD = (y) => 250 + (y - 600) / K;            // demand: quantity at price-height y
+      const qS = (y, sh) => 250 + sh + (1140 - y) / K;  // supply shifted right by sh
+      const setS = (sh) => { const x0 = 250 + sh, x1 = Math.min(830 + sh, 880); const y0 = 1140, y1 = 1140 - K * (x1 - 250 - sh); document.getElementById("cS").setAttribute("d", `M ${x0} ${y0} L ${x1} ${y1}`); };
+      const moveDot = (id, x, y) => { const c = document.getElementById(id); c.setAttribute("cx", x); c.setAttribute("cy", y); };
+
+      // 1. hook
+      maskUp("#h1a", 0.1); maskUp("#h1b", 0.35);
+      tl.fromTo("#s1-mango", { y: -900 }, { y: 0, duration: 0.6, ease: "bounce.out" }, 0.2);
+      tl.fromTo("#s1-tag", { rotation: -10, svgOrigin: "610 760" }, { rotation: 10, duration: 0.6, repeat: 3, yoyo: true, ease: "sine.inOut", svgOrigin: "610 760" }, 0.8);
+      tl.to("#t-pricey", { opacity: 0, duration: 0.15 }, 3.3);
+      fadeIn("#t-cheap", 3.4, 0.15);
+      fadeIn("#s1-note", 3.7, 0.3);
+
+      ["#hA", "#hB", "#hC", "#hD", "#hE", "#hF"].forEach((h) => tl.set(h, { opacity: 0 }, 0));
+
+      // 2. demand: a dot slides down the line
+      headIn("#hA", "#a1", "#a2", 5.1);
+      pen("#ax", 5.6, 0.6); fadeIn("#lP", 6.0); fadeIn("#lQ", 6.1);
+      pen("#cD", 6.6, 0.8); fadeIn("#lD", 7.3);
+      fadeIn("#dotD", 8.0, 0.2); fadeIn("#pD1", 8.0);
+      const dd = { t: 0.15 };
+      tl.fromTo(dd, { t: 0.15 }, { t: 0.85, duration: 1.6, ease: "sine.inOut", onUpdate: () => moveDot("dotD", 250 + 580 * dd.t, 600 + 540 * dd.t) }, 9.8);
+      fadeIn("#pD2b", 11.5);
+      pop("#mA", 12.3, 0.9);
+      fadeOut("#dotD, #pD1, #pD2b, #mA", 14.7);
+      headOut("#hA", "#a1", "#a2", 14.7);
+
+      // 3. supply: a dot slides up the line
+      headIn("#hB", "#b1", "#b2", 15.15);
+      pen("#cS", 15.8, 0.8); fadeIn("#lS", 16.5);
+      fadeIn("#dotS", 17.3, 0.2); fadeIn("#pS1", 17.3);
+      const ds = { t: 0.15 };
+      tl.fromTo(ds, { t: 0.15 }, { t: 0.85, duration: 1.6, ease: "sine.inOut", onUpdate: () => moveDot("dotS", 250 + 580 * ds.t, 1140 - 540 * ds.t) }, 19.1);
+      fadeIn("#pS2", 20.8);
+      pop("#mB", 21.6, 0.9);
+      fadeOut("#dotS, #pS1, #pS2, #mB", 24.7);
+      headOut("#hB", "#b1", "#b2", 24.7);
+
+      // 4. where they match
+      headIn("#hC", "#c1", "#c2", 25.15);
+      pop("#eq1", 26.0, 0.3);
+      fadeIn("#pline", 26.5); fadeIn("#qline", 26.5); fadeIn("#pOld", 26.8);
+      tl.to("#eq1", { scale: 1.3, svgOrigin: "540 870", duration: 0.3, yoyo: true, repeat: 3 }, 27.0);
+      pop("#mC", 27.6, 0.9);
+      fadeOut("#mC", 31.1);
+      headOut("#hC", "#c1", "#c2", 31.1);
+
+      // 5. mango season: the same supply line slides right
+      headIn("#hD", "#d1", "#d2", 31.55);
+      tl.to("#ax, #cD, #cS, #eq1, #pline, #qline", { opacity: 0.2, duration: 0.3 }, 32.0);
+      for (let i = 0; i < 18; i++) tl.fromTo("#rm" + i, { y: 0, rotation: 0 }, { y: 2200, rotation: (i % 2 ? 1 : -1) * 200, svgOrigin: "540 0", duration: 1.5 + (i % 4) * 0.2, ease: "power2.in" }, 32.1 + (i % 6) * 0.22);
+      tl.to("#ax, #cD, #cS, #eq1, #pline, #qline", { opacity: 1, duration: 0.3 }, 34.6);
+      tl.set("#pOld", { opacity: 0 }, 34.6); tl.set("#qline", { opacity: 0 }, 34.6);
+      tl.set(["#pNew", "#pMore", "#pGap", "#pSold", "#pBefore"], { opacity: 0 }, 34.6);
+      fadeIn("#cSg", 35.0, 0.2);
+      const sh = { v: 0 };
+      tl.fromTo(sh, { v: 0 }, { v: 150, duration: 1.4, ease: "power2.inOut", onUpdate: () => setS(sh.v) }, 35.2);
+      
+      fadeIn("#shiftA", 35.4, 0.2);
+      fadeIn("#pMore", 36.4); fadeIn("#pBefore", 36.4); tl.to("#lS", { opacity: 0, duration: 0.2 }, 36.3);
+      pop("#mD", 37.0, 0.9);
+      fadeOut("#mD, #shiftA", 41.0);
+      headOut("#hD", "#d1", "#d2", 41.0);
+
+      // 6. why the price falls: a gap of unsold mangoes at the old price closes as the price drops
+      headIn("#hE", "#e1x", "#e2x", 41.45);
+      fadeIn("#pOld", 42.0);
+      tl.fromTo("#gap", { opacity: 0, scaleX: 0, svgOrigin: "540 870" }, { opacity: 1, scaleX: 1, duration: 0.5, ease: "power2.out", svgOrigin: "540 870" }, 42.6);
+      fadeIn("#pGap", 43.0);
+      pop("#mE", 43.4, 0.9);
+      fadeOut("#mE, #pGap", 45.6);
+      headOut("#hE", "#e1x", "#e2x", 45.6);
+      headIn("#hF", "#f1x", "#f2x", 46.05);
+      const pr = { y: 870 };
+      tl.fromTo(pr, { y: 870 }, { y: 939.83, duration: 1.8, ease: "power1.inOut", onUpdate: () => {
+        const y = pr.y, a = qD(y), b = qS(y, 150);
+        const g = document.getElementById("gap"); g.setAttribute("y", y - 22); g.setAttribute("x", a); g.setAttribute("width", Math.max(0, b - a));
+        const p = document.getElementById("pline"); p.setAttribute("y1", y); p.setAttribute("y2", y); p.setAttribute("x2", a);
+        moveDot("eq1", a, y);
+      } }, 46.4);
+      tl.to("#gap", { opacity: 0, duration: 0.2 }, 48.1);
+      fadeOut("#pline", 48.2, 0.2);
+      tl.to("#eq1", { opacity: 0, duration: 0.2 }, 48.2);
+      pop("#eq2", 48.3, 0.3);
+      fadeIn("#pline2", 48.5); fadeIn("#qline2", 48.5); fadeIn("#pNew", 48.6); fadeIn("#pSold", 48.8);
+      tl.to("#pOld", { opacity: 0.45, duration: 0.3 }, 48.6);
+      pop("#mF", 49.3, 0.9);
+
+      // 7. the big idea
+      maskUp("#g1", 52.1);
+      tl.fromTo("#i1", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: ENTER }, 52.6);
+      tl.fromTo("#i1dot", { attr: { cx: 56, cy: 42 } }, { attr: { cx: 164, cy: 108 }, duration: 1.1, repeat: 3, yoyo: true, ease: "sine.inOut" }, 53.3);
+      tl.fromTo("#i2", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.45, ease: ENTER }, 55.6);
+      tl.fromTo("#i2line", { x: 0 }, { x: 70, duration: 1.0, repeat: 3, yoyo: true, ease: "sine.inOut" }, 56.3);
+      stamp("#g3", 59.2, -2);
+      tl.fromTo("#g4", { opacity: 0, rotation: -6 }, { opacity: 1, rotation: -2, duration: 0.35, ease: "back.out(1.7)" }, 60.0);
+
+      // end card
+      tl.fromTo("#e-logo", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: ENTER }, 62.6);
+      maskUp("#e1", 62.9); maskUp("#e2", 63.1);
+      tl.fromTo("#e-mango", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.6)" }, 63.4);
+      stamp("#e-pill", 64.0, -2);
+      tl.fromTo("#e-save", { opacity: 0, rotation: -8 }, { opacity: 1, rotation: -3, duration: 0.35, ease: "back.out(1.7)" }, 64.6);
+      fadeIn("#e-handle", 65.0, 0.3);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

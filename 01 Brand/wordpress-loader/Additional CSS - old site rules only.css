@@ -1,0 +1,88 @@
+.text-green {
+	color: #fbed2c !important;
+}
+
+.text-yellow {
+	color: #fee000 !important;
+}
+
+.logo {
+	width: 200px !important;
+}
+
+.header-offcanvas {
+	height: 50px !important;
+}
+
+.text-brown {
+	color: #463614 !important
+}
+.text-underline {
+	text-decoration-color: #fee000 !important;
+}
+
+.widget_search .btn:hover {
+  border: none !important;
+}
+
+.mobile-menu-icon {
+    border-top: 2px solid #000000 !important;
+}
+.mobile-menu-icon:after {
+    background-color: #000000 !important;
+}
+.grecaptcha-badge { 
+    visibility: hidden !important;
+}
+div.wpforms-container-full .wpforms-form button {
+     margin: 0 auto !important;
+     display: block !important;
+     width: 100% !important;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-page-button {
+     margin: 0 auto !important;
+	background-color: #463614 !important;
+     display: block !important;
+     width: 100% !important;
+}
+
+.ti-arrow-up {
+    color: #ffffff !important;
+}
+.ti-arrow-up:hover {
+    color: #000000 !important;
+}
+
+/* Default styles (for desktop) */
+.add-fix-top {
+    bottom: 100px !important;
+    right: 40px !important;
+}
+
+/* Tablet and below (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .add-fix-top {
+        bottom: 100px !important;  /* example change */
+        right: 25px !important;   /* example change */
+    }
+}
+
+/* Mobile only (max-width: 767px) */
+@media (max-width: 767px) {
+    .add-fix-top {
+        bottom: 80px !important;  /* another example */
+        right: 25px !important;
+    }
+}
+/* Style for links inside blog posts */
+.entry-content a {
+    color: #0056b3; /* Changes text to a distinct blue */
+    text-decoration: underline; /* Adds an underline */
+    font-weight: 600; /* Makes the text slightly bolder */
+}
+
+/* Style for when a user hovers over the link */
+.entry-content a:hover {
+    color: #ff0055; /* Changes color on hover for interactivity */
+}

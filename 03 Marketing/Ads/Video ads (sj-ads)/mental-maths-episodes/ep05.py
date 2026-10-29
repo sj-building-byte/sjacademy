@@ -1,0 +1,26 @@
+# "Solve it in your head" #5. Loaded by ../mental-maths-build.py, which provides path, FR, FR2, INK, YEL, PEN and math.
+EPISODE = {
+    "slug": "mental-maths-ep05", "reviewed": "2026-10-17", "num": 5,
+    "question": "Find x.",
+    "hint": "Hint: skip the<br>third angle.",
+    "trick": ["Don't find", "the third angle."],
+    "svg": "\n".join([
+        path("q1", "M 160 560 L 900 560"),
+        path("q2", "M 160 560 L 502.6 179.5 L 680 560"),
+        path("q3", "M 230 560 A 70 70 0 0 0 206.8 508.0", w=6),
+        path("q4", "M 462.4 224.1 A 60 60 0 0 0 527.9 233.9", w=6),
+        path("q5", "M 740 560 A 60 60 0 0 0 654.6 505.6", w=6),
+        path("r1", "M 230 560 A 70 70 0 0 0 206.8 508.0", w=8, color=PEN),
+        path("r2", "M 462.4 224.1 A 60 60 0 0 0 527.9 233.9", w=8, color=PEN),
+    ]),
+    "labels": [("l48", "48°", 236, 1056, 46, ""), ("l67", "67°", 462, 832, 46, ""), ("lx", "x", 722, 1004, 64, "x")],
+    "reveal_labels": [("lsum", "48° + 67°", 760, 940, 54, "red")],
+    "answer_at": ("lx", "115°", 700, 1006, 52),
+    "steps": ["x is an exterior angle of the triangle.", "So x = sum of the two opposite angles.", "x = 48° + 67° = <b>115°</b>"],
+    "reveal": [("pen", "r1", 13.3, 0.3), ("pen", "r2", 13.6, 0.3), ("pop", "lsum", 13.9)],
+    "answer": "x = 115°",
+    "tip_title": "Angle facts worth knowing",
+    "tips": ["Exterior = sum of opposite interior angles", "Triangle: angles add to 180°", "Straight line: angles add to 180°", "Around a point: angles add to 360°"], "tipsize": 32,
+    "verify": lambda: 180 - (180 - 48 - 67), "expect": 115, "must_show": ["48°", "67°", "x"],
+    "caption": "Two angles given, one exterior angle to find. 10 seconds, no calculator.\n\nIf you're about to work out the third angle first, there's a faster way.\n\n#OLevelMaths #ALevelMaths #Geometry #CAIE #Karachi",
+}

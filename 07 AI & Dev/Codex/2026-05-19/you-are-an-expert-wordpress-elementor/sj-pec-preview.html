@@ -1,0 +1,1744 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SJ Academy Professional English Communication Workshop Preview</title>
+</head>
+<body style="margin:0;background:#080806;">
+<div class="sj-pec-landing">
+  <style>
+    .sj-pec-landing,
+    .sj-pec-landing * {
+      box-sizing: border-box;
+    }
+
+    .sj-pec-landing {
+      width: 100%;
+      font-family: Poppins, Arial, sans-serif;
+      color: #222222;
+      background: #ffffff;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    .sj-pec-landing .sj-pec-section {
+      width: 100%;
+      padding: 76px 0;
+    }
+
+    .sj-pec-landing .sj-pec-container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .sj-pec-landing .sj-pec-hero {
+      min-height: 720px;
+      padding: 84px 0 64px;
+      background:
+        radial-gradient(circle at 80% 18%, rgba(252, 224, 4, 0.5), transparent 26%),
+        linear-gradient(135deg, #fff9cc 0%, #ffffff 38%, #fafafa 100%);
+      border-bottom: 1px solid rgba(69, 53, 22, 0.12);
+    }
+
+    .sj-pec-landing .sj-pec-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    .sj-pec-landing .sj-pec-badge {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 0 18px;
+      padding: 8px 15px;
+      background: #fce004;
+      color: #000000;
+      border: 1.5px solid #453516;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      box-shadow: 0 9px 22px rgba(69, 53, 22, 0.12);
+    }
+
+    .sj-pec-landing .sj-pec-title {
+      max-width: 720px;
+      margin: 0;
+      color: #000000;
+      font-size: clamp(38px, 5.4vw, 68px);
+      line-height: 1.03;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .sj-pec-landing .sj-pec-title-small {
+      max-width: 800px;
+      margin: 0;
+      color: #000000;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.12;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .sj-pec-landing .sj-pec-center .sj-pec-title-small {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .sj-pec-landing .sj-pec-subtitle {
+      max-width: 680px;
+      margin: 20px 0 0;
+      color: #453516;
+      font-size: 20px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .sj-pec-landing .sj-pec-copy {
+      max-width: 760px;
+      margin: 16px 0 0;
+      color: #555555;
+      font-size: 17px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .sj-pec-landing .sj-pec-center .sj-pec-copy {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .sj-pec-landing .sj-pec-highlight-text {
+      background: linear-gradient(120deg, #fce004 0%, #fce004 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 34%;
+      background-position: 0 85%;
+    }
+
+    .sj-pec-landing .sj-pec-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sj-pec-landing .sj-pec-hero-meta li {
+      padding: 8px 12px;
+      background: #ffffff;
+      border: 1px solid rgba(69, 53, 22, 0.18);
+      border-radius: 40px;
+      color: #453516;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .sj-pec-landing .sj-pec-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 32px 0 0;
+      align-items: center;
+    }
+
+    .sj-pec-landing .sj-pec-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.2;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .sj-pec-landing .sj-pec-btn:focus-visible,
+    .sj-pec-landing .sj-pec-accordion-btn:focus-visible {
+      outline: 3px solid #fe6100;
+      outline-offset: 3px;
+    }
+
+    .sj-pec-landing .sj-pec-btn-primary {
+      background: #fe6100;
+      color: #ffffff;
+      border: 2px solid #fe6100;
+      box-shadow: 0 16px 32px rgba(254, 97, 0, 0.22);
+    }
+
+    .sj-pec-landing .sj-pec-btn-primary:hover {
+      background: #d94f00;
+      border-color: #d94f00;
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(254, 97, 0, 0.3);
+    }
+
+    .sj-pec-landing .sj-pec-btn-secondary {
+      background: #ffffff;
+      color: #453516;
+      border: 2px solid #453516;
+      box-shadow: 0 12px 24px rgba(69, 53, 22, 0.09);
+    }
+
+    .sj-pec-landing .sj-pec-btn-secondary:hover {
+      background: #453516;
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px rgba(69, 53, 22, 0.18);
+    }
+
+    .sj-pec-landing .sj-pec-btn-whatsapp {
+      background: #25d366;
+      color: #000000;
+      border: 2px solid #25d366;
+    }
+
+    .sj-pec-landing .sj-pec-btn-whatsapp:hover {
+      background: #1fb85a;
+      border-color: #1fb85a;
+      color: #000000;
+      transform: translateY(-3px);
+    }
+
+    .sj-pec-landing .sj-pec-microcopy {
+      margin: 14px 0 0;
+      color: #555555;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .sj-pec-landing .sj-pec-honest-note {
+      max-width: 720px;
+      margin: 26px 0 0;
+      padding: 18px 20px;
+      background: #ffffff;
+      border-left: 6px solid #fce004;
+      border-radius: 8px;
+      color: #453516;
+      font-size: 16px;
+      font-weight: 800;
+      box-shadow: 0 14px 34px rgba(69, 53, 22, 0.08);
+    }
+
+    .sj-pec-landing .sj-pec-visual {
+      position: relative;
+      min-height: 500px;
+      border-radius: 22px;
+      background: linear-gradient(155deg, #453516 0%, #1f180b 100%);
+      overflow: hidden;
+      box-shadow: 0 28px 70px rgba(69, 53, 22, 0.22);
+      isolation: isolate;
+    }
+
+    .sj-pec-landing .sj-pec-visual:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: 0.46;
+      z-index: -1;
+    }
+
+    .sj-pec-landing .sj-pec-visual:after {
+      content: "";
+      position: absolute;
+      right: -110px;
+      bottom: -110px;
+      width: 280px;
+      height: 280px;
+      background: #fce004;
+      border-radius: 50%;
+      opacity: 0.95;
+      z-index: -1;
+    }
+
+    .sj-pec-landing .sj-pec-visual-inner {
+      position: absolute;
+      inset: 34px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .sj-pec-landing .sj-pec-visual-label {
+      width: fit-content;
+      padding: 8px 13px;
+      background: #fce004;
+      color: #000000;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .sj-pec-landing .sj-pec-quote {
+      max-width: 380px;
+      margin-top: 46px;
+      color: #ffffff;
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .sj-pec-landing .sj-pec-quote span {
+      color: #fce004;
+    }
+
+    .sj-pec-landing .sj-pec-visual-stack {
+      display: grid;
+      gap: 10px;
+      max-width: 360px;
+      margin-left: auto;
+    }
+
+    .sj-pec-landing .sj-pec-visual-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 8px;
+      color: #222222;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+    }
+
+    .sj-pec-landing .sj-pec-visual-dot {
+      width: 12px;
+      height: 12px;
+      background: #fe6100;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .sj-pec-landing .sj-pec-proof-strip {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid rgba(69, 53, 22, 0.16);
+      border-bottom: 1px solid rgba(69, 53, 22, 0.16);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .sj-pec-landing .sj-pec-proof {
+      padding: 18px 14px;
+      border-right: 1px solid rgba(69, 53, 22, 0.14);
+    }
+
+    .sj-pec-landing .sj-pec-proof:last-child {
+      border-right: 0;
+    }
+
+    .sj-pec-landing .sj-pec-proof strong {
+      display: block;
+      color: #000000;
+      font-size: 22px;
+      line-height: 1.1;
+      font-weight: 900;
+    }
+
+    .sj-pec-landing .sj-pec-proof span {
+      display: block;
+      margin-top: 5px;
+      color: #555555;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .sj-pec-landing .sj-pec-bg-light {
+      background: #fafafa;
+    }
+
+    .sj-pec-landing .sj-pec-bg-yellow {
+      background: #fff9cc;
+    }
+
+    .sj-pec-landing .sj-pec-split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .sj-pec-landing .sj-pec-plain-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sj-pec-landing .sj-pec-plain-list li {
+      position: relative;
+      padding: 0 0 14px 30px;
+      border-bottom: 1px solid rgba(69, 53, 22, 0.14);
+      color: #222222;
+      font-size: 17px;
+      font-weight: 750;
+    }
+
+    .sj-pec-landing .sj-pec-plain-list li:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: #fe6100;
+      border-radius: 50%;
+    }
+
+    .sj-pec-landing .sj-pec-pill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .sj-pec-landing .sj-pec-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 15px;
+      background: #ffffff;
+      border: 1.5px solid rgba(69, 53, 22, 0.2);
+      border-left: 5px solid #453516;
+      border-radius: 8px;
+      color: #222222;
+      font-size: 15px;
+      font-weight: 850;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .sj-pec-landing .sj-pec-pill:hover {
+      border-left-color: #fe6100;
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.09);
+    }
+
+    .sj-pec-landing .sj-pec-two-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 38px;
+      border: 1px solid rgba(69, 53, 22, 0.16);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.07);
+    }
+
+    .sj-pec-landing .sj-pec-panel {
+      padding: 32px;
+    }
+
+    .sj-pec-landing .sj-pec-panel + .sj-pec-panel {
+      border-left: 1px solid rgba(69, 53, 22, 0.16);
+      background: #fafafa;
+    }
+
+    .sj-pec-landing .sj-pec-panel-title {
+      margin: 0 0 18px;
+      color: #000000;
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .sj-pec-landing .sj-pec-mini-list {
+      display: grid;
+      gap: 11px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sj-pec-landing .sj-pec-mini-list li {
+      position: relative;
+      padding-left: 26px;
+      color: #333333;
+      font-size: 15.5px;
+      font-weight: 650;
+    }
+
+    .sj-pec-landing .sj-pec-mini-list li:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 10px;
+      height: 10px;
+      background: #fce004;
+      border: 2px solid #453516;
+      border-radius: 50%;
+    }
+
+    .sj-pec-landing .sj-pec-framework {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border: 1px solid rgba(69, 53, 22, 0.16);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.07);
+    }
+
+    .sj-pec-landing .sj-pec-framework-step {
+      padding: 26px 20px;
+      min-height: 190px;
+      border-right: 1px solid rgba(69, 53, 22, 0.14);
+      transition: background-color 180ms ease;
+    }
+
+    .sj-pec-landing .sj-pec-framework-step:last-child {
+      border-right: 0;
+    }
+
+    .sj-pec-landing .sj-pec-framework-step:hover {
+      background: #fff9cc;
+    }
+
+    .sj-pec-landing .sj-pec-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 18px;
+      background: #453516;
+      color: #ffffff;
+      border-radius: 5px;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .sj-pec-landing .sj-pec-step-title {
+      margin: 0;
+      color: #000000;
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 900;
+    }
+
+    .sj-pec-landing .sj-pec-step-copy {
+      margin: 8px 0 0;
+      color: #555555;
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+
+    .sj-pec-landing .sj-pec-example {
+      margin-top: 34px;
+      padding: 24px;
+      background: #453516;
+      color: #ffffff;
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 22px;
+      box-shadow: 0 20px 44px rgba(69, 53, 22, 0.18);
+    }
+
+    .sj-pec-landing .sj-pec-example strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fce004;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .sj-pec-landing .sj-pec-example p {
+      margin: 0;
+      color: #ffffff;
+      font-size: 15.5px;
+      font-weight: 650;
+      line-height: 1.65;
+    }
+
+    .sj-pec-landing .sj-pec-accordion-wrap {
+      display: grid;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .sj-pec-landing .sj-pec-accordion-item {
+      background: #ffffff;
+      border: 1px solid rgba(69, 53, 22, 0.16);
+      border-left: 6px solid #453516;
+      border-radius: 8px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .sj-pec-landing .sj-pec-accordion-item:hover,
+    .sj-pec-landing .sj-pec-accordion-item.sj-pec-active {
+      border-left-color: #fe6100;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .sj-pec-landing .sj-pec-accordion-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      padding: 19px 20px;
+      background: #ffffff;
+      color: #000000;
+      border: 0;
+      text-align: left;
+      font-family: Poppins, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .sj-pec-landing .sj-pec-accordion-icon {
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      border: 2px solid #453516;
+      border-radius: 5px;
+      position: relative;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .sj-pec-landing .sj-pec-accordion-icon:before,
+    .sj-pec-landing .sj-pec-accordion-icon:after {
+      content: "";
+      position: absolute;
+      background: #453516;
+      left: 7px;
+      right: 7px;
+      top: 12px;
+      height: 2px;
+      transition: transform 180ms ease;
+    }
+
+    .sj-pec-landing .sj-pec-accordion-icon:after {
+      transform: rotate(90deg);
+    }
+
+    .sj-pec-landing .sj-pec-active .sj-pec-accordion-icon {
+      transform: rotate(180deg);
+      border-color: #fe6100;
+    }
+
+    .sj-pec-landing .sj-pec-active .sj-pec-accordion-icon:after {
+      transform: rotate(0deg);
+    }
+
+    .sj-pec-landing .sj-pec-accordion-panel {
+      display: none;
+      padding: 0 20px 20px;
+    }
+
+    .sj-pec-landing .sj-pec-active .sj-pec-accordion-panel {
+      display: block;
+    }
+
+    .sj-pec-landing .sj-pec-accordion-panel ul {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding: 0 0 0 20px;
+      color: #555555;
+      font-size: 15.5px;
+      font-weight: 600;
+    }
+
+    .sj-pec-landing .sj-pec-timeline {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(69, 53, 22, 0.16);
+      background: #ffffff;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.07);
+    }
+
+    .sj-pec-landing .sj-pec-timeline-step {
+      min-height: 150px;
+      padding: 22px 16px;
+      border-right: 1px solid rgba(69, 53, 22, 0.14);
+    }
+
+    .sj-pec-landing .sj-pec-timeline-step:last-child {
+      border-right: 0;
+    }
+
+    .sj-pec-landing .sj-pec-timeline-step strong {
+      display: block;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 14px;
+      background: #fce004;
+      border: 1.5px solid #453516;
+      border-radius: 50%;
+      color: #000000;
+      font-size: 13px;
+      line-height: 30px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .sj-pec-landing .sj-pec-timeline-step span {
+      display: block;
+      color: #222222;
+      font-size: 14.5px;
+      line-height: 1.45;
+      font-weight: 850;
+    }
+
+    .sj-pec-landing .sj-pec-trainer {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .sj-pec-landing .sj-pec-trainer-mark {
+      min-height: 360px;
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, rgba(252, 224, 4, 0.95), rgba(255, 249, 204, 0.9)),
+        linear-gradient(180deg, #ffffff, #fafafa);
+      border: 1px solid rgba(69, 53, 22, 0.16);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 32px;
+      box-shadow: 0 20px 52px rgba(69, 53, 22, 0.12);
+    }
+
+    .sj-pec-landing .sj-pec-trainer-initials {
+      display: grid;
+      place-items: center;
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 22px;
+      background: #453516;
+      color: #ffffff;
+      border-radius: 50%;
+      font-size: 56px;
+      font-weight: 900;
+      box-shadow: 0 18px 40px rgba(69, 53, 22, 0.24);
+    }
+
+    .sj-pec-landing .sj-pec-trainer-name {
+      margin: 0;
+      color: #000000;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .sj-pec-landing .sj-pec-trainer-role {
+      margin: 8px 0 0;
+      color: #453516;
+      font-size: 15px;
+      font-weight: 850;
+    }
+
+    .sj-pec-landing .sj-pec-resource-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .sj-pec-landing .sj-pec-resource {
+      padding: 10px 13px;
+      background: #ffffff;
+      border: 1px solid rgba(69, 53, 22, 0.18);
+      border-radius: 40px;
+      color: #222222;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .sj-pec-landing .sj-pec-price-band {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 24px 64px rgba(69, 53, 22, 0.16);
+      border: 1px solid rgba(69, 53, 22, 0.16);
+    }
+
+    .sj-pec-landing .sj-pec-price-main {
+      padding: 42px;
+      background: #453516;
+      color: #ffffff;
+    }
+
+    .sj-pec-landing .sj-pec-price-label {
+      margin: 0 0 10px;
+      color: #fce004;
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .sj-pec-landing .sj-pec-price {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(48px, 7vw, 78px);
+      line-height: 0.95;
+      font-weight: 900;
+    }
+
+    .sj-pec-landing .sj-pec-price-note {
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .sj-pec-landing .sj-pec-price-details {
+      padding: 42px;
+    }
+
+    .sj-pec-landing .sj-pec-discount {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 9px 14px;
+      background: #fce004;
+      color: #000000;
+      border: 1.5px solid #453516;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .sj-pec-landing .sj-pec-register-box {
+      max-width: 860px;
+      margin: 36px auto 0;
+      padding: 34px;
+      background: #ffffff;
+      border: 2px dashed rgba(69, 53, 22, 0.38);
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .sj-pec-landing .sj-pec-register-placeholder {
+      margin: 0;
+      color: #453516;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .sj-pec-landing .sj-pec-trust-note {
+      margin: 16px 0 0;
+      color: #555555;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .sj-pec-landing .sj-pec-final {
+      background: #453516;
+      color: #ffffff;
+      padding-bottom: 92px;
+    }
+
+    .sj-pec-landing .sj-pec-final .sj-pec-title-small,
+    .sj-pec-landing .sj-pec-final .sj-pec-copy {
+      color: #ffffff;
+    }
+
+    .sj-pec-landing .sj-pec-floating-whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 18px;
+      background: #25d366;
+      color: #000000;
+      border: 2px solid #25d366;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .sj-pec-landing .sj-pec-floating-whatsapp:hover {
+      background: #1fb85a;
+      border-color: #1fb85a;
+      color: #000000;
+      transform: translateY(-3px);
+    }
+
+    .sj-pec-landing .sj-pec-mobile-sticky {
+      display: none;
+    }
+
+    @media (max-width: 1040px) {
+      .sj-pec-landing .sj-pec-section {
+        padding: 64px 0;
+      }
+
+      .sj-pec-landing .sj-pec-split,
+      .sj-pec-landing .sj-pec-trainer,
+      .sj-pec-landing .sj-pec-price-band,
+      .sj-pec-landing .sj-pec-example {
+        grid-template-columns: 1fr;
+      }
+
+      .sj-pec-landing .sj-pec-framework {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .sj-pec-landing .sj-pec-framework-step {
+        border-bottom: 1px solid rgba(69, 53, 22, 0.14);
+      }
+
+      .sj-pec-landing .sj-pec-timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .sj-pec-landing .sj-pec-proof-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      .sj-pec-landing .sj-pec-hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .sj-pec-landing {
+        padding-bottom: 78px;
+      }
+
+      .sj-pec-landing .sj-pec-section {
+        padding: 54px 0;
+      }
+
+      .sj-pec-landing .sj-pec-hero {
+        min-height: auto;
+        padding: 56px 0;
+      }
+
+      .sj-pec-landing .sj-pec-container {
+        padding: 0 18px;
+      }
+
+      .sj-pec-landing .sj-pec-title {
+        font-size: clamp(36px, 11vw, 46px);
+      }
+
+      .sj-pec-landing .sj-pec-title-small {
+        font-size: clamp(28px, 8vw, 36px);
+      }
+
+      .sj-pec-landing .sj-pec-subtitle,
+      .sj-pec-landing .sj-pec-copy {
+        font-size: 16px;
+      }
+
+      .sj-pec-landing .sj-pec-cta-row {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .sj-pec-landing .sj-pec-btn {
+        width: 100%;
+      }
+
+      .sj-pec-landing .sj-pec-visual {
+        min-height: 420px;
+        border-radius: 14px;
+      }
+
+      .sj-pec-landing .sj-pec-visual-inner {
+        inset: 22px;
+      }
+
+      .sj-pec-landing .sj-pec-quote {
+        font-size: 34px;
+      }
+
+      .sj-pec-landing .sj-pec-proof-strip,
+      .sj-pec-landing .sj-pec-two-panel,
+      .sj-pec-landing .sj-pec-framework,
+      .sj-pec-landing .sj-pec-timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .sj-pec-landing .sj-pec-panel + .sj-pec-panel {
+        border-left: 0;
+        border-top: 1px solid rgba(69, 53, 22, 0.16);
+      }
+
+      .sj-pec-landing .sj-pec-panel,
+      .sj-pec-landing .sj-pec-price-main,
+      .sj-pec-landing .sj-pec-price-details,
+      .sj-pec-landing .sj-pec-register-box {
+        padding: 24px;
+      }
+
+      .sj-pec-landing .sj-pec-framework-step,
+      .sj-pec-landing .sj-pec-timeline-step {
+        min-height: auto;
+        border-right: 0;
+      }
+
+      .sj-pec-landing .sj-pec-floating-whatsapp {
+        right: 16px;
+        bottom: 88px;
+        width: 52px;
+        height: 52px;
+        min-height: 52px;
+        padding: 0;
+        border-radius: 50%;
+        font-size: 0;
+      }
+
+      .sj-pec-landing .sj-pec-floating-whatsapp:after {
+        content: "WA";
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .sj-pec-landing .sj-pec-mobile-sticky {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px 12px;
+        background: #ffffff;
+        border-top: 1px solid rgba(69, 53, 22, 0.16);
+        box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .sj-pec-landing .sj-pec-mobile-sticky .sj-pec-btn {
+        min-height: 48px;
+        padding: 12px 10px;
+        font-size: 12px;
+      }
+    }
+  </style>
+  <style>
+    .sj-pec-landing {
+      color: #f7f2e7;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(254, 97, 0, 0.18), transparent 28%),
+        radial-gradient(circle at 84% 18%, rgba(252, 224, 4, 0.14), transparent 26%),
+        linear-gradient(180deg, #080806 0%, #11100d 44%, #080806 100%);
+    }
+
+    .sj-pec-landing .sj-pec-section {
+      position: relative;
+    }
+
+    .sj-pec-landing .sj-pec-hero {
+      min-height: 760px;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(254, 97, 0, 0.32), transparent 30%),
+        radial-gradient(circle at 84% 14%, rgba(252, 224, 4, 0.22), transparent 25%),
+        linear-gradient(145deg, #080806 0%, #15130f 48%, #090807 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sj-pec-landing .sj-pec-hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
+      pointer-events: none;
+    }
+
+    .sj-pec-landing .sj-pec-container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sj-pec-landing .sj-pec-title,
+    .sj-pec-landing .sj-pec-title-small,
+    .sj-pec-landing .sj-pec-panel-title,
+    .sj-pec-landing .sj-pec-step-title,
+    .sj-pec-landing .sj-pec-trainer-name,
+    .sj-pec-landing .sj-pec-accordion-btn,
+    .sj-pec-landing .sj-pec-register-placeholder {
+      color: #fffaf0;
+    }
+
+    .sj-pec-landing .sj-pec-subtitle {
+      color: #e8dbc4;
+    }
+
+    .sj-pec-landing .sj-pec-copy,
+    .sj-pec-landing .sj-pec-step-copy,
+    .sj-pec-landing .sj-pec-price-note,
+    .sj-pec-landing .sj-pec-trust-note,
+    .sj-pec-landing .sj-pec-microcopy {
+      color: rgba(247, 242, 231, 0.74);
+    }
+
+    .sj-pec-landing .sj-pec-badge {
+      background: rgba(252, 224, 4, 0.92);
+      color: #14100a;
+      border-color: rgba(255, 255, 255, 0.42);
+      box-shadow: 0 16px 34px rgba(252, 224, 4, 0.13);
+    }
+
+    .sj-pec-landing .sj-pec-hero-meta li,
+    .sj-pec-landing .sj-pec-pill,
+    .sj-pec-landing .sj-pec-resource,
+    .sj-pec-landing .sj-pec-visual-line {
+      color: #fffaf0;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .sj-pec-landing .sj-pec-pill,
+    .sj-pec-landing .sj-pec-resource {
+      border-left-color: rgba(252, 224, 4, 0.8);
+    }
+
+    .sj-pec-landing .sj-pec-pill:hover {
+      border-left-color: #fe6100;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .sj-pec-landing .sj-pec-btn-secondary {
+      color: #fffaf0;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .sj-pec-landing .sj-pec-btn-secondary:hover {
+      color: #14100a;
+      background: #fce004;
+      border-color: #fce004;
+    }
+
+    .sj-pec-landing .sj-pec-honest-note,
+    .sj-pec-landing .sj-pec-two-panel,
+    .sj-pec-landing .sj-pec-framework,
+    .sj-pec-landing .sj-pec-price-band,
+    .sj-pec-landing .sj-pec-register-box {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.055));
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .sj-pec-landing .sj-pec-honest-note {
+      color: #f7f2e7;
+      border-left: 6px solid #fce004;
+    }
+
+    .sj-pec-landing .sj-pec-visual {
+      background:
+        radial-gradient(circle at 70% 72%, rgba(252, 224, 4, 0.38), transparent 25%),
+        radial-gradient(circle at 20% 18%, rgba(254, 97, 0, 0.38), transparent 28%),
+        linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.055));
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
+    }
+
+    .sj-pec-landing .sj-pec-visual:before {
+      opacity: 0.36;
+    }
+
+    .sj-pec-landing .sj-pec-visual:after {
+      background: linear-gradient(135deg, #fe6100, #fce004);
+      opacity: 0.82;
+      filter: blur(4px);
+    }
+
+    .sj-pec-landing .sj-pec-quote {
+      color: #fffaf0;
+      text-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    }
+
+    .sj-pec-landing .sj-pec-bg-light {
+      background:
+        radial-gradient(circle at 12% 20%, rgba(252, 224, 4, 0.08), transparent 30%),
+        linear-gradient(180deg, #11100d, #0b0a08);
+    }
+
+    .sj-pec-landing .sj-pec-bg-yellow {
+      background:
+        radial-gradient(circle at 80% 12%, rgba(252, 224, 4, 0.17), transparent 30%),
+        radial-gradient(circle at 16% 76%, rgba(254, 97, 0, 0.13), transparent 28%),
+        linear-gradient(180deg, #12100c, #0a0907);
+    }
+
+    .sj-pec-landing .sj-pec-plain-list li {
+      color: #f7f2e7;
+      border-bottom-color: rgba(255, 255, 255, 0.13);
+    }
+
+    .sj-pec-landing .sj-pec-panel + .sj-pec-panel,
+    .sj-pec-landing .sj-pec-framework-step,
+    .sj-pec-landing .sj-pec-timeline-step,
+    .sj-pec-landing .sj-pec-proof,
+    .sj-pec-landing .sj-pec-two-panel,
+    .sj-pec-landing .sj-pec-framework,
+    .sj-pec-landing .sj-pec-timeline {
+      border-color: rgba(255, 255, 255, 0.13);
+    }
+
+    .sj-pec-landing .sj-pec-panel + .sj-pec-panel {
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .sj-pec-landing .sj-pec-mini-list li {
+      color: rgba(247, 242, 231, 0.82);
+    }
+
+    .sj-pec-landing .sj-pec-framework-step:hover {
+      background: rgba(252, 224, 4, 0.08);
+    }
+
+    .sj-pec-landing .sj-pec-letter {
+      background: linear-gradient(135deg, #fe6100, #c74700);
+      color: #ffffff;
+      box-shadow: 0 12px 30px rgba(254, 97, 0, 0.24);
+    }
+
+    .sj-pec-landing .sj-pec-example {
+      background:
+        linear-gradient(145deg, rgba(69, 53, 22, 0.72), rgba(18, 16, 12, 0.88));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 28px 74px rgba(0, 0, 0, 0.36);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .sj-pec-landing .sj-pec-accordion-item {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.14);
+      border-left-color: rgba(252, 224, 4, 0.8);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .sj-pec-landing .sj-pec-accordion-btn {
+      background: transparent;
+    }
+
+    .sj-pec-landing .sj-pec-accordion-panel ul,
+    .sj-pec-landing .sj-pec-accordion-panel .sj-pec-copy {
+      color: rgba(247, 242, 231, 0.76);
+    }
+
+    .sj-pec-landing .sj-pec-accordion-icon {
+      border-color: rgba(255, 255, 255, 0.42);
+    }
+
+    .sj-pec-landing .sj-pec-accordion-icon:before,
+    .sj-pec-landing .sj-pec-accordion-icon:after {
+      background: #fce004;
+    }
+
+    .sj-pec-landing .sj-pec-timeline {
+      background: linear-gradient(145deg, rgba(255,255,255,0.105), rgba(255,255,255,0.045));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .sj-pec-landing .sj-pec-timeline-step span {
+      color: #f7f2e7;
+    }
+
+    .sj-pec-landing .sj-pec-trainer-mark {
+      background:
+        radial-gradient(circle at 70% 22%, rgba(252, 224, 4, 0.28), transparent 28%),
+        linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+    }
+
+    .sj-pec-landing .sj-pec-trainer-initials {
+      background: linear-gradient(135deg, #fe6100, #453516);
+      box-shadow: 0 24px 54px rgba(254, 97, 0, 0.2);
+    }
+
+    .sj-pec-landing .sj-pec-trainer-role {
+      color: #fce004;
+    }
+
+    .sj-pec-landing .sj-pec-price-main {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(254, 97, 0, 0.34), transparent 28%),
+        linear-gradient(145deg, #2a2112, #100e0a);
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .sj-pec-landing .sj-pec-price-details {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .sj-pec-landing .sj-pec-discount {
+      background: #fce004;
+      color: #14100a;
+      border-color: rgba(255, 255, 255, 0.46);
+    }
+
+    .sj-pec-landing .sj-pec-register-box {
+      border-style: solid;
+    }
+
+    .sj-pec-landing .sj-pec-final {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(254, 97, 0, 0.22), transparent 28%),
+        linear-gradient(180deg, #12100d, #070706);
+    }
+
+    .sj-pec-landing .sj-pec-mobile-sticky {
+      background: rgba(8, 8, 6, 0.86);
+      border-top-color: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    @media (max-width: 700px) {
+      .sj-pec-landing .sj-pec-hero {
+        min-height: auto;
+      }
+
+      .sj-pec-landing .sj-pec-panel + .sj-pec-panel {
+        border-left: 0;
+        border-top-color: rgba(255, 255, 255, 0.13);
+      }
+
+      .sj-pec-landing .sj-pec-price-main {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+    }
+  </style>
+
+  <section class="sj-pec-section sj-pec-hero">
+    <div class="sj-pec-container">
+      <div class="sj-pec-hero-grid">
+        <div>
+          <div class="sj-pec-badge">Professional English Communication Workshop</div>
+          <h1 class="sj-pec-title">Sound clearer when English matters at work.</h1>
+          <p class="sj-pec-subtitle">A practical 2-day workshop for interviews, meetings, presentations, client calls, and workplace confidence.</p>
+
+          <ul class="sj-pec-hero-meta" aria-label="Workshop highlights">
+            <li>Sat + Sun</li>
+            <li>2 hrs/day</li>
+            <li>DHA 7 + Zoom</li>
+            <li>25 to 30 seats</li>
+          </ul>
+
+          <div class="sj-pec-cta-row">
+            <a class="sj-pec-btn sj-pec-btn-primary" href="#register">Reserve Your Seat</a>
+            <!-- Replace this WhatsApp number with the official SJ Academy number. -->
+            <a class="sj-pec-btn sj-pec-btn-secondary" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20details%20about%20the%20Professional%20English%20Communication%20Workshop">WhatsApp Details</a>
+          </div>
+
+          <p class="sj-pec-microcopy">First batch: 25 to 30 participants only.</p>
+          <div class="sj-pec-honest-note">Not instant fluency. You will learn what to fix, how to practise, and how to sound clearer, calmer, and more professional.</div>
+        </div>
+
+        <div class="sj-pec-visual" aria-label="Professional communication visual">
+          <div class="sj-pec-visual-inner">
+            <div>
+              <div class="sj-pec-visual-label">Speak with structure</div>
+              <div class="sj-pec-quote">From “umm...” to <span>clear point.</span></div>
+            </div>
+            <div class="sj-pec-visual-stack">
+              <div class="sj-pec-visual-line"><span class="sj-pec-visual-dot"></span>Interview answers</div>
+              <div class="sj-pec-visual-line"><span class="sj-pec-visual-dot"></span>Meeting updates</div>
+              <div class="sj-pec-visual-line"><span class="sj-pec-visual-dot"></span>Presentation flow</div>
+              <div class="sj-pec-visual-line"><span class="sj-pec-visual-dot"></span>Workplace messages</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section">
+    <div class="sj-pec-container">
+      <div class="sj-pec-split">
+        <div>
+          <h2 class="sj-pec-title-small">You don’t need fancy English.</h2>
+          <p class="sj-pec-copy">You need structure, cleaner sentences, fewer fillers, and practice that feels like real work.</p>
+        </div>
+        <ul class="sj-pec-plain-list">
+          <li>You freeze when asked to speak.</li>
+          <li>You know the answer but ramble.</li>
+          <li>You translate from Urdu too slowly.</li>
+          <li>You sound casual when the situation needs polish.</li>
+          <li>You struggle in interviews, meetings, and presentations.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section sj-pec-bg-light">
+    <div class="sj-pec-container sj-pec-center">
+      <h2 class="sj-pec-title-small">After 2 days, you will communicate better in the moments that matter.</h2>
+      <div class="sj-pec-pill-cloud" aria-label="Workshop outcomes">
+        <span class="sj-pec-pill">Introduce yourself professionally</span>
+        <span class="sj-pec-pill">Answer interviews with structure</span>
+        <span class="sj-pec-pill">Speak clearly in meetings</span>
+        <span class="sj-pec-pill">Reduce filler words</span>
+        <span class="sj-pec-pill">Write better WhatsApp and emails</span>
+        <span class="sj-pec-pill">Use ChatGPT for practice</span>
+        <span class="sj-pec-pill">Build a 30-day plan</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section">
+    <div class="sj-pec-container">
+      <h2 class="sj-pec-title-small">Who should attend?</h2>
+      <div class="sj-pec-two-panel">
+        <div class="sj-pec-panel">
+          <h3 class="sj-pec-panel-title">Good fit</h3>
+          <ul class="sj-pec-mini-list">
+            <li>Job seekers and interns</li>
+            <li>Working professionals</li>
+            <li>Freelancers and client-facing teams</li>
+            <li>Entrepreneurs and university students</li>
+          </ul>
+        </div>
+        <div class="sj-pec-panel">
+          <h3 class="sj-pec-panel-title">Not a fit</h3>
+          <ul class="sj-pec-mini-list">
+            <li>You expect fluency in 2 days</li>
+            <li>You want a grammar-only class</li>
+            <li>You do not want speaking practice</li>
+            <li>You only want theory</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section sj-pec-bg-yellow">
+    <div class="sj-pec-container">
+      <h2 class="sj-pec-title-small">Learn the CLEAR Speaking Framework</h2>
+      <p class="sj-pec-copy">A simple way to structure answers in interviews, meetings, presentations, and workplace conversations.</p>
+
+      <div class="sj-pec-framework">
+        <div class="sj-pec-framework-step"><span class="sj-pec-letter">C</span><h3 class="sj-pec-step-title">Context</h3><p class="sj-pec-step-copy">Start with the background.</p></div>
+        <div class="sj-pec-framework-step"><span class="sj-pec-letter">L</span><h3 class="sj-pec-step-title">Logic</h3><p class="sj-pec-step-copy">Make your main point.</p></div>
+        <div class="sj-pec-framework-step"><span class="sj-pec-letter">E</span><h3 class="sj-pec-step-title">Example</h3><p class="sj-pec-step-copy">Support it with proof.</p></div>
+        <div class="sj-pec-framework-step"><span class="sj-pec-letter">A</span><h3 class="sj-pec-step-title">Action</h3><p class="sj-pec-step-copy">Say what happens next.</p></div>
+        <div class="sj-pec-framework-step"><span class="sj-pec-letter">R</span><h3 class="sj-pec-step-title">Result</h3><p class="sj-pec-step-copy">End with impact.</p></div>
+      </div>
+
+      <div class="sj-pec-example">
+        <div><strong>Weak</strong><p>“I am hardworking and I have good communication skills.”</p></div>
+        <div><strong>Stronger</strong><p>“In my previous role, clarity mattered. I learned to understand the audience, structure the message, and explain ideas in a way customers could act on.”</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section">
+    <div class="sj-pec-container">
+      <h2 class="sj-pec-title-small">2-day curriculum</h2>
+      <p class="sj-pec-copy">Four practical hours. Speaking, structure, confidence, and real workplace communication.</p>
+
+      <div class="sj-pec-accordion-wrap">
+        <div class="sj-pec-accordion-item sj-pec-active">
+          <button class="sj-pec-accordion-btn" type="button" aria-expanded="true">Day 1: Clear workplace speaking<span class="sj-pec-accordion-icon" aria-hidden="true"></span></button>
+          <div class="sj-pec-accordion-panel">
+            <ul>
+              <li>Why people struggle to speak professionally</li>
+              <li>CLEAR framework and live speaking drills</li>
+              <li>Professional sentence structures</li>
+              <li>Common Pakistani English mistakes</li>
+              <li>Meeting communication practice</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sj-pec-accordion-item">
+          <button class="sj-pec-accordion-btn" type="button" aria-expanded="false">Day 2: Interviews, presentations, and career communication<span class="sj-pec-accordion-icon" aria-hidden="true"></span></button>
+          <div class="sj-pec-accordion-panel">
+            <ul>
+              <li>Voice, pacing, and filler word control</li>
+              <li>Interview answers that do not sound memorised</li>
+              <li>Presentation openings and 60-second speaking challenge</li>
+              <li>Professional WhatsApp and email messages</li>
+              <li>ChatGPT practice prompts and 30-day plan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section sj-pec-bg-light">
+    <div class="sj-pec-container">
+      <h2 class="sj-pec-title-small">This is practice, not a lecture.</h2>
+      <div class="sj-pec-timeline">
+        <div class="sj-pec-timeline-step"><strong>01</strong><span>Speaking diagnostic</span></div>
+        <div class="sj-pec-timeline-step"><strong>02</strong><span>Live examples</span></div>
+        <div class="sj-pec-timeline-step"><strong>03</strong><span>Sentence correction</span></div>
+        <div class="sj-pec-timeline-step"><strong>04</strong><span>Pair practice</span></div>
+        <div class="sj-pec-timeline-step"><strong>05</strong><span>Workplace scenarios</span></div>
+        <div class="sj-pec-timeline-step"><strong>06</strong><span>Feedback scorecard</span></div>
+        <div class="sj-pec-timeline-step"><strong>07</strong><span>30-day plan</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section">
+    <div class="sj-pec-container">
+      <div class="sj-pec-trainer">
+        <div class="sj-pec-trainer-mark">
+          <div>
+            <div class="sj-pec-trainer-initials">SJ</div>
+            <h2 class="sj-pec-trainer-name">Sunyyan Junaid</h2>
+            <p class="sj-pec-trainer-role">Co-founder, SJ Academy</p>
+          </div>
+        </div>
+        <div>
+          <h2 class="sj-pec-title-small">Learn from corporate and teaching experience.</h2>
+          <p class="sj-pec-copy">Sunyyan has 8+ years of experience across Cloudways, DigitalOcean, and Rapyd Cloud, with work in marketing, communication, copywriting, teaching, leadership, and digital business.</p>
+          <div class="sj-pec-pill-cloud">
+            <span class="sj-pec-pill">Corporate communication</span>
+            <span class="sj-pec-pill">Startup exposure</span>
+            <span class="sj-pec-pill">Teaching experience</span>
+            <span class="sj-pec-pill">Business writing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section sj-pec-bg-yellow">
+    <div class="sj-pec-container">
+      <h2 class="sj-pec-title-small">You also get resources for after the workshop.</h2>
+      <p class="sj-pec-copy">So practice does not stop when the session ends.</p>
+      <div class="sj-pec-resource-row">
+        <span class="sj-pec-resource">Practice PDF</span>
+        <span class="sj-pec-resource">30-day challenge</span>
+        <span class="sj-pec-resource">ChatGPT prompts</span>
+        <span class="sj-pec-resource">Meeting phrases</span>
+        <span class="sj-pec-resource">Interview structure sheet</span>
+        <span class="sj-pec-resource">Email templates</span>
+        <span class="sj-pec-resource">Mistakes checklist</span>
+        <span class="sj-pec-resource">Certificate</span>
+        <span class="sj-pec-resource">WhatsApp practice group</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section">
+    <div class="sj-pec-container">
+      <h2 class="sj-pec-title-small">Workshop investment</h2>
+      <div class="sj-pec-price-band">
+        <div class="sj-pec-price-main">
+          <p class="sj-pec-price-label">Single seat</p>
+          <p class="sj-pec-price">Rs. 7,500</p>
+          <p class="sj-pec-price-note">Includes live training, worksheets, certificate, WhatsApp group, and 30-day improvement plan.</p>
+        </div>
+        <div class="sj-pec-price-details">
+          <span class="sj-pec-discount">Group offer</span>
+          <h3 class="sj-pec-panel-title">Groups of 4 get 10% discount each.</h3>
+          <ul class="sj-pec-mini-list">
+            <li>Physical access at SJ Academy or live Zoom access</li>
+            <li>4 practical hours across Saturday and Sunday</li>
+            <li>Limited first batch so feedback stays useful</li>
+          </ul>
+          <div class="sj-pec-cta-row">
+            <a class="sj-pec-btn sj-pec-btn-primary" href="#register">Reserve Your Seat</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section sj-pec-bg-light">
+    <div class="sj-pec-container">
+      <div class="sj-pec-split">
+        <div>
+          <h2 class="sj-pec-title-small">Attend in Karachi or join live online.</h2>
+          <p class="sj-pec-copy">Choose the format that fits your schedule and location.</p>
+        </div>
+        <ul class="sj-pec-plain-list">
+          <li>Physical: SJ Academy, DHA Phase 7, Karachi</li>
+          <li>Online: Live on Zoom</li>
+          <li>Schedule: Saturday and Sunday</li>
+          <li>Total: 4 practical hours</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section">
+    <div class="sj-pec-container">
+      <h2 class="sj-pec-title-small">Why the first batch matters</h2>
+      <p class="sj-pec-copy">The first batch is limited because the workshop includes speaking practice, feedback, and interaction. Early participants will also help shape SJ Academy’s longer 3-month Professional English Communication Course.</p>
+    </div>
+  </section>
+
+  <section class="sj-pec-section sj-pec-bg-light">
+    <div class="sj-pec-container">
+      <h2 class="sj-pec-title-small">Quick questions</h2>
+      <div class="sj-pec-accordion-wrap">
+        <div class="sj-pec-accordion-item">
+          <button class="sj-pec-accordion-btn" type="button" aria-expanded="false">Will this make me fluent in 2 days?<span class="sj-pec-accordion-icon" aria-hidden="true"></span></button>
+          <div class="sj-pec-accordion-panel"><p class="sj-pec-copy">No. It helps you spot your gaps, practise real situations, and build a clear improvement plan.</p></div>
+        </div>
+        <div class="sj-pec-accordion-item">
+          <button class="sj-pec-accordion-btn" type="button" aria-expanded="false">Is this grammar-focused?<span class="sj-pec-accordion-icon" aria-hidden="true"></span></button>
+          <div class="sj-pec-accordion-panel"><p class="sj-pec-copy">No. Grammar is corrected where needed, but the focus is speaking, structure, interviews, meetings, and confidence.</p></div>
+        </div>
+        <div class="sj-pec-accordion-item">
+          <button class="sj-pec-accordion-btn" type="button" aria-expanded="false">Can beginners join?<span class="sj-pec-accordion-icon" aria-hidden="true"></span></button>
+          <div class="sj-pec-accordion-panel"><p class="sj-pec-copy">Yes, if you understand basic English and can speak a little.</p></div>
+        </div>
+        <div class="sj-pec-accordion-item">
+          <button class="sj-pec-accordion-btn" type="button" aria-expanded="false">Will I get a certificate?<span class="sj-pec-accordion-icon" aria-hidden="true"></span></button>
+          <div class="sj-pec-accordion-panel"><p class="sj-pec-copy">Yes. Participants receive a certificate of participation.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sj-pec-section" id="register">
+    <div class="sj-pec-container sj-pec-center">
+      <h2 class="sj-pec-title-small">Reserve your seat for the first batch.</h2>
+      <p class="sj-pec-copy">Fill the form and our team will contact you with payment and confirmation details.</p>
+      <div class="sj-pec-register-box">
+        <p class="sj-pec-register-placeholder">Registration form will appear here.</p>
+        <!-- Paste WPForms shortcode or embedded form here in Elementor. -->
+      </div>
+      <p class="sj-pec-trust-note">Seats are confirmed only after payment.</p>
+    </div>
+  </section>
+
+  <section class="sj-pec-section sj-pec-final">
+    <div class="sj-pec-container sj-pec-center">
+      <h2 class="sj-pec-title-small">Start sounding clearer where it matters most.</h2>
+      <p class="sj-pec-copy">Interviews, meetings, presentations, client calls, and workplace conversations need structure, clarity, and practice.</p>
+      <div class="sj-pec-cta-row" style="justify-content:center;">
+        <a class="sj-pec-btn sj-pec-btn-primary" href="#register">Register for the Workshop</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Replace this WhatsApp number with the official SJ Academy number. -->
+  <a class="sj-pec-floating-whatsapp" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20details%20about%20the%20Professional%20English%20Communication%20Workshop" aria-label="Contact SJ Academy on WhatsApp">WhatsApp</a>
+
+  <div class="sj-pec-mobile-sticky" aria-label="Mobile registration actions">
+    <a class="sj-pec-btn sj-pec-btn-primary" href="#register">Register</a>
+    <a class="sj-pec-btn sj-pec-btn-whatsapp" href="https://wa.me/923001234567?text=Hi%20SJ%20Academy%2C%20I%20want%20details%20about%20the%20Professional%20English%20Communication%20Workshop">WhatsApp</a>
+  </div>
+
+  <script>
+    (function () {
+      var landing = document.querySelector('.sj-pec-landing');
+      if (!landing) {
+        return;
+      }
+
+      var buttons = landing.querySelectorAll('.sj-pec-accordion-btn');
+      buttons.forEach(function (button, index) {
+        var item = button.closest('.sj-pec-accordion-item');
+        var panel = item ? item.querySelector('.sj-pec-accordion-panel') : null;
+        if (!item || !panel) {
+          return;
+        }
+
+        var panelId = 'sj-pec-panel-' + index;
+        panel.setAttribute('id', panelId);
+        panel.setAttribute('role', 'region');
+        button.setAttribute('aria-controls', panelId);
+
+        button.addEventListener('click', function () {
+          var isOpen = item.classList.contains('sj-pec-active');
+          item.classList.toggle('sj-pec-active', !isOpen);
+          button.setAttribute('aria-expanded', String(!isOpen));
+        });
+      });
+
+      var internalLinks = landing.querySelectorAll('a[href^="#"]');
+      internalLinks.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+          var targetId = link.getAttribute('href');
+          if (!targetId || targetId === '#') {
+            return;
+          }
+
+          var target = landing.querySelector(targetId);
+          if (!target) {
+            return;
+          }
+
+          event.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        });
+      });
+    })();
+  </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,1151 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --sja-yellow: #FCE004;
+    --sja-brown: #453516;
+    --sja-black: #0B0B0B;
+    --sja-orange: #fe6100;
+    --sja-white: #ffffff;
+    --sja-whatsapp: #25D366;
+    --sja-grey: #666;
+    --sja-dark-grey: #333;
+    --sja-light-bg: #F8F9FA;
+    --sja-border: #E5E7EB;
+    
+    /* Modern shadow */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.sja-pmt-wrapper * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.sja-pmt-wrapper {
+    font-family: 'Outfit', 'Poppins', sans-serif;
+    color: var(--sja-black);
+    line-height: 1.6;
+    background: var(--sja-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.sja-pmt-wrapper {
+    width: 100%;
+}
+
+.sja-pmt-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.sja-pmt-wrapper h1, .sja-pmt-wrapper h2, .sja-pmt-wrapper h3, .sja-pmt-wrapper h4 {
+    color: var(--sja-black);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.sja-pmt-wrapper h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; }
+.sja-pmt-wrapper h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 24px; }
+.sja-pmt-wrapper h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); margin-bottom: 12px; }
+
+.sja-pmt-wrapper p {
+    font-size: 1.1rem;
+    color: var(--sja-dark-grey);
+    margin-bottom: 20px;
+}
+
+.sja-highlight {
+    background: linear-gradient(120deg, var(--sja-yellow) 0%, var(--sja-yellow) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 35%;
+    background-position: 0 88%;
+    display: inline;
+    padding: 0 4px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section */
+.sja-pmt-hero {
+    padding: 60px 0;
+    background: radial-gradient(circle at top right, rgba(252, 224, 4, 0.1) 0%, transparent 40%);
+}
+
+.sja-hero-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.sja-hero-text { flex: 1; }
+
+.sja-mode-wrapper {
+    display: inline-flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--sja-border);
+    border-radius: 50px;
+    padding: 6px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap; /* Important for very small screens */
+}
+
+.sja-mode-pill {
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+}
+
+.sja-mode-physical {
+    background: var(--sja-yellow);
+    color: var(--sja-black);
+}
+
+.sja-mode-online {
+    background: transparent;
+    color: var(--sja-grey);
+}
+
+.sja-mode-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--sja-border);
+    margin: 0 4px;
+}
+
+.sja-pulse {
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 rgba(239, 68, 68, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.sja-mentor-badge {
+    display: inline-block;
+    background: var(--sja-light-bg);
+    color: var(--sja-dark-grey);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 12px 0 24px;
+    border: 1px solid var(--sja-border);
+}
+
+.sja-kgs-badge {
+    display: inline-block;
+    background: rgba(254, 97, 0, 0.1);
+    color: var(--sja-orange);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.sja-hero-session-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 32px 0;
+}
+
+.sja-hero-start-card {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid var(--sja-border);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+}
+
+.sja-hero-start-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.sja-hero-start-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--sja-orange);
+}
+
+.sja-hero-start-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--sja-orange);
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sja-hero-start-card strong {
+    display: block;
+    color: var(--sja-black);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.sja-hero-start-card h3 {
+    margin: 0 0 16px;
+    font-size: 1.05rem;
+    color: var(--sja-grey);
+    font-weight: 500;
+}
+
+.sja-btn-primary, .sja-btn-whatsapp, .sja-btn-cta-final {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.sja-btn-primary {
+    background: var(--sja-orange);
+    color: var(--sja-white);
+    box-shadow: 0 4px 14px rgba(254, 97, 0, 0.25);
+    width: 100%;
+}
+
+.sja-btn-primary:hover {
+    background: #e55800;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(254, 97, 0, 0.3);
+}
+
+.sja-btn-whatsapp {
+    background: #fff;
+    color: #16a34a;
+    border: 2px solid #16a34a;
+}
+.sja-pmt-cta .sja-btn-whatsapp {
+    background: transparent;
+    color: #25D366;
+    border-color: #25D366;
+}
+
+.sja-btn-whatsapp:hover {
+    background: var(--sja-whatsapp);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.sja-btn-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    justify-content: center;
+}
+
+/* Mentor Image */
+.sja-mentor-img-wrapper {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.sja-mentor-bg-shape {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: -5%;
+    bottom: 5%;
+    background: var(--sja-yellow);
+    border-radius: 30px;
+    transform: rotate(3deg);
+    z-index: 0;
+}
+
+.sja-mentor-img-wrapper img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+}
+
+/* Video Section */
+.sja-demo-video {
+    padding: 80px 0;
+    background: var(--sja-light-bg);
+}
+
+.sja-demo-video h2 { text-align: center; }
+
+.sja-demo-video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.sja-demo-video-card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+}
+
+.sja-demo-video-card h3 {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+}
+
+.sja-demo-video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--sja-black);
+}
+
+.sja-demo-video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Roadmap Section */
+.sja-pmt-roadmap {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.sja-roadmap-head {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+/* Mobile-optimized tabs */
+.sja-roadmap-tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 4px 4px 16px;
+    margin: 0 auto 32px;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    max-width: 800px;
+}
+
+.sja-roadmap-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.sja-roadmap-tab {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    background: #fff;
+    color: var(--sja-grey);
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 1px solid var(--sja-border);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.sja-roadmap-tab:hover {
+    border-color: var(--sja-orange);
+    color: var(--sja-black);
+}
+
+.sja-roadmap-tab.is-active {
+    background: var(--sja-black);
+    color: var(--sja-yellow);
+    border-color: var(--sja-black);
+    box-shadow: var(--shadow-md);
+}
+
+/* Summary Cards */
+.sja-roadmap-summary {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.sja-roadmap-summary-card {
+    background: var(--sja-light-bg);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--sja-border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sja-roadmap-summary-card strong {
+    font-size: 1.1rem;
+    color: var(--sja-black);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sja-roadmap-summary-card strong::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--sja-orange);
+    border-radius: 50%;
+}
+
+.sja-roadmap-summary-card span {
+    color: var(--sja-grey);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Clean Timeline/Grid for Mobile */
+.sja-roadmap-component[hidden] { display: none; }
+
+.sja-roadmap-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    position: relative;
+}
+
+.sja-roadmap-card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--sja-border);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sja-roadmap-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.sja-roadmap-month {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--sja-light-bg);
+}
+
+.sja-roadmap-month h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--sja-black);
+}
+
+.sja-roadmap-badge {
+    background: rgba(252, 224, 4, 0.2);
+    color: var(--sja-brown);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.sja-final-prep .sja-roadmap-badge {
+    background: var(--sja-yellow);
+    color: var(--sja-black);
+}
+
+.sja-roadmap-card ul {
+    list-style: none;
+}
+
+.sja-roadmap-card li {
+    position: relative;
+    padding-left: 24px;
+    color: var(--sja-dark-grey);
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.sja-roadmap-card li:last-child { margin-bottom: 0; }
+
+.sja-roadmap-card li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--sja-orange);
+    font-weight: bold;
+}
+
+/* Final Prep Area */
+.sja-final-prep {
+    margin-top: 48px;
+    padding: 40px 24px;
+    background: var(--sja-black);
+    color: #fff;
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.sja-final-prep::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--sja-yellow);
+}
+
+.sja-final-prep h3 {
+    color: var(--sja-yellow);
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.sja-final-prep p {
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto 32px;
+}
+
+.sja-final-prep .sja-roadmap-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.sja-final-prep .sja-roadmap-month h3,
+.sja-final-prep .sja-roadmap-card li {
+    color: #fff;
+}
+
+.sja-final-prep .sja-roadmap-month {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Reviews Section */
+.sja-reviews {
+    padding: 80px 0;
+    background: var(--sja-light-bg);
+    text-align: center;
+}
+
+.sja-review-scroll-hint {
+    color: var(--sja-grey);
+    font-size: 0.9rem;
+    margin-top: 8px;
+    display: block;
+}
+
+.sja-reviews-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    padding: 32px 4px 16px;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    text-align: left;
+}
+
+.sja-reviews-grid::-webkit-scrollbar { display: none; }
+
+.sja-review-card {
+    flex: 0 0 85%;
+    max-width: 400px;
+    scroll-snap-align: center;
+    background: #fff;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.sja-stars {
+    color: #FBBF24;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.sja-review-text {
+    font-size: 1.05rem;
+    color: var(--sja-dark-grey);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.sja-reviewer {
+    font-weight: 700;
+    color: var(--sja-black);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sja-reviewer::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--sja-yellow);
+    display: block;
+}
+
+.sja-reviewer span {
+    font-size: 0.85rem;
+    color: var(--sja-grey);
+    font-weight: 400;
+    display: block;
+}
+
+/* FAQ Section */
+.sja-faq {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.sja-faq h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sja-faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sja-faq-item {
+    border: 1px solid var(--sja-border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--sja-light-bg);
+}
+
+.sja-faq-summary {
+    padding: 20px 24px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--sja-black);
+}
+
+.sja-faq-summary::-webkit-details-marker {
+    display: none;
+}
+
+.sja-faq-summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--sja-orange);
+    transition: transform 0.3s ease;
+}
+
+.sja-pmt-wrapper details[open] .sja-faq-summary::after {
+    transform: rotate(45deg);
+}
+
+.sja-faq-content {
+    padding: 0 24px 24px;
+    color: var(--sja-dark-grey);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.sja-pmt-cta {
+    padding: 100px 0;
+    text-align: center;
+    background: var(--sja-black);
+    color: #fff;
+}
+
+.sja-pmt-cta h2 { color: #fff; }
+.sja-pmt-cta p { color: #ccc; font-size: 1.25rem; }
+
+.sja-cta-micro {
+    font-size: 1rem;
+    color: #aaa;
+    margin: 24px auto 40px;
+    max-width: 600px;
+}
+
+.sja-btn-cta-final {
+    background: var(--sja-yellow);
+    color: var(--sja-black);
+    font-size: 1.1rem;
+    padding: 18px 48px;
+    border-radius: 50px;
+    width: auto;
+    display: inline-block;
+}
+
+.sja-btn-cta-final:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+/* Media Queries for Desktop */
+@media (min-width: 768px) {
+    .sja-hero-flex {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .sja-hero-session-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .sja-btn-group {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    
+    .sja-btn-primary { width: auto; }
+    
+    .sja-demo-video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .sja-roadmap-summary {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .sja-roadmap-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .sja-final-prep {
+        text-align: left;
+        padding: 48px;
+    }
+    
+    .sja-final-prep .sja-roadmap-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .sja-review-card {
+        flex: 0 0 calc(50% - 12px);
+    }
+    .sja-review-scroll-hint { display: none; }
+}
+
+@media (min-width: 1024px) {
+    .sja-roadmap-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .sja-roadmap-component[data-component-panel="p1"] .sja-roadmap-grid,
+    .sja-roadmap-component[data-component-panel="p3"] .sja-roadmap-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .sja-roadmap-component[data-component-panel="s1"] .sja-roadmap-grid,
+    .sja-roadmap-component[data-component-panel="s2"] .sja-roadmap-grid,
+    .sja-roadmap-component[data-component-panel="m1"] .sja-roadmap-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .sja-review-card {
+        flex: 0 0 calc(33.333% - 16px);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="sja-pmt-wrapper">
+
+<section class="sja-pmt-hero">
+    <div class="sja-pmt-container">
+        <div class="sja-hero-flex">
+            <div class="sja-hero-text">
+                <div class="sja-mode-wrapper">
+                    <div class="sja-mode-pill sja-mode-physical">
+                        <span>📍 Karachi Campus</span>
+                    </div>
+                    <div class="sja-mode-divider"></div>
+                    <div class="sja-mode-pill sja-mode-online">
+                        <span class="sja-pulse"></span>
+                        <span>Live Online</span>
+                    </div>
+                </div>
+
+                <h1>Achieve <span class="sja-highlight">an A* in your A Level Maths exam</span></h1>
+                <h3>With Sir Salman Junaid <span class="sja-kgs-badge">Ex-KGS Faculty</span></h3>
+
+                <div class="sja-mentor-badge">NED University Engineer | 12+ Years Teaching Experience</div>
+
+                <p>
+                    Looking for an expert a level math tutor? Learn math a level with Sir Salman Junaid, the best math tutor and former Karachi Grammar School faculty. At our a level academy, we make abstract concepts visual, exam techniques precise, and past paper patterns easier to master through our top-rated a level math tuition.
+                </p>
+
+                <div style="display: inline-block; background: rgba(254, 97, 0, 0.1); border: 1px solid rgba(254, 97, 0, 0.2); padding: 8px 16px; border-radius: 8px; margin-bottom: 24px;">
+                    <span style="color: var(--sja-orange); font-size: 0.95rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">📅 May/June 2027 Registrations Open</span>
+                </div>
+
+                <div class="sja-btn-group" style="margin-top: 0;">
+                    <a href="https://www.sjacademy.pk/registration-form/" class="sja-btn-primary">Register Now</a>
+                    <a href="https://wa.me/923362144454" target="_blank" class="sja-btn-whatsapp">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="sja-mentor-img-wrapper">
+                <div class="sja-mentor-bg-shape"></div>
+                <img src="https://www.sjacademy.pk/wp-content/uploads/2025/06/salman-1-modified.png" loading="lazy" alt="Sir Salman Junaid - A Level Mathematics">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sja-demo-video">
+    <div class="sja-pmt-container">
+        <h2>A Level Math <span class="sja-highlight">Demo Classes</span></h2>
+
+        <div class="sja-demo-video-grid">
+            <div class="sja-demo-video-card">
+                <h3>AS Level Math</h3>
+                <div class="sja-demo-video-frame">
+                    <iframe src="https://www.youtube.com/embed/vx2UZDvAaHI" title="AS Level Mathematics Demo Video" loading="lazy" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="sja-demo-video-card">
+                <h3>A2 Level Math</h3>
+                <div class="sja-demo-video-frame">
+                    <iframe src="https://www.youtube.com/embed/-h6SyCRl55E" title="A2 Level Mathematics Demo Video" loading="lazy" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sja-pmt-roadmap">
+    <div class="sja-pmt-container">
+        <div class="sja-roadmap-head">
+            <h2>A Level Mathematics <span class="sja-highlight">Roadmap</span></h2>
+            <p>A structured month-by-month plan for P1, P3, S1, S2, and M1, followed by a shared final preparation phase for revision, yearly past papers, and exam workshops.</p>
+        </div>
+
+        <div class="sja-roadmap-tabs" role="tablist">
+            <button class="sja-roadmap-tab is-active" type="button" data-component="p1">P1 Plan</button>
+            <button class="sja-roadmap-tab" type="button" data-component="p3">P3 Plan</button>
+            <button class="sja-roadmap-tab" type="button" data-component="s1">S1 Plan</button>
+            <button class="sja-roadmap-tab" type="button" data-component="s2">S2 Plan</button>
+            <button class="sja-roadmap-tab" type="button" data-component="m1">M1 Plan</button>
+        </div>
+
+        <div class="sja-roadmap-summary">
+            <div class="sja-roadmap-summary-card">
+                <strong>Complete Coverage</strong>
+                <span>Pure, Statistics, and Mechanics components mapped out by month.</span>
+            </div>
+            <div class="sja-roadmap-summary-card">
+                <strong>Testing & Pre-Mocks</strong>
+                <span>Monthly tests and pre-mock exams built directly into the plan.</span>
+            </div>
+            <div class="sja-roadmap-summary-card">
+                <strong>Exam Preparation</strong>
+                <span>All components merge for revision, past papers, and workshops.</span>
+            </div>
+        </div>
+
+        <div class="sja-roadmap-component" data-component-panel="p1">
+            <div class="sja-roadmap-grid">
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>August</h3><span class="sja-roadmap-badge">P1</span></div>
+                    <ul><li>Quadratics</li><li>Functions</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>September</h3><span class="sja-roadmap-badge">P1</span></div>
+                    <ul><li>Co-ordinate Geometry</li><li>Circular Measure</li><li>Trigonometry</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>October</h3><span class="sja-roadmap-badge">P1</span></div>
+                    <ul><li>Binomial Theorem</li><li>Arithmetic Progression (AP)</li><li>Geometric Progression (GP)</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>November</h3><span class="sja-roadmap-badge">P1</span></div>
+                    <ul><li>1st Monthly Test</li><li>Differentiation</li><li>Integration</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>December</h3><span class="sja-roadmap-badge">P1</span></div>
+                    <ul><li>P1 Revision</li><li>Pre Mock Exam</li></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sja-roadmap-component" data-component-panel="p3" hidden>
+            <div class="sja-roadmap-grid">
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>August</h3><span class="sja-roadmap-badge">P3</span></div>
+                    <ul><li>Algebra</li><li>Logarithms</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>September</h3><span class="sja-roadmap-badge">P3</span></div>
+                    <ul><li>Trigonometry</li><li>Numerical Solutions</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>October</h3><span class="sja-roadmap-badge">P3</span></div>
+                    <ul><li>Differentiation</li><li>Integration</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>November</h3><span class="sja-roadmap-badge">P3</span></div>
+                    <ul><li>Differential Equations</li><li>Complex Numbers</li><li>1st Monthly Test</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>December</h3><span class="sja-roadmap-badge">P3</span></div>
+                    <ul><li>Vectors</li><li>Pre Mock Exam</li></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sja-roadmap-component" data-component-panel="s1" hidden>
+            <div class="sja-roadmap-grid">
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>January</h3><span class="sja-roadmap-badge">S1 Starts</span></div>
+                    <ul><li>Representation of Data</li><li>Permutations and Combinations</li><li>Discrete Random Variable</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>February</h3><span class="sja-roadmap-badge">S1</span></div>
+                    <ul><li>Normal Distribution</li></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sja-roadmap-component" data-component-panel="s2" hidden>
+            <div class="sja-roadmap-grid">
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>January</h3><span class="sja-roadmap-badge">S2</span></div>
+                    <ul><li>Poisson Distribution</li><li>Linear Combinations</li><li>Continuous Random Variable</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>February</h3><span class="sja-roadmap-badge">S2</span></div>
+                    <ul><li>Hypothesis Testing</li><li>Estimation</li><li>Sampling</li></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sja-roadmap-component" data-component-panel="m1" hidden>
+            <div class="sja-roadmap-grid">
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>January</h3><span class="sja-roadmap-badge">M1</span></div>
+                    <ul><li>Forces</li><li>Kinematics</li><li>Work, Energy and Power</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>February</h3><span class="sja-roadmap-badge">M1</span></div>
+                    <ul><li>Newton's Laws of Motion</li><li>Momentum</li></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sja-final-prep">
+            <h3>Final Preparation Phase</h3>
+            <p>Applies to all components: <strong>P1, P3, S1, S2 and M1</strong>. Students move into structured revision, yearly past papers, and final workshops together.</p>
+            <div class="sja-roadmap-grid">
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>March</h3><span class="sja-roadmap-badge">Revision</span></div>
+                    <ul><li>Topical Revision</li><li>Final Mock Exam</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>April</h3><span class="sja-roadmap-badge">Past Papers</span></div>
+                    <ul><li>Yearly Past Papers Crash Course</li></ul>
+                </div>
+                <div class="sja-roadmap-card">
+                    <div class="sja-roadmap-month"><h3>May</h3><span class="sja-roadmap-badge">Exams</span></div>
+                    <ul><li>5-Day Final Exam Workshops</li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sja-reviews">
+    <div class="sja-pmt-container">
+        <h2>Student Reviews</h2>
+        <p>Trusted by O/A Level students who want clear teaching, structure, and genuine support.</p>
+        <span class="sja-review-scroll-hint">← Swipe to view more reviews →</span>
+
+        <div class="sja-reviews-grid">
+            <div class="sja-review-card">
+                <div class="sja-stars">★★★★★</div>
+                <p class="sja-review-text">"Sir Salman has been so helpful throughout my A Level Math course. I've always been struggling with maths, but it's been so much more enjoyable for me because of his teaching style and commitment to the subject! He is so genuinely helpful."</p>
+                <div class="sja-reviewer">Mariam Ahmad <span>A Level Mathematics Student</span></div>
+            </div>
+            <div class="sja-review-card">
+                <div class="sja-stars">★★★★★</div>
+                <p class="sja-review-text">"A truly great math teacher, but above that, an even greater human being who deeply understands and cares for his students."</p>
+                <div class="sja-reviewer">Masood Siddiqui <span>A Level Mathematics Student</span></div>
+            </div>
+            <div class="sja-review-card">
+                <div class="sja-stars">★★★★★</div>
+                <p class="sja-review-text">"I am a private candidate, and studying on my own has been challenging. This academy has been extremely helpful. The classes are well-structured and scheduled properly. Sir Salman is always available to solve queries. To track progress, he conducts mocks and scores them. Overall, my experience has been excellent."</p>
+                <div class="sja-reviewer">Shahr Bano <span>Google Review</span></div>
+            </div>
+            <div class="sja-review-card">
+                <div class="sja-stars">★★★★★</div>
+                <p class="sja-review-text">"Sir Salman from SJ Academy is an outstanding math teacher! His ability to explain difficult concepts in a simple, understandable way is truly remarkable."</p>
+                <div class="sja-reviewer">Ayaan Iqbal <span>Google Review</span></div>
+            </div>
+            <div class="sja-review-card">
+                <div class="sja-stars">★★★★★</div>
+                <p class="sja-review-text">"I had a great experience studying at SJ Academy over the past 8 months. Sir Salman's methodical approach to Math helped me build a strong foundation."</p>
+                <div class="sja-reviewer">Mussawwir Khan Bazai <span>Google Review</span></div>
+            </div>
+            <div class="sja-review-card">
+                <div class="sja-stars">★★★★★</div>
+                <p class="sja-review-text">"I'm incredibly grateful to the teachers at SJ Academy; especially Sir Salman and Sir Riza. Their dedication, support, and clear guidance made a huge difference in my journey."</p>
+                <div class="sja-reviewer">Nabhan Paracha <span>Google Review</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sja-faq">
+    <div class="sja-pmt-container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="sja-faq-container">
+            <details class="sja-faq-item">
+                <summary class="sja-faq-summary">Do you cover the complete a level maths syllabus?</summary>
+                <div class="sja-faq-content">
+                    Yes, our roadmap is designed to cover the entire a level maths syllabus comprehensively. We break down complex topics month-by-month so you can learn at a steady, manageable pace before exams.
+                </div>
+            </details>
+            
+            <details class="sja-faq-item">
+                <summary class="sja-faq-summary">Will we solve maths a level past papers in class?</summary>
+                <div class="sja-faq-content">
+                    Absolutely. Once we complete the core concepts, we transition into a dedicated final preparation phase where we extensively practice maths a level past papers. We also provide resources and guidance on gce a level maths past papers to ensure you are fully prepared for any exam pattern.
+                </div>
+            </details>
+            
+            <details class="sja-faq-item">
+                <summary class="sja-faq-summary">Is this course suitable for further maths a level?</summary>
+                <div class="sja-faq-content">
+                    This particular roadmap and coaching program is heavily optimized for standard a level maths to help you secure an A*. If you are also studying further maths a level, the strong foundation built here will be incredibly beneficial, but please reach out to us directly for specific further maths resources.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section class="sja-pmt-cta">
+    <div class="sja-pmt-container">
+        <h2>Ready to Conquer A Level Mathematics?</h2>
+        <p>Stop letting abstract concepts and word problems hold back your grade.</p>
+        <div class="sja-cta-micro">Expert teaching from ex-KGS faculty, past paper mastery, and guaranteed understanding. Comprehensive past papers bank included.</div>
+
+        <a href="https://www.sjacademy.pk/registration-form/" class="sja-btn-cta-final">Join Class Now</a>
+
+        <div style="margin-top: 32px;">
+            <a href="https://wa.me/923362144454" target="_blank" class="sja-btn-whatsapp" style="padding: 12px 24px; font-size: 0.95rem;">
+                Chat on WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<script>
+document.querySelectorAll(".sja-roadmap-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+        const selected = tab.dataset.component;
+
+        // Update active tab state
+        document.querySelectorAll(".sja-roadmap-tab").forEach((item) => {
+            item.classList.toggle("is-active", item === tab);
+        });
+
+        // Show/hide panels
+        document.querySelectorAll("[data-component-panel]").forEach((panel) => {
+            if (panel.dataset.componentPanel === selected) {
+                panel.removeAttribute('hidden');
+                // Small animation effect
+                panel.style.opacity = 0;
+                setTimeout(() => {
+                    panel.style.transition = 'opacity 0.3s ease';
+                    panel.style.opacity = 1;
+                }, 10);
+            } else {
+                panel.setAttribute('hidden', '');
+            }
+        });
+    });
+});
+</script>

@@ -1,0 +1,1061 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 13,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-open\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-open",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-open\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-lab\"> is a timeline element that contains nested <div id=\"lab-scrim\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-lab",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-lab\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-wknd\"> is a timeline element that contains nested <div id=\"wk-scrim\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-wknd",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-wknd\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-wkdy\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-wkdy",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-wkdy\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-meth\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-meth",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-meth\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-fac\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-fac",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-fac\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-res\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-res",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-res\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-hadi\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-hadi",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-hadi\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-onl\"> is a timeline element that contains nested <div id=\"on-scrim\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-onl",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-onl\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-late\"> is a timeline element that contains nested <div id=\"la-g\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-late",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-late\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-board\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-board",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-board\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s-close\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s-close",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/reception-film/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s-close\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "GSAP target #bp3 .olt not found. https://gsap.com",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "118.0",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0,
+        "url": "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js",
+        "line": 9
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "GSAP target  not found. https://gsap.com",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "118.0",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0,
+        "url": "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js",
+        "line": 9
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "GSAP target  not found. https://gsap.com",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "118.0",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 111.444,
+        "url": "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js",
+        "line": 9
+      }
+    ]
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 2,
+    "warningCount": 0,
+    "infoCount": 16,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 45.889,
+        "selector": "#tl1 > div:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 351.36,
+          "top": 546.08,
+          "right": 528.48,
+          "bottom": 585.54,
+          "width": 177.12,
+          "height": 39.46
+        },
+        "containerSelector": "#tl1 > div:nth-of-type(3)",
+        "text": "Sir Kashaan",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 351.36,
+          "y": 546.08,
+          "width": 177.12,
+          "height": 39.46
+        },
+        "firstSeen": 45.851,
+        "lastSeen": 57.989,
+        "occurrences": 20,
+        "heldMs": 12137.999999999998,
+        "times": [
+          45.851,
+          45.889,
+          46.526,
+          47.2,
+          47.874,
+          48.549,
+          49.223,
+          49.897,
+          50.571,
+          51.246,
+          51.92,
+          52.594,
+          53.269,
+          53.943,
+          54.617,
+          55.291,
+          55.966,
+          56.64,
+          57.314,
+          57.989
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 46.526,
+        "selector": "#tl8 > div:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 350.15,
+          "top": 874.1,
+          "right": 510.62,
+          "bottom": 914.04,
+          "width": 160.47,
+          "height": 39.94
+        },
+        "containerSelector": "#tl8 > div:nth-of-type(3)",
+        "text": "Sir Aaliyan",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 350.15,
+          "y": 874.1,
+          "width": 160.47,
+          "height": 39.94
+        },
+        "firstSeen": 46.526,
+        "lastSeen": 57.989,
+        "occurrences": 18,
+        "heldMs": 11462.999999999995,
+        "times": [
+          46.526,
+          47.2,
+          47.874,
+          48.549,
+          49.223,
+          49.897,
+          50.571,
+          51.246,
+          51.92,
+          52.594,
+          53.269,
+          53.943,
+          54.617,
+          55.291,
+          55.966,
+          56.64,
+          57.314,
+          57.989
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 6.556,
+        "selector": "#bc-lab > span:nth-of-type(4) > span:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 818.77,
+          "top": 354.7,
+          "right": 1000.88,
+          "bottom": 654.7,
+          "width": 182.11,
+          "height": 300
+        },
+        "containerSelector": "#bc-lab > span:nth-of-type(4)",
+        "text": "0",
+        "fixHint": "Text is 182px x 300px inside 188px x 312px and overflows by up to 13px; increase the container height to at least ~325px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 815.77,
+          "top": 330,
+          "right": 1003.88,
+          "bottom": 642,
+          "width": 188.11,
+          "height": 312
+        },
+        "overflow": {
+          "bottom": 12.7
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 818.77,
+          "y": 354.7,
+          "width": 182.11,
+          "height": 300
+        },
+        "firstSeen": 6.556,
+        "lastSeen": 6.556,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.556
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 6.556,
+        "selector": "#bc-lab > span:nth-of-type(5) > span:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 1006.88,
+          "top": 380.15,
+          "right": 1188.98,
+          "bottom": 680.15,
+          "width": 182.1,
+          "height": 300
+        },
+        "containerSelector": "#bc-lab > span:nth-of-type(5)",
+        "text": "0",
+        "fixHint": "Text is 182px x 300px inside 188px x 312px and overflows by up to 38px; increase the container height to at least ~350px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 1003.88,
+          "top": 330,
+          "right": 1191.98,
+          "bottom": 642,
+          "width": 188.11,
+          "height": 312
+        },
+        "overflow": {
+          "bottom": 38.15
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1006.88,
+          "y": 380.15,
+          "width": 182.1,
+          "height": 300
+        },
+        "firstSeen": 6.556,
+        "lastSeen": 6.556,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.556
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 6.556,
+        "selector": "#bc-lab > span:nth-of-type(4) > span:nth-of-type(1)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 818.77,
+          "top": 354.7,
+          "right": 1000.88,
+          "bottom": 654.7,
+          "width": 182.11,
+          "height": 300
+        },
+        "containerSelector": "#bc-lab > span:nth-of-type(4)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 815.77,
+          "top": 330,
+          "right": 1003.88,
+          "bottom": 642,
+          "width": 188.11,
+          "height": 312
+        },
+        "overflow": {
+          "bottom": 12.7
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 818.77,
+          "y": 354.7,
+          "width": 182.11,
+          "height": 300
+        },
+        "firstSeen": 6.556,
+        "lastSeen": 6.556,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.556
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 6.556,
+        "selector": "#bc-lab > span:nth-of-type(5) > span:nth-of-type(1)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1006.88,
+          "top": 380.15,
+          "right": 1188.98,
+          "bottom": 680.15,
+          "width": 182.11,
+          "height": 300
+        },
+        "containerSelector": "#bc-lab > span:nth-of-type(5)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 1003.88,
+          "top": 330,
+          "right": 1191.98,
+          "bottom": 642,
+          "width": 188.11,
+          "height": 312
+        },
+        "overflow": {
+          "bottom": 38.15
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1006.88,
+          "y": 380.15,
+          "width": 182.11,
+          "height": 300
+        },
+        "firstSeen": 6.556,
+        "lastSeen": 6.556,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.556
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 45.889,
+        "selector": "#bc-fac > span:nth-of-type(1) > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 465.81,
+          "top": 227.69,
+          "right": 611.5,
+          "bottom": 576.33,
+          "width": 145.68,
+          "height": 348.64
+        },
+        "containerSelector": "#v17",
+        "text": "6",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.78,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 465.81,
+          "y": 227.69,
+          "width": 145.68,
+          "height": 348.64
+        },
+        "firstSeen": 45.889,
+        "lastSeen": 45.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.889
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 45.889,
+        "selector": "#bc-fac > span:nth-of-type(2) > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 616.48,
+          "top": 227.69,
+          "right": 679.24,
+          "bottom": 576.33,
+          "width": 62.76,
+          "height": 348.64
+        },
+        "containerSelector": "#v18",
+        "text": ":",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.67,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 616.48,
+          "y": 227.69,
+          "width": 62.76,
+          "height": 348.64
+        },
+        "firstSeen": 45.889,
+        "lastSeen": 45.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.889
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 45.889,
+        "selector": "#bc-fac > span:nth-of-type(3) > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 684.22,
+          "top": 227.69,
+          "right": 835.39,
+          "bottom": 576.33,
+          "width": 151.17,
+          "height": 348.64
+        },
+        "containerSelector": "#v18",
+        "text": "0",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.59,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 684.22,
+          "y": 227.69,
+          "width": 151.17,
+          "height": 348.64
+        },
+        "firstSeen": 45.889,
+        "lastSeen": 45.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.889
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 45.889,
+        "selector": "#tl0 > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 96.78,
+          "top": 542.24,
+          "right": 256.54,
+          "bottom": 581.94,
+          "width": 159.76,
+          "height": 39.7
+        },
+        "containerSelector": "#v16",
+        "text": "Sir Salman",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 96.78,
+          "y": 542.24,
+          "width": 159.76,
+          "height": 39.7
+        },
+        "firstSeen": 45.889,
+        "lastSeen": 45.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.889
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 45.889,
+        "selector": "#tl0 > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 96.78,
+          "top": 576.87,
+          "right": 258.52,
+          "bottom": 605.65,
+          "width": 161.75,
+          "height": 28.78
+        },
+        "containerSelector": "#v16",
+        "text": "Maths · Physics",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 96.78,
+          "y": 576.87,
+          "width": 161.75,
+          "height": 28.78
+        },
+        "firstSeen": 45.889,
+        "lastSeen": 45.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.889
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 45.889,
+        "selector": "#tl1 > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 351.36,
+          "top": 546.08,
+          "right": 528.48,
+          "bottom": 585.54,
+          "width": 177.13,
+          "height": 39.47
+        },
+        "containerSelector": "#v17",
+        "text": "Sir Kashaan",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 351.36,
+          "y": 546.08,
+          "width": 177.13,
+          "height": 39.47
+        },
+        "firstSeen": 45.889,
+        "lastSeen": 45.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.889
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 45.889,
+        "selector": "#tl1 > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 351.36,
+          "top": 549.91,
+          "right": 491.99,
+          "bottom": 609.12,
+          "width": 140.64,
+          "height": 59.2
+        },
+        "containerSelector": "#v17",
+        "text": "Islamiat · Pak Studies",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 351.36,
+          "y": 549.91,
+          "width": 140.64,
+          "height": 59.2
+        },
+        "firstSeen": 45.889,
+        "lastSeen": 45.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.889
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 45.889,
+        "selector": "#tl2 > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 606.32,
+          "top": 552.35,
+          "right": 710.4,
+          "bottom": 591.44,
+          "width": 104.08,
+          "height": 39.09
+        },
+        "containerSelector": "#v18",
+        "text": "Sir Riza",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 606.32,
+          "y": 552.35,
+          "width": 104.08,
+          "height": 39.09
+        },
+        "firstSeen": 45.889,
+        "lastSeen": 45.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.889
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 45.889,
+        "selector": "#tl2 > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 606.32,
+          "top": 586.45,
+          "right": 799.77,
+          "bottom": 614.79,
+          "width": 193.46,
+          "height": 28.34
+        },
+        "containerSelector": "#v18",
+        "text": "Computer Science",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 606.32,
+          "y": 586.45,
+          "width": 193.46,
+          "height": 28.34
+        },
+        "firstSeen": 45.889,
+        "lastSeen": 45.889,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          45.889
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 90.354,
+        "selector": "#la-b > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 96,
+          "top": 888.92,
+          "right": 689.88,
+          "bottom": 995.92,
+          "width": 593.88,
+          "height": 107
+        },
+        "containerSelector": "#la-n",
+        "text": "Post-study FIFA.",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 96,
+          "y": 888.92,
+          "width": 593.88,
+          "height": 107
+        },
+        "firstSeen": 90.354,
+        "lastSeen": 90.354,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          90.354
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 111.444,
+        "selector": "#c-h1",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 120,
+          "top": 412.59,
+          "right": 790.09,
+          "bottom": 510.5,
+          "width": 670.09,
+          "height": 97.91
+        },
+        "containerSelector": "#s-close > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 120,
+          "top": 300,
+          "right": 1200,
+          "bottom": 403.66,
+          "width": 1080,
+          "height": 103.66
+        },
+        "overflow": {
+          "bottom": 106.84
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 120,
+          "y": 412.59,
+          "width": 670.09,
+          "height": 97.91
+        },
+        "firstSeen": 111.444,
+        "lastSeen": 111.444,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          111.444
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 111.444,
+        "selector": "#c-h2",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 120,
+          "top": 516.25,
+          "right": 478.09,
+          "bottom": 614.15,
+          "width": 358.09,
+          "height": 97.91
+        },
+        "containerSelector": "#s-close > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(2)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 120,
+          "top": 403.66,
+          "right": 1200,
+          "bottom": 507.31,
+          "width": 1080,
+          "height": 103.66
+        },
+        "overflow": {
+          "bottom": 106.84
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 120,
+          "y": 516.25,
+          "width": 358.09,
+          "height": 97.91
+        },
+        "firstSeen": 111.444,
+        "lastSeen": 111.444,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          111.444
+        ]
+      }
+    ],
+    "duration": 118,
+    "samples": [
+      6.556,
+      19.667,
+      32.778,
+      45.889,
+      59,
+      72.111,
+      85.222,
+      98.333,
+      111.444
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 18,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      6.556,
+      32.778,
+      59,
+      85.222,
+      111.444
+    ],
+    "checked": 25,
+    "passed": 25
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

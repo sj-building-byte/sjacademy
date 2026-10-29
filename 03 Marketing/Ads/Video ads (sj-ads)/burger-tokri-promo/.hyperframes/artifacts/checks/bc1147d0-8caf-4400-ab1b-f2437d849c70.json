@@ -1,0 +1,248 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 2
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 3,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 1.9,
+        "selector": "#eyebrow",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 329.7,
+          "top": 1215.9,
+          "right": 820.56,
+          "bottom": 1283.1,
+          "width": 490.86,
+          "height": 67.2
+        },
+        "containerSelector": "#__hf_color_grading_fg",
+        "text": "Delivering Happiness",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 329.7,
+          "y": 1215.9,
+          "width": 490.86,
+          "height": 67.2
+        },
+        "firstSeen": 1.9,
+        "lastSeen": 3.167,
+        "occurrences": 4,
+        "heldMs": 1267,
+        "times": [
+          1.9,
+          2.322,
+          2.744,
+          3.167
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 1.9,
+        "selector": "#w1",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 333.93,
+          "top": 1262.1,
+          "right": 816.33,
+          "bottom": 1408.05,
+          "width": 482.39,
+          "height": 145.95
+        },
+        "containerSelector": "#__hf_color_grading_fg",
+        "text": "BURGER",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 333.93,
+          "y": 1262.1,
+          "width": 482.39,
+          "height": 145.95
+        },
+        "firstSeen": 1.9,
+        "lastSeen": 3.167,
+        "occurrences": 4,
+        "heldMs": 1267,
+        "times": [
+          1.9,
+          2.322,
+          2.744,
+          3.167
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 1.9,
+        "selector": "#w2",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 383.24,
+          "top": 1375.5,
+          "right": 767.02,
+          "bottom": 1521.45,
+          "width": 383.77,
+          "height": 145.95
+        },
+        "containerSelector": "#__hf_color_grading_fg",
+        "text": "TOKRI",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 383.24,
+          "y": 1375.5,
+          "width": 383.77,
+          "height": 145.95
+        },
+        "firstSeen": 1.9,
+        "lastSeen": 3.167,
+        "occurrences": 4,
+        "heldMs": 1267,
+        "times": [
+          1.9,
+          2.322,
+          2.744,
+          3.167
+        ]
+      }
+    ],
+    "duration": 3.8,
+    "samples": [
+      0.211,
+      0.633,
+      1.056,
+      1.478,
+      1.9,
+      2.322,
+      2.744,
+      3.167,
+      3.589
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.9:1; WCAG AA requires 3:1.",
+        "text": "Delivering Happiness",
+        "fg": "rgb(94,47,26)",
+        "bg": "rgb(138,129,124)",
+        "ratio": 2.9,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(91,45,25)",
+        "large": true,
+        "selector": "#eyebrow",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 329.70068359375,
+          "y": 1215.9000244140625,
+          "width": 490.85858154296875,
+          "height": 67.199951171875
+        },
+        "time": 1.9,
+        "times": [
+          1.9
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      0.211,
+      1.056,
+      1.9,
+      2.744,
+      3.589
+    ],
+    "checked": 11,
+    "passed": 10
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"BURGERTOKRI.COM\" (2 words) is on screen 1.17 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "BURGERTOKRI.COM",
+        "selector": "#url",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 326.06,
+          "y": 1779,
+          "width": 427.86000000000007,
+          "height": 37
+        },
+        "time": 2.636,
+        "words": 2,
+        "seconds": 1.168,
+        "floorSeconds": 2
+      }
+    ],
+    "enabled": true,
+    "step": 0.123,
+    "samples": 31
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

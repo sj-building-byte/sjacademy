@@ -1,0 +1,282 @@
+<!doctype html>
+<!-- Episode 7 only (Sunyyan, 24 Oct 2026): no diagram, 5-second countdown, number-trick reveal with tiles.
+     Timing: question 0-1.9s, countdown 2.2-7.2s, Time's up 7.2s, reveal 7.6-17s, end card 17-21s. -->
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Solve it in your head</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Medium.ttf") format("truetype"); font-weight: 500; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; }
+      @font-face { font-family: "Poppins"; src: url("assets/brand/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Caveat"; src: url("assets/brand/Caveat-600.woff2") format("woff2"); font-weight: 600; }
+      :root { --yellow: #FCE004; --ink: #151515; --canvas: #F7F5EF; --note: #B54200; --grey: #6a6a6a; --pen: #D63A2F; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--canvas); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Poppins", sans-serif; color: var(--ink); }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+      .abs { position: absolute; }
+      .ruled { background-color: var(--canvas); background-image: repeating-linear-gradient(to bottom, transparent 0 63px, rgba(21,21,21,0.06) 63px 65px); }
+      .ruled-y { background-color: var(--yellow); background-image: repeating-linear-gradient(to bottom, transparent 0 63px, rgba(21,21,21,0.07) 63px 65px); }
+      .mask { overflow: hidden; display: block; padding-bottom: 0.08em; }
+      .mask > span { display: block; }
+      .hlw { position: relative; z-index: 0; isolation: isolate; display: inline-block; }
+      .mk { position: absolute; left: -0.12em; right: -0.12em; top: 12%; bottom: 4%; background: var(--yellow); z-index: -1; transform-origin: left center; border-radius: 0.08em; }
+
+      #logo { top: 244px; left: 100px; width: 290px; opacity: 0; }
+      #tag { top: 250px; right: 100px; font-size: 26px; font-weight: 600; background: var(--ink); color: #fff; padding: 8px 20px; border-radius: 999px; opacity: 0; }
+      #tag b { color: var(--yellow); font-weight: 600; }
+
+      .head { top: 340px; left: 80px; right: 80px; text-align: center; }
+      .head .a { font-size: 86px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; }
+      .head .b { font-size: 50px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; color: var(--grey); }
+      #hr .a { font-size: 80px; }
+      #hr .b2 { font-size: 80px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; }
+
+      /* the question, typeset big: each digit in its own fixed box so the pen marks line up */
+      #hero { top: 600px; left: 255px; height: 300px; display: flex; align-items: flex-start; }
+      #hero .dg { width: 200px; height: 300px; overflow: hidden; text-align: center; }
+      #hero .dg > span { display: block; font-size: 300px; font-weight: 700; line-height: 300px; letter-spacing: -0.02em; }
+      #hero .dg + .dg { margin-left: 40px; }
+      #hero .sq { width: 130px; height: 150px; margin-top: 34px; overflow: hidden; }
+      #hero .sq > span { display: block; font-size: 140px; font-weight: 700; line-height: 150px; color: var(--pen); }
+      #ink { top: 0; left: 0; width: 1080px; height: 1920px; overflow: visible; pointer-events: none; }
+
+      #findx { top: 952px; left: 60px; right: 60px; text-align: center; font-size: 66px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+      #hint { top: 1170px; left: 726px; font-family: "Caveat", cursive; font-weight: 600; font-size: 56px; color: var(--note); opacity: 0; line-height: 1.0; }
+
+      #timer { top: 1100px; left: 0; right: 0; display: flex; justify-content: center; }
+      #tbox { position: relative; width: 290px; height: 290px; border-radius: 50%; background: var(--ink); opacity: 0; }
+      #tbox svg { position: absolute; inset: 0; width: 290px; height: 290px; transform: rotate(-90deg); }
+      #tnum { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 132px; font-weight: 700; letter-spacing: -0.04em; }
+      #tup { top: 1200px; left: 0; right: 0; display: flex; justify-content: center; }
+      #tup span { background: var(--pen); color: #fff; font-size: 54px; font-weight: 700; padding: 14px 40px; border-radius: 18px; opacity: 0; display: block; }
+
+      /* the trick as two joined tiles: [4 × 5][25] */
+      .tile { top: 1004px; height: 168px; display: flex; align-items: center; justify-content: center; font-size: 104px; font-weight: 700; letter-spacing: -0.03em; opacity: 0; }
+      #tl { left: 175px; width: 360px; background: var(--ink); color: var(--yellow); border-radius: 30px 0 0 30px; box-shadow: 0 24px 50px rgba(21,21,21,0.22); }
+      #tr { left: 535px; width: 340px; background: var(--yellow); color: var(--ink); border-radius: 0 30px 30px 0; box-shadow: 0 24px 50px rgba(21,21,21,0.16); }
+      .note { top: 1186px; font-family: "Caveat", cursive; font-weight: 600; font-size: 58px; color: var(--pen); text-align: center; opacity: 0; line-height: 1; }
+      #nl { left: 175px; width: 360px; }
+      #nr { left: 535px; width: 340px; }
+
+      #steps { top: 1290px; left: 150px; right: 100px; counter-reset: st; }
+      .stp { font-size: 42px; font-weight: 600; line-height: 1.5; padding-bottom: 6px; counter-increment: st; }
+      .stp > span { display: flex !important; align-items: center; gap: 22px; }
+      .stp > span::before { content: counter(st); flex: none; width: 56px; height: 56px; border-radius: 50%; background: var(--ink); color: var(--yellow); font-size: 30px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+      .stp:last-child > span::before { background: var(--yellow); color: var(--ink); }
+
+      #ans { top: 1530px; left: 0; right: 0; display: flex; justify-content: center; }
+      #ans-card { background: var(--ink); color: var(--yellow); border-radius: 30px; padding: 6px 50px 14px; font-size: 92px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; opacity: 0; box-shadow: 0 30px 70px rgba(21,21,21,0.25); white-space: nowrap; }
+
+      /* tip card: the same tiles, worked for other numbers */
+      #tip { top: 1000px; left: 90px; right: 90px; background: #fff; border-radius: 30px; padding: 30px 40px 18px; box-shadow: 0 30px 70px rgba(21,21,21,0.14), 0 2px 6px rgba(21,21,21,0.06); opacity: 0; }
+      #tip .k { font-size: 32px; font-weight: 600; color: var(--grey); padding-bottom: 10px; }
+      #tip .r { display: flex; align-items: center; height: 116px; border-top: 2px solid rgba(21,21,21,0.08); opacity: 0; }
+      #tip .r b { width: 200px; font-size: 64px; font-weight: 700; letter-spacing: -0.03em; }
+      #tip .r .tl, #tip .r .tr { font-style: normal; font-size: 46px; font-weight: 700; height: 76px; display: flex; align-items: center; padding: 0 22px; }
+      #tip .r .tl { background: var(--ink); color: var(--yellow); border-radius: 16px 0 0 16px; }
+      #tip .r .tr { background: var(--yellow); border-radius: 0 16px 16px 0; }
+      #tip .r em { margin-left: auto; font-style: normal; font-size: 54px; font-weight: 700; letter-spacing: -0.02em; }
+
+      #e-logo { top: 270px; left: 0; right: 0; display: flex; justify-content: center; }
+      #e-logo img { width: 520px; opacity: 0; }
+      #e-words { top: 520px; left: 60px; right: 60px; text-align: center; }
+      #e-words .a { font-size: 92px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.12; color: rgba(21,21,21,0.55); }
+      #e-words .b { font-size: 118px; font-weight: 700; letter-spacing: -0.045em; line-height: 1.06; }
+      #e-pill { top: 860px; left: 0; right: 0; display: flex; justify-content: center; }
+      #e-pill span { background: var(--ink); color: var(--yellow); font-size: 54px; font-weight: 600; padding: 20px 50px; border-radius: 999px; opacity: 0; display: block; }
+      #e-ans { top: 1080px; left: 0; right: 0; display: flex; justify-content: center; }
+      #e-ans-c { background: #fff; border-radius: 30px; padding: 26px 56px 30px; text-align: center; box-shadow: 0 30px 70px rgba(21,21,21,0.18); opacity: 0; }
+      #e-ans .k { font-size: 30px; font-weight: 600; color: var(--grey); }
+      #e-ans .v { font-size: 110px; font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; white-space: nowrap; }
+      #e-save { top: 1420px; left: 0; right: 0; text-align: center; font-family: "Caveat", cursive; font-weight: 600; font-size: 70px; opacity: 0; }
+      #e-handle { top: 1530px; left: 0; right: 0; text-align: center; font-size: 40px; font-weight: 600; opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="21" data-width="1080" data-height="1920">
+      <!-- sound: no music in this series; desk sounds and the sonic logo only -->
+      <audio id="sx-draw" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="0.3" data-duration="0.55" data-track-index="10" data-volume="0.45"></audio>
+      <audio id="sx-t0" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="2.2" data-duration="0.08" data-track-index="11" data-volume="0.6"></audio>
+      <audio id="sx-t1" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="3.2" data-duration="0.08" data-track-index="11" data-volume="0.6"></audio>
+      <audio id="sx-t2" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="4.2" data-duration="0.08" data-track-index="11" data-volume="0.8"></audio>
+      <audio id="sx-t3" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="5.2" data-duration="0.08" data-track-index="11" data-volume="0.8"></audio>
+      <audio id="sx-t4" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="6.2" data-duration="0.08" data-track-index="11" data-volume="0.8"></audio>
+      <audio id="sx-up" src="assets/sfx/sj-sfx-stamp.wav" data-start="7.2" data-duration="0.48" data-track-index="10" data-volume="0.6"></audio>
+      <audio id="sx-hl" src="assets/sfx/sj-sfx-highlighter-swipe.wav" data-start="8.2" data-duration="0.38" data-track-index="10" data-volume="0.5"></audio>
+      <audio id="sx-pen" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="8.6" data-duration="0.55" data-track-index="10" data-volume="0.45"></audio>
+      <audio id="sx-tile" src="assets/sfx/sj-sfx-stamp.wav" data-start="10.3" data-duration="0.48" data-track-index="10" data-volume="0.4"></audio>
+      <audio id="sx-ans" src="assets/sfx/sj-sfx-stamp.wav" data-start="11.9" data-duration="0.48" data-track-index="10" data-volume="0.7"></audio>
+      <audio id="sx-tip" src="assets/sfx/sj-sfx-paper-slide.wav" data-start="13.4" data-duration="0.5" data-track-index="10" data-volume="0.35"></audio>
+      <audio id="sx-logo" src="assets/sfx/sj-sonic-logo-short.wav" data-start="17.25" data-duration="2" data-track-index="12" data-volume="0.9"></audio>
+      <!-- extra cues for #7 (Sunyyan, 24 Oct 2026): SJ's own synthesised fx from explainer-ped; whoosh and riser normalised to -6 dB peak.
+           Each one sits on a visible action. Still no music. -->
+      <audio id="fx-sq" src="assets/sfx/fx-thud.wav" data-start="0.75" data-duration="0.35" data-track-index="13" data-volume="0.35"></audio>
+      <audio id="fx-ring" src="assets/sfx/fx-pop.wav" data-start="1.85" data-duration="0.09" data-track-index="13" data-volume="0.45"></audio>
+      <audio id="fx-rise" src="assets/sfx/fx-riser.wav" data-start="5.9" data-duration="1.3" data-track-index="14" data-volume="0.35"></audio>
+      <audio id="fx-split" src="assets/sfx/fx-whoosh.wav" data-start="8.2" data-duration="0.7" data-track-index="14" data-volume="0.3"></audio>
+      <audio id="fx-s0" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="8.8" data-duration="0.08" data-track-index="11" data-volume="0.45"></audio>
+      <audio id="fx-a1" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="9.3" data-duration="0.3" data-track-index="13" data-volume="0.3"></audio>
+      <audio id="fx-tl" src="assets/sfx/fx-thud.wav" data-start="9.5" data-duration="0.35" data-track-index="14" data-volume="0.45"></audio>
+      <audio id="fx-a2" src="assets/sfx/sj-sfx-pen-circle.wav" data-start="10.0" data-duration="0.3" data-track-index="13" data-volume="0.3"></audio>
+      <audio id="fx-s1" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="10.35" data-duration="0.08" data-track-index="11" data-volume="0.45"></audio>
+      <audio id="fx-s2" src="assets/sfx/sj-sfx-pen-tick.wav" data-start="11.2" data-duration="0.08" data-track-index="11" data-volume="0.45"></audio>
+      <audio id="fx-turn" src="assets/sfx/fx-chime.wav" data-start="11.95" data-duration="1" data-track-index="14" data-volume="0.3"></audio>
+      <audio id="fx-r0" src="assets/sfx/fx-pop.wav" data-start="13.75" data-duration="0.09" data-track-index="13" data-volume="0.35"></audio>
+      <audio id="fx-r1" src="assets/sfx/fx-pop.wav" data-start="14.1" data-duration="0.09" data-track-index="13" data-volume="0.35"></audio>
+      <audio id="fx-r2" src="assets/sfx/fx-pop.wav" data-start="14.45" data-duration="0.09" data-track-index="13" data-volume="0.35"></audio>
+      <audio id="fx-pill" src="assets/sfx/sj-sfx-stamp.wav" data-start="18.1" data-duration="0.48" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="fx-card" src="assets/sfx/sj-sfx-paper-slide.wav" data-start="18.3" data-duration="0.5" data-track-index="13" data-volume="0.25"></audio>
+      <audio id="fx-save" src="assets/sfx/fx-twinkle.wav" data-start="18.9" data-duration="0.55" data-track-index="14" data-volume="0.2"></audio>
+
+      <div id="s1" class="clip ruled" data-start="0" data-duration="17" data-track-index="1">
+        <img id="logo" class="abs" src="assets/brand/sj-academy-logo-horizontal-on-light.svg" alt="SJ Academy">
+        <div id="tag" class="abs">Solve it in your head · <b>#{{NUM}}</b></div>
+
+        <div class="head abs" id="hq">
+          <div class="mask a"><span id="hq1">5 seconds.</span></div>
+          <div class="mask b"><span id="hq2">No pen. No calculator.</span></div>
+        </div>
+        <div class="head abs" id="hr">
+          <div class="mask a"><span id="hr1">{{TRICK1}}</span></div>
+          <div class="mask b2"><span id="hr2">{{TRICK2}}</span></div>
+        </div>
+
+        <div id="hero" class="abs">
+          <div class="dg" id="g1"><span id="d1">4</span></div>
+          <div class="dg" id="g2"><span id="d2">5</span></div>
+          <div class="sq" id="g3"><span id="d3">2</span></div>
+        </div>
+
+        <svg id="ink" class="abs" viewBox="0 0 1080 1920" data-layout-allow-overflow>
+          <!-- pen loop round the 4, then arrows down into the tiles -->
+          <path id="r1" d="M 339.8 612.1 L 356.0 610.0 L 371.8 610.5 L 386.9 613.8 L 401.1 619.6 L 414.2 628.0 L 426.3 638.7 L 437.3 651.6 L 447.0 666.3 L 455.4 682.7 L 462.4 700.4 L 467.8 719.0 L 471.2 738.3 L 472.6 757.7 L 471.6 777.0 L 468.1 795.8 L 462.0 813.7 L 453.4 830.3 L 442.5 845.3 L 429.5 858.5 L 414.9 869.5 L 399.2 878.2 L 382.9 884.4 L 366.3 887.9 L 350.0 888.7 L 334.2 886.7 L 319.2 882.1 L 305.3 874.8 L 292.4 865.1 L 280.6 853.0 L 270.1 838.9 L 260.8 823.0 L 252.9 805.6 L 246.6 787.1 L 242.1 767.8 L 239.7 748.0 L 239.5 728.2 L 241.8 708.8 L 246.7 690.1 L 254.2 672.5 L 264.2 656.3 L 276.3 641.9 L 290.4 629.6 L 305.9 619.5 L 322.2 611.9 L 339.1 607.0 L 355.9 604.8 L 372.2 605.4 L 387.9 608.7" fill="none" stroke="#D63A2F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1"/>
+          <path id="r2" d="M 356 904 L 357 984 M 334 960 L 357 986 L 380 960" fill="none" stroke="#D63A2F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1"/>
+          <path id="r3" d="M 612 878 Q 692 898 702 982 M 676 964 L 703 986 L 722 958" fill="none" stroke="#D63A2F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1"/>
+        </svg>
+
+        <div id="findx" class="abs"><div class="mask"><span id="fx">{{QUESTION}}</span></div></div>
+        <div id="hint" class="abs">{{HINT}}</div>
+
+        <div id="tl" class="tile abs">4 × 5</div>
+        <div id="tr" class="tile abs">25</div>
+        <div id="nl" class="note abs">4 × (4 + 1)</div>
+        <div id="nr" class="note abs">always 25</div>
+
+        <div id="steps" class="abs">
+          {{STEPS}}
+        </div>
+
+        <div id="timer" class="abs"><div id="tbox">
+          <svg viewBox="0 0 250 250"><circle cx="125" cy="125" r="100" fill="none" stroke="#3a3a3a" stroke-width="14"/>
+            <circle id="ring" cx="125" cy="125" r="100" fill="none" stroke="#FCE004" stroke-width="14" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0"/></svg>
+          <div id="tnum">5</div>
+        </div></div>
+        <div id="tup" class="abs"><span id="tup-s">Time's up.</span></div>
+
+        <div id="ans" class="abs"><div id="ans-card">{{CARD}}</div></div>
+        <div id="tip" class="abs"><div class="k">{{TIPTITLE}}</div>{{TIPROWS}}</div>
+      </div>
+
+      <div id="s2" class="clip ruled-y" data-start="17" data-duration="4" data-track-index="1">
+        <div id="e-logo" class="abs"><img id="e-logo-img" src="assets/brand/sj-academy-logo-horizontal-on-yellow.svg" alt="SJ Academy"></div>
+        <div id="e-words" class="abs">
+          <div class="mask a"><span id="ew1">{{END1}}</span></div>
+          <div class="mask b"><span id="ew2">{{END2}}</span></div>
+        </div>
+        <div id="e-pill" class="abs"><span id="e-pill-s">{{PILL}}</span></div>
+        <div id="e-ans" class="abs"><div id="e-ans-c"><div class="k">The answer</div><div class="v">{{ENDV}}</div></div></div>
+        <div id="e-save" class="abs">Save it for your next test.</div>
+        <div id="e-handle" class="abs">@sjacademypk</div>
+      </div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const ENTER = "expo.out", EXIT = "expo.in";
+      const maskUp = (sel, t, d = 0.45) => tl.fromTo(sel, { yPercent: 115 }, { yPercent: 0, duration: d, ease: ENTER }, t);
+      const maskOut = (sel, t) => tl.to(sel, { yPercent: -115, duration: 0.3, ease: EXIT }, t);
+      const swipe = (sel, t, d = 0.3) => tl.fromTo(sel, { scaleX: 0 }, { scaleX: 1, duration: d, ease: "power2.out" }, t);
+      const pen = (sel, t, d) => tl.fromTo(sel, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d, ease: "sine.inOut" }, t);
+      const pop = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, t);
+      const stamp = (sel, t, rot) => {
+        tl.fromTo(sel, { scale: 1.35, opacity: 0, rotation: rot }, { scale: 1, opacity: 1, duration: 0.14, ease: "back.out(1.7)" }, t);
+        tl.fromTo(sel, { x: -3 }, { x: 3, duration: 0.033, repeat: 3, yoyo: true, ease: "none" }, t + 0.14);
+        tl.to(sel, { x: 0, duration: 0.01 }, t + 0.28);
+      };
+
+      // the question: 45² written big, then the line under it
+      tl.fromTo("#logo", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.4, ease: ENTER }, 0);
+      tl.fromTo("#tag", { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.4, ease: ENTER }, 0.05);
+      maskUp("#hq1", 0.0);
+      maskUp("#hq2", 0.15);
+      tl.set(["#hr1", "#hr2", "#st0", "#st1", "#st2"], { yPercent: 115 }, 0);
+      tl.set(["#hr", "#steps"], { opacity: 0 }, 0);
+      maskUp("#d1", 0.3, 0.55);
+      maskUp("#d2", 0.45, 0.55);
+      maskUp("#d3", 0.75, 0.5);
+      maskUp("#fx", 1.3);
+
+      // five seconds
+      tl.fromTo("#tbox", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 1.85);
+      tl.fromTo("#ring", { strokeDashoffset: 0 }, { strokeDashoffset: 1, duration: 5, ease: "none" }, 2.2);
+      const clock = { v: 5 };
+      tl.fromTo(clock, { v: 5 }, { v: 0, duration: 5, ease: "none", onUpdate: () => { document.getElementById("tnum").textContent = Math.ceil(clock.v - 1e-6); } }, 2.2);
+      for (let i = 0; i < 5; i++) tl.fromTo("#tnum", { scale: 1.18 }, { scale: 1, duration: 0.3, ease: "power2.out" }, 2.2 + i);
+      tl.to("#ring", { stroke: "#D63A2F", duration: 0.2 }, 4.2);
+      tl.fromTo("#hint", { opacity: 0, rotation: -12, scale: 0.9 }, { opacity: 1, rotation: -5, scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 4.2);
+      tl.fromTo("#hero", { scale: 1 }, { scale: 1.03, duration: 0.5, repeat: 9, yoyo: true, ease: "sine.inOut", transformOrigin: "50% 50%" }, 2.2);
+      tl.to("#tbox", { opacity: 0, scale: 0.8, duration: 0.2, ease: EXIT }, 7.2);
+      stamp("#tup-s", 7.2, -4);
+      tl.to("#tup-s", { opacity: 0, duration: 0.2 }, 7.95);
+      tl.to("#hint", { opacity: 0, duration: 0.15 }, 7.05);
+
+      // the reveal: trick headline, circle the 4, split into tiles, steps, your turn
+      maskOut("#hq1", 7.6);
+      maskOut("#hq2", 7.65);
+      tl.set(["#hq1", "#hq2"], { opacity: 0 }, 7.96);
+      tl.set("#hr", { opacity: 1 }, 7.84);
+      maskUp("#hr1", 7.85);
+      maskUp("#hr2", 8.0);
+      swipe("#mk-r", 8.2, 0.35);
+      maskOut("#fx", 7.7);
+      tl.set("#fx", { opacity: 0 }, 8.01);
+
+      // 45 reads as one number during the question; the 4 and 5 part just before the pen circles the 4
+      tl.fromTo("#g1", { x: 20 }, { x: 0, duration: 0.35, ease: "power3.inOut" }, 8.2);
+      tl.fromTo(["#g2", "#g3"], { x: -20 }, { x: 0, duration: 0.35, ease: "power3.inOut" }, 8.2);
+      pen("#r1", 8.6, 0.5);
+      tl.set("#steps", { opacity: 1 }, 8.75);
+      maskUp("#st0", 8.8);
+      pen("#r2", 9.3, 0.3);
+      tl.fromTo("#tl", { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 9.5);
+      tl.fromTo("#nl", { opacity: 0, rotation: -6 }, { opacity: 1, rotation: -2, duration: 0.3, ease: "back.out(1.7)" }, 9.8);
+      pen("#r3", 10.0, 0.3);
+      stamp("#tr", 10.3, 4);
+      tl.to("#tr", { rotation: 0, duration: 0.2, ease: "power2.out" }, 10.6);
+      maskUp("#st1", 10.35);
+      tl.fromTo("#nr", { opacity: 0, rotation: 6 }, { opacity: 1, rotation: 2, duration: 0.3, ease: "back.out(1.7)" }, 10.6);
+      maskUp("#st2", 11.2);
+      stamp("#ans-card", 11.9, 5);
+
+      // tip card: the same tiles for other numbers
+      tl.to(["#ans-card", "#steps", "#tl", "#tr", "#nl", "#nr", "#r2", "#r3"], { opacity: 0, y: -30, duration: 0.25, ease: EXIT }, 13.15);
+      tl.fromTo("#tip", { opacity: 0, y: 120, rotation: 3 }, { opacity: 1, y: 0, rotation: 0, duration: 0.6, ease: ENTER }, 13.4);
+      tl.fromTo("#tip .r", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, ease: ENTER, stagger: 0.35 }, 13.75);
+
+      // end card, sonic logo lands with the logo
+      tl.fromTo("#e-logo-img", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: ENTER }, 17.1);
+      maskUp("#ew1", 17.4);
+      maskUp("#ew2", 17.55);
+      stamp("#e-pill-s", 18.1, -3);
+      tl.fromTo("#e-ans-c", { opacity: 0, y: 60, rotation: 3 }, { opacity: 1, y: 0, rotation: -2, duration: 0.6, ease: ENTER }, 18.3);
+      tl.fromTo("#e-save", { opacity: 0, rotation: -8 }, { opacity: 1, rotation: -3, duration: 0.35, ease: "back.out(1.7)" }, 18.9);
+      tl.fromTo("#e-handle", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: ENTER }, 19.2);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
