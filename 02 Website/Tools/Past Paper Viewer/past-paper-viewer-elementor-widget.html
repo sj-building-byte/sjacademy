@@ -131,52 +131,75 @@
   var root = document.getElementById('sjpv');
   if (!root) return;
   /* ---- DATA: edit here ----
-     BASE is the folder that holds your past paper PDFs. Each paper below is built
-     from the live file pattern: BASE/A+Level/Subject+%28code%29/May+June+2024/9609_s24_qp_12.pdf
+     BASE is the folder that holds your past paper PDFs. Each file is built from the live pattern:
+     BASE/A+Level/Subject+%28code%29/May+June+2024/9609_s24_qp_12.pdf (qp question paper, ms mark scheme, in insert, ci confidential instructions)
      buildData() returns { Level: { Subject: { "2024 May/June": { "Paper 1, Variant 2": { paper, ms, insert?, ci? } } } } }
      To use a database instead, replace buildData() with your own object of the same shape. */
   var BASE = 'https://sjacademy.pk/file/Past-papers-storage';
   var SESSIONS = [{ code: 'w', label: 'Oct/Nov', folder: 'October+November' }, { code: 's', label: 'May/June', folder: 'May+June' }];
   var YEARS = [2025, 2024, 2023, 2022, 2021, 2020];
+  var QM = { 1: 'qp ms', 2: 'qp ms' };
+  var QMI = { 1: 'qp ms in', 2: 'qp ms in' };
+  var QM2I = { 1: 'qp ms', 2: 'qp ms in' };
   var STD = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' };
   var SCI = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms in ci', 4: 'qp ms', 5: 'qp ms' };
-  var SUBJECTS = [
-    { name: 'Accounts', folder: 'Accounts (9706)', code: '9706', papers: STD },
-    { name: 'Biology', folder: 'Biology (9700)', code: '9700', papers: SCI },
-    { name: 'Business', folder: 'Business (9609)', code: '9609', papers: STD },
-    { name: 'Chemistry', folder: 'Chemistry (9701)', code: '9701', papers: SCI },
-    { name: 'Computer Science', folder: 'Computer Science (9618)', code: '9618', papers: STD },
-    { name: 'Economics', folder: 'Economics (9708)', code: '9708', papers: STD },
-    { name: 'English', folder: 'English (9695)', code: '9695', papers: STD },
-    { name: 'Law', folder: 'Law (9084)', code: '9084', papers: STD },
-    { name: 'Mathematics', folder: 'Mathematics (9709)', code: '9709', papers: { 1: 'qp ms', 3: 'qp ms', 4: 'qp ms', 5: 'qp ms', 6: 'qp ms' } },
-    { name: 'Physics', folder: 'Physics (9702)', code: '9702', papers: SCI },
-    { name: 'Psychology', folder: 'Psychology (9990)', code: '9990', papers: STD },
-    { name: 'Sociology', folder: 'Sociology (9699)', code: '9699', papers: STD },
-    { name: 'Urdu', folder: 'Urdu (9686)', code: '9686', variants: [2, 3], papers: { 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' } }
+  var OSCI = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms ci', 4: 'qp ms' };
+  var LEVELS = [
+    { name: 'A Level', folder: 'A+Level', variants: [1, 2, 3], subjects: [
+      { name: 'Accounts', folder: 'Accounts (9706)', code: '9706', papers: STD },
+      { name: 'Biology', folder: 'Biology (9700)', code: '9700', papers: SCI },
+      { name: 'Business', folder: 'Business (9609)', code: '9609', papers: STD },
+      { name: 'Chemistry', folder: 'Chemistry (9701)', code: '9701', papers: SCI },
+      { name: 'Computer Science', folder: 'Computer Science (9618)', code: '9618', papers: STD },
+      { name: 'Economics', folder: 'Economics (9708)', code: '9708', papers: STD },
+      { name: 'English', folder: 'English (9695)', code: '9695', papers: STD },
+      { name: 'Law', folder: 'Law (9084)', code: '9084', papers: STD },
+      { name: 'Mathematics', folder: 'Mathematics (9709)', code: '9709', papers: { 1: 'qp ms', 3: 'qp ms', 4: 'qp ms', 5: 'qp ms', 6: 'qp ms' } },
+      { name: 'Physics', folder: 'Physics (9702)', code: '9702', papers: SCI },
+      { name: 'Psychology', folder: 'Psychology (9990)', code: '9990', papers: STD },
+      { name: 'Sociology', folder: 'Sociology (9699)', code: '9699', papers: STD },
+      { name: 'Urdu', folder: 'Urdu (9686)', code: '9686', variants: [2, 3], papers: { 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' } }
+    ] },
+    { name: 'O Level', folder: 'O+Level', variants: [1, 2], subjects: [
+      { name: 'Accounting', folder: 'Accounting (7707)', code: '7707', papers: QM2I },
+      { name: 'Biology', folder: 'Biology (5090)', code: '5090', papers: { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms ci', 6: 'qp ms' } },
+      { name: 'Business Studies', folder: 'Business Studies (7115)', code: '7115', papers: QMI },
+      { name: 'Chemistry', folder: 'Chemistry (5070)', code: '5070', papers: OSCI },
+      { name: 'Computer Science', folder: 'Computer Science (2210)', code: '2210', papers: QM2I },
+      { name: 'Economics', folder: 'Economics (2281)', code: '2281', papers: QM2I },
+      { name: 'English Language', folder: 'English Language (1123)', code: '1123', papers: QMI },
+      { name: 'Islamiyat', folder: 'Islamiyat (2058)', code: '2058', papers: QM },
+      { name: 'Mathematics D', folder: 'Mathematics D (4024)', code: '4024', papers: QM },
+      { name: 'Pakistan Studies', folder: 'Pakistan Studies (2059)', code: '2059', papers: QMI },
+      { name: 'Physics', folder: 'Physics (5054)', code: '5054', papers: OSCI },
+      { name: 'Urdu Second Language', folder: 'Urdu Second Language (3248)', code: '3248', papers: QM }
+    ] }
   ];
   function buildData() {
-    var out = { 'A Level': {} };
-    SUBJECTS.forEach(function (s) {
-      var variants = s.variants || [1, 2, 3];
-      var folder = s.folder.replace(/ /g, '+').replace(/\(/g, '%28').replace(/\)/g, '%29');
-      var subj = (out['A Level'][s.name] = {});
-      YEARS.forEach(function (y) {
-        SESSIONS.forEach(function (se) {
-          var list = {};
-          Object.keys(s.papers).forEach(function (p) {
-            var types = s.papers[p].split(' ');
-            variants.forEach(function (v) {
-              var file = function (t) {
-                return BASE + '/A+Level/' + folder + '/' + se.folder + '+' + y + '/' + s.code + '_' + se.code + String(y).slice(-2) + '_' + t + '_' + p + v + '.pdf';
-              };
-              var e = { paper: file('qp'), ms: file('ms') };
-              if (types.indexOf('in') > -1) e.insert = file('in');
-              if (types.indexOf('ci') > -1) e.ci = file('ci');
-              list['Paper ' + p + ', Variant ' + v] = e;
+    var out = {};
+    LEVELS.forEach(function (lv) {
+      var lvl = (out[lv.name] = {});
+      lv.subjects.forEach(function (s) {
+        var variants = s.variants || lv.variants;
+        var folder = s.folder.replace(/ /g, '+').replace(/\(/g, '%28').replace(/\)/g, '%29');
+        var subj = (lvl[s.name] = {});
+        YEARS.forEach(function (y) {
+          SESSIONS.forEach(function (se) {
+            var list = {};
+            Object.keys(s.papers).forEach(function (p) {
+              var types = s.papers[p].split(' ');
+              variants.forEach(function (v) {
+                var file = function (t) {
+                  return BASE + '/' + lv.folder + '/' + folder + '/' + se.folder + '+' + y + '/' + s.code + '_' + se.code + String(y).slice(-2) + '_' + t + '_' + p + v + '.pdf';
+                };
+                var e = { paper: file('qp'), ms: file('ms') };
+                if (types.indexOf('in') > -1) e.insert = file('in');
+                if (types.indexOf('ci') > -1) e.ci = file('ci');
+                list['Paper ' + p + ', Variant ' + v] = e;
+              });
             });
+            subj[y + ' ' + se.label] = list;
           });
-          subj[y + ' ' + se.label] = list;
         });
       });
     });
