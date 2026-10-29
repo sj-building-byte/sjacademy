@@ -140,7 +140,7 @@
 <div class="sjpv-band-in">
 <h2 class="sjpv-band-title">Know the content but still losing marks?</h2>
 <p class="sjpv-band-text">SJ Academy teaches O and A Level in class at DHA Phase 7, Karachi, and live online. Past-paper practice is marked to the mark scheme, with feedback on lost marks. Book a free demo class.</p>
-<div class="sjpv-band-row"><a class="sjpv-cta" id="sjpv-wa" href="https://wa.me/923362144454" target="_blank" rel="noopener" data-loc="viewer_band" aria-label="Message us on WhatsApp">Message us on WhatsApp</a><a class="sjpv-ghost" href="https://www.sjacademy.pk/" data-event="homepage_click" data-loc="viewer_band" aria-label="Explore SJ Academy">Explore SJ Academy</a></div>
+<div class="sjpv-band-row"><a class="sjpv-cta" id="sjpv-wa" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%27d%20like%20to%20book%20a%20free%20demo%20class.%0AMode%20%28in%20class%20or%20online%29%3A%20%0A%28Ref%3A%20PPV-END%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="viewer_band" aria-label="Message us on WhatsApp">Message us on WhatsApp</a><a class="sjpv-ghost" href="https://www.sjacademy.pk/" data-event="homepage_click" data-loc="viewer_band" aria-label="Explore SJ Academy">Explore SJ Academy</a></div>
 </div>
 </section>
 <nav class="sjpv-bar" id="sjpv-bar" aria-label="Switch document" hidden></nav>
@@ -323,9 +323,9 @@
   }
   function focusAction() { if (actions.firstChild) actions.firstChild.focus(); }
   function waLink() {
-    var msg = 'Hi SJ Academy, I was using the past paper viewer on your website';
-    if (selSubject.value) msg += ' for ' + selLevel.value + ' ' + selSubject.value;
-    msg += ' and would like to ask about classes.';
+    var msg = "Hi SJ Academy, I'd like to book a free demo class.";
+    if (selSubject.value) msg += '\nLevel: ' + selLevel.value + '\nSubject: ' + selSubject.value;
+    msg += '\nMode (in class or online): \n(Ref: PPV-END)\nMy name is ';
     wa.href = 'https://wa.me/923362144454?text=' + encodeURIComponent(msg);
   }
   function render() {
