@@ -1,3 +1,15 @@
+<!-- SJ Academy past paper and mark scheme viewer, Elementor HTML widget. Version 2.2, 29 October 2026.
+     Page: /past-paper-viewer/. Family: Tool.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     Set in Yoast: Title  Past Paper & Mark Scheme Viewer | O and A Level | SJ Academy
+                   Meta   View Cambridge O and A Level past papers and mark schemes side by side. Try the question first, then check the marks. Free, no sign-up.
+                   Canonical  https://www.sjacademy.pk/past-paper-viewer/  (the clean address, so ?level=... links are not indexed on their own)
+                   Focus keyphrase  to be set after keyword research
+     Deep links: /past-paper-viewer/?level=o-level&subject=biology&year=2025-mj&paper=31
+                 year: 2025-mj is May/June 2025, 2025-on is Oct/Nov 2025. paper: paper digit then variant digit, so 31 is Paper 3, Variant 1.
+                 Any prefix works (level only, level and subject, and so on). Other query parts such as utm tags are kept.
+     GA4 events: tool_start, tool_complete, mark_scheme_reveal, insert_view, fullscreen_open, paper_unavailable, open_in_new_tab, whatsapp_click, homepage_click.
+                 Parameters: level, subject, series, paper, plus entry (manual or link), method (button or toggle), type, file, link_location, page_family. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,6 +23,7 @@
 .sjpv .sjpv-title{margin:0;font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.65rem,4.6vw,2.5rem);line-height:1.3;color:var(--ink);letter-spacing:0;text-transform:none}
 .sjpv .sjpv-hl{background:linear-gradient(transparent 46%,var(--yellow) 46%,var(--yellow) 90%,transparent 90%);padding:0 .14em;margin:0 -.14em;border-radius:.3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .sjpv .sjpv-note{margin:10px 0 0;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(1.4rem,3.4vw,1.85rem);line-height:1.2;color:var(--pen)}
+.sjpv .sjpv-sub{margin:12px auto 0;max-width:640px;font-size:clamp(15px,2.2vw,17px);line-height:1.5;color:var(--muted)}
 .sjpv-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
 .sjpv-field label{display:block;margin:0 0 6px;font-size:13px;font-weight:600;color:var(--ink)}
 .sjpv .sjpv-select{display:block;width:100%;min-height:46px;margin:0;padding:10px 38px 10px 14px;border:1px solid var(--line);border-radius:8px;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23151515' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;color:var(--ink);font-family:'Poppins',sans-serif;font-size:14px;font-weight:500;line-height:1.3;box-shadow:none;-webkit-appearance:none;appearance:none;cursor:pointer;transition:border-color .15s,background-color .15s}
@@ -120,6 +133,7 @@
 <div class="sjpv-inner">
 <header class="sjpv-head">
 <h1 class="sjpv-title"><span class="sjpv-hl">Past Paper &amp; Mark Scheme Viewer</span></h1>
+<p class="sjpv-sub">Open any Cambridge O and A Level past paper next to its mark scheme. Free, no sign-up.</p>
 <p class="sjpv-note">Read the command word before you look at the answer.</p>
 </header>
 <section class="sjpv-controls" aria-label="Choose a paper">
@@ -136,7 +150,7 @@
 <div class="sjpv-body">
 <iframe class="sjpv-frame" id="sjpv-frame-left" title="Question paper" src="about:blank"></iframe>
 <div class="sjpv-empty">Choose a level, subject, year and paper to load it here.</div>
-<div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-left-meta"></p><a class="sjpv-cta" id="sjpv-left-open" href="#" target="_blank" rel="noopener" aria-label="Open question paper in new tab">Open question paper in new tab</a></div>
+<div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-left-meta"></p><a class="sjpv-cta" id="sjpv-left-open" href="#" target="_blank" rel="noopener" data-event="open_in_new_tab" data-loc="viewer_mobile" aria-label="Open question paper in new tab">Open question paper in new tab</a></div>
 <div class="sjpv-gone" id="sjpv-left-gone" hidden><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 12.5l5 5"/><path d="M14.5 12.5l-5 5"/></svg></span><p class="sjpv-lock-title" id="sjpv-left-gone-title">This file isn't available.</p><p class="sjpv-lock-text">Try a different variant or year.</p><button type="button" class="sjpv-btn sjpv-pick" aria-label="Choose another paper"><span>Choose another paper</span></button></div>
 </div>
 </section>
@@ -147,7 +161,7 @@
 <div class="sjpv-body">
 <iframe class="sjpv-frame" id="sjpv-frame-right" title="Mark scheme" src="about:blank"></iframe>
 <div class="sjpv-empty">The mark scheme appears here.</div>
-<div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-right-meta"></p><a class="sjpv-cta" id="sjpv-right-open" href="#" target="_blank" rel="noopener" aria-label="Open mark scheme in new tab">Open mark scheme in new tab</a></div>
+<div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-right-meta"></p><a class="sjpv-cta" id="sjpv-right-open" href="#" target="_blank" rel="noopener" data-event="open_in_new_tab" data-loc="viewer_mobile" aria-label="Open mark scheme in new tab">Open mark scheme in new tab</a></div>
 <div class="sjpv-gone" id="sjpv-right-gone" hidden><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 12.5l5 5"/><path d="M14.5 12.5l-5 5"/></svg></span><p class="sjpv-lock-title" id="sjpv-right-gone-title">This file isn't available.</p><p class="sjpv-lock-text">Try a different variant or year.</p><button type="button" class="sjpv-btn sjpv-pick" aria-label="Choose another paper"><span>Choose another paper</span></button></div>
 <div class="sjpv-lock" id="sjpv-lock"><div class="sjpv-lock-card"><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p class="sjpv-lock-title">Your answer first.</p><p class="sjpv-lock-text">Write it out, then check it. A mark scheme feels easy to follow until you have to produce one yourself.</p><button type="button" class="sjpv-cta" id="sjpv-unlock" aria-label="I've written my answer. Show the marks.">I've written my answer. Show the marks.</button></div></div>
 </div>
@@ -279,6 +293,63 @@
     try { if (selPaper.showPicker) selPaper.showPicker(); } catch (x) {}
   }
   var state = { entry: null, label: '', left: 'paper', pane: 'left', learn: false };
+  var started = false, linkLoading = false;
+  /* ---- Measurement (GA4). Same style as the other pages: one event name per action. ---- */
+  function ctx() {
+    var o = { level: selLevel.value, subject: selSubject.value, series: selYear.value, paper: selPaper.value };
+    Object.keys(o).forEach(function (k) { if (!o[k]) delete o[k]; });
+    return o;
+  }
+  function track(name, extra) {
+    var g = window['gt' + 'ag'];
+    if (typeof g !== 'function') return;
+    var p = ctx();
+    p.page_family = root.getAttribute('data-family') || '';
+    p.link_location = 'viewer';
+    if (extra) Object.keys(extra).forEach(function (k) { p[k] = extra[k]; });
+    g('event', name, p);
+  }
+  function markStart() {
+    if (started || linkLoading) return;
+    started = true;
+    track('tool_start');
+  }
+  /* ---- Deep links: ?level=o-level&subject=biology&year=2025-mj&paper=31 ---- */
+  var SLUG_SESSION = { 'May/June': 'mj', 'Oct/Nov': 'on' };
+  function slug(t) { return String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
+  function yearSlug(k) {
+    var m = /^(\d{4}) (.+)$/.exec(k);
+    return m ? m[1] + '-' + (SLUG_SESSION[m[2]] || slug(m[2])) : slug(k);
+  }
+  function paperSlug(k) {
+    var m = /^Paper (\d), Variant (\d)$/.exec(k);
+    return m ? m[1] + m[2] : slug(k);
+  }
+  function applyDeepLink() {
+    if (!window.URLSearchParams) return;
+    var q = new URLSearchParams(location.search);
+    var steps = [['level', selLevel, slug], ['subject', selSubject, slug], ['year', selYear, yearSlug], ['paper', selPaper, paperSlug]];
+    for (var i = 0; i < steps.length; i++) {
+      var v = q.get(steps[i][0]);
+      if (!v) break;
+      var sel = steps[i][1], fn = steps[i][2], hit = false;
+      for (var j = 0; j < sel.options.length; j++) {
+        if (sel.options[j].value && fn(sel.options[j].value) === v.toLowerCase()) { sel.value = sel.options[j].value; hit = true; break; }
+      }
+      if (!hit) break;
+      sel.dispatchEvent(new Event('change'));
+    }
+  }
+  function syncUrl() {
+    if (!window.URLSearchParams || !window.history || !history.replaceState) return;
+    try {
+      var q = new URLSearchParams(location.search);
+      var vals = { level: selLevel.value && slug(selLevel.value), subject: selSubject.value && slug(selSubject.value), year: selYear.value && yearSlug(selYear.value), paper: selPaper.value && paperSlug(selPaper.value) };
+      Object.keys(vals).forEach(function (k) { if (vals[k]) q.set(k, vals[k]); else q.delete(k); });
+      var qs = q.toString();
+      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+    } catch (x) {}
+  }
   var mq = window.matchMedia('(max-width: 767px)');
   function fill(select, keys, placeholder) {
     select.innerHTML = '';
@@ -322,7 +393,7 @@
     items.forEach(function (it) {
       var b = mkBtn('sjpv-bar-btn', it[1], it[2], function () {
         if (it[0] === 'ms') { state.pane = 'ms'; }
-        else { state.left = it[0]; state.pane = 'left'; }
+        else { state.left = it[0]; state.pane = 'left'; if (it[0] !== 'paper') track('insert_view', { type: it[0] }); }
         render();
       });
       b.setAttribute('data-k', it[0]);
@@ -334,8 +405,8 @@
     actions.innerHTML = '';
     if (e) {
       if (state.left === 'paper') {
-        if (e.insert && avail[e.insert] !== 'missing') actions.appendChild(mkBtn('sjpv-btn', 'Insert', 'View insert', function () { state.left = 'insert'; render(); focusAction(); }, ICONS.file));
-        if (e.ci && avail[e.ci] !== 'missing') actions.appendChild(mkBtn('sjpv-btn', 'Confidential', 'View confidential instructions', function () { state.left = 'ci'; render(); focusAction(); }, ICONS.file));
+        if (e.insert && avail[e.insert] !== 'missing') actions.appendChild(mkBtn('sjpv-btn', 'Insert', 'View insert', function () { state.left = 'insert'; track('insert_view', { type: 'insert' }); render(); focusAction(); }, ICONS.file));
+        if (e.ci && avail[e.ci] !== 'missing') actions.appendChild(mkBtn('sjpv-btn', 'Confidential', 'View confidential instructions', function () { state.left = 'ci'; track('insert_view', { type: 'ci' }); render(); focusAction(); }, ICONS.file));
       } else {
         actions.appendChild(mkBtn('sjpv-btn', 'Back to Paper', 'Back to Paper', function () { state.left = 'paper'; render(); focusAction(); }, ICONS.back));
       }
@@ -398,31 +469,43 @@
     render();
   }
   selLevel.addEventListener('change', function () {
+    markStart();
     fill(selSubject, keysOf(node(selLevel.value)), 'Choose subject');
     fill(selYear, [], 'Choose year');
     fill(selPaper, [], 'Choose paper');
     clearEntry();
+    syncUrl();
   });
   selSubject.addEventListener('change', function () {
+    markStart();
     fill(selYear, keysOf(node(selLevel.value, selSubject.value)), 'Choose year');
     fill(selPaper, [], 'Choose paper');
     clearEntry();
+    syncUrl();
   });
   selYear.addEventListener('change', function () {
+    markStart();
     fill(selPaper, keysOf(node(selLevel.value, selSubject.value, selYear.value)), 'Choose paper');
     clearEntry();
+    syncUrl();
   });
   selPaper.addEventListener('change', function () {
+    markStart();
     var list = node(selLevel.value, selSubject.value, selYear.value);
     state.entry = (list && list[selPaper.value]) || null;
     state.label = state.entry ? selLevel.value + ' ' + selSubject.value + ' \u00b7 ' + selYear.value + ' \u00b7 ' + selPaper.value : '';
     state.left = 'paper'; state.pane = 'left'; state.learn = false;
     buildBar();
     render();
+    syncUrl();
     var chosen = state.entry;
     if (chosen) {
+      track('tool_complete', { entry: linkLoading ? 'link' : 'manual' });
       Promise.all([chosen.paper, chosen.ms, chosen.insert, chosen.ci].filter(Boolean).map(check)).then(function () {
         if (state.entry !== chosen) return;
+        [['question_paper', chosen.paper], ['mark_scheme', chosen.ms], ['insert', chosen.insert], ['confidential', chosen.ci]].forEach(function (f) {
+          if (f[1] && avail[f[1]] === 'missing') track('paper_unavailable', { file: f[0] });
+        });
         buildBar();
         render();
       });
@@ -430,8 +513,13 @@
   });
   Array.prototype.forEach.call(root.querySelectorAll('.sjpv-pick'), function (b) { b.addEventListener('click', pickPaper); });
   btnCheat.addEventListener('click', function () { state.learn = false; render(); });
-  btnLearn.addEventListener('click', function () { state.learn = true; render(); });
-  el('unlock').addEventListener('click', function () { state.learn = true; render(); btnLearn.focus(); });
+  function setLearn(method) {
+    if (!state.learn) track('mark_scheme_reveal', { method: method });
+    state.learn = true;
+    render();
+  }
+  btnLearn.addEventListener('click', function () { setLearn('toggle'); });
+  el('unlock').addEventListener('click', function () { setLearn('button'); btnLearn.focus(); });
   if (mq.addEventListener) mq.addEventListener('change', render); else if (mq.addListener) mq.addListener(render);
   /* Full screen: the browser's Fullscreen API when it works, a fixed full-window layer when it does not */
   var full = false, fallback = false;
@@ -447,6 +535,7 @@
     fullBtn.focus();
   }
   function enterFull() {
+    track('fullscreen_open');
     var req = root.requestFullscreen || root.webkitRequestFullscreen;
     if (!req) { setFull(true, true); return; }
     var r;
@@ -465,14 +554,13 @@
   document.addEventListener('fullscreenchange', onFsChange);
   document.addEventListener('webkitfullscreenchange', onFsChange);
   document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && full && fallback) exitFull(); });
-  /* Measurement: same events as the other pages (whatsapp_click, plus homepage_click), location from data-loc */
+  /* Link clicks: whatsapp_click and homepage_click as on the other pages, open_in_new_tab on phones. Location from data-loc */
   root.addEventListener('click', function (ev) {
     var a = ev.target.closest ? ev.target.closest('a') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
     var name = href.indexOf('wa.me') > -1 ? 'whatsapp_click' : a.getAttribute('data-event');
-    var g = window['gt' + 'ag'];
-    if (name && typeof g === 'function') g('event', name, { link_location: a.getAttribute('data-loc') || 'unknown', page_family: root.getAttribute('data-family') || '' });
+    if (name) track(name, { link_location: a.getAttribute('data-loc') || 'unknown' });
   });
   fill(selLevel, keysOf(DATA), 'Choose level');
   fill(selSubject, [], 'Choose subject');
@@ -482,6 +570,9 @@
     selLevel.selectedIndex = 1;
     selLevel.dispatchEvent(new Event('change'));
   }
+  linkLoading = true;
+  applyDeepLink();
+  linkLoading = false;
   render();
 })();
 </script>

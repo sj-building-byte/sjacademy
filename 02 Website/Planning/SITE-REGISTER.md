@@ -26,7 +26,7 @@
 |---|---|
 | Enrol | 24 |
 | Resource | 43 |
-| Tool | 8 |
+| Tool | 9 |
 | Event | 9 |
 | Info | 8 |
 | Proof | 1 |
@@ -190,6 +190,7 @@ No existing post is an entertainment post in the new sense. The one-in-five rati
 | `/a-level-subject-combinations-tool/` | Tool or quiz | Rebuilt v2.0 (21 Oct 2026), not yet live | Wrapper `sj-p-subject-combos`. Target keywords: a level subjects combination (70, KD 14), a level subjects combination in pakistan (40, KD 6). Title to set: A Level subjects combination tool for Pakistan \| SJ Academy. Ref TL-COMBOS. Owns "best a level subject combination" (decided 21 Oct 2026); the blog `/blog/best-a-level-subjects-combinations/` must be retargeted and link here. See `Scripts/subject-combinations-tool/BRIEF.md` |
 | `/chapter-17-quiz/` | Tool or quiz | Not rebuilt |  |
 | `/ibcc-equivalence-calculator/` | Tool or quiz | Rebuilt v2.0 (20 Oct 2026), not yet live |  |
+| `/past-paper-viewer/` | Tool or quiz | New page, widget built v2.2 (29 Oct 2026), not yet live | Widget `02 Website/Tools/Past Paper Viewer/past-paper-viewer-elementor-widget.html`. Title to set: Past Paper & Mark Scheme Viewer \| O and A Level \| SJ Academy. Canonical: the clean address. Focus keyphrase to be set after keyword research. Deep links by query string. Ref PPV-END |
 | `/periodic-table-of-elements/` | Tool or quiz | Not rebuilt |  |
 | `/schools-near-me-karachi/` | Tool or quiz | Not rebuilt |  |
 | `/university-admission-criteria-tool/` | Tool or quiz | Not rebuilt |  |
