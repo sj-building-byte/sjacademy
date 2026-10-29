@@ -33,10 +33,14 @@
 .sjpv-seg.is-learn .sjpv-seg-thumb{transform:translateX(100%)}
 .sjpv .sjpv-seg-btn{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:32px;margin:0;padding:5px 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;line-height:1.2;text-transform:none;letter-spacing:0;white-space:nowrap;box-shadow:none;cursor:pointer;transition:color .15s}
 .sjpv .sjpv-seg-btn svg{width:14px;height:14px}
-.sjpv .sjpv-seg-btn[aria-pressed="true"]{color:var(--ink);font-weight:600}
-.sjpv .sjpv-seg-btn:hover:not(:disabled){color:var(--ink);background:transparent}
-.sjpv .sjpv-seg-btn:disabled{opacity:.5;cursor:not-allowed}
-.sjpv .sjpv-seg-btn:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
+.sjpv .sjpv-seg .sjpv-seg-btn,.sjpv .sjpv-seg .sjpv-seg-btn:hover,.sjpv .sjpv-seg .sjpv-seg-btn:focus,.sjpv .sjpv-seg .sjpv-seg-btn:active,.sjpv .sjpv-seg .sjpv-seg-btn:disabled{background:transparent!important;border:0!important;box-shadow:none!important;outline:0!important}
+.sjpv .sjpv-seg .sjpv-seg-btn[aria-pressed="true"]{color:var(--ink)!important;font-weight:700}
+.sjpv .sjpv-seg .sjpv-seg-btn[aria-pressed="false"]{color:#6B675F!important;font-weight:500}
+.sjpv .sjpv-seg .sjpv-seg-btn[aria-pressed="false"]:hover:not(:disabled){color:var(--ink)!important}
+.sjpv .sjpv-seg .sjpv-seg-btn:disabled{opacity:.5;cursor:not-allowed}
+.sjpv .sjpv-seg .sjpv-seg-btn{min-width:124px}
+.sjpv .sjpv-seg .sjpv-seg-btn:focus-visible{box-shadow:0 0 0 2px var(--cta)!important}
+.sjpv button:focus:not(:focus-visible),.sjpv a:focus:not(:focus-visible){outline:0!important}
 .sjpv-body{position:relative;height:clamp(520px,78vh,900px);overflow:hidden;border-radius:0 0 12px 12px;background:#fff}
 .sjpv-frame{display:block;width:100%;height:100%;border:0;background:#fff}
 .sjpv-right .sjpv-frame{transition:filter .15s}
@@ -101,6 +105,7 @@
 .sjpv-mobile .sjpv-cta{width:100%;max-width:340px}
 .sjpv-seg-btn svg{display:none!important}
 .sjpv .sjpv-seg-btn{padding:5px 11px}
+.sjpv .sjpv-seg .sjpv-seg-btn{min-width:96px}
 .sjpv-band-row .sjpv-cta,.sjpv-band-row .sjpv-ghost{width:100%}
 .sjpv.has-entry .sjpv-bar{position:sticky;bottom:0;z-index:20;display:flex;gap:6px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--ink)}
 .sjpv .sjpv-bar-btn{flex:1 1 0;min-width:0;min-height:48px;margin:0;padding:8px 6px;border:0;border-radius:8px;background:transparent;color:var(--canvas);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,color .15s}
