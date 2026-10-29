@@ -2,39 +2,41 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-.sjpv{--ink:#151515;--canvas:#F7F5EF;--yellow:#FCE004;--cta:#CC4A00;--cta-hover:#A63D00;--pen:#B54200;--line:#D9D4C7;--muted:#4A4A4A;width:100%;background:var(--canvas);color:var(--ink);font-family:'Poppins',sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;text-align:left}
+.sjpv{--ink:#151515;--canvas:#F7F5EF;--yellow:#FCE004;--cta:#CC4A00;--cta-hover:#A63D00;--pen:#B54200;--line:#D9D4C7;--tint:#EFEDE6;--muted:#4A4A4A;width:100%;background:var(--canvas);color:var(--ink);font-family:'Poppins',sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;text-align:left}
 .sjpv *,.sjpv *::before,.sjpv *::after{box-sizing:border-box}
 .sjpv [hidden]{display:none!important}
+.sjpv svg{display:block;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .sjpv-inner{padding:clamp(16px,3vw,32px)}
+.sjpv-head{text-align:center}
 .sjpv .sjpv-title{margin:0;font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.65rem,4.6vw,2.5rem);line-height:1.3;color:var(--ink);letter-spacing:0;text-transform:none}
 .sjpv .sjpv-hl{background:linear-gradient(transparent 46%,var(--yellow) 46%,var(--yellow) 90%,transparent 90%);padding:0 .14em;margin:0 -.14em;border-radius:.3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .sjpv .sjpv-note{margin:10px 0 0;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(1.4rem,3.4vw,1.85rem);line-height:1.2;color:var(--pen)}
-.sjpv-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px}
+.sjpv-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
 .sjpv-field label{display:block;margin:0 0 6px;font-size:13px;font-weight:600;color:var(--ink)}
 .sjpv .sjpv-select{display:block;width:100%;min-height:46px;margin:0;padding:10px 38px 10px 14px;border:1px solid var(--line);border-radius:8px;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23151515' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;color:var(--ink);font-family:'Poppins',sans-serif;font-size:14px;font-weight:500;line-height:1.3;box-shadow:none;-webkit-appearance:none;appearance:none;cursor:pointer;transition:border-color .15s,background-color .15s}
 .sjpv .sjpv-select:hover:not(:disabled){border-color:var(--ink)}
-.sjpv .sjpv-select:disabled{background-color:#EFEDE6;color:#6B6B6B;cursor:not-allowed}
+.sjpv .sjpv-select:disabled{background-color:var(--tint);color:#6B6B6B;cursor:not-allowed}
 .sjpv .sjpv-select:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-color:var(--ink)}
-.sjpv-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin-top:20px}
-.sjpv .sjpv-status{margin:0;font-size:14px;font-weight:500;color:var(--muted);flex:1 1 260px}
-.sjpv .sjpv-switch{display:inline-flex;align-items:center;gap:12px;min-height:46px;margin:0;padding:6px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-family:'Poppins',sans-serif;font-size:14px;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:border-color .15s,background-color .15s}
-.sjpv .sjpv-switch:hover:not(:disabled){border-color:var(--ink);background:#FFFBD6}
-.sjpv .sjpv-switch:disabled{opacity:.55;cursor:not-allowed}
-.sjpv .sjpv-switch:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.sjpv-switch-label{font-weight:500;padding:2px 6px;border-radius:6px}
-.sjpv-switch-label.is-on{font-weight:700;background:var(--yellow)}
-.sjpv-track{position:relative;width:46px;height:26px;border-radius:999px;background:var(--ink);flex:none;transition:background-color .15s}
-.sjpv-thumb{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--yellow);transition:transform .15s,background-color .15s}
-.sjpv-switch.is-learn .sjpv-track{background:var(--cta)}
-.sjpv-switch.is-learn .sjpv-thumb{transform:translateX(20px);background:#fff}
 .sjpv-stage{margin-top:28px}
 .sjpv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .sjpv-pane{position:relative;min-width:0;border:1px solid var(--line);border-radius:12px;background:#fff}
-.sjpv-panehead{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:8px 16px;border-bottom:1px solid var(--line);border-radius:12px 12px 0 0;background:#fff}
+.sjpv-panehead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;min-height:56px;padding:10px 16px;border-bottom:1px solid var(--line);border-radius:12px 12px 0 0;background:#fff}
 .sjpv .sjpv-panetitle{margin:0;font-size:15px;font-weight:600;color:var(--ink)}
-.sjpv .sjpv-link{font-size:13px;font-weight:600;color:var(--cta);text-decoration:underline;text-underline-offset:3px;transition:color .15s}
-.sjpv .sjpv-link:hover{color:var(--cta-hover)}
-.sjpv .sjpv-link:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv-actions{display:flex;flex-wrap:wrap;gap:8px}
+.sjpv .sjpv-btn{display:inline-flex;align-items:center;gap:7px;min-height:36px;margin:0;padding:6px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:border-color .15s,background-color .15s,transform .15s}
+.sjpv .sjpv-btn svg{width:15px;height:15px}
+.sjpv .sjpv-btn:hover{border-color:var(--ink);background:var(--canvas);color:var(--ink)}
+.sjpv .sjpv-btn:active{transform:translateY(1px)}
+.sjpv .sjpv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv-seg{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--tint)}
+.sjpv-seg-thumb{position:absolute;top:3px;left:3px;width:calc((100% - 6px)/2);height:calc(100% - 6px);border-radius:7px;background:#fff;box-shadow:0 1px 2px rgba(21,21,21,.14);transition:transform .2s ease}
+.sjpv-seg.is-learn .sjpv-seg-thumb{transform:translateX(100%)}
+.sjpv .sjpv-seg-btn{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:32px;margin:0;padding:5px 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;line-height:1.2;text-transform:none;letter-spacing:0;white-space:nowrap;box-shadow:none;cursor:pointer;transition:color .15s}
+.sjpv .sjpv-seg-btn svg{width:14px;height:14px}
+.sjpv .sjpv-seg-btn[aria-pressed="true"]{color:var(--ink);font-weight:600}
+.sjpv .sjpv-seg-btn:hover:not(:disabled){color:var(--ink);background:transparent}
+.sjpv .sjpv-seg-btn:disabled{opacity:.5;cursor:not-allowed}
+.sjpv .sjpv-seg-btn:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
 .sjpv-body{position:relative;height:clamp(520px,78vh,900px);overflow:hidden;border-radius:0 0 12px 12px;background:#fff}
 .sjpv-frame{display:block;width:100%;height:100%;border:0;background:#fff}
 .sjpv-right .sjpv-frame{transition:filter .15s}
@@ -42,38 +44,47 @@
 .sjpv-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font-size:15px;color:var(--muted)}
 .sjpv.has-entry .sjpv-empty{display:none}
 .sjpv:not(.has-entry) .sjpv-frame{display:none}
-.sjpv-lock{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center;background:var(--ink);color:var(--canvas);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s,visibility 0s linear .15s}
+.sjpv-lock{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(247,245,239,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s,visibility 0s linear .15s}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.sjpv-lock{background:rgba(247,245,239,.94)}}
 .sjpv.has-entry .sjpv-right.is-locked .sjpv-lock{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .15s,visibility 0s}
-.sjpv .sjpv-lock-note{margin:0;font-family:'Caveat',cursive;font-weight:600;font-size:2rem;line-height:1.1;color:var(--yellow)}
-.sjpv .sjpv-lock-text{margin:0 0 8px;max-width:340px;font-size:15px;color:var(--canvas)}
+.sjpv-lock-card{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:380px;padding:26px 24px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(21,21,21,.08);text-align:center}
+.sjpv-lock-icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--tint);color:var(--ink)}
+.sjpv-lock-icon svg{width:20px;height:20px}
+.sjpv .sjpv-lock-title{margin:4px 0 0;font-size:20px;font-weight:600;line-height:1.3;color:var(--ink)}
+.sjpv .sjpv-lock-card .sjpv-cta{width:100%;padding:12px 14px;font-size:14px}
+.sjpv .sjpv-lock-text{margin:0 0 8px;font-size:14px;line-height:1.55;color:var(--muted)}
 .sjpv .sjpv-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin:0;padding:12px 22px;border:0;border-radius:8px;background:var(--cta);color:#fff;font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;line-height:1.3;text-align:center;text-decoration:none;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,transform .15s}
 .sjpv .sjpv-cta:hover{background:var(--cta-hover);color:#fff}
 .sjpv .sjpv-cta:active{transform:translateY(1px)}
 .sjpv .sjpv-cta:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.sjpv .sjpv-lock .sjpv-cta:focus-visible{outline-color:var(--yellow)}
-.sjpv-float{position:absolute;top:-46px;right:0;z-index:3;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
-.sjpv .sjpv-pill{min-height:38px;margin:0;padding:6px 16px;border:1.5px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:3px 3px 0 rgba(21,21,21,.15);cursor:pointer;transition:background-color .15s,color .15s,transform .15s}
-.sjpv .sjpv-pill:hover{background:var(--yellow);color:var(--ink)}
-.sjpv .sjpv-pill:active{transform:translateY(1px)}
-.sjpv .sjpv-pill:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .sjpv-mobile{display:none}
-.sjpv .sjpv-help{margin:14px 0 0;font-size:13px;color:var(--muted)}
+.sjpv-band{background:var(--yellow);color:var(--ink);padding:clamp(36px,6vw,64px) clamp(16px,3vw,32px);text-align:center}
+.sjpv-band-in{max-width:680px;margin:0 auto}
+.sjpv .sjpv-band-title{margin:0;font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(1.5rem,3.6vw,2rem);line-height:1.3;color:var(--ink);letter-spacing:0;text-transform:none}
+.sjpv .sjpv-band-text{margin:12px auto 0;max-width:560px;font-size:16px;color:var(--ink)}
+.sjpv-band-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.sjpv .sjpv-ghost{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin:0;padding:12px 22px;border:1.5px solid var(--ink);border-radius:8px;background:transparent;color:var(--ink);font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;line-height:1.3;text-align:center;text-decoration:none;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,color .15s,transform .15s}
+.sjpv .sjpv-ghost:hover{background:var(--ink);color:var(--canvas)}
+.sjpv .sjpv-ghost:active{transform:translateY(1px)}
+.sjpv .sjpv-ghost:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv-right.is-locked .sjpv-mobile{visibility:hidden}
 .sjpv-bar{display:none}
-@media (min-width:768px){.sjpv.has-entry .sjpv-stage{margin-top:58px}}
 @media (max-width:1023px) and (min-width:768px){.sjpv-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:767px){
 .sjpv-controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.sjpv-inner{padding-bottom:20px}
 .sjpv-grid{grid-template-columns:1fr}
 .sjpv-pane{display:none}
 .sjpv[data-pane="left"] .sjpv-left,.sjpv[data-pane="ms"] .sjpv-right{display:block}
 .sjpv-frame{display:none!important}
-.sjpv-float{display:none!important}
-.sjpv-body{height:auto;min-height:280px}
+.sjpv-actions{display:none!important}
+.sjpv-body{height:auto;min-height:360px}
 .sjpv-empty{position:static;min-height:280px}
-.sjpv.has-entry .sjpv-mobile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:280px;padding:28px 20px;text-align:center}
+.sjpv.has-entry .sjpv-mobile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:360px;padding:28px 20px;text-align:center}
 .sjpv .sjpv-mobile-meta{margin:0;font-size:14px;color:var(--muted)}
 .sjpv-mobile .sjpv-cta{width:100%;max-width:340px}
+.sjpv-seg-btn svg{display:none!important}
+.sjpv .sjpv-seg-btn{padding:5px 11px}
+.sjpv-band-row .sjpv-cta,.sjpv-band-row .sjpv-ghost{width:100%}
 .sjpv.has-entry .sjpv-bar{position:sticky;bottom:0;z-index:20;display:flex;gap:6px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--ink)}
 .sjpv .sjpv-bar-btn{flex:1 1 0;min-width:0;min-height:48px;margin:0;padding:8px 6px;border:0;border-radius:8px;background:transparent;color:var(--canvas);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,color .15s}
 .sjpv .sjpv-bar-btn:hover{background:#2B2B2B;color:#fff}
@@ -83,9 +94,9 @@
 @media (max-width:380px){.sjpv-controls{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.sjpv *,.sjpv *::before,.sjpv *::after{transition-duration:0s!important}}
 </style>
-<div class="sjpv" id="sjpv" data-pane="left">
+<div class="sjpv" id="sjpv" data-pane="left" data-family="Tool">
 <div class="sjpv-inner">
-<header>
+<header class="sjpv-head">
 <h1 class="sjpv-title"><span class="sjpv-hl">Past Paper &amp; Mark Scheme Viewer</span></h1>
 <p class="sjpv-note">Read the command word before you look at the answer.</p>
 </header>
@@ -95,15 +106,10 @@
 <div class="sjpv-field"><label for="sjpv-year">Year</label><select class="sjpv-select" id="sjpv-year"></select></div>
 <div class="sjpv-field"><label for="sjpv-paper">Paper</label><select class="sjpv-select" id="sjpv-paper"></select></div>
 </section>
-<div class="sjpv-toolbar">
-<p class="sjpv-status" id="sjpv-status" aria-live="polite">Pick a level, subject, year and paper.</p>
-<button type="button" class="sjpv-switch" id="sjpv-toggle" disabled aria-label="Mark scheme mode, currently Don't cheat. Switch to Learn."><span class="sjpv-switch-label is-on" id="sjpv-lbl-cheat">Don't cheat</span><span class="sjpv-track" aria-hidden="true"><span class="sjpv-thumb"></span></span><span class="sjpv-switch-label" id="sjpv-lbl-learn">Learn</span></button>
-</div>
-<div class="sjpv-stage">
+<div class="sjpv-stage" aria-live="polite">
 <div class="sjpv-grid">
 <section class="sjpv-pane sjpv-left" aria-label="Question paper">
-<div class="sjpv-float" id="sjpv-float" hidden></div>
-<div class="sjpv-panehead"><p class="sjpv-panetitle" id="sjpv-left-title">Question paper</p><a class="sjpv-link" id="sjpv-left-link" href="#" target="_blank" rel="noopener" hidden aria-label="Open in new tab: question paper">Open in new tab</a></div>
+<div class="sjpv-panehead"><p class="sjpv-panetitle" id="sjpv-left-title">Question paper</p><div class="sjpv-actions" id="sjpv-actions" hidden></div></div>
 <div class="sjpv-body">
 <iframe class="sjpv-frame" id="sjpv-frame-left" title="Question paper" src="about:blank"></iframe>
 <div class="sjpv-empty">Choose a level, subject, year and paper to load it here.</div>
@@ -111,18 +117,26 @@
 </div>
 </section>
 <section class="sjpv-pane sjpv-right is-locked" aria-label="Mark scheme" id="sjpv-right">
-<div class="sjpv-panehead"><p class="sjpv-panetitle">Mark scheme</p><a class="sjpv-link" id="sjpv-right-link" href="#" target="_blank" rel="noopener" hidden aria-label="Open in new tab: mark scheme">Open in new tab</a></div>
+<div class="sjpv-panehead"><p class="sjpv-panetitle">Mark scheme</p>
+<div class="sjpv-seg" id="sjpv-seg" role="group" aria-label="Mark scheme mode"><span class="sjpv-seg-thumb" aria-hidden="true"></span><button type="button" class="sjpv-seg-btn" id="sjpv-cheat" aria-pressed="true" disabled aria-label="Don't cheat: hide the mark scheme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Don't cheat</span></button><button type="button" class="sjpv-seg-btn" id="sjpv-learn" aria-pressed="false" disabled aria-label="Learn: show the mark scheme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span>Learn</span></button></div>
+</div>
 <div class="sjpv-body">
 <iframe class="sjpv-frame" id="sjpv-frame-right" title="Mark scheme" src="about:blank"></iframe>
 <div class="sjpv-empty">The mark scheme appears here.</div>
 <div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-right-meta"></p><a class="sjpv-cta" id="sjpv-right-open" href="#" target="_blank" rel="noopener" aria-label="Open mark scheme in new tab">Open mark scheme in new tab</a></div>
-<div class="sjpv-lock" id="sjpv-lock"><p class="sjpv-lock-note">No peeking.</p><p class="sjpv-lock-text">The mark scheme stays hidden until you have tried the question.</p><button type="button" class="sjpv-cta" id="sjpv-unlock" aria-label="I have written my answer. Show me the marks.">I have written my answer. Show me the marks.</button></div>
+<div class="sjpv-lock" id="sjpv-lock"><div class="sjpv-lock-card"><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p class="sjpv-lock-title">Your answer first.</p><p class="sjpv-lock-text">Write it out, then check it. A mark scheme feels easy to follow until you have to produce one yourself.</p><button type="button" class="sjpv-cta" id="sjpv-unlock" aria-label="I've written my answer. Show the marks.">I've written my answer. Show the marks.</button></div></div>
 </div>
 </section>
 </div>
 </div>
-<p class="sjpv-help">Pane blank? Use Open in new tab.</p>
 </div>
+<section class="sjpv-band" aria-label="Classes at SJ Academy">
+<div class="sjpv-band-in">
+<h2 class="sjpv-band-title">Want feedback on the marks you lose?</h2>
+<p class="sjpv-band-text">SJ Academy teaches O and A Level in class at DHA Phase 7, Karachi, and live online. Book a free demo class and see how we mark.</p>
+<div class="sjpv-band-row"><a class="sjpv-cta" id="sjpv-wa" href="https://wa.me/923362144454" target="_blank" rel="noopener" data-loc="viewer_band" aria-label="Message us on WhatsApp">Message us on WhatsApp</a><a class="sjpv-ghost" href="https://www.instagram.com/sjacademypk/" target="_blank" rel="noopener" data-event="instagram_click" data-loc="viewer_band" aria-label="Follow us on Instagram">Follow us on Instagram</a></div>
+</div>
+</section>
 <nav class="sjpv-bar" id="sjpv-bar" aria-label="Switch document" hidden></nav>
 </div>
 <script>
@@ -210,10 +224,13 @@
   var el = function (id) { return document.getElementById('sjpv-' + id); };
   var selLevel = el('level'), selSubject = el('subject'), selYear = el('year'), selPaper = el('paper');
   var frameL = el('frame-left'), frameR = el('frame-right'), rightPane = el('right');
-  var toggle = el('toggle'), lblCheat = el('lbl-cheat'), lblLearn = el('lbl-learn');
-  var floatBox = el('float'), bar = el('bar'), status = el('status');
+  var seg = el('seg'), btnCheat = el('cheat'), btnLearn = el('learn');
+  var actions = el('actions'), bar = el('bar'), wa = el('wa');
   var TITLES = { paper: 'Question paper', insert: 'Insert', ci: 'Confidential instructions' };
-  var EXTRAS = { insert: 'View insert', ci: 'View confidential instructions' };
+  var ICONS = {
+    file: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>',
+    back: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>'
+  };
   var state = { entry: null, label: '', left: 'paper', pane: 'left', learn: false };
   var mq = window.matchMedia('(max-width: 767px)');
   function fill(select, keys, placeholder) {
@@ -235,12 +252,15 @@
     frame.setAttribute('data-url', want);
     frame.src = want ? want + '#view=FitH' : 'about:blank';
   }
-  function mkBtn(cls, text, onClick) {
+  function mkBtn(cls, text, aria, onClick, icon) {
     var b = document.createElement('button');
+    var t = document.createElement('span');
     b.type = 'button';
     b.className = cls;
-    b.textContent = text;
-    b.setAttribute('aria-label', text);
+    if (icon) b.innerHTML = icon;
+    t.textContent = text;
+    b.appendChild(t);
+    b.setAttribute('aria-label', aria);
     b.addEventListener('click', onClick);
     return b;
   }
@@ -253,33 +273,35 @@
     if (e.ci) items.push(['ci', 'Confidential', 'Show confidential instructions']);
     items.push(['ms', 'Mark scheme', 'Show mark scheme']);
     items.forEach(function (it) {
-      var b = mkBtn('sjpv-bar-btn', it[1], function () {
+      var b = mkBtn('sjpv-bar-btn', it[1], it[2], function () {
         if (it[0] === 'ms') { state.pane = 'ms'; }
         else { state.left = it[0]; state.pane = 'left'; }
         render();
       });
-      b.setAttribute('aria-label', it[2]);
       b.setAttribute('data-k', it[0]);
       bar.appendChild(b);
     });
   }
-  function buildFloat() {
+  function buildActions() {
     var e = state.entry;
-    floatBox.innerHTML = '';
-    if (!e) { floatBox.hidden = true; return; }
-    var first;
-    if (state.left === 'paper') {
-      ['insert', 'ci'].forEach(function (k) {
-        if (!e[k]) return;
-        floatBox.appendChild(mkBtn('sjpv-pill', EXTRAS[k], function () { state.left = k; render(); focusFloat(); }));
-      });
-    } else {
-      floatBox.appendChild(mkBtn('sjpv-pill', 'Back to Paper', function () { state.left = 'paper'; render(); focusFloat(); }));
+    actions.innerHTML = '';
+    if (e) {
+      if (state.left === 'paper') {
+        if (e.insert) actions.appendChild(mkBtn('sjpv-btn', 'Insert', 'View insert', function () { state.left = 'insert'; render(); focusAction(); }, ICONS.file));
+        if (e.ci) actions.appendChild(mkBtn('sjpv-btn', 'Confidential', 'View confidential instructions', function () { state.left = 'ci'; render(); focusAction(); }, ICONS.file));
+      } else {
+        actions.appendChild(mkBtn('sjpv-btn', 'Back to Paper', 'Back to Paper', function () { state.left = 'paper'; render(); focusAction(); }, ICONS.back));
+      }
     }
-    first = floatBox.firstChild;
-    floatBox.hidden = !first;
+    actions.hidden = !actions.firstChild;
   }
-  function focusFloat() { if (floatBox.firstChild) floatBox.firstChild.focus(); }
+  function focusAction() { if (actions.firstChild) actions.firstChild.focus(); }
+  function waLink() {
+    var msg = 'Hi SJ Academy, I was using the past paper viewer on your website';
+    if (selSubject.value) msg += ' for ' + selLevel.value + ' ' + selSubject.value;
+    msg += ' and would like to ask about classes.';
+    wa.href = 'https://wa.me/923362144454?text=' + encodeURIComponent(msg);
+  }
   function render() {
     var e = state.entry, mobile = mq.matches, learn = state.learn;
     var leftUrl = e ? e[state.left] : '';
@@ -290,12 +312,6 @@
     setSrc(frameR, mobile || !e ? '' : e.ms);
     frameL.title = title;
     el('left-title').textContent = title;
-    var ll = el('left-link');
-    ll.hidden = !e;
-    if (e) { ll.href = leftUrl; ll.setAttribute('aria-label', 'Open in new tab: ' + title.toLowerCase()); }
-    var rl = el('right-link');
-    rl.hidden = !e || !learn;
-    if (e) rl.href = e.ms;
     var lo = el('left-open');
     if (e) {
       lo.href = leftUrl;
@@ -309,18 +325,17 @@
     frameR.inert = !learn;
     frameR.tabIndex = learn ? 0 : -1;
     if (learn) frameR.removeAttribute('aria-hidden'); else frameR.setAttribute('aria-hidden', 'true');
-    toggle.disabled = !e;
-    toggle.classList.toggle('is-learn', learn);
-    toggle.setAttribute('aria-label', 'Mark scheme mode, currently ' + (learn ? 'Learn' : "Don't cheat") + '. Switch to ' + (learn ? "Don't cheat" : 'Learn') + '.');
-    lblCheat.classList.toggle('is-on', !learn);
-    lblLearn.classList.toggle('is-on', learn);
-    status.textContent = e ? state.label : 'Pick a level, subject, year and paper.';
+    seg.classList.toggle('is-learn', learn);
+    btnCheat.disabled = btnLearn.disabled = !e;
+    btnCheat.setAttribute('aria-pressed', String(!learn));
+    btnLearn.setAttribute('aria-pressed', String(learn));
     bar.hidden = !e;
     Array.prototype.forEach.call(bar.children, function (b) {
       var k = b.getAttribute('data-k');
       b.setAttribute('aria-pressed', String(state.pane === 'ms' ? k === 'ms' : k === state.left));
     });
-    buildFloat();
+    buildActions();
+    waLink();
   }
   function clearEntry() {
     state.entry = null; state.left = 'paper'; state.pane = 'left'; state.learn = false;
@@ -345,14 +360,24 @@
   selPaper.addEventListener('change', function () {
     var list = node(selLevel.value, selSubject.value, selYear.value);
     state.entry = (list && list[selPaper.value]) || null;
-    state.label = state.entry ? selLevel.value + ' ' + selSubject.value + ' · ' + selYear.value + ' · ' + selPaper.value : '';
+    state.label = state.entry ? selLevel.value + ' ' + selSubject.value + ' \u00b7 ' + selYear.value + ' \u00b7 ' + selPaper.value : '';
     state.left = 'paper'; state.pane = 'left'; state.learn = false;
     buildBar();
     render();
   });
-  toggle.addEventListener('click', function () { state.learn = !state.learn; render(); });
-  el('unlock').addEventListener('click', function () { state.learn = true; render(); toggle.focus(); });
+  btnCheat.addEventListener('click', function () { state.learn = false; render(); });
+  btnLearn.addEventListener('click', function () { state.learn = true; render(); });
+  el('unlock').addEventListener('click', function () { state.learn = true; render(); btnLearn.focus(); });
   if (mq.addEventListener) mq.addEventListener('change', render); else if (mq.addListener) mq.addListener(render);
+  /* Measurement: same events as the other pages (whatsapp_click, plus instagram_click), location from data-loc */
+  root.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var name = href.indexOf('wa.me') > -1 ? 'whatsapp_click' : a.getAttribute('data-event');
+    var g = window['gt' + 'ag'];
+    if (name && typeof g === 'function') g('event', name, { link_location: a.getAttribute('data-loc') || 'unknown', page_family: root.getAttribute('data-family') || '' });
+  });
   fill(selLevel, keysOf(DATA), 'Choose level');
   fill(selSubject, [], 'Choose subject');
   fill(selYear, [], 'Choose year');
