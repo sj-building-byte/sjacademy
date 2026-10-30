@@ -60,4 +60,5 @@ See "What comes next" and "Open items" in `Planning/HANDOFF-website-rebuild.md`.
 - Android Chrome and sideways phones get the phone layout (no blank PDF frames). Browser tests in `Tools/Past Paper Viewer/tests/`.
 - Live O Level hub pages use the same folder names and file patterns as the old viewer and probably have broken links for several subjects. Check them with the script's report.
 - Still NOT live. Next: run `check-files.py`, then open item 1 in `Planning/HANDOFF-past-paper-viewer-30-oct.md` (draft page test).
-
+- Share links: the address now uses `series=` (WordPress shows a 404 for any page address containing `year=`) and `marks=show` opens the mark scheme too. New "Share this paper" button. Example: `/past-paper-viewer/?level=o-level&subject=biology&series=2025-mj&paper=31&marks=show`.
+- `sjacademy.pk/file/` only redirects to `f006.backblazeb2.com`. `check-files.py` needs that host reachable (from your Mac, or allow it in the Claude environment).

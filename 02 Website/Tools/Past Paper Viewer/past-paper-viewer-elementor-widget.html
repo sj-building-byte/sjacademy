@@ -5,11 +5,13 @@
                    Meta   View Cambridge O and A Level past papers and mark schemes side by side. Try the question first, then check the marks. Free, no sign-up.
                    Canonical  https://www.sjacademy.pk/past-paper-viewer/  (the clean address, so ?level=... links are not indexed on their own)
                    Focus keyphrase  to be set after keyword research
-     Deep links: /past-paper-viewer/?level=o-level&subject=biology&year=2025-mj&paper=31
-                 year: 2025-mj is May/June 2025, 2025-on is Oct/Nov 2025. paper: paper digit then variant digit, so 31 is Paper 3, Variant 1.
+     Deep links: /past-paper-viewer/?level=o-level&subject=biology&series=2025-mj&paper=31&marks=show
+                 series: 2025-mj is May/June 2025, 2025-on is Oct/Nov 2025. paper: paper digit then variant digit, so 31 is Paper 3, Variant 1.
+                 marks=show opens the mark scheme too. Never use "year" in the address: WordPress reads it as a date archive and shows a 404.
                  Any prefix works (level only, level and subject, and so on). Other query parts such as utm tags are kept.
-     GA4 events: tool_start, tool_complete, mark_scheme_reveal, insert_view, fullscreen_open, paper_unavailable, open_in_new_tab, whatsapp_click, homepage_click.
-                 Parameters: level, subject, series, paper, plus entry (manual or link), method (button or toggle), type, file, link_location, page_family.
+                 The Share button sends the open paper with its mark scheme showing.
+     GA4 events: tool_start, tool_complete, mark_scheme_reveal, insert_view, fullscreen_open, share_click, paper_unavailable, open_in_new_tab, whatsapp_click, homepage_click.
+                 Parameters: level, subject, series, paper, plus entry (manual or link), method (button, toggle, link; for share_click: share or copy), type, file, link_location, page_family.
      File list: run check-files.py (same folder) on your own computer before pasting, and again after each upload of new papers.
                 It writes the FILES line below, so the dropdowns only offer papers that are in storage. Tests: tests/viewer-test.js. Notes: BRIEF.md. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,7 +92,7 @@
 .sjpv-gone .sjpv-lock-text{max-width:320px}
 .sjpv-pane.is-missing .sjpv-mobile{display:none!important}
 .sjpv-right.is-missing .sjpv-lock{display:none}
-.sjpv-toolrow{display:none;justify-content:flex-end;margin-bottom:10px}
+.sjpv-toolrow{display:none;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin-bottom:10px}
 .sjpv.has-entry .sjpv-toolrow,.sjpv.is-full .sjpv-toolrow{display:flex}
 .sjpv.is-full-fallback{position:fixed;inset:0;z-index:2147483000}
 .sjpv.is-full{display:flex;flex-direction:column;height:100%;overflow:auto}
@@ -120,7 +122,7 @@
 .sjpv.is-compact .sjpv-grid{grid-template-columns:1fr}
 .sjpv.is-compact .sjpv-pane{display:none}
 .sjpv.is-compact[data-pane="left"] .sjpv-left,.sjpv.is-compact[data-pane="ms"] .sjpv-right{display:block}
-.sjpv.is-compact .sjpv-frame,.sjpv.is-compact .sjpv-actions,.sjpv.is-compact .sjpv-toolrow,.sjpv.is-compact .sjpv-loading{display:none!important}
+.sjpv.is-compact .sjpv-frame,.sjpv.is-compact .sjpv-actions,.sjpv.is-compact #sjpv-full,.sjpv.is-compact .sjpv-loading{display:none!important}
 .sjpv.is-compact .sjpv-body{height:auto;min-height:360px}
 .sjpv.is-compact .sjpv-empty{position:static;min-height:280px}
 .sjpv.is-compact.has-entry .sjpv-mobile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:360px;padding:28px 20px;text-align:center}
@@ -148,7 +150,7 @@
 </section>
 <p class="sjpv-sr" id="sjpv-status" role="status" aria-live="polite"></p>
 <div class="sjpv-stage">
-<div class="sjpv-toolrow"><button type="button" class="sjpv-btn" id="sjpv-full" aria-label="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></svg><span>Full screen</span></button></div>
+<div class="sjpv-toolrow"><button type="button" class="sjpv-btn" id="sjpv-share" aria-label="Share this paper with its mark scheme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4"/><path d="M15.4 6.5l-6.8 4"/></svg><span>Share this paper</span></button><button type="button" class="sjpv-btn" id="sjpv-full" aria-label="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></svg><span>Full screen</span></button></div>
 <div class="sjpv-grid">
 <section class="sjpv-pane sjpv-left" aria-label="Question paper">
 <div class="sjpv-panehead"><p class="sjpv-panetitle" id="sjpv-left-title">Question paper</p><div class="sjpv-actions" id="sjpv-actions" hidden></div></div>
@@ -398,9 +400,9 @@
   function applyDeepLink() {
     if (!window.URLSearchParams) return;
     var q = new URLSearchParams(location.search);
-    var steps = [['level', selLevel, slug], ['subject', selSubject, slug], ['year', selYear, yearSlug], ['paper', selPaper, paperSlug]];
+    var steps = [['level', selLevel, slug], ['subject', selSubject, slug], ['series', selYear, yearSlug], ['paper', selPaper, paperSlug]];
     for (var i = 0; i < steps.length; i++) {
-      var v = q.get(steps[i][0]);
+      var v = q.get(steps[i][0]) || (i === 2 ? q.get('year') : '');
       if (!v) break;
       var sel = steps[i][1], fn = steps[i][2], hit = false;
       for (var j = 0; j < sel.options.length; j++) {
@@ -409,17 +411,42 @@
       if (!hit) break;
       sel.dispatchEvent(new Event('change'));
     }
+    if (state.entry && q.get('marks') === 'show') setLearn('link');
+  }
+  /* The address for the current choice. marks=show is added when the mark scheme is open, or always for the Share button. */
+  function linkFor(showMarks) {
+    var q = new URLSearchParams(location.search);
+    var vals = { level: selLevel.value && slug(selLevel.value), subject: selSubject.value && slug(selSubject.value), series: selYear.value && yearSlug(selYear.value), paper: selPaper.value && paperSlug(selPaper.value), marks: showMarks && state.entry ? 'show' : '' };
+    q.delete('year');
+    Object.keys(vals).forEach(function (k) { if (vals[k]) q.set(k, vals[k]); else q.delete(k); });
+    var qs = q.toString();
+    return location.pathname + (qs ? '?' + qs : '') + location.hash;
   }
   function syncUrl() {
     if (!window.URLSearchParams || !window.history || !history.replaceState) return;
-    try {
-      var q = new URLSearchParams(location.search);
-      var vals = { level: selLevel.value && slug(selLevel.value), subject: selSubject.value && slug(selSubject.value), year: selYear.value && yearSlug(selYear.value), paper: selPaper.value && paperSlug(selPaper.value) };
-      Object.keys(vals).forEach(function (k) { if (vals[k]) q.set(k, vals[k]); else q.delete(k); });
-      var qs = q.toString();
-      history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
-    } catch (x) {}
+    try { history.replaceState(null, '', linkFor(state.learn)); } catch (x) {}
   }
+  /* Share: the phone's share sheet when there is one, otherwise copy the link */
+  var shareBtn = el('share'), shareTimer = null;
+  function shareLabel(t) {
+    shareBtn.querySelector('span').textContent = t;
+    clearTimeout(shareTimer);
+    if (t !== 'Share this paper') shareTimer = setTimeout(function () { shareLabel('Share this paper'); }, 2500);
+  }
+  shareBtn.addEventListener('click', function () {
+    if (!state.entry || !window.URLSearchParams) return;
+    var url = location.origin + linkFor(true);
+    var title = state.label + ' with mark scheme';
+    if (navigator.share && compact()) {
+      track('share_click', { method: 'share' });
+      navigator.share({ title: title, url: url }).catch(function () {});
+      return;
+    }
+    track('share_click', { method: 'copy' });
+    var copied = function () { shareLabel('Link copied'); announce('Link copied.'); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(copied, function () { window.prompt('Copy this link:', url); });
+    else window.prompt('Copy this link:', url);
+  });
   /* Phone layout: narrow screens, phones turned sideways, and browsers that cannot show a PDF inside the page (Chrome on Android) */
   var mq = window.matchMedia('(max-width: 767px), (max-height: 500px) and (pointer: coarse)');
   var noInline = navigator.pdfViewerEnabled === false;
@@ -603,11 +630,12 @@
     }
   });
   Array.prototype.forEach.call(root.querySelectorAll('.sjpv-pick'), function (b) { b.addEventListener('click', pickPaper); });
-  btnCheat.addEventListener('click', function () { state.learn = false; render(); });
+  btnCheat.addEventListener('click', function () { state.learn = false; render(); syncUrl(); });
   function setLearn(method) {
     if (!state.learn) track('mark_scheme_reveal', { method: method });
     state.learn = true;
     render();
+    syncUrl();
   }
   btnLearn.addEventListener('click', function () { setLearn('toggle'); });
   el('unlock').addEventListener('click', function () { setLearn('button'); btnLearn.focus(); });

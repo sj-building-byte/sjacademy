@@ -58,6 +58,26 @@ def read_files(html):
     return json.loads(m.group(1)) if m else {}
 
 
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *args, **kwargs):
+        return None
+
+
+def direct_base(base):
+    """sjacademy.pk/file/... answers with a redirect to Backblaze. Ask Backblaze directly to halve the requests."""
+    probe = base.rstrip("/") + "/redirect-probe.pdf"
+    req = urllib.request.Request(probe, method="HEAD", headers={"User-Agent": UA})
+    try:
+        urllib.request.build_opener(NoRedirect).open(req, timeout=25)
+    except urllib.error.HTTPError as e:
+        loc = e.headers.get("Location", "")
+        if e.code in (301, 302, 303, 307, 308) and loc.endswith("/redirect-probe.pdf"):
+            return loc[: -len("/redirect-probe.pdf")]
+    except Exception:
+        pass
+    return base
+
+
 def enc(folder):
     return folder.replace(" ", "+").replace("(", "%28").replace(")", "%29")
 
@@ -159,7 +179,8 @@ def main():
     a = ap.parse_args()
 
     html = open(WIDGET, encoding="ascii").read()
-    base = a.base or re.search(r"var BASE = '([^']+)'", html).group(1)
+    base = direct_base(a.base or re.search(r"var BASE = '([^']+)'", html).group(1))
+    print("Checking files at %s" % base)
     y0, y1 = (int(x) for x in a.years.split("-"))
     years = list(range(y0, y1 + 1))
     recent = {"%s%02d" % (se[0], y % 100) for y in years[-2:] for se in SESSIONS}

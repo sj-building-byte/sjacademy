@@ -105,7 +105,18 @@ const visible = (page, sel) => page.isVisible(sel);
   if (SHOTS) await page.screenshot({ path: path.join(SHOTS, 'desktop-accounting.png'), fullPage: true });
   const ev = await page.evaluate(() => window.__ev.map((e) => e[0]));
   ok(['tool_start', 'tool_complete', 'mark_scheme_reveal', 'paper_unavailable', 'fullscreen_open'].every((n) => ev.includes(n)), 'GA4 events fire: ' + [...new Set(ev)].join(', '));
-  ok(page.url().includes('level=o-level') && page.url().includes('subject=accounting') && page.url().includes('paper=12'), 'Address bar holds the deep link');
+  ok(page.url().includes('level=o-level') && page.url().includes('subject=accounting') && page.url().includes('series=2024-mj') && page.url().includes('paper=12') && !page.url().includes('year='), 'Address bar holds the deep link, with series not year');
+  ok(!page.url().includes('marks='), 'A new paper relocks and drops marks=show');
+  await page.click('#sjpv-learn');
+  ok(page.url().includes('marks=show'), 'Address bar adds marks=show while the mark scheme is open');
+  await page.click('#sjpv-cheat');
+  ok(!page.url().includes('marks='), "Don't cheat removes marks=show");
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.click('#sjpv-share');
+  await page.waitForTimeout(200);
+  const shared = await page.evaluate(() => navigator.clipboard.readText());
+  ok(shared === 'https://www.sjacademy.pk/past-paper-viewer/?level=o-level&subject=accounting&series=2024-mj&paper=12&marks=show', 'Share copies the link with the mark scheme open: ' + shared);
+  ok((await page.textContent('#sjpv-share')) === 'Link copied', 'Share button confirms the copy');
   await context.close();
 
   // 2. Pakistan Studies: one paper per component, qp_01 and ms_1
@@ -134,7 +145,7 @@ const visible = (page, sel) => page.isVisible(sel);
   await context.close();
 
   // 3. Deep link with insert
-  ({ page, context } = await open(browser, { query: '?level=a-level&subject=business&year=2024-mj&paper=32&utm_source=ig', ctx: { viewport: { width: 1280, height: 860 } } }));
+  ({ page, context } = await open(browser, { query: '?level=a-level&subject=business&series=2024-mj&paper=32&utm_source=ig', ctx: { viewport: { width: 1280, height: 860 } } }));
   await page.waitForTimeout(500);
   ok((await src(page, '#sjpv-frame-left')).endsWith('9609_s24_qp_32.pdf'), 'Deep link opens Business 9609/32');
   ok(page.url().includes('utm_source=ig'), 'Deep link keeps utm tags');
@@ -144,6 +155,24 @@ const visible = (page, sel) => page.isVisible(sel);
   const ev3 = await page.evaluate(() => window.__ev.filter((e) => e[0] === 'tool_complete').map((e) => e[1].entry));
   ok(ev3[0] === 'link', 'tool_complete marks entry = link');
   if (SHOTS) await page.screenshot({ path: path.join(SHOTS, 'desktop-business-insert.png') });
+  await context.close();
+
+  // 3b. A shared link opens the paper and the mark scheme
+  ({ page, context } = await open(browser, { query: '?level=o-level&subject=pakistan-studies&series=2024-mj&paper=1&marks=show', ctx: { viewport: { width: 1280, height: 860 } } }));
+  await page.waitForTimeout(500);
+  ok((await src(page, '#sjpv-frame-left')).endsWith('2059_s24_qp_01.pdf') && (await src(page, '#sjpv-frame-right')).endsWith('2059_s24_ms_1.pdf'), 'Shared link loads paper and mark scheme');
+  ok(!(await visible(page, '#sjpv-lock')) && (await page.getAttribute('#sjpv-learn', 'aria-pressed')) === 'true', 'Shared link opens with the mark scheme showing');
+  await context.close();
+  ({ page, context } = await open(browser, { query: '?level=o-level&subject=pakistan-studies&series=2024-mj&paper=1&marks=show', ctx: { ...devices['Pixel 7'] }, init: "Object.defineProperty(navigator, 'pdfViewerEnabled', { get: () => false, configurable: true })" }));
+  await page.waitForTimeout(500);
+  ok(await visible(page, '#sjpv-share'), 'Phone: Share button shows');
+  await page.click('#sjpv-bar button[data-k="ms"]');
+  ok(!(await visible(page, '#sjpv-lock')) && (await visible(page, '#sjpv-right-open')), 'Phone: shared link opens with the mark scheme unlocked');
+  if (SHOTS) await page.screenshot({ path: path.join(SHOTS, 'phone-shared.png') });
+  await context.close();
+  ({ page, context } = await open(browser, { query: '?level=a-level&subject=business&year=2024-mj&paper=32', ctx: { viewport: { width: 1280, height: 860 } } }));
+  await page.waitForTimeout(400);
+  ok((await src(page, '#sjpv-frame-left')).endsWith('9609_s24_qp_32.pdf') && page.url().includes('series=2024-mj') && !page.url().includes('year='), 'Old year= links still open and are rewritten to series=');
   await context.close();
 
   // 4. File host blocks the check (no CORS): frames still load

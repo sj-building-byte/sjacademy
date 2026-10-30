@@ -15,6 +15,8 @@ Full audit in `02 Website/Tools/Past Paper Viewer/BRIEF.md`. In short:
 - Browsers that cannot show a PDF inside a page (Chrome on Android, including tablets) and phones turned sideways now get the phone layout instead of blank frames. Panes show a loading message.
 - Browser tests saved in `Tools/Past Paper Viewer/tests/viewer-test.js` (44 checks, all pass, file host mocked).
 - The live O Level hub pages share the old folder names and file patterns, so several of them probably have broken links. Check after running the script.
+- **Share links fixed.** WordPress treats `year` in an address as a date archive, so `/past-paper-viewer/?year=...` shows a 404 page (tested on the live site: `/a-level-past-papers/` is 200, `/a-level-past-papers/?year=2025-mj` is 404). The parameter is now `series`. `marks=show` opens the mark scheme too. A "Share this paper" button (phone share sheet, or copy on a laptop) sends the open paper with its mark scheme showing. GA4 event `share_click` (method share or copy). The address bar adds `marks=show` while the mark scheme is open.
+- **The file host redirects.** `sjacademy.pk/file/...` is a Cloudflare 302 redirect to `f006.backblazeb2.com/file/...`, with no CORS header, so the viewer's background check never works from a browser. The fix is the FILES list from `check-files.py`, which talks to Backblaze directly.
 
 ## 2. Files
 
@@ -41,7 +43,7 @@ To see it on GitHub, switch the branch dropdown from `main` to `claude/caie-past
   - A Full screen button appears above the panes once a paper is loaded. It uses the browser Fullscreen API with a fixed full-window fallback. In full screen the title and the closing band are hidden. Esc exits.
 - Phones (under 768px): no iframes. Each view shows an "Open ... in new tab" button. A sticky bottom bar switches Paper, Insert, Confidential and Mark scheme. The mark scheme stays locked until revealed.
 - Missing files: before loading a PDF the page sends a background HEAD request. A 404 shows "This question paper isn't available. Try a different variant or year." with a "Choose another paper" button, instead of the host's raw JSON. If the host blocks the request (CORS), the viewer falls back to loading the frame as before and the old 404 text can appear.
-- Deep links: `?level=o-level&subject=biology&year=2025-mj&paper=31` (2025-mj is May/June 2025, 2025-on is Oct/Nov 2025, 31 is Paper 3 Variant 1). Any prefix works, utm tags are kept, and the address bar updates as the student picks.
+- Deep links (changed 30 October, see below): `?level=o-level&subject=biology&series=2025-mj&paper=31&marks=show`. Older form for reference: `?level=o-level&subject=biology&year=2025-mj&paper=31` (2025-mj is May/June 2025, 2025-on is Oct/Nov 2025, 31 is Paper 3 Variant 1). Any prefix works, utm tags are kept, and the address bar updates as the student picks.
 - Closing yellow band: heading "Know the content but still losing marks?", a line about in class at DHA Phase 7 and live online, past-paper practice marked to the mark scheme, feedback on lost marks, free demo class. Two buttons: "Message us on WhatsApp" and "Explore SJ Academy" (homepage, same tab).
 - WhatsApp message follows the other pages: "I'd like to book a free demo class.", then Level and Subject once chosen, a Mode line, `(Ref: PPV-END)`, "My name is ". `PPV-END` is a new Ref code.
 
