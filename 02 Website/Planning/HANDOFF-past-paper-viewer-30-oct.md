@@ -31,7 +31,7 @@ To see it on GitHub, switch the branch dropdown from `main` to `claude/caie-past
 
 ## 3. What the tool does
 
-- Header: centred H1 "Past Paper & Mark Scheme Viewer" with the yellow highlighter on the lower half, a short subheading ("Open any Cambridge O and A Level past paper next to its mark scheme. Free, no sign-up."), and the Caveat note in `#B54200`: "Read the command word before you look at the answer."
+- Header: centred H1 "Past Paper & Mark Scheme Viewer" with the yellow highlighter on the lower half, a short subheading ("Open any Cambridge O and A Level past paper next to its mark scheme. Free, no sign-up."). The Caveat note ("Read the command word before you look at the answer.") was removed on 30 October 2026 at Sunyyan's request
 - Four cascading dropdowns: Level, Subject, Year (shown as "2024 May/June"), Paper (shown as "Paper 3, Variant 2").
 - Data: A Level (13 subjects, 3 variants) and O Level (12 subjects, 2 variants), 2020 to 2025, May/June and Oct/Nov. File links are built from `https://sjacademy.pk/file/Past-papers-storage/{A+Level|O+Level}/{Subject+%28code%29}/{May+June|October+November}+{year}/{code}_{s|w}{yy}_{qp|ms|in|ci}_{paper}{variant}.pdf`. Subject settings come from the old past papers tool, the live Business and Maths pages, and the O Level hub files in `02 Website/SEO/01_Website_Pages/Past_Papers/`. `BASE` and `LEVELS` are at the top of the script.
 - Desktop and tablet (768px and up): paper on the left, mark scheme on the right, in iframes.
