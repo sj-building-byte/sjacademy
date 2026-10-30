@@ -9,7 +9,27 @@ Page: `/past-paper-viewer/` (not live). Widget: `past-paper-viewer-elementor-wid
 • Success: `tool_complete` and `mark_scheme_reveal` events; low `paper_unavailable`; WhatsApp leads tagged `PPV-END`.
 • Must not: show a broken or blank paper, or offer a paper that does not exist.
 
-## Audit, 30 October 2026
+## Storage check, 30 October 2026 (v2.4): the real answer
+
+With `sjacademy.pk` and `f006.backblazeb2.com` allowed, `check-files.py` checked every likely file (34,911 requests, no errors) and wrote the real list into the widget. Then `tests/list-links.js` worked through every Level, Subject, Year, Paper, Insert and Confidential button in a browser (6,200 links) and `check-files.py --verify` asked Backblaze for each one: **0 wrong**. 2,957 question papers, 2,941 mark schemes, 186 inserts and 100 confidential instruction files open. 16 mark schemes are not in storage and show "This mark scheme isn't available".
+
+What the real list settled:
+• `sjacademy.pk/file/...` is a Cloudflare redirect to `f006.backblazeb2.com/file/...`. Backblaze sends no CORS header, so a browser can never check a file first. That is why the raw 404 text appeared. With the list in the widget, the viewer never offers a file that is not there.
+• Every O Level subject uses the older folder name: Accounts (7707), Business (7115), Computer (2210), English (1123), Islamiat (2058), Mathematics (4024), Pakistan studies (2059), Urdu (3248). A Level names were right.
+• A Level Biology has no confidential instructions in storage (Sunyyan's Biology screenshot). The Confidential button no longer shows for it.
+• O Level Accounting Oct/Nov 2025 has variants 2 and 3 only (Sunyyan's Accounting screenshot). Variant 1 is no longer offered.
+• A Level Urdu 9686 has one version per paper (`qp_02`, `ms_2`; 2019 uses `qp_2`). Some subjects have variants 4 to 6, and A Level Maths has variant 5 from 2025 (checked: 9709_s25_qp_15 is 9709/15, Pure Mathematics 1). Several A Level subjects already have May/June 2026, and they now show.
+• Series not in storage: all of 2019 for most O Level subjects, Oct/Nov 2026 everywhere, May/June 2026 for most subjects, Sociology May/June 2024, Computer Science Oct/Nov 2020, Literature in English Oct/Nov 2019. Details in `files-report.md`.
+
+### Mark schemes to upload
+A Level Accounting May/June 2022 12. A Level Business May/June 2022 22. A Level Computer Science Oct/Nov 2022 33. A Level Mathematics Oct/Nov 2021 21; May/June 2022 21, 22, 23; May/June 2024 22; May/June 2025 11; Oct/Nov 2025 12. A Level Physics May/June 2026 21. O Level Accounting May/June 2021 11, 21, 22; Oct/Nov 2021 12. O Level Physics May/June 2021 31. After uploading, run `python3 check-files.py` again and re-paste the widget.
+
+### Live past papers pages checked on 30 October 2026
+• O Level subject pages (`/o-level-past-papers/{subject}/`): 8 of 12 are broken. Every link returns 404 because they use the wrong folder names: Accounting, Business Studies, Computer Science, English Language, Islamiyat, Mathematics D, Pakistan Studies, Urdu Second Language. Pakistan Studies and Urdu Second Language also use the wrong file names. Biology, Chemistry, Economics and Physics work.
+• A Level Urdu page (`/a-level-past-papers/urdu-9686/`): broken (asks for `qp_22`; the files are `qp_02`).
+• The other A Level pages sampled work. The fixed-link pages (Business, Economics, Maths) were not checked link by link.
+
+## Audit, 30 October 2026 (before the storage check)
 
 The sandbox cannot reach `sjacademy.pk`, so no live file was opened. Paper structures were checked against public file listings (pastpapers.co, Save My Exams and Cambridge grade threshold tables, through web search). The file host itself still has to be checked with `check-files.py`.
 

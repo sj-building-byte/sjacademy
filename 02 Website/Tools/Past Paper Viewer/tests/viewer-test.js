@@ -7,7 +7,10 @@ const path = require('path');
 
 const WIDGET = process.argv[2] || path.join(__dirname, '..', 'past-paper-viewer-elementor-widget.html');
 const SHOTS = process.argv[3] || '';
-const widget = fs.readFileSync(WIDGET, 'utf8');
+const fullWidget = fs.readFileSync(WIDGET, 'utf8');
+// These tests check the built-in rules against a mocked host, so the real file list is set aside here.
+// verify-links.js checks the real list against Backblaze.
+const widget = fullWidget.replace(/var FILES = .*;\n/, 'var FILES = {};\n');
 const PAGE = 'https://www.sjacademy.pk/past-paper-viewer/';
 const FILE = 'https://sjacademy.pk/file/Past-papers-storage/';
 const PDF = Buffer.from('%PDF-1.1\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj 2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj 3 0 obj<</Type/Page/Parent 2 0 R/MediaBox[0 0 300 300]>>endobj\ntrailer<</Root 1 0 R>>\n%%EOF');
@@ -240,6 +243,31 @@ const visible = (page, sel) => page.isVisible(sel);
   ok(await page8.isVisible('#sjpv-right-gone'), 'FILES: a missing mark scheme is shown as missing');
   ok(!heads.includes('HEAD'), 'FILES: no background checks needed');
   await context8.close();
+
+  // 9. The real file list in the widget: the two cases Sunyyan reported on 30 October
+  if (/var FILES = \{"/.test(fullWidget)) {
+    const context9 = await browser.newContext({ viewport: { width: 1280, height: 860 } });
+    const page9 = await context9.newPage();
+    await page9.addInitScript("Object.defineProperty(navigator, 'pdfViewerEnabled', { get: () => true, configurable: true })");
+    await page9.route('**/*', (route) => {
+      const url = route.request().url();
+      if (url.startsWith(PAGE)) return route.fulfill({ contentType: 'text/html', body: '<!doctype html><html><body style="margin:0">' + fullWidget + '</body></html>' });
+      if (url.startsWith(FILE)) return route.fulfill({ status: 200, contentType: 'application/pdf', body: PDF });
+      return route.abort();
+    });
+    await page9.goto(PAGE);
+    await pick(page9, 'A Level', 'Biology', '2025 May/June', 'Paper 3, Variant 3');
+    ok(!(await page9.isVisible('#sjpv-actions button')), 'Real list: A Level Biology 2025 has no Confidential button (none in storage)');
+    await pick(page9, 'O Level', 'Accounting', '2025 Oct/Nov');
+    const acc = await opts(page9, '#sjpv-paper');
+    ok(!acc.includes('Paper 2, Variant 1') && acc.includes('Paper 1, Variant 2'), 'Real list: O Level Accounting Oct/Nov 2025 offers only stored variants: ' + acc.slice(1).join(', '));
+    await page9.selectOption('#sjpv-paper', 'Paper 1, Variant 2');
+    await page9.waitForTimeout(300);
+    ok((await src(page9, '#sjpv-frame-right')).endsWith('Accounts+%287707%29/October+November+2025/7707_w25_ms_12.pdf'), 'Real list: Accounting 7707_w25_ms_12 (the file in your Backblaze screenshot) opens');
+    await pick(page9, 'A Level', 'Urdu', '2025 May/June');
+    ok(JSON.stringify((await opts(page9, '#sjpv-paper')).slice(1)) === JSON.stringify(['Paper 2', 'Paper 3', 'Paper 4']), 'Real list: A Level Urdu shows Paper 2, 3, 4');
+    await context9.close();
+  }
 
   ok(errors.length === 0, 'No script errors' + (errors.length ? ': ' + errors.join(' | ') : ''));
   await browser.close();

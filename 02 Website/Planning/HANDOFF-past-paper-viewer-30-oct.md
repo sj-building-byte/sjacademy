@@ -18,6 +18,12 @@ Full audit in `02 Website/Tools/Past Paper Viewer/BRIEF.md`. In short:
 - **Share links fixed.** WordPress treats `year` in an address as a date archive, so `/past-paper-viewer/?year=...` shows a 404 page (tested on the live site: `/a-level-past-papers/` is 200, `/a-level-past-papers/?year=2025-mj` is 404). The parameter is now `series`. `marks=show` opens the mark scheme too. A "Share this paper" button (phone share sheet, or copy on a laptop) sends the open paper with its mark scheme showing. GA4 event `share_click` (method share or copy). The address bar adds `marks=show` while the mark scheme is open.
 - **The file host redirects.** `sjacademy.pk/file/...` is a Cloudflare 302 redirect to `f006.backblazeb2.com/file/...`, with no CORS header, so the viewer's background check never works from a browser. The fix is the FILES list from `check-files.py`, which talks to Backblaze directly.
 
+## Update 30 October 2026, later (v2.4): checked against Backblaze
+
+- `check-files.py` ran from the session (Sunyyan allowed `sjacademy.pk` and `f006.backblazeb2.com`). The real file list is in the widget. All 6,200 links the viewer can open were then checked one by one: 0 wrong. Results, uploads needed and the live pages found broken: `Tools/Past Paper Viewer/BRIEF.md` and `files-report.md`.
+- **Live pages broken now:** 8 of 12 O Level subject past papers pages (wrong folder names) and the A Level Urdu page (wrong file names). Fix these next; the same file list can drive them.
+- Open item 0 is done. Re-run `check-files.py` after every upload of new papers, then re-paste the widget.
+
 ## 2. Files
 
 | File | What it is |
@@ -64,7 +70,7 @@ To see these in GA4 reports, register `level`, `subject`, `series`, `paper`, `en
 
 ## 6. Open items, in order
 
-0. On your Mac, in `02 Website/Tools/Past Paper Viewer/`, run `python3 check-files.py` (about 5 to 10 minutes). Read `files-report.md`: folder used per subject, series found, missing mark schemes. Then paste the updated widget. If the host starts refusing requests, run it again with `--workers 3`.
+0. DONE 30 October (v2.4). Re-run after uploads: in `02 Website/Tools/Past Paper Viewer/`, run `python3 check-files.py` (about 5 to 10 minutes). Read `files-report.md`: folder used per subject, series found, missing mark schemes. Then paste the updated widget. If the host starts refusing requests, run it again with `--workers 3`.
 1. Create the page `/past-paper-viewer/` as a draft, paste the widget, and test: PDFs show inside the frames, a deep link, a missing-file case (for example O Level Biology Paper 6 in a series that lacks it), full screen, the toggle, and a phone check. Take a Cloudways backup first.
 2. Frames and 404s: the live file host is untested. If the panes stay blank, a frame-blocking header may be the cause. If the old JSON 404 text still appears, ask for `Access-Control-Allow-Origin: https://www.sjacademy.pk` on the `/file/` path (Cloudflare or the WordPress file plugin) so the missing-file check can read the status.
 3. Tap a few links per subject. None of the links have been tested from the sandbox because it cannot reach `sjacademy.pk`.

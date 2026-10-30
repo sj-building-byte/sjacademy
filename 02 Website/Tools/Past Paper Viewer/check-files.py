@@ -176,7 +176,10 @@ def main():
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--only", action="append")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--verify", metavar="LINKS", help="check every link in a file written by tests/list-links.js, then stop")
     a = ap.parse_args()
+    if a.verify:
+        return verify(a.verify, a.workers)
 
     html = open(WIDGET, encoding="ascii").read()
     base = direct_base(a.base or re.search(r"var BASE = '([^']+)'", html).group(1))
@@ -228,6 +231,22 @@ def main():
     with open(WIDGET, "w", encoding="ascii", newline="\n") as f:
         f.write(new)
     print("Widget updated: %s\nReport: %s" % (WIDGET, REPORT))
+
+
+def verify(path, workers):
+    """Every link the viewer offers must open; every link it marks missing must really be missing."""
+    rows = [l.rstrip("\n").split(" | ") for l in open(path, encoding="utf-8") if l.count(" | ") >= 5]
+    html = open(WIDGET, encoding="ascii").read()
+    site = re.search(r"var BASE = '([^']+)'", html).group(1)
+    b2 = direct_base(site)
+    host = Host(b2, workers)
+    urls = sorted({r[-1].replace(site, b2, 1) for r in rows})
+    res = host.many(urls)
+    bad = [r for r in rows if res.get(r[-1].replace(site, b2, 1)) is not (r[-2] == "offered")]
+    print("%d links checked (%d files), %d wrong:" % (len(rows), len(urls), len(bad)))
+    for r in bad:
+        print("  " + " | ".join(r))
+    sys.exit(1 if bad else 0)
 
 
 def write_report(rows, years, base):
