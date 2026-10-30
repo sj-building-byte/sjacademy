@@ -1,4 +1,4 @@
-<!-- SJ Academy past paper and mark scheme viewer, Elementor HTML widget. Version 2.2, 29 October 2026.
+<!-- SJ Academy past paper and mark scheme viewer, Elementor HTML widget. Version 2.3, 30 October 2026.
      Page: /past-paper-viewer/. Family: Tool.
      Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
      Set in Yoast: Title  Past Paper & Mark Scheme Viewer | O and A Level | SJ Academy
@@ -9,7 +9,9 @@
                  year: 2025-mj is May/June 2025, 2025-on is Oct/Nov 2025. paper: paper digit then variant digit, so 31 is Paper 3, Variant 1.
                  Any prefix works (level only, level and subject, and so on). Other query parts such as utm tags are kept.
      GA4 events: tool_start, tool_complete, mark_scheme_reveal, insert_view, fullscreen_open, paper_unavailable, open_in_new_tab, whatsapp_click, homepage_click.
-                 Parameters: level, subject, series, paper, plus entry (manual or link), method (button or toggle), type, file, link_location, page_family. -->
+                 Parameters: level, subject, series, paper, plus entry (manual or link), method (button or toggle), type, file, link_location, page_family.
+     File list: run check-files.py (same folder) on your own computer before pasting, and again after each upload of new papers.
+                It writes the FILES line below, so the dropdowns only offer papers that are in storage. Tests: tests/viewer-test.js. Notes: BRIEF.md. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -102,30 +104,34 @@
 .sjpv.is-full .sjpv-panehead{flex:none}
 .sjpv.is-full .sjpv-body{flex:1 1 auto;height:auto;min-height:0}
 .sjpv-bar{display:none}
+.sjpv-loading{position:absolute;inset:0;display:none;align-items:center;justify-content:center;gap:10px;font-size:14px;color:var(--muted)}
+.sjpv-loading::before{content:"";width:18px;height:18px;border:2px solid var(--line);border-top-color:var(--ink);border-radius:50%;animation:sjpv-spin .8s linear infinite}
+@keyframes sjpv-spin{to{transform:rotate(360deg)}}
+.sjpv.has-entry .sjpv-pane.is-loading .sjpv-loading{display:flex}
+.sjpv-pane.is-loading .sjpv-frame{visibility:hidden}
+.sjpv-sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media (max-width:1023px) and (min-width:768px){.sjpv-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:767px){
 .sjpv-controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.sjpv-grid{grid-template-columns:1fr}
-.sjpv-pane{display:none}
-.sjpv[data-pane="left"] .sjpv-left,.sjpv[data-pane="ms"] .sjpv-right{display:block}
-.sjpv-frame{display:none!important}
-.sjpv-actions{display:none!important}
-.sjpv .sjpv-toolrow{display:none!important}
-.sjpv-body{height:auto;min-height:360px}
-.sjpv-empty{position:static;min-height:280px}
-.sjpv.has-entry .sjpv-mobile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:360px;padding:28px 20px;text-align:center}
-.sjpv .sjpv-mobile-meta{margin:0;font-size:14px;color:var(--muted)}
-.sjpv-mobile .sjpv-cta{width:100%;max-width:340px}
 .sjpv-seg-btn svg{display:none!important}
 .sjpv .sjpv-seg-btn{padding:5px 11px}
 .sjpv .sjpv-seg .sjpv-seg-btn{min-width:96px}
 .sjpv-band-row .sjpv-cta,.sjpv-band-row .sjpv-ghost{width:100%}
-.sjpv.has-entry .sjpv-bar{position:sticky;bottom:0;z-index:20;display:flex;gap:6px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--ink)}
+}
+.sjpv.is-compact .sjpv-grid{grid-template-columns:1fr}
+.sjpv.is-compact .sjpv-pane{display:none}
+.sjpv.is-compact[data-pane="left"] .sjpv-left,.sjpv.is-compact[data-pane="ms"] .sjpv-right{display:block}
+.sjpv.is-compact .sjpv-frame,.sjpv.is-compact .sjpv-actions,.sjpv.is-compact .sjpv-toolrow,.sjpv.is-compact .sjpv-loading{display:none!important}
+.sjpv.is-compact .sjpv-body{height:auto;min-height:360px}
+.sjpv.is-compact .sjpv-empty{position:static;min-height:280px}
+.sjpv.is-compact.has-entry .sjpv-mobile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:360px;padding:28px 20px;text-align:center}
+.sjpv .sjpv-mobile-meta{margin:0;font-size:14px;color:var(--muted)}
+.sjpv-mobile .sjpv-cta{width:100%;max-width:340px}
+.sjpv.is-compact.has-entry .sjpv-bar{position:sticky;bottom:0;z-index:20;display:flex;gap:6px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--ink)}
 .sjpv .sjpv-bar-btn{flex:1 1 0;min-width:0;min-height:48px;margin:0;padding:8px 6px;border:0;border-radius:8px;background:transparent;color:var(--canvas);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,color .15s}
-.sjpv .sjpv-bar-btn:hover{background:#2B2B2B;color:#fff}
+@media (hover:hover){.sjpv .sjpv-bar-btn:hover{background:#2B2B2B;color:#fff}}
 .sjpv .sjpv-bar-btn[aria-pressed="true"]{background:var(--yellow);color:var(--ink)}
 .sjpv .sjpv-bar-btn:focus-visible{outline:3px solid var(--yellow);outline-offset:-3px}
-}
 @media (max-width:380px){.sjpv-controls{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.sjpv *,.sjpv *::before,.sjpv *::after{transition-duration:0s!important}}
 </style>
@@ -142,13 +148,15 @@
 <div class="sjpv-field"><label for="sjpv-year">Year</label><select class="sjpv-select" id="sjpv-year"></select></div>
 <div class="sjpv-field"><label for="sjpv-paper">Paper</label><select class="sjpv-select" id="sjpv-paper"></select></div>
 </section>
-<div class="sjpv-stage" aria-live="polite">
+<p class="sjpv-sr" id="sjpv-status" role="status" aria-live="polite"></p>
+<div class="sjpv-stage">
 <div class="sjpv-toolrow"><button type="button" class="sjpv-btn" id="sjpv-full" aria-label="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></svg><span>Full screen</span></button></div>
 <div class="sjpv-grid">
 <section class="sjpv-pane sjpv-left" aria-label="Question paper">
 <div class="sjpv-panehead"><p class="sjpv-panetitle" id="sjpv-left-title">Question paper</p><div class="sjpv-actions" id="sjpv-actions" hidden></div></div>
 <div class="sjpv-body">
 <iframe class="sjpv-frame" id="sjpv-frame-left" title="Question paper" src="about:blank"></iframe>
+<div class="sjpv-loading" aria-hidden="true">Loading the paper</div>
 <div class="sjpv-empty">Choose a level, subject, year and paper to load it here.</div>
 <div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-left-meta"></p><a class="sjpv-cta" id="sjpv-left-open" href="#" target="_blank" rel="noopener" data-event="open_in_new_tab" data-loc="viewer_mobile" aria-label="Open question paper in new tab">Open question paper in new tab</a></div>
 <div class="sjpv-gone" id="sjpv-left-gone" hidden><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 12.5l5 5"/><path d="M14.5 12.5l-5 5"/></svg></span><p class="sjpv-lock-title" id="sjpv-left-gone-title">This file isn't available.</p><p class="sjpv-lock-text">Try a different variant or year.</p><button type="button" class="sjpv-btn sjpv-pick" aria-label="Choose another paper"><span>Choose another paper</span></button></div>
@@ -160,6 +168,7 @@
 </div>
 <div class="sjpv-body">
 <iframe class="sjpv-frame" id="sjpv-frame-right" title="Mark scheme" src="about:blank"></iframe>
+<div class="sjpv-loading" aria-hidden="true">Loading the mark scheme</div>
 <div class="sjpv-empty">The mark scheme appears here.</div>
 <div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-right-meta"></p><a class="sjpv-cta" id="sjpv-right-open" href="#" target="_blank" rel="noopener" data-event="open_in_new_tab" data-loc="viewer_mobile" aria-label="Open mark scheme in new tab">Open mark scheme in new tab</a></div>
 <div class="sjpv-gone" id="sjpv-right-gone" hidden><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 12.5l5 5"/><path d="M14.5 12.5l-5 5"/></svg></span><p class="sjpv-lock-title" id="sjpv-right-gone-title">This file isn't available.</p><p class="sjpv-lock-text">Try a different variant or year.</p><button type="button" class="sjpv-btn sjpv-pick" aria-label="Choose another paper"><span>Choose another paper</span></button></div>
@@ -184,10 +193,12 @@
   var root = document.getElementById('sjpv');
   if (!root) return;
   /* ---- DATA: edit here ----
-     BASE is the folder that holds your past paper PDFs. Each file is built from the live pattern:
+     BASE is the folder that holds the past paper PDFs. Each file is built from the live pattern:
      BASE/A+Level/Subject+%28code%29/May+June+2024/9609_s24_qp_12.pdf (qp question paper, ms mark scheme, in insert, ci confidential instructions)
-     buildData() returns { Level: { Subject: { "2024 May/June": { "Paper 1, Variant 2": { paper, ms, insert?, ci? } } } } }
-     To use a database instead, replace buildData() with your own object of the same shape. */
+     folders: storage folder names to try, most likely first. If the file host says a paper is missing, the viewer tries the next name.
+     papers: paper number and its files. eras: papers that changed with a new syllabus, used from that year on. pv: extra variants for one paper.
+     single: one version per paper, files named qp_01 and ms_1 (Pakistan Studies, Urdu Second Language).
+     FILES: the files that are really in storage, written by check-files.py. A subject listed there shows exactly those files; the others use the rules. */
   var BASE = 'https://sjacademy.pk/file/Past-papers-storage';
   var SESSIONS = [{ code: 'w', label: 'Oct/Nov', folder: 'October+November' }, { code: 's', label: 'May/June', folder: 'May+June' }];
   var YEARS = [2025, 2024, 2023, 2022, 2021, 2020];
@@ -195,70 +206,131 @@
   var QMI = { 1: 'qp ms in', 2: 'qp ms in' };
   var QM2I = { 1: 'qp ms', 2: 'qp ms in' };
   var STD = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' };
-  var SCI = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms in ci', 4: 'qp ms', 5: 'qp ms' };
+  var SCI = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms ci', 4: 'qp ms', 5: 'qp ms' };
   var OSCI = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms ci', 4: 'qp ms' };
+  var P3V = { 3: [1, 2, 3, 4, 5] };
   var LEVELS = [
     { name: 'A Level', folder: 'A+Level', variants: [1, 2, 3], subjects: [
-      { name: 'Accounts', folder: 'Accounts (9706)', code: '9706', papers: STD },
-      { name: 'Biology', folder: 'Biology (9700)', code: '9700', papers: SCI },
-      { name: 'Business', folder: 'Business (9609)', code: '9609', papers: STD },
-      { name: 'Chemistry', folder: 'Chemistry (9701)', code: '9701', papers: SCI },
-      { name: 'Computer Science', folder: 'Computer Science (9618)', code: '9618', papers: STD },
-      { name: 'Economics', folder: 'Economics (9708)', code: '9708', papers: STD },
-      { name: 'English', folder: 'English (9695)', code: '9695', papers: STD },
-      { name: 'Law', folder: 'Law (9084)', code: '9084', papers: STD },
-      { name: 'Mathematics', folder: 'Mathematics (9709)', code: '9709', papers: { 1: 'qp ms', 3: 'qp ms', 4: 'qp ms', 5: 'qp ms', 6: 'qp ms' } },
-      { name: 'Physics', folder: 'Physics (9702)', code: '9702', papers: SCI },
-      { name: 'Psychology', folder: 'Psychology (9990)', code: '9990', papers: STD },
-      { name: 'Sociology', folder: 'Sociology (9699)', code: '9699', papers: STD },
-      { name: 'Urdu', folder: 'Urdu (9686)', code: '9686', variants: [2, 3], papers: { 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' } }
+      { name: 'Accounting', code: '9706', folders: ['Accounts (9706)'], papers: STD },
+      { name: 'Biology', code: '9700', folders: ['Biology (9700)'], papers: SCI, pv: P3V },
+      { name: 'Business', code: '9609', folders: ['Business (9609)'], papers: STD },
+      { name: 'Chemistry', code: '9701', folders: ['Chemistry (9701)'], papers: SCI, pv: P3V },
+      { name: 'Computer Science', code: '9618', folders: ['Computer Science (9618)'], papers: STD },
+      { name: 'Economics', code: '9708', folders: ['Economics (9708)'], papers: STD },
+      { name: 'Literature in English', code: '9695', folders: ['English (9695)'], papers: STD },
+      { name: 'Law', code: '9084', folders: ['Law (9084)'], papers: STD },
+      { name: 'Mathematics', code: '9709', folders: ['Mathematics (9709)'], papers: { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms', 4: 'qp ms', 5: 'qp ms', 6: 'qp ms' } },
+      { name: 'Physics', code: '9702', folders: ['Physics (9702)'], papers: SCI, pv: P3V },
+      { name: 'Psychology', code: '9990', folders: ['Psychology (9990)'], papers: STD },
+      { name: 'Sociology', code: '9699', folders: ['Sociology (9699)'], papers: STD },
+      { name: 'Urdu', code: '9686', folders: ['Urdu (9686)'], variants: [2, 3], papers: { 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' } }
     ] },
     { name: 'O Level', folder: 'O+Level', variants: [1, 2], subjects: [
-      { name: 'Accounting', folder: 'Accounting (7707)', code: '7707', papers: QM2I },
-      { name: 'Biology', folder: 'Biology (5090)', code: '5090', papers: { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms ci', 6: 'qp ms' } },
-      { name: 'Business Studies', folder: 'Business Studies (7115)', code: '7115', papers: QMI },
-      { name: 'Chemistry', folder: 'Chemistry (5070)', code: '5070', papers: OSCI },
-      { name: 'Computer Science', folder: 'Computer Science (2210)', code: '2210', papers: QM2I },
-      { name: 'Economics', folder: 'Economics (2281)', code: '2281', papers: QM2I },
-      { name: 'English Language', folder: 'English Language (1123)', code: '1123', papers: QMI },
-      { name: 'Islamiyat', folder: 'Islamiyat (2058)', code: '2058', papers: QM },
-      { name: 'Mathematics D', folder: 'Mathematics D (4024)', code: '4024', papers: QM },
-      { name: 'Pakistan Studies', folder: 'Pakistan Studies (2059)', code: '2059', papers: QMI },
-      { name: 'Physics', folder: 'Physics (5054)', code: '5054', papers: OSCI },
-      { name: 'Urdu Second Language', folder: 'Urdu Second Language (3248)', code: '3248', papers: QM }
+      { name: 'Accounting', code: '7707', folders: ['Accounts (7707)', 'Accounting (7707)'], papers: QM },
+      { name: 'Biology', code: '5090', folders: ['Biology (5090)'], papers: { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms ci', 6: 'qp ms' }, eras: [{ from: 2023, papers: OSCI }] },
+      { name: 'Business Studies', code: '7115', folders: ['Business (7115)', 'Business Studies (7115)'], papers: QM2I },
+      { name: 'Chemistry', code: '5070', folders: ['Chemistry (5070)'], papers: OSCI },
+      { name: 'Computer Science', code: '2210', folders: ['Computer (2210)', 'Computer Science (2210)'], papers: QM },
+      { name: 'Economics', code: '2281', folders: ['Economics (2281)'], papers: QM },
+      { name: 'English Language', code: '1123', folders: ['English (1123)', 'English Language (1123)'], papers: { 1: 'qp ms', 2: 'qp ms in' }, eras: [{ from: 2024, papers: { 1: 'qp ms in', 2: 'qp ms' } }] },
+      { name: 'Islamiyat', code: '2058', folders: ['Islamiat (2058)', 'Islamiyat (2058)'], papers: QM },
+      { name: 'Mathematics D', code: '4024', folders: ['Mathematics (4024)', 'Mathematics D (4024)'], papers: QM },
+      { name: 'Pakistan Studies', code: '2059', folders: ['Pakistan studies (2059)', 'Pakistan Studies (2059)'], single: true, papers: QMI },
+      { name: 'Physics', code: '5054', folders: ['Physics (5054)'], papers: OSCI },
+      { name: 'Urdu Second Language', code: '3248', folders: ['Urdu (3248)', 'Urdu Second Language (3248)'], single: true, papers: QM }
     ] }
   ];
+  /* FILES-START (check-files.py rewrites the next line) */
+  var FILES = {};
+  /* FILES-END */
+  var TYPE_KEY = { qp: 'paper', ms: 'ms', in: 'insert', ci: 'ci' };
+  function papersFor(s, y) {
+    var p = s.papers;
+    (s.eras || []).forEach(function (er) { if (y >= er.from) p = er.papers; });
+    return p;
+  }
+  /* File names for one series from the rules, for example qp_12, ms_12, in_32 (or qp_01, ms_1 for single papers) */
+  function ruleFiles(lv, s, y) {
+    var out = [], p = papersFor(s, y);
+    Object.keys(p).forEach(function (n) {
+      var types = p[n].split(' ');
+      if (s.single) { types.forEach(function (t) { out.push(t + '_' + (t === 'ms' ? n : '0' + n)); }); return; }
+      ((s.pv && s.pv[n]) || s.variants || lv.variants).forEach(function (v) { types.forEach(function (t) { out.push(t + '_' + n + v); }); });
+    });
+    return out;
+  }
+  /* Groups file names into papers: { "Paper 1, Variant 2": { qp: 'qp_12', ms: 'ms_12' } }. Only papers with a question paper are kept. */
+  function groupFiles(names) {
+    var g = {}, order = [];
+    names.forEach(function (f) {
+      var m = /^(qp|ms|in|ci)_(\d+)$/.exec(f);
+      if (!m) return;
+      var c = m[2].replace(/^0(\d)$/, '$1');
+      var key = c.length === 1 ? 'Paper ' + c : 'Paper ' + c.charAt(0) + ', Variant ' + c.slice(1);
+      if (!g[key]) { g[key] = { sort: c.length === 1 ? +c * 100 : +c.charAt(0) * 100 + +c.slice(1) }; order.push(key); }
+      g[key][m[1]] = f;
+    });
+    var out = {};
+    order.filter(function (k) { return g[k].qp; }).sort(function (a, b) { return g[a].sort - g[b].sort; }).forEach(function (k) { out[k] = g[k]; });
+    return out;
+  }
   function buildData() {
     var out = {};
     LEVELS.forEach(function (lv) {
       var lvl = (out[lv.name] = {});
       lv.subjects.forEach(function (s) {
-        var variants = s.variants || lv.variants;
-        var folder = s.folder.replace(/ /g, '+').replace(/\(/g, '%28').replace(/\)/g, '%29');
-        var subj = (lvl[s.name] = {});
-        YEARS.forEach(function (y) {
+        var known = FILES[lv.name + '/' + s.name];
+        s.lv = lv;
+        s.fi = 0;
+        if (known) { s.folders = [known.f]; s.known = true; }
+        var subj = {}, years = YEARS.slice();
+        if (known) {
+          years = [];
+          Object.keys(known.s).forEach(function (k) { var y = 2000 + +k.slice(1); if (years.indexOf(y) < 0) years.push(y); });
+          years.sort(function (a, b) { return b - a; });
+        }
+        years.forEach(function (y) {
           SESSIONS.forEach(function (se) {
-            var list = {};
-            Object.keys(s.papers).forEach(function (p) {
-              var types = s.papers[p].split(' ');
-              variants.forEach(function (v) {
-                var file = function (t) {
-                  return BASE + '/' + lv.folder + '/' + folder + '/' + se.folder + '+' + y + '/' + s.code + '_' + se.code + String(y).slice(-2) + '_' + t + '_' + p + v + '.pdf';
-                };
-                var e = { paper: file('qp'), ms: file('ms') };
-                if (types.indexOf('in') > -1) e.insert = file('in');
-                if (types.indexOf('ci') > -1) e.ci = file('ci');
-                list['Paper ' + p + ', Variant ' + v] = e;
-              });
-            });
-            subj[y + ' ' + se.label] = list;
+            var names = known ? (known.s[se.code + String(y).slice(-2)] || '').split(' ').filter(Boolean) : ruleFiles(lv, s, y);
+            var groups = groupFiles(names), list = {};
+            Object.keys(groups).forEach(function (k) { list[k] = { s: s, se: se, y: y, files: groups[k] }; });
+            if (Object.keys(list).length) subj[y + ' ' + se.label] = list;
           });
         });
+        if (Object.keys(subj).length) lvl[s.name] = subj;
       });
     });
     return out;
   }
   var DATA = buildData();
+  var SUBJ = {};
+  LEVELS.forEach(function (lv) { lv.subjects.forEach(function (s) { SUBJ[lv.name + '/' + s.name] = s; }); });
+  function fileUrl(e, f) {
+    var s = e.s, folder = s.folders[s.fi].replace(/ /g, '+').replace(/\(/g, '%28').replace(/\)/g, '%29');
+    return BASE + '/' + s.lv.folder + '/' + folder + '/' + e.se.folder + '+' + e.y + '/' + s.code + '_' + e.se.code + String(e.y).slice(-2) + '_' + f + '.pdf';
+  }
+  /* Sets e.paper, e.ms, e.insert, e.ci to full links for the folder in use. A mark scheme that FILES does not list is marked missing. */
+  function setUrls(e) {
+    var fl = e.files;
+    ['paper', 'ms', 'insert', 'ci'].forEach(function (k) { delete e[k]; });
+    Object.keys(TYPE_KEY).forEach(function (t) { if (fl[t]) e[TYPE_KEY[t]] = fileUrl(e, fl[t]); });
+    if (!e.ms) { e.ms = fileUrl(e, fl.qp.replace(/^qp/, 'ms')); if (e.s.known) avail[e.ms] = 'missing'; }
+    if (e.s.known) ['paper', 'insert', 'ci'].forEach(function (k) { if (e[k]) avail[e[k]] = 'ok'; });
+    if (e.s.known && fl.ms) avail[e.ms] = 'ok';
+  }
+  /* Tries the other folder names when the first answers 404. Stops when the host cannot be asked (CORS). */
+  function resolveFolder(e) {
+    var s = e.s;
+    if (s.known || s.folderFixed || s.folders.length < 2) return Promise.resolve();
+    return check(e.paper).then(function () {
+      var st = avail[e.paper];
+      if (st === 'ok') { s.folderFixed = true; return; }
+      if (st !== 'missing' || s.fi >= s.folders.length - 1) { if (st === 'missing') { s.fi = 0; setUrls(e); } return; }
+      s.fi++;
+      setUrls(e);
+      return resolveFolder(e);
+    });
+  }
   /* ---- UI ---- */
   var el = function (id) { return document.getElementById('sjpv-' + id); };
   var selLevel = el('level'), selSubject = el('subject'), selYear = el('year'), selPaper = el('paper');
@@ -282,7 +354,7 @@
       var ctl = window.AbortController ? new AbortController() : null;
       var t = setTimeout(function () { if (ctl) ctl.abort(); done('unknown'); }, 6000);
       fetch(url, { method: 'HEAD', mode: 'cors', signal: ctl ? ctl.signal : undefined })
-        .then(function (r) { clearTimeout(t); done(r.status === 404 || r.status === 410 ? 'missing' : 'ok'); })
+        .then(function (r) { clearTimeout(t); done(r.ok ? 'ok' : r.status === 404 || r.status === 410 ? 'missing' : 'unknown'); })
         .catch(function () { clearTimeout(t); done('unknown'); });
     });
     return pending[url];
@@ -322,8 +394,8 @@
     return m ? m[1] + '-' + (SLUG_SESSION[m[2]] || slug(m[2])) : slug(k);
   }
   function paperSlug(k) {
-    var m = /^Paper (\d), Variant (\d)$/.exec(k);
-    return m ? m[1] + m[2] : slug(k);
+    var m = /^Paper (\d)(?:, Variant (\d))?$/.exec(k);
+    return m ? m[1] + (m[2] || '') : slug(k);
   }
   function applyDeepLink() {
     if (!window.URLSearchParams) return;
@@ -350,11 +422,16 @@
       history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
     } catch (x) {}
   }
-  var mq = window.matchMedia('(max-width: 767px)');
-  function fill(select, keys, placeholder) {
+  /* Phone layout: narrow screens, phones turned sideways, and browsers that cannot show a PDF inside the page (Chrome on Android) */
+  var mq = window.matchMedia('(max-width: 767px), (max-height: 500px) and (pointer: coarse)');
+  var noInline = navigator.pdfViewerEnabled === false;
+  var narrow = window.matchMedia('(max-width: 767px)');
+  function compact() { return mq.matches || noInline; }
+  function announce(t) { var st = el('status'); st.textContent = ''; setTimeout(function () { st.textContent = t; }, 60); }
+  function fill(select, keys, placeholder, label) {
     select.innerHTML = '';
     select.appendChild(new Option(placeholder, ''));
-    keys.forEach(function (k) { select.appendChild(new Option(k, k)); });
+    keys.forEach(function (k) { select.appendChild(new Option(label ? label(k) : k, k)); });
     select.disabled = keys.length === 0;
   }
   function keysOf(o) { return o ? Object.keys(o) : []; }
@@ -368,8 +445,17 @@
     var want = url || '';
     if (frame.getAttribute('data-url') === want) return;
     frame.setAttribute('data-url', want);
+    frame.setAttribute('data-loaded', '0');
     frame.src = want ? want + '#view=FitH' : 'about:blank';
+    if (want) setTimeout(function () { if (frame.getAttribute('data-url') === want) frameLoaded(frame); }, 12000);
   }
+  /* The loading message hides when the PDF arrives, or after 12 seconds in case the browser never reports it */
+  function frameLoaded(frame) {
+    if (!frame.getAttribute('data-url') || frame.getAttribute('data-loaded') === '1') return;
+    frame.setAttribute('data-loaded', '1');
+    render();
+  }
+  [frameL, frameR].forEach(function (f) { f.addEventListener('load', function () { frameLoaded(f); }); });
   function mkBtn(cls, text, aria, onClick, icon) {
     var b = document.createElement('button');
     var t = document.createElement('span');
@@ -421,7 +507,8 @@
     wa.href = 'https://wa.me/923362144454?text=' + encodeURIComponent(msg);
   }
   function render() {
-    var e = state.entry, mobile = mq.matches, learn = state.learn;
+    var e = state.entry, mobile = compact(), learn = state.learn;
+    root.classList.toggle('is-compact', mobile);
     var leftUrl = e ? e[state.left] : '';
     var title = TITLES[state.left];
     root.classList.toggle('has-entry', !!e);
@@ -430,6 +517,8 @@
     var goneL = sL === 'missing', goneR = sR === 'missing';
     setSrc(frameL, mobile || !e || sL === 'pending' || goneL ? '' : leftUrl);
     setSrc(frameR, mobile || !e || sR === 'pending' || goneR ? '' : e.ms);
+    frameL.parentNode.parentNode.classList.toggle('is-loading', !!e && !goneL && (sL === 'pending' || frameL.getAttribute('data-loaded') !== '1'));
+    rightPane.classList.toggle('is-loading', !!e && !goneR && (sR === 'pending' || frameR.getAttribute('data-loaded') !== '1'));
     el('left-gone').hidden = !goneL;
     el('right-gone').hidden = !goneR;
     el('left-gone-title').textContent = 'This ' + title.toLowerCase() + " isn't available.";
@@ -470,7 +559,7 @@
   }
   selLevel.addEventListener('change', function () {
     markStart();
-    fill(selSubject, keysOf(node(selLevel.value)), 'Choose subject');
+    fill(selSubject, keysOf(node(selLevel.value)), 'Choose subject', function (k) { var s = SUBJ[selLevel.value + '/' + k]; return s && !narrow.matches ? k + ' (' + s.code + ')' : k; });
     fill(selYear, [], 'Choose year');
     fill(selPaper, [], 'Choose paper');
     clearEntry();
@@ -493,7 +582,8 @@
     markStart();
     var list = node(selLevel.value, selSubject.value, selYear.value);
     state.entry = (list && list[selPaper.value]) || null;
-    state.label = state.entry ? selLevel.value + ' ' + selSubject.value + ' \u00b7 ' + selYear.value + ' \u00b7 ' + selPaper.value : '';
+    if (state.entry) setUrls(state.entry);
+    state.label = state.entry ? selLevel.value + ' ' + selSubject.value + ' (' + state.entry.s.code + ') \u00b7 ' + selYear.value + ' \u00b7 ' + selPaper.value : '';
     state.left = 'paper'; state.pane = 'left'; state.learn = false;
     buildBar();
     render();
@@ -501,8 +591,11 @@
     var chosen = state.entry;
     if (chosen) {
       track('tool_complete', { entry: linkLoading ? 'link' : 'manual' });
-      Promise.all([chosen.paper, chosen.ms, chosen.insert, chosen.ci].filter(Boolean).map(check)).then(function () {
+      resolveFolder(chosen).then(function () {
+        return Promise.all([chosen.paper, chosen.ms, chosen.insert, chosen.ci].filter(Boolean).map(check));
+      }).then(function () {
         if (state.entry !== chosen) return;
+        announce(avail[chosen.paper] === 'missing' ? "This question paper isn't available." : 'Loaded ' + state.label + '.');
         [['question_paper', chosen.paper], ['mark_scheme', chosen.ms], ['insert', chosen.insert], ['confidential', chosen.ci]].forEach(function (f) {
           if (f[1] && avail[f[1]] === 'missing') track('paper_unavailable', { file: f[0] });
         });

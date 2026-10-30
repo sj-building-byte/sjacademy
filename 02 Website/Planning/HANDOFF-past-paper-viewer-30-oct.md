@@ -6,10 +6,23 @@ Written 30 October 2026. Read `CLAUDE.md`, then `02 Website/START-HERE.md`, then
 
 The viewer is built and tested in a browser but is NOT live. It is one Elementor HTML widget, plain JavaScript, no libraries. It sits on the branch `claude/caie-past-papers-viewer-3plf1s` of `sj-building-byte/sjacademy`. That branch is NOT merged into `main` and no pull request exists. The planned page address is `/past-paper-viewer/`. Nothing has been pasted into WordPress yet.
 
+## Update 30 October 2026 (v2.3, audit)
+
+Full audit in `02 Website/Tools/Past Paper Viewer/BRIEF.md`. In short:
+- O Level Accounting failed because the storage folder is very likely `Accounts (7707)`, not `Accounting (7707)`. Eight O Level subjects have two different folder names on the live site (the old directory page and the hub pages). The viewer now tries both, older name first.
+- Pakistan Studies and Urdu Second Language files are named `qp_01` and `ms_1` (one version per paper), not `qp_11`. Biology has Paper 4 from 2023 (Paper 6 before). English Language moved its insert to Paper 1 from 2024. Wrong inserts removed (Accounting, Economics, Computer Science, Business Studies Paper 1). A Level science practicals now offer variants 1 to 5; A Level Maths has Paper 2; 9695 is shown as Literature in English.
+- New `check-files.py` lists what is really in storage and writes it into the widget (the `FILES` line), so students are only offered papers that exist. It cannot run from the sandbox (host blocked). **Run it on your own computer before pasting the widget.**
+- Browsers that cannot show a PDF inside a page (Chrome on Android, including tablets) and phones turned sideways now get the phone layout instead of blank frames. Panes show a loading message.
+- Browser tests saved in `Tools/Past Paper Viewer/tests/viewer-test.js` (44 checks, all pass, file host mocked).
+- The live O Level hub pages share the old folder names and file patterns, so several of them probably have broken links. Check after running the script.
+
 ## 2. Files
 
 | File | What it is |
 |---|---|
+| `02 Website/Tools/Past Paper Viewer/check-files.py` | Checks storage and writes the file list into the widget, plus `files-report.md`. Run on your own computer |
+| `02 Website/Tools/Past Paper Viewer/BRIEF.md` | Brief and the 30 October audit record |
+| `02 Website/Tools/Past Paper Viewer/tests/viewer-test.js` | Playwright tests with a mocked file host |
 | `02 Website/Tools/Past Paper Viewer/past-paper-viewer-elementor-widget.html` | The widget. The only file to paste. About 580 lines, no blank lines inside it (blank lines can make WordPress add stray paragraphs), ASCII only. Yoast title, meta, canonical, deep link format and GA4 events are in the comment at the top |
 | `02 Website/START-HERE.md` | Session log for the viewer (updates dated 29 October 2026) |
 | `02 Website/Planning/SITE-REGISTER.md` | New row for `/past-paper-viewer/` in the Tool family (count now 9) |
@@ -49,6 +62,7 @@ To see these in GA4 reports, register `level`, `subject`, `series`, `paper`, `en
 
 ## 6. Open items, in order
 
+0. On your Mac, in `02 Website/Tools/Past Paper Viewer/`, run `python3 check-files.py` (about 5 to 10 minutes). Read `files-report.md`: folder used per subject, series found, missing mark schemes. Then paste the updated widget. If the host starts refusing requests, run it again with `--workers 3`.
 1. Create the page `/past-paper-viewer/` as a draft, paste the widget, and test: PDFs show inside the frames, a deep link, a missing-file case (for example O Level Biology Paper 6 in a series that lacks it), full screen, the toggle, and a phone check. Take a Cloudways backup first.
 2. Frames and 404s: the live file host is untested. If the panes stay blank, a frame-blocking header may be the cause. If the old JSON 404 text still appears, ask for `Access-Control-Allow-Origin: https://www.sjacademy.pk` on the `/file/` path (Cloudflare or the WordPress file plugin) so the missing-file check can read the status.
 3. Tap a few links per subject. None of the links have been tested from the sandbox because it cannot reach `sjacademy.pk`.
@@ -62,7 +76,9 @@ To see these in GA4 reports, register `level`, `subject`, `series`, `paper`, `en
 ## 7. Known facts and caveats
 
 - Maths Paper 3: the live Maths page lists no insert, but the older hub config lists one. The viewer follows the live page (no insert). Confirm which is right.
-- May/June 2026 is not in the data (the old tool stopped at 2025).
+- May/June 2026: the rules stop at 2025, but `check-files.py` looks up to the current year, so 2026 papers appear once they are uploaded and the script is re-run.
+- Deep link subject slugs follow the displayed names: A Level `accounting` (was `accounts`), `literature-in-english` (was `english`). No live links used the old ones.
+- Mark scheme relock: it relocks on every new paper even after a student picks "Learn". That is the agreed design; worth watching `mark_scheme_reveal` counts per session to see if it annoys students.
 - Copy check against `00 Start Here/FACTS.md`: the band says "Book a free demo class". FACTS says the free demo covers every class except lab practicals. Not qualified in the band yet.
 - Theme button styles (the site's Elementor and theme CSS) turned clicked buttons black and added black outlines. The toggle is hardened with `!important` rules and `.sjpv button:focus:not(:focus-visible)` is reset. If similar black fills show on other buttons on the live page, apply the same hardening to those classes.
 - Preview sites such as Code Beautify add their own sticky ad bar at the bottom. That is not part of the widget. Preview on the draft page instead.

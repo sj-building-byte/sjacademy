@@ -53,3 +53,11 @@ See "What comes next" and "Open items" in `Planning/HANDOFF-website-rebuild.md`.
 - GA4 events (matching the other pages): `tool_start`, `tool_complete`, `mark_scheme_reveal`, `insert_view`, `fullscreen_open`, `paper_unavailable` (shows broken or missing files), `open_in_new_tab` (phones), `whatsapp_click`, `homepage_click`. Parameters: level, subject, series, paper, entry, method, type, file, link_location, page_family. To see them in reports, register these as custom dimensions in GA4 (Admin, Custom definitions): level, subject, series, paper, entry, method, type, file.
 - Before going live: set the canonical to the clean address in Yoast, test a deep link on the draft page, and take a Cloudways backup.
 - Full handoff for the past paper viewer (state, decisions, open items): `Planning/HANDOFF-past-paper-viewer-30-oct.md`.
+
+## Update 30 October 2026 (past paper viewer v2.3, audit)
+- Audit of the viewer: `Tools/Past Paper Viewer/BRIEF.md`. O Level Accounting failed because storage most likely uses `Accounts (7707)`; the viewer now tries both names. Pakistan Studies and Urdu Second Language use `qp_01` / `ms_1` file names, Biology has Paper 4 from 2023, English Language moved its insert in 2024, wrong inserts removed, A Level practical variants 1 to 5, A Level Maths Paper 2 added.
+- New `Tools/Past Paper Viewer/check-files.py`: run it on your own computer before pasting. It writes the real file list into the widget so students only see papers that exist, and `files-report.md` shows what is missing in storage.
+- Android Chrome and sideways phones get the phone layout (no blank PDF frames). Browser tests in `Tools/Past Paper Viewer/tests/`.
+- Live O Level hub pages use the same folder names and file patterns as the old viewer and probably have broken links for several subjects. Check them with the script's report.
+- Still NOT live. Next: run `check-files.py`, then open item 1 in `Planning/HANDOFF-past-paper-viewer-30-oct.md` (draft page test).
+
