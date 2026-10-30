@@ -20,7 +20,7 @@ VIEWER = os.path.join(WEB, "Tools", "Past Paper Viewer", "past-paper-viewer-elem
 PAGE_JS = os.path.join(WEB, "Scripts", "sj-page-script.js")
 OUT_DIR = os.path.join(WEB, "Pages")
 sys.path.insert(0, HERE)
-from subjects import SUBJECTS, O_LEVEL_PAGES  # noqa: E402
+from subjects import SUBJECTS, O_LEVEL_PAGES, A_LEVEL_PAGES  # noqa: E402
 
 SITE = "https://www.sjacademy.pk"
 STORE = "https://sjacademy.pk/file/Past-papers-storage"
@@ -29,6 +29,8 @@ LBL = {"qp": "QP", "ms": "MS", "in": "IN", "ci": "CI"}
 TYPE_ORDER = ["qp", "ms", "in", "ci"]
 LEVEL_FOLDER = {"O Level": "O+Level", "A Level": "A+Level"}
 LEVEL_HUB = {"O Level": "/o-level-past-papers/", "A Level": "/a-level-past-papers/"}
+THRESHOLDS = {"O Level": "/o-level-grade-thresholds/", "A Level": "/blog/a-level-thresholds-guide/"}
+OTHER_PAGES = {"O Level": O_LEVEL_PAGES, "A Level": A_LEVEL_PAGES}
 
 
 def viewer_files():
@@ -67,6 +69,13 @@ def build(key):
     lvslug = lv.lower().replace(" ", "-")
     nfiles = 0
 
+    def pname(p, y):
+        papers = S["papers"]
+        for era in S.get("eras", []):
+            if y >= era["from"]:
+                papers = era["papers"]
+        return papers.get(p, ("", "", ""))[0]
+
     def file_url(y, se, tok):
         sess = [x for x in SESSIONS if x[0] == se][0]
         return "%s/%s+%d/%s_%s%02d_%s.pdf" % (base, sess[2], y, code, se, y % 100, tok)
@@ -84,7 +93,6 @@ def build(key):
         head = '<th scope="col">Files</th>' if single else "".join('<th scope="col">Variant %s</th>' % v for v in variants)
         rows = []
         for p in sorted(papers):
-            pname = S["papers"].get(p, ("", "", ""))[0]
             tds = []
             for v in variants:
                 cell = papers[p].get(v)
@@ -99,7 +107,7 @@ def build(key):
                         links.append('<a href="%s">%s%s</a>' % (file_url(y, se, cell[t]), LBL[t], "" if single else " " + str(p) + v))
                 side = '<a class="sjp-side" href="%s" data-event="viewer_click" data-loc="papers">Side by side</a>' % viewer_url(y, se, p, v) if "ms" in cell else ""
                 tds.append('<td data-label="%s"><span>%s %s</span></td>' % (label, " ".join(links), side))
-            rows.append('<tr data-paper="%d"><td data-label="Paper"><span><b>Paper %d</b> <span class="sj-muted">%s</span></span></td>%s</tr>' % (p, p, pname, "".join(tds)))
+            rows.append('<tr data-paper="%d"><td data-label="Paper"><span><b>Paper %d</b> <span class="sj-muted">%s</span></span></td>%s</tr>' % (p, p, pname(p, y), "".join(tds)))
         return ('<h3 class="sj-h3">%s %d</h3>\n<div class="sj-table-wrap"><table class="sj-table sj-table-stack"><thead><tr><th scope="col">Paper</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div>'
                 % (sess[1], y, head, "\n".join(rows)))
 
@@ -113,7 +121,11 @@ def build(key):
     steps = "\n".join("          <li><b>%s</b><span>%s</span></li>" % st for st in S["steps"])
     faq = [(q, a.format(**fmt)) for q, a in S["faq"]]
     faq_html = "\n".join('<details%s><summary>%s</summary><div class="sj-faq-a"><p>%s</p></div></details>' % (" open" if i == 0 else "", q, a) for i, (q, a) in enumerate(faq))
-    others = " ".join('<a class="sj-chip" href="%s/o-level-past-papers/%s/">%s</a>' % (SITE, s, n) for s, n in O_LEVEL_PAGES if s != S["slug"])
+    others = " ".join('<a class="sj-chip" href="%s%s%s/">%s</a>' % (SITE, LEVEL_HUB[lv], s, n) for s, n in OTHER_PAGES[lv] if s != S["slug"])
+    has_in = any("in" in c for y in data.values() for se in y.values() for pp in se.values() for c in pp.values())
+    single_subject = all(v == "" for y in data.values() for se in y.values() for pp in se.values() for v in pp)
+    ex_tok, ex_mean = S.get("example", ("qp_01", "Paper 1") if single_subject else ("qp_12", "Paper 1, Variant 2"))
+    ex_note = "s = May/June, ms = mark scheme" + (", in = insert" if has_in else "")
     demo = "https://wa.me/923362144454?text=" + quote("Hi SJ Academy, I saw the %s %s past papers page and would like to book a free demo class for %s %s.\nMode (in class or online): \n(Ref: %s)\nMy name is " % (lv, name, lv, name, S["ref"]), safe="")
     share = "https://wa.me/?text=" + quote("%s %s (%s) past papers and mark schemes, %d to %d: %s" % (lv, name, code, first, last, page_url), safe="")
     viewer_first = viewer_url(last, "s" if "s" in data[last] else "w", min(data[last]["s" if "s" in data[last] else "w"]), "")
@@ -193,7 +205,7 @@ def build(key):
       <div class="sj-measure">
         <div class="sj-eyebrow">The exam</div>
         <h2 class="sj-h2">What is on each <span class="sj-hl">{name} paper</span></h2>
-        <p class="sjp-top">As set in the October/November 2025 papers. Check the current syllabus on the Cambridge website before your exam.</p>
+        <p class="sjp-top">{S.get("structure_note", "As set in the October/November 2025 papers.")} Check the current syllabus on the Cambridge website before your exam.</p>
       </div>
       <div class="sj-table-wrap"><table class="sj-table sj-table-stack"><thead><tr><th scope="col">Paper</th><th scope="col">Time</th><th scope="col">Marks</th><th scope="col">What you do</th></tr></thead><tbody>
 {structure}
@@ -213,9 +225,9 @@ def build(key):
       </div>
       <div class="sj-stack sjp-side-col">
         <div class="sj-paper">
-          <div class="sj-paper-q"><small>How to read a file name</small>{code}_w25_qp_01</div>
-          <div class="sj-paper-a"><div>{code} <span class="sj-mark">{name}</span></div><div>w25 <span class="sj-mark">Oct/Nov 2025</span></div><div>qp <span class="sj-mark">question paper</span></div><div>01 <span class="sj-mark">Paper 1</span></div></div>
-          <div class="sj-paper-note">s = May/June, ms = mark scheme, in = insert</div>
+          <div class="sj-paper-q"><small>How to read a file name</small>{code}_w25_{ex_tok}</div>
+          <div class="sj-paper-a"><div>{code} <span class="sj-mark">{name}</span></div><div>w25 <span class="sj-mark">Oct/Nov 2025</span></div><div>qp <span class="sj-mark">question paper</span></div><div>{ex_tok[3:]} <span class="sj-mark">{ex_mean}</span></div></div>
+          <div class="sj-paper-note">{ex_note}</div>
         </div>
         <span class="sj-hand sj-tilt-r">{S["hand"]}</span>
       </div>
@@ -230,8 +242,8 @@ def build(key):
       </div>
       <div class="sj-grid sj-grid-4">
         <a class="sj-tile" href="{SITE}/past-paper-viewer/"><b>Past paper viewer</b><p>Paper on the left, mark scheme on the right. Free.</p><span class="sj-link sj-link-go">Open the viewer</span></a>
-        <a class="sj-tile" href="{SITE}{S["tuition"]}"><b>{lv} {name} tuition</b><p>Classes at DHA Phase 7, Karachi, and live online.</p><span class="sj-link sj-link-go">See the class</span></a>
-        <a class="sj-tile" href="{SITE}/o-level-grade-thresholds/"><b>{lv} grade thresholds</b><p>How raw marks turn into an A*, A or B.</p><span class="sj-link sj-link-go">See the thresholds</span></a>
+        <a class="sj-tile" href="{SITE}{S["tuition"]}"><b>{S.get("tuition_label", lv + " " + name + " tuition")}</b><p>Classes at DHA Phase 7, Karachi, and live online.</p><span class="sj-link sj-link-go">See the class</span></a>
+        <a class="sj-tile" href="{SITE}{THRESHOLDS[lv]}"><b>{lv} grade thresholds</b><p>How raw marks turn into an A*, A or B.</p><span class="sj-link sj-link-go">See the thresholds</span></a>
         <a class="sj-tile" href="{SITE}/blog/how-to-use-mark-scheme/"><b>How to use a mark scheme</b><p>The method for marking your own paper properly.</p><span class="sj-link sj-link-go">Read the guide</span></a>
       </div>
       <div class="sj-stack">
@@ -257,7 +269,7 @@ def build(key):
     <div class="sj-wrap sj-stack sjp-final">
       <h2 class="sj-h2">{S["band_title"]}</h2>
       <p class="sj-measure">{S["band_text"]}</p>
-      <div class="sj-row"><a class="sj-btn sj-btn-primary" href="{demo}" target="_blank" rel="noopener" data-loc="final_band">Book a free demo class</a><a class="sj-btn sj-btn-ghost" href="{SITE}{S["tuition"]}" data-loc="final_band">{lv} {name} tuition</a></div>
+      <div class="sj-row"><a class="sj-btn sj-btn-primary" href="{demo}" target="_blank" rel="noopener" data-loc="final_band">Book a free demo class</a><a class="sj-btn sj-btn-ghost" href="{SITE}{S["tuition"]}" data-loc="final_band">{S.get("tuition_label", lv + " " + name + " tuition")}</a></div>
     </div>
   </section>
 </div>

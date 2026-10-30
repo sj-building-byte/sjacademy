@@ -166,20 +166,20 @@ No existing post is an entertainment post in the new sense. The one-in-five rati
 | `/a-level-past-papers/physics-9702/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/psychology-9990/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/sociology-9699/` | Subject past papers | Not rebuilt |  |
-| `/a-level-past-papers/urdu-9686/` | Subject past papers | Not rebuilt. LIVE LINKS BROKEN (wrong file names, checked 30 Oct 2026) |  |
+| `/a-level-past-papers/urdu-9686/` | Subject past papers | Rebuilt v1.0 (30 Oct 2026), not yet live. Live page: every link 404 | `Pages/a-level-urdu-past-papers-elementor-widget.html`, built by `Scripts/past-papers-pages/build.py`. Title: A Level Urdu Past Papers (9686) \| SJ Academy. Keyphrase: a level urdu past papers. Ref PP-A-9686 |
 | `/o-level-math-past-papers/` | Subject past papers | Not rebuilt | Older flat address alongside the newer /[level]-past-papers/[subject]/ page. Check for overlap |
-| `/o-level-past-papers/accounting-7707/` | Subject past papers | Not rebuilt. LIVE LINKS BROKEN (wrong storage folder, checked 30 Oct 2026) |  |
+| `/o-level-past-papers/accounting-7707/` | Subject past papers | Rebuilt v1.0 (30 Oct 2026), not yet live. Live page: every link 404 | `Pages/o-level-accounting-past-papers-elementor-widget.html`, built by `Scripts/past-papers-pages/build.py`. Title: O Level Accounting Past Papers (7707) \| SJ Academy. Keyphrase: o level accounting past papers. Ref PP-O-7707 |
 | `/o-level-past-papers/biology-5090/` | Subject past papers | Not rebuilt |  |
-| `/o-level-past-papers/business-studies-7115/` | Subject past papers | Not rebuilt. LIVE LINKS BROKEN (wrong storage folder, checked 30 Oct 2026) |  |
+| `/o-level-past-papers/business-studies-7115/` | Subject past papers | Rebuilt v1.0 (30 Oct 2026), not yet live. Live page: every link 404 | `Pages/o-level-business-studies-past-papers-elementor-widget.html`, built by `Scripts/past-papers-pages/build.py`. Title: O Level Business Studies Past Papers (7115) \| SJ Academy. Keyphrase: o level business studies past papers. Ref PP-O-7115 |
 | `/o-level-past-papers/chemistry-5070/` | Subject past papers | Not rebuilt |  |
-| `/o-level-past-papers/computer-science-2210/` | Subject past papers | Not rebuilt. LIVE LINKS BROKEN (wrong storage folder, checked 30 Oct 2026) |  |
+| `/o-level-past-papers/computer-science-2210/` | Subject past papers | Rebuilt v1.0 (30 Oct 2026), not yet live. Live page: every link 404 | `Pages/o-level-computer-science-past-papers-elementor-widget.html`, built by `Scripts/past-papers-pages/build.py`. Title: O Level Computer Science Past Papers (2210) \| SJ Academy. Keyphrase: o level computer science past papers. Ref PP-O-2210 |
 | `/o-level-past-papers/economics-2281/` | Subject past papers | Not rebuilt |  |
-| `/o-level-past-papers/english-language-1123/` | Subject past papers | Not rebuilt. LIVE LINKS BROKEN (wrong storage folder, checked 30 Oct 2026) |  |
-| `/o-level-past-papers/islamiyat-2058/` | Subject past papers | Not rebuilt. LIVE LINKS BROKEN (wrong storage folder, checked 30 Oct 2026) |  |
-| `/o-level-past-papers/mathematics-d-4024/` | Subject past papers | Not rebuilt. LIVE LINKS BROKEN (wrong storage folder, checked 30 Oct 2026) |  |
+| `/o-level-past-papers/english-language-1123/` | Subject past papers | Rebuilt v1.0 (30 Oct 2026), not yet live. Live page: every link 404 | `Pages/o-level-english-language-past-papers-elementor-widget.html`, built by `Scripts/past-papers-pages/build.py`. Title: O Level English Past Papers (1123) \| SJ Academy. Keyphrase: o level english past papers. Ref PP-O-1123 |
+| `/o-level-past-papers/islamiyat-2058/` | Subject past papers | Rebuilt v1.0 (30 Oct 2026), not yet live. Live page: every link 404 | `Pages/o-level-islamiyat-past-papers-elementor-widget.html`, built by `Scripts/past-papers-pages/build.py`. Title: O Level Islamiyat Past Papers (2058) \| SJ Academy. Keyphrase: o level islamiyat past papers. Ref PP-O-2058 |
+| `/o-level-past-papers/mathematics-d-4024/` | Subject past papers | Rebuilt v1.0 (30 Oct 2026), not yet live. Live page: every link 404 | `Pages/o-level-mathematics-d-past-papers-elementor-widget.html`, built by `Scripts/past-papers-pages/build.py`. Title: O Level Maths D Past Papers (4024) \| SJ Academy. Keyphrase: o level maths past papers. Ref PP-O-4024 |
 | `/o-level-past-papers/pakistan-studies-2059/` | Subject past papers | Rebuilt v1.0 (30 Oct 2026), not yet live. Live page: every link 404 | `Pages/o-level-pakistan-studies-past-papers-elementor-widget.html`, built by `Scripts/past-papers-pages/build.py`. Title: O Level Pakistan Studies Past Papers (2059) \| SJ Academy. Keyphrase: o level pakistan studies past papers. Ref PP-O-2059 |
 | `/o-level-past-papers/physics-5054/` | Subject past papers | Not rebuilt |  |
-| `/o-level-past-papers/urdu-second-language-3248/` | Subject past papers | Not rebuilt. LIVE LINKS BROKEN (wrong storage folder, checked 30 Oct 2026) |  |
+| `/o-level-past-papers/urdu-second-language-3248/` | Subject past papers | Rebuilt v1.0 (30 Oct 2026), not yet live. Live page: every link 404 | `Pages/o-level-urdu-second-language-past-papers-elementor-widget.html`, built by `Scripts/past-papers-pages/build.py`. Title: O Level Urdu Past Papers (3248) \| SJ Academy. Keyphrase: o level urdu past papers. Ref PP-O-3248 |
 
 ### Tool
 

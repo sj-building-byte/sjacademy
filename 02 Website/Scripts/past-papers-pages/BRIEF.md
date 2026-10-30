@@ -48,3 +48,33 @@ No Semrush data was used. Order is by how many students each page serves and how
 • Claims: free demo class (FACTS); DHA Phase 7 and live online (FACTS). No numbers used.
 • Links: all 69 file links return 200 through sjacademy.pk (checked with a browser user agent; Cloudflare refuses Python's default one).
 • Page checks (`preview.js`): one H1, tabs, filter, structured data, no script errors, no sideways scroll on a phone.
+
+### The other eight pages (built 30 October 2026, approved template)
+Paper names, times, marks and how to answer were read from each subject's question paper cover pages in storage. Where a syllabus changed, the older papers were read too and each year on the page shows the names used that year.
+
+| Page | Papers read | Facts on the page | Syllabus change shown |
+|---|---|---|---|
+| Islamiyat 2058 | 2058_w25_qp_11, qp_21; 2058_s25_qp_12, qp_22; 2058_s20_qp_11 | Both papers 1 hour 30 minutes, 50 marks; five questions, answer four (Questions 1 and 2, then two others); Question 1 on Qur'an passages (Paper 1) or Hadiths (Paper 2); written on the question paper | None |
+| Mathematics D 4024 | 4024_w25_qp_11, qp_21; 4024_s25_qp_12; 4024_s23, s24, w24 qp_11 and qp_21 | 2025: Paper 1 Non-calculator and Paper 2 Calculator, 2 hours, 100 marks each. Up to 2024: Paper 1 2 hours, 80 marks, no calculator; Paper 2 2 hours 30 minutes, 100 marks | 2025 |
+| English Language 1123 | 1123_w25_qp_11, qp_21; 1123_s24_qp_11; 1123_s23_qp_11, qp_21, in_21 | 2024 on: Paper 1 Reading, 2 hours, 50, insert; Paper 2 Writing, 2 hours, 50, Section A Directed Writing, Section B Composition (one question). Up to 2023: Paper 1 Writing 1 hour 30 minutes, 60; Paper 2 Reading 1 hour 45 minutes, 50, insert | 2024 |
+| Urdu Second Language 3248 | 3248_w25_qp_01, qp_02; 3248_s24_qp_01; 3248_w24_qp_02; 3248_s23 and s20 qp_01, qp_02 | 2024 on: Paper 1 Reading and Writing 1 hour 45 minutes, 50; Paper 2 Grammar, Writing and Translation 1 hour 30 minutes, 50, no dictionaries. Up to 2023: Composition and Translation 2 hours, 55; Language Usage, Summary and Comprehension 1 hour 45 minutes, 55 | 2024 |
+| Accounting 7707 | 7707_w25_qp_12, qp_22, ms_22; 7707_s20_qp_21 | Paper 1 Multiple Choice, 1 hour 15 minutes, 35 questions, 35 marks, calculator allowed; Paper 2 Structured Written Paper, 1 hour 45 minutes, 100 marks. "Own figure rule" confirmed in the mark scheme. 7707 replaced 7110 from 2020 (web sources agree) | None |
+| Business Studies 7115 | 7115_w25_qp_11, qp_21; 7115_s22_qp_11, qp_21 | Paper 1 Short Answer and Data Response, Paper 2 Case Study (insert), both 1 hour 30 minutes, 80 marks | None |
+| Computer Science 2210 | 2210_w25_qp_12, qp_22; 2210_s23_qp_11; 2210_s22_qp_11, qp_21 | 2023 on: Computer Systems and Algorithms, Programming and Logic, 1 hour 45 minutes, 75 each. Up to 2022: Theory (75) and Problem-solving and Programming (50), 1 hour 45 minutes each | 2023 |
+| A Level Urdu 9686 | 9686_w25_qp_02, qp_03, qp_04; 9686_s15_qp_2 | Paper 2 Reading and Writing 1 hour 45 minutes, 70, insert; Paper 3 Essay 1 hour 30 minutes, 40 (16 content, 24 language); Paper 4 Texts 2 hours 30 minutes, 75, three questions on different texts. Only Papers 2, 3 and 4 (Cambridge threshold tables list components 02, 03, 04) | None |
+
+Teachers in the closing bands come from the live O and A Level tuition pages: Sir Kashaan Ali (Islamiyat), Sir Salman Junaid (Maths), Miss Tayyaba Yaseen (English), Miss Asmat Zafar (both Urdu pages), Sir Saifullah (Accounting), Sir Aaliyan (Business Studies), Sir Riza Walji (Computer Science). No affiliations stated. Subjects with no own tuition page link to the O Level or A Level tuition page.
+
+Checks on all nine pages, 30 October 2026:
+• 871 PDF links, all 200 through sjacademy.pk.
+• 397 "Side by side" links opened in the real viewer widget, each loads the same question paper as its row (`check-side-links.js`).
+• `preview.js` on each: one H1, tabs, filter, structured data, no script errors, no sideways scroll on a phone.
+
+Storage gaps seen while building: O Level storage starts in 2020; May/June 2026 is not in storage for these subjects (Cambridge has published A Level Urdu June 2026 thresholds, so the papers exist). Upload them and run `check-files.py`, then `build.py`.
+
+## How to update a page
+1. Upload new papers to Backblaze.
+2. `python3 "02 Website/Tools/Past Paper Viewer/check-files.py"` (writes the file list into the viewer).
+3. `python3 "02 Website/Scripts/past-papers-pages/build.py"` (rebuilds every page from that list).
+4. Re-paste the changed widgets.
+
