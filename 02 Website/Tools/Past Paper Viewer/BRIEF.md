@@ -21,6 +21,9 @@ What the real list settled:
 • A Level Urdu 9686 has one version per paper (`qp_02`, `ms_2`; 2019 uses `qp_2`). Some subjects have variants 4 to 6, and A Level Maths has variant 5 from 2025 (checked: 9709_s25_qp_15 is 9709/15, Pure Mathematics 1). Several A Level subjects already have May/June 2026, and they now show.
 • Series not in storage: all of 2019 for most O Level subjects, Oct/Nov 2026 everywhere, May/June 2026 for most subjects, Sociology May/June 2024, Computer Science Oct/Nov 2020, Literature in English Oct/Nov 2019. Details in `files-report.md`.
 
+### Older years (second check, 2010 to 2026)
+A Level storage goes back to 2015 for most subjects (O Level starts at 2020). The viewer now lists them: 8,103 links, all checked, 0 wrong. **Computer Science:** the files named 9618 from 2015 to 2021 are really the old 9608 syllabus (cover pages checked for every series); real 9618 papers start in 2022. The viewer labels those years "(old 9608)". Full list of missing mark schemes, including older years: `files-report.md`.
+
 ### Mark schemes to upload
 A Level Accounting May/June 2022 12. A Level Business May/June 2022 22. A Level Computer Science Oct/Nov 2022 33. A Level Mathematics Oct/Nov 2021 21; May/June 2022 21, 22, 23; May/June 2024 22; May/June 2025 11; Oct/Nov 2025 12. A Level Physics May/June 2026 21. O Level Accounting May/June 2021 11, 21, 22; Oct/Nov 2021 12. O Level Physics May/June 2021 31. After uploading, run `python3 check-files.py` again and re-paste the widget.
 

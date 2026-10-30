@@ -266,7 +266,18 @@ const visible = (page, sel) => page.isVisible(sel);
     ok((await src(page9, '#sjpv-frame-right')).endsWith('Accounts+%287707%29/October+November+2025/7707_w25_ms_12.pdf'), 'Real list: Accounting 7707_w25_ms_12 (the file in your Backblaze screenshot) opens');
     await pick(page9, 'A Level', 'Urdu', '2025 May/June');
     ok(JSON.stringify((await opts(page9, '#sjpv-paper')).slice(1)) === JSON.stringify(['Paper 2', 'Paper 3', 'Paper 4']), 'Real list: A Level Urdu shows Paper 2, 3, 4');
+    await pick(page9, 'A Level', 'Computer Science');
+    const csYears = await opts(page9, '#sjpv-year');
+    ok(csYears.includes('2021 Oct/Nov (old 9608)') && csYears.includes('2022 May/June') && !csYears.includes('2022 May/June (old 9608)'), 'Real list: Computer Science years up to 2021 are labelled old 9608');
     await context9.close();
+    const c10 = await browser.newContext({ viewport: { width: 1280, height: 860 } });
+    const p10 = await c10.newPage();
+    await p10.addInitScript("Object.defineProperty(navigator, 'pdfViewerEnabled', { get: () => true, configurable: true })");
+    await p10.route('**/*', (route) => route.request().url().startsWith(PAGE) ? route.fulfill({ contentType: 'text/html', body: '<!doctype html><html><body>' + fullWidget + '</body></html>' }) : route.fulfill({ status: 200, contentType: 'application/pdf', body: PDF }));
+    await p10.goto(PAGE + '?level=a-level&subject=computer-science&series=2021-on&paper=12');
+    await p10.waitForTimeout(400);
+    ok((await src(p10, '#sjpv-frame-left')).endsWith('9618_w21_qp_12.pdf') && p10.url().includes('series=2021-on'), 'Real list: deep link to an old 9608 series still works');
+    await c10.close();
   }
 
   ok(errors.length === 0, 'No script errors' + (errors.length ? ': ' + errors.join(' | ') : ''));

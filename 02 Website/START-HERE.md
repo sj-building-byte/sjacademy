@@ -65,3 +65,9 @@ See "What comes next" and "Open items" in `Planning/HANDOFF-website-rebuild.md`.
 - Past paper viewer v2.4: real file list from Backblaze written into the widget; all 6,200 links checked, 0 wrong. 16 mark schemes need uploading (list in `Tools/Past Paper Viewer/BRIEF.md`).
 - LIVE PROBLEM: 8 of 12 O Level subject past papers pages and the A Level Urdu page have links that all return 404 (wrong storage folder or file names). Next job.
 
+
+## Update 30 October 2026 (broken past papers pages)
+- Checked every live subject past papers page against storage. Broken now (every link 404): O Level Accounting, Business Studies, Computer Science, English Language, Islamiyat, Mathematics D, Pakistan Studies, Urdu Second Language, and A Level Urdu. A Level Business, Economics and Maths pages: 30 of 1,395 links broken.
+- New generator for all subject past papers pages: `Scripts/past-papers-pages/build.py` (copy and checked facts in `subjects.py`, plan and accuracy record in `BRIEF.md`). It reads the checked file list from the past paper viewer widget, so every link exists.
+- First page built: `Pages/o-level-pakistan-studies-past-papers-elementor-widget.html` (v1.0), NOT live. Waiting for Sunyyan's review before the other eight. Order and reasons in `Scripts/past-papers-pages/BRIEF.md`.
+- Storage check widened to 2010 to 2026: A Level papers go back to 2015, now in the viewer. Computer Science 2015 to 2021 files are the old 9608 syllabus and are labelled so.
