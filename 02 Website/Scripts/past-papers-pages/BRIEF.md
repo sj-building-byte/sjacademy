@@ -72,6 +72,19 @@ Checks on all nine pages, 30 October 2026:
 
 Storage gaps seen while building: O Level storage starts in 2020; May/June 2026 is not in storage for these subjects (Cambridge has published A Level Urdu June 2026 thresholds, so the papers exist). Upload them and run `check-files.py`, then `build.py`.
 
+### O Level Biology, Chemistry, Physics and Economics (built 31 October 2026)
+Their old pages worked but built the paper list with JavaScript, so Google saw no papers. Rebuilt on the same template.
+
+| Page | Papers read | Facts on the page | Change shown |
+|---|---|---|---|
+| Biology 5090 | 5090_w25 qp_11, qp_21, qp_31, ci_32, qp_41; 5090_s23 qp_21, qp_31, qp_41; 5090_s22 qp_11, qp_21, qp_31, qp_61 | From 2023: Paper 1 Multiple Choice 1 hour, 40 questions, 40; Paper 2 Theory 1 hour 45 minutes, 80; Paper 3 Practical Test 1 hour 30 minutes, 40; Paper 4 Alternative to Practical 1 hour, 40. Up to 2022: Paper 6 was the alternative to practical (1 hour, 40), Paper 3 was 1 hour 15 minutes, Paper 2 had a choice in Section C | 2023 |
+| Chemistry 5070 | 5070_w25 qp_11, qp_21, qp_31, ci_31, qp_41; 5070_s23 qp_21, qp_41; 5070_s22 qp_11, qp_21, qp_31, ci_31, qp_41 | From 2023: as Biology. Up to 2022: Paper 2 1 hour 30 minutes, 75, Section B choose three; Paper 4 60 marks | 2023 |
+| Physics 5054 | 5054_w25 qp_11, qp_21, qp_31, qp_41; 5054_s23 qp_21, qp_31, qp_41; 5054_s22 qp_11, qp_21, qp_31, qp_41 | From 2023: as Biology. Up to 2022: Paper 2 75 with a choice in Section B; Paper 3 2 hours, 30; Paper 4 30 | 2023 |
+| Economics 2281 | 2281_w25 qp_12, qp_22; 2281_s22 qp_11, qp_21 | Paper 1 Multiple Choice 45 minutes, 30 questions, 30; Paper 2 Structured Questions 2 hours 15 minutes, 90, Section A Question 1, Section B three questions | None |
+
+"You sit Paper 1, Paper 2 and either Paper 3 or Paper 4": Cambridge syllabus wording, found in the 5054 syllabus through web search. Teachers from the O Level tuition page: Sir Umair (Biology), Sir Abdullah Zaman (Chemistry), Sir Basharat in class and Sir Salman Junaid online (Physics; FACTS confirms Sir Salman online), Sir Aaliyan (Economics).
+Checks, 31 October 2026: 691 PDF links all 200; 331 side by side links all load the right paper; `preview.js` passes on each.
+
 ## How to update a page
 1. Upload new papers to Backblaze.
 2. `python3 "02 Website/Tools/Past Paper Viewer/check-files.py"` (writes the file list into the viewer).
