@@ -34,9 +34,10 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) failed+
       ok(visiblePanels === 1, 'One year shown at a time');
       await page.click('[role=tab]:last-child');
       ok(await page.$eval('.sjp-year:last-of-type', (p) => !p.hidden), 'Clicking the last tab shows the oldest year');
-      await page.click('input[name="sjp-p"][value="2"]', { force: true });
+      const pick = await page.$$eval('input[name="sjp-p"]', (i) => i.map((x) => x.value).filter(Boolean)[1]);
+      await page.click('input[name="sjp-p"][value="' + pick + '"]', { force: true });
       const shown = await page.$$eval('.sjp-year:not([hidden]) tr[data-paper]', (r) => r.filter((x) => !x.hidden).map((x) => x.getAttribute('data-paper')));
-      ok(shown.length > 0 && shown.every((p) => p === '2'), 'Paper filter shows only Paper 2');
+      ok(shown.length > 0 && shown.every((p) => p === pick), 'Paper filter shows only Paper ' + pick);
       const links = await page.$$eval('a[href$=".pdf"]', (a) => a.map((x) => x.href));
       fs.writeFileSync(path.join(SHOTS, 'links-' + name + '.txt'), links.join('\n') + '\n');
       ok(links.length > 0, links.length + ' PDF links in the HTML');

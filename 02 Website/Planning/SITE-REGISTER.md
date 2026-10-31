@@ -156,13 +156,13 @@ No existing post is an entertainment post in the new sense. The one-in-five rati
 | `/a-level-mathematics-past-papers/` | Subject past papers | Not rebuilt | Older flat address alongside the newer /[level]-past-papers/[subject]/ page. Check for overlap |
 | `/a-level-past-papers/accounts-9706/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/biology-9700/` | Subject past papers | Not rebuilt |  |
-| `/a-level-past-papers/business-9609/` | Subject past papers | Live, v1.0 on shared stylesheet 3.1.1. Checked live 8 Oct 2026 | First Resource page on the shared stylesheet. Wrapper `sj-p-pp-business`. All 324 file links are in the HTML (the old tool built them with script, so Google saw none). Target keyword: a level business past papers (3,600/month, KD 21). Title: A Level Business Past Papers (9609) 2020 to 2025 \| SJ Academy. Redirect `/a-level-business-past-papers/` here with a 301 |
+| `/a-level-past-papers/business-9609/` | Subject past papers | Live, v1.0 on shared stylesheet 3.1.1. Checked live 8 Oct 2026. Paper tables refreshed 31 Oct 2026 (broken links removed, missing variants added, Side by side links), NOT yet pasted. Copy unchanged | First Resource page on the shared stylesheet. Wrapper `sj-p-pp-business`. All 324 file links are in the HTML (the old tool built them with script, so Google saw none). Target keyword: a level business past papers (3,600/month, KD 21). Title: A Level Business Past Papers (9609) 2020 to 2025 \| SJ Academy. Redirect `/a-level-business-past-papers/` here with a 301 |
 | `/a-level-past-papers/chemistry-9701/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/computer-science-9618/` | Subject past papers | Not rebuilt |  |
-| `/a-level-past-papers/economics-9708/` | Subject past papers | Live, v1.0 on shared stylesheet 3.1.1 (wrapper `sj-p-pp-economics`). Checked live 8 Oct 2026 |  |
+| `/a-level-past-papers/economics-9708/` | Subject past papers | Live, v1.0 on shared stylesheet 3.1.1 (wrapper `sj-p-pp-economics`). Checked live 8 Oct 2026. Paper tables refreshed 31 Oct 2026 (broken links removed, missing variants added, Side by side links), NOT yet pasted. Copy unchanged |  |
 | `/a-level-past-papers/english-9695/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/law-9084/` | Subject past papers | Not rebuilt |  |
-| `/a-level-past-papers/mathematics-9709/` | Subject past papers | Live, v1.0 on shared stylesheet 3.1.1 (wrapper `sj-p-pp-maths`). Checked live 8 Oct 2026 |  |
+| `/a-level-past-papers/mathematics-9709/` | Subject past papers | Live, v1.0 on shared stylesheet 3.1.1 (wrapper `sj-p-pp-maths`). Checked live 8 Oct 2026. Paper tables refreshed 31 Oct 2026 (broken links removed, missing variants added, Side by side links), NOT yet pasted. Copy unchanged |  |
 | `/a-level-past-papers/physics-9702/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/psychology-9990/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/sociology-9699/` | Subject past papers | Not rebuilt |  |

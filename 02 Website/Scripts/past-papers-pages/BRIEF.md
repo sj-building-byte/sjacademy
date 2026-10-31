@@ -85,9 +85,20 @@ Their old pages worked but built the paper list with JavaScript, so Google saw n
 "You sit Paper 1, Paper 2 and either Paper 3 or Paper 4": Cambridge syllabus wording, found in the 5054 syllabus through web search. Teachers from the O Level tuition page: Sir Umair (Biology), Sir Abdullah Zaman (Chemistry), Sir Basharat in class and Sir Salman Junaid online (Physics; FACTS confirms Sir Salman online), Sir Aaliyan (Economics).
 Checks, 31 October 2026: 691 PDF links all 200; 331 side by side links all load the right paper; `preview.js` passes on each.
 
+### A Level Business, Economics and Maths (fixed 31 October 2026)
+These pages were already rebuilt and live, with hand-written copy and keywords (Business especially). The repo copies were older than the live pages, so the live widget code was taken from the live pages, the old repo copies moved to `Archive/Old widget versions/`, and only the paper tables were refreshed with `refresh-tables.py`. Headings, copy, keywords, FAQs and structured data are unchanged (diff checked). Changed outside the tables: the hero file count and "all three variants" to "every variant"; one sentence on "Side by side"; a style line and a script selector so Side by side links open normally; en dashes in Economics written as hyphens.
+
+| Page | Broken links removed | Missing files added | Notes |
+|---|---|---|---|
+| Business 9609 | 22: Paper 3 inserts for 2016 to 2019 (not in storage), ms_22 May/June 2022, ms_13 Oct/Nov 2017 | 6: variant 4 of Papers 1 to 3, May/June 2021 | No insert in storage for May/June 2021 Paper 3 Variant 4. Live page has no BreadcrumbList schema (as before) |
+| Economics 9708 | 8: qp and ms 12 May/June 2024, ms_21 and ms_32 Oct/Nov 2017, qp and ms 43 Oct/Nov 2021 and 2022 | 26: variant 4 in May/June 2022, 2025, 2026 and Oct/Nov 2025 | |
+| Maths 9709 | 2: ms_11 May/June 2025, ms_12 Oct/Nov 2025 (question papers kept, mark schemes not uploaded) | 20: variant 5, 2025 | Page keeps its own years (2020 to 2025) and papers (P1, P3, M1, S1, S2) to match its copy. Storage also has 2015 to 2019, May/June 2026 and Paper 2 |
+
+Checks: 1,415 PDF links all 200; 683 side by side links all load the right paper; `preview.js` passes (Business: 2 structured data blocks, as live).
+
 ## How to update a page
 1. Upload new papers to Backblaze.
 2. `python3 "02 Website/Tools/Past Paper Viewer/check-files.py"` (writes the file list into the viewer).
-3. `python3 "02 Website/Scripts/past-papers-pages/build.py"` (rebuilds every page from that list).
+3. `python3 "02 Website/Scripts/past-papers-pages/build.py"` (rebuilds the generated pages) and `python3 "02 Website/Scripts/past-papers-pages/refresh-tables.py"` (refreshes the tables in A Level Business, Economics and Maths).
 4. Re-paste the changed widgets.
 
