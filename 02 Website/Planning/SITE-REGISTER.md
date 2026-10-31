@@ -162,7 +162,7 @@ No existing post is an entertainment post in the new sense. The one-in-five rati
 | `/a-level-past-papers/economics-9708/` | Subject past papers | Live, v1.0 on shared stylesheet 3.1.1 (wrapper `sj-p-pp-economics`). Checked live 8 Oct 2026. Paper tables refreshed 31 Oct 2026 (broken links removed, missing variants added, Side by side links), NOT yet pasted. Copy unchanged |  |
 | `/a-level-past-papers/english-9695/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/law-9084/` | Subject past papers | Not rebuilt |  |
-| `/a-level-past-papers/mathematics-9709/` | Subject past papers | Live, v1.0 on shared stylesheet 3.1.1 (wrapper `sj-p-pp-maths`). Checked live 8 Oct 2026. Paper tables refreshed 31 Oct 2026 (broken links removed, missing variants added, Side by side links), NOT yet pasted. Copy unchanged |  |
+| `/a-level-past-papers/mathematics-9709/` | Subject past papers | Live, v1.0 on shared stylesheet 3.1.1 (wrapper `sj-p-pp-maths`). Checked live 8 Oct 2026. Extended to 2015 to 2026 with Paper 2 and old numbering labels, 31 Oct 2026. Paper tables refreshed 31 Oct 2026 (broken links removed, missing variants added, Side by side links), NOT yet pasted. Copy unchanged |  |
 | `/a-level-past-papers/physics-9702/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/psychology-9990/` | Subject past papers | Not rebuilt |  |
 | `/a-level-past-papers/sociology-9699/` | Subject past papers | Not rebuilt |  |

@@ -96,6 +96,12 @@ These pages were already rebuilt and live, with hand-written copy and keywords (
 
 Checks: 1,415 PDF links all 200; 683 side by side links all load the right paper; `preview.js` passes (Business: 2 structured data blocks, as live).
 
+### Follow-up, 31 October 2026 (Sunyyan approved)
+• **Maths extended to 2015 to 2026 with Paper 2 (Pure 2).** The tables are now generated in full by `refresh-tables.py` (`maths()`). 9709 was renumbered in 2020, checked on the 9709_w19 and 9709_s20 cover pages: up to 2019 Paper 4 Mechanics 1 (M1), Paper 5 Mechanics 2 (M2), Paper 6 Probability & Statistics 1 (S1), Paper 7 Probability & Statistics 2 (S2); from 2020 Paper 4 Mechanics, Paper 5 S1, Paper 6 S2. Each year shows its own names, years before 2020 carry an "Old numbering" note, and the filter works by component (P1, P2, P3, M1, M2, S1, S2). Paper 2 is 1 hour 15 minutes (9709_s20_qp_21). Copy changed: hero lead (2015 to 2026, Pure 2 added), share message, timing step (Paper 2 added), the "Which years" FAQ in the page and its schema, CollectionPage name. Older storage is patchy (for example May/June 2017 and 2019 hold Papers 1 to 3 only); the page shows what exists.
+• **Storage check widened to Papers 1 to 9** (A Level, 2010 to 2026): found Maths Paper 7 (old S2) and Literature in English Paper 7. Viewer updated.
+• **Business:** BreadcrumbList structured data added, matching the visible breadcrumb.
+Checks: 1,822 PDF links on the three pages all 200; 884 side by side links all load the right paper; viewer 8,201 links, 0 wrong; viewer tests pass.
+
 ## How to update a page
 1. Upload new papers to Backblaze.
 2. `python3 "02 Website/Tools/Past Paper Viewer/check-files.py"` (writes the file list into the viewer).

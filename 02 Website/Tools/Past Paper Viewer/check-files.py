@@ -120,8 +120,8 @@ def series_url(host, lvl_folder, folder, code, se, y, token):
 
 
 def qp_candidates():
-    comps = ["%d%d" % (p, v) for p in range(1, 7) for v in range(1, 7)]
-    comps += ["0%d" % p for p in range(1, 7)] + ["%d" % p for p in range(1, 7)]
+    comps = ["%d%d" % (p, v) for p in range(1, 10) for v in range(1, 7)]
+    comps += ["0%d" % p for p in range(1, 10)] + ["%d" % p for p in range(1, 10)]
     return comps
 
 

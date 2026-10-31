@@ -27,8 +27,16 @@ SESS = {"s": ("May+June", "mj"), "w": ("October+November", "on")}
 PAGES = [
     ("a-level-business-past-papers-elementor-widget.html", "A Level/Business", "9609", "Business+%289609%29", "business", "sj-p-pp-business"),
     ("a-level-economics-past-papers-elementor-widget.html", "A Level/Economics", "9708", "Economics+%289708%29", "economics", "sj-p-pp-economics"),
-    ("a-level-maths-past-papers-elementor-widget.html", "A Level/Mathematics", "9709", "Mathematics+%289709%29", "mathematics", "sj-p-pp-maths"),
 ]
+
+# Maths: every series in storage, labelled by the numbering of its year. 9709 was renumbered in 2020
+# (checked on 9709_w19 and 9709_s20 cover pages): up to 2019 Paper 4 M1, 5 M2, 6 S1, 7 S2; from 2020 Paper 4 M1, 5 S1, 6 S2.
+MATHS = ("a-level-maths-past-papers-elementor-widget.html", "A Level/Mathematics", "9709", "Mathematics+%289709%29", "mathematics", "sj-p-pp-maths")
+MATHS_OLD = {1: ("P1", "Pure Mathematics 1 (P1)"), 2: ("P2", "Pure Mathematics 2 (P2)"), 3: ("P3", "Pure Mathematics 3 (P3)"), 4: ("M1", "Mechanics 1 (M1)"),
+             5: ("M2", "Mechanics 2 (M2)"), 6: ("S1", "Probability &amp; Statistics 1 (S1)"), 7: ("S2", "Probability &amp; Statistics 2 (S2)")}
+MATHS_NEW = {1: ("P1", "Pure Mathematics 1 (P1)"), 2: ("P2", "Pure Mathematics 2 (P2)"), 3: ("P3", "Pure Mathematics 3 (P3)"), 4: ("M1", "Mechanics (M1)"),
+             5: ("S1", "Probability &amp; Statistics 1 (S1)"), 6: ("S2", "Probability &amp; Statistics 2 (S2)")}
+MATHS_FILTER = [("P1", "Pure 1 (P1)"), ("P2", "Pure 2 (P2)"), ("P3", "Pure 3 (P3)"), ("M1", "Mechanics (M1)"), ("M2", "Mechanics 2 (M2)"), ("S1", "Statistics 1 (S1)"), ("S2", "Statistics 2 (S2)")]
 
 
 def files_by_series(key):
@@ -101,6 +109,75 @@ def refresh(page, key, code, folder, vsub, wrapper):
     print("%s: %d file links, %d side by side links" % (page, count, w.count('class="sjp-side"')))
 
 
+def maths(page, key, code, folder, vsub, wrapper):
+    path = os.path.join(WEB, "Pages", page)
+    w = open(path, encoding="utf-8").read()
+    data = files_by_series(key)
+    years = sorted({2000 + int(k[1:]) for k in data}, reverse=True)
+    count = 0
+    used = set()
+
+    def table(ser):
+        nonlocal count
+        se, y = ser[0], 2000 + int(ser[1:])
+        names = MATHS_OLD if y < 2020 else MATHS_NEW
+        have = data[ser]
+        variants = sorted({v for p in have.values() for v in p}, key=int)
+        rows = []
+        for p in sorted(have):
+            comp, label = names[p]
+            used.add(comp)
+            tds = []
+            for v in variants:
+                cell = have[p].get(v)
+                if not cell or "qp" not in cell:
+                    tds.append('<td data-label="Variant %s"><span><span class="sj-muted">Not set</span></span></td>' % v)
+                    continue
+                links = []
+                for t in ("qp", "ms", "in", "ci"):
+                    if t in cell:
+                        count += 1
+                        links.append('<a href="%s/%s/%s+%d/%s_%s_%s.pdf">%s %d%s</a>' % (STORE, folder, SESS[se][0], y, code, ser, cell[t], LBL[t], p, v))
+                if "ms" in cell:
+                    links.append('<a class="sjp-side" href="%s/past-paper-viewer/?level=a-level&amp;subject=%s&amp;series=%d-%s&amp;paper=%d%s" data-event="viewer_click" data-loc="papers">Side by side</a>' % (SITE, vsub, y, SESS[se][1], p, v))
+                tds.append('<td data-label="Variant %s"><span>%s</span></td>' % (v, " ".join(links)))
+            rows.append('<tr data-paper="%s"><td data-label="Paper"><span><b>Paper %d</b> <span class="sj-muted">%s</span></span></td>%s</tr>' % (comp, p, label, "".join(tds)))
+        return ('<h3 class="sj-h3">%s %d</h3>\n<div class="sj-table-wrap"><table class="sj-table sj-table-stack"><thead><tr><th scope="col">Paper</th>%s</tr></thead><tbody>\n%s\n</tbody></table></div>'
+                % ("May/June" if se == "s" else "Oct/Nov", y, "".join('<th scope="col">Variant %s</th>' % v for v in variants), "\n".join(rows)))
+
+    panels = []
+    for y in years:
+        sers = [s_ for s_ in ("s%02d" % (y % 100), "w%02d" % (y % 100)) if s_ in data]
+        note = '\n<p class="sj-small sj-muted">Old numbering before 2020: Paper 4 Mechanics 1, Paper 5 Mechanics 2, Paper 6 Statistics 1, Paper 7 Statistics 2.</p>' if y < 2020 else ""
+        panels.append('<div class="sj-tabpanel sj-stack sjp-year" role="tabpanel" id="sjp-y%d" aria-labelledby="sjp-t%d">\n<h3 class="sj-h4 sjp-yh">A Level Maths past papers %d</h3>%s\n%s\n</div>' % (y, y, y, note, "\n".join(table(s_) for s_ in sers)))
+    tabs = "\n".join('<button role="tab" id="sjp-t%d" aria-controls="sjp-y%d" aria-selected="%s"%s>%d</button>' % (y, y, "true" if i == 0 else "false", "" if i == 0 else ' tabindex="-1"', y) for i, y in enumerate(years))
+    a, b = w.index("<!-- 2. PAPERS -->"), w.index("<!-- 3. HOW TO USE THEM -->")
+    papers = w[a:b]
+    t0 = papers.index('<div class="sj-tabs"')
+    t1 = papers.index('<p class="sj-small sj-muted sj-measure">Past papers and mark schemes are the copyright')
+    papers = papers[:t0] + '<div class="sj-tabs" role="tablist" aria-label="Year" id="sjp-tabs" hidden>\n' + tabs + '\n</div>\n' + "\n".join(panels) + "\n</div>\n" + papers[t1:]
+    f0 = papers.index('<div class="sj-choices" role="group" aria-labelledby="sjp-fl">')
+    f1 = papers.index("</div>", f0)
+    radios = '<label class="sj-choice"><input type="radio" name="sjp-p" value="" checked><span>All papers</span></label> ' + " ".join(
+        '<label class="sj-choice"><input type="radio" name="sjp-p" value="%s"><span>%s</span></label>' % (c, l) for c, l in MATHS_FILTER if c in used)
+    papers = papers[:f0] + '<div class="sj-choices" role="group" aria-labelledby="sjp-fl"> ' + radios + " " + papers[f1:]
+    note_old = re.search(r'(<p class="sjp-top">[^<]*?)(</p>)', papers)
+    if "Side by side" not in note_old.group(1):
+        papers = papers.replace(note_old.group(0), note_old.group(1) + ' "Side by side" opens the paper next to its mark scheme.' + note_old.group(2), 1)
+    w = w[:a] + papers + w[b:]
+    jump = "".join('<a class="sj-btn sj-btn-ghost" href="#sjp-y%d" data-sjp-year="%d" data-loc="hero">%d</a>' % (y, y, y) for y in years)
+    w = re.sub(r'<div class="sjp-years">.*?</div>', '<div class="sjp-years">' + jump + "</div>", w, count=1, flags=re.S)
+    w = re.sub(r"(all three variants|every variant), \d+ files", "every variant, %d files" % count, w, count=1)
+    w = w.replace("querySelectorAll('.sjp-year td a')", "querySelectorAll('.sjp-year td a:not(.sjp-side)')")
+    side_css = "#sj.%s .sjp-year td a.sjp-side{border-style:dashed;font-weight:400}" % wrapper
+    if side_css not in w:
+        w = w.replace("</style>", side_css + "\n</style>", 1)
+    w.encode("ascii")
+    open(path, "w", encoding="ascii", newline="\n").write(w)
+    print("%s: %d years (%d to %d), %d file links, %d side by side links, filter %s" % (page, len(years), years[-1], years[0], count, w.count('class="sjp-side"'), sorted(used)))
+
+
 if __name__ == "__main__":
     for args in PAGES:
         refresh(*args)
+    maths(*MATHS)

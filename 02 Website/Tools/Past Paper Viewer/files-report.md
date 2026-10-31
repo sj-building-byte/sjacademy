@@ -1,6 +1,6 @@
 # Past paper storage check
 
-Checked 2026-10-30 against `https://f006.backblazeb2.com/file/Past-papers-storage`, years 2010 to 2026. Written by `check-files.py`.
+Checked 2026-10-31 against `https://f006.backblazeb2.com/file/Past-papers-storage`, years 2010 to 2026. Written by `check-files.py`. A Level rows rechecked 31 October 2026 for Papers 1 to 9; O Level rows from 30 October 2026.
 
 | Subject | Folder in storage | Series found | Series missing | Notes |
 |---|---|---|---|---|
@@ -10,7 +10,7 @@ Checked 2026-10-30 against `https://f006.backblazeb2.com/file/Past-papers-storag
 | A Level/Chemistry | Chemistry (9701) | 22 | May/June 2010, Oct/Nov 2010, May/June 2011, Oct/Nov 2011, May/June 2012, Oct/Nov 2012, May/June 2013, Oct/Nov 2013, May/June 2014, Oct/Nov 2014, May/June 2026, Oct/Nov 2026 | No mark scheme: May/June 2017 11 |
 | A Level/Computer Science | Computer Science (9618) | 22 | May/June 2010, Oct/Nov 2010, May/June 2011, Oct/Nov 2011, May/June 2012, Oct/Nov 2012, May/June 2013, Oct/Nov 2013, May/June 2014, Oct/Nov 2014, Oct/Nov 2020, Oct/Nov 2026 | No mark scheme: Oct/Nov 2022 33 |
 | A Level/Economics | Economics (9708) | 23 | May/June 2010, Oct/Nov 2010, May/June 2011, Oct/Nov 2011, May/June 2012, Oct/Nov 2012, May/June 2013, Oct/Nov 2013, May/June 2014, Oct/Nov 2014, Oct/Nov 2026 | No mark scheme: Oct/Nov 2017 21, Oct/Nov 2017 32 |
-| A Level/Literature in English | English (9695) | 22 | May/June 2010, Oct/Nov 2010, May/June 2011, Oct/Nov 2011, May/June 2012, Oct/Nov 2012, May/June 2013, Oct/Nov 2013, May/June 2014, Oct/Nov 2014, May/June 2026, Oct/Nov 2026 | No mark scheme: May/June 2015 41, May/June 2015 42, May/June 2015 43, May/June 2015 61, May/June 2015 62, May/June 2015 63 |
+| A Level/Literature in English | English (9695) | 22 | May/June 2010, Oct/Nov 2010, May/June 2011, Oct/Nov 2011, May/June 2012, Oct/Nov 2012, May/June 2013, Oct/Nov 2013, May/June 2014, Oct/Nov 2014, May/June 2026, Oct/Nov 2026 | No mark scheme: May/June 2015 41, May/June 2015 42, May/June 2015 43, May/June 2015 61, May/June 2015 62, May/June 2015 63, Oct/Nov 2015 72, Oct/Nov 2015 73 |
 | A Level/Law | Law (9084) | 12 | May/June 2010, Oct/Nov 2010, May/June 2011, Oct/Nov 2011, May/June 2012, Oct/Nov 2012, May/June 2013, Oct/Nov 2013, May/June 2014, Oct/Nov 2014, May/June 2015, Oct/Nov 2015, May/June 2016, Oct/Nov 2016, May/June 2017, Oct/Nov 2017, May/June 2018, Oct/Nov 2018, May/June 2019, Oct/Nov 2019, May/June 2026, Oct/Nov 2026 |  |
 | A Level/Mathematics | Mathematics (9709) | 23 | May/June 2010, Oct/Nov 2010, May/June 2011, Oct/Nov 2011, May/June 2012, Oct/Nov 2012, May/June 2013, Oct/Nov 2013, May/June 2014, Oct/Nov 2014, Oct/Nov 2026 | No mark scheme: Oct/Nov 2021 21, May/June 2022 21, May/June 2022 22, May/June 2022 23, May/June 2024 22, May/June 2025 11, Oct/Nov 2025 12 |
 | A Level/Physics | Physics (9702) | 23 | May/June 2010, Oct/Nov 2010, May/June 2011, Oct/Nov 2011, May/June 2012, Oct/Nov 2012, May/June 2013, Oct/Nov 2013, May/June 2014, Oct/Nov 2014, Oct/Nov 2026 | No mark scheme: May/June 2016 11, May/June 2026 21 |

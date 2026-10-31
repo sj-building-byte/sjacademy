@@ -34,6 +34,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) failed+
       ok(visiblePanels === 1, 'One year shown at a time');
       await page.click('[role=tab]:last-child');
       ok(await page.$eval('.sjp-year:last-of-type', (p) => !p.hidden), 'Clicking the last tab shows the oldest year');
+      await page.click('[role=tab]:first-child');
       const pick = await page.$$eval('input[name="sjp-p"]', (i) => i.map((x) => x.value).filter(Boolean)[1]);
       await page.click('input[name="sjp-p"][value="' + pick + '"]', { force: true });
       const shown = await page.$$eval('.sjp-year:not([hidden]) tr[data-paper]', (r) => r.filter((x) => !x.hidden).map((x) => x.getAttribute('data-paper')));
