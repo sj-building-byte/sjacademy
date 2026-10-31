@@ -98,7 +98,7 @@ def build(key):
                 cell = papers[p].get(v)
                 label = "Files" if single else "Variant " + v
                 if not cell or "qp" not in cell:
-                    tds.append('<td data-label="%s"><span class="sj-muted">Not set</span></td>' % label)
+                    tds.append('<td data-label="%s"><span class="sj-muted">Not available</span></td>' % label)
                     continue
                 links = []
                 for t in TYPE_ORDER:
@@ -113,10 +113,20 @@ def build(key):
 
     tabs = "\n".join('<button role="tab" id="sjp-t%d" aria-controls="sjp-y%d" aria-selected="%s"%s>%d</button>'
                      % (y, y, "true" if i == 0 else "false", "" if i == 0 else ' tabindex="-1"', y) for i, y in enumerate(years))
-    panels = "\n".join('<div class="sj-tabpanel sj-stack sjp-year" role="tabpanel" id="sjp-y%d" aria-labelledby="sjp-t%d">\n<h3 class="sj-h4 sjp-yh">%s %s past papers %d</h3>\n%s\n</div>'
-                       % (y, y, lv, name, y, "\n".join(table(y, se) for se in ("s", "w") if se in data[y])) for y in years)
+    def year_note(y):
+        for n in S.get("year_notes", []):
+            if y <= n["until"]:
+                return '\n<p class="sj-small sj-muted">%s</p>' % n["text"]
+        return ""
+    panels = "\n".join('<div class="sj-tabpanel sj-stack sjp-year" role="tabpanel" id="sjp-y%d" aria-labelledby="sjp-t%d">\n<h3 class="sj-h4 sjp-yh">%s %s past papers %d</h3>%s\n%s\n</div>'
+                       % (y, y, lv, name, y, year_note(y), "\n".join(table(y, se) for se in ("s", "w") if se in data[y])) for y in years)
     jump = "".join('<a class="sj-btn sj-btn-ghost" href="#sjp-y%d" data-sjp-year="%d" data-loc="hero">%d</a>' % (y, y, y) for y in years)
-    pfilter = "\n".join('          <label class="sj-choice"><input type="radio" name="sjp-p" value="%d"><span>%s</span></label>' % (p, S["papers"][p][2]) for p in sorted(S["papers"]))
+    allp = {}
+    for pp_ in [S["papers"]] + [e["papers"] for e in S.get("eras", [])]:
+        allp.update(pp_)
+    used_p = sorted({p for y in data.values() for se in y.values() for p in se})
+    pfilter = "\n".join('          <label class="sj-choice"><input type="radio" name="sjp-p" value="%d"><span>%s</span></label>' % (p, allp.get(p, ("", "", "Paper %d" % p))[2]) for p in used_p)
+    current = S["eras"][-1]["papers"] if S.get("eras") else S["papers"]
     structure = "\n".join('<tr><td data-label="Paper"><span><b>%s</b> <span class="sj-muted">%s</span></span></td><td data-label="Time"><span>%s</span></td><td data-label="Marks"><span>%s</span></td><td data-label="What you do"><span>%s</span></td></tr>' % r for r in S["structure"])
     steps = "\n".join("          <li><b>%s</b><span>%s</span></li>" % st for st in S["steps"])
     faq = [(q, a.format(**fmt)) for q, a in S["faq"]]
@@ -126,7 +136,7 @@ def build(key):
     single_subject = all(v == "" for y in data.values() for se in y.values() for pp in se.values() for v in pp)
     ex_tok, ex_mean = S.get("example", ("qp_01", "Paper 1") if single_subject else ("qp_12", "Paper 1, Variant 2"))
     ex_note = "s = May/June, ms = mark scheme" + (", in = insert" if has_in else "")
-    demo = "https://wa.me/923362144454?text=" + quote("Hi SJ Academy, I saw the %s %s past papers page and would like to book a free demo class for %s %s.\nMode (in class or online): \n(Ref: %s)\nMy name is " % (lv, name, lv, name, S["ref"]), safe="")
+    demo = "https://wa.me/923362144454?text=" + quote("Hi SJ Academy, I saw the %s %s past papers page and would like to book a free demo class for %s.\nMode (in class or online): \n(Ref: %s)\nMy name is " % (lv, name, S.get("demo_subject", lv + " " + name), S["ref"]), safe="")
     share = "https://wa.me/?text=" + quote("%s %s (%s) past papers and mark schemes, %d to %d: %s" % (lv, name, code, first, last, page_url), safe="")
     viewer_first = viewer_url(last, "s" if "s" in data[last] else "w", min(data[last]["s" if "s" in data[last] else "w"]), "")
     strip = lambda t: html.unescape(re.sub(r"<[^>]+>", "", t)).strip()
@@ -165,7 +175,7 @@ def build(key):
       <div class="sj-stack">
         <h1 class="sj-h1"><span class="sj-pill"><span>Cambridge {lv} &middot; {code}</span></span>{lv} {name} past papers and <span class="sj-hl">mark schemes</span></h1>
         <p class="sj-lead sj-measure">{S["lead"].format(**fmt)}</p>
-        <div class="sj-row"><span class="sj-chip sj-chip-yellow">Free, no sign-up</span><span class="sj-chip">{len(S["papers"])} papers, {first} to {last}</span><span class="sj-updated">Updated {UPDATED}</span></div>
+        <div class="sj-row"><span class="sj-chip sj-chip-yellow">Free, no sign-up</span><span class="sj-chip">{len(current)} papers, {first} to {last}</span><span class="sj-updated">Updated {UPDATED}</span></div>
       </div>
       <div class="sj-offset sj-stack">
         <h2 class="sj-h3">Jump to a year</h2>

@@ -510,3 +510,217 @@ A_LEVEL_PAGES = [
     ("english-9695", "Literature in English (9695)"), ("law-9084", "Law (9084)"), ("mathematics-9709", "Mathematics (9709)"),
     ("physics-9702", "Physics (9702)"), ("psychology-9990", "Psychology (9990)"), ("sociology-9699", "Sociology (9699)"), ("urdu-9686", "Urdu (9686)"),
 ]
+
+
+# ---- A Level subject pages (built 31 October 2026). Facts read from each subject's question paper cover pages,
+# sampled 2015, 2017, 2019 to 2026 (see BRIEF.md). Paper names change by year where the syllabus changed.
+A_TAIL = [
+    ("Which variant should I practise?", "Cambridge sets different variants of the same paper for different time zones. They test the same syllabus to the same standard, so practise every variant from a series."),
+    ("How should I use the mark schemes?", 'Attempt the paper under timed conditions first, then mark it yourself against the mark scheme. Our guide on <a class="sj-link" href="{site}/blog/how-to-use-mark-scheme/">how to use a Cambridge mark scheme</a> walks through the method, and our <a class="sj-link" href="{site}/blog/a-level-thresholds-guide/">A Level grade thresholds guide</a> explains how raw marks turn into grades.'),
+    ("Can I see the paper and the mark scheme side by side?", 'Yes. Every paper on this page has a "Side by side" link that opens it in our <a class="sj-link" href="{site}/past-paper-viewer/">past paper viewer</a>, with the question paper on the left and the mark scheme on the right. The mark scheme stays covered until you have written your answer.'),
+]
+
+
+def alevel(name, code, slug, vs, folder_note, papers, eras, structure, title_name, keyphrase, lead, files_note, steps, hand, faq_mid,
+           band_title, band_text, tuition="/a-level-tuition-center-karachi/", tuition_label="A Level tuition", year_notes=None,
+           demo_subject=None, structure_note="As set in the October/November 2025 papers.", example=("qp_12", "Paper 1, Variant 2")):
+    d = {
+        "level": "A Level", "name": name, "code": code, "slug": slug, "viewer_subject": vs,
+        "page_file": "a-level-%s-past-papers-elementor-widget.html" % vs, "wrapper": "sj-p-pp-a-%s" % code, "ref": "PP-A-%s" % code,
+        "tuition": tuition, "tuition_label": tuition_label, "papers": papers, "eras": eras, "structure": structure, "structure_note": structure_note,
+        "title": "A Level %s Past Papers (%s) | SJ Academy" % (title_name, code),
+        "meta": "Free A Level %s (%s) past papers with mark schemes, {first} to {last}. Every paper and variant, May/June and Oct/Nov. No sign-up." % (title_name, code),
+        "keyphrase": keyphrase, "lead": lead, "files_note": files_note, "steps": steps, "hand": hand, "example": example,
+        "faq": [
+            ("Are these A Level %s past papers free?" % title_name, "Yes. Every file on this page is free to open and download. You do not need to sign up."),
+            ("Which years of %s past papers are on this page?" % code, "This page has Cambridge International AS and A Level %s (%s) past papers from {first} to {last}, for the May/June and Oct/Nov series, in every paper and variant we hold. Each year shows the paper names used that year." % (name, code)),
+        ] + faq_mid + [
+            ("How do I read a %s past paper file name?" % code, "Take %s_w25_qp_12. %s is %s, w25 is October/November 2025 (s is May/June), qp is the question paper and 12 is Paper 1, Variant 2. ms is the mark scheme%s." % (code, code, name, folder_note)),
+        ] + A_TAIL,
+        "band_title": band_title, "band_text": band_text,
+    }
+    if year_notes:
+        d["year_notes"] = year_notes
+    if demo_subject:
+        d["demo_subject"] = demo_subject
+    return d
+
+
+SCI_PAPERS = {1: ("Multiple Choice", "", "Paper 1"), 2: ("AS Level Structured Questions", "", "Paper 2"), 3: ("Advanced Practical Skills", "", "Paper 3"),
+              4: ("A Level Structured Questions", "", "Paper 4"), 5: ("Planning, Analysis and Evaluation", "", "Paper 5")}
+SCI_STRUCTURE = [
+    ("Paper 1", "Multiple Choice", "1 hour 15 minutes", "40", "40 multiple choice questions. Answer all of them on the answer sheet."),
+    ("Paper 2", "AS Level Structured Questions", "1 hour 15 minutes", "60", "Answer all questions. You write on the question paper."),
+    ("Paper 3", "Advanced Practical Skills", "2 hours", "40", "Practical work in the lab. Answer all questions on the question paper. The confidential instructions (CI) tell the school how to set up."),
+    ("Paper 4", "A Level Structured Questions", "2 hours", "100", "Answer all questions. You write on the question paper."),
+    ("Paper 5", "Planning, Analysis and Evaluation", "1 hour 15 minutes", "30", "Answer all questions on planning an experiment and analysing data. You write on the question paper."),
+]
+SCI_FAQ = [("Which papers are AS and which are A Level?", "Papers 1, 2 and 3 make up AS Level. For the full A Level you also sit Papers 4 and 5."),
+           ("Why does Paper 3 have so many variants?", "The practical paper is set in more versions than the written papers, so Paper 3 often runs from Variant 1 to Variant 5 or 6. They test the same skills. Practise the ones closest to your exam series.")]
+
+
+def sci(name, code, slug, vs, tuition, teacher, keyw, p1_note, hand, step3):
+    return alevel(name, code, slug, vs, ", ci is the confidential instructions and in is the insert", SCI_PAPERS, [], SCI_STRUCTURE, name, keyw,
+                  "Free Cambridge International AS and A Level %s (%s) past papers and mark schemes from {first} to {last}: multiple choice, AS and A Level structured questions, the practical paper and planning, analysis and evaluation, in every variant." % (name, code),
+                  "QP is the question paper, MS is the mark scheme, CI is the confidential instructions for the practical and IN is an insert. The two digits are the paper and the variant, so QP 12 is Paper 1, Variant 2.",
+                  [("Sit it under exam timing", "Paper 1 is 1 hour 15 minutes for 40 questions. Papers 2 and 5 are 1 hour 15 minutes. Paper 4 is 2 hours."),
+                   ("Mark it against the mark scheme", "Check the key words, the working and the units. On Paper 5, check every step of the method, not only the conclusion."),
+                   ("Find the pattern in the lost marks", step3 + " That is what to fix next."),
+                   ("Redo the same question type", "Pick the same question from another variant and try again.")],
+                  hand, SCI_FAQ + ([("Did the paper timings change?", p1_note)] if p1_note else []),
+                  "Know the %s but still losing marks?" % name.lower(),
+                  "A Level %s marks go to precise answers, full working and the key words in the mark scheme. %s teaches A Level %s at SJ Academy in DHA Phase 7, Karachi, and live online, with past papers marked to the mark scheme." % (name, teacher, name),
+                  tuition=tuition, tuition_label="A Level %s tuition" % name)
+
+
+SUBJECTS.update({
+    "A Level/Biology": sci("Biology", "9700", "biology-9700", "biology", "/a-level-biology-tuition/", "Sir Umair", "a level biology past papers",
+                           "Yes. Paper 1 was 1 hour up to 2021 and is 1 hour 15 minutes from 2022. Check your own series for the timing.",
+                           "key words, full answers", "A description where the question asked for an explanation, a missing key term, or a graph with no units on the axes."),
+    "A Level/Chemistry": sci("Chemistry", "9701", "chemistry-9701", "chemistry", "/a-level-chemistry/", "Sir Abdullah Zaman", "a level chemistry past papers",
+                             "Yes. Paper 1 was 1 hour up to 2021 and is 1 hour 15 minutes from 2022. Check your own series for the timing.",
+                             "state symbols count", "An unbalanced equation, a missing state symbol, or a calculation with no units or significant figures."),
+    "A Level/Physics": sci("Physics", "9702", "physics-9702", "physics", "/a-level-physics-tuition/", "Sir Salman Junaid", "a level physics past papers",
+                           "Yes. Paper 1 was 1 hour in 2015 and has been 1 hour 15 minutes since 2017. Check your own series for the timing.",
+                           "formula, working, unit", "A missing unit, working that skips the formula, or an uncertainty calculated the wrong way."),
+    "A Level/Accounting": alevel(
+        "Accounting", "9706", "accounts-9706", "accounting", "", 
+        {1: ("Multiple Choice", "", "Paper 1"), 2: ("Structured Questions", "", "Paper 2"), 3: ("Multiple Choice", "", "Paper 3"), 4: ("Problem Solving (Supplementary Topics)", "", "Paper 4")},
+        [{"from": 2016, "papers": {1: ("Multiple Choice", "", "Paper 1"), 2: ("Structured Questions", "", "Paper 2"), 3: ("Structured Questions", "", "Paper 3")}},
+         {"from": 2023, "papers": {1: ("Multiple Choice", "", "Paper 1"), 2: ("Fundamentals of Accounting", "", "Paper 2"), 3: ("Financial Accounting", "", "Paper 3"), 4: ("Cost and Management Accounting", "", "Paper 4")}}],
+        [("Paper 1", "Multiple Choice", "1 hour", "30", "30 multiple choice questions. Answer all of them on the answer sheet."),
+         ("Paper 2", "Fundamentals of Accounting", "1 hour 45 minutes", "90", "Answer all questions. You write on the question paper."),
+         ("Paper 3", "Financial Accounting", "1 hour 30 minutes", "75", "Answer all questions, using the sources in the insert. You write on the question paper."),
+         ("Paper 4", "Cost and Management Accounting", "1 hour", "50", "Answer all questions, using the sources in the insert. You write on the question paper.")],
+        "Accounting", "a level accounting past papers",
+        "Free Cambridge International AS and A Level Accounting (9706) past papers, mark schemes and inserts from {first} to {last}, for every paper and variant. Searching for A Level Accounts past papers? Same subject, same code.",
+        "QP is the question paper, MS is the mark scheme and IN is the insert with the sources. The two digits are the paper and the variant, so QP 12 is Paper 1, Variant 2.",
+        [("Sit it under exam timing", "Paper 1 is 1 hour for 30 questions. Paper 2 is 1 hour 45 minutes, Paper 3 is 1 hour 30 minutes and Paper 4 is 1 hour."),
+         ("Mark it against the mark scheme", "Check the format, headings and dates of every statement, not only the final figure."),
+         ("Find the pattern in the lost marks", "A missing heading, a figure in the wrong section, or a comment with no numbers from the question. That is what to fix next."),
+         ("Redo the same question type", "Pick the same question from another variant and try again.")],
+        "format earns marks",
+        [("Which papers are AS and which are A Level?", "From 2023, Papers 1 and 2 make up AS Level and Papers 3 and 4 complete the A Level."),
+         ("Did the 9706 papers change in 2023?", "Yes. From 2023 the papers are Multiple Choice, Fundamentals of Accounting, Financial Accounting, and Cost and Management Accounting. From 2016 to 2022 there were three papers: Multiple Choice, Structured Questions (AS) and Structured Questions (A Level). Each year on this page shows the paper names used that year.")],
+        "Balancing the books but not the marks?",
+        "Accounting marks go to format and method as much as the final figure. Sir Shaibaz Ali teaches A Level Accounting at SJ Academy in DHA Phase 7, Karachi, and live online, with past papers marked to the mark scheme.",
+        structure_note="As set in the October/November 2025 papers. From 2016 to 2022 there were three papers (Paper 3 Structured Questions was 3 hours), and in 2015 there were four, with Paper 4 Problem Solving."),
+    "A Level/Computer Science": alevel(
+        "Computer Science", "9618", "computer-science-9618", "computer-science", "",
+        {1: ("Theory Fundamentals", "", "Paper 1"), 2: ("Fundamental Problem-solving and Programming Skills", "", "Paper 2"), 3: ("Advanced Theory", "", "Paper 3"), 4: ("Further Problem-solving and Programming Skills", "", "Paper 4")},
+        [{"from": 2022, "papers": {1: ("Theory Fundamentals", "", "Paper 1"), 2: ("Fundamental Problem-solving and Programming Skills", "", "Paper 2"), 3: ("Advanced Theory", "", "Paper 3"), 4: ("Practical", "", "Paper 4")}}],
+        [("Paper 1", "Theory Fundamentals", "1 hour 30 minutes", "75", "Answer all questions. You write on the question paper."),
+         ("Paper 2", "Fundamental Problem-solving and Programming Skills", "2 hours", "75", "Answer all questions, using the resources in the insert. You write on the question paper."),
+         ("Paper 3", "Advanced Theory", "1 hour 30 minutes", "75", "Answer all questions. You write on the question paper."),
+         ("Paper 4", "Practical", "2 hours 30 minutes", "75", "Programming tasks done on a computer.")],
+        "Computer Science", "a level computer science past papers",
+        "Free Cambridge International AS and A Level Computer Science past papers and mark schemes from {first} to {last}. Papers from 2022 are 9618; earlier years are the old 9608 syllabus, labelled on each year.",
+        "QP is the question paper, MS is the mark scheme and IN is the insert with the resources for Paper 2. The two digits are the paper and the variant, so QP 12 is Paper 1, Variant 2.",
+        [("Sit it under exam timing", "Papers 1 and 3 are 1 hour 30 minutes, Paper 2 is 2 hours and the Paper 4 practical is 2 hours 30 minutes."),
+         ("Mark it against the mark scheme", "Check the exact terms the mark scheme accepts. In Computer Science a near-miss word often scores nothing."),
+         ("Find the pattern in the lost marks", "A loose definition, a trace table with a skipped step, or code that misses one condition. That is what to fix next."),
+         ("Redo the same question type", "Pick the same question from another variant and try again.")],
+        "the exact term scores",
+        [("Why are older years labelled 9608?", "Cambridge replaced A Level Computer Science 9608 with 9618. The papers on this page for 2021 and earlier are 9608 papers, which we checked on their cover pages. They are still useful practice for the theory papers, but check the 9618 syllabus for what changed."),
+         ("Which papers are AS and which are A Level?", "Papers 1 and 2 make up AS Level. Papers 3 and 4 complete the A Level.")],
+        "Know the topic but still losing marks?",
+        "Computer Science marks go to precise terms and complete logic. Sir Riza Walji teaches A Level Computer Science at SJ Academy in DHA Phase 7, Karachi, and live online, with past papers marked to the mark scheme.",
+        tuition="/a-level-computer-science-tuition/", tuition_label="A Level Computer Science tuition",
+        year_notes=[{"until": 2021, "text": "Old syllabus: these files are 9608 Computer Science papers, stored under 9618. From 2022 the papers are 9618."}]),
+    "A Level/Literature in English": alevel(
+        "Literature in English", "9695", "english-9695", "literature-in-english", "",
+        {3: ("Poetry and Prose", "", "Paper 3"), 4: ("Drama", "", "Paper 4"), 5: ("Shakespeare and other pre-20th Century Texts", "", "Paper 5"), 6: ("20th Century Writing", "", "Paper 6"), 7: ("Comment and Appreciation", "", "Paper 7")},
+        [{"from": 2016, "papers": {3: ("Poetry and Prose", "", "Paper 3"), 4: ("Drama", "", "Paper 4"), 5: ("Shakespeare and other pre-20th Century Texts", "", "Paper 5"), 6: ("1900 to the Present", "", "Paper 6"), 7: ("Comment and Appreciation", "", "Paper 7")}},
+         {"from": 2021, "papers": {1: ("Drama and Poetry", "", "Paper 1"), 2: ("Prose and Unseen", "", "Paper 2"), 3: ("Shakespeare and Drama", "", "Paper 3"), 4: ("Pre- and Post-1900 Poetry and Prose", "", "Paper 4")}}],
+        [("Paper 1", "Drama and Poetry", "2 hours", "50", "Answer two questions: one from Section A and one from Section B. You write in an answer booklet."),
+         ("Paper 2", "Prose and Unseen", "2 hours", "50", "Answer two questions: one from Section A and one from Section B. You write in an answer booklet."),
+         ("Paper 3", "Shakespeare and Drama", "2 hours", "50", "Answer two questions: one from Section A and one from Section B. You write in an answer booklet."),
+         ("Paper 4", "Pre- and Post-1900 Poetry and Prose", "2 hours", "50", "Answer two questions, one poetry and one prose. You write in an answer booklet.")],
+        "English Literature", "a level english literature past papers",
+        "Free Cambridge International AS and A Level Literature in English (9695) past papers and mark schemes from {first} to {last}. From 2021 the papers are 1 to 4; earlier years used Papers 3 to 7, and each year shows its own paper names.",
+        "QP is the question paper and MS is the mark scheme. The two digits are the paper and the variant, so QP 12 is Paper 1, Variant 2.",
+        [("Sit it under exam timing", "Each paper is 2 hours for two essays, so about an hour an essay including planning."),
+         ("Mark it against the mark scheme", "Literature mark schemes use level descriptions. Find the level your essay fits, then read what the next level asks for."),
+         ("Find the pattern in the lost marks", "Retelling the plot, quotations with no analysis, or an argument that drifts from the question. That is what to fix next."),
+         ("Redo the same question type", "Pick a question on the same text or form from another variant and try again.")],
+        "argue, do not retell",
+        [("Is this English Language or English Literature?", "This page is Cambridge International AS and A Level Literature in English, syllabus 9695. English Language (9093) and English General Paper (8021) are separate subjects."),
+         ("Did the 9695 papers change in 2021?", "Yes. From 2021 the papers are Drama and Poetry, Prose and Unseen, Shakespeare and Drama, and Pre- and Post-1900 Poetry and Prose. Up to 2020 the papers were numbered 3 to 7. Set texts change often, so check the texts for your exam year in the syllabus.")],
+        "Know the texts but still losing marks?",
+        "Literature marks reward an argument built on close analysis, not a summary. Miss Tayyaba Yaseen teaches A Level English at SJ Academy in DHA Phase 7, Karachi, and live online, with essays marked to the mark scheme.",
+        structure_note="As set in the May/June 2025 papers. Up to 2020 the papers were numbered 3 to 7."),
+    "A Level/Law": alevel(
+        "Law", "9084", "law-9084", "law", "",
+        {1: ("Structure and Operation of the English Legal System", "", "Paper 1"), 2: ("Data Response", "", "Paper 2"), 3: ("Law of Contract", "", "Paper 3"), 4: ("Law of Tort", "", "Paper 4")},
+        [{"from": 2023, "papers": {1: ("English Legal System", "", "Paper 1"), 2: ("Criminal Law", "", "Paper 2"), 3: ("Law of Contract", "", "Paper 3"), 4: ("Law of Tort", "", "Paper 4")}}],
+        [("Paper 1", "English Legal System", "1 hour 30 minutes", "75", "Section A: answer all questions. Section B: answer two questions. You write in an answer booklet."),
+         ("Paper 2", "Criminal Law", "1 hour 30 minutes", "60", "Section A: Question 1. Section B: one question. You write in an answer booklet."),
+         ("Paper 3", "Law of Contract", "1 hour 30 minutes", "75", "Section A: one question. Section B: two questions. You write in an answer booklet."),
+         ("Paper 4", "Law of Tort", "1 hour 30 minutes", "75", "Section A: one question. Section B: two questions. You write in an answer booklet.")],
+        "Law", "a level law past papers",
+        "Free Cambridge International AS and A Level Law (9084) past papers and mark schemes from {first} to {last}: English Legal System, Criminal Law, Law of Contract and Law of Tort, in every variant.",
+        "QP is the question paper and MS is the mark scheme. The two digits are the paper and the variant, so QP 12 is Paper 1, Variant 2.",
+        [("Sit it under exam timing", "Every paper is 1 hour 30 minutes. Plan each problem answer before you write."),
+         ("Mark it against the mark scheme", "Check that you stated the rule, gave the case or statute, and applied it to the facts given."),
+         ("Find the pattern in the lost marks", "A rule with no authority, an answer that never reaches a conclusion, or facts left unused. That is what to fix next."),
+         ("Redo the same question type", "Pick the same question from another variant and try again.")],
+        "rule, authority, apply",
+        [("Did the 9084 papers change in 2023?", "Yes. From 2023 Paper 1 is English Legal System and Paper 2 is Criminal Law. Up to 2022 Paper 1 was Structure and Operation of the English Legal System and Paper 2 was Data Response. Papers 3 and 4 stayed Law of Contract and Law of Tort."),
+         ("Which papers are AS and which are A Level?", "Papers 1 and 2 make up AS Level. Papers 3 and 4 complete the A Level.")],
+        "Past papers are half the work",
+        "The other half is marking them properly. SJ Academy teaches O and A Level subjects in DHA Phase 7, Karachi, and live online, with past papers marked to the mark scheme. See which A Level subjects we teach.",
+        demo_subject="A Level classes"),
+    "A Level/Psychology": alevel(
+        "Psychology", "9990", "psychology-9990", "psychology", "",
+        {1: ("Approaches, Issues and Debates", "", "Paper 1"), 2: ("Research Methods", "", "Paper 2"), 3: ("Specialist Options: Theory", "", "Paper 3"), 4: ("Specialist Options: Application", "", "Paper 4")},
+        [{"from": 2024, "papers": {1: ("Approaches, Issues and Debates", "", "Paper 1"), 2: ("Research Methods", "", "Paper 2"), 3: ("Specialist Options: Approaches, Issues and Debates", "", "Paper 3"), 4: ("Specialist Options: Application and Research Methods", "", "Paper 4")}}],
+        [("Paper 1", "Approaches, Issues and Debates", "1 hour 30 minutes", "60", "Answer all questions. You write on the question paper."),
+         ("Paper 2", "Research Methods", "1 hour 30 minutes", "60", "Answer all questions. You write on the question paper."),
+         ("Paper 3", "Specialist Options: Approaches, Issues and Debates", "1 hour 30 minutes", "60", "Answer all questions from the two options you studied. You write in an answer booklet."),
+         ("Paper 4", "Specialist Options: Application and Research Methods", "1 hour 30 minutes", "60", "Answer from the two options you studied: four questions in Section A and one in Section B. You write in an answer booklet.")],
+        "Psychology", "a level psychology past papers",
+        "Free Cambridge International AS and A Level Psychology (9990) past papers and mark schemes from {first} to {last}, for Papers 1 to 4 in every variant.",
+        "QP is the question paper and MS is the mark scheme. The two digits are the paper and the variant, so QP 12 is Paper 1, Variant 2.",
+        [("Sit it under exam timing", "Every paper is 1 hour 30 minutes for 60 marks. On Papers 3 and 4, answer only the options you studied."),
+         ("Mark it against the mark scheme", "Check that you named the study, described it accurately and linked it to the question."),
+         ("Find the pattern in the lost marks", "A study described with no link to the question, an evaluation point with no example, or a method question answered in general terms. That is what to fix next."),
+         ("Redo the same question type", "Pick the same question from another variant and try again.")],
+        "link it to the question",
+        [("Did the 9990 papers change in 2024?", "Yes. From 2024 Paper 3 is Specialist Options: Approaches, Issues and Debates and Paper 4 is Specialist Options: Application and Research Methods. Up to 2023 they were Specialist Options: Theory and Specialist Options: Application."),
+         ("Which papers are AS and which are A Level?", "Papers 1 and 2 make up AS Level. Papers 3 and 4 complete the A Level.")],
+        "Know the studies but still losing marks?",
+        "Psychology marks go to accurate studies linked to the question. Miss Muzna Zaidi teaches A Level Psychology at SJ Academy in DHA Phase 7, Karachi, and live online, with past papers marked to the mark scheme."),
+    "A Level/Sociology": alevel(
+        "Sociology", "9699", "sociology-9699", "sociology", "",
+        {1: ("The Family", "", "Paper 1"), 2: ("Theory and Methods", "", "Paper 2"), 3: ("Social Inequality and Opportunity", "", "Paper 3")},
+        [{"from": 2021, "papers": {1: ("Socialisation, Identity and Methods of Research", "", "Paper 1"), 2: ("The Family", "", "Paper 2"), 3: ("Education", "", "Paper 3"), 4: ("Globalisation, Media and Religion", "", "Paper 4")}}],
+        [("Paper 1", "Socialisation, Identity and Methods of Research", "1 hour 30 minutes", "60", "Section A: answer all questions. Section B: Question 4 or Question 5. You write in an answer booklet."),
+         ("Paper 2", "The Family", "1 hour 30 minutes", "60", "Section A: answer all questions. Section B: Question 4 or Question 5. You write in an answer booklet."),
+         ("Paper 3", "Education", "1 hour 15 minutes", "50", "Answer all questions. You write in an answer booklet."),
+         ("Paper 4", "Globalisation, Media and Religion", "1 hour 45 minutes", "70", "Answer two questions, each from a different section. You write in an answer booklet.")],
+        "Sociology", "a level sociology past papers",
+        "Free Cambridge International AS and A Level Sociology (9699) past papers and mark schemes from {first} to {last}, in every variant. The papers changed in 2021, and each year shows its own paper names.",
+        "QP is the question paper and MS is the mark scheme. The two digits are the paper and the variant, so QP 12 is Paper 1, Variant 2.",
+        [("Sit it under exam timing", "Papers 1 and 2 are 1 hour 30 minutes, Paper 3 is 1 hour 15 minutes and Paper 4 is 1 hour 45 minutes."),
+         ("Mark it against the mark scheme", "Check that you used sociological concepts, studies and evidence, and that the essay weighs more than one view."),
+         ("Find the pattern in the lost marks", "Common sense with no sociology, a theory named but not applied, or an essay with only one side. That is what to fix next."),
+         ("Redo the same question type", "Pick the same question from another variant and try again.")],
+        "concepts, evidence, debate",
+        [("Did the 9699 papers change in 2021?", "Yes. From 2021 there are four papers: Socialisation, Identity and Methods of Research; The Family; Education; and Globalisation, Media and Religion. In 2020 there were three: The Family, Theory and Methods, and Social Inequality and Opportunity."),
+         ("Which papers are AS and which are A Level?", "From 2021, Papers 1 and 2 make up AS Level. Papers 3 and 4 complete the A Level.")],
+        "Know the theory but still losing marks?",
+        "Sociology marks reward concepts and evidence used to argue, not opinions. Miss Tayyaba Yaseen teaches A Level Sociology at SJ Academy in DHA Phase 7, Karachi, and live online, with past papers marked to the mark scheme."),
+})
+
+
+# Corrections from the storage check (31 October 2026): no inserts for the sciences, no confidential instructions for Biology
+for _k, _ci in (("A Level/Biology", False), ("A Level/Chemistry", True), ("A Level/Physics", True)):
+    _s = SUBJECTS[_k]
+    _s["files_note"] = "QP is the question paper and MS is the mark scheme%s. The two digits are the paper and the variant, so QP 12 is Paper 1, Variant 2." % (
+        ", and CI is the confidential instructions for the practical" if _ci else "")
+    _s["structure"] = [r if r[0] != "Paper 3" else (r[0], r[1], r[2], r[3], "Practical work in the lab. Answer all questions on the question paper." + (
+        " The confidential instructions (CI) tell the school how to set up." if _ci else "")) for r in _s["structure"]]
+    _s["faq"] = [(q, a.replace(", ci is the confidential instructions and in is the insert", ", and ci is the confidential instructions" if _ci else "")) for q, a in _s["faq"]]
+SUBJECTS["A Level/Computer Science"]["files_note"] = "QP is the question paper, MS is the mark scheme and IN is an insert with resources for the paper. The two digits are the paper and the variant, so QP 12 is Paper 1, Variant 2."
+SUBJECTS["A Level/Accounting"]["faq"] = [(q, a.replace("ms is the mark scheme.", "ms is the mark scheme and in is the insert.")) for q, a in SUBJECTS["A Level/Accounting"]["faq"]]
+SUBJECTS["A Level/Computer Science"]["faq"] = [(q, a.replace("ms is the mark scheme.", "ms is the mark scheme and in is an insert.")) for q, a in SUBJECTS["A Level/Computer Science"]["faq"]]

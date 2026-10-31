@@ -76,7 +76,7 @@ def refresh(page, key, code, folder, vsub, wrapper):
             for v in variants:
                 cell = have.get(int(p), {}).get(v)
                 if not cell or "qp" not in cell:
-                    tds.append('<td data-label="Variant %s"><span><span class="sj-muted">Not set</span></span></td>' % v)
+                    tds.append('<td data-label="Variant %s"><span><span class="sj-muted">Not available</span></span></td>' % v)
                     continue
                 links = []
                 for t in ("qp", "ms", "in", "ci"):
@@ -131,7 +131,7 @@ def maths(page, key, code, folder, vsub, wrapper):
             for v in variants:
                 cell = have[p].get(v)
                 if not cell or "qp" not in cell:
-                    tds.append('<td data-label="Variant %s"><span><span class="sj-muted">Not set</span></span></td>' % v)
+                    tds.append('<td data-label="Variant %s"><span><span class="sj-muted">Not available</span></span></td>' % v)
                     continue
                 links = []
                 for t in ("qp", "ms", "in", "ci"):

@@ -102,6 +102,21 @@ Checks: 1,415 PDF links all 200; 683 side by side links all load the right paper
 • **Business:** BreadcrumbList structured data added, matching the visible breadcrumb.
 Checks: 1,822 PDF links on the three pages all 200; 884 side by side links all load the right paper; viewer 8,201 links, 0 wrong; viewer tests pass.
 
+### The other nine A Level pages (built 31 October 2026)
+Accounting 9706, Biology 9700, Chemistry 9701, Computer Science 9618, Literature in English 9695, Law 9084, Physics 9702, Psychology 9990 and Sociology 9699, on the same template. The live Chemistry page was loading Business papers (its old tool pointed at the Business (9609) folder) and its H1 read "Business (9609) Past Papers"; the rebuild fixes both.
+
+Facts: cover pages read for every paper in May/June 2015, 2017, 2019 to 2026 and Oct/Nov 2025 (360 papers), plus May/June 2025 for Literature (its Oct/Nov 2025 files have no text layer), 9695_s16_qp_61, 9706_s15_qp_31 and s17_qp_31, 9084_s22_qp_11 and qp_21, 9699_s20_qp_11. Paper names by year:
+• Accounting: 2015 four papers (Paper 3 Multiple Choice, Paper 4 Problem Solving (Supplementary Topics)); 2016 to 2022 three papers (Multiple Choice; Structured Questions; Structured Questions, 3 hours); from 2023 Multiple Choice (1 hour, 30), Fundamentals of Accounting (1 hour 45 minutes, 90), Financial Accounting (1 hour 30 minutes, 75, insert), Cost and Management Accounting (1 hour, 50, insert).
+• Biology, Chemistry, Physics: names unchanged (Multiple Choice; AS Level Structured Questions; Advanced Practical Skills; A Level Structured Questions; Planning, Analysis and Evaluation). Current: 1 hour 15 minutes/40, 1 hour 15 minutes/60, 2 hours/40, 2 hours/100, 1 hour 15 minutes/30. Paper 1 was 1 hour up to 2021 (Biology, Chemistry) and in 2015 (Physics). No inserts in storage; no confidential instructions for Biology.
+• Computer Science: files to 2021 are 9608 (labelled per year); Paper 4 was Further Problem-solving and Programming Skills, from 2022 Practical (2 hours 30 minutes, 75). Paper 2 is 2 hours with an insert.
+• Literature in English: to 2020 Papers 3 to 7 (Poetry and Prose; Drama; Shakespeare and other pre-20th Century Texts; 20th Century Writing in 2015, 1900 to the Present from 2016; Comment and Appreciation); from 2021 Papers 1 to 4 (Drama and Poetry; Prose and Unseen; Shakespeare and Drama; Pre- and Post-1900 Poetry and Prose), each 2 hours, 50 marks, two questions.
+• Law: to 2022 Structure and Operation of the English Legal System, Data Response; from 2023 English Legal System (75), Criminal Law (60); Law of Contract and Law of Tort (75 each) throughout. SJ Academy does not teach Law (no teacher listed), so the band offers A Level classes in general and the demo message does not name Law.
+• Psychology: from 2024 Paper 3 Specialist Options: Approaches, Issues and Debates and Paper 4 Specialist Options: Application and Research Methods (previously Theory and Application). All 1 hour 30 minutes, 60 marks.
+• Sociology: 2020 three papers (The Family; Theory and Methods; Social Inequality and Opportunity); from 2021 Socialisation, Identity and Methods of Research (60), The Family (60), Education (1 hour 15 minutes, 50), Globalisation, Media and Religion (1 hour 45 minutes, 70).
+"AS is Papers 1 and 2 (1 to 3 for the sciences)" follows Cambridge's paper titles (AS Level Structured Questions, A Level Structured Questions) and the standard structure; confirm against each syllabus if challenged.
+Teachers from the A Level tuition page: Sir Shaibaz Ali (Accounting), Sir Umair (Biology), Sir Abdullah Zaman (Chemistry), Sir Salman Junaid (Physics), Sir Riza Walji (Computer Science), Miss Tayyaba Yaseen (English, Sociology), Miss Muzna Zaidi (Psychology).
+Checks: 4,783 PDF links all 200; 2,666 side by side links all load the right paper; `preview.js` passes on all nine. Empty cells now read "Not available" (was "Not set", which implied Cambridge never set the paper) on every page.
+
 ## How to update a page
 1. Upload new papers to Backblaze.
 2. `python3 "02 Website/Tools/Past Paper Viewer/check-files.py"` (writes the file list into the viewer).
