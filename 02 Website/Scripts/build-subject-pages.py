@@ -1217,8 +1217,20 @@ def sec_try_map(p):
 
 def sec_teacher(p):
     t = p["teacher_section"]
-    if t.get("photo"):
-        src, w, h = t["photo"]
+    ph = t.get("photo")
+    if isinstance(ph, dict):
+        # custom photo: src, w, h, alt, and optionally avatar=(size, img style) for a round cut-out portrait
+        if ph.get("avatar"):
+            size, istyle = ph["avatar"]
+            img = ('<span class="sjx-av" style="width:%dpx;height:%dpx;position:relative;overflow:hidden;background:#fff;border:2px solid var(--sj-yellow)">'
+                   '<img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async" '
+                   'style="position:absolute;max-width:none;max-height:none;border-radius:0;object-fit:fill;%s"></span>'
+                   % (size, size, ph["src"], ph["alt"], ph["w"], ph["h"], istyle))
+        else:
+            img = ('<img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async">'
+                   % (ph["src"], ph["alt"], ph["w"], ph["h"]))
+    elif ph:
+        src, w, h = ph
         img = ('<img src="%s" alt="%s, %s teacher at SJ Academy, Karachi" width="%d" height="%d" loading="lazy" decoding="async">'
                % (src, p["teacher"], p["crumb"].split(" (")[0], w, h))
     else:
@@ -1249,7 +1261,7 @@ def sec_teacher(p):
   </section>
 """.format(h2=t["h2"], para=t["para"], ticks=ticks(t["ticks"]),
            demo=btn_demo(p, "teacher", cls="sj-link sj-link-go", label="Book a free demo class"),
-           photo=("" if t.get("photo") else '        <figure class="sj-polaroid sjx-class"><span class="sj-tape" aria-hidden="true"></span><img src="%s" alt="A class in progress at SJ Academy, DHA Phase 7, Karachi" width="%d" height="%d" loading="lazy" decoding="async"><figcaption class="sj-hand">a real SJ Academy class, not stock</figcaption></figure>\n' % PHOTO), img=img, name=p["teacher"], sub=t["card_sub"], facts=facts, site=SITE, turl=tile[2], tt=tile[0], tp=tile[1], tl=tile[3])
+           photo=("" if t.get("photo") else '        <figure class="sj-polaroid sjx-class"><span class="sj-tape" aria-hidden="true"></span><img src="%s" alt="A class in progress at SJ Academy, DHA Phase 7, Karachi" width="%d" height="%d" loading="lazy" decoding="async"><figcaption class="sj-hand">a real SJ Academy class, not stock</figcaption></figure>\n' % PHOTO), img=img, name=t.get("card_name", p["teacher"]), sub=t["card_sub"], facts=facts, site=SITE, turl=tile[2], tt=tile[0], tp=tile[1], tl=tile[3])
 
 
 def sec_syllabus(p):
