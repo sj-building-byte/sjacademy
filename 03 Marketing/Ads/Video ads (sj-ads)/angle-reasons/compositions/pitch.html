@@ -1,0 +1,30 @@
+<template>
+<style>
+@font-face{font-family:'Poppins';font-weight:400;src:url('assets/brand/Poppins-Regular.ttf')}
+@font-face{font-family:'Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+#root{position:absolute;inset:0}
+#pt-scrim{position:absolute;inset:0;background:#151515;opacity:0}
+#pt-phone{position:absolute;left:280px;top:372px;width:520px;height:840px;border-radius:64px;background:#000;border:3px solid #55524a;opacity:0}
+#pt-screen{position:absolute;left:9px;top:9px;width:496px;height:816px;border-radius:52px;overflow:hidden;background:#F7F5EF}
+#pt-bar{position:absolute;left:0;top:0;width:100%;height:76px;background:#fff;display:flex;align-items:center;justify-content:center;z-index:2;border-bottom:1px solid #e6e3da}
+#pt-url{font:500 28px/1 'Poppins';color:#151515;background:#F1EFE8;border-radius:30px;padding:9px 30px}
+#pt-view{position:absolute;left:0;top:76px;width:100%;bottom:0;overflow:hidden}
+#pt-img{position:absolute;left:0;top:0;width:496px;height:auto}
+#pt-pen{position:absolute;left:0;top:0}
+#pt-cap{position:absolute;left:120px;width:840px;top:1232px;height:104px;border-radius:24px;background:#151515;border:3px solid #F7F5EF;opacity:0}
+.cp{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:0 .3em;font:600 44px/1 'Poppins';color:#F7F5EF;opacity:0;white-space:nowrap}
+</style>
+<div id="root" data-composition-id="pitch" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-occlusion>
+<div id="pt-scrim" data-layout-ignore></div>
+<div id="pt-phone" data-layout-allow-overflow data-layout-allow-occlusion><div id="pt-screen">
+<div id="pt-bar"><span id="pt-url">sjacademy.pk</span></div>
+<div id="pt-view"><img id="pt-img" src="assets/page/maths-past-papers.png" alt="SJ Academy O Level Mathematics D past papers page">
+<svg id="pt-pen" width="496" height="816" viewBox="0 0 496 816"><path id="pt-circle" d="M12.9 640.4 L19.8 637.0 L27.8 633.9 L36.8 631.1 L46.7 628.7 L57.5 626.6 L68.9 624.9 L80.8 623.7 L93.0 622.8 L105.5 622.4 L118.0 622.5 L130.5 623.0 L142.6 624.0 L154.4 625.4 L165.6 627.2 L176.1 629.4 L185.8 631.9 L194.5 634.8 L202.2 638.0 L208.7 641.5 L214.0 645.1 L218.0 648.9 L220.6 652.9 L221.8 656.9 L221.6 660.9 L220.1 664.9 L217.1 668.8 L212.8 672.6 L207.2 676.2 L200.4 679.6 L192.5 682.7 L183.5 685.6 L173.6 688.0 L162.9 690.1 L151.6 691.8 L139.7 693.1 L127.4 694.0 L114.9 694.4 L102.4 694.3 L90.0 693.8 L77.8 692.9 L66.0 691.5 L54.7 689.8 L44.2 687.6 L34.5 685.0 L25.7 682.2 L18.0 679.0 L11.4 675.5 L6.1 671.9 L2.0 668.1 L-0.7 664.2 L-2.0 660.1 L-1.9 656.1 L-0.4 652.1 L2.5 648.2 L6.7 644.4 L12.3 640.8 L19.0 637.4 L26.9 634.3 L35.8 631.4 L45.7 628.9" pathLength="1" fill="none" stroke="#D63A2F" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 1" stroke-dashoffset="1" opacity="0"/></svg>
+</div></div></div>
+<div id="pt-cap"><div class="cp" id="cp0"><span id="w0-0">Think</span> <span id="w0-1">you</span> <span id="w0-2">know</span> <span id="w0-3">your</span> <span id="w0-4">angle</span> <span id="w0-5">rules?</span></div><div class="cp" id="cp1"><span id="w1-0">Try</span> <span id="w1-1">them</span> <span id="w1-2">on</span> <span id="w1-3">real</span> <span id="w1-4">past</span> <span id="w1-5">papers.</span></div><div class="cp" id="cp2"><span id="w2-0">Free.</span> <span id="w2-1">No</span> <span id="w2-2">sign-up.</span></div></div>
+</div>
+<script>const tl=gsap.timeline({paused:true});tl.fromTo('#pt-scrim',{opacity:0},{opacity:.82,duration:.3,ease:'power1.out'},0);tl.fromTo('#pt-phone',{opacity:0,y:70},{opacity:1,y:0,duration:.5,ease:'expo.out'},0.4354);tl.fromTo('#pt-cap',{opacity:0,y:30},{opacity:1,y:0,duration:.4,ease:'expo.out'},0.4354);tl.set('#pt-img',{y:-74},0);tl.to('#pt-img',{y:-1580,duration:1.6407,ease:'power2.inOut'},3.0135);tl.to('#pt-img',{y:-74,duration:0.7031,ease:'power2.inOut'},5.3573);tl.set('#pt-circle',{opacity:1},6.0604);tl.fromTo('#pt-circle',{strokeDashoffset:1},{strokeDashoffset:0,duration:0.4688,ease:'sine.inOut'},6.0604);tl.fromTo('#cp0',{opacity:0},{opacity:1,duration:.1},0.4354);tl.to('#cp0',{opacity:0,y:-10,duration:0.0667},2.7792);tl.to('#w0-0',{color:'#FCE004',duration:.05},0.4354);tl.to('#w0-0',{color:'#F7F5EF',duration:.08},0.9042);tl.to('#w0-1',{color:'#FCE004',duration:.05},0.9042);tl.to('#w0-1',{color:'#F7F5EF',duration:.08},1.3729);tl.to('#w0-2',{color:'#FCE004',duration:.05},1.3729);tl.to('#w0-2',{color:'#F7F5EF',duration:.08},1.8417);tl.to('#w0-3',{color:'#FCE004',duration:.05},1.8417);tl.to('#w0-3',{color:'#F7F5EF',duration:.08},2.3104);tl.to('#w0-4',{color:'#FCE004',duration:.05},2.3104);tl.to('#w0-4',{color:'#F7F5EF',duration:.08},2.7792);tl.to('#w0-5',{color:'#FCE004',duration:.05},2.7792);tl.fromTo('#cp1',{opacity:0,y:12},{opacity:1,y:0,duration:0.1667,ease:'expo.out'},2.7792);tl.to('#cp1',{opacity:0,y:-10,duration:0.0667},5.5917);tl.to('#w1-0',{color:'#FCE004',duration:.05},2.7792);tl.to('#w1-0',{color:'#F7F5EF',duration:.08},3.2479);tl.to('#w1-1',{color:'#FCE004',duration:.05},3.2479);tl.to('#w1-1',{color:'#F7F5EF',duration:.08},3.7167);tl.to('#w1-2',{color:'#FCE004',duration:.05},3.7167);tl.to('#w1-2',{color:'#F7F5EF',duration:.08},4.1854);tl.to('#w1-3',{color:'#FCE004',duration:.05},4.1854);tl.to('#w1-3',{color:'#F7F5EF',duration:.08},4.6542);tl.to('#w1-4',{color:'#FCE004',duration:.05},4.6542);tl.to('#w1-4',{color:'#F7F5EF',duration:.08},5.1229);tl.to('#w1-5',{color:'#FCE004',duration:.05},5.1229);tl.fromTo('#cp2',{opacity:0,y:12},{opacity:1,y:0,duration:0.1667,ease:'expo.out'},5.5917);tl.to('#w2-0',{color:'#FCE004',duration:.05},5.5917);tl.to('#w2-0',{color:'#F7F5EF',duration:.08},6.0604);tl.to('#w2-1',{color:'#FCE004',duration:.05},6.0604);tl.to('#w2-1',{color:'#F7F5EF',duration:.08},6.5292);tl.to('#w2-2',{color:'#FCE004',duration:.05},6.5292);window.__timelines['pitch']=tl;</script>
+</template>

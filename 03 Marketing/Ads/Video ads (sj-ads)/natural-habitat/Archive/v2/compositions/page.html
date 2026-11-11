@@ -1,0 +1,42 @@
+<template>
+<style>
+@font-face{font-family:'FieldHand';src:local('Bradley Hand Bold'),local('BradleyHandITCTT-Bold')}
+@font-face{font-family:'FieldType';src:local('American Typewriter'),local('AmericanTypewriter')}
+#root{position:absolute;inset:0;overflow:hidden}
+.hand{font-family:'FieldHand',cursive;color:#1B2547;line-height:1.08}
+.red{color:#C8321F}
+.type{font-family:'FieldType',serif;color:#3b3427;letter-spacing:.01em}
+.note{position:absolute;background:url(assets/paper.png);box-shadow:0 10px 26px rgba(0,0,0,.45),0 1px 2px rgba(0,0,0,.4)}
+.stamp{position:absolute;font-family:'FieldType',serif;font-weight:700;color:#C8321F;border:7px solid #C8321F;border-radius:10px;padding:6px 22px;filter:url(#rough);letter-spacing:.02em;line-height:1.1;background:rgba(243,234,211,.92)}
+.pen{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+.pen path{fill:none;stroke:#C8321F;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.tape{position:absolute;background:rgba(232,220,170,.62);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.lines{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 78px,rgba(70,90,140,.20) 78px 80px)}
+.margin{position:absolute;left:44px;top:0;bottom:0;width:3px;background:rgba(200,50,31,.38)}
+
+</style>
+<div id="root" data-composition-id="page" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter></svg><img src="assets/paper.png" style="position:absolute;left:0;top:0;width:1080px;height:1920px"><div class="lines"></div><div class="margin"></div>
+<div id="page-e1" class="stamp" style="left:70px;top:286px;font-size:52px;opacity:0">Day 214</div>
+<div id="page-e2" class="hand" style="position:absolute;left:70px;top:408px;width:940px;font-size:84px">It has one natural predator:</div>
+<div id="page-e4" style="position:absolute;left:62px;top:618px;width:956px;height:470px;opacity:0">
+<div class="note" style="position:absolute;inset:0;overflow:hidden;background:#f6f3ea"><img src="assets/ms.png" style="position:absolute;left:-14px;top:-30px;width:984px"></div>
+<div class="tape" style="left:18px;top:-28px;width:130px;height:50px;transform:rotate(-10deg)"></div><div class="tape" style="left:818px;top:-40px;width:130px;height:50px;transform:rotate(7deg)"></div></div>
+<div id="page-e3" class="hand red" style="position:absolute;left:70px;top:1106px;font-size:92px;white-space:nowrap">the mark scheme.</div>
+<svg class="pen" viewBox="0 0 1080 1920"><path id="page-e5" pathLength="1" d="M72 1212 C240 1200 480 1216 760 1198"/><path id="page-e6" pathLength="1" d="M236 1020 C226 994 280 984 330 986 C386 988 410 1002 398 1020 C384 1040 300 1044 262 1036 C244 1032 234 1026 240 1012"/></svg>
+<div id="page-e7" class="type" style="position:absolute;left:72px;top:1236px;width:900px;font-size:29px;line-height:1.3;opacity:0">Cambridge 9708/42, Oct/Nov 2021. Photographed from a safe distance.</div>
+
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#page-e1",{scale:1.3,rotation:-6,opacity:0},{scale:1,rotation:-6,opacity:1,duration:.13,ease:"back.out(1.7)"},0.1);
+tl.fromTo("#page-e2",{clipPath:"inset(-20% 100% -20% 0%)"},{clipPath:"inset(-20% -5% -20% 0%)",duration:0.6,ease:"none"},0.3);
+tl.fromTo("#page-e3",{clipPath:"inset(-20% 100% -20% 0%)"},{clipPath:"inset(-20% -5% -20% 0%)",duration:0.5,ease:"none"},1.45);
+tl.fromTo("#page-e4",{opacity:0,y:-120,rotation:-5},{opacity:1,y:0,rotation:-1.6,duration:.4,ease:"expo.out"},.95);
+tl.to("#page-e5",{strokeDashoffset:0,duration:0.22,ease:"sine.inOut"},1.95);
+tl.to("#page-e6",{strokeDashoffset:0,duration:0.3,ease:"sine.inOut"},2.25);
+tl.set("#page-e7",{opacity:1},2.6);
+
+window.__timelines["page"] = tl;
+</script>
+</template>

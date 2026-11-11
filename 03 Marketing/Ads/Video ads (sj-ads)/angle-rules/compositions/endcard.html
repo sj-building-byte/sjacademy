@@ -1,0 +1,43 @@
+<template>
+<style>
+@font-face{font-family:'Poppins';font-weight:400;src:url('assets/brand/Poppins-Regular.ttf')}
+@font-face{font-family:'Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+#root{position:absolute;inset:0}
+#en-wipe{position:absolute;inset:0;background:#FCE004;transform-origin:left center}
+#en-logo{position:absolute;left:310px;top:276px;width:460px;height:auto;opacity:0}
+.en{position:absolute;left:70px;width:940px;text-align:center;color:#151515;opacity:0}
+#en-chip{top:470px;left:220px;width:640px;height:64px;border-radius:32px;background:#453516;color:#F7F5EF;display:flex;align-items:center;justify-content:center;font:500 30px/1 'Poppins';letter-spacing:.06em}
+#en-h1{top:590px;font:700 88px/100px 'Poppins';letter-spacing:-.03em}
+#en-h2{top:808px;font:600 52px/68px 'Poppins';letter-spacing:-.01em}
+.en2{position:relative;display:inline-block}
+#en-band{position:absolute;left:-.14em;right:-.14em;top:.62em;height:.46em;background:#fff;transform-origin:left center;z-index:0}
+#en-h2 .tx{position:relative;z-index:1}
+#en-btn{top:984px;left:120px;width:840px;height:128px;border-radius:62px;background:#453516;color:#F7F5EF;display:flex;align-items:center;justify-content:center;font:600 44px/1 'Poppins'}
+#en-ph{top:1176px;font:700 76px/1.1 'Poppins';letter-spacing:-.02em}
+#en-web{top:1276px;font:500 50px/1.2 'Poppins'}
+</style>
+<div id="root" data-composition-id="endcard" data-width="1080" data-height="1920">
+<div id="en-wipe" data-layout-ignore></div>
+<img id="en-logo" src="assets/brand/sj-academy-logo-horizontal-on-yellow.svg" alt="SJ Academy">
+<div class="en" id="en-chip">O LEVEL AND A LEVEL MATHS</div>
+<div class="en" id="en-h1">Knowing the rule<br>is the easy part.</div>
+<div class="en" id="en-h2" data-layout-allow-overlap>Join our Maths classes.<br><span class="en2"><span id="en-band" data-layout-ignore></span><span class="tx">One class free.</span></span> Then decide.</div>
+<div class="en" id="en-btn">Book a free demo on WhatsApp</div>
+<div class="en" id="en-ph">+92-336-2144454</div>
+<div class="en" id="en-web">sjacademy.pk</div>
+</div>
+<script>const tl=gsap.timeline({paused:true});
+tl.fromTo('#en-wipe',{scaleX:0},{scaleX:1,duration:0.467,ease:'power2.inOut'},0.069);
+tl.fromTo('#en-logo',{opacity:0},{opacity:1,duration:.4,ease:'power1.out'},0.486);
+tl.fromTo('#en-chip',{opacity:0,y:20},{opacity:1,y:0,duration:.4,ease:'expo.out'},0.536);
+tl.fromTo('#en-h1',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'expo.out'},0.536);
+tl.fromTo('#en-h2',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'expo.out'},1.071);
+tl.fromTo('#en-band',{scaleX:0},{scaleX:1,duration:.27,ease:'sine.inOut'},1.211);
+tl.fromTo('#en-btn',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'expo.out'},1.607);
+tl.fromTo('#en-ph',{opacity:0,y:20},{opacity:1,y:0,duration:.4,ease:'expo.out'},1.875);
+tl.fromTo('#en-web',{opacity:0,y:20},{opacity:1,y:0,duration:.4,ease:'expo.out'},2.143);
+window.__timelines['endcard']=tl;</script>
+</template>

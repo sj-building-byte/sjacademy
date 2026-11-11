@@ -1,0 +1,19 @@
+<template>
+<style>
+@font-face{font-family:'Caveat';src:url('assets/fonts/Caveat-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#fff;font-family:'Poppins',sans-serif}
+.txt{position:absolute;left:72px;width:790px;font-weight:600;font-size:66px;line-height:1.2;letter-spacing:-.01em;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.y{color:#FCE004}
+.note{font-family:'Caveat',cursive;font-weight:600;font-size:76px;line-height:1;color:#FCE004;margin-top:14px}
+
+</style>
+<div id="root" data-composition-id="face" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div style="position:absolute;left:0;right:0;bottom:0;height:1250px;background:linear-gradient(180deg,rgba(10,8,4,0),rgba(10,8,4,.66) 42%,rgba(10,8,4,.74))"></div><div id="face-hold" class="txt" style="bottom:670px"><span id="face-p0" style="opacity:1">It has <span class="y">noticed the camera.</span> </span></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#face-hold",{opacity:1},0);
+
+window.__timelines["face"] = tl;
+</script>
+</template>

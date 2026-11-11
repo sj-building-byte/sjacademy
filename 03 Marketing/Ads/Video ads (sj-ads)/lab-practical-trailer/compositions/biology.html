@@ -1,0 +1,28 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1500px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.82) 38%,rgba(5,8,10,.95))}
+.blk{position:absolute;left:84px;width:780px;bottom:670px}
+.q{font-size:80px;line-height:1.04;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 29px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:30px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:12px}
+.subj svg{flex:none}
+
+</style>
+<div id="root" data-composition-id="biology" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div id="biology-hold"><div id="biology-s0" style="position:absolute;inset:0;opacity:0"><div style="position:absolute;left:0;right:0;bottom:0;height:1150px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.62) 45%,rgba(5,8,10,.75))"></div><div style="position:absolute;left:84px;width:840px;bottom:670px"><div class="subj" style="font:500 40px/1.2 'SJTrailerMono',monospace;color:#FCE004;margin-bottom:22px"><span><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#FCE004" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="color:#FCE004"><path d="M7 2c0 5 10 5 10 10s-10 5-10 10"/><path d="M17 2c0 5-10 5-10 10s10 5 10 10"/><path d="M8 4.6h8M9.6 8.6h4.8M9.6 15.4h4.8M8 19.4h8"/></svg>Biology</span></div><div style="font-size:88px;line-height:1.0;letter-spacing:-.01em;text-shadow:0 2px 30px rgba(0,0,0,.35)">Focus the slide. Draw what you see, <span class="y">in clean, unbroken lines.</span></div></div></div>
+</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#biology-hold",{opacity:1},0);
+tl.set("#biology-s0",{opacity:1},0);
+
+window.__timelines["biology"] = tl;
+</script>
+</template>

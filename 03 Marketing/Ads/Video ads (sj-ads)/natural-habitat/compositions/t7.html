@@ -1,0 +1,27 @@
+<template>
+<style>
+@font-face{font-family:'FieldHand';src:local('Bradley Hand Bold'),local('BradleyHandITCTT-Bold')}
+@font-face{font-family:'FieldType';src:local('American Typewriter'),local('AmericanTypewriter')}
+#root{position:absolute;inset:0;overflow:hidden}
+.hand{font-family:'FieldHand',cursive;color:#1B2547;line-height:1.08}
+.red{color:#C8321F}
+.type{font-family:'FieldType',serif;color:#3b3427;letter-spacing:.01em}
+.note{position:absolute;background:url(assets/paper.png);box-shadow:0 10px 26px rgba(0,0,0,.45),0 1px 2px rgba(0,0,0,.4)}
+.stamp{position:absolute;font-family:'FieldType',serif;font-weight:700;color:#C8321F;border:7px solid #C8321F;border-radius:10px;padding:6px 22px;filter:url(#rough);letter-spacing:.02em;line-height:1.1;background:rgba(243,234,211,.92)}
+.pen{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+.pen path{fill:none;stroke:#C8321F;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.tape{position:absolute;background:rgba(232,220,170,.62);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.lines{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 78px,rgba(70,90,140,.20) 78px 80px)}
+.margin{position:absolute;left:44px;top:0;bottom:0;width:3px;background:rgba(200,50,31,.38)}
+
+</style>
+<div id="root" data-composition-id="t7" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter></svg><div style="position:absolute;left:56px;top:1070px;transform:rotate(1.2deg)"><div id="t7-e1" class="note" style="position:relative;padding:20px 34px 24px"><div class="type" style="font-size:30px">Tracker no. 7</div><div class="hand" style="font-size:80px;margin-top:4px;white-space:nowrap">Miss Tayyaba</div><div class="type" style="font-size:38px;margin-top:6px;color:#C8321F">English and Sociology</div></div></div>
+
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+
+window.__timelines["t7"] = tl;
+</script>
+</template>

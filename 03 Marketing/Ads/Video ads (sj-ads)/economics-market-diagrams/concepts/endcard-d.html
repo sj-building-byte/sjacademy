@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Poppins';font-weight:500;src:url('../assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'Poppins';font-weight:600;src:url('../assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'Poppins';font-weight:700;src:url('../assets/brand/Poppins-Bold.ttf')}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;background:#FCE004;overflow:hidden;position:relative;font-family:Poppins}
+#bands,#grain{position:absolute;inset:0}
+#grain{mix-blend-mode:multiply;opacity:.18}
+#logo{position:absolute;left:50%;top:170px;width:330px;transform:translateX(-50%)}
+.t{position:absolute;left:0;width:1080px;text-align:center;letter-spacing:-.055em}
+#t1{top:400px;font:700 300px/1 Poppins;color:#151515}
+#t2{top:820px;font:700 136px/1 Poppins;color:#FCE004}
+#t2 b{color:#F7F5EF;font-weight:700}
+.pill{position:absolute;left:50%;transform:translateX(-50%);height:140px;border-radius:70px;display:flex;align-items:center;padding:0 52px 0 18px;gap:26px;font:700 58px/1 Poppins;letter-spacing:-.02em;white-space:nowrap}
+.pill .ic{width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+#p1{top:1330px;background:#FCE004;color:#151515}
+#p1 .ic{background:#FE6100}
+#p2{top:1510px;background:#F7F5EF;color:#151515}
+#p2 .ic{background:#453516}
+#tag{position:absolute;left:0;width:1080px;top:1720px;text-align:center;font:600 40px/1 Poppins;color:#D9C9A0;letter-spacing:.02em}
+</style></head><body>
+<svg id="bands" width="1080" height="1920">
+  <path d="M0 700 C 300 640, 700 860, 1080 760 V1920 H0Z" fill="#FE6100"/>
+  <path d="M0 1080 C 380 1170, 640 980, 1080 1050 V1920 H0Z" fill="#453516"/>
+  <g transform="translate(830 250) scale(.62)">
+    <path d="M70 330 L70 0 M70 330 L330 330" fill="none" stroke="#151515" stroke-width="9" stroke-linecap="round"/>
+    <path d="M100 40 L300 290" stroke="#FE6100" stroke-width="16" stroke-linecap="round"/>
+    <path d="M100 290 L300 40" stroke="#453516" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="200" cy="165" r="17" fill="#151515"/>
+  </g>
+  <g fill="#FCE004"><circle cx="930" cy="1200" r="22"/><circle cx="990" cy="1260" r="10"/></g>
+  <g fill="#F7F5EF" opacity=".9"><path d="M120 330 l9 27 27 9 -27 9 -9 27 -9 -27 -27 -9 27 -9z"/><path d="M130 1240 l7 20 20 7 -20 7 -7 20 -7 -20 -20 -7 20 -7z"/></g>
+  
+</svg>
+<img id="logo" src="../assets/brand/sj-academy-logo-horizontal-on-yellow.svg">
+<div class="t" id="t1">Follow</div>
+<div class="t" id="t2"><b>SJ</b> Academy</div>
+<div class="pill" id="p1"><div class="ic"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#151515" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3.2 3 15.8 0 19M12 2.5c-3 3.2-3 15.8 0 19"/></svg></div>sjacademy.pk</div>
+<div class="pill" id="p2"><div class="ic"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#FCE004" stroke-width="2" stroke-linejoin="round"><path d="M4 20l1.3-4A8.5 8.5 0 1 1 8.4 19z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.5-2-1.5-2.5-2.5l.8-1-1-2z" fill="#FCE004" stroke="none"/></svg></div>+92-336-2144454</div>
+<div id="tag">@sjacademypk</div>
+<svg id="grain" width="1080" height="1920"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0"/></filter><rect width="1080" height="1920" filter="url(#n)"/></svg>
+</body></html>

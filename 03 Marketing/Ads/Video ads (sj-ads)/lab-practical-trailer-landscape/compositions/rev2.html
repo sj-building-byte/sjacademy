@@ -1,0 +1,38 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.col{position:absolute;left:120px;width:840px;top:50%;transform:translateY(-50%)}
+.q{font-size:66px;line-height:1.05;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 28px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:26px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:10px}
+.subj svg{flex:none}
+.full{position:absolute;inset:0;background:#06090a}
+.gtop{position:absolute;left:0;right:0;top:0;height:640px;background:linear-gradient(180deg,rgba(5,8,10,.85),rgba(5,8,10,.55) 55%,rgba(5,8,10,0))}
+.gbot{position:absolute;left:0;right:0;bottom:0;height:680px;background:linear-gradient(0deg,rgba(5,8,10,.88),rgba(5,8,10,.55) 55%,rgba(5,8,10,0))}
+.btop{position:absolute;left:120px;width:1180px;top:96px}
+.bbot{position:absolute;left:120px;width:1180px;bottom:92px}
+.st{display:flex;gap:6px;margin:0 0 26px 4px}
+.rq{font:600 46px/1.5 'Poppins',sans-serif;margin:0}
+.hl{color:rgba(69,53,22,0);background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:3px 14px}
+.who{font:400 30px/1.3 'Poppins',sans-serif;color:#eef0ea;margin:28px 0 0 4px}
+.who b{font-weight:600;color:#fff}
+
+</style>
+<div id="root" data-composition-id="rev2" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+<div id="rev2-hold"><div id="rev2-s0" style="position:absolute;inset:0;opacity:0"><div class="gbot"></div><div class="bbot"><div style="width:1000px"><div class="st"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg></div><p class="rq"><span class="hl">“I became familiar with the apparatus and now feel confident about taking the exam tomorrow.”</span></p><div class="who"><b>Mustafa khan</b> · Google review</div></div></div></div>
+</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#rev2-hold",{opacity:1},0);
+tl.set("#rev2-s0",{opacity:1},0);
+tl.to("#rev2 .hl",{backgroundSize:"100% 100%",color:"rgba(69,53,22,1)",duration:.32,ease:"power2.out"},.04);
+
+window.__timelines["rev2"] = tl;
+</script>
+</template>

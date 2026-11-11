@@ -1,0 +1,36 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1500px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.82) 38%,rgba(5,8,10,.95))}
+.blk{position:absolute;left:84px;width:780px;bottom:670px}
+.q{font-size:80px;line-height:1.04;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 29px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:30px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:12px}
+.subj svg{flex:none}
+
+</style>
+<div id="root" data-composition-id="ask" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div style="position:absolute;inset:0;background:#06090a"></div>
+<div id="ask-hold">
+<div style="position:absolute;left:90px;right:90px;top:430px;text-align:center;font-size:96px;line-height:1.02;letter-spacing:-.01em">So where do A Level students get <span class="y">hands-on practical experience?</span></div>
+<div id="askat" style="position:absolute;left:0;right:0;top:830px;text-align:center;opacity:0;transform-origin:50% 50%">
+<div style="font-size:84px;line-height:1">At</div>
+<img src="assets/brand/logo.svg" style="width:640px;margin-top:22px">
+</div>
+<div id="askduh" style="position:absolute;left:0;right:0;top:1150px;text-align:center;font-style:italic;font-size:88px;line-height:1;color:#c3ccc8;opacity:0">Duh.</div>
+</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#ask-hold",{opacity:1},0);
+tl.fromTo("#askat",{opacity:0,scale:.82},{opacity:1,scale:1,duration:.32,ease:"back.out(2.2)"},0.5);
+tl.fromTo("#askduh",{opacity:0,scale:.9},{opacity:1,scale:1,duration:.22,ease:"back.out(2)"},1.5);
+
+window.__timelines["ask"] = tl;
+</script>
+</template>

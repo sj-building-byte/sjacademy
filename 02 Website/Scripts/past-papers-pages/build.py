@@ -5,7 +5,7 @@
 
 Run:  python3 build.py                      (every subject in subjects.py)
       python3 build.py "O Level/Pakistan Studies"
-Output goes to 02 Website/Pages/. Every paper link is written into the HTML so search engines can read it.
+Output goes to 02 Website/Pages/O Level past papers/ and 02 Website/Pages/A Level past papers/. Every paper link is written into the HTML so search engines can read it.
 """
 import html
 import json
@@ -335,7 +335,7 @@ def build(key):
     body = body.replace("{nfiles}", str(nfiles)).replace("{nfiles_placeholder}", str(nfiles))
     body = "\n".join(l for l in body.split("\n") if l.strip()) + "\n"
     body.encode("ascii")
-    out = os.path.join(OUT_DIR, S["page_file"])
+    out = os.path.join(OUT_DIR, "O Level past papers" if S["page_file"].startswith("o-level") else "A Level past papers", S["page_file"])
     open(out, "w", encoding="ascii", newline="\n").write(body)
     print("%s: %d years (%d to %d), %d files, %d KB -> %s" % (key, len(years), first, last, nfiles, len(body) // 1024, out))
     return out

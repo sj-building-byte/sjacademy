@@ -1,0 +1,34 @@
+<template>
+<style>
+@font-face{font-family:'FieldHand';src:local('Bradley Hand Bold'),local('BradleyHandITCTT-Bold')}
+@font-face{font-family:'FieldType';src:local('American Typewriter'),local('AmericanTypewriter')}
+#root{position:absolute;inset:0;overflow:hidden}
+.hand{font-family:'FieldHand',cursive;color:#1B2547;line-height:1.08}
+.red{color:#C8321F}
+.type{font-family:'FieldType',serif;color:#3b3427;letter-spacing:.01em}
+.note{position:absolute;background:url(assets/paper.png);box-shadow:0 10px 26px rgba(0,0,0,.45),0 1px 2px rgba(0,0,0,.4)}
+.stamp{position:absolute;font-family:'FieldType',serif;font-weight:700;color:#C8321F;border:7px solid #C8321F;border-radius:10px;padding:6px 22px;filter:url(#rough);letter-spacing:.02em;line-height:1.1;background:rgba(243,234,211,.92)}
+.pen{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+.pen path{fill:none;stroke:#C8321F;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.tape{position:absolute;background:rgba(232,220,170,.62);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.lines{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 78px,rgba(70,90,140,.20) 78px 80px)}
+.margin{position:absolute;left:44px;top:0;bottom:0;width:3px;background:rgba(200,50,31,.38)}
+
+</style>
+<div id="root" data-composition-id="d1" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter></svg><div style="position:absolute;left:56px;top:880px;width:790px;transform:rotate(-1.4deg)"><div id="d1-e2" class="note" style="position:relative;padding:34px 40px 36px"><div class="type" style="font-size:31px">Field notes. Karachi.</div><div class="hand" style="font-size:88px;margin-top:14px">A Level students in their natural habitat.</div><div id="d1-e1" class="hand red" style="font-size:50px;margin-top:20px">Says revision starts next week.</div></div></div>
+<svg class="pen" viewBox="0 0 1080 1920"><path id="d1-e3" pathLength="1" d="M742 448 C770 340 930 300 1010 402 C1072 486 1050 650 946 716 C840 770 722 690 716 570 C712 520 722 480 760 430"/><path id="d1-e4" pathLength="1" d="M640 884 C664 830 700 790 748 752"/><path id="d1-e5" pathLength="1" d="M712 748 L752 748 L742 786"/></svg>
+<div id="d1-e6" class="stamp" style="left:610px;top:852px;font-size:50px;opacity:0">Day 1</div>
+
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#d1-e1",{clipPath:"inset(-20% 100% -20% 0%)"},{clipPath:"inset(-20% -5% -20% 0%)",duration:0.7,ease:"none"},1.0);
+tl.to("#d1-e3",{strokeDashoffset:0,duration:0.5,ease:"sine.inOut"},0.55);
+tl.to("#d1-e4",{strokeDashoffset:0,duration:0.18,ease:"sine.inOut"},1.05);
+tl.to("#d1-e5",{strokeDashoffset:0,duration:0.1,ease:"sine.inOut"},1.22);
+tl.fromTo("#d1-e6",{scale:1.3,rotation:-7,opacity:0},{scale:1,rotation:-7,opacity:1,duration:.13,ease:"back.out(1.7)"},0.2);
+
+window.__timelines["d1"] = tl;
+</script>
+</template>

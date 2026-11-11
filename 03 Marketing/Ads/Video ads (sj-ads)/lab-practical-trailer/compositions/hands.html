@@ -1,0 +1,28 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1500px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.82) 38%,rgba(5,8,10,.95))}
+.blk{position:absolute;left:84px;width:780px;bottom:670px}
+.q{font-size:80px;line-height:1.04;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 29px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:30px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:12px}
+.subj svg{flex:none}
+
+</style>
+<div id="root" data-composition-id="hands" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div id="hands-hold"><div id="hands-s0" style="position:absolute;inset:0;opacity:0"><div style="position:absolute;left:0;right:0;bottom:0;height:1150px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.62) 45%,rgba(5,8,10,.75))"></div><div style="position:absolute;left:84px;width:840px;bottom:670px"><div style="font-size:88px;line-height:1.0;letter-spacing:-.01em;text-shadow:0 2px 30px rgba(0,0,0,.35)">Your own hands on real apparatus. <span class="y">No robotic arm required.</span></div></div></div>
+</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#hands-hold",{opacity:1},0);
+tl.set("#hands-s0",{opacity:1},0);
+
+window.__timelines["hands"] = tl;
+</script>
+</template>

@@ -1,0 +1,704 @@
+REMOVED PAGE HEADER COMMENTS, 3 November 2026
+Rule adopted 3 November 2026: page code must not start with an HTML comment block. HTML comments are sent to every visitor and show in view-source.
+These are the exact header blocks that were removed from each file, kept here in case a note is needed again.
+The removal changed nothing else in any file.
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-accounting-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Accounting (9706) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/accounts-9706/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level Accounting Past Papers (9706) | SJ Academy
+                   Meta   Free A Level Accounting (9706) past papers with mark schemes, 2015 to 2026. Every paper and variant, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  a level accounting past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (523 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9706. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-biology-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Biology (9700) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/biology-9700/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level Biology Past Papers (9700) | SJ Academy
+                   Meta   Free A Level Biology (9700) past papers with mark schemes, 2015 to 2025. Every paper and variant, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  a level biology past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (757 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9700. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-business-tuition-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Business tuition page, Elementor HTML widget. Version 2.1, October 2026. Copy rewritten to the landing page copy guidelines v1.0.
+     Moved to the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Enrol.
+     Paste this whole file into one HTML widget, replacing version 1.x. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes. Address stays /a-level-business-tuition/.
+     Class timings refresh from the "SJA Class Timetable" Google Sheet.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-chemistry-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Chemistry (9701) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/chemistry-9701/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level Chemistry Past Papers (9701) | SJ Academy
+                   Meta   Free A Level Chemistry (9701) past papers with mark schemes, 2015 to 2025. Every paper and variant, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  a level chemistry past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (731 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9701. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-computer-science-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Computer Science (9618) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/computer-science-9618/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level Computer Science Past Papers (9618) | SJ Academy
+                   Meta   Free A Level Computer Science (9618) past papers with mark schemes, 2015 to 2026. Every paper and variant, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  a level computer science past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (525 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9618. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-economics-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Economics (9708) past papers, Elementor HTML widget. Version 1.0, October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Resource, on the dotted surface.
+     Paste this whole file into one HTML widget on /a-level-past-papers/economics-9708/, replacing the old client-side tool.
+     Section: full width, zero padding, no entrance animation. Page layout: Elementor Full Width. Hide Title: Yes.
+     Every paper link is in the HTML, so search engines can read the full list. Files stay in the same storage folder.
+     NOTE: the live page's old tool listed an Insert (IN) file for Paper 3 (Multiple Choice, A2), copied wholesale from
+     the Business (9609) template's paperTypes object. Paper 3 is multiple choice; I could not confirm Cambridge issues
+     a separate insert for ANY 9708 Economics paper, so this build has no IN links at all (qp + ms only, every paper).
+     If 9708 does issue an insert for Paper 2 or Paper 4 (the data response papers), tell me and I will add it.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-law-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Law (9084) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/law-9084/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level Law Past Papers (9084) | SJ Academy
+                   Meta   Free A Level Law (9084) past papers with mark schemes, 2020 to 2025. Every paper and variant, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  a level law past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (264 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9084. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-literature-in-english-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Literature in English (9695) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/english-9695/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level English Literature Past Papers (9695) | SJ Academy
+                   Meta   Free A Level English Literature (9695) past papers with mark schemes, 2015 to 2025. Every paper and variant, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  a level english literature past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (588 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9695. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-maths-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Mathematics (9709) past papers, Elementor HTML widget. Version 1.0, October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Resource, on the dotted surface.
+     Paste this whole file into one HTML widget on /a-level-past-papers/mathematics-9709/, replacing the old client-side tool.
+     Section: full width, zero padding, no entrance animation. Page layout: Elementor Full Width. Hide Title: Yes.
+     Every paper link is in the HTML, so search engines can read the full list. Files stay in the same storage folder.
+     NOTE: the live page's old tool listed an Insert (IN) file for Paper 3. Pure Mathematics 3 has no insert in the
+     9709 syllabus, so this build does not generate IN links for Paper 3. Flag to Sunyyan if that assumption is wrong.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-maths-tuition-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Maths tuition page, Elementor HTML widget. Version 1.0, October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Enrol.
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes. Address stays /a-level-maths-tuition/.
+     Class timings load from the "SJA Class Timetable" Google Sheet.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-physics-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Physics (9702) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/physics-9702/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level Physics Past Papers (9702) | SJ Academy
+                   Meta   Free A Level Physics (9702) past papers with mark schemes, 2015 to 2026. Every paper and variant, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  a level physics past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (855 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9702. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-psychology-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Psychology (9990) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/psychology-9990/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level Psychology Past Papers (9990) | SJ Academy
+                   Meta   Free A Level Psychology (9990) past papers with mark schemes, 2020 to 2025. Every paper and variant, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  a level psychology past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (288 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9990. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-sociology-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Sociology (9699) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/sociology-9699/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level Sociology Past Papers (9699) | SJ Academy
+                   Meta   Free A Level Sociology (9699) past papers with mark schemes, 2020 to 2025. Every paper and variant, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  a level sociology past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (252 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9699. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-subject-combinations-tool-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level subject combinations tool, Elementor HTML widget. Version 2.0, October 2026.
+     Page: /a-level-subject-combinations-tool/ (address unchanged). Family: Tool, on the graph-paper surface.
+     Needs the shared stylesheet sj-brand.css 3.1.1 in Additional CSS.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     This replaces the old tool widget in full (old CSS, old script, html2pdf and the Free Expert Help form are gone).
+     Set in Yoast: Title  A Level subjects combination tool for Pakistan | SJ Academy
+                   Meta   Free A Level subjects combination tool for Pakistan. Get three ranked picks for medicine, engineering, business, law and more, with IBCC rules.
+                   Focus keyphrase  a level subjects combination
+     Not used on purpose: phone bottom bar (it would cover the result), registration form (popup 6023 is the only one), PDF export.
+     The page script block near the end is the standard sj-page-script.js, copied unchanged.
+     This file is plain ASCII: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-tuition-center-karachi-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level tuition (level page), Elementor HTML widget. Version 1.1, October 2026 (keywords and DHA local pass: H1 pill, intro, Find us section, FAQ).
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Enrol.
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes. Address stays /a-level-tuition-center-karachi/.
+     Class timings load from the "SJA Class Timetable" Google Sheet.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/a-level-urdu-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level Urdu (9686) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /a-level-past-papers/urdu-9686/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  A Level Urdu Past Papers (9686) | SJ Academy
+                   Meta   Free A Level Urdu (9686) past papers with mark schemes, 2015 to 2025. Paper 2 Reading and Writing, Paper 3 Essay and Paper 4 Texts, May/June and Oct/Nov.
+                   Focus keyphrase  a level urdu past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (130 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-A-9686. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/class-timetable-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy class timetable page, Elementor HTML widget. Version 1.0, October 2026.
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Everything is scoped to #sjt. Timetable data comes live from the "SJA Class Timetable" Google Sheet.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/fee-structure-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy fee structure page, Elementor HTML widget. Version 1.3, October 2026.
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Everything is scoped to #sjf. Page family: Info (brand guidelines v2.0). -->
+
+====================================================================================================
+FILE: 02 Website/Pages/homepage-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy homepage, Elementor HTML widget. Version 3.0, October 2026. Copy as v2.0 (landing page copy guidelines 1.2); design identical to the live v1.5 homepage.
+     Wrapper is now <div id="sj" class="sj-p-home" data-family="enrol">, so the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS) supplies the fonts, colours and base.
+     Page-only layout stays in the one <style> block below, every rule scoped to #sj.sj-p-home (the shared stylesheet draws several of these components differently, and this page keeps the old look).
+     Paste this whole file into one HTML widget, replacing version 1.5 or 2.0. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes. Address stays / (homepage).
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/how-to-get-an-a-star-in-o-level-blog-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy blog post body: "How to get an A* at O Level: the CAIE roadmap". Elementor HTML widget. Version 3.0, built 2 November 2026.
+     Replaces v2 (not kept). Rewritten around how SJ Academy teaches: the four-step method, the past paper and mark scheme viewer, the 12 O Level subject past papers pages, the fee page.
+     Family: Reading. Uses the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Plain ASCII on purpose.
+     WordPress post title (shown as the H1): How to get an A* at O Level: the CAIE roadmap
+     Yoast SEO title: How to get an A* at O Level (CAIE roadmap) | SJ Academy
+     Yoast meta description: A practical CAIE O Level roadmap for students in Pakistan: how A* is awarded, how to use past papers and mark schemes, and a 7-day plan.
+     Focus keyphrase: how to get an A* in O Level
+     Suggested slug: /how-to-get-an-a-star-in-o-level/
+     WhatsApp Ref: BLOG-OL-ASTAR (add it to the Lead Tracker Ref list).
+     Images (all already in the Media Library, none new): 2026/10/IMG_6923_Original-1-1 (768x432 webp), 2026/09/practical (768x432), 2026/08/IMG_1632 (768x420), 2026/09/CAIE-Exam-Day-Guide (768x429).
+     Facts: Cambridge Maths 4024 June 2026 threshold table (A* 173 for 12+22, 175 for 13+23) read on cambridgeinternational.org on 2 November 2026. Paper structures: Cambridge syllabuses (2026 to 2028 sciences, 2027 and later for the rest) and the cover pages checked for the past papers pages. SJ Academy facts: 00 Start Here/FACTS.md and the live fee page.
+     Elementor: no overflow:hidden on any parent of the widget (it breaks the sticky contents list). Full Width layout, Hide Title.
+     Schema: FAQPage only. Yoast supplies Article and Breadcrumb. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/ibcc-calculator-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy IBCC Equivalence Calculator. Elementor HTML widget. Version 2.1, built 20 October 2026.
+     Address stays /ibcc-equivalence-calculator/. Replaces the current calculator HTML widget completely (it has the H1).
+     Family: Tool. Uses the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Plain ASCII on purpose.
+     Yoast SEO title: IBCC Equivalence Calculator 2026 (O/A Level) | SJ Academy
+     Yoast meta description: Work out your O Level (Matric) and A Level (FSc) IBCC equivalence with the official A* marks for every session and the February 2026 rule. Free and instant.
+     GA4: fires calculation_complete (calc_level, calc_rule; no grades or marks) once per visit, plus whatsapp_click and register_open via the page script.
+     Sources (checked 20 October 2026):
+     IBCC grade conversion and A* tables 2021-2026: https://ibcc.edu.pk/conversion-for-equivalence/
+     IBCC British system requirements: https://ibcc.edu.pk/equivalence-intro/british-system/
+     IBCC E2 form (exemption for mixed Pakistan/abroad): https://ibcc.edu.pk/wp-content/uploads/2024/08/E2-British.pdf
+     IBCC notification IBCC/EC-176/Imp-05/7-2/2026, 17 Feb 2026: https://ibcc.edu.pk/notification-for-calculation-of-a-level-equivalent-qualification-based-on-compulsory-subjects-of-o-level/
+     IBCC O Level example (x900): https://ibcc.edu.pk/equivalence/Example-for-Calculating-O-Level-Marks-1.pdf (April 2026 copy labels 1100 with the same 844 result)
+     IBCC A Level example: https://ibcc.edu.pk/equivalence/Example-for-Calculating-A-Levels-Marks-1.pdf
+     IBCC FAQs: https://ibcc.edu.pk/faqs/equivalence-faqs/
+     Cambridge Destination Pakistan brochure: https://www.cambridgeinternational.org/Images/505904-destination-pakistan-brochure.pdf
+     Accuracy check: ref_check.py (120 A* values vs IBCC text, 5,000 random cases vs a separate Python version, 8 worked examples) - all pass. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-accounting-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Accounting (7707) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/accounting-7707/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Accounting Past Papers (7707) | SJ Academy
+                   Meta   Free O Level Accounting (7707) past papers with mark schemes, 2020 to 2025. Paper 1 multiple choice and Paper 2 written, all variants, May/June and Oct/Nov.
+                   Focus keyphrase  o level accounting past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (94 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-7707. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-biology-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Biology (5090) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/biology-5090/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Biology Past Papers (5090) | SJ Academy
+                   Meta   Free O Level Biology (5090) past papers with mark schemes, 2020 to 2025. Multiple choice, theory, practical and alternative to practical, all variants.
+                   Focus keyphrase  o level biology past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (193 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-5090. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-business-studies-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Business Studies (7115) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/business-studies-7115/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Business Studies Past Papers (7115) | SJ Academy
+                   Meta   Free O Level Business Studies (7115) past papers with mark schemes and case study inserts, 2020 to 2025. Paper 1 and Paper 2, all variants, May/June and Oct/Nov.
+                   Focus keyphrase  o level business studies past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (129 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-7115. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-chemistry-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Chemistry (5070) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/chemistry-5070/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Chemistry Past Papers (5070) | SJ Academy
+                   Meta   Free O Level Chemistry (5070) past papers with mark schemes, 2020 to 2025. Multiple choice, theory, practical and alternative to practical, all variants.
+                   Focus keyphrase  o level chemistry past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (213 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-5070. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-computer-science-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Computer Science (2210) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/computer-science-2210/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Computer Science Past Papers (2210) | SJ Academy
+                   Meta   Free O Level Computer Science (2210) past papers with mark schemes, 2020 to 2025. Paper 1 Computer Systems and Paper 2 Algorithms and Programming, all variants.
+                   Focus keyphrase  o level computer science past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (92 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-2210. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-economics-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Economics (2281) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/economics-2281/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Economics Past Papers (2281) | SJ Academy
+                   Meta   Free O Level Economics (2281) past papers with mark schemes, 2020 to 2025. Paper 1 multiple choice and Paper 2 structured questions, all variants, May/June and Oct/Nov.
+                   Focus keyphrase  o level economics past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (94 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-2281. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-english-language-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level English Language (1123) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/english-language-1123/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level English Past Papers (1123) | SJ Academy
+                   Meta   Free O Level English Language (1123) past papers with mark schemes and inserts, 2020 to 2025. Reading and Writing papers, all variants, May/June and Oct/Nov.
+                   Focus keyphrase  o level english past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (117 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-1123. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-islamiyat-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Islamiyat (2058) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/islamiyat-2058/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Islamiyat Past Papers (2058) | SJ Academy
+                   Meta   Free O Level Islamiyat (2058) past papers with mark schemes, 2020 to 2025. Paper 1 and Paper 2, all variants, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  o level islamiyat past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (96 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-2058. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-mathematics-d-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Mathematics D (4024) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/mathematics-d-4024/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Maths D Past Papers (4024) | SJ Academy
+                   Meta   Free O Level Mathematics D (4024) past papers with mark schemes, 2020 to 2025. Paper 1 non-calculator and Paper 2 calculator, all variants, May/June and Oct/Nov.
+                   Focus keyphrase  o level maths past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (96 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-4024. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-pakistan-studies-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Pakistan Studies (2059) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/pakistan-studies-2059/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Pakistan Studies Past Papers (2059) | SJ Academy
+                   Meta   Free O Level Pakistan Studies (2059) past papers with mark schemes and inserts, 2020 to 2025. Paper 1 History and Paper 2 Geography, May/June and Oct/Nov.
+                   Focus keyphrase  o level pakistan studies past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (69 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-2059. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-physics-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Physics (5054) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/physics-5054/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Physics Past Papers (5054) | SJ Academy
+                   Meta   Free O Level Physics (5054) past papers with mark schemes, 2020 to 2025. Multiple choice, theory, practical and alternative to practical, all variants.
+                   Focus keyphrase  o level physics past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (191 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-5054. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-tuition-center-karachi-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level tuition (level page), Elementor HTML widget. Version 1.0, October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Enrol.
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes. Address stays /o-level-tuition-center-karachi/.
+     Class timings load from the "SJA Class Timetable" Google Sheet (O Level tab, May/June 2027 batch).
+     Set the title tag, meta description and og:title in Yoast (see the handoff note); the widget cannot change them.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/o-level-urdu-second-language-past-papers-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Urdu Second Language (3248) past papers, Elementor HTML widget. Built 30 October 2026 by Scripts/past-papers-pages/build.py.
+     Page: /o-level-past-papers/urdu-second-language-3248/  (keep the address). Family: Resource. Shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old tool. Section: full width, zero padding, no entrance animation. Layout: Elementor Full Width. Hide Title: Yes.
+     Set in Yoast: Title  O Level Urdu Past Papers (3248) | SJ Academy
+                   Meta   Free O Level Urdu Second Language (3248) past papers with mark schemes, 2020 to 2025. Paper 1 and Paper 2, May/June and Oct/Nov. No sign-up.
+                   Focus keyphrase  o level urdu past papers
+                   Canonical  leave as the page address
+     Every link was checked against Backblaze (48 files). The "Side by side" links need /past-paper-viewer/ to be live first.
+     WhatsApp Ref code: PP-O-3248. Do not edit by hand: change subjects.py or the file list and rebuild. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/sat-business-school-webinar-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy x PrepDesk: SAT and Business School Admissions Webinar. Elementor HTML widget. Version 1.0, November 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Event.
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes.
+     Suggested address: /sat-business-school-webinar/
+     SEO title (Yoast, also social title): SAT &amp; Business School Admissions Webinar | SJ Academy
+     Meta description: Free online session for SJ Academy students on the Digital SAT and IBA admissions with Talal Hussain (PrepDesk). 60-75 mins, live on Zoom. Reserve your seat.
+     Registration: Students register via the embedded WPForm or registration form on this page.
+     Ref code for tracking: Ref: WEBINAR-PD
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Pages/schools-near-me-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy "Schools near me in Karachi" page, Elementor HTML widget. Version 2.0, generated 20 October 2026.
+     Family: Tool. Uses the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS).
+     Paste this whole file into one HTML widget, replacing the old finder. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes. Address stays /schools-near-me-karachi/ (no redirect needed).
+     Take a Cloudways backup first. After pasting, purge WP-Optimize, Cloudways and Cloudflare.
+     Every school is written into this HTML (no data fetch), so Google and AI crawlers can read the list. To refresh the list,
+     run Scripts/build-schools-near-me.py and paste the new file. This file is plain ASCII on purpose.
+     Yoast title: Schools near me in Karachi: by area and board | SJ Academy
+     Yoast description: Search 506 Karachi schools by area, board and sector. See the address, phone number and map link for each, from DHA to North Nazimabad.
+     Yoast canonical: https://www.sjacademy.pk/schools-near-me-karachi/ (so ?area= and ?board= links do not become duplicate pages). -->
+
+====================================================================================================
+FILE: 02 Website/Pages/top-schools-karachi-blog-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy blog post body: "Top 14 schools in Karachi with fees". Elementor HTML widget. Version 2.1, built 20 October 2026.
+     Address stays /blog/top-10-best-schools-in-karachi-with-fee-structures/ (do NOT change the slug).
+     Replaces every widget in the post body (headings, text, ad block, FAQ accordion). Theme title, author, comments and sidebar stay.
+     Family: Reading. Uses the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Plain ASCII on purpose.
+     WordPress post title (shown as the H1): Top 14 Best Schools in Karachi With Fee Structures (2026-27)
+     Yoast SEO title: Top 14 Schools in Karachi With Fees (2026-27) | SJ Academy
+     Yoast meta description: Fees, curriculum and location for 14 Karachi schools, from KGS and KAS to Beaconhouse and City School. Updated for 2026-27, with sources.
+     Sources checked 20 October 2026:
+     KAS fees 2026-27: https://www.kas.edu.pk/admissions/tuition-and-fees
+     BOS fees 2026-27: https://www.bos-karachi.org/ui/upload/Fee%20Structure%202026-2027.pdf
+     KGS history (1847, renamed 1879, sections): https://kgs.edu.pk/history/
+     Bay View Academy history (1990, Defence 1999, Clifton 2013, PECHS 2015): https://bva.edu.pk/history/
+     Lyceum (1987, Hatim Alvi Road, A Level only): https://en.wikipedia.org/wiki/The_Lyceum_School
+     Habib Public School (7 July 1959, M.T. Khan Road, Cambridge from 1979, AKU-EB): https://en.wikipedia.org/wiki/Habib_Public_School
+     Haque Academy (2008, DHA Phase 8, Grade 1 to O Level): https://en.wikipedia.org/wiki/Haque_Academy
+     St Joseph's Convent (1862): https://en.wikipedia.org/wiki/St_Joseph%27s_Convent_School,_Karachi
+     BOS (1958, non-profit, EYFS to IGCSE, address): https://www.bos-karachi.org/ and doris.school profile
+     FPS (1981, campuses incl. Hyderabad): https://en.wikipedia.org/wiki/Foundation_Public_School
+     BIS (Edexcel certified, Block 7 Clifton, Pre-Nursery to Year 13, PKR 180,000-264,000 a year, year not stated): https://www.edarabia.com/british-international-school-karachi-pakistan/
+     KPS (over 43 years, Matric and O Level, campus list): https://kps.edu.pk/
+     Mama Parsi (1918, Matric and Cambridge): https://www.mamaparsischool.edu.pk/?p=2901
+     KGS and Lyceum fee schedules: not published (doris.school profiles). All other fee figures carried over from the previous version of this post and labelled as estimates. -->
+
+====================================================================================================
+FILE: 02 Website/Tools/Past Paper Viewer/past-paper-viewer-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy past paper and mark scheme viewer, Elementor HTML widget. Version 2.4, 30 October 2026. File list checked against Backblaze on 30 October 2026.
+     Page: /past-paper-viewer/. Family: Tool.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     Set in Yoast: Title  Past Paper & Mark Scheme Viewer | O and A Level | SJ Academy
+                   Meta   View Cambridge O and A Level past papers and mark schemes side by side. Try the question first, then check the marks. Free, no sign-up.
+                   Canonical  https://www.sjacademy.pk/past-paper-viewer/  (the clean address, so ?level=... links are not indexed on their own)
+                   Focus keyphrase  to be set after keyword research
+     Deep links: /past-paper-viewer/?level=o-level&subject=biology&series=2025-mj&paper=31&marks=show
+                 series: 2025-mj is May/June 2025, 2025-on is Oct/Nov 2025. paper: paper digit then variant digit, so 31 is Paper 3, Variant 1.
+                 marks=show opens the mark scheme too. Never use "year" in the address: WordPress reads it as a date archive and shows a 404.
+                 Any prefix works (level only, level and subject, and so on). Other query parts such as utm tags are kept.
+                 The Share button sends the open paper with its mark scheme showing.
+     GA4 events: tool_start, tool_complete, mark_scheme_reveal, insert_view, fullscreen_open, share_click, paper_unavailable, open_in_new_tab, whatsapp_click, homepage_click.
+                 Parameters: level, subject, series, paper, plus entry (manual or link), method (button, toggle, link; for share_click: share or copy), type, file, link_location, page_family.
+     File list: run check-files.py (same folder) on your own computer before pasting, and again after each upload of new papers.
+                It writes the FILES line below, so the dropdowns only offer papers that are in storage. Tests: tests/viewer-test.js. Notes: BRIEF.md. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/a-level-business-solved-past-papers-2025-elementor-widget-v2-free.html
+====================================================================================================
+<!-- SJ Academy A Level Business (9609) solved past papers 2025 ebook, Elementor HTML widget. Version 2.0, October 2026.
+     Page: /a-level-business-9609-solved-past-papers-2025/ (address unchanged). Family: Resource, on the dotted surface.
+     Needs the shared stylesheet sj-brand.css 3.1.1 in Additional CSS.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     The ebook is now FREE. The paid checkout link (add-to-cart=11028) is gone; the WPForms form below replaces it.
+     BEFORE PUBLISHING: replace FORM_ID in the [wpforms] shortcode (search this file for FORM_ID) with your form's ID.
+     The form renders on the live page and in preview, not inside the Elementor editor.
+     Page-only CSS is longer than 40 lines because it restyles WPForms markup that cannot take sj classes. Every rule is scoped to #sj.sj-p-ebook-bus25.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/a-level-chemistry-tuition-elementor-widget-v1.0.1.html
+====================================================================================================
+<!-- SJ Academy A Level Chemistry tuition page, Elementor HTML widget. Version 1.0.1, 28 October 2026 (Chemistry lab practicals are taught by Sir Salman Junaid; practicals links point to /a-level-practicals/; schema uses this page's address).
+     Written to the landing page copy guidelines v1.2. Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Enrol.
+     Paste this whole file into one HTML widget, replacing the old page content. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes. Address stays /a-level-chemistry/ (do not rename it).
+     Class timings refresh from the "SJA Class Timetable" Google Sheet (As 27 and A2 2027 tabs).
+     Paper facts checked against the Cambridge 9701 syllabus for 2025 to 2027. The marked definition is from the 9701/23 mark scheme, May/June 2022.
+     Set the SEO title, meta description and social title in Yoast; the widget cannot change them.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/a-level-grade-strategy-tool-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level grade strategy tool, Elementor HTML widget. Version 2.0, built 2026-10-28.
+     Page: /a-level-grade-strategy-tool/ (address unchanged). Family: Tool, on the graph-paper surface.
+     Needs the shared stylesheet sj-brand.css 3.1.1 in Additional CSS.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     Replaces the old "Grade Comeback Calculator" widget in full (old CSS, old script and the PUM modal are gone).
+     DO NOT EDIT THIS FILE BY HAND. Edit gt_data.py (thresholds), engine.js or ui.js and run generate-grade-strategy-page.py.
+     Thresholds: Cambridge grade threshold tables, Pakistan papers (variant 2, practicals 33 and 34), May/June 2026, Oct/Nov 2025, May/June 2025.
+     Set in Yoast: Title  A Level Grade Calculator: Marks You Need in A2 | CAIE
+                   Meta   Free Cambridge A Level grade calculator. Enter your AS PUM and target grade to see the A2 marks you need, whether to retake AS, and which series you can still use.
+                   Focus keyphrase: a level grade calculator
+     Not used on purpose: phone bottom bar (it would cover results), registration form (popup 6023 is the only one).
+     The page script block near the end is the standard sj-page-script.js, copied unchanged.
+     Saved answers stay in the visitor's own browser (localStorage key sjg-v1). Nothing is sent anywhere.
+     This file is plain ASCII: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/a-level-subject-combinations-tool-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy A Level subject combinations tool, Elementor HTML widget. Version 2.0, October 2026.
+     Page: /a-level-subject-combinations-tool/ (address unchanged). Family: Tool, on the graph-paper surface.
+     Needs the shared stylesheet sj-brand.css 3.1.1 in Additional CSS.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     This replaces the old tool widget in full (old CSS, old script, html2pdf and the Free Expert Help form are gone).
+     Set in Yoast: Title  A Level subject combinations tool: pick subjects for your degree | SJ Academy
+                   Meta   Free A Level subject combinations tool for Pakistan. Answer four questions and get three ranked subject choices with degrees, entry tests and universities.
+     Not used on purpose: phone bottom bar (it would cover the result), registration form (popup 6023 is the only one), PDF export.
+     The page script block near the end is the standard sj-page-script.js, copied unchanged.
+     This file is plain ASCII: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/caie-zone-4-timetable-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy CAIE Zone 4 timetable, Elementor HTML widget. Version 2.0, built 2026-10-28.
+     Page: /caie-zone-4-timetable/ (address unchanged). Family: Resource, on the dotted surface.
+     State of this build: WAITING for May/June 2027.
+     Needs the shared stylesheet sj-brand.css 3.1.1 in Additional CSS.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     This replaces the old widget in full (old CSS, old script, old data list).
+     Set in Yoast: Title  Zone 4 Timetable Oct/Nov 2026 & May/June 2027 | SJ Academy
+                   Meta   Cambridge Zone 4 date sheet: Oct/Nov 2026 timetable with all 259 papers, searchable by subject or code. May/June 2027 not out yet: get a WhatsApp alert.
+                   Social title: same as the title.
+     WhatsApp page code: RS-ZONE4 (alert message uses RS-ZONE4-ALERT).
+     Rebuild with build-zone4-timetable.py. The timetable is written into the HTML so search engines read it.
+     The page script block is the standard sj-page-script.js, copied unchanged, followed by the timetable script.
+     This file is plain ASCII. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/checkout-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy checkout page, Elementor HTML widget. Version 1.0, October 2026.
+     Page: the page set in WooCommerce > Settings > Advanced > Checkout page (address /checkout/).
+     Family: Info (web playbook 3.3). Needs the shared stylesheet sj-brand.css 3.1.1 in Additional CSS.
+     Build: Elementor Full Width, Hide Title = Yes. Delete the default Checkout block, then paste this whole file into one HTML widget.
+     The widget carries the [woocommerce_checkout] shortcode, so it is the checkout and the order-received page.
+     Page-only CSS is longer than 40 lines because it restyles WooCommerce markup that cannot take sj classes. Every rule starts with #sj.sj-p-checkout. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/homepage-elementor-widget-v3.0.3.html
+====================================================================================================
+<!-- SJ Academy homepage, Elementor HTML widget. Version 3.0.3, 28 October 2026 (links point to the rebuilt pages; Accounting is Sir Saifullah and shows without expanding; Biology shows as live online; practicals show as lab only, Sir Salman for Chemistry practicals; unverified A* total removed; admission fee Rs. 3,500; IGCSE added; crawlable links to every rebuilt subject page; past papers split into the A Level and O Level hubs). Wrapper: div id sj, class sj-p-home. Page-only CSS is in the style block below. Do not write HTML tags inside this comment. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/homepage-elementor-widget-v3.0.4.html
+====================================================================================================
+<!-- SJ Academy homepage, Elementor HTML widget. Version 3.0.4, 28 October 2026 (new hero photo; no A* totals on the page; links point to the rebuilt pages; Accounting is Sir Saifullah and shows without expanding; Biology shows as live online; practicals show as lab only, Sir Salman for Chemistry practicals; unverified A* total removed; admission fee Rs. 3,500; IGCSE added; crawlable links to every rebuilt subject page; past papers split into the A Level and O Level hubs). Wrapper: div id sj, class sj-p-home. Page-only CSS is in the style block below. Do not write HTML tags inside this comment. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/o-level-business-tuition-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy O Level Business tuition page, Elementor HTML widget. Version 1.0, October 2026.
+     Written to the landing page copy guidelines v1.2. Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Enrol.
+     Paste this whole file into one HTML widget, replacing the old page content. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes.
+     NEW ADDRESS: /o-level-business-tuition/ (was /business7081/). Change the slug in WordPress, then add a 301 from /business7081/ to /o-level-business-tuition/.
+     Keywords: o level business tuition (primary); o level business tuition karachi; online o level business classes; o level business 7081; o level business studies tuition; igcse business tuition; o level business teacher karachi.
+     Class timings refresh from the "SJA Class Timetable" Google Sheet (O Level 27 tab, gid 674937139).
+     Paper facts checked against the Cambridge O Level Business 7081 syllabus for 2027 to 2029 (version 3, August 2026) and the June 2026 grade threshold table for 7115.
+     WhatsApp page codes: OLB-OL (O Level demo), OLB-IG (IGCSE demo), OLB-Q (general question). Add them to the site register.
+     Set the SEO title, meta description and social title in Yoast; the widget cannot change them.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/online-teaching-jobs-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy Online Teaching Jobs page (teacher sign-up), Elementor HTML widget. Version 1.0, 28 October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Hire (recruitment). Lead reader: teacher applicant.
+     Address stays /online-teaching-jobs/ (do not rename it).
+
+     HOW THE FORM GETS INTO THE FIRST FOLD
+     The teacher application form is still WPForms form 8616, so entries, email notifications, CV uploads and reCAPTCHA keep working as they do now.
+     1. Paste this whole file into one HTML widget, replacing the old page content. Section: full width, zero padding, no entrance animation.
+     2. Directly below it, add a WPForms widget (or a Shortcode widget with [wpforms id="8616"]) in its own full-width section with zero padding.
+        On page load, this widget moves that form into the hero card and hides the empty section it came from.
+     3. Templates > Popups > the "Teacher Registration Form" popup (ID 8793) > Display Conditions: exclude this page,
+        so the form is not loaded twice on it.
+     Page layout: Elementor Full Width. Hide Title: Yes.
+     Set the SEO title, meta description and social title in Yoast; the widget cannot change them.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/referral-program-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy Referral Program page, Elementor HTML widget. Version 1.0, 28 October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Partner. Lead reader: student who refers friends.
+     Address stays /referral-program/ (do not rename it). Page code for WhatsApp references: REF.
+
+     HOW THE SIGN-UP FORM GETS INTO THE FIRST FOLD
+     The sign-up form is still WPForms form 8197, so entries and notifications keep working as they do now.
+     1. Paste this whole file into one HTML widget, replacing the old page content. Section: full width, zero padding, no entrance animation.
+     2. Directly below it, add a WPForms widget (or a Shortcode widget with [wpforms id="8197"]) in its own full-width section with zero padding.
+        On page load, this widget moves that form into the hero card and hides the empty section it came from.
+     Page layout: Elementor Full Width. Hide Title: Yes.
+     Yoast: SEO title "Earn money by referring students | SJ Academy". Meta description:
+     "Refer a friend to SJ Academy and earn Rs. 850 a month per O Level friend or Rs. 1,050 per A Level friend while they study, plus Rs. 5,000 for every 5 friends."
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/referral-terms-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy Referral Program Terms page, Elementor HTML widget. Version 1.0 of the page, terms version 2.0, 29 October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Info (legal). Lead reader: referrer, and the parent of a referrer under 18.
+     Address stays /referral-terms/ (do not rename it: the sign-up form and the referral page link here).
+     Paste this whole file into one HTML widget, replacing the old page content. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes.
+     Yoast: SEO title "Referral program terms | SJ Academy". Meta description:
+     "How the SJ Academy referral program works: who can join, what counts, Rs. 850 or Rs. 1,050 a month per friend, bonuses, payouts and the rules."
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/sat-iba-preparation-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy x PrepDesk: SAT and IBA December batch. Elementor HTML widget. Version 1.0, 29 October 2026.
+     Built on the shared stylesheet sj-brand.css 3.1.1 (already in Additional CSS). Family: Event.
+     Paste this whole file into one HTML widget. Section: full width, zero padding, no entrance animation.
+     Page layout: Elementor Full Width. Hide Title: Yes.
+     Suggested address: /sat-iba-preparation/
+     SEO title (Yoast, also the social title): SAT & IBA test preparation, December batch | SJ Academy
+     Meta description: SAT (5 Dec) and IBA test (20 Dec) prep by PrepDesk with SJ Academy. Weekend classes, full mocks, Rs. 32,000. Book your seat on WhatsApp.
+     Every button on this page goes to PrepDesk: WhatsApp +49 163 0821818 and the PrepDesk admission form (tally.so/r/LDZPV1).
+     Every WhatsApp message ends with "(Ref: SJ Academy website)" so PrepDesk can count the students this page sends.
+     The SJ Academy chat bubble (Joinchat) is hidden on this page so nobody messages the wrong number.
+     Dates switch on their own: before 31 October the card says "Starts", after it "Started", and after each test day it asks about the next batch.
+     The teacher photo and logo are embedded, so nothing needs uploading.
+     This file is plain ASCII on purpose: symbols are written as codes so they cannot be garbled. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/site-strip-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy site-wide strip v2.0 (28 Oct 2026). Paste the whole block into the header HTML widget(s). Safe to paste in both the desktop and mobile header. -->
+
+====================================================================================================
+FILE: 02 Website/Website Pages + Design/university-admission-criteria-tool-elementor-widget.html
+====================================================================================================
+<!-- SJ Academy university admission criteria tool, Elementor HTML widget. Version 2.2, built 2026-10-28.
+     Page: /university-admission-criteria-tool/ (address unchanged). Family: Tool, on the graph-paper surface.
+     Needs the shared stylesheet sj-brand.css 3.1.1 in Additional CSS.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     Replaces the old widget in full. The old Google Sheet (4 published CSV tabs) is no longer read by this page.
+     DO NOT EDIT THIS FILE BY HAND. Edit uni_data.py and run generate-university-admissions-page.py.
+     Set in Yoast: Title  LUMS, NUST & IBA Admission Criteria 2027 | Eligibility Checker
+                   Meta   LUMS, NUST, IBA, GIKI and FAST admission and eligibility criteria for Fall 2027: A Level grades, SAT requirements, merit formulas and deadlines, plus a free checker for your grades.
+                   Focus keyphrase: lums admission criteria
+     Not used on purpose: phone bottom bar (it would cover results), registration form (popup 6023 is the only one).
+     The page script block near the end is the standard sj-page-script.js, copied unchanged.
+     Saved answers stay in the visitor's own browser (localStorage key sju-v1). Nothing is sent anywhere.
+     This file is plain ASCII: symbols are written as codes so they cannot be garbled. -->
+

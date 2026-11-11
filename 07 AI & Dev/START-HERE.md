@@ -9,3 +9,4 @@
 
 ## Rules
 - API keys and credentials are in `SJ Academy - Private/API keys & credentials`. Never copy them into this folder or into code that gets shared.
+- `Skills/draw-reel.zip`: copy of the `draw-reel` skill (installed in Claude at `~/.claude/skills/draw-reel/`) for the maths and science draw reels. Its detail lives in `03 Marketing/Ads/Video ads (sj-ads)/draw-reel-kit/HANDOVER.md`. Added 10 November 2026.

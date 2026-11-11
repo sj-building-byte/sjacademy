@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cambridge A Level Results 2027 Banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 1200px;
+  height: 630px;
+  background-color: #F7F5EF;
+  font-family: 'Poppins', -apple-system, sans-serif;
+  color: #151515;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px 64px 48px 64px;
+}
+
+/* Top row */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.category-badge {
+  background: #FCE004;
+  color: #151515;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.category-badge::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #CC4A00;
+  border-radius: 50%;
+}
+
+/* Main copy area */
+.main-content {
+  margin-top: 4px;
+}
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8C7E6A;
+  margin-bottom: 12px;
+}
+
+.headline {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #151515;
+  max-width: 1060px;
+}
+
+.highlight {
+  background-color: #FCE004;
+  color: #151515;
+  padding: 0 14px;
+  border-radius: 6px;
+  display: inline-block;
+  position: relative;
+}
+
+.handwritten {
+  font-family: 'Caveat', cursive;
+  font-size: 38px;
+  font-weight: 600;
+  color: #B92F25;
+  display: inline-block;
+  transform: rotate(-3deg);
+  margin-left: 20px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.subline {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #453516;
+  margin-top: 18px;
+  max-width: 950px;
+}
+
+/* Bottom timeline comparison card */
+.bottom-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #FFFFFF;
+  border: 1.5px solid #E6E1D3;
+  border-radius: 14px;
+  padding: 16px 24px;
+  width: 100%;
+}
+
+.timeline-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.old-date {
+  color: #8C7E6A;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.arrow {
+  color: #CC4A00;
+  font-weight: 700;
+}
+
+.new-date {
+  background: #FCE004;
+  color: #151515;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: #D9D4C7;
+}
+
+.clarification {
+  font-size: 15px;
+  font-weight: 500;
+  color: #554A38;
+}
+
+.clarification strong {
+  color: #151515;
+}
+</style>
+</head>
+<body>
+
+<div class="header-row">
+  <div class="category-badge">
+    Cambridge Update
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="eyebrow">June Exam Series Announcement</div>
+  <h1 class="headline">
+    A Level results are moving to <span class="highlight">28 July</span>
+    <span class="handwritten">~2 weeks earlier!</span>
+  </h1>
+  <p class="subline">
+    Starting from the June 2027 series, Cambridge International AS &amp; A Level results will release earlier, giving students extra time for IBCC equivalence, visas, and university admissions.
+  </p>
+</div>
+
+<div class="bottom-bar">
+  <div class="timeline-pill">
+    <span class="old-date">Mid-August</span>
+    <span class="arrow">&rarr;</span>
+    <span class="new-date">28 July 2027</span>
+  </div>
+  <div class="divider"></div>
+  <div class="clarification">
+    June series only &bull; <strong>IGCSE &amp; O Level results remain in mid-August</strong>
+  </div>
+</div>
+
+</body>
+</html>

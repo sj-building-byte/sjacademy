@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+"""Three style frames for the field journal look. Stills only. Run from this folder: python3 build_frames.py, then snapshot at 0.5, 1.5, 2.5."""
+W, H = 1080, 1920
+RED = "#C8321F"; INK = "#1B2547"
+CSS = f"""
+@font-face{{font-family:'FieldHand';src:local('Bradley Hand Bold'),local('BradleyHandITCTT-Bold')}}
+@font-face{{font-family:'FieldType';src:local('American Typewriter'),local('AmericanTypewriter')}}
+*{{margin:0;padding:0;box-sizing:border-box}}
+html,body{{width:{W}px;height:{H}px;overflow:hidden;background:#0d0b08}}
+#root{{position:relative;width:{W}px;height:{H}px;overflow:hidden;background:#0d0b08}}
+.fr{{position:absolute;left:0;top:0;width:{W}px;height:{H}px;overflow:hidden}}
+.bg{{position:absolute;left:0;top:0;width:{W}px;height:{H}px}}
+.hand{{font-family:'FieldHand',cursive;color:{INK};line-height:1.08}}
+.type{{font-family:'FieldType',serif;color:#3b3427;letter-spacing:.01em}}
+.note{{position:absolute;background:url(assets/paper.png);box-shadow:0 10px 26px rgba(0,0,0,.45),0 1px 2px rgba(0,0,0,.4)}}
+.stamp{{position:absolute;font-family:'FieldType',serif;font-weight:700;color:{RED};border:7px solid {RED};border-radius:10px;padding:6px 22px;filter:url(#rough);letter-spacing:.02em;line-height:1.1}}
+.pen{{position:absolute;left:0;top:0;width:{W}px;height:{H}px;overflow:visible}}
+.pen path{{fill:none;stroke:{RED};stroke-width:7;stroke-linecap:round;stroke-linejoin:round}}
+.tape{{position:absolute;background:rgba(232,220,170,.62);box-shadow:0 1px 3px rgba(0,0,0,.2)}}
+"""
+FILTER = '<svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter></svg>'
+
+sf1 = f"""<img class="bg" src="assets/sf1.png">
+<svg class="pen" viewBox="0 0 {W} {H}">
+<path d="M742 448 C770 340 930 300 1010 402 C1072 486 1050 650 946 716 C840 770 722 690 716 570 C712 520 722 480 760 430"/>
+<path d="M640 884 C664 830 700 790 748 752"/><path d="M712 748 L752 748 L742 786"/>
+</svg>
+<div class="note" style="left:56px;top:880px;width:790px;padding:34px 40px 36px;transform:rotate(-1.4deg)">
+<div class="type" style="font-size:31px">Field notes. Karachi.</div>
+<div class="hand" style="font-size:88px;margin-top:14px">A Level students in their natural habitat.</div>
+<div class="hand" style="font-size:50px;margin-top:20px;color:{RED}">Says revision starts next week.</div>
+</div>
+<div class="stamp" style="left:610px;top:852px;font-size:50px;transform:rotate(-7deg);background:rgba(233,223,198,.86)">Day 1</div>"""
+
+sf2 = f"""<img class="bg" src="assets/sf2.png">
+<div style="position:absolute;left:0;right:0;bottom:0;height:520px;background:linear-gradient(180deg,rgba(12,9,5,0),rgba(12,9,5,.82) 55%,rgba(12,9,5,.94))"></div>
+<div class="hand" style="position:absolute;left:286px;top:286px;width:760px;font-size:76px">A question is asked. The group freezes.</div>
+<div class="stamp" style="left:34px;top:296px;font-size:44px;transform:rotate(-8deg);background:rgba(243,234,211,.94);padding:6px 14px">Day 96</div>
+<div class="hand" style="position:absolute;left:436px;top:452px;font-size:46px;color:{RED}">no eye contact</div>
+<svg class="pen" viewBox="0 0 {W} {H}">
+<path d="M428 482 C404 490 392 512 388 548"/><path d="M366 524 L386 554 L412 530"/>
+<path d="M640 508 C652 516 660 522 668 532"/><path d="M640 530 L672 538 L676 506"/>
+<path d="M58 1262 C60 1176 170 1130 262 1168 C336 1204 332 1320 262 1384 C176 1450 60 1416 42 1320 C38 1300 44 1276 62 1252"/>
+<path d="M410 1362 C380 1344 352 1324 322 1306"/><path d="M360 1298 L318 1302 L336 1340"/>
+</svg>
+<div class="note" style="left:404px;top:1340px;width:290px;padding:12px 26px 14px;transform:rotate(1.6deg)"><div class="hand" style="font-size:58px">Threat.</div></div>"""
+
+sf3 = f"""<img class="bg" src="assets/paper.png">
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 78px,rgba(70,90,140,.20) 78px 80px)"></div>
+<div style="position:absolute;left:44px;top:0;bottom:0;width:3px;background:rgba(200,50,31,.38)"></div>
+<div class="stamp" style="left:70px;top:286px;font-size:52px;transform:rotate(-6deg)">Day 214</div>
+<div class="hand" style="position:absolute;left:70px;top:408px;width:940px;font-size:84px">It has one natural predator:</div>
+<div class="note" style="left:62px;top:618px;width:956px;height:470px;padding:0;overflow:hidden;background:#f6f3ea;transform:rotate(-1.6deg)">
+<img src="assets/ms.png" style="position:absolute;left:-14px;top:-30px;width:984px;filter:sepia(.25) contrast(1.02)">
+</div>
+<div class="tape" style="left:80px;top:590px;width:130px;height:50px;transform:rotate(-10deg)"></div>
+<div class="tape" style="left:880px;top:578px;width:130px;height:50px;transform:rotate(7deg)"></div>
+<div class="hand" style="position:absolute;left:70px;top:1106px;font-size:92px;color:{RED}">the mark scheme.</div>
+<svg class="pen" viewBox="0 0 {W} {H}"><path d="M72 1212 C240 1200 480 1216 760 1198"/><path d="M236 1020 C226 994 280 984 330 986 C386 988 410 1002 398 1020 C384 1040 300 1044 262 1036 C244 1032 234 1026 240 1012"/></svg>
+<div class="type" style="position:absolute;left:72px;top:1236px;width:900px;font-size:29px;line-height:1.3">Cambridge A Level Economics 9708/42, Oct/Nov 2021. Photographed from a safe distance.</div>"""
+
+html = f"""<!doctype html>
+<html lang="en" data-resolution="portrait"><head><meta charset="UTF-8"><meta name="viewport" content="width={W}, height={H}">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><style>{CSS}</style></head><body>{FILTER}
+<div id="root" data-composition-id="main" data-start="0" data-duration="3" data-width="{W}" data-height="{H}" data-layout-allow-overlap data-layout-allow-overflow>
+<div id="f1" class="clip fr" data-start="0" data-duration="1" data-track-index="1">{sf1}</div>
+<div id="f2" class="clip fr" data-start="1" data-duration="1" data-track-index="1">{sf2}</div>
+<div id="f3" class="clip fr" data-start="2" data-duration="1" data-track-index="1">{sf3}</div>
+</div>
+<script>window.__timelines=window.__timelines||{{}};window.__timelines["main"]=gsap.timeline({{paused:true}});</script>
+</body></html>"""
+open("index.html", "w").write(html)

@@ -1,6 +1,6 @@
 // Opens every "Side by side" link on the built pages in the real viewer widget and checks the viewer
 // loads the same question paper the row links to.
-// Run: node check-side-links.js ../../Pages/o-level-*-past-papers-elementor-widget.html ../../Pages/a-level-urdu-past-papers-elementor-widget.html
+// Run: node check-side-links.js "../../Pages/O Level past papers/"*.html "../../Pages/A Level past papers/a-level-urdu-past-papers-elementor-widget.html"
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');

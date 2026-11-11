@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#0a0804}#root{position:relative;width:100%;height:100%;overflow:hidden;background:#0a0804}</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="46.4" data-width="1080" data-height="1920">
+<video id="v-open" class="clip" src="assets/clips/open.mp4" muted playsinline data-start="0.0" data-duration="3.2" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-group" class="clip" src="assets/clips/group.mp4" muted playsinline data-start="3.2" data-duration="2.4" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-chin" class="clip" src="assets/clips/chin.mp4" muted playsinline data-start="5.6" data-duration="2.8" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-stretch" class="clip" src="assets/clips/stretch.mp4" muted playsinline data-start="8.4" data-duration="2.8" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-face" class="clip" src="assets/clips/face.mp4" muted playsinline data-start="11.2" data-duration="2.5" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-arrive" class="clip" src="assets/clips/arrive.mp4" muted playsinline data-start="13.7" data-duration="2.2" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-calls" class="clip" src="assets/clips/calls.mp4" muted playsinline data-start="15.9" data-duration="3.7" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-lean" class="clip" src="assets/clips/lean.mp4" muted playsinline data-start="19.6" data-duration="4.3" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-feed" class="clip" src="assets/clips/feed.mp4" muted playsinline data-start="23.9" data-duration="1.8" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-mark" class="clip" src="assets/clips/mark.mp4" muted playsinline data-start="25.7" data-duration="1.8" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-fifa1" class="clip" src="assets/clips/fifa1.mp4" muted playsinline data-start="27.5" data-duration="4.0" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-fifa2" class="clip" src="assets/clips/fifa2.mp4" muted playsinline data-start="31.5" data-duration="2.2" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-online" class="clip" src="assets/clips/online.mp4" muted playsinline data-start="33.7" data-duration="4.3" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-close" class="clip" src="assets/clips/close.mp4" muted playsinline data-start="38.0" data-duration="3.4" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<video id="v-endbg" class="clip" src="assets/clips/endbg.mp4" muted playsinline data-start="41.4" data-duration="5.0" data-track-index="1" style="position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover;z-index:1"></video>
+<div id="open" data-composition-id="open" data-composition-src="compositions/open.html" data-start="0.0" data-duration="3.2" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="group" data-composition-id="group" data-composition-src="compositions/group.html" data-start="3.2" data-duration="2.4" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="chin" data-composition-id="chin" data-composition-src="compositions/chin.html" data-start="5.6" data-duration="2.8" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="stretch" data-composition-id="stretch" data-composition-src="compositions/stretch.html" data-start="8.4" data-duration="2.8" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="face" data-composition-id="face" data-composition-src="compositions/face.html" data-start="11.2" data-duration="2.5" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="arrive" data-composition-id="arrive" data-composition-src="compositions/arrive.html" data-start="13.7" data-duration="2.2" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="calls" data-composition-id="calls" data-composition-src="compositions/calls.html" data-start="15.9" data-duration="3.7" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="lean" data-composition-id="lean" data-composition-src="compositions/lean.html" data-start="19.6" data-duration="4.3" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="diet" data-composition-id="diet" data-composition-src="compositions/diet.html" data-start="23.9" data-duration="3.6" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="fifa1" data-composition-id="fifa1" data-composition-src="compositions/fifa1.html" data-start="27.5" data-duration="4.0" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="fifa2" data-composition-id="fifa2" data-composition-src="compositions/fifa2.html" data-start="31.5" data-duration="2.2" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="online" data-composition-id="online" data-composition-src="compositions/online.html" data-start="33.7" data-duration="4.3" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="close" data-composition-id="close" data-composition-src="compositions/close.html" data-start="38.0" data-duration="3.4" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="end" data-composition-id="end" data-composition-src="compositions/end.html" data-start="41.4" data-duration="5.0" data-track-index="3" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+<div id="bug" data-composition-id="bug" data-composition-src="compositions/bug.html" data-start="0" data-duration="41.4" data-track-index="4" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+<audio id="mix" class="clip" src="assets/audio/mix.wav" data-start="0" data-duration="46.4" data-volume="1" data-track-index="9"></audio>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

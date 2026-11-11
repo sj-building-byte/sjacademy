@@ -1,0 +1,28 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1500px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.82) 38%,rgba(5,8,10,.95))}
+.blk{position:absolute;left:84px;width:780px;bottom:670px}
+.q{font-size:80px;line-height:1.04;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 29px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:30px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:12px}
+.subj svg{flex:none}
+
+</style>
+<div id="root" data-composition-id="chemistry" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div id="chemistry-hold"><div id="chemistry-s0" style="position:absolute;inset:0;opacity:0"><div style="position:absolute;left:0;right:0;top:0;height:1000px;background:linear-gradient(180deg,rgba(5,8,10,.74),rgba(5,8,10,.45) 55%,rgba(5,8,10,0))"></div><div style="position:absolute;left:84px;width:840px;top:290px"><div class="subj" style="font:500 40px/1.2 'SJTrailerMono',monospace;color:#FCE004;margin-bottom:22px"><span><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#FCE004" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="color:#FCE004"><path d="M9 2.5h6M10 2.5v6.5L4.4 19.2a1.6 1.6 0 0 0 1.4 2.3h12.4a1.6 1.6 0 0 0 1.4-2.3L14 9V2.5"/><path d="M6.6 15.5h10.8"/></svg>Chemistry</span></div><div style="font-size:88px;line-height:1.0;letter-spacing:-.01em;text-shadow:0 2px 30px rgba(0,0,0,.35)">Titrate with a real burette. <span class="y">Read it to the nearest 0.05&nbsp;cm³.</span></div></div></div>
+</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#chemistry-hold",{opacity:1},0);
+tl.set("#chemistry-s0",{opacity:1},0);
+
+window.__timelines["chemistry"] = tl;
+</script>
+</template>

@@ -1,0 +1,37 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1500px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.82) 38%,rgba(5,8,10,.95))}
+.blk{position:absolute;left:84px;width:780px;bottom:670px}
+.q{font-size:80px;line-height:1.04;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 29px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:30px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:12px}
+.subj svg{flex:none}
+.soft{position:absolute;left:0;right:0;bottom:0;height:1150px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.5) 55%,rgba(5,8,10,.66))}
+.rvw{position:absolute;left:70px;width:900px;bottom:670px}
+.st{display:flex;gap:6px;margin:0 0 24px 4px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
+.rq{font:600 48px/1.5 'Poppins',sans-serif;margin:0}
+.hl{color:rgba(69,53,22,0);background-image:linear-gradient(#FCE004,#FCE004);background-repeat:no-repeat;background-size:0% 100%;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:3px 14px}
+.who{font:400 32px/1.3 'Poppins',sans-serif;color:#eef0ea;margin:28px 0 0 4px;text-shadow:0 2px 14px rgba(0,0,0,.7)}
+.who b{font-weight:600;color:#fff}
+
+</style>
+<div id="root" data-composition-id="rev1" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div class="soft"></div><div id="rev1-hold" class="rvw">
+<div class="st"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg><svg width="34" height="34" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" fill="#FCE004"/></svg></div>
+<p class="rq"><span class="hl">“As a private student with little experience, I felt a bit lost at first, but after attending classes, I gained so much confidence for my CAIEs.”</span></p>
+<div class="who"><b>Hania Shaikh</b> · Google review</div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#rev1-hold",{opacity:1},0);
+tl.to("#rev1 .hl",{backgroundSize:"100% 100%",color:"rgba(69,53,22,1)",duration:.32,ease:"power2.out"},.04);
+
+window.__timelines["rev1"] = tl;
+</script>
+</template>

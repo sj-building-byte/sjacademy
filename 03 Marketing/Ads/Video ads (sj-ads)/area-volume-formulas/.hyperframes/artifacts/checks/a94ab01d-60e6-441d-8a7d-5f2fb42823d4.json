@@ -1,0 +1,1100 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 54,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "negative_z_index",
+        "severity": "warning",
+        "message": "`z-index: -1` paints the element behind its nearest stacking context's own content. With no stacking-context ancestor that context is the composition root itself, so an opaque background there hides it entirely: in the DOM, laid out, and absent from the picture. A transparent root leaves it visible. Siblings at `z-index: 0` or above are unaffected.",
+        "selector": "#en-band",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/endcard.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Give the element's parent a stacking context - `isolation: isolate` is the cheapest, and `transform`, `filter`, `opacity` below 1, `contain: paint` and `will-change` all work too. The negative-z child then paints above that parent's background and renders normally. Or express paint order through DOM order - an earlier sibling paints behind a later one - and raise the elements that should sit in front rather than lowering this one."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#pt-circle",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/pitch.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r0-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r1-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r2-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r3-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r4-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r4-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r5-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r5-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r6-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r6-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r7-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r7-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r7-t1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r7-t2",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r8-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r8-d1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r8-d2",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r9-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r9-d1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r10-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r10-d1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r11-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r11-d1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r12-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r13-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#r13-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/recap.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s01-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s01.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s02-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s02.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s03-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s03.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s04-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s04.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s05-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s05.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s05-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s05.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s06-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s06.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s06-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s06.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s07-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s07.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s07-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s07.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s08-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s08.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s08-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s08.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s08-t1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s08.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s08-t2",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s08.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s09-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s09.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s09-d1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s09.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s09-d2",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s09.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s10-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s10.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s10-d1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s10.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s11-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s11.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s11-d1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s11.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s12-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s12.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s12-d1",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s12.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s13-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s13.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s14-d0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s14.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      },
+      {
+        "code": "svg_round_cap_hidden_dash",
+        "severity": "warning",
+        "message": "<path> is hidden with stroke-dasharray 1 1 and stroke-dashoffset 1 on pathLength 1, but its round cap can still paint a dot at the end of the path (Chrome rounds the zero-length dash differently per curve).",
+        "selector": "#s14-t0",
+        "dataAttributes": {},
+        "sourceFile": "/Users/sunyyanjunaid/Documents/SJ Academy/03 Marketing/Ads/Video ads (sj-ads)/area-volume-formulas/compositions/s14.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Make the gap longer than the path (stroke-dasharray \"1 1.2\" with stroke-dashoffset 1.1), or keep the element visibility:hidden until its draw tween starts."
+      }
+    ],
+    "filesScanned": 21
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 64.286,
+    "samples": [
+      3.571,
+      10.714,
+      17.857,
+      25,
+      32.143,
+      39.286,
+      46.429,
+      53.572,
+      60.715
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      3.571,
+      17.857,
+      32.143,
+      46.429,
+      60.715
+    ],
+    "checked": 40,
+    "passed": 40
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 12 text elements stay under it for 0.5 s or more, the smallest \"1\" at 27 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "1",
+        "selector": "#r1-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/recap.html",
+        "bbox": {
+          "x": 243.56,
+          "y": 571.5,
+          "width": 9.33,
+          "height": 37
+        },
+        "time": 45.312,
+        "times": [
+          45.312,
+          45.312,
+          45.437,
+          45.437,
+          45.562,
+          45.562,
+          45.687,
+          45.687,
+          45.812,
+          45.812,
+          45.812,
+          45.812
+        ],
+        "fontPx": 26.64,
+        "floorPx": 28,
+        "seconds": 14.855,
+        "elements": [
+          {
+            "selector": "#r1-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "1",
+            "fontPx": 26.64,
+            "time": 45.312,
+            "seconds": 14.855
+          },
+          {
+            "selector": "#r1-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "2",
+            "fontPx": 26.64,
+            "time": 45.312,
+            "seconds": 14.855
+          },
+          {
+            "selector": "#r3-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "1",
+            "fontPx": 26.64,
+            "time": 45.437,
+            "seconds": 14.73
+          },
+          {
+            "selector": "#r3-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "2",
+            "fontPx": 26.64,
+            "time": 45.437,
+            "seconds": 14.73
+          },
+          {
+            "selector": "#r6-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "360",
+            "fontPx": 26.64,
+            "time": 45.562,
+            "seconds": 14.605
+          },
+          {
+            "selector": "#r7-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "360",
+            "fontPx": 26.64,
+            "time": 45.562,
+            "seconds": 14.605
+          },
+          {
+            "selector": "#r11-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "1",
+            "fontPx": 26.64,
+            "time": 45.687,
+            "seconds": 14.48
+          },
+          {
+            "selector": "#r11-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "3",
+            "fontPx": 26.64,
+            "time": 45.687,
+            "seconds": 14.48
+          },
+          {
+            "selector": "#r12-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "1",
+            "fontPx": 26.64,
+            "time": 45.812,
+            "seconds": 14.355
+          },
+          {
+            "selector": "#r12-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "3",
+            "fontPx": 26.64,
+            "time": 45.812,
+            "seconds": 14.355
+          },
+          {
+            "selector": "#r13-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "4",
+            "fontPx": 26.64,
+            "time": 45.812,
+            "seconds": 14.355
+          },
+          {
+            "selector": "#r13-txt > div:nth-of-type(2) > span:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "3",
+            "fontPx": 26.64,
+            "time": 45.812,
+            "seconds": 14.355
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 5.37 s (46.06–51.43 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 46.061,
+        "seconds": 5.368,
+        "floorSeconds": 3,
+        "until": 51.429
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 515
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

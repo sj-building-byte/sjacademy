@@ -1,5 +1,5 @@
 // Renders a built past papers page with the shared stylesheet, checks it, and saves screenshots.
-// Run: node preview.js ../../Pages/o-level-pakistan-studies-past-papers-elementor-widget.html [screenshot folder]
+// Run: node preview.js "../../Pages/O Level past papers/o-level-pakistan-studies-past-papers-elementor-widget.html" [screenshot folder]
 // Prints the PDF links to links-<file>.txt next to the screenshots for check-files.py style verification.
 const { chromium, devices } = require('playwright');
 const fs = require('fs');

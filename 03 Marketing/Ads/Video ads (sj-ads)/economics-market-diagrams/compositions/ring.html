@@ -1,0 +1,19 @@
+<template>
+<style>
+@font-face{font-family:'Poppins';font-weight:400;src:url('assets/brand/Poppins-Regular.ttf')}
+@font-face{font-family:'Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+#root{position:absolute;inset:0}</style>
+<div id="root" data-composition-id="ring" data-width="1080" data-height="1920">
+<svg id="ring-all" width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;left:0;top:0" data-layout-ignore>
+<path d="M331.0 549.0 L331.0 989.0 L782.0 989.0" fill="none" stroke="#A9A69C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="309.0" y="553.4" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="34" fill="#D9D4C7">P</text>
+<text x="782.0" y="1037.4" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="34" fill="#D9D4C7">Q</text>
+</svg>
+</div>
+<script>const tl=gsap.timeline({paused:true});
+tl.to('#ring-all',{opacity:0,duration:0.17,ease:'power2.out'},33.7167);
+window.__timelines['ring']=tl;</script>
+</template>

@@ -54,6 +54,7 @@ Local folder: `/Users/sunyyanjunaid/Documents/SJ Academy`. SEO folder (not alway
 - Fonts: the three link lines in section 5 of the brand guidelines, once per widget.
 - Standard script: copy `02 Website/Scripts/sj-page-script.js` unchanged into the widget.
 - Files are plain ASCII: HTML entities in markup, `\XXXX` in CSS, `\uXXXX` in scripts. Check with a non-ASCII grep before delivery.
+- **No HTML comments in page code** (decided 3 November 2026). No header block at the top of a widget and no notes inside the markup: they are sent to every visitor. Version notes, Yoast text, page codes and paste steps go in the chat reply or the Page Rebuild & Marketing Tracker. Existing pages keep their comments until next rebuilt.
 - Never write the literal `gtag` in inline scripts (Flying Scripts delays by keyword). The standard script already uses `window['gt'+'ag']`.
 - Do not use `blockquote` or `footer` tags; the theme styles them.
 - The site's older Additional CSS has `.entry-content a` rules (blue, weight 600, underline, pink hover). The stylesheet resets these inside `#sj`.

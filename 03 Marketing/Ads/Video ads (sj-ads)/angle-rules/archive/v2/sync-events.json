@@ -1,0 +1,984 @@
+{
+"bpm": 127.995,
+"media_start": 75.626,
+"events": [
+{
+"rule": 1,
+"kind": "stroke",
+"beat_in_rule": 1,
+"t": 0.469
+},
+{
+"rule": 1,
+"kind": "stroke",
+"beat_in_rule": 2,
+"t": 0.938
+},
+{
+"rule": 1,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 1.406
+},
+{
+"rule": 1,
+"kind": "sum-term",
+"beat_in_rule": 3,
+"t": 1.406
+},
+{
+"rule": 1,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 1.875
+},
+{
+"rule": 1,
+"kind": "sum-term",
+"beat_in_rule": 4,
+"t": 1.875
+},
+{
+"rule": 1,
+"kind": "sum-result",
+"beat_in_rule": 5,
+"t": 2.344
+},
+{
+"rule": 1,
+"kind": "highlight",
+"beat_in_rule": 5,
+"t": 2.344
+},
+{
+"rule": 1,
+"kind": "cut",
+"beat_in_rule": 8,
+"t": 3.75
+},
+{
+"rule": 2,
+"kind": "stroke",
+"beat_in_rule": 1,
+"t": 4.219
+},
+{
+"rule": 2,
+"kind": "stroke",
+"beat_in_rule": 2,
+"t": 4.688
+},
+{
+"rule": 2,
+"kind": "stroke",
+"beat_in_rule": 3,
+"t": 5.156
+},
+{
+"rule": 2,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 5.156
+},
+{
+"rule": 2,
+"kind": "sum-term",
+"beat_in_rule": 3,
+"t": 5.156
+},
+{
+"rule": 2,
+"kind": "angle",
+"beat_in_rule": 3.5,
+"t": 5.391
+},
+{
+"rule": 2,
+"kind": "sum-term",
+"beat_in_rule": 3.5,
+"t": 5.391
+},
+{
+"rule": 2,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 5.625
+},
+{
+"rule": 2,
+"kind": "sum-term",
+"beat_in_rule": 4,
+"t": 5.625
+},
+{
+"rule": 2,
+"kind": "sum-result",
+"beat_in_rule": 5,
+"t": 6.094
+},
+{
+"rule": 2,
+"kind": "highlight",
+"beat_in_rule": 5,
+"t": 6.094
+},
+{
+"rule": 2,
+"kind": "cut",
+"beat_in_rule": 8,
+"t": 7.5
+},
+{
+"rule": 3,
+"kind": "stroke",
+"beat_in_rule": 1.5,
+"t": 8.203
+},
+{
+"rule": 3,
+"kind": "stroke",
+"beat_in_rule": 3.0,
+"t": 8.907
+},
+{
+"rule": 3,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 8.907
+},
+{
+"rule": 3,
+"kind": "sum-term",
+"beat_in_rule": 3,
+"t": 8.907
+},
+{
+"rule": 3,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 9.375
+},
+{
+"rule": 3,
+"kind": "sum-result",
+"beat_in_rule": 4,
+"t": 9.375
+},
+{
+"rule": 3,
+"kind": "highlight",
+"beat_in_rule": 5,
+"t": 9.844
+},
+{
+"rule": 3,
+"kind": "cut",
+"beat_in_rule": 8,
+"t": 11.25
+},
+{
+"rule": 4,
+"kind": "stroke",
+"beat_in_rule": 2.0,
+"t": 12.188
+},
+{
+"rule": 4,
+"kind": "stroke",
+"beat_in_rule": 2.5,
+"t": 12.422
+},
+{
+"rule": 4,
+"kind": "stroke",
+"beat_in_rule": 3.0,
+"t": 12.657
+},
+{
+"rule": 4,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 12.657
+},
+{
+"rule": 4,
+"kind": "sum-term",
+"beat_in_rule": 3,
+"t": 12.657
+},
+{
+"rule": 4,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 13.126
+},
+{
+"rule": 4,
+"kind": "sum-result",
+"beat_in_rule": 4,
+"t": 13.126
+},
+{
+"rule": 4,
+"kind": "highlight",
+"beat_in_rule": 5,
+"t": 13.594
+},
+{
+"rule": 4,
+"kind": "cut",
+"beat_in_rule": 8,
+"t": 15.001
+},
+{
+"rule": 5,
+"kind": "stroke",
+"beat_in_rule": 2.0,
+"t": 15.938
+},
+{
+"rule": 5,
+"kind": "stroke",
+"beat_in_rule": 2.5,
+"t": 16.173
+},
+{
+"rule": 5,
+"kind": "stroke",
+"beat_in_rule": 3.0,
+"t": 16.407
+},
+{
+"rule": 5,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 16.407
+},
+{
+"rule": 5,
+"kind": "sum-term",
+"beat_in_rule": 3,
+"t": 16.407
+},
+{
+"rule": 5,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 16.876
+},
+{
+"rule": 5,
+"kind": "sum-result",
+"beat_in_rule": 4,
+"t": 16.876
+},
+{
+"rule": 5,
+"kind": "highlight",
+"beat_in_rule": 5,
+"t": 17.344
+},
+{
+"rule": 5,
+"kind": "cut",
+"beat_in_rule": 8,
+"t": 18.751
+},
+{
+"rule": 6,
+"kind": "stroke",
+"beat_in_rule": 2.0,
+"t": 19.688
+},
+{
+"rule": 6,
+"kind": "stroke",
+"beat_in_rule": 2.5,
+"t": 19.923
+},
+{
+"rule": 6,
+"kind": "stroke",
+"beat_in_rule": 3.0,
+"t": 20.157
+},
+{
+"rule": 6,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 20.157
+},
+{
+"rule": 6,
+"kind": "sum-term",
+"beat_in_rule": 3,
+"t": 20.157
+},
+{
+"rule": 6,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 20.626
+},
+{
+"rule": 6,
+"kind": "sum-term",
+"beat_in_rule": 4,
+"t": 20.626
+},
+{
+"rule": 6,
+"kind": "sum-result",
+"beat_in_rule": 5,
+"t": 21.095
+},
+{
+"rule": 6,
+"kind": "highlight",
+"beat_in_rule": 5,
+"t": 21.095
+},
+{
+"rule": 6,
+"kind": "cut",
+"beat_in_rule": 8,
+"t": 22.501
+},
+{
+"rule": 7,
+"kind": "stroke",
+"beat_in_rule": 1,
+"t": 22.97
+},
+{
+"rule": 7,
+"kind": "stroke",
+"beat_in_rule": 2,
+"t": 23.438
+},
+{
+"rule": 7,
+"kind": "stroke",
+"beat_in_rule": 3,
+"t": 23.907
+},
+{
+"rule": 7,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 23.907
+},
+{
+"rule": 7,
+"kind": "sum-term",
+"beat_in_rule": 3,
+"t": 23.907
+},
+{
+"rule": 7,
+"kind": "angle",
+"beat_in_rule": 3.5,
+"t": 24.142
+},
+{
+"rule": 7,
+"kind": "sum-term",
+"beat_in_rule": 3.5,
+"t": 24.142
+},
+{
+"rule": 7,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 24.376
+},
+{
+"rule": 7,
+"kind": "sum-term",
+"beat_in_rule": 4,
+"t": 24.376
+},
+{
+"rule": 7,
+"kind": "sum-result",
+"beat_in_rule": 5,
+"t": 24.845
+},
+{
+"rule": 7,
+"kind": "highlight",
+"beat_in_rule": 5,
+"t": 24.845
+},
+{
+"rule": 7,
+"kind": "cut",
+"beat_in_rule": 8,
+"t": 26.251
+},
+{
+"rule": 8,
+"kind": "stroke",
+"beat_in_rule": 0.5,
+"t": 26.485
+},
+{
+"rule": 8,
+"kind": "stroke",
+"beat_in_rule": 1.0,
+"t": 26.72
+},
+{
+"rule": 8,
+"kind": "stroke",
+"beat_in_rule": 1.5,
+"t": 26.954
+},
+{
+"rule": 8,
+"kind": "tick",
+"beat_in_rule": 2,
+"t": 27.189
+},
+{
+"rule": 8,
+"kind": "tick",
+"beat_in_rule": 2.5,
+"t": 27.423
+},
+{
+"rule": 8,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 27.657
+},
+{
+"rule": 8,
+"kind": "sum-term",
+"beat_in_rule": 3,
+"t": 27.657
+},
+{
+"rule": 8,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 28.126
+},
+{
+"rule": 8,
+"kind": "sum-result",
+"beat_in_rule": 4,
+"t": 28.126
+},
+{
+"rule": 8,
+"kind": "highlight",
+"beat_in_rule": 5,
+"t": 28.595
+},
+{
+"rule": 8,
+"kind": "cut",
+"beat_in_rule": 8,
+"t": 30.001
+},
+{
+"rule": 9,
+"kind": "stroke",
+"beat_in_rule": 1,
+"t": 30.47
+},
+{
+"rule": 9,
+"kind": "stroke",
+"beat_in_rule": 2,
+"t": 30.939
+},
+{
+"rule": 9,
+"kind": "stroke",
+"beat_in_rule": 3,
+"t": 31.407
+},
+{
+"rule": 9,
+"kind": "stroke",
+"beat_in_rule": 4,
+"t": 31.876
+},
+{
+"rule": 9,
+"kind": "angle",
+"beat_in_rule": 5,
+"t": 32.345
+},
+{
+"rule": 9,
+"kind": "sum-term",
+"beat_in_rule": 5,
+"t": 32.345
+},
+{
+"rule": 9,
+"kind": "angle",
+"beat_in_rule": 6,
+"t": 32.814
+},
+{
+"rule": 9,
+"kind": "sum-term",
+"beat_in_rule": 6,
+"t": 32.814
+},
+{
+"rule": 9,
+"kind": "angle",
+"beat_in_rule": 7,
+"t": 33.283
+},
+{
+"rule": 9,
+"kind": "sum-result",
+"beat_in_rule": 7,
+"t": 33.283
+},
+{
+"rule": 9,
+"kind": "highlight",
+"beat_in_rule": 7,
+"t": 33.283
+},
+{
+"rule": 9,
+"kind": "cut",
+"beat_in_rule": 12,
+"t": 35.626
+},
+{
+"rule": 10,
+"kind": "stroke",
+"beat_in_rule": 0.75,
+"t": 35.978
+},
+{
+"rule": 10,
+"kind": "stroke",
+"beat_in_rule": 1.5,
+"t": 36.33
+},
+{
+"rule": 10,
+"kind": "stroke",
+"beat_in_rule": 2.25,
+"t": 36.681
+},
+{
+"rule": 10,
+"kind": "stroke",
+"beat_in_rule": 3.0,
+"t": 37.033
+},
+{
+"rule": 10,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 37.033
+},
+{
+"rule": 10,
+"kind": "sum-term",
+"beat_in_rule": 3,
+"t": 37.033
+},
+{
+"rule": 10,
+"kind": "angle",
+"beat_in_rule": 3.5,
+"t": 37.267
+},
+{
+"rule": 10,
+"kind": "sum-term",
+"beat_in_rule": 3.5,
+"t": 37.267
+},
+{
+"rule": 10,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 37.501
+},
+{
+"rule": 10,
+"kind": "sum-term",
+"beat_in_rule": 4,
+"t": 37.501
+},
+{
+"rule": 10,
+"kind": "angle",
+"beat_in_rule": 4.5,
+"t": 37.736
+},
+{
+"rule": 10,
+"kind": "sum-term",
+"beat_in_rule": 4.5,
+"t": 37.736
+},
+{
+"rule": 10,
+"kind": "sum-result",
+"beat_in_rule": 5,
+"t": 37.97
+},
+{
+"rule": 10,
+"kind": "highlight",
+"beat_in_rule": 5,
+"t": 37.97
+},
+{
+"rule": 10,
+"kind": "cut",
+"beat_in_rule": 8,
+"t": 39.377
+},
+{
+"rule": 11,
+"kind": "stroke",
+"beat_in_rule": 0.5,
+"t": 39.611
+},
+{
+"rule": 11,
+"kind": "stroke",
+"beat_in_rule": 1.0,
+"t": 39.845
+},
+{
+"rule": 11,
+"kind": "stroke",
+"beat_in_rule": 1.5,
+"t": 40.08
+},
+{
+"rule": 11,
+"kind": "stroke",
+"beat_in_rule": 2.0,
+"t": 40.314
+},
+{
+"rule": 11,
+"kind": "stroke",
+"beat_in_rule": 2.5,
+"t": 40.548
+},
+{
+"rule": 11,
+"kind": "stroke",
+"beat_in_rule": 3,
+"t": 40.783
+},
+{
+"rule": 11,
+"kind": "angle",
+"beat_in_rule": 3,
+"t": 40.783
+},
+{
+"rule": 11,
+"kind": "angle",
+"beat_in_rule": 4,
+"t": 41.252
+},
+{
+"rule": 11,
+"kind": "angle",
+"beat_in_rule": 5,
+"t": 41.72
+},
+{
+"rule": 11,
+"kind": "angle",
+"beat_in_rule": 6,
+"t": 42.189
+},
+{
+"rule": 11,
+"kind": "angle",
+"beat_in_rule": 7,
+"t": 42.658
+},
+{
+"rule": 11,
+"kind": "sum-term",
+"beat_in_rule": 7,
+"t": 42.658
+},
+{
+"rule": 11,
+"kind": "sum-term",
+"beat_in_rule": 7,
+"t": 42.658
+},
+{
+"rule": 11,
+"kind": "sum-result",
+"beat_in_rule": 8,
+"t": 43.127
+},
+{
+"rule": 11,
+"kind": "highlight",
+"beat_in_rule": 8,
+"t": 43.127
+},
+{
+"rule": 11,
+"kind": "cut",
+"beat_in_rule": 12,
+"t": 45.002
+},
+{
+"rule": 12,
+"kind": "stroke",
+"beat_in_rule": 0.5,
+"t": 45.236
+},
+{
+"rule": 12,
+"kind": "stroke",
+"beat_in_rule": 1.0,
+"t": 45.471
+},
+{
+"rule": 12,
+"kind": "stroke",
+"beat_in_rule": 1.5,
+"t": 45.705
+},
+{
+"rule": 12,
+"kind": "stroke",
+"beat_in_rule": 2.0,
+"t": 45.939
+},
+{
+"rule": 12,
+"kind": "stroke",
+"beat_in_rule": 2.5,
+"t": 46.174
+},
+{
+"rule": 12,
+"kind": "stroke",
+"beat_in_rule": 3.0,
+"t": 46.408
+},
+{
+"rule": 12,
+"kind": "diag",
+"beat_in_rule": 4,
+"t": 46.877
+},
+{
+"rule": 12,
+"kind": "diag",
+"beat_in_rule": 4.5,
+"t": 47.111
+},
+{
+"rule": 12,
+"kind": "diag",
+"beat_in_rule": 5,
+"t": 47.346
+},
+{
+"rule": 12,
+"kind": "number",
+"beat_in_rule": 6,
+"t": 47.814
+},
+{
+"rule": 12,
+"kind": "number",
+"beat_in_rule": 6.5,
+"t": 48.049
+},
+{
+"rule": 12,
+"kind": "number",
+"beat_in_rule": 7,
+"t": 48.283
+},
+{
+"rule": 12,
+"kind": "number",
+"beat_in_rule": 7.5,
+"t": 48.518
+},
+{
+"rule": 12,
+"kind": "sum-term",
+"beat_in_rule": 8,
+"t": 48.752
+},
+{
+"rule": 12,
+"kind": "sum-term",
+"beat_in_rule": 8.5,
+"t": 48.986
+},
+{
+"rule": 12,
+"kind": "sum-term",
+"beat_in_rule": 9,
+"t": 49.221
+},
+{
+"rule": 12,
+"kind": "sum-result",
+"beat_in_rule": 10,
+"t": 49.689
+},
+{
+"rule": 12,
+"kind": "highlight",
+"beat_in_rule": 10,
+"t": 49.689
+},
+{
+"rule": 12,
+"kind": "cut",
+"beat_in_rule": 16,
+"t": 52.502
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 1.0,
+"t": 52.971
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 1.5,
+"t": 53.205
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 2.0,
+"t": 53.44
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 2.5,
+"t": 53.674
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 3.0,
+"t": 53.908
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 3.5,
+"t": 54.143
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 4.0,
+"t": 54.377
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 4.5,
+"t": 54.612
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 5.0,
+"t": 54.846
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 5.5,
+"t": 55.08
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 6.0,
+"t": 55.315
+},
+{
+"rule": "recap",
+"kind": "cell",
+"beat_in_rule": 6.5,
+"t": 55.549
+},
+{
+"rule": "recap",
+"kind": "headline",
+"beat_in_rule": 8,
+"t": 56.252
+},
+{
+"rule": "end",
+"kind": "headline",
+"beat_in_rule": 2,
+"t": 60.94
+},
+{
+"rule": "end",
+"kind": "headline",
+"beat_in_rule": 2.5,
+"t": 61.174
+},
+{
+"rule": "end",
+"kind": "headline",
+"beat_in_rule": 3,
+"t": 61.409
+},
+{
+"rule": "end",
+"kind": "tick",
+"beat_in_rule": 4,
+"t": 61.877
+},
+{
+"rule": "end",
+"kind": "tick",
+"beat_in_rule": 4.5,
+"t": 62.112
+},
+{
+"rule": "end",
+"kind": "button",
+"beat_in_rule": 5,
+"t": 62.346
+},
+{
+"rule": "end",
+"kind": "phone",
+"beat_in_rule": 6,
+"t": 62.815
+},
+{
+"rule": "end",
+"kind": "website",
+"beat_in_rule": 6.5,
+"t": 63.049
+}
+]
+}

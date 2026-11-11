@@ -2,7 +2,7 @@
 
 This folder holds all of SJ Academy's work. Any AI agent (Claude, Codex, Cursor, Antigravity, Gemini) should read this file before doing anything, then read the `START-HERE.md` in the area it is working on.
 
-Last updated: 16 October 2026. Update this file when a fact, rule or priority changes.
+Last updated: 3 November 2026. Update this file when a fact, rule or priority changes.
 
 ## The business
 
@@ -67,6 +67,9 @@ Design:
 - Colours: yellow #FCE004, brown #453516, orange #FE6100. Fonts: Poppins (all reading text) and Caveat (short handwritten notes) only. Web headings: H1 600, H2 500.
 - Every piece starts with the five-line brief in the brand book (section 9). Rotate formats; never repeat the last one.
 - No cards with coloured bars on top. Logo sits at the top of ad designs.
+
+Page code (website widgets):
+- No HTML comments in page code. Do not put a header block at the top of a widget (version, Yoast title and meta, page codes, paste steps, script names) and do not leave notes inside the markup. HTML comments are sent to every visitor and show in view-source. Give those details to Sunyyan in the chat reply, or in the "SJ Academy - Page Rebuild & Marketing Tracker". Existing pages and scripts keep the comments they already have until they are next rebuilt; do not add new ones.
 
 Files:
 - One current file per thing, with a plain name. Older versions go into that area's `Archive/`.

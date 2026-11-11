@@ -1,0 +1,36 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.col{position:absolute;left:120px;width:840px;top:50%;transform:translateY(-50%)}
+.q{font-size:66px;line-height:1.05;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 28px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:26px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:10px}
+.subj svg{flex:none}
+.full{position:absolute;inset:0;background:#06090a}
+.gtop{position:absolute;left:0;right:0;top:0;height:640px;background:linear-gradient(180deg,rgba(5,8,10,.85),rgba(5,8,10,.55) 55%,rgba(5,8,10,0))}
+.gbot{position:absolute;left:0;right:0;bottom:0;height:680px;background:linear-gradient(0deg,rgba(5,8,10,.88),rgba(5,8,10,.55) 55%,rgba(5,8,10,0))}
+.btop{position:absolute;left:120px;width:1180px;top:96px}
+.bbot{position:absolute;left:120px;width:1180px;bottom:92px}
+
+</style>
+<div id="root" data-composition-id="ask" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+<div id="ask-hold"><div class="full"></div>
+<div style="position:absolute;left:260px;right:260px;top:150px;text-align:center;font-size:80px;line-height:1.03;letter-spacing:-.01em">So where do A Level students get <span class="y">hands-on practical experience?</span></div>
+<div id="askat" style="position:absolute;left:0;right:0;top:470px;text-align:center;opacity:0;transform-origin:50% 50%">
+<div style="font-size:70px;line-height:1">At</div><img src="assets/brand/logo.svg" style="width:560px;margin-top:18px"></div>
+<div id="askduh" style="position:absolute;left:0;right:0;top:790px;text-align:center;font-style:italic;font-size:78px;line-height:1;color:#c3ccc8;opacity:0">Duh.</div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#ask-hold",{opacity:1},0);
+tl.fromTo("#askat",{opacity:0,scale:.82},{opacity:1,scale:1,duration:.32,ease:"back.out(2.2)"},0.5);
+tl.fromTo("#askduh",{opacity:0,scale:.9},{opacity:1,scale:1,duration:.22,ease:"back.out(2)"},1.5);
+
+window.__timelines["ask"] = tl;
+</script>
+</template>

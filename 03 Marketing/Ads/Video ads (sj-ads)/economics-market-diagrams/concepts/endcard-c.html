@@ -1,0 +1,52 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Poppins';font-weight:500;src:url('../assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'Poppins';font-weight:600;src:url('../assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'Poppins';font-weight:700;src:url('../assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'Caveat';font-weight:600;src:url('../assets/brand/Caveat-600.woff2')}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;background:#FE6100;overflow:hidden;position:relative;font-family:Poppins}
+#bg,#grain{position:absolute;inset:0}
+#grain{mix-blend-mode:multiply;opacity:.22}
+#cap{position:absolute;left:50%;top:150px;transform:translateX(-50%);background:#453516;border-radius:60px;padding:26px 44px;box-shadow:0 10px 0 #2a2010}
+#cap img{width:300px;display:block}
+#card{position:absolute;left:110px;top:430px;width:860px;height:640px;background:#F7F5EF;border-radius:56px;transform:rotate(-3deg);box-shadow:18px 22px 0 #453516}
+#follow{position:absolute;left:0;width:860px;top:96px;text-align:center;font:700 232px/1 Poppins;letter-spacing:-.06em;color:#151515}
+#name{position:absolute;left:0;width:860px;top:372px;text-align:center;font:700 118px/1 Poppins;letter-spacing:-.04em;color:#151515}
+#name span{position:relative;z-index:1}
+#swash{position:absolute;left:128px;top:418px;width:610px;height:80px;background:#FCE004;border-radius:40px;transform:rotate(-1.5deg)}
+#burst{position:absolute;left:790px;top:330px;width:250px;height:250px}
+#note{position:absolute;left:60px;top:1090px;font:600 72px/1 Caveat;color:#FCE004;transform:rotate(-8deg)}
+.pill{position:absolute;left:150px;width:780px;height:150px;border-radius:75px;display:flex;align-items:center;padding:0 22px;gap:28px;font:700 60px/1 Poppins;letter-spacing:-.02em}
+.pill .ic{width:108px;height:108px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+#p1{top:1260px;background:#FCE004;color:#151515;transform:rotate(2deg);box-shadow:12px 14px 0 #453516}
+#p1 .ic{background:#151515}
+#p2{top:1460px;background:#151515;color:#F7F5EF;transform:rotate(-2deg);box-shadow:12px 14px 0 #453516}
+#p2 .ic{background:#FCE004}
+</style></head><body>
+<svg id="bg" width="1080" height="1920">
+  <g fill="none" stroke="#E85700" stroke-width="40" opacity=".55">
+    <circle cx="540" cy="900" r="260"/><circle cx="540" cy="900" r="420"/><circle cx="540" cy="900" r="580"/><circle cx="540" cy="900" r="740"/><circle cx="540" cy="900" r="900"/>
+  </g>
+  <g fill="#F7F5EF">
+    <path d="M150 1190 l10 30 30 10 -30 10 -10 30 -10 -30 -30 -10 30 -10z"/>
+    <path d="M930 1150 l7 21 21 7 -21 7 -7 21 -7 -21 -21 -7 21 -7z"/>
+    <path d="M90 360 l8 24 24 8 -24 8 -8 24 -8 -24 -24 -8 24 -8z"/>
+  </g>
+  <path d="M120 1720 q60 -50 120 0 t120 0 t120 0" fill="none" stroke="#453516" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="900" cy="1740" r="26" fill="#FCE004"/><circle cx="975" cy="1690" r="14" fill="#F7F5EF"/>
+</svg>
+<div id="cap"><img src="../assets/brand/sj-academy-logo-horizontal-on-brown.svg"></div>
+<div id="card"><div id="follow">Follow</div><div id="swash"></div><div id="name"><span>SJ Academy</span></div></div>
+<svg id="burst" viewBox="-125 -125 250 250"><g transform="rotate(12)">
+  <path id="star" fill="#FCE004" stroke="#151515" stroke-width="6" stroke-linejoin="round" d=""/>
+  <path d="M-34 0 H34 M0 -34 V34" stroke="#151515" stroke-width="18" stroke-linecap="round"/></g></svg>
+<div class="pill" id="p1"><div class="ic"><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#FCE004" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3.2 3 15.8 0 19M12 2.5c-3 3.2-3 15.8 0 19"/></svg></div>sjacademy.pk</div>
+<div class="pill" id="p2"><div class="ic"><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#151515" stroke-width="2" stroke-linejoin="round"><path d="M4 20l1.3-4A8.5 8.5 0 1 1 8.4 19z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.5-2-1.5-2.5-2.5l.8-1-1-2z" fill="#151515" stroke="none"/></svg></div>+92-336-2144454</div>
+<svg id="grain" width="1080" height="1920"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0"/></filter><rect width="1080" height="1920" filter="url(#n)"/></svg>
+<script>
+let d='';for(let i=0;i<24;i++){const r=i%2?84:118,a=Math.PI*2*i/24;d+=(i?'L':'M')+(r*Math.cos(a)).toFixed(1)+' '+(r*Math.sin(a)).toFixed(1)}
+document.getElementById('star').setAttribute('d',d+'Z');
+</script>
+</body></html>

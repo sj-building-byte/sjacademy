@@ -1,0 +1,698 @@
+<!-- SJ Academy past paper and mark scheme viewer, Elementor HTML widget. Version 2.4, 30 October 2026. File list checked against Backblaze on 30 October 2026.
+     Page: /past-paper-viewer/. Family: Tool.
+     Build: Elementor Full Width, Hide Title = Yes. One HTML widget in a full-width section, zero padding, no entrance animation.
+     Set in Yoast: Title  Past Paper & Mark Scheme Viewer | O and A Level | SJ Academy
+                   Meta   View Cambridge O and A Level past papers and mark schemes side by side. Try the question first, then check the marks. Free, no sign-up.
+                   Canonical  https://www.sjacademy.pk/past-paper-viewer/  (the clean address, so ?level=... links are not indexed on their own)
+                   Focus keyphrase  to be set after keyword research
+     Deep links: /past-paper-viewer/?level=o-level&subject=biology&series=2025-mj&paper=31&marks=show
+                 series: 2025-mj is May/June 2025, 2025-on is Oct/Nov 2025. paper: paper digit then variant digit, so 31 is Paper 3, Variant 1.
+                 marks=show opens the mark scheme too. Never use "year" in the address: WordPress reads it as a date archive and shows a 404.
+                 Any prefix works (level only, level and subject, and so on). Other query parts such as utm tags are kept.
+                 The Share button sends the open paper with its mark scheme showing.
+     GA4 events: tool_start, tool_complete, mark_scheme_reveal, insert_view, fullscreen_open, share_click, paper_unavailable, open_in_new_tab, whatsapp_click, homepage_click.
+                 Parameters: level, subject, series, paper, plus entry (manual or link), method (button, toggle, link; for share_click: share or copy), type, file, link_location, page_family.
+     File list: run check-files.py (same folder) on your own computer before pasting, and again after each upload of new papers.
+                It writes the FILES line below, so the dropdowns only offer papers that are in storage. Tests: tests/viewer-test.js. Notes: BRIEF.md. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+.sjpv{--ink:#151515;--canvas:#F7F5EF;--yellow:#FCE004;--cta:#CC4A00;--cta-hover:#A63D00;--pen:#B54200;--line:#D9D4C7;--tint:#EFEDE6;--muted:#4A4A4A;width:100%;background:var(--canvas);color:var(--ink);font-family:'Poppins',sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;text-align:left}
+.sjpv *,.sjpv *::before,.sjpv *::after{box-sizing:border-box}
+.sjpv [hidden]{display:none!important}
+.sjpv svg{display:block;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sjpv-inner{padding:clamp(16px,3vw,32px)}
+.sjpv-head{text-align:center}
+.sjpv .sjpv-title{margin:0;font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1.65rem,4.6vw,2.5rem);line-height:1.3;color:var(--ink);letter-spacing:0;text-transform:none}
+.sjpv .sjpv-hl{background:linear-gradient(transparent 46%,var(--yellow) 46%,var(--yellow) 90%,transparent 90%);padding:0 .14em;margin:0 -.14em;border-radius:.3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sjpv .sjpv-sub{margin:12px auto 0;max-width:640px;font-size:clamp(15px,2.2vw,17px);line-height:1.5;color:var(--muted)}
+.sjpv-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+.sjpv-field label{display:block;margin:0 0 6px;font-size:13px;font-weight:600;color:var(--ink)}
+.sjpv .sjpv-select{display:block;width:100%;min-height:46px;margin:0;padding:10px 38px 10px 14px;border:1px solid var(--line);border-radius:8px;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23151515' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;color:var(--ink);font-family:'Poppins',sans-serif;font-size:14px;font-weight:500;line-height:1.3;box-shadow:none;-webkit-appearance:none;appearance:none;cursor:pointer;transition:border-color .15s,background-color .15s}
+.sjpv .sjpv-select:hover:not(:disabled){border-color:var(--ink)}
+.sjpv .sjpv-select:disabled{background-color:var(--tint);color:#6B6B6B;cursor:not-allowed}
+.sjpv .sjpv-select:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-color:var(--ink)}
+.sjpv-stage{margin-top:28px}
+.sjpv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sjpv-pane{position:relative;min-width:0;border:1px solid var(--line);border-radius:12px;background:#fff}
+.sjpv-panehead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;min-height:56px;padding:10px 16px;border-bottom:1px solid var(--line);border-radius:12px 12px 0 0;background:#fff}
+.sjpv .sjpv-panetitle{margin:0;font-size:15px;font-weight:600;color:var(--ink)}
+.sjpv-actions{display:flex;flex-wrap:wrap;gap:8px}
+.sjpv .sjpv-btn{display:inline-flex;align-items:center;gap:7px;min-height:36px;margin:0;padding:6px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:border-color .15s,background-color .15s,transform .15s}
+.sjpv .sjpv-btn svg{width:15px;height:15px}
+.sjpv .sjpv-btn:hover{border-color:var(--ink);background:var(--canvas);color:var(--ink)}
+.sjpv .sjpv-btn:active{transform:translateY(1px)}
+.sjpv .sjpv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv-seg{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--tint)}
+.sjpv-seg-thumb{position:absolute;top:3px;left:3px;width:calc((100% - 6px)/2);height:calc(100% - 6px);border-radius:7px;background:#fff;box-shadow:0 1px 2px rgba(21,21,21,.14);transition:transform .2s ease}
+.sjpv-seg.is-learn .sjpv-seg-thumb{transform:translateX(100%)}
+.sjpv .sjpv-seg-btn{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:32px;margin:0;padding:5px 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;line-height:1.2;text-transform:none;letter-spacing:0;white-space:nowrap;box-shadow:none;cursor:pointer;transition:color .15s}
+.sjpv .sjpv-seg-btn svg{width:14px;height:14px}
+.sjpv .sjpv-seg .sjpv-seg-btn,.sjpv .sjpv-seg .sjpv-seg-btn:hover,.sjpv .sjpv-seg .sjpv-seg-btn:focus,.sjpv .sjpv-seg .sjpv-seg-btn:active,.sjpv .sjpv-seg .sjpv-seg-btn:disabled{background:transparent!important;border:0!important;box-shadow:none!important;outline:0!important}
+.sjpv .sjpv-seg .sjpv-seg-btn[aria-pressed="true"]{color:var(--ink)!important;font-weight:700}
+.sjpv .sjpv-seg .sjpv-seg-btn[aria-pressed="false"]{color:#6B675F!important;font-weight:500}
+.sjpv .sjpv-seg .sjpv-seg-btn[aria-pressed="false"]:hover:not(:disabled){color:var(--ink)!important}
+.sjpv .sjpv-seg .sjpv-seg-btn:disabled{opacity:.5;cursor:not-allowed}
+.sjpv .sjpv-seg .sjpv-seg-btn{min-width:124px}
+.sjpv .sjpv-seg .sjpv-seg-btn:focus-visible{box-shadow:0 0 0 2px var(--cta)!important}
+.sjpv button:focus:not(:focus-visible),.sjpv a:focus:not(:focus-visible){outline:0!important}
+.sjpv-body{position:relative;height:clamp(520px,78vh,900px);overflow:hidden;border-radius:0 0 12px 12px;background:#fff}
+.sjpv-frame{display:block;width:100%;height:100%;border:0;background:#fff}
+.sjpv-right .sjpv-frame{transition:filter .15s}
+.sjpv-right.is-locked .sjpv-frame{filter:blur(8px)}
+.sjpv-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font-size:15px;color:var(--muted)}
+.sjpv.has-entry .sjpv-empty{display:none}
+.sjpv:not(.has-entry) .sjpv-frame{display:none}
+.sjpv-lock{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(247,245,239,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s,visibility 0s linear .15s}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.sjpv-lock{background:rgba(247,245,239,.94)}}
+.sjpv.has-entry .sjpv-right.is-locked .sjpv-lock{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .15s,visibility 0s}
+.sjpv-lock-card{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:380px;padding:26px 24px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(21,21,21,.08);text-align:center}
+.sjpv-lock-icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--tint);color:var(--ink)}
+.sjpv-lock-icon svg{width:20px;height:20px}
+.sjpv .sjpv-lock-title{margin:4px 0 0;font-size:20px;font-weight:600;line-height:1.3;color:var(--ink)}
+.sjpv .sjpv-lock-card .sjpv-cta{width:100%;padding:12px 14px;font-size:14px}
+.sjpv .sjpv-lock-text{margin:0 0 8px;font-size:14px;line-height:1.55;color:var(--muted)}
+.sjpv .sjpv-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin:0;padding:12px 22px;border:0;border-radius:8px;background:var(--cta);color:#fff;font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;line-height:1.3;text-align:center;text-decoration:none;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,transform .15s}
+.sjpv .sjpv-cta:hover{background:var(--cta-hover);color:#fff}
+.sjpv .sjpv-cta:active{transform:translateY(1px)}
+.sjpv .sjpv-cta:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv-mobile{display:none}
+.sjpv-band{background:var(--yellow);color:var(--ink);padding:clamp(36px,6vw,64px) clamp(16px,3vw,32px);text-align:center}
+.sjpv-band-in{max-width:680px;margin:0 auto}
+.sjpv .sjpv-band-title{margin:0;font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(1.5rem,3.6vw,2rem);line-height:1.3;color:var(--ink);letter-spacing:0;text-transform:none}
+.sjpv .sjpv-band-text{margin:12px auto 0;max-width:560px;font-size:16px;color:var(--ink)}
+.sjpv-band-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.sjpv .sjpv-ghost{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin:0;padding:12px 22px;border:1.5px solid var(--ink);border-radius:8px;background:transparent;color:var(--ink);font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;line-height:1.3;text-align:center;text-decoration:none;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,color .15s,transform .15s}
+.sjpv .sjpv-ghost:hover{background:var(--ink);color:var(--canvas)}
+.sjpv .sjpv-ghost:active{transform:translateY(1px)}
+.sjpv .sjpv-ghost:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv-right.is-locked .sjpv-mobile{visibility:hidden}
+.sjpv-gone{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;background:#fff;text-align:center}
+.sjpv-gone .sjpv-lock-text{max-width:320px}
+.sjpv-pane.is-missing .sjpv-mobile{display:none!important}
+.sjpv-right.is-missing .sjpv-lock{display:none}
+.sjpv-toolrow{display:none;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin-bottom:10px}
+.sjpv.has-entry .sjpv-toolrow,.sjpv.is-full .sjpv-toolrow{display:flex}
+.sjpv.is-full-fallback{position:fixed;inset:0;z-index:2147483000}
+.sjpv.is-full{display:flex;flex-direction:column;height:100%;overflow:auto}
+.sjpv.is-full .sjpv-inner{flex:1 1 auto;display:flex;flex-direction:column;min-height:0;padding:12px 16px}
+.sjpv.is-full .sjpv-head,.sjpv.is-full .sjpv-band{display:none}
+.sjpv.is-full .sjpv-controls{margin-top:0}
+.sjpv.is-full .sjpv-stage{flex:1 1 auto;display:flex;flex-direction:column;min-height:0;margin-top:12px}
+.sjpv.is-full .sjpv-grid{flex:1 1 auto;min-height:0;grid-template-rows:minmax(0,1fr)}
+.sjpv.is-full .sjpv-pane{display:flex;flex-direction:column;min-height:0}
+.sjpv.is-full .sjpv-panehead{flex:none}
+.sjpv.is-full .sjpv-body{flex:1 1 auto;height:auto;min-height:0}
+.sjpv-bar{display:none}
+.sjpv-loading{position:absolute;inset:0;display:none;align-items:center;justify-content:center;gap:10px;font-size:14px;color:var(--muted)}
+.sjpv-loading::before{content:"";width:18px;height:18px;border:2px solid var(--line);border-top-color:var(--ink);border-radius:50%;animation:sjpv-spin .8s linear infinite}
+@keyframes sjpv-spin{to{transform:rotate(360deg)}}
+.sjpv.has-entry .sjpv-pane.is-loading .sjpv-loading{display:flex}
+.sjpv-pane.is-loading .sjpv-frame{visibility:hidden}
+.sjpv-sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (max-width:1023px) and (min-width:768px){.sjpv-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:767px){
+.sjpv-controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.sjpv-seg-btn svg{display:none!important}
+.sjpv .sjpv-seg-btn{padding:5px 11px}
+.sjpv .sjpv-seg .sjpv-seg-btn{min-width:96px}
+.sjpv-band-row .sjpv-cta,.sjpv-band-row .sjpv-ghost{width:100%}
+}
+.sjpv.is-compact .sjpv-grid{grid-template-columns:1fr}
+.sjpv.is-compact .sjpv-pane{display:none}
+.sjpv.is-compact[data-pane="left"] .sjpv-left,.sjpv.is-compact[data-pane="ms"] .sjpv-right{display:block}
+.sjpv.is-compact .sjpv-frame,.sjpv.is-compact .sjpv-actions,.sjpv.is-compact #sjpv-full,.sjpv.is-compact .sjpv-loading{display:none!important}
+.sjpv.is-compact .sjpv-body{height:auto;min-height:360px}
+.sjpv.is-compact .sjpv-empty{position:static;min-height:280px}
+.sjpv.is-compact.has-entry .sjpv-mobile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:360px;padding:28px 20px;text-align:center}
+.sjpv .sjpv-mobile-meta{margin:0;font-size:14px;color:var(--muted)}
+.sjpv-mobile .sjpv-cta{width:100%;max-width:340px}
+.sjpv.is-compact.has-entry .sjpv-bar{position:sticky;bottom:0;z-index:20;display:flex;gap:6px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--ink)}
+.sjpv .sjpv-bar-btn{flex:1 1 0;min-width:0;min-height:48px;margin:0;padding:8px 6px;border:0;border-radius:8px;background:transparent;color:var(--canvas);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;line-height:1.2;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:background-color .15s,color .15s}
+@media (hover:hover){.sjpv .sjpv-bar-btn:hover{background:#2B2B2B;color:#fff}}
+.sjpv .sjpv-bar-btn[aria-pressed="true"]{background:var(--yellow);color:var(--ink)}
+.sjpv .sjpv-bar-btn:focus-visible{outline:3px solid var(--yellow);outline-offset:-3px}
+@media (max-width:380px){.sjpv-controls{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.sjpv *,.sjpv *::before,.sjpv *::after{transition-duration:0s!important}}
+</style>
+<div class="sjpv" id="sjpv" data-pane="left" data-family="Tool">
+<div class="sjpv-inner">
+<header class="sjpv-head">
+<h1 class="sjpv-title"><span class="sjpv-hl">Past Paper &amp; Mark Scheme Viewer</span></h1>
+<p class="sjpv-sub">Open any Cambridge O and A Level past paper next to its mark scheme. Free, no sign-up.</p>
+</header>
+<section class="sjpv-controls" aria-label="Choose a paper">
+<div class="sjpv-field"><label for="sjpv-level">Level</label><select class="sjpv-select" id="sjpv-level"></select></div>
+<div class="sjpv-field"><label for="sjpv-subject">Subject</label><select class="sjpv-select" id="sjpv-subject"></select></div>
+<div class="sjpv-field"><label for="sjpv-year">Year</label><select class="sjpv-select" id="sjpv-year"></select></div>
+<div class="sjpv-field"><label for="sjpv-paper">Paper</label><select class="sjpv-select" id="sjpv-paper"></select></div>
+</section>
+<p class="sjpv-sr" id="sjpv-status" role="status" aria-live="polite"></p>
+<div class="sjpv-stage">
+<div class="sjpv-toolrow"><button type="button" class="sjpv-btn" id="sjpv-share" aria-label="Share this paper with its mark scheme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4"/><path d="M15.4 6.5l-6.8 4"/></svg><span>Share this paper</span></button><button type="button" class="sjpv-btn" id="sjpv-full" aria-label="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></svg><span>Full screen</span></button></div>
+<div class="sjpv-grid">
+<section class="sjpv-pane sjpv-left" aria-label="Question paper">
+<div class="sjpv-panehead"><p class="sjpv-panetitle" id="sjpv-left-title">Question paper</p><div class="sjpv-actions" id="sjpv-actions" hidden></div></div>
+<div class="sjpv-body">
+<iframe class="sjpv-frame" id="sjpv-frame-left" title="Question paper" src="about:blank"></iframe>
+<div class="sjpv-loading" aria-hidden="true">Loading the paper</div>
+<div class="sjpv-empty">Choose a level, subject, year and paper to load it here.</div>
+<div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-left-meta"></p><a class="sjpv-cta" id="sjpv-left-open" href="#" target="_blank" rel="noopener" data-event="open_in_new_tab" data-loc="viewer_mobile" aria-label="Open question paper in new tab">Open question paper in new tab</a></div>
+<div class="sjpv-gone" id="sjpv-left-gone" hidden><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 12.5l5 5"/><path d="M14.5 12.5l-5 5"/></svg></span><p class="sjpv-lock-title" id="sjpv-left-gone-title">This file isn't available.</p><p class="sjpv-lock-text">Try a different variant or year.</p><button type="button" class="sjpv-btn sjpv-pick" aria-label="Choose another paper"><span>Choose another paper</span></button></div>
+</div>
+</section>
+<section class="sjpv-pane sjpv-right is-locked" aria-label="Mark scheme" id="sjpv-right">
+<div class="sjpv-panehead"><p class="sjpv-panetitle">Mark scheme</p>
+<div class="sjpv-seg" id="sjpv-seg" role="group" aria-label="Mark scheme mode"><span class="sjpv-seg-thumb" aria-hidden="true"></span><button type="button" class="sjpv-seg-btn" id="sjpv-cheat" aria-pressed="true" disabled aria-label="Don't cheat: hide the mark scheme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>Don't cheat</span></button><button type="button" class="sjpv-seg-btn" id="sjpv-learn" aria-pressed="false" disabled aria-label="Learn: show the mark scheme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span>Learn</span></button></div>
+</div>
+<div class="sjpv-body">
+<iframe class="sjpv-frame" id="sjpv-frame-right" title="Mark scheme" src="about:blank"></iframe>
+<div class="sjpv-loading" aria-hidden="true">Loading the mark scheme</div>
+<div class="sjpv-empty">The mark scheme appears here.</div>
+<div class="sjpv-mobile"><p class="sjpv-mobile-meta" id="sjpv-right-meta"></p><a class="sjpv-cta" id="sjpv-right-open" href="#" target="_blank" rel="noopener" data-event="open_in_new_tab" data-loc="viewer_mobile" aria-label="Open mark scheme in new tab">Open mark scheme in new tab</a></div>
+<div class="sjpv-gone" id="sjpv-right-gone" hidden><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 12.5l5 5"/><path d="M14.5 12.5l-5 5"/></svg></span><p class="sjpv-lock-title" id="sjpv-right-gone-title">This file isn't available.</p><p class="sjpv-lock-text">Try a different variant or year.</p><button type="button" class="sjpv-btn sjpv-pick" aria-label="Choose another paper"><span>Choose another paper</span></button></div>
+<div class="sjpv-lock" id="sjpv-lock"><div class="sjpv-lock-card"><span class="sjpv-lock-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><p class="sjpv-lock-title">Your answer first.</p><p class="sjpv-lock-text">Write it out, then check it. A mark scheme feels easy to follow until you have to produce one yourself.</p><button type="button" class="sjpv-cta" id="sjpv-unlock" aria-label="I've written my answer. Show the marks.">I've written my answer. Show the marks.</button></div></div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<section class="sjpv-band" aria-label="Classes at SJ Academy">
+<div class="sjpv-band-in">
+<h2 class="sjpv-band-title">Know the content but still losing marks?</h2>
+<p class="sjpv-band-text">SJ Academy teaches O and A Level in class at DHA Phase 7, Karachi, and live online. Past-paper practice is marked to the mark scheme, with feedback on lost marks. Book a free demo class.</p>
+<div class="sjpv-band-row"><a class="sjpv-cta" id="sjpv-wa" href="https://wa.me/923362144454?text=Hi%20SJ%20Academy%2C%20I%27d%20like%20to%20book%20a%20free%20demo%20class.%0AMode%20%28in%20class%20or%20online%29%3A%20%0A%28Ref%3A%20PPV-END%29%0AMy%20name%20is%20" target="_blank" rel="noopener" data-loc="viewer_band" aria-label="Message us on WhatsApp">Message us on WhatsApp</a><a class="sjpv-ghost" href="https://www.sjacademy.pk/" data-event="homepage_click" data-loc="viewer_band" aria-label="Explore SJ Academy">Explore SJ Academy</a></div>
+</div>
+</section>
+<nav class="sjpv-bar" id="sjpv-bar" aria-label="Switch document" hidden></nav>
+</div>
+<script>
+(function () {
+  'use strict';
+  var root = document.getElementById('sjpv');
+  if (!root) return;
+  /* ---- DATA: edit here ----
+     BASE is the folder that holds the past paper PDFs. Each file is built from the live pattern:
+     BASE/A+Level/Subject+%28code%29/May+June+2024/9609_s24_qp_12.pdf (qp question paper, ms mark scheme, in insert, ci confidential instructions)
+     folders: storage folder names to try, most likely first. If the file host says a paper is missing, the viewer tries the next name.
+     papers: paper number and its files. eras: papers that changed with a new syllabus, used from that year on. pv: extra variants for one paper.
+     single: one version per paper, files named qp_01 and ms_1 (Pakistan Studies, Urdu Second Language).
+     old: years that hold the previous syllabus under the new code (storage has 9608 papers as 9618 up to 2021), shown as "(old 9608)".
+     FILES: the files that are really in storage, written by check-files.py. A subject listed there shows exactly those files; the others use the rules. */
+  var BASE = 'https://sjacademy.pk/file/Past-papers-storage';
+  var SESSIONS = [{ code: 'w', label: 'Oct/Nov', folder: 'October+November' }, { code: 's', label: 'May/June', folder: 'May+June' }];
+  var YEARS = [2025, 2024, 2023, 2022, 2021, 2020];
+  var QM = { 1: 'qp ms', 2: 'qp ms' };
+  var QMI = { 1: 'qp ms in', 2: 'qp ms in' };
+  var QM2I = { 1: 'qp ms', 2: 'qp ms in' };
+  var STD = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' };
+  var SCI = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms ci', 4: 'qp ms', 5: 'qp ms' };
+  var OSCI = { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms ci', 4: 'qp ms' };
+  var P3V = { 3: [1, 2, 3, 4, 5] };
+  var LEVELS = [
+    { name: 'A Level', folder: 'A+Level', variants: [1, 2, 3], subjects: [
+      { name: 'Accounting', code: '9706', folders: ['Accounts (9706)'], papers: STD },
+      { name: 'Biology', code: '9700', folders: ['Biology (9700)'], papers: SCI, pv: P3V },
+      { name: 'Business', code: '9609', folders: ['Business (9609)'], papers: STD },
+      { name: 'Chemistry', code: '9701', folders: ['Chemistry (9701)'], papers: SCI, pv: P3V },
+      { name: 'Computer Science', code: '9618', folders: ['Computer Science (9618)'], papers: STD, old: { code: '9608', until: 2021 } },
+      { name: 'Economics', code: '9708', folders: ['Economics (9708)'], papers: STD },
+      { name: 'Literature in English', code: '9695', folders: ['English (9695)'], papers: STD },
+      { name: 'Law', code: '9084', folders: ['Law (9084)'], papers: STD },
+      { name: 'Mathematics', code: '9709', folders: ['Mathematics (9709)'], papers: { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms', 4: 'qp ms', 5: 'qp ms', 6: 'qp ms' } },
+      { name: 'Physics', code: '9702', folders: ['Physics (9702)'], papers: SCI, pv: P3V },
+      { name: 'Psychology', code: '9990', folders: ['Psychology (9990)'], papers: STD },
+      { name: 'Sociology', code: '9699', folders: ['Sociology (9699)'], papers: STD },
+      { name: 'Urdu', code: '9686', folders: ['Urdu (9686)'], variants: [2, 3], papers: { 2: 'qp ms', 3: 'qp ms in', 4: 'qp ms' } }
+    ] },
+    { name: 'O Level', folder: 'O+Level', variants: [1, 2], subjects: [
+      { name: 'Accounting', code: '7707', folders: ['Accounts (7707)', 'Accounting (7707)'], papers: QM },
+      { name: 'Biology', code: '5090', folders: ['Biology (5090)'], papers: { 1: 'qp ms', 2: 'qp ms', 3: 'qp ms ci', 6: 'qp ms' }, eras: [{ from: 2023, papers: OSCI }] },
+      { name: 'Business Studies', code: '7115', folders: ['Business (7115)', 'Business Studies (7115)'], papers: QM2I },
+      { name: 'Chemistry', code: '5070', folders: ['Chemistry (5070)'], papers: OSCI },
+      { name: 'Computer Science', code: '2210', folders: ['Computer (2210)', 'Computer Science (2210)'], papers: QM },
+      { name: 'Economics', code: '2281', folders: ['Economics (2281)'], papers: QM },
+      { name: 'English Language', code: '1123', folders: ['English (1123)', 'English Language (1123)'], papers: { 1: 'qp ms', 2: 'qp ms in' }, eras: [{ from: 2024, papers: { 1: 'qp ms in', 2: 'qp ms' } }] },
+      { name: 'Islamiyat', code: '2058', folders: ['Islamiat (2058)', 'Islamiyat (2058)'], papers: QM },
+      { name: 'Mathematics D', code: '4024', folders: ['Mathematics (4024)', 'Mathematics D (4024)'], papers: QM },
+      { name: 'Pakistan Studies', code: '2059', folders: ['Pakistan studies (2059)', 'Pakistan Studies (2059)'], single: true, papers: QMI },
+      { name: 'Physics', code: '5054', folders: ['Physics (5054)'], papers: OSCI },
+      { name: 'Urdu Second Language', code: '3248', folders: ['Urdu (3248)', 'Urdu Second Language (3248)'], single: true, papers: QM }
+    ] }
+  ];
+  /* FILES-START (check-files.py rewrites the next line) */
+  var FILES = {"A Level/Accounting":{"f":"Accounts (9706)","s":{"s15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","s17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","s18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","s19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_34 ms_34 in_34","s22":"qp_11 ms_11 qp_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 in_41 qp_42 ms_42 in_42 qp_43 ms_43 in_43","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 in_41 qp_42 ms_42 in_42 qp_43 ms_43 in_43","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 in_41 qp_42 ms_42 in_42 qp_43 ms_43 in_43","s26":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 in_41 qp_42 ms_42 in_42 qp_43 ms_43 in_43","w15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","w17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","w18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","w19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 in_41 qp_42 ms_42 in_42 qp_43 ms_43 in_43","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 in_41 qp_42 ms_42 in_42 qp_43 ms_43 in_43","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 in_41 qp_42 ms_42 in_42 qp_43 ms_43 in_43"}},"A Level/Biology":{"f":"Biology (9700)","s":{"s15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 qp_43 qp_51 qp_52 qp_53 ms_53","s18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_44 ms_44 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_54 ms_54","w15":"qp_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_44 ms_44 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_54 ms_54"}},"A Level/Business":{"f":"Business (9609)","s":{"s16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","s17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","s18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 in_32 qp_33 ms_33","s19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 in_32 qp_33 ms_33","s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_34 ms_34","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s26":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","w17":"qp_11 ms_11 qp_12 ms_12 qp_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","w18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 in_32 qp_33 ms_33","w19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 in_32 qp_33 ms_33","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_33 ms_33 in_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43"}},"A Level/Chemistry":{"f":"Chemistry (9701)","s":{"s15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s17":"qp_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41","s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 ci_31 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_44 ms_44 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_54 ms_54","w15":"qp_12 ms_12","w16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 ci_31 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_36 ms_36 ci_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_54 ms_54"}},"A Level/Computer Science":{"f":"Computer Science (9618)","s":{"s15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 in_21 qp_22 ms_22 in_22 qp_23 ms_23 in_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 in_21 qp_22 ms_22 in_22 qp_23 ms_23 in_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s26":"qp_11 ms_11 in_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 in_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 in_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w15":"qp_11 ms_11 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41","w18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 in_21 qp_22 ms_22 in_22 qp_23 ms_23 in_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43"}},"A Level/Economics":{"f":"Economics (9708)","s":{"s15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s24":"qp_11 ms_11 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_44 ms_44","s26":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_44 ms_44","w15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_44 ms_44"}},"A Level/Law":{"f":"Law (9084)","s":{"s20":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23 qp_32 ms_32 qp_33 ms_33 qp_42 ms_42 qp_43 ms_43","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42"}},"A Level/Literature in English":{"f":"English (9695)","s":{"s15":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 qp_42 qp_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 qp_62 qp_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","s16":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","s17":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","s18":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","s19":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","s20":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w15":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 qp_73","w16":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","w17":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","w18":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","w19":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","w20":"qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43"}},"A Level/Mathematics":{"f":"Mathematics (9709)","s":{"s15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","s16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","s17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32","s18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42","s19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 qp_22 qp_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","s25":"qp_11 qp_12 ms_12 qp_13 ms_13 qp_15 ms_15 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_25 ms_25 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_45 ms_45 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_55 ms_55 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_65 ms_65","s26":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_15 ms_15 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_25 ms_25 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_45 ms_45 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_55 ms_55 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_65 ms_65","w15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","w16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","w17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","w18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_71 ms_71 qp_72 ms_72 qp_73 ms_73","w19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_72 ms_72 qp_73 ms_73","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63","w25":"qp_11 ms_11 qp_12 qp_13 ms_13 qp_15 ms_15 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_25 ms_25 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_45 ms_45 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_55 ms_55 qp_61 ms_61 qp_62 ms_62 qp_63 ms_63 qp_65 ms_65"}},"A Level/Physics":{"f":"Physics (9702)","s":{"s15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s16":"qp_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_44 ms_44 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_54 ms_54","s26":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_44 ms_44 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_54 ms_54","w15":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w16":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w17":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36","w18":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w19":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_33 ms_33 qp_34 ms_34 qp_35 ms_35 qp_36 ms_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_36 ms_36 ci_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_36 ms_36 ci_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_36 ms_36 ci_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_36 ms_36 ci_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 ci_31 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_36 ms_36 ci_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_31 ms_31 ci_31 qp_33 ms_33 ci_33 qp_34 ms_34 ci_34 qp_35 ms_35 ci_35 qp_36 ms_36 ci_36 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43 qp_44 ms_44 qp_51 ms_51 qp_52 ms_52 qp_53 ms_53 qp_54 ms_54"}},"A Level/Psychology":{"f":"Psychology (9990)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43"}},"A Level/Sociology":{"f":"Sociology (9699)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","s21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_14 ms_14 qp_22 ms_22 qp_23 ms_23 qp_24 ms_24 qp_32 ms_32 qp_33 ms_33 qp_34 ms_34 qp_42 ms_42 qp_43 ms_43","s22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","s25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w20":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33","w21":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w22":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w23":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w24":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43","w25":"qp_11 ms_11 qp_12 ms_12 qp_13 ms_13 qp_21 ms_21 qp_22 ms_22 qp_23 ms_23 qp_31 ms_31 qp_32 ms_32 qp_33 ms_33 qp_41 ms_41 qp_42 ms_42 qp_43 ms_43"}},"A Level/Urdu":{"f":"Urdu (9686)","s":{"s15":"qp_2 ms_2 qp_3 ms_3 qp_4 ms_4","s16":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","s17":"qp_2 ms_2 qp_3 ms_3 qp_4 ms_4","s18":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","s19":"qp_2 ms_2 qp_3 ms_3 qp_4 ms_4","s20":"qp_02 ms_2 qp_03 ms_3","s21":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","s22":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","s23":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","s24":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","s25":"qp_02 ms_2 in_02 qp_03 ms_3 qp_04 ms_4","w15":"qp_2 ms_2 qp_3 ms_3 qp_4 ms_4","w16":"qp_2 ms_2 qp_3 ms_3 qp_4 ms_4","w17":"qp_2 ms_2 qp_3 ms_3 qp_4 ms_4","w18":"qp_02 ms_2 qp_03 ms_3","w19":"qp_2 ms_2 qp_3 ms_3 qp_4 ms_4","w20":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","w21":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","w22":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","w23":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","w24":"qp_02 ms_2 qp_03 ms_3 qp_04 ms_4","w25":"qp_02 ms_2 in_02 qp_03 ms_3 qp_04 ms_4"}},"O Level/Accounting":{"f":"Accounts (7707)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s21":"qp_11 qp_12 ms_12 qp_21 qp_22 qp_24 ms_24","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w20":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w21":"qp_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w22":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w23":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w24":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w25":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23"}},"O Level/Biology":{"f":"Biology (5090)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_61 ms_61 qp_62 ms_62","s21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_61 ms_61 qp_62 ms_62","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_61 ms_61 qp_62 ms_62","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_41 ms_41 qp_42 ms_42","s24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","s25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","w20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_61 ms_61 qp_62 ms_62","w21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_61 ms_61 qp_62 ms_62","w22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_61 ms_61 qp_62 ms_62","w23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42"}},"O Level/Business Studies":{"f":"Business (7115)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","s21":"qp_11 ms_11 qp_12 ms_12 qp_14 ms_14 qp_21 ms_21 in_21 qp_22 ms_22 in_22 qp_24 ms_24 in_24","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","s24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","s25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","w20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","w21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","w22":"qp_11 ms_11 qp_12 ms_12 qp_14 ms_14 qp_21 ms_21 in_21 qp_22 ms_22 in_22 qp_24 ms_24","w23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","w24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","w25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22"}},"O Level/Chemistry":{"f":"Chemistry (5070)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","s21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","s24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","s25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","w20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 in_31 qp_32 ms_32 in_32 qp_41 ms_41 qp_42 ms_42","w21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_41 ms_41 qp_42 ms_42","w22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","w23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","w24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","w25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42"}},"O Level/Computer Science":{"f":"Computer (2210)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w20":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w21":"qp_12 ms_12 qp_22 ms_22","w22":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w23":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w24":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w25":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23"}},"O Level/Economics":{"f":"Economics (2281)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w20":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w21":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w22":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w23":"qp_12 ms_12 qp_22 ms_22 qp_23 ms_23","w24":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w25":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23"}},"O Level/English Language":{"f":"English (1123)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","s21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","s24":"qp_11 ms_11 in_11 qp_12 ms_12 in_12 qp_21 ms_21 qp_22 ms_22","s25":"qp_11 ms_11 in_11 qp_12 ms_12 in_12 qp_21 ms_21 qp_22 ms_22","w20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","w21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","w22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","w23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 in_21 qp_22 ms_22 in_22","w24":"qp_11 ms_11 in_11 qp_12 ms_12 in_12 qp_21 ms_21 qp_22 ms_22","w25":"qp_11 ms_11 in_11 qp_21 ms_21 qp_22 ms_22"}},"O Level/Islamiyat":{"f":"Islamiat (2058)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22"}},"O Level/Mathematics D":{"f":"Mathematics (4024)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","s25":"qp_12 ms_12 qp_13 ms_13 qp_22 ms_22 qp_23 ms_23","w20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22","w25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22"}},"O Level/Pakistan Studies":{"f":"Pakistan studies (2059)","s":{"s20":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","s21":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","s22":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","s23":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","s24":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","s25":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","w20":"qp_01 ms_1 in_01","w21":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","w22":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","w23":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","w24":"qp_01 ms_1 in_01 qp_02 ms_2 in_02","w25":"qp_01 ms_1 in_01 qp_02 ms_2 in_02"}},"O Level/Physics":{"f":"Physics (5054)","s":{"s20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","s21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","s22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","s23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","s24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","s25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 ci_31 qp_32 ms_32 ci_32 qp_41 ms_41 qp_42 ms_42","w20":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w21":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w22":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w23":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w24":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42","w25":"qp_11 ms_11 qp_12 ms_12 qp_21 ms_21 qp_22 ms_22 qp_31 ms_31 qp_32 ms_32 qp_41 ms_41 qp_42 ms_42"}},"O Level/Urdu Second Language":{"f":"Urdu (3248)","s":{"s20":"qp_01 ms_1 qp_02 ms_2","s21":"qp_01 ms_1 qp_02 ms_2","s22":"qp_01 ms_1 qp_02 ms_2","s23":"qp_01 ms_1 qp_02 ms_2","s24":"qp_01 ms_1 qp_02 ms_2","s25":"qp_01 ms_1 qp_02 ms_2","w20":"qp_01 ms_1 qp_02 ms_2","w21":"qp_01 ms_1 qp_02 ms_2","w22":"qp_01 ms_1 qp_02 ms_2","w23":"qp_01 ms_1 qp_02 ms_2","w24":"qp_01 ms_1 qp_02 ms_2","w25":"qp_01 ms_1 qp_02 ms_2"}}};
+  /* FILES-END */
+  var TYPE_KEY = { qp: 'paper', ms: 'ms', in: 'insert', ci: 'ci' };
+  function papersFor(s, y) {
+    var p = s.papers;
+    (s.eras || []).forEach(function (er) { if (y >= er.from) p = er.papers; });
+    return p;
+  }
+  /* File names for one series from the rules, for example qp_12, ms_12, in_32 (or qp_01, ms_1 for single papers) */
+  function ruleFiles(lv, s, y) {
+    var out = [], p = papersFor(s, y);
+    Object.keys(p).forEach(function (n) {
+      var types = p[n].split(' ');
+      if (s.single) { types.forEach(function (t) { out.push(t + '_' + (t === 'ms' ? n : '0' + n)); }); return; }
+      ((s.pv && s.pv[n]) || s.variants || lv.variants).forEach(function (v) { types.forEach(function (t) { out.push(t + '_' + n + v); }); });
+    });
+    return out;
+  }
+  /* Groups file names into papers: { "Paper 1, Variant 2": { qp: 'qp_12', ms: 'ms_12' } }. Only papers with a question paper are kept. */
+  function groupFiles(names) {
+    var g = {}, order = [];
+    names.forEach(function (f) {
+      var m = /^(qp|ms|in|ci)_(\d+)$/.exec(f);
+      if (!m) return;
+      var c = m[2].replace(/^0(\d)$/, '$1');
+      var key = c.length === 1 ? 'Paper ' + c : 'Paper ' + c.charAt(0) + ', Variant ' + c.slice(1);
+      if (!g[key]) { g[key] = { sort: c.length === 1 ? +c * 100 : +c.charAt(0) * 100 + +c.slice(1) }; order.push(key); }
+      g[key][m[1]] = f;
+    });
+    var out = {};
+    order.filter(function (k) { return g[k].qp; }).sort(function (a, b) { return g[a].sort - g[b].sort; }).forEach(function (k) { out[k] = g[k]; });
+    return out;
+  }
+  function buildData() {
+    var out = {};
+    LEVELS.forEach(function (lv) {
+      var lvl = (out[lv.name] = {});
+      lv.subjects.forEach(function (s) {
+        var known = FILES[lv.name + '/' + s.name];
+        s.lv = lv;
+        s.fi = 0;
+        if (known) { s.folders = [known.f]; s.known = true; }
+        var subj = {}, years = YEARS.slice();
+        if (known) {
+          years = [];
+          Object.keys(known.s).forEach(function (k) { var y = 2000 + +k.slice(1); if (years.indexOf(y) < 0) years.push(y); });
+          years.sort(function (a, b) { return b - a; });
+        }
+        years.forEach(function (y) {
+          SESSIONS.forEach(function (se) {
+            var names = known ? (known.s[se.code + String(y).slice(-2)] || '').split(' ').filter(Boolean) : ruleFiles(lv, s, y);
+            var groups = groupFiles(names), list = {};
+            Object.keys(groups).forEach(function (k) { list[k] = { s: s, se: se, y: y, files: groups[k] }; });
+            if (Object.keys(list).length) subj[y + ' ' + se.label + (s.old && y <= s.old.until ? ' (old ' + s.old.code + ')' : '')] = list;
+          });
+        });
+        if (Object.keys(subj).length) lvl[s.name] = subj;
+      });
+    });
+    return out;
+  }
+  var DATA = buildData();
+  var SUBJ = {};
+  LEVELS.forEach(function (lv) { lv.subjects.forEach(function (s) { SUBJ[lv.name + '/' + s.name] = s; }); });
+  function fileUrl(e, f) {
+    var s = e.s, folder = s.folders[s.fi].replace(/ /g, '+').replace(/\(/g, '%28').replace(/\)/g, '%29');
+    return BASE + '/' + s.lv.folder + '/' + folder + '/' + e.se.folder + '+' + e.y + '/' + s.code + '_' + e.se.code + String(e.y).slice(-2) + '_' + f + '.pdf';
+  }
+  /* Sets e.paper, e.ms, e.insert, e.ci to full links for the folder in use. A mark scheme that FILES does not list is marked missing. */
+  function setUrls(e) {
+    var fl = e.files;
+    ['paper', 'ms', 'insert', 'ci'].forEach(function (k) { delete e[k]; });
+    Object.keys(TYPE_KEY).forEach(function (t) { if (fl[t]) e[TYPE_KEY[t]] = fileUrl(e, fl[t]); });
+    if (!e.ms) { e.ms = fileUrl(e, fl.qp.replace(/^qp/, 'ms')); if (e.s.known) avail[e.ms] = 'missing'; }
+    if (e.s.known) ['paper', 'insert', 'ci'].forEach(function (k) { if (e[k]) avail[e[k]] = 'ok'; });
+    if (e.s.known && fl.ms) avail[e.ms] = 'ok';
+  }
+  /* Tries the other folder names when the first answers 404. Stops when the host cannot be asked (CORS). */
+  function resolveFolder(e) {
+    var s = e.s;
+    if (s.known || s.folderFixed || s.folders.length < 2) return Promise.resolve();
+    return check(e.paper).then(function () {
+      var st = avail[e.paper];
+      if (st === 'ok') { s.folderFixed = true; return; }
+      if (st !== 'missing' || s.fi >= s.folders.length - 1) { if (st === 'missing') { s.fi = 0; setUrls(e); } return; }
+      s.fi++;
+      setUrls(e);
+      return resolveFolder(e);
+    });
+  }
+  /* ---- UI ---- */
+  var el = function (id) { return document.getElementById('sjpv-' + id); };
+  var selLevel = el('level'), selSubject = el('subject'), selYear = el('year'), selPaper = el('paper');
+  var frameL = el('frame-left'), frameR = el('frame-right'), rightPane = el('right');
+  var seg = el('seg'), btnCheat = el('cheat'), btnLearn = el('learn');
+  var actions = el('actions'), bar = el('bar'), wa = el('wa'), fullBtn = el('full');
+  var TITLES = { paper: 'Question paper', insert: 'Insert', ci: 'Confidential instructions' };
+  var ICONS = {
+    file: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>',
+    back: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>',
+    expand: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9V4h5"/><path d="M20 9V4h-5"/><path d="M4 15v5h5"/><path d="M20 15v5h-5"/></svg>',
+    shrink: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4v5H4"/><path d="M15 4v5h5"/><path d="M9 20v-5H4"/><path d="M15 20v-5h5"/></svg>'
+  };
+  var avail = {}, pending = {};
+  function check(url) {
+    if (avail[url]) return Promise.resolve();
+    if (pending[url]) return pending[url];
+    pending[url] = new Promise(function (resolve) {
+      var done = function (v) { if (!avail[url]) avail[url] = v; resolve(); };
+      if (!window.fetch) { done('unknown'); return; }
+      var ctl = window.AbortController ? new AbortController() : null;
+      var t = setTimeout(function () { if (ctl) ctl.abort(); done('unknown'); }, 6000);
+      fetch(url, { method: 'HEAD', mode: 'cors', signal: ctl ? ctl.signal : undefined })
+        .then(function (r) { clearTimeout(t); done(r.ok ? 'ok' : r.status === 404 || r.status === 410 ? 'missing' : 'unknown'); })
+        .catch(function () { clearTimeout(t); done('unknown'); });
+    });
+    return pending[url];
+  }
+  function pickPaper() {
+    selPaper.scrollIntoView({ block: 'center' });
+    selPaper.focus();
+    try { if (selPaper.showPicker) selPaper.showPicker(); } catch (x) {}
+  }
+  var state = { entry: null, label: '', left: 'paper', pane: 'left', learn: false };
+  var started = false, linkLoading = false;
+  /* ---- Measurement (GA4). Same style as the other pages: one event name per action. ---- */
+  function ctx() {
+    var o = { level: selLevel.value, subject: selSubject.value, series: selYear.value, paper: selPaper.value };
+    Object.keys(o).forEach(function (k) { if (!o[k]) delete o[k]; });
+    return o;
+  }
+  function track(name, extra) {
+    var g = window['gt' + 'ag'];
+    if (typeof g !== 'function') return;
+    var p = ctx();
+    p.page_family = root.getAttribute('data-family') || '';
+    p.link_location = 'viewer';
+    if (extra) Object.keys(extra).forEach(function (k) { p[k] = extra[k]; });
+    g('event', name, p);
+  }
+  function markStart() {
+    if (started || linkLoading) return;
+    started = true;
+    track('tool_start');
+  }
+  /* ---- Deep links: ?level=o-level&subject=biology&year=2025-mj&paper=31 ---- */
+  var SLUG_SESSION = { 'May/June': 'mj', 'Oct/Nov': 'on' };
+  function slug(t) { return String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); }
+  function yearSlug(k) {
+    var m = /^(\d{4}) (May\/June|Oct\/Nov|.+)/.exec(k);
+    return m ? m[1] + '-' + (SLUG_SESSION[m[2]] || slug(m[2])) : slug(k);
+  }
+  function paperSlug(k) {
+    var m = /^Paper (\d)(?:, Variant (\d))?$/.exec(k);
+    return m ? m[1] + (m[2] || '') : slug(k);
+  }
+  function applyDeepLink() {
+    if (!window.URLSearchParams) return;
+    var q = new URLSearchParams(location.search);
+    var steps = [['level', selLevel, slug], ['subject', selSubject, slug], ['series', selYear, yearSlug], ['paper', selPaper, paperSlug]];
+    for (var i = 0; i < steps.length; i++) {
+      var v = q.get(steps[i][0]) || (i === 2 ? q.get('year') : '');
+      if (!v) break;
+      var sel = steps[i][1], fn = steps[i][2], hit = false;
+      for (var j = 0; j < sel.options.length; j++) {
+        if (sel.options[j].value && fn(sel.options[j].value) === v.toLowerCase()) { sel.value = sel.options[j].value; hit = true; break; }
+      }
+      if (!hit) break;
+      sel.dispatchEvent(new Event('change'));
+    }
+    if (state.entry && q.get('marks') === 'show') setLearn('link');
+  }
+  /* The address for the current choice. marks=show is added when the mark scheme is open, or always for the Share button. */
+  function linkFor(showMarks) {
+    var q = new URLSearchParams(location.search);
+    var vals = { level: selLevel.value && slug(selLevel.value), subject: selSubject.value && slug(selSubject.value), series: selYear.value && yearSlug(selYear.value), paper: selPaper.value && paperSlug(selPaper.value), marks: showMarks && state.entry ? 'show' : '' };
+    q.delete('year');
+    Object.keys(vals).forEach(function (k) { if (vals[k]) q.set(k, vals[k]); else q.delete(k); });
+    var qs = q.toString();
+    return location.pathname + (qs ? '?' + qs : '') + location.hash;
+  }
+  function syncUrl() {
+    if (!window.URLSearchParams || !window.history || !history.replaceState) return;
+    try { history.replaceState(null, '', linkFor(state.learn)); } catch (x) {}
+  }
+  /* Share: the phone's share sheet when there is one, otherwise copy the link */
+  var shareBtn = el('share'), shareTimer = null;
+  function shareLabel(t) {
+    shareBtn.querySelector('span').textContent = t;
+    clearTimeout(shareTimer);
+    if (t !== 'Share this paper') shareTimer = setTimeout(function () { shareLabel('Share this paper'); }, 2500);
+  }
+  shareBtn.addEventListener('click', function () {
+    if (!state.entry || !window.URLSearchParams) return;
+    var url = location.origin + linkFor(true);
+    var title = state.label + ' with mark scheme';
+    if (navigator.share && compact()) {
+      track('share_click', { method: 'share' });
+      navigator.share({ title: title, url: url }).catch(function () {});
+      return;
+    }
+    track('share_click', { method: 'copy' });
+    var copied = function () { shareLabel('Link copied'); announce('Link copied.'); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(copied, function () { window.prompt('Copy this link:', url); });
+    else window.prompt('Copy this link:', url);
+  });
+  /* Phone layout: narrow screens, phones turned sideways, and browsers that cannot show a PDF inside the page (Chrome on Android) */
+  var mq = window.matchMedia('(max-width: 767px), (max-height: 500px) and (pointer: coarse)');
+  var noInline = navigator.pdfViewerEnabled === false;
+  var narrow = window.matchMedia('(max-width: 767px)');
+  function compact() { return mq.matches || noInline; }
+  function announce(t) { var st = el('status'); st.textContent = ''; setTimeout(function () { st.textContent = t; }, 60); }
+  function fill(select, keys, placeholder, label) {
+    select.innerHTML = '';
+    select.appendChild(new Option(placeholder, ''));
+    keys.forEach(function (k) { select.appendChild(new Option(label ? label(k) : k, k)); });
+    select.disabled = keys.length === 0;
+  }
+  function keysOf(o) { return o ? Object.keys(o) : []; }
+  function node(level, subject, year) {
+    var n = DATA[level];
+    if (subject !== undefined) n = n && n[subject];
+    if (year !== undefined) n = n && n[year];
+    return n || null;
+  }
+  function setSrc(frame, url) {
+    var want = url || '';
+    if (frame.getAttribute('data-url') === want) return;
+    frame.setAttribute('data-url', want);
+    frame.setAttribute('data-loaded', '0');
+    frame.src = want ? want + '#view=FitH' : 'about:blank';
+    if (want) setTimeout(function () { if (frame.getAttribute('data-url') === want) frameLoaded(frame); }, 12000);
+  }
+  /* The loading message hides when the PDF arrives, or after 12 seconds in case the browser never reports it */
+  function frameLoaded(frame) {
+    if (!frame.getAttribute('data-url') || frame.getAttribute('data-loaded') === '1') return;
+    frame.setAttribute('data-loaded', '1');
+    render();
+  }
+  [frameL, frameR].forEach(function (f) { f.addEventListener('load', function () { frameLoaded(f); }); });
+  function mkBtn(cls, text, aria, onClick, icon) {
+    var b = document.createElement('button');
+    var t = document.createElement('span');
+    b.type = 'button';
+    b.className = cls;
+    if (icon) b.innerHTML = icon;
+    t.textContent = text;
+    b.appendChild(t);
+    b.setAttribute('aria-label', aria);
+    b.addEventListener('click', onClick);
+    return b;
+  }
+  function buildBar() {
+    var e = state.entry;
+    bar.innerHTML = '';
+    if (!e) return;
+    var items = [['paper', 'Paper', 'Show question paper']];
+    if (e.insert && avail[e.insert] !== 'missing') items.push(['insert', 'Insert', 'Show insert']);
+    if (e.ci && avail[e.ci] !== 'missing') items.push(['ci', 'Confidential', 'Show confidential instructions']);
+    items.push(['ms', 'Mark scheme', 'Show mark scheme']);
+    items.forEach(function (it) {
+      var b = mkBtn('sjpv-bar-btn', it[1], it[2], function () {
+        if (it[0] === 'ms') { state.pane = 'ms'; }
+        else { state.left = it[0]; state.pane = 'left'; if (it[0] !== 'paper') track('insert_view', { type: it[0] }); }
+        render();
+      });
+      b.setAttribute('data-k', it[0]);
+      bar.appendChild(b);
+    });
+  }
+  function buildActions() {
+    var e = state.entry;
+    actions.innerHTML = '';
+    if (e) {
+      if (state.left === 'paper') {
+        if (e.insert && avail[e.insert] !== 'missing') actions.appendChild(mkBtn('sjpv-btn', 'Insert', 'View insert', function () { state.left = 'insert'; track('insert_view', { type: 'insert' }); render(); focusAction(); }, ICONS.file));
+        if (e.ci && avail[e.ci] !== 'missing') actions.appendChild(mkBtn('sjpv-btn', 'Confidential', 'View confidential instructions', function () { state.left = 'ci'; track('insert_view', { type: 'ci' }); render(); focusAction(); }, ICONS.file));
+      } else {
+        actions.appendChild(mkBtn('sjpv-btn', 'Back to Paper', 'Back to Paper', function () { state.left = 'paper'; render(); focusAction(); }, ICONS.back));
+      }
+    }
+    actions.hidden = !actions.firstChild;
+  }
+  function focusAction() { if (actions.firstChild) actions.firstChild.focus(); }
+  function waLink() {
+    var msg = "Hi SJ Academy, I'd like to book a free demo class.";
+    if (selSubject.value) msg += '\nLevel: ' + selLevel.value + '\nSubject: ' + selSubject.value;
+    msg += '\nMode (in class or online): \n(Ref: PPV-END)\nMy name is ';
+    wa.href = 'https://wa.me/923362144454?text=' + encodeURIComponent(msg);
+  }
+  function render() {
+    var e = state.entry, mobile = compact(), learn = state.learn;
+    root.classList.toggle('is-compact', mobile);
+    var leftUrl = e ? e[state.left] : '';
+    var title = TITLES[state.left];
+    root.classList.toggle('has-entry', !!e);
+    root.setAttribute('data-pane', state.pane);
+    var sL = e ? (avail[leftUrl] || 'pending') : '', sR = e ? (avail[e.ms] || 'pending') : '';
+    var goneL = sL === 'missing', goneR = sR === 'missing';
+    setSrc(frameL, mobile || !e || sL === 'pending' || goneL ? '' : leftUrl);
+    setSrc(frameR, mobile || !e || sR === 'pending' || goneR ? '' : e.ms);
+    frameL.parentNode.parentNode.classList.toggle('is-loading', !!e && !goneL && (sL === 'pending' || frameL.getAttribute('data-loaded') !== '1'));
+    rightPane.classList.toggle('is-loading', !!e && !goneR && (sR === 'pending' || frameR.getAttribute('data-loaded') !== '1'));
+    el('left-gone').hidden = !goneL;
+    el('right-gone').hidden = !goneR;
+    el('left-gone-title').textContent = 'This ' + title.toLowerCase() + " isn't available.";
+    el('right-gone-title').textContent = "This mark scheme isn't available.";
+    el('left-gone').parentNode.parentNode.classList.toggle('is-missing', goneL);
+    rightPane.classList.toggle('is-missing', goneR);
+    frameL.title = title;
+    el('left-title').textContent = title;
+    var lo = el('left-open');
+    if (e) {
+      lo.href = leftUrl;
+      lo.textContent = 'Open ' + title.toLowerCase() + ' in new tab';
+      lo.setAttribute('aria-label', lo.textContent);
+      el('right-open').href = e.ms;
+    }
+    el('left-meta').textContent = e ? state.label : '';
+    el('right-meta').textContent = e ? state.label : '';
+    rightPane.classList.toggle('is-locked', !learn);
+    frameR.inert = !learn;
+    frameR.tabIndex = learn ? 0 : -1;
+    if (learn) frameR.removeAttribute('aria-hidden'); else frameR.setAttribute('aria-hidden', 'true');
+    seg.classList.toggle('is-learn', learn);
+    btnCheat.disabled = btnLearn.disabled = !e || goneR;
+    btnCheat.setAttribute('aria-pressed', String(!learn));
+    btnLearn.setAttribute('aria-pressed', String(learn));
+    bar.hidden = !e;
+    Array.prototype.forEach.call(bar.children, function (b) {
+      var k = b.getAttribute('data-k');
+      b.setAttribute('aria-pressed', String(state.pane === 'ms' ? k === 'ms' : k === state.left));
+    });
+    buildActions();
+    waLink();
+  }
+  function clearEntry() {
+    state.entry = null; state.left = 'paper'; state.pane = 'left'; state.learn = false;
+    buildBar();
+    render();
+  }
+  selLevel.addEventListener('change', function () {
+    markStart();
+    fill(selSubject, keysOf(node(selLevel.value)), 'Choose subject', function (k) { var s = SUBJ[selLevel.value + '/' + k]; return s && !narrow.matches ? k + ' (' + s.code + ')' : k; });
+    fill(selYear, [], 'Choose year');
+    fill(selPaper, [], 'Choose paper');
+    clearEntry();
+    syncUrl();
+  });
+  selSubject.addEventListener('change', function () {
+    markStart();
+    fill(selYear, keysOf(node(selLevel.value, selSubject.value)), 'Choose year');
+    fill(selPaper, [], 'Choose paper');
+    clearEntry();
+    syncUrl();
+  });
+  selYear.addEventListener('change', function () {
+    markStart();
+    fill(selPaper, keysOf(node(selLevel.value, selSubject.value, selYear.value)), 'Choose paper');
+    clearEntry();
+    syncUrl();
+  });
+  selPaper.addEventListener('change', function () {
+    markStart();
+    var list = node(selLevel.value, selSubject.value, selYear.value);
+    state.entry = (list && list[selPaper.value]) || null;
+    if (state.entry) setUrls(state.entry);
+    state.label = state.entry ? selLevel.value + ' ' + selSubject.value + ' (' + state.entry.s.code + ') \u00b7 ' + selYear.value + ' \u00b7 ' + selPaper.value : '';
+    state.left = 'paper'; state.pane = 'left'; state.learn = false;
+    buildBar();
+    render();
+    syncUrl();
+    var chosen = state.entry;
+    if (chosen) {
+      track('tool_complete', { entry: linkLoading ? 'link' : 'manual' });
+      resolveFolder(chosen).then(function () {
+        return Promise.all([chosen.paper, chosen.ms, chosen.insert, chosen.ci].filter(Boolean).map(check));
+      }).then(function () {
+        if (state.entry !== chosen) return;
+        announce(avail[chosen.paper] === 'missing' ? "This question paper isn't available." : 'Loaded ' + state.label + '.');
+        [['question_paper', chosen.paper], ['mark_scheme', chosen.ms], ['insert', chosen.insert], ['confidential', chosen.ci]].forEach(function (f) {
+          if (f[1] && avail[f[1]] === 'missing') track('paper_unavailable', { file: f[0] });
+        });
+        buildBar();
+        render();
+      });
+    }
+  });
+  Array.prototype.forEach.call(root.querySelectorAll('.sjpv-pick'), function (b) { b.addEventListener('click', pickPaper); });
+  btnCheat.addEventListener('click', function () { state.learn = false; render(); syncUrl(); });
+  function setLearn(method) {
+    if (!state.learn) track('mark_scheme_reveal', { method: method });
+    state.learn = true;
+    render();
+    syncUrl();
+  }
+  btnLearn.addEventListener('click', function () { setLearn('toggle'); });
+  el('unlock').addEventListener('click', function () { setLearn('button'); btnLearn.focus(); });
+  if (mq.addEventListener) mq.addEventListener('change', render); else if (mq.addListener) mq.addListener(render);
+  /* Full screen: the browser's Fullscreen API when it works, a fixed full-window layer when it does not */
+  var full = false, fallback = false;
+  function fsEl() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+  function setFull(on, viaFallback) {
+    full = on; fallback = on && viaFallback;
+    root.classList.toggle('is-full', on);
+    root.classList.toggle('is-full-fallback', fallback);
+    document.documentElement.style.overflow = fallback ? 'hidden' : '';
+    var label = on ? 'Exit full screen' : 'Full screen';
+    fullBtn.innerHTML = (on ? ICONS.shrink : ICONS.expand) + '<span>' + label + '</span>';
+    fullBtn.setAttribute('aria-label', label);
+    fullBtn.focus();
+  }
+  function enterFull() {
+    track('fullscreen_open');
+    var req = root.requestFullscreen || root.webkitRequestFullscreen;
+    if (!req) { setFull(true, true); return; }
+    var r;
+    try { r = req.call(root); } catch (x) { setFull(true, true); return; }
+    if (r && r.catch) r.catch(function () { setFull(true, true); });
+  }
+  function exitFull() {
+    if (fsEl() === root) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+    else setFull(false, false);
+  }
+  fullBtn.addEventListener('click', function () { if (full) exitFull(); else enterFull(); });
+  function onFsChange() {
+    if (fsEl() === root) setFull(true, false);
+    else if (full && !fallback) setFull(false, false);
+  }
+  document.addEventListener('fullscreenchange', onFsChange);
+  document.addEventListener('webkitfullscreenchange', onFsChange);
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && full && fallback) exitFull(); });
+  /* Link clicks: whatsapp_click and homepage_click as on the other pages, open_in_new_tab on phones. Location from data-loc */
+  root.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var name = href.indexOf('wa.me') > -1 ? 'whatsapp_click' : a.getAttribute('data-event');
+    if (name) track(name, { link_location: a.getAttribute('data-loc') || 'unknown' });
+  });
+  fill(selLevel, keysOf(DATA), 'Choose level');
+  fill(selSubject, [], 'Choose subject');
+  fill(selYear, [], 'Choose year');
+  fill(selPaper, [], 'Choose paper');
+  if (selLevel.options.length === 2) {
+    selLevel.selectedIndex = 1;
+    selLevel.dispatchEvent(new Event('change'));
+  }
+  linkLoading = true;
+  applyDeepLink();
+  linkLoading = false;
+  render();
+})();
+</script>

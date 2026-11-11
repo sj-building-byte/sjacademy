@@ -1,0 +1,26 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1500px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.82) 38%,rgba(5,8,10,.95))}
+.blk{position:absolute;left:84px;width:780px;bottom:670px}
+.q{font-size:80px;line-height:1.04;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 29px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:30px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:12px}
+.subj svg{flex:none}
+
+</style>
+<div id="root" data-composition-id="essential" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div style="position:absolute;inset:0;background:#06090a"></div><div id="essential-hold" class="blk" style="bottom:auto;top:640px"><div class="q" style="font-size:100px">It is <span class="y">essential</span> for candidates to have experienced practical work…</div><div class="tag">Cambridge examiner report<br>A Level Physics, June 2024</div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#essential-hold",{opacity:1},0);
+
+window.__timelines["essential"] = tl;
+</script>
+</template>

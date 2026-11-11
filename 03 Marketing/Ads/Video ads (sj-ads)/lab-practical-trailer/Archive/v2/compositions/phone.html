@@ -1,0 +1,29 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+@font-face{font-family:'SJTrailerHand';font-weight:500;src:url('assets/fonts/Caveat-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.blk{position:absolute;left:84px;width:770px;bottom:670px}
+.q{font-size:82px;line-height:1.05;letter-spacing:-.01em}
+.tag{font:500 31px/1.3 'SJTrailerMono',monospace;color:#c3ccc8;margin-top:22px}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1420px;background:linear-gradient(180deg,rgba(6,9,10,0),rgba(6,9,10,.88) 34%,rgba(6,9,10,.96))}
+.big{position:absolute;font-style:italic;color:#fff;line-height:.92;letter-spacing:-.01em}
+
+</style>
+<div id="root" data-composition-id="phone" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div id="pf" style="position:absolute;left:315px;top:270px;width:450px;height:800px;border:7px solid #30373a;border-radius:44px;box-shadow:0 0 90px rgba(120,190,255,.16)"></div>
+<div style="position:absolute;left:345px;top:296px;font:500 28px/1.2 'SJTrailerMono',monospace;background:rgba(6,9,10,.7);padding:5px 10px">Karachi, 2:40 am</div>
+<div style="position:absolute;left:640px;top:980px;font:500 34px/1 'SJTrailerMono',monospace;background:#eef0ea;color:#090c0d;padding:7px 11px">1.5x</div>
+<div style="position:absolute;left:345px;top:1044px;width:390px;height:6px;background:rgba(255,255,255,.28)"><div id="pb" style="width:100%;height:100%;background:#ff5a4d;transform-origin:0 50%"></div></div>
+<div id="pt" class="q" style="position:absolute;left:84px;top:1100px;width:770px;font-size:66px">Eleven titrations. All on your phone. At 1.5x.</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#pb",{scaleX:.31},{scaleX:.62,duration:2.4,ease:"none"},0);
+tl.fromTo("#pt",{opacity:0,y:16},{opacity:1,y:0,duration:.22,ease:"power3.out"},0.000);
+
+window.__timelines["phone"] = tl;
+</script>
+</template>

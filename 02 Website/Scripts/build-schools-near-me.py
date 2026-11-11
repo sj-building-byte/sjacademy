@@ -28,7 +28,7 @@ import urllib.request
 SHEET_CSV = "https://docs.google.com/spreadsheets/d/1JeL1ixggGTh60pFQAk8KgnKNTDLh1DZxBi66Tl_D2L8/export?format=csv&gid=0"
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCRIPT_JS = os.path.join(HERE, "sj-page-script.js")
-DEFAULT_OUT = os.path.join(HERE, "..", "Pages", "schools-near-me-elementor-widget.html")
+DEFAULT_OUT = os.path.join(HERE, "..", "Pages", "Tools", "schools-near-me-elementor-widget.html")
 
 SITE = "https://www.sjacademy.pk"
 PAGE_URL = SITE + "/schools-near-me-karachi/"

@@ -50,7 +50,7 @@ def files_by_series(key):
 
 
 def refresh(page, key, code, folder, vsub, wrapper):
-    path = os.path.join(WEB, "Pages", page)
+    path = os.path.join(WEB, "Pages", "A Level past papers", page)
     w = open(path, encoding="utf-8").read()
     data = files_by_series(key)
     a, b = w.index("<!-- 2. PAPERS -->"), w.index("<!-- 3. HOW TO USE THEM -->")
@@ -110,7 +110,7 @@ def refresh(page, key, code, folder, vsub, wrapper):
 
 
 def maths(page, key, code, folder, vsub, wrapper):
-    path = os.path.join(WEB, "Pages", page)
+    path = os.path.join(WEB, "Pages", "A Level past papers", page)
     w = open(path, encoding="utf-8").read()
     data = files_by_series(key)
     years = sorted({2000 + int(k[1:]) for k in data}, reverse=True)

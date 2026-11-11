@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--a:__A__;--b:__B__;--c:__C__}
+body{width:1080px;height:1920px;background:#030303;overflow:hidden;position:relative;color:#F7F5EF}
+#fx{position:absolute;inset:0}
+#logo{position:absolute;left:50%;top:190px;width:340px;transform:translateX(-50%);filter:drop-shadow(0 0 18px rgba(252,224,4,.35))}
+#msg{position:absolute;left:0;width:1080px;top:610px;text-align:center;font-family:'Gilroy';font-weight:800;font-size:92px;line-height:1.04;letter-spacing:-.025em}
+#msg .l2{display:block;font-weight:500;font-size:66px;letter-spacing:-.01em;color:#cfcfcf;margin-top:18px}
+#msg .l2 em{font-style:normal;color:var(--a);text-shadow:0 0 18px var(--a),0 0 42px var(--a)}
+#rule{position:absolute;left:390px;top:905px;width:300px;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--b),var(--a),var(--b),transparent);box-shadow:0 0 18px var(--a)}
+#fol{position:absolute;left:0;width:1080px;top:990px;text-align:center;font-family:'Didot';font-style:italic;font-size:118px;line-height:1;color:#fff;text-shadow:0 0 6px rgba(255,255,255,.5),0 0 26px var(--a),0 0 60px var(--b)}
+#for{position:absolute;left:0;width:1080px;top:1130px;text-align:center;font-family:'Didot';font-size:56px;letter-spacing:.06em;color:#e9e4d6}
+#for b{font-weight:400;color:var(--a);text-shadow:0 0 14px var(--a)}
+.row{position:absolute;left:170px;width:740px;height:128px;border-radius:64px;display:flex;align-items:center;justify-content:center;gap:28px;font-family:'PT Mono';font-size:50px;letter-spacing:.02em;color:#fff;background:rgba(255,255,255,.035)}
+.row svg{flex:none}
+#r1{top:1330px;border:3px solid var(--a);box-shadow:0 0 16px var(--a),inset 0 0 16px rgba(252,224,4,.25)}
+#r2{top:1500px;border:3px solid var(--c);box-shadow:0 0 16px var(--c),inset 0 0 16px rgba(255,255,255,.08)}
+</style></head><body>
+<svg id="fx" width="1080" height="1920">
+  <defs>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="__A__"/><stop offset=".5" stop-color="__B__"/><stop offset="1" stop-color="__C__"/></linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="120"/></filter>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient>
+    <mask id="gm"><rect x="0" y="1560" width="1080" height="360" fill="url(#fade)"/></mask>
+  </defs>
+  <radialGradient id="g1"><stop offset="0" stop-color="__B__" stop-opacity=".32"/><stop offset="1" stop-color="__B__" stop-opacity="0"/></radialGradient>
+  <radialGradient id="g2"><stop offset="0" stop-color="__C__" stop-opacity=".26"/><stop offset="1" stop-color="__C__" stop-opacity="0"/></radialGradient>
+  <radialGradient id="g3"><stop offset="0" stop-color="__A__" stop-opacity=".3"/><stop offset="1" stop-color="__A__" stop-opacity="0"/></radialGradient>
+  <clipPath id="frame"><rect x="36" y="36" width="1008" height="1848" rx="56"/></clipPath>
+  <g clip-path="url(#frame)">
+  <circle cx="140" cy="430" r="520" fill="url(#g1)"/>
+  <circle cx="980" cy="1250" r="560" fill="url(#g2)"/>
+  <circle cx="540" cy="1940" r="640" fill="url(#g3)"/>
+  <g mask="url(#gm)" stroke="__B__" stroke-width="2" opacity=".75">
+    <line x1="0" y1="1640" x2="1080" y2="1640"/><line x1="0" y1="1690" x2="1080" y2="1690"/><line x1="0" y1="1755" x2="1080" y2="1755"/><line x1="0" y1="1835" x2="1080" y2="1835"/><line x1="0" y1="1920" x2="1080" y2="1920"/>
+    <line x1="540" y1="1600" x2="540" y2="1920"/><line x1="540" y1="1600" x2="300" y2="1920"/><line x1="540" y1="1600" x2="780" y2="1920"/><line x1="540" y1="1600" x2="40" y2="1920"/><line x1="540" y1="1600" x2="1040" y2="1920"/><line x1="540" y1="1600" x2="-260" y2="1920"/><line x1="540" y1="1600" x2="1340" y2="1920"/>
+  </g>
+  </g>
+  <rect x="34" y="34" width="1012" height="1852" rx="58" fill="none" stroke="url(#edge)" stroke-width="5" filter="url(#glow)"/>
+  <g stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" filter="url(#glow)" opacity=".9">
+    <path d="M80 140 V80 H140"/><path d="M1000 140 V80 H940"/><path d="M80 1780 V1840 H140"/><path d="M1000 1780 V1840 H940"/>
+  </g>
+  <g fill="#fff" opacity=".55"><circle cx="210" cy="1030" r="3"/><circle cx="880" cy="760" r="3"/><circle cx="930" cy="410" r="2"/><circle cx="130" cy="1420" r="2"/><circle cx="700" cy="330" r="2"/></g>
+</svg>
+<img id="logo" src="../assets/brand/sj-academy-logo-horizontal-on-brown.svg">
+<div id="msg">Save this reel<span class="l2">and share it with <em>a friend</em></span></div>
+<div id="rule"></div>
+<div id="fol">Follow SJ Academy</div>
+<div id="for">for <b>O/A Level</b> Success</div>
+<div class="row" id="r1"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="__A__" stroke-width="1.8"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3.2 3 15.8 0 19M12 2.5c-3 3.2-3 15.8 0 19"/></svg>sjacademy.pk</div>
+<div class="row" id="r2"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="__C__" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1.3-4A8.5 8.5 0 1 1 8.4 19z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.5-2-1.5-2.5-2.5l.8-1-1-2z" fill="__C__" stroke="none"/></svg>+92-336-2144454</div>
+</body></html>

@@ -1,0 +1,35 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.col{position:absolute;left:120px;width:840px;top:50%;transform:translateY(-50%)}
+.q{font-size:66px;line-height:1.05;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 28px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:26px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:10px}
+.subj svg{flex:none}
+.full{position:absolute;inset:0;background:#06090a}
+.gtop{position:absolute;left:0;right:0;top:0;height:640px;background:linear-gradient(180deg,rgba(5,8,10,.85),rgba(5,8,10,.55) 55%,rgba(5,8,10,0))}
+.gbot{position:absolute;left:0;right:0;bottom:0;height:680px;background:linear-gradient(0deg,rgba(5,8,10,.88),rgba(5,8,10,.55) 55%,rgba(5,8,10,0))}
+.btop{position:absolute;left:120px;width:1180px;top:96px}
+.bbot{position:absolute;left:120px;width:1180px;bottom:92px}
+
+</style>
+<div id="root" data-composition-id="physics" data-width="1920" data-height="1080" data-layout-allow-overlap data-layout-allow-overflow>
+<div id="physics-hold"><div id="physics-s0" style="position:absolute;inset:0;opacity:0"><div class="gtop"></div><div class="btop"><div class="subj" style="font:500 34px/1.2 'SJTrailerMono',monospace;color:#FCE004;margin-bottom:22px"><span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FCE004" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="color:#FCE004"><circle cx="12" cy="12" r="1.9" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>Physics</span></div><div style="font-size:78px;line-height:1.02;letter-spacing:-.01em">Build the circuit. Take the readings. <span class="y">Plot the graph.</span></div></div></div>
+<div id="physics-s1" style="position:absolute;inset:0;opacity:0"><div class="gbot"></div><div class="bbot"><div class="subj" style="font:500 34px/1.2 'SJTrailerMono',monospace;color:#FCE004;margin-bottom:22px"><span><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#FCE004" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="color:#FCE004"><circle cx="12" cy="12" r="1.9" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>Physics</span></div><div style="font-size:78px;line-height:1.02;letter-spacing:-.01em">Build the circuit. Take the readings. <span class="y">Plot the graph.</span></div></div></div>
+</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#physics-hold",{opacity:1},0);
+tl.set("#physics-s0",{opacity:1},0);
+tl.set("#physics-s0",{opacity:0},2.1);
+tl.set("#physics-s1",{opacity:1},2.1);
+
+window.__timelines["physics"] = tl;
+</script>
+</template>

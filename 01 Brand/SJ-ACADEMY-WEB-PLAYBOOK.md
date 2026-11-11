@@ -1,6 +1,6 @@
 # SJ Academy web playbook
 
-**Version:** 3.3, October 2026 (formerly the SJ Academy brand guidelines v3.2)
+**Version:** 3.3.1, November 2026 (formerly the SJ Academy brand guidelines v3.2)
 **Status:** Current. The website design system, and one of the playbooks of the brand system v4. Read `SJ-ACADEMY-BRAND-BOOK.md` (the core) first. For anything on sjacademy.pk, this playbook sets the build rules. For social, ads, video, sound and print, use the other playbooks listed in the brand book.
 **Owner:** Sunyyan Junaid. Changes need his approval and a change log entry (section 21).
 **Stylesheet:** `01 Brand/sj-brand.css` (shared, site-wide, version 3.1.1)
@@ -659,7 +659,7 @@ Rules:
 ### Page skeleton
 
 ```html
-<!-- fonts: the three link lines from section 5 -->
+[the three font link lines from section 5, as plain tags]
 <div id="sj" class="sj-p-[page-name]" data-family="[family]">
   <section class="sj-section sj-bg-dots" data-sj-hero>
     <div class="sj-wrap"> ... </div>
@@ -681,6 +681,7 @@ Rules:
 - **Never restyle a shared class in page CSS.** If an element looks wrong, fix the stylesheet.
 - No new colours, sizes, radii or shadows in page CSS. Use the tokens.
 - Files are plain ASCII: HTML entities in markup, `\XXXX` in CSS, `\uXXXX` in scripts. Check before delivery.
+- **No HTML comments in page code.** No header block at the top of a widget (version, Yoast title and meta, page codes, paste steps, script names) and no notes inside the markup. HTML comments are sent to every visitor and show in view-source. Give those details to Sunyyan in the chat reply, or record them in the Page Rebuild & Marketing Tracker. Pages built before 3 November 2026 keep the comments they have until they are next rebuilt. Generator scripts should stop writing them when they are next edited.
 - Do not use `blockquote` or `footer` tags; the theme styles them. Use `div` with `sj-quote`.
 - Grid children already get `min-width:0` from `sj-grid`. Custom grids must set it.
 - Phone first: design at 360px, check 320, 390, 768 and 1440.
@@ -783,6 +784,7 @@ Migration: the four pages above move to the shared stylesheet one at a time, aft
 | 3.1 | 3 October 2026 | Heading weights: H1 600, H2 500, tighter letter spacing and line height. Paragraph colours unchanged. Poppins 600 added to the font link. Stylesheet 3.1.1. File names updated for the reorganised folder | All four built pages: re-paste the updated widgets |
 | 3.2 | 8 October 2026 | Landing page copy guidelines added as the copy standard for Enrol and Event pages. Enrol pages may show the monthly "from" fee, linked to the fee page. Demo button reads "Book a free demo on WhatsApp", with "Register for a class" as a text link. New WhatsApp message pattern with a page reference. No stylesheet change | Enrol pages: apply when each is next rebuilt. A Level Business is done |
 | 3.3 | 12 October 2026 | Became the Web playbook of the brand system v4. The brand book (core) and the Social, Video, Sound and PDF playbooks now cover everything off the website. Section 1 no longer calls "Cambridge doesn't mark effort. It marks method." the brand promise. The facts register now points to `00 Start Here/FACTS.md`. Section 20 points to the new playbooks; ad logos sit at the top. Folder paths updated. No stylesheet change | None |
+| 3.3.1 | 3 November 2026 | Build rules: no HTML comments in page code, including the header block. Page notes go in the chat reply or the tracker. Page skeleton no longer shows a comment. No stylesheet change | None. Existing pages keep their comments until next rebuilt |
 
 ---
 
@@ -834,6 +836,7 @@ Migration: the four pages above move to the shared stylesheet one at a time, aft
 - [ ] Wrapper is `id="sj"` with a page class and `data-family`
 - [ ] Page CSS under 40 lines and scoped to the page class
 - [ ] File is plain ASCII
+- [ ] No HTML comments in the code, including no header block
 - [ ] Structured data matches the visible page
 - [ ] First image eager, the rest lazy, all with width and height
 - [ ] Tested in Elementor on a draft and on a real phone

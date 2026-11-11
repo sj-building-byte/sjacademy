@@ -205,7 +205,7 @@ Captions are on every video. Three styles, one per job.
 | 0 to 2s | **Hook.** Name the viewer's situation, or show the surprising thing | "Started A Levels this year?" over a marked paper landing |
 | 2 to 8s | **Proof.** Show the method or the place | Answer marked 6/12, pen circles the lost marks, rewrite gets 12/12 |
 | 8 to 12s | **Offer.** The free demo class | Teacher's face, name tag, "One class free. Then decide." |
-| 12 to 15s | **End card** with the sonic logo | Logo, CTA, WhatsApp |
+| 12 to 15s | **End card** (section 9) | Black neon follow card: logo, save and share, follow, website, WhatsApp |
 
 **Rules:**
 
@@ -238,7 +238,7 @@ Captions are on every video. Three styles, one per job.
 | **Paper cam** | Overhead shot of the paper and hands, voice over | Step-by-step solutions |
 | **Board** | Teacher at the whiteboard, wide enough to read | Diagrams, definitions |
 
-**Structure:** hook (2s, Punch captions) > the problem (5s) > the method, shown on paper (most of the video) > the one-line takeaway > soft end card ("More in class. Book a free demo on WhatsApp.").
+**Structure:** hook (2s, Punch captions) > the problem (5s) > the method, shown on paper (most of the video) > the one-line takeaway > the end card (section 9).
 
 **Rules:** one idea per video. Teach speed after the opening. One dry joke at most. Teachers speak naturally; captions in English.
 
@@ -283,8 +283,23 @@ Captions are on every video. Three styles, one per job.
 
 ## 9. End card
 
-| | 9:16 | 16:9 |
-|---|---|---|
+Since 11 November 2026, every video ends on the same black neon follow card, which Sunyyan approved. The code is `write_end()` in `03 Marketing/Ads/Video ads (sj-ads)/circle-theorems/build.py`, and the full spec is in `draw-reel-kit/HANDOVER.md` section 9. Copy it; do not redesign it.
+
+| | 9:16 |
+|---|---|
+| Ground | Pure black, no border or decoration. A hard cut from the last scene |
+| Logo | On-brown horizontal, 340 px wide, top middle |
+| Message | "Save this reel" (Gilroy 800, 96 px) and "and share it with a friend" (Gilroy 500, 66 px, "a friend" in neon yellow) |
+| Follow | "Follow SJ Academy" (Poppins 700, 59 px, glowing), then "for O/A Level Success" (Poppins 500, 52 px), the same width |
+| Contact | sjacademy.pk and +92-336-2144454 in neon outlined pills (PT Mono 42 px) |
+| Not on it | No past papers page or mention, no demo button, no "One class free" line |
+| Motion | The neon is in the motion: tube flicker-ons on the beat, a light sweep, glow pulses on each bar |
+| Layout | Equal gaps between groups, everything inside the Reels safe zone (y 250 to 1500, x 60 to 960) |
+| Length | About 6 to 7 seconds (14 beats) |
+
+Fonts: Gilroy and PT Mono are an exception to the Poppins-and-Caveat rule, for this card only, on Sunyyan's instruction. A 16:9 version has not been designed yet; ask Sunyyan before making one.
+
+---|---|---|
 | Ground | Yellow, brown or ink (match the video's last scene) | Same |
 | Logo | Horizontal or stacked, centred in the safe area, at least 420px wide | Horizontal, centred, at least 560px wide |
 | Line | One line: the offer or the next step ("One class free. Then decide.") | Same |

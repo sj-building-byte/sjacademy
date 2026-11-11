@@ -1,0 +1,25 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+@font-face{font-family:'SJTrailerHand';font-weight:500;src:url('assets/fonts/Caveat-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.blk{position:absolute;left:84px;width:770px;bottom:670px}
+.q{font-size:82px;line-height:1.05;letter-spacing:-.01em}
+.tag{font:500 31px/1.3 'SJTrailerMono',monospace;color:#c3ccc8;margin-top:22px}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1420px;background:linear-gradient(180deg,rgba(6,9,10,0),rgba(6,9,10,.88) 34%,rgba(6,9,10,.96))}
+.big{position:absolute;font-style:italic;color:#fff;line-height:.92;letter-spacing:-.01em}
+
+</style>
+<div id="root" data-composition-id="draw" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div class="shade"></div><div class="blk"><div id="drawq" class="q" style="font-size:82px">...did not meet up precisely or were too thick.</div><div id="drawt" class="tag">Cambridge examiner report<br>A Level Biology, November 2023</div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#drawq",{opacity:0,y:16},{opacity:1,y:0,duration:.22,ease:"power3.out"},0.000);
+tl.fromTo("#drawt",{opacity:0,y:16},{opacity:1,y:0,duration:.22,ease:"power3.out"},0.120);
+
+window.__timelines["draw"] = tl;
+</script>
+</template>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Poppins';font-weight:500;src:url('../assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'Poppins';font-weight:600;src:url('../assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'Poppins';font-weight:700;src:url('../assets/brand/Poppins-Bold.ttf')}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;background:#FCE004;overflow:hidden;position:relative;font-family:Poppins}
+#tiles{position:absolute;inset:0}
+.t{position:absolute;width:300px;height:300px;border-radius:36px;background:#151515}
+#card{position:absolute;left:110px;top:560px;width:860px;height:820px;border-radius:64px;background:#151515;box-shadow:0 40px 80px rgba(69,53,22,.35)}
+#logo{position:absolute;left:50%;top:150px;width:360px;transform:translateX(-50%)}
+.h{position:absolute;left:0;width:1080px;text-align:center;color:#F7F5EF}
+#h1{top:660px;font:700 64px/1 Poppins;letter-spacing:.02em;color:#D9D4C7}
+#h2{top:750px;font:700 128px/1.02 Poppins;letter-spacing:-.045em}
+#h2 em{font-style:normal;color:#FCE004}
+.c{position:absolute;left:190px;width:700px;height:116px;border-radius:58px;display:flex;align-items:center;justify-content:center;gap:22px;font:600 52px/1 Poppins}
+#c1{top:1060px;background:#FCE004;color:#151515}
+#c2{top:1200px;background:#F7F5EF;color:#151515}
+#handle{position:absolute;left:0;width:1080px;top:1470px;text-align:center;font:700 58px/1 Poppins;color:#453516}
+</style></head><body>
+<svg id="tiles" width="1080" height="1920"></svg>
+<img id="logo" src="../assets/brand/sj-academy-logo-horizontal-on-yellow.svg">
+<div id="card"></div>
+<div class="h" id="h1">FOLLOW</div>
+<div class="h" id="h2"><em>SJ</em> Academy</div>
+<div class="c" id="c1"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#151515" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3.2 3 15.8 0 19M12 2.5c-3 3.2-3 15.8 0 19"/></svg>sjacademy.pk</div>
+<div class="c" id="c2"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#151515" stroke-width="2" stroke-linejoin="round"><path d="M4 20l1.3-4A8.5 8.5 0 1 1 8.4 19z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.5-2-1.5-2.5-2.5l.8-1-1-2z" fill="#151515" stroke="none"/></svg>+92-336-2144454</div>
+<div id="handle">@sjacademypk</div>
+<script>
+const svg=document.getElementById('tiles');
+const pos=[[-130,300,-8],[900,260,7],[-170,1280,6],[930,1230,-9],[-60,1620,-4],[840,1600,8],[390,1610,3]];
+const kinds=['cross','shift','band','tri','cross','band','shift'];
+let out='';
+pos.forEach(([x,y,r],i)=>{
+  const k=kinds[i];
+  let g=`<g transform="translate(${x+150} ${y+150}) rotate(${r}) translate(-150 -150)"><rect width="300" height="300" rx="36" fill="#151515"/>`;
+  g+=`<path d="M48 40 V252 H262" fill="none" stroke="#A9A69C" stroke-width="5" stroke-linecap="round"/>`;
+  const col=i%2?'#FE6100':'#FCE004';
+  g+=`<line x1="70" y1="70" x2="240" y2="230" stroke="${col}" stroke-width="8" stroke-linecap="round"/>`;
+  g+=`<line x1="70" y1="230" x2="240" y2="70" stroke="${col}" stroke-width="8" stroke-linecap="round"/>`;
+  if(k==='shift')g+=`<line x1="120" y1="70" x2="250" y2="190" stroke="${col}" stroke-width="5" stroke-linecap="round" opacity=".7"/>`;
+  if(k==='band')g+=`<line x1="48" y1="190" x2="262" y2="190" stroke="#F7F5EF" stroke-width="6"/>`;
+  if(k==='tri')g+=`<path d="M128 145 L155 108 L155 150Z" fill="${col}" opacity=".6"/>`;
+  g+=`<circle cx="155" cy="150" r="9" fill="#F7F5EF"/></g>`;
+  out+=g;
+});
+svg.innerHTML=out;
+</script>
+</body></html>

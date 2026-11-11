@@ -1,0 +1,21 @@
+<template>
+<style>
+@font-face{font-family:'Poppins';font-weight:400;src:url('assets/brand/Poppins-Regular.ttf')}
+@font-face{font-family:'Poppins';font-weight:500;src:url('assets/brand/Poppins-Medium.ttf')}
+@font-face{font-family:'Poppins';font-weight:600;src:url('assets/brand/Poppins-SemiBold.ttf')}
+@font-face{font-family:'Poppins';font-weight:700;src:url('assets/brand/Poppins-Bold.ttf')}
+@font-face{font-family:'Caveat';font-weight:600;src:url('assets/brand/Caveat-600.woff2')}
+#root{position:absolute;inset:0}
+#title-box{position:absolute;left:60px;width:960px;top:356px;text-align:center;font:700 56px/68px 'Poppins';letter-spacing:-.02em;color:#F7F5EF}
+.hlw{display:inline-block;position:relative;margin-left:.08em}
+#title-band{position:absolute;left:-.14em;right:-.14em;top:7px;height:58px;overflow:hidden;background:linear-gradient(100deg,transparent 0,#FCE004 .14em,#FCE004 calc(100% - .14em),transparent 100%)}
+#title-band span{position:absolute;left:.14em;top:-7px;color:#151515;white-space:nowrap}
+</style>
+<div id="root" data-composition-id="title" data-width="1080" data-height="1920">
+<div id="title-box" data-layout-allow-overlap>9 market diagrams<br>for <span class="hlw">A Level Economics<span id="title-band" data-layout-allow-overflow data-layout-ignore><span>A Level Economics</span></span></span></div>
+</div>
+<script>const tl=gsap.timeline({paused:true});
+tl.fromTo('#title-band',{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)',duration:.3,ease:'sine.inOut'},.2);
+tl.to('#title-box',{opacity:0,duration:0.17,ease:'power2.out'},33.7167);
+window.__timelines['title']=tl;</script>
+</template>

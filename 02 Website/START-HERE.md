@@ -79,3 +79,33 @@ See "What comes next" and "Open items" in `Planning/HANDOFF-website-rebuild.md`.
 
 ## Update 2 November 2026 (handoff)
 - Handoff for the past paper viewer and all 25 subject past papers pages, covering the cloud chats of 29 to 31 October: `Planning/HANDOFF-past-papers-2-nov.md`. Viewer is live at `/past-paper-viewer/` but on old v2.4 (re-paste). None of the 25 rebuilt pages pasted as of 31 October. Paste order, open items and partial audit findings are in that file.
+
+## Update 2 November 2026 (O Level A* article)
+- Blog post body rebuilt: `Pages/how-to-get-an-a-star-in-o-level-blog-elementor-widget.html` (v3.0, NOT live). Rewritten around how SJ Academy teaches: the four-step method, the past paper and mark scheme viewer, all 12 O Level subject past papers pages and class pages, the fee page. Four images already in the Media Library, 39 links checked (all 200). Yoast title, meta, keyphrase and slug are in the top comment. WhatsApp Ref `BLOG-OL-ASTAR` is new: add it to the Lead Tracker Ref list.
+- Source: `Scripts/o-level-a-star-article/build.py` (all copy lives there; run `python3 build.py` to rebuild the widget).
+- Facts checked 2 November: Maths 4024 June 2026 A* thresholds (173 for 12+22, 175 for 13+23) against Cambridge's table. Paper structures come from the Cambridge syllabuses and the cover pages used for the past papers pages.
+- Open: byline (currently "the SJ Academy teaching team"), consent for the class and lab photos (already public on the site), test on a draft post (sticky contents list needs no overflow:hidden on any parent), and the live /o-level-grade-thresholds/ page could not be read from the sandbox, so check it matches the article.
+
+## Update 3 November 2026 (SAT & Business School Admissions Webinar page)
+- New event landing page built for the SJ Academy x PrepDesk partnership webinar: "SAT & Business School Admissions: An Informative Session for SJ Academy Students" with Muhammad Talal Hussain.
+- Files created:
+  • Elementor HTML widget: `Pages/sat-business-school-webinar-elementor-widget.html` (v1.1, Event family, on shared stylesheet `sj-brand.css 3.1.1`). Embeds `[wpforms id="11306"]`.
+  • Standalone preview: `Website Pages + Design/sat-business-school-webinar-PREVIEW.html` (interactive preview of Form 11306 matching the live WPForms fields).
+  • Generator script: `Scripts/build-webinar-landing-page.py`.
+- Page anatomy follows the Event family: Ticket hero (Thursday, Nov 5 at 8:30 PM PKT, free for all SJ students & parents), The Problem (A Level grades vs entry tests), 4-part agenda, Who it is for (O/A Level students & parents), Speaker bio (Talal Hussain with live WordPress media URL, 13 years experience), Registration section powered by WPForms 11306, 6 FAQs, and Yellow closing band.
+- Accuracy fixes applied: IBA SAT exemption claims corrected (clarified no minimum SAT score for exemption, merit-based selection only, fluctuating thresholds such as 1480 in Fall 2026 Round 2, and IBA strongly encouraging taking its own test; dropped unsourced LUMS reference).
+- Tracking: GA4 events `webinar_register_click` and `whatsapp_click` with `data-loc`, plus tracking Ref code `Ref: WEBINAR-PD`.
+- Schema: `EducationEvent`, `BreadcrumbList`, and `FAQPage` JSON-LD.
+- Next: Set canonical and Yoast meta in WordPress, test on a draft page with WPForms 11306 active, and take a Cloudways backup before publishing.
+
+## Update 11 November 2026 (pages sorted into category folders)
+• Every page widget on this Mac now sits in a category folder inside `Pages/`. Earlier updates in this file give paths like `Pages/some-page.html`; look for that file in its category folder instead.
+• Folders in `Pages/`: Homepage and level pages, A Level tuition, O Level tuition, A Level past papers, O Level past papers, Tools, Resources and ebooks, Programs and partners (referral, teacher sign-up, SAT and IBA, webinar), Info pages (fees, timetable), Blog, Site-wide and shop (site strip, checkout), Previews (the PREVIEW copies), and Standalone pages (unchanged).
+• `Website Pages + Design/` no longer holds pages. It keeps the tool source folders (grade strategy, university admissions, Zone 4 timetable), `images/`, and three HTML files that are not site pages (a slide deck, a portfolio, a reel preview).
+• The past paper viewer stays in `Tools/Past Paper Viewer/`, because several scripts read and write it in place.
+• Scripts now write to the new folders: `Scripts/past-papers-pages/build.py` and `refresh-tables.py`, `Scripts/build-schools-near-me.py`, `Scripts/o-level-a-star-article/build.py`, `Scripts/build-webinar-landing-page.py`. Other generators write into their own folder and were not changed.
+• Two subject combinations files existed. The larger, newer one (v2.0, with the SEO sections) is in `Pages/Tools/`. The smaller older one is in `Archive/Old widget versions/` as `a-level-subject-combinations-tool-elementor-widget-older-copy.html`.
+• The homepage folder holds three versions: `homepage-elementor-widget.html` (v3.0), v3.0.3 and v3.0.4. The tracker shows v3.0.4 as live. Archive the other two once you agree.
+• 11 Nov 2026, later: the pages that lived only in the Website Design project are now on this Mac, copied byte for byte: O Level Computer Science, English, Urdu, Maths and Physics (in `Pages/O Level tuition/`); A Level Physics, Biology, Computer Science, Economics, Urdu, Psychology, Sociology, General Paper and Practicals (in `Pages/A Level tuition/`); Meet the teachers and Online O and A Level classes (in `Pages/Info pages/`); Ebooks, CAIE exam calendar, CAIE private candidate registration and the Cambridge timetable for all zones (in `Pages/Resources and ebooks/`); the past paper viewer timer (in `Pages/Tools/`, a companion widget pasted below the viewer). Also copied into `Scripts/`: `build-subject-pages.py` (regenerates the 7 subject pages), `build-online-classes-page.py`, `build-library-widget.py` and `sj-library-woocommerce-import.csv`.
+• Not copied: A Level Chemistry v1.0 (the Mac already has the newer v1.0.1). The project copies may be older than the live pages, so check the live page before editing any of them. `build-online-classes-page.py` reads a helper file from a temporary cloud folder, and `build-library-widget.py` needs `lib-style.txt` and `sj-page-script.js` beside it, so neither will run as is.
+• Move log and a backup of the old layout (before this change): `99 Archive/pre-organise-11-nov-2026/` (`moves.tsv` lists every old and new path).

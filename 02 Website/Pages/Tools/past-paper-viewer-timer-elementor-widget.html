@@ -1,0 +1,362 @@
+<style>
+.sjpv .sjpv-tbtn.is-on{background:var(--yellow);border-color:var(--ink);color:var(--ink)}
+.sjpv .sjpv-tbtn .sjpv-tbtn-t{font-variant-numeric:tabular-nums}
+.sjpv-tpanel{width:100%;max-width:440px;margin:0 0 12px auto;padding:18px 18px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 10px 30px rgba(21,21,21,.08)}
+.sjpv-tp-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sjpv .sjpv-tp-title{margin:0;font-size:16px;font-weight:600;color:var(--ink)}
+.sjpv .sjpv-tp-x{display:grid;place-items:center;width:40px;height:40px;margin:-8px -8px -8px 0;padding:0;border:0;border-radius:8px;background:transparent;color:var(--ink);cursor:pointer;box-shadow:none}
+.sjpv .sjpv-tp-x:hover{background:var(--tint);color:var(--ink)}
+.sjpv .sjpv-tp-x svg{width:18px;height:18px}
+.sjpv .sjpv-tp-src{margin:6px 0 0;font-size:14px;line-height:1.5;color:var(--muted)}
+.sjpv .sjpv-tp-src b{font-weight:600;color:var(--ink)}
+.sjpv-tp-set{display:flex;align-items:center;gap:10px;margin-top:14px}
+.sjpv .sjpv-tp-step{flex:none;display:grid;place-items:center;width:52px;height:52px;margin:0;padding:0;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font-family:'Poppins',sans-serif;font-size:15px;font-weight:600;line-height:1;cursor:pointer;box-shadow:none;text-transform:none;letter-spacing:0}
+.sjpv .sjpv-tp-step:hover:not(:disabled){border-color:var(--ink);background:var(--canvas);color:var(--ink)}
+.sjpv .sjpv-tp-step:disabled{opacity:.4;cursor:not-allowed}
+.sjpv-tp-val{flex:1;min-width:0;text-align:center;font-size:30px;font-weight:600;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums}
+.sjpv-tp-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.sjpv .sjpv-tp-chip{min-height:36px;margin:0;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-family:'Poppins',sans-serif;font-size:14px;font-weight:500;line-height:1.2;cursor:pointer;box-shadow:none;text-transform:none;letter-spacing:0}
+.sjpv .sjpv-tp-chip:hover{border-color:var(--ink);background:var(--canvas);color:var(--ink)}
+.sjpv .sjpv-tp-chip[aria-pressed="true"]{border-color:var(--ink);background:var(--yellow);color:var(--ink)}
+.sjpv .sjpv-tp-note{margin:14px 0 0;font-size:14px;line-height:1.5;color:var(--ink)}
+.sjpv .sjpv-tp-start{width:100%;margin-top:14px}
+.sjpv .sjpv-tp-fine{margin:10px 0 0;font-size:12px;line-height:1.5;color:#6B675F}
+.sjpv .sjpv-tp-tbtn:focus-visible,.sjpv .sjpv-tp-step:focus-visible,.sjpv .sjpv-tp-chip:focus-visible,.sjpv .sjpv-tp-x:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.sjpv .sjpv-tp-locknote{margin:0;font-size:13px;font-weight:600;color:var(--pen)}
+.sjpv-tpill{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:8px;overflow:hidden;padding:8px 8px 8px 18px;border-radius:999px;background:var(--ink);color:#fff;box-shadow:0 10px 30px rgba(21,21,21,.28);font-family:'Poppins',sans-serif}
+.sjpv-tp-clock{display:flex;align-items:baseline;gap:7px;min-width:0;margin-right:4px}
+.sjpv-tp-time{font-size:22px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;color:#fff}
+.sjpv-tp-lbl{font-size:13px;line-height:1;color:#C9C5BA}
+.sjpv-tp-prog{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--yellow);transition:width .3s linear}
+.sjpv .sjpv-tp-pb{flex:none;display:grid;place-items:center;width:44px;height:44px;margin:0;padding:0;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:transparent;color:#fff;cursor:pointer;box-shadow:none}
+.sjpv .sjpv-tp-pb:hover{background:rgba(255,255,255,.12);color:#fff}
+.sjpv .sjpv-tp-pb svg{width:18px;height:18px}
+.sjpv .sjpv-tp-done{flex:none;min-height:44px;margin:0;padding:8px 16px;border:0;border-radius:999px;background:var(--yellow);color:var(--ink);font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;line-height:1.2;cursor:pointer;box-shadow:none;text-transform:none;letter-spacing:0}
+.sjpv .sjpv-tp-done:hover{background:#fff;color:var(--ink)}
+.sjpv .sjpv-tp-pb:focus-visible,.sjpv .sjpv-tp-done:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.sjpv-tpill.is-low .sjpv-tp-time{color:var(--yellow)}
+.sjpv-tpill.is-paused .sjpv-tp-time{opacity:.55}
+.sjpv-tpill.is-over{background:var(--cta)}
+.sjpv-tpill.is-over .sjpv-tp-lbl{color:#FFE3D3}
+.sjpv-tpill.is-over .sjpv-tp-prog{width:100%!important;background:#fff}
+.sjpv-tpill.is-flash{animation:sjpv-tflash .5s ease-in-out 4}
+@keyframes sjpv-tflash{50%{transform:scale(1.06)}}
+.sjpv-tpill.is-result{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;max-width:340px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
+.sjpv .sjpv-tp-rt{margin:0;font-size:17px;font-weight:600;line-height:1.3;color:var(--ink);font-variant-numeric:tabular-nums}
+.sjpv .sjpv-tp-rs{margin:0;font-size:14px;line-height:1.5;color:var(--muted)}
+.sjpv-tp-ra{display:flex;flex-wrap:wrap;gap:8px}
+.sjpv-tp-ra .sjpv-cta{min-height:44px;padding:10px 18px}
+.sjpv.is-compact.has-entry .sjpv-tpill{bottom:calc(84px + env(safe-area-inset-bottom))}
+@media (max-width:767px){
+.sjpv-tpill{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));justify-content:flex-end}
+.sjpv-tp-clock{margin-right:auto}
+.sjpv-tpill.is-result{max-width:none}
+.sjpv-tpanel{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){.sjpv-tpill.is-flash{animation:none}.sjpv-tp-prog{transition:none}}
+</style>
+<script>
+(function () {
+  'use strict';
+  /* ---- Exam timer for the past paper viewer. Paste below the viewer widget. ----
+     TIMES: minutes per paper, from Cambridge's May/June 2027 timetable (9618 Paper 4 and 9686 from the syllabus).
+     Keys match the viewer's Level and Subject dropdowns. A paper with no time here asks the student to set it. */
+  var TIMES = {
+    'A Level/Accounting': { 1: 60, 2: 105, 3: 90, 4: 60 },
+    'A Level/Biology': { 1: 75, 2: 75, 3: 120, 4: 120, 5: 75 },
+    'A Level/Business': { 1: 75, 2: 90, 3: 105, 4: 75 },
+    'A Level/Chemistry': { 1: 75, 2: 75, 3: 120, 4: 120, 5: 75 },
+    'A Level/Computer Science': { 1: 90, 2: 120, 3: 90, 4: 150 },
+    'A Level/Economics': { 1: 60, 2: 120, 3: 75, 4: 120 },
+    'A Level/Literature in English': { 1: 120, 2: 120, 3: 120, 4: 120 },
+    'A Level/Law': { 1: 90, 2: 90, 3: 90, 4: 90 },
+    'A Level/Mathematics': { 1: 110, 2: 75, 3: 110, 4: 75, 5: 75, 6: 75 },
+    'A Level/Physics': { 1: 75, 2: 75, 3: 120, 4: 120, 5: 75 },
+    'A Level/Psychology': { 1: 90, 2: 90, 3: 90, 4: 90 },
+    'A Level/Sociology': { 1: 90, 2: 90, 3: 75, 4: 105 },
+    'A Level/Urdu': { 2: 105, 3: 90, 4: 150 },
+    'O Level/Accounting': { 1: 90, 2: 105 },
+    'O Level/Biology': { 1: 60, 2: 105, 3: 90, 4: 60, 6: 60 },
+    'O Level/Business Studies': { 1: 105, 2: 105 },
+    'O Level/Chemistry': { 1: 60, 2: 105, 3: 90, 4: 60 },
+    'O Level/Computer Science': { 1: 105, 2: 105 },
+    'O Level/Economics': { 1: 60, 2: 120 },
+    'O Level/English Language': { 1: 120, 2: 120 },
+    'O Level/Islamiyat': { 1: 90, 2: 90 },
+    'O Level/Mathematics D': { 1: 120, 2: 120 },
+    'O Level/Pakistan Studies': { 1: 90, 2: 90 },
+    'O Level/Physics': { 1: 60, 2: 105, 3: 90, 4: 60 },
+    'O Level/Urdu Second Language': { 1: 105, 2: 90 }
+  };
+  var KEY = 'sjpv-timer', MIN = 60000, STEP = 5, LO = 5, HI = 240;
+  var ICON = {
+    clock: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>',
+    pause: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5v14"/><path d="M15 5v14"/></svg>',
+    play: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 4.5v15l12-7.5z"/></svg>',
+    x: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg>'
+  };
+
+  function boot() {
+    var root = document.getElementById('sjpv');
+    if (!root || root.getAttribute('data-timer')) return;
+    var row = root.querySelector('.sjpv-toolrow'), right = document.getElementById('sjpv-right');
+    var selLevel = document.getElementById('sjpv-level'), selSubject = document.getElementById('sjpv-subject');
+    var selYear = document.getElementById('sjpv-year'), selPaper = document.getElementById('sjpv-paper');
+    if (!row || !right || !selLevel || !selSubject || !selYear || !selPaper) return;
+    root.setAttribute('data-timer', '1');
+    var status = document.getElementById('sjpv-status');
+    var lockCard = root.querySelector('.sjpv-lock-card'), unlock = document.getElementById('sjpv-unlock');
+
+    /* ---- Small helpers ---- */
+    function mk(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+    function btn(cls, html, label) { var b = mk('button', cls, html); b.type = 'button'; if (label) b.setAttribute('aria-label', label); return b; }
+    function two(n) { return (n < 10 ? '0' : '') + n; }
+    function clock(ms) {
+      var s = Math.floor(Math.abs(ms) / 1000), h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60);
+      s = s % 60;
+      return h ? h + ':' + two(m) + ':' + two(s) : m + ':' + two(s);
+    }
+    function words(min) {
+      var h = Math.floor(min / 60), m = min % 60, out = [];
+      if (h) out.push(h + (h === 1 ? ' hour' : ' hours'));
+      if (m) out.push(m + (m === 1 ? ' minute' : ' minutes'));
+      return out.join(' ') || '0 minutes';
+    }
+    function short(min) { var h = Math.floor(min / 60), m = min % 60; return h ? h + 'h' + (m ? ' ' + m + 'm' : '') : m + ' min'; }
+    function say(t) { if (!status) return; status.textContent = ''; setTimeout(function () { status.textContent = t; }, 60); }
+    function load() { try { return JSON.parse(window.localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } }
+    function save() { try { if (st) window.localStorage.setItem(KEY, JSON.stringify(st)); else window.localStorage.removeItem(KEY); } catch (e) {} }
+    function track(name, extra) {
+      var g = window['gt' + 'ag'];
+      if (typeof g !== 'function') return;
+      var p = { level: selLevel.value, subject: selSubject.value, series: selYear.value, paper: selPaper.value, page_family: root.getAttribute('data-family') || '', link_location: 'viewer' };
+      Object.keys(p).forEach(function (k) { if (!p[k]) delete p[k]; });
+      if (extra) Object.keys(extra).forEach(function (k) { p[k] = extra[k]; });
+      g('event', name, p);
+    }
+    function official() {
+      var t = TIMES[selLevel.value + '/' + selSubject.value], m = /Paper (\d)/.exec(selPaper.value || '');
+      return t && m && t[m[1]] ? { min: t[m[1]], paper: 'Paper ' + m[1] } : null;
+    }
+    function locked() { return right.classList.contains('is-locked'); }
+
+    /* ---- Toolbar button and set-up panel ---- */
+    var tbtn = btn('sjpv-btn sjpv-tbtn', ICON.clock + '<span class="sjpv-tbtn-t">Timer</span>');
+    tbtn.id = 'sjpv-tbtn';
+    tbtn.setAttribute('aria-expanded', 'false');
+    tbtn.setAttribute('aria-controls', 'sjpv-tpanel');
+    row.insertBefore(tbtn, row.firstChild);
+    var tlabel = tbtn.querySelector('.sjpv-tbtn-t');
+
+    var panel = mk('div', 'sjpv-tpanel');
+    panel.id = 'sjpv-tpanel';
+    panel.hidden = true;
+    panel.setAttribute('role', 'group');
+    panel.setAttribute('aria-labelledby', 'sjpv-tp-title');
+    var head = mk('div', 'sjpv-tp-head', '<p class="sjpv-tp-title" id="sjpv-tp-title">Time this paper</p>');
+    var px = btn('sjpv-tp-x', ICON.x, 'Close the timer');
+    head.appendChild(px);
+    var src = mk('p', 'sjpv-tp-src');
+    var set = mk('div', 'sjpv-tp-set');
+    var minus = btn('sjpv-tp-step', '&minus;' + STEP, STEP + ' minutes less');
+    var val = mk('output', 'sjpv-tp-val');
+    val.setAttribute('aria-live', 'polite');
+    var plus = btn('sjpv-tp-step', '+' + STEP, STEP + ' minutes more');
+    set.appendChild(minus); set.appendChild(val); set.appendChild(plus);
+    var chips = mk('div', 'sjpv-tp-chips');
+    chips.setAttribute('role', 'group');
+    chips.setAttribute('aria-label', 'Quick times');
+    var chipFull = btn('sjpv-tp-chip', 'Full paper');
+    chipFull.setAttribute('data-m', 'full');
+    chips.appendChild(chipFull);
+    [30, 15].forEach(function (m) { var c = btn('sjpv-tp-chip', m + ' min'); c.setAttribute('data-m', m); chips.appendChild(c); });
+    var note = mk('p', 'sjpv-tp-note', 'Starting the clock hides the mark scheme. Checking the marks stops it.');
+    var start = btn('sjpv-cta sjpv-tp-start', 'Start the clock');
+    var fine = mk('p', 'sjpv-tp-fine', 'Times are from Cambridge&rsquo;s May/June 2027 timetable. An older paper can differ, so check its front cover.');
+    [head, src, set, chips, note, start, fine].forEach(function (e) { panel.appendChild(e); });
+    row.parentNode.insertBefore(panel, row.nextSibling);
+
+    var lockNote = null;
+    if (lockCard) {
+      lockNote = mk('p', 'sjpv-tp-locknote');
+      lockNote.hidden = true;
+      lockCard.insertBefore(lockNote, unlock || null);
+    }
+
+    /* ---- Floating clock ---- */
+    var pill = mk('div', 'sjpv-tpill');
+    pill.id = 'sjpv-tpill';
+    pill.hidden = true;
+    pill.setAttribute('role', 'region');
+    pill.setAttribute('aria-label', 'Exam timer');
+    root.appendChild(pill);
+
+    var mins = 60, fullMin = 0, st = null, tick = null, lastShown = '', baseTitle = document.title;
+
+    function paintSet() {
+      val.textContent = short(mins);
+      minus.disabled = mins <= LO;
+      plus.disabled = mins >= HI;
+      Array.prototype.forEach.call(chips.children, function (c) {
+        var m = c.getAttribute('data-m');
+        c.setAttribute('aria-pressed', String(m === 'full' ? fullMin && mins === fullMin : +m === mins));
+      });
+    }
+    function openPanel() {
+      var o = official();
+      fullMin = o ? o.min : 0;
+      mins = fullMin || mins;
+      chipFull.hidden = !fullMin;
+      src.innerHTML = o
+        ? 'Official time for ' + o.paper + ': <b>' + words(o.min) + '</b>.'
+        : 'No official time on file for this paper. Set it from the front cover.';
+      paintSet();
+      panel.hidden = false;
+      tbtn.setAttribute('aria-expanded', 'true');
+      start.focus();
+    }
+    function closePanel(focus) {
+      panel.hidden = true;
+      tbtn.setAttribute('aria-expanded', 'false');
+      if (focus) tbtn.focus();
+    }
+    tbtn.addEventListener('click', function () {
+      if (st && !st.done) { var b = pill.querySelector('button'); if (b) b.focus(); return; }
+      if (panel.hidden) openPanel(); else closePanel(true);
+    });
+    px.addEventListener('click', function () { closePanel(true); });
+    panel.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePanel(true); });
+    minus.addEventListener('click', function () { mins = Math.max(LO, mins - STEP); paintSet(); });
+    plus.addEventListener('click', function () { mins = Math.min(HI, mins + STEP); paintSet(); });
+    chips.addEventListener('click', function (e) {
+      var c = e.target.closest ? e.target.closest('[data-m]') : null;
+      if (!c) return;
+      var m = c.getAttribute('data-m');
+      mins = m === 'full' ? fullMin : +m;
+      paintSet();
+    });
+
+    /* ---- Timer state: worked out from timestamps, so a sleeping tab or a reload loses nothing ---- */
+    function elapsed() { return (st.pausedAt || Date.now()) - st.start - st.pausedMs; }
+    function startTimer() {
+      var o = official();
+      st = { v: 1, dur: mins * MIN, start: Date.now(), pausedAt: 0, pausedMs: 0, marks: [], done: false };
+      save();
+      closePanel(false);
+      var cheat = root.querySelector('.sjpv-seg .sjpv-seg-btn');
+      if (!locked() && cheat && !cheat.disabled) cheat.click();
+      track('timer_start', { duration_min: mins, preset: o && mins === o.min ? 'official' : 'custom' });
+      say('Timer started: ' + words(mins) + '.');
+      run();
+    }
+    start.addEventListener('click', startTimer);
+
+    function run() {
+      baseTitle = document.title.replace(/^\([^)]*\) /, '');
+      pill.className = 'sjpv-tpill';
+      pill.innerHTML = '<div class="sjpv-tp-clock"><span class="sjpv-tp-time"></span><span class="sjpv-tp-lbl"></span></div><span class="sjpv-tp-prog"></span>';
+      var pb = btn('sjpv-tp-pb', ICON.pause, 'Pause the timer');
+      var done = btn('sjpv-tp-done', 'I&rsquo;m done');
+      pill.appendChild(pb); pill.appendChild(done);
+      pb.addEventListener('click', function () {
+        if (st.pausedAt) { st.pausedMs += Date.now() - st.pausedAt; st.pausedAt = 0; say('Timer resumed.'); }
+        else { st.pausedAt = Date.now(); say('Timer paused.'); }
+        save(); paint(true);
+      });
+      done.addEventListener('click', function () { finish('button'); });
+      pill.hidden = false;
+      tbtn.classList.add('is-on');
+      if (lockNote) { lockNote.textContent = 'The clock is running. Checking the marks stops it.'; lockNote.hidden = false; }
+      lastShown = '';
+      clearInterval(tick);
+      tick = setInterval(function () { paint(false); }, 250);
+      paint(true);
+    }
+
+    var MARKS = [
+      { at: 0.5, key: 'half', text: 'Half time.' },
+      { left: 10, key: 'ten', text: '10 minutes left.' },
+      { left: 5, key: 'five', text: '5 minutes left.' }
+    ];
+    function paint(force) {
+      if (!st || st.done) return;
+      var e = elapsed(), left = st.dur - e, over = left < 0, txt = (over ? '+' : '') + clock(left);
+      if (!force && txt === lastShown) return;
+      lastShown = txt;
+      pill.querySelector('.sjpv-tp-time').textContent = txt;
+      pill.querySelector('.sjpv-tp-lbl').textContent = st.pausedAt ? 'paused' : over ? 'over' : 'left';
+      pill.querySelector('.sjpv-tp-prog').style.width = Math.min(100, e / st.dur * 100) + '%';
+      var pb = pill.querySelector('.sjpv-tp-pb');
+      pb.innerHTML = st.pausedAt ? ICON.play : ICON.pause;
+      pb.setAttribute('aria-label', st.pausedAt ? 'Resume the timer' : 'Pause the timer');
+      pill.classList.toggle('is-paused', !!st.pausedAt);
+      pill.classList.toggle('is-over', over);
+      pill.classList.toggle('is-low', !over && left <= 5 * MIN);
+      tlabel.textContent = txt;
+      document.title = '(' + txt + ') ' + baseTitle;
+      MARKS.forEach(function (m) {
+        if (st.marks.indexOf(m.key) > -1) return;
+        var hit = m.at ? e >= st.dur * m.at : left <= m.left * MIN;
+        if (m.left && st.dur <= m.left * 2 * MIN) hit = false;
+        if (hit) { st.marks.push(m.key); save(); if (left > 0) say(m.text); }
+      });
+      if (over && st.marks.indexOf('up') < 0) {
+        st.marks.push('up'); save();
+        say('Time is up. The clock keeps counting, so you can see how far over you go.');
+        pill.classList.remove('is-flash'); void pill.offsetWidth; pill.classList.add('is-flash');
+        try { if (navigator.vibrate) navigator.vibrate([200, 100, 200]); } catch (x) {}
+        track('timer_time_up', { duration_min: Math.round(st.dur / MIN) });
+      }
+    }
+
+    function finish(method) {
+      if (!st || st.done) return;
+      var e = elapsed(), diff = st.dur - e;
+      st.done = true; save();
+      clearInterval(tick);
+      document.title = baseTitle;
+      tbtn.classList.remove('is-on');
+      tlabel.textContent = 'Timer';
+      if (lockNote) lockNote.hidden = true;
+      track('timer_finish', { method: method, duration_min: Math.round(st.dur / MIN), used_min: Math.round(e / MIN), over_time: diff < 0 ? 'yes' : 'no' });
+      var m = Math.round(Math.abs(diff) / MIN), sub;
+      if (m === 0) sub = 'Right on time.';
+      else if (diff > 0) sub = words(m) + ' to spare. Use them to check your answers next time.';
+      else sub = words(m) + ' over time. In the exam, that part would be blank.';
+      pill.className = 'sjpv-tpill is-result';
+      pill.innerHTML = '<p class="sjpv-tp-rt">Finished in ' + clock(e) + '</p><p class="sjpv-tp-rs">' + sub + '</p>';
+      var acts = mk('div', 'sjpv-tp-ra');
+      if (locked() && unlock) {
+        var marks = btn('sjpv-cta', 'Check the marks');
+        marks.addEventListener('click', function () { closeResult(); unlock.click(); });
+        acts.appendChild(marks);
+      }
+      var close = btn('sjpv-btn', 'Close');
+      close.addEventListener('click', function () { closeResult(); tbtn.focus(); });
+      acts.appendChild(close);
+      pill.appendChild(acts);
+      say('Finished in ' + words(Math.round(e / MIN)) + '. ' + sub);
+      (acts.firstChild).focus();
+    }
+    function closeResult() { pill.hidden = true; pill.className = 'sjpv-tpill'; pill.innerHTML = ''; st = null; save(); }
+
+    /* Opening the mark scheme while the clock runs counts as finishing */
+    if (window.MutationObserver) {
+      new MutationObserver(function () { if (st && !st.done && !locked()) finish('mark_scheme'); })
+        .observe(right, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    /* Pick up a timer that was running before a reload */
+    var saved = load();
+    if (saved && saved.v === 1 && !saved.done && saved.start && Date.now() - saved.start < saved.dur + 3 * 3600000) {
+      st = saved;
+      st.marks = st.marks || [];
+      run();
+    } else if (saved) {
+      try { window.localStorage.removeItem(KEY); } catch (e) {}
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
+</script>

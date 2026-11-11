@@ -1,0 +1,30 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+@font-face{font-family:'SJTrailerHand';font-weight:500;src:url('assets/fonts/Caveat-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.blk{position:absolute;left:84px;width:770px;bottom:670px}
+.q{font-size:82px;line-height:1.05;letter-spacing:-.01em}
+.tag{font:500 31px/1.3 'SJTrailerMono',monospace;color:#c3ccc8;margin-top:22px}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1420px;background:linear-gradient(180deg,rgba(6,9,10,0),rgba(6,9,10,.88) 34%,rgba(6,9,10,.96))}
+.big{position:absolute;font-style:italic;color:#fff;line-height:.92;letter-spacing:-.01em}
+
+</style>
+<div id="root" data-composition-id="end" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div style="position:absolute;inset:0;background:#070a0b"></div>
+<img id="lg" src="assets/brand/logo.svg" style="position:absolute;left:78px;top:280px;width:540px">
+<div id="er" style="position:absolute;left:84px;top:440px;width:770px;font-size:112px;line-height:.98">Robotic arms not provided.</div>
+<div style="position:absolute;left:84px;top:690px;width:770px;font:500 38px/1.4 'SJTrailerMono',monospace">A Level lab practicals<br><span style="color:#c3ccc8">Physics, Chemistry, Biology</span></div>
+<div class="q" style="position:absolute;left:84px;top:826px;width:770px;font-size:64px">Message us before your practical.</div>
+<div style="position:absolute;left:84px;top:984px;font:500 46px/1.25 'SJTrailerMono',monospace;color:#FCE004">sjacademy.pk<br>@sjacademypk</div>
+<div style="position:absolute;left:84px;top:1132px;width:770px;font:500 28px/1.3 'SJTrailerMono',monospace;color:#a9b4b0">Quotes from Cambridge Principal Examiner Reports for Teachers and Google reviews.</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#lg",{opacity:0},{opacity:1,duration:.12},.0);
+
+window.__timelines["end"] = tl;
+</script>
+</template>

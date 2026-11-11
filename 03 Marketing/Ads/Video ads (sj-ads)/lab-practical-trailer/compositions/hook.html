@@ -1,0 +1,38 @@
+<template>
+<style>
+@font-face{font-family:'SJTrailerSerif';src:url('assets/fonts/InstrumentSerif-normal.woff2')}
+@font-face{font-family:'SJTrailerSerif';font-style:italic;src:url('assets/fonts/InstrumentSerif-italic.woff2')}
+@font-face{font-family:'SJTrailerMono';font-weight:500;src:url('assets/fonts/IBMPlexMono-normal.woff2')}
+#root{position:absolute;inset:0;overflow:hidden;color:#eef0ea;font-family:'SJTrailerSerif',Georgia,serif}
+.shade{position:absolute;left:0;right:0;bottom:0;height:1500px;background:linear-gradient(180deg,rgba(5,8,10,0),rgba(5,8,10,.82) 38%,rgba(5,8,10,.95))}
+.blk{position:absolute;left:84px;width:780px;bottom:670px}
+.q{font-size:80px;line-height:1.04;letter-spacing:-.01em}
+.y{color:#FCE004}
+.tag{font:500 29px/1.35 'SJTrailerMono',monospace;color:#b9c3c0;margin-top:26px}
+.subj{display:flex;align-items:center;gap:30px;white-space:nowrap}
+.subj span{display:flex;align-items:center;gap:12px}
+.subj svg{flex:none}
+
+</style>
+<div id="root" data-composition-id="hook" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+<div class="shade"></div>
+<div style="position:absolute;left:0;right:0;top:0;height:820px;background:linear-gradient(180deg,rgba(5,8,10,.8),rgba(5,8,10,.55) 60%,rgba(5,8,10,0))"></div>
+<svg style="position:absolute;left:84px;top:640px" width="150" height="132" viewBox="0 0 100 88"><path d="M50 4L96 84H4Z" fill="#FCE004" stroke="#FCE004" stroke-width="7" stroke-linejoin="round"/><path d="M50 30V58" stroke="#06090a" stroke-width="9" stroke-linecap="round"/><circle cx="50" cy="71" r="5.5" fill="#06090a"/></svg>
+<div id="hook-hold">
+<div style="position:absolute;left:84px;top:290px;width:900px">
+<div style="font-size:176px;line-height:.9;letter-spacing:-.015em;color:#FCE004">A Level</div>
+<div class="subj" style="font:500 38px/1.2 'SJTrailerMono',monospace;color:#eef0ea;margin-top:26px"><span><svg width="49" height="49" viewBox="0 0 24 24" fill="none" stroke="#FCE004" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="color:#FCE004"><circle cx="12" cy="12" r="1.9" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>Physics</span><span><svg width="49" height="49" viewBox="0 0 24 24" fill="none" stroke="#FCE004" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="color:#FCE004"><path d="M9 2.5h6M10 2.5v6.5L4.4 19.2a1.6 1.6 0 0 0 1.4 2.3h12.4a1.6 1.6 0 0 0 1.4-2.3L14 9V2.5"/><path d="M6.6 15.5h10.8"/></svg>Chemistry</span><span><svg width="49" height="49" viewBox="0 0 24 24" fill="none" stroke="#FCE004" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="color:#FCE004"><path d="M7 2c0 5 10 5 10 10s-10 5-10 10"/><path d="M17 2c0 5-10 5-10 10s10 5 10 10"/><path d="M8 4.6h8M9.6 8.6h4.8M9.6 15.4h4.8M8 19.4h8"/></svg>Biology</span></div>
+</div>
+<div class="blk">
+<div class="q" style="font-size:90px;line-height:1.02;width:800px">Every year, Cambridge examiners write down your practical <span style="color:#d81b1b">mistakes.</span></div>
+<div id="hsub" class="tag" style="opacity:0;color:#eef0ea;font-size:32px">Based on real Cambridge examiner reports.</div>
+</div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#hook-hold",{opacity:1},0);
+tl.set("#hsub",{opacity:1},1.0);
+
+window.__timelines["hook"] = tl;
+</script>
+</template>

@@ -34,6 +34,7 @@ Every number, claim and promise approved for public copy. If it is not here, ask
 ## Classes
 - Weekend classes run on Saturdays and Sundays, early afternoon (around 12:30 to 2 pm).
 - No Additional Maths classes.
+- Lab practicals are A Level only: Physics, Chemistry and Biology. There are no O Level practical classes (Sunyyan, 7 November 2026).
 - Online O Level Physics is taught by Sir Salman.
 - A Level Business batches include at least one full mock. A third weekly Business class (Fridays, past papers) is planned.
 
